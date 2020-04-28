@@ -63,7 +63,7 @@ mongodb:
 
   - &auth-database
     name: "Authentication Database"
-    version: "1"
+    version: "1, 2"
     copy: |
       Enter the name of the Stitch user's [authentication database](https://docs.mongodb.com/v3.4/core/security-users/#user-authentication-database){:target="new"}. This is the name of the database where the Stitch user was initially created.
 
@@ -71,13 +71,13 @@ mongodb:
 
   - &replica-set
     name: "Replica Set"
-    version: "1"
+    version: "1, 2"
     copy: |
       **Optional.** The name of the replica set to be used for Log-based Incremental Replication.
 
   - &schema-name
-    ame: *schema-names-tables-name
-    version: "1"
+    name: *schema-names-tables-name
+    version: "1, 2"
     copy: *schema-names-tables-description
 
 
