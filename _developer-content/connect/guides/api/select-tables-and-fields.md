@@ -81,6 +81,8 @@ steps:
   - title: "Create and configure the source"
     anchor: "configure-the-source"
     content: |
+      {% assign api = site.data.connect.api %}
+      {% assign right-bracket = "}" %}
       {% assign source-id = "122635" %}
       {% assign stream-id = "2288758" %}
       {% assign tap-stream-id = "custom_collections" %}
@@ -92,33 +94,28 @@ steps:
     content: |
       After the [Source API]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.core-objects.sources.create.anchor }}) reports that the source's `current_step` is equal to the `discover_schema` connection step, Stitch will automatically kick off a connection check. {{ site.data.tooltips.connection-check | replace:"A test","This is a test" | replace:"parameters.","parameters" }} and discovers the streams and fields available for the source.
 
-      {% for substep in step.substeps %}
-      - [Step 2.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
-      {% endfor %}
+      {% include developers/api-tutorial-step-table.html item=step item-list=step.substeps %}
 
     substeps:
       - title: "Get the source's last connection check"
         anchor: "get-sources-connection-check"
+        endpoint: "GET {{ site.data.connect.core-objects.connection-checks.get-source.name }}"
         content: |
-          {% assign right-bracket = "}" %}
-
           To view the results of the source's [last connection check]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.core-objects.connection-checks.object }}), make a request to [GET {{ site.data.connect.core-objects.connection-checks.get-source.name | flatify }}]({{ link.connect.api | append: site.data.connect.core-objects.connection-checks.get-source.anchor | prepend: site.baseurl }}), replacing `{source_id}` with the source's ID:
 
-          {% capture code %}curl {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.connection-checks.get-source.name | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines }} \
-               -H 'Content-Type: application/json' \
-               -H 'Authorization: Bearer <API_TOKEN>'
-          {% endcapture %}
+          {% assign example-url = site.data.connect.core-objects.connection-checks.get-source.name %}
+          {% assign request-url = example-url | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines %}
 
-          {% assign description = "GET " | append: site.data.connect.core-objects.connection-checks.get-source.name %}
+          {% assign description = substep.endpoint %}
 
-          {% include layout/code-snippet.html code-description=description language="json" code=code %}
+          {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.get request-url=request-url %}
 
           A successful connection check and discovery will have a `status` of `succeeded` and a `discovery_exit_status` of `0`:
 
           {% capture code %}{{ site.data.connect.code-examples.connection-checks.successful | rstrip }}
           {% endcapture %}
 
-          {% assign description = "Response for GET " | append: site.data.connect.core-objects.connection-checks.get-source.name %}
+          {% assign description = "Response for " | append: substep.endpoint %}
 
           {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
@@ -126,26 +123,25 @@ steps:
         
       - title: "Verify the current connection step"
         anchor: "verify-current-connection-step"
+        endpoint: "GET {{ site.data.connect.core-objects.sources.retrieve.name | flatify }}"
         content: |
           Next, you'll verify that the source has advanced to the `field_selection` step. This step indicates that available streams and fields can be selected for replication.
 
           To get the source's `current_step`, make a request to [GET {{ site.data.connect.core-objects.sources.retrieve.name | flatify }}]({{ link.connect.api | append: site.data.connect.core-objects.sources.retrieve.anchor | prepend: site.baseurl }}), replacing `{source_id}` with the source's ID:
 
-          {% capture code %}curl {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.sources.retrieve.name | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines }} \
-               -H 'Content-Type: application/json' \
-               -H 'Authorization: Bearer <API_TOKEN>'
-          {% endcapture %}
+          {% assign example-url = site.data.connect.core-objects.sources.retrieve.name %}
+          {% assign request-url = example-url | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines %}
 
-          {% assign description = "GET " | append: site.data.connect.core-objects.sources.retrieve.name %}
+          {% assign description = substep.endpoint %}
 
-          {% include layout/code-snippet.html code-description=description language="json" code=code %}
+          {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.get request-url=request-url %}
 
           The response will be the source's [`report_card` object]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.data-structures.report-cards.source.section }}). In this example, the `current_step` is `4`, which corresponds to the `field_selection` step:
 
           {% capture code %}{{ site.data.connect.code-examples.source-report-cards.shopify | replace: "<STEP_NUMBER>","4" }}
           {% endcapture %}
 
-          {% assign description = "Response for GET" | append: site.data.connect.core-objects.sources.retrieve.name %}
+          {% assign description = "Response for " | append: substep.endpoint %}
 
           {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
@@ -163,33 +159,30 @@ steps:
 
       To return the streams available for selection, make a request to [GET {{ site.data.connect.core-objects.streams.list.name | flatify }}]({{ site.data.connect.api.section | prepend: site.baseurl | append: site.data.connect.core-objects.streams.list.anchor | flatify }}), replacing `{source_id}` with the source's ID:
 
-      {% capture code %}curl {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.streams.list.name | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines }} \
-           -H 'Content-Type: application/json' \
-           -H 'Authorization: Bearer <API_TOKEN>'
-      {% endcapture %}
+      {% assign example-url = site.data.connect.core-objects.streams.list.name %}
+      {% assign request-url = example-url | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines %}
 
-      {% assign description = "GET " | append: site.data.connect.core-objects.streams.list.name %}
+      {% assign description = "GET " | append: example-url %}
 
-      {% include layout/code-snippet.html code-description=description language="json" code=code %}
+      {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.get request-url=request-url %}
 
       The response will be an array of [Stream objects]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: api.core-objects.streams.object }}), each object corresponding to a stream available for selection:
 
       {% capture code %}{{ site.data.connect.code-examples.streams.saas-streams | rstrip }}
       {% endcapture %}
 
-      {% assign description = "Response for GET " | append: site.data.connect.core-objects.streams.list.name %}
+      {% assign description = "Response for GET " | append: example-url %}
 
       {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
   - title: "Understand and retrieve the stream's schema"
     anchor: "understand-retrieve-stream-metadata"
     content: |
-      {% for substep in step.substeps %}
-      - [Step 4.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
-      {% endfor %}
+      {% include developers/api-tutorial-step-table.html item=step item-list=step.substeps %}
     substeps:
       - title: "Understand field metadata"
         anchor: "understand-field-metadata"
+        endpoint: ""
         content: |
           Before you retrieve the stream's schema, we'll touch on the properties the [Stream Schema object]({{ site.data.connect.api.section | prepend: site.baseurl | append: site.data.connect.data-structures.stream-schemas.section | flatify }}) contains. You'll eventually use this data to select streams and fields, and if applicable, configure the stream's Replication Method.
 
@@ -226,6 +219,7 @@ steps:
 
       - title: "Get the stream's schema"
         anchor: "get-stream-schema"
+        endpoint: "GET {{ site.data.connect.core-objects.streams.retrieve-schema.name | flatify }}"
         content: |
           Next, you'll retrieve the schema for each stream you want to select for replication. The stream schema is a list of fields the stream contains.
 
@@ -233,30 +227,26 @@ steps:
 
           In this example, we'll get the schema for the `custom_collections` table (`stream_id: {{ stream-id }}`):
 
-          {% capture code %}curl {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.streams.retrieve-schema.name | flatify | replace: "{source_id",source-id | replace: "{stream_id",stream-id | remove: right-bracket | strip_newlines }} \
-               -H 'Content-Type: application/json' \
-               -H 'Authorization: Bearer <API_TOKEN>'
-          {% endcapture %}
+          {% assign example-url = site.data.connect.core-objects.streams.retrieve-schema.name %}
+          {% assign request-url = example-url | flatify | replace: "{source_id",source-id | replace: "{stream_id",stream-id | remove: right-bracket | strip_newlines %}
 
-          {% assign description = "GET " | append: site.data.connect.core-objects.streams.retrieve-schema.name %}
+          {% assign description = substep.endpoint %}
 
-          {% include layout/code-snippet.html code-description=description language="json" code=code %}
+          {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.get request-url=request-url %}
 
           The response will be a single [Stream Schema object]({{ site.data.connect.api.section | prepend: site.baseurl | append: site.data.connect.data-structures.stream-schemas.section | flatify }}):
 
           {% capture code %}{{ site.data.connect.code-examples.streams.saas-stream-schema | rstrip }}
           {% endcapture %}
 
-          {% assign description = "Response for GET " | append: site.data.connect.core-objects.streams.retrieve-schema.name %}
+          {% assign description = "Response for " | append: substep.endpoint %}
 
           {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
   - title: "Select and configure a stream"
     anchor: "select-configure-a-stream"
     content: |
-      {% for substep in step.substeps %}
-      - [Step 5.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
-      {% endfor %}
+      {% include developers/api-tutorial-step-table.html item=step item-list=step.substeps %}
     substeps:
       - title: "Create the request body"
         anchor: "create-the-request-body"
@@ -332,37 +322,39 @@ steps:
 
       - title: "Submit the request"
         anchor: "submit-stream-request"
+        endpoint: "PUT {{ site.data.connect.core-objects.streams.update.name | flatify }}"
         content: |
-          To select a stream, make a request to [PUT {{ site.data.connect.core-objects.streams.update.name | flatify }}]({{ site.data.connect.api.section | prepend: site.baseurl | append: site.data.connect.core-objects.streams.update.anchor | flatify }}) with the [appropriate request body metadata properties](#configure-stream-replication) replacing `{source_id}` with the source ID:
+          To select a stream, make a request to [PUT {{ site.data.connect.core-objects.streams.update.name | flatify }}]({{ site.data.connect.api.section | prepend: site.baseurl | append: site.data.connect.core-objects.streams.update.anchor | flatify }}), replacing `{source_id}` with the source ID. The request body must contain with the [appropriate request body metadata properties](#configure-stream-replication):
 
-          {% capture code %}curl -X PUT {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.streams.update.name | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines }} \
-               -H 'Content-Type: application/json' \
-               -H 'Authorization: Bearer <API_TOKEN>' \
-               -d $'{
-                       "streams":[
-                          {
-                             "tap_stream_id":"custom_collections",
-                             "metadata":[
-                                {
-                                   "breadcrumb":[
+          {% assign example-url = site.data.connect.core-objects.streams.update.name %}
+          {% assign request-url = example-url | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines %}
 
-                                   ],
-                                   "metadata":{
-                                      "selected":true
-                                   }
-                                }
-                             ]
-                          }
-                       ]
-                    }'
+          {% assign description = substep.endpoint %}
+
+          {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.put.with-body request-url=request-url code=code%}
+
+          {% capture code %}'{
+             "streams":[
+                {
+                   "tap_stream_id":"custom_collections",
+                   "metadata":[
+                      {
+                         "breadcrumb":[
+
+                         ],
+                         "metadata":{
+                            "selected":true
+                         }
+                      }
+                   ]
+                }
+             ]
+          }'
           {% endcapture %}
-
-          {% assign description = "PUT " | append: site.data.connect.core-objects.streams.update.name %}
-
-          {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
   - title: "Select fields in a stream"
     anchor: "select-fields-in-a-stream"
+    endpoint: "PUT {{ site.data.connect.core-objects.streams.update.name | flatify }}"
     content: |
       {% capture field-selection-rules %}
       Before selecting fields, refer to the [Field selection and compatibility rules guide]({{ link.connect.guides.field-selection-compatibility-rules | prepend: site.baseurl }}) to ensure the combinations of fields you select are valid for replication.
@@ -373,29 +365,26 @@ steps:
 
       For example: This request selects the `id` field in the `custom_collections` stream:
 
-      {% capture code %}curl -X PUT {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.streams.update.name | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines }} \
-         -H 'Content-Type: application/json' \
-         -H 'Authorization: Bearer <API_TOKEN>' \
-         -d ${{ site.data.connect.code-examples.field-metadata.request-bodies.saas-field | rstrip | prepend: quote | append: quote }} 
+      {% assign example-url = site.data.connect.core-objects.streams.update.name | strip_newlines %}
+      {% assign request-url = example-url | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines %}
+
+      {% assign description = "Selecting a single field via " | append: step.endpoint %}
+
+      {% capture code %}{{ site.data.connect.code-examples.field-metadata.request-bodies.saas-field | rstrip | prepend: quote | append: quote }} 
       {% endcapture %}
 
-      {% assign description = "Selecting a single field via PUT " | append: site.data.connect.core-objects.streams.update.name %}
-
-      {% include layout/code-snippet.html code-description=description language="json" code=code %}
+      {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.put.with-body request-url=request-url code=code %}
 
       Multiple fields in a stream can be submitted as part of the same request. For each field included in the request body, include a `metadata` object referencing the field.
 
       For example: This request selects the `id`, `published_at`, `title`, and `handle` fields in the `custom_collections` stream:
 
-      {% capture code %}curl -X PUT {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.streams.update.name | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines }} \
-         -H 'Content-Type: application/json' \
-         -H 'Authorization: Bearer <API_TOKEN>' \
-         -d ${{ site.data.connect.code-examples.field-metadata.request-bodies.saas-fields | rstrip | prepend: quote | append: quote }} 
+      {% capture code %}{{ site.data.connect.code-examples.field-metadata.request-bodies.saas-fields | rstrip | prepend: quote | append: quote }} 
       {% endcapture %}
 
-      {% assign description = "Selecting multiple fields via PUT " | append: site.data.connect.core-objects.streams.update.name %}
+      {% assign description = "Selecting multiple fields via " | append: step.endpoint %}
 
-      {% include layout/code-snippet.html code-description=description language="json" code=code %}
+      {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.put.with-body request-url=request-url code=code %}
 
       **Note**: Fields with metadata properties of `inclusion: automatic` or `selected-by-default: true` don't need to be explicitly selected through a request. These fields will be automatically selected for replication regardless of their `selected` value. Refer to the [Field selection and compatibility rules guide]({{ link.connect.guides.field-selection-compatibility-rules | prepend: site.baseurl }}) for more info.
 

@@ -93,26 +93,27 @@ sections:
     subsections:
       - title: "Step 1: Create a Stitch account and generate a token"
         anchor: "create-stitch-account-generate-token"
+        endpoint: "POST {{ site.data.connect.core-objects.accounts.create.name }}"
         content: |
+          {% assign api = site.data.connect.api %}
+          
           Using your API client credentials, create a new Stitch client account using the [Create Account endpoint]({{ site.data.connect.core-objects.accounts.create.anchor | prepend: link.connect.api | prepend: site.baseurl }}).
 
           In the body of the request, include your `partner_id` and `partner_secret`, along with [the other properties required to create a Stitch client account]({{ site.data.connect.core-objects.accounts.object | prepend: link.connect.api | prepend: site.baseurl }}):
 
-          {% capture code %}curl -X {{ site.data.connect.core-objects.accounts.create.method | upcase }} {{ site.data.connect.core-objects.accounts.create.name | prepend: site.data.connect.api.base-url | flatify | strip_newlines }} \
-               -H 'Content-Type: application/json' \
-               -d "{
-                    "partner_id": "<YOUR_PARTNER_ID>",
-                    "partner_secret": "<YOUR_PARTNER_SECRET>",
-                    "first_name": "<USER'S_FIRST_NAME>",
-                    "last_name": "<USER'S_LAST_NAME>",
-                    "company": "<USER'S_COMPANY>",
-                    "email": "<USER'S_EMAIL>@<DOMAIN>"
-                  }"
+          {% assign request-url = site.data.connect.core-objects.accounts.create.name %}
+          {% capture code %}'{
+            "partner_id": "<YOUR_PARTNER_ID>",
+            "partner_secret": "<YOUR_PARTNER_SECRET>",
+            "first_name": "<USER'S_FIRST_NAME>",
+            "last_name": "<USER'S_LAST_NAME>",
+            "company": "<USER'S_COMPANY>",
+            "email": "<USER'S_EMAIL>@<DOMAIN>"
+          }'
           {% endcapture %}
+          {% assign description = subsection.endpoint %}
 
-          {% assign description = "POST " | append: site.data.connect.core-objects.accounts.create.name %}
-
-          {% include layout/code-snippet.html code-description=description language="json" code=code %}
+          {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.post.no-token-required request-url=request-url code=code %}
 
           The account that will be created will be owned and managed by the user provided in the Create Account request. This user can then log into the Stitch web interface, receive emails from Stitch, etc.
 
@@ -124,7 +125,7 @@ sections:
           }
           {% endcapture %}
 
-          {% assign description = "Response for POST " | append: site.data.connect.core-objects.accounts.create.name %}
+          {% assign description = "Response for " | append: subsection.endpoint %}
 
           {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
@@ -132,17 +133,16 @@ sections:
 
       - title: "Step 2: Authenticate your API requests"
         anchor: "authenticate-your-api-requests"
+        endpoint: ""
         content: |
           {% capture authenticate-calls %}
           Lastly, use the `access_token` in the header of your API requests to authenticate to the API:
 
-          {% capture code %}curl {{ site.data.connect.api.core-objects.sources.list.method | upcase }} {{ site.data.connect.api.core-objects.sources.list.name | prepend: site.data.connect.api.base-url | flatify }} \
-               -H 'Authorization: Bearer <ACCESS_TOKEN>'
-          {% endcapture %}
+          {% assign request-url = site.data.connect.api.core-objects.sources.list.name | flatify | strip_newlines %}
 
           {% assign description = "GET " | append: site.data.connect.api.core-objects.sources.list.name %}
 
-          {% include layout/code-snippet.html code-description=description language="json" code=code %}
+          {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.post.without-body request-url=request-url %}
           {% endcapture %}
 
           {{ authenticate-calls | flatify }}

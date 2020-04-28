@@ -108,6 +108,8 @@ sections:
         anchor: "generate--retrieve-iapi-source-id"
         endpoint: "GET {{ site.data.connect.core-objects.sources.list.name | flatify }}"
         content: |
+          {% assign api = site.data.connect.api %}
+
           {% include note.html type="single-line" content="**Note**: If you know the ID of the Import API source you want to use, [skip to the next step](#generate--create-new-access-token)." %}
 
           {% capture get-id-content %}
@@ -119,14 +121,12 @@ sections:
 
           Otherwise, you can use the [GET {{ site.data.connect.core-objects.sources.list.name }}]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.list.anchor }}) endpoint to get a list of the current Stitch account's sources:
 
-          {% capture code %}curl "{{ site.data.connect.api.base-url }}{{ site.data.connect.core-objects.sources.list.name | flatify }}" \
-               -H 'Authorization: Bearer <CONNECT_ACCESS_TOKEN>' \
-               -H 'Content-Type: application/json'
-          {% endcapture %}
+          {% assign request-url = site.data.connect.core-objects.sources.list.name | flatify | strip_newlines %}
 
-          {% assign description = "GET " | append: site.data.connect.core-objects.sources.list.name %}
+          {% assign description = subsection.endpoint | flatify %}
+          {% assign header = site.data.connect.request-headers.get | replace: "<ACCESS","<CONNECT_ACCESS" %}
 
-          {% include layout/code-snippet.html code-description=description language="json" code=code %}
+          {% include developers/api-request-examples.html code-description=description header=header request-url=request-url %}
 
           The response will be an array of [Source objects]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.object }}). Locate the Import API source you want to use, and take note of its `id` value:
 
@@ -169,7 +169,7 @@ sections:
           ]
           {% endcapture %}
 
-          {% assign description = "Response for GET " | append: site.data.connect.core-objects.sources.list.name %}
+          {% assign description = "Response for " | append: subsection.endpoint %}
 
           {% include layout/code-snippet.html code-description=description language="json" code=code %}
           
@@ -186,14 +186,13 @@ sections:
 
           Using the Import API source's ID, make a request to [POST {{ site.data.connect.core-objects.sources.create-iapi-token.name | flatify }}]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.create-iapi-token.anchor }}), replacing `{source_id}` with the ID of the Import API source. In this example, the ID is `{{ page.source-id }}`:
 
-          {% capture code %}curl -X "POST" "{{ site.data.connect.api.base-url }}{{ site.data.connect.core-objects.sources.create-iapi-token.name | flatify | replace: "{source_id",page.source-id | remove: right-bracket | strip_newlines }}" \
-               -H 'Authorization: Bearer <CONNECT_ACCESS_TOKEN>' \
-               -H 'Content-Type: application/json'
-          {% endcapture %}
+          {% assign example-url = site.data.connect.core-objects.sources.create-iapi-token.name %}
+          {% assign request-url = example-url | flatify | replace: "{source_id",page.source-id | remove: right-bracket | strip_newlines %}
 
-          {% assign description = "POST " | append: site.data.connect.core-objects.sources.create-iapi-token.name %}
+          {% assign description = subsection.endpoint | flatify %}
+          {% assign header = site.data.connect.request-headers.post.without-body | replace: "<ACCESS","<CONNECT_ACCESS" %}
 
-          {% include layout/code-snippet.html code-description=description language="json" code=code %}
+          {% include developers/api-request-examples.html code-description=description header=header request-url=request-url %}
 
           The response will be an [Import API access token object]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.import-api-access-token.section }}) with an `access_token` property. The value of this property is the access token you'll need to include in requests made to the Import API:
           {% endcapture %}
@@ -206,7 +205,7 @@ sections:
           }
           {% endcapture %}
 
-          {% assign description = "Response for POST " | append: site.data.connect.core-objects.sources.create-iapi-token.name %}
+          {% assign description = "Response for " | append: subsection.endpoint %}
 
           {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
@@ -244,7 +243,7 @@ sections:
           }
           {% endcapture %}
 
-          {% assign description = "Response for POST " | append: site.data.connect.core-objects.sources.create-iapi-token.name %}
+          {% assign description = "Response for " | append: subsection.endpoint %}
 
           {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
@@ -257,14 +256,13 @@ sections:
           {% capture retrieve-token-id-content %}
           Using the Import API source's ID, make a request to [GET {{ site.data.connect.core-objects.sources.get-iapi-access-token-ids.name }}]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.get-iapi-access-token-ids.anchor }}), replacing `{source_id}` with the ID of the Import API source. In this example, the ID is `{{ page.source-id }}`:
 
-          {% capture code %}curl "{{ site.data.connect.api.base-url }}{{ site.data.connect.core-objects.sources.get-iapi-access-token-ids.name | flatify | replace: "{source_id",page.source-id | remove: right-bracket | strip_newlines }}" \
-               -H 'Authorization: Bearer <CONNECT_ACCESS_TOKEN>' \
-               -H 'Content-Type: application/json'
-          {% endcapture %}
+          {% assign example-url = site.data.connect.core-objects.sources.get-iapi-access-token-ids.name %}
+          {% assign request-url = example-url | flatify | replace: "{source_id",page.source-id | remove: right-bracket | strip_newlines %}
 
-          {% assign description = "GET " | append: site.data.connect.core-objects.sources.get-iapi-access-token-ids.name %}
+          {% assign description = subsection.endpoint %}
+          {% assign header = site.data.connect.request-headers.get | replace: "<ACCESS","<CONNECT_ACCESS" %}
 
-          {% include layout/code-snippet.html code-description=description language="json" code=code %}
+          {% include developers/api-request-examples.html code-description=description header=header request-url=request-url %}
           {% endcapture %}
 
           {{ retrieve-token-id-content | flatify }}
@@ -277,7 +275,7 @@ sections:
           ]
           {% endcapture %}
 
-          {% assign description = "Response for GET " | append: site.data.connect.core-objects.sources.get-iapi-access-token-ids.name %}
+          {% assign description = "Response for " | append: subsection.endpoint %}
 
           {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
@@ -300,14 +298,13 @@ sections:
 
           In this example, that would be `{{ page.source-id }}` and `{{ page.token-id }}`, respectively:
 
-          {% capture code %}curl -X "DELETE" "{{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.sources.revoke-iapi-token.name | flatify | replace: "{source_id",page.source-id | replace:"{token_id",page.token-id | remove: right-bracket | strip_newlines }}" \
-               -H 'Authorization: Bearer <CONNECT_ACCESS_TOKEN>' \
-               -H 'Content-Type: application/json'
-          {% endcapture %}
+          {% assign example-url = site.data.connect.core-objects.sources.revoke-iapi-token.name %}
+          {% assign request-url = example-url | flatify | replace: "{source_id",page.source-id | replace:"{token_id",page.token-id | remove: right-bracket | strip_newlines %}
 
-          {% assign description = "DELETE " | append: site.data.connect.core-objects.sources.revoke-iapi-token.name %}
+          {% assign description = subsection.endpoint %}
+          {% assign header = site.data.connect.request-headers.delete | replace: "<ACCESS","<CONNECT_ACCESS" %}
 
-          {% include layout/code-snippet.html code-description=description language="json" code=code %}
+          {% include developers/api-request-examples.html code-description=description header=header request-url=request-url %}
 
           If successful, the response will be a [Source object]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.object }}) with an updated `updated_at` value:
 
@@ -342,7 +339,7 @@ sections:
           }
           {% endcapture %}
 
-          {% assign description = "Response for DELETE " | append: site.data.connect.core-objects.sources.revoke-iapi-token.name %}
+          {% assign description = "Response for " | append: subsection.endpoint %}
 
           {% include layout/code-snippet.html code-description=description language="json" code=code %}
 

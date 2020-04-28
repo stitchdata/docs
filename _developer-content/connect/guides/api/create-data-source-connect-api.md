@@ -76,6 +76,9 @@ steps:
   - title: "Get the source's API type"
     anchor: "get-source-api-type"
     content: |
+      {% assign api = site.data.connect.api %}
+      {% assign right-bracket = "}" %}
+
       To get started, you'll need to identify the API type of the data source you want to create. Every data source available in the Connect API has a `type`, and is typically similar to `platform.<source-type>`.
 
       For example: The API type for a Recurly source is `platform.recurly`.
@@ -91,13 +94,11 @@ steps:
 
       Use the [{{ source-types.get.method | upcase }} {{ source-types.get.name | flatify }} endpoint]({{ link.connect.api | append: source-types.get.anchor | prepend: site.baseurl }}) to get the report card for the source. In this example, we're retrieving the report card for a `platform.recurly` source:
 
-      {% assign right-bracket = "}" %}
+      {% assign request-url = source-types.get.name %}
 
-      ```json
-      curl {{ site.data.connect.api.base-url | strip_newlines }}{{ source-types.get.name | flatify | remove: right-bracket | replace:"{source_type","platform.recurly" | strip_newlines }} \
-           -H 'Content-Type: application/json' \
-           -H 'Authorization: Bearer <CONNECT_API_TOKEN>'
-      ```
+      {% assign description = "GET " | append: request-url %}
+
+      {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.get request-url=request-url %}
 
       The response will be a [Source object]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.object }}) with a [Connection step object]({{ link.connect.api | append: site.data.connect.data-structures.connection-steps.section | prepend: site.baseurl }}):
 
