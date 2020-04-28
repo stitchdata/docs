@@ -6,13 +6,13 @@ name: "kobjects"
 doc-link: "https://dev.kustomer.com/v1/klasses/"
 singer-schema: "https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/kobjects.json"
 description: |
-  The {{ table.name }} table contains information about {{ integration.display_name }} objects in the {{ integration.display_name }} app.
+  The `{{ table.name }}` table contains information about {{ integration.display_name }} objects in the {{ integration.display_name }} app.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "getKObject"
-    doc-link: "https://dev.kustomer.com/v1/klasses/get-kobject"
+  name: "getKObject"
+  doc-link: "https://dev.kustomer.com/v1/klasses/get-kobject"
     
 attributes:
   - name: "id"

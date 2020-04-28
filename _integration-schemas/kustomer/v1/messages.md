@@ -6,7 +6,7 @@ name: "messages"
 doc-link: "https://dev.kustomer.com/v1/messages/"
 singer-schema: "https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/messages.json"
 description: |
-  The {{ table.name }} table contains information about messages in the {{ integration.display_name }} app.
+  The `{{ table.name }}` table contains information about messages in the {{ integration.display_name }} app.
 
 replication-method: "Key-based Incremental"
 

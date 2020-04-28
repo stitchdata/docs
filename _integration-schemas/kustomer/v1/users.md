@@ -6,13 +6,13 @@ name: "users"
 doc-link: "https://dev.kustomer.com/v1/users/"
 singer-schema: "https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/users.json"
 description: |
-  The {{ table.name }} table contains information about users in the {{ integration.display_name }} app.
+  The `{{ table.name }}` table contains information about users in the {{ integration.display_name }} app.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "getUsers"
-    doc-link: "https://dev.kustomer.com/v1/users/get-user"
+  name: "getUsers"
+  doc-link: "https://dev.kustomer.com/v1/users/get-user"
     
 attributes:
   - name: "id"
@@ -23,8 +23,8 @@ attributes:
 
   - name: "updated_at"
     type: "date-time"
-    description: "The last time the user was updated."
     replication-key: true
+    description: "The last time the user was updated."
 
   - name: "avatar_url"
     type: "string"

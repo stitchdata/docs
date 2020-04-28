@@ -6,13 +6,13 @@ name: "tags"
 doc-link: "https://dev.kustomer.com/v1/tags/"
 singer-schema: "https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/tags.json"
 description: |
-  The {{ table.name }} table contains information about tags in the {{ integration.display_name }} app.
+  The `{{ table.name }}` table contains information about tags in the {{ integration.display_name }} app.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "getTags"
-    doc-link: "https://dev.kustomer.com/v1/tags/NWydnz3xaPBWCePQp"
+  name: "getTags"
+  doc-link: "https://dev.kustomer.com/v1/tags/NWydnz3xaPBWCePQp"
     
 attributes:
   - name: "id"
@@ -23,6 +23,7 @@ attributes:
 
   - name: "updated_at"
     type: "date-time"
+    replication-key: true
     description: "The last time the tag was updated."
 
   - name: "color"

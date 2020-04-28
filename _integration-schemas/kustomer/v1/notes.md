@@ -6,15 +6,13 @@ name: "notes"
 doc-link: "https://dev.kustomer.com/v1/notes/"
 singer-schema: "https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/notes.json"
 description: |
-  The {{ table.name }} table contains information about notes in the {{ integration.display_name }} app.
+  The `{{ table.name }}` table contains information about notes in the {{ integration.display_name }} app.
 
 replication-method: "Key-based Incremental"
 
-replication-key: "gte"
-
 api-method:
-    name: "getNotes"
-    doc-link: "https://dev.kustomer.com/v1/notes/get-note"
+  name: "getNotes"
+  doc-link: "https://dev.kustomer.com/v1/notes/get-notes"
 
 attributes:
   - name: "id"
@@ -22,6 +20,11 @@ attributes:
     primary-key: true
     description: "The note ID."
     #foreign-key-id: "note-id"
+
+  - name: "updated_at"
+    type: "date-time"
+    replication-key: true
+    description: ""
 
   - name: "body"
     type: "string"
@@ -114,9 +117,6 @@ attributes:
         description: ""
   - name: "type"
     type: "string"
-    description: ""
-  - name: "updated_at"
-    type: "date-time"
     description: ""
   - name: "user_mentions"
     type: "array"

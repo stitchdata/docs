@@ -7,15 +7,13 @@ name: "customers"
 doc-link: "https://dev.kustomer.com/v1/customers/"
 singer-schema: "https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/customers.json"
 description: |
-  The {{ table.name }} table contains information about customers in the {{ integration.display_name }} app.
+  The `{{ table.name }}` table contains information about customers in the {{ integration.display_name }} app.
 
 replication-method: "Key-based Incremental"
 
-replication-key: "gte"
-
 api-method:
-    name: "getCustomers"
-    doc-link: "https://dev.kustomer.com/v1/customers/get-drafts-by-customer"
+  name: "getCustomers"
+  doc-link: "https://dev.kustomer.com/v1/customers/get-customers"
 
 attributes:
   - name: "id"
@@ -23,6 +21,11 @@ attributes:
     primary-key: true
     description: "The customer ID."
     #foreign-key-id: "customer-id"
+
+  - name: "updated_at"
+    type: "string"
+    replication-key: true
+    description: ""
     
   - name: "active_users"
     type: "string"
@@ -175,14 +178,34 @@ attributes:
     type: "string"
     description: ""
   - name: "emails"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "email"
+        type: "string"
+        description: ""
+
+      - name: "type"
+        type: "string"
+        description: ""
+
+      - name: "verified"
+        type: "boolean"
+        description: ""
   - name: "external_id"
     type: "string"
     description: ""
   - name: "external_ids"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "type"
+        type: "string"
+        description: ""
+
+      - name: "verified"
+        type: "boolean"
+        description: ""
   - name: "facebook_ids"
     type: "string"
     description: ""
@@ -227,8 +250,12 @@ attributes:
             type: "integer"
             description: ""
       - name: "tags"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
   - name: "last_customer_activity_at"
     type: "string"
     description: ""
@@ -311,8 +338,20 @@ attributes:
         type: "string"
         description: ""
   - name: "phones"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "phone"
+        type: "string"
+        description: ""
+
+      - name: "type"
+        type: "string"
+        description: ""
+
+      - name: "verified"
+        type: "boolean"
+        description: ""
   - name: "preview"
     type: "object"
     description: ""
@@ -336,8 +375,28 @@ attributes:
     type: "string"
     description: ""
   - name: "recent_items"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "id"
+        type: "string"
+        description: ""
+
+      - name: "meta"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "klass_name"
+            type: 
+            description: ""
+
+      - name: "type"
+        type: "string"
+        description: ""
+
+      - name: "updated_at"
+        type: "string"
+        description: ""
   - name: "recent_location"
     type: "object"
     description: ""
@@ -360,15 +419,23 @@ attributes:
         description: ""
         subattributes:
           - name: "sent_by_teams"
-            type: "null"
+            type: "array"
             description: ""
+            subattributes:
+              - name: "value"
+                type: "string"
+                description: ""
       - name: "last_satisfaction"
         type: "object"
         description: ""
         subattributes:
           - name: "sent_by_teams"
-            type: "null"
+            type: "array"
             description: ""
+            subattributes:
+              - name: "value"
+                type: "string"
+                description: ""
   - name: "sentiment"
     type: "object"
     description: ""
@@ -406,9 +473,7 @@ attributes:
   - name: "time_zone"
     type: "string"
     description: ""
-  - name: "updated_at"
-    type: "string"
-    description: ""
+
   - name: "urls"
     type: "string"
     description: ""

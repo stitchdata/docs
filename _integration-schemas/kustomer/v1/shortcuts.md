@@ -6,14 +6,13 @@ name: "shortcuts"
 doc-link: "https://dev.kustomer.com/v1/shortcuts"
 singer-schema: "https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/shortcuts.json"
 description: |
-  The {{ table.name }} table contains information about shortcuts in the {{ integration.display_name }} app.
-
+  The `{{ table.name }}` table contains information about shortcuts in the {{ integration.display_name }} app.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "getShortcuts"
-    doc-link: "https://dev.kustomer.com/v1/shortcuts/KaRhy9CmfHsmaG4gZ"
+  name: "getShortcuts"
+  doc-link: "https://dev.kustomer.com/v1/shortcuts/KaRhy9CmfHsmaG4gZ"
 
 attributes:
   - name: "id"

@@ -6,13 +6,13 @@ name: "teams"
 doc-link: "https://dev.kustomer.com/v1/teams/"
 singer-schema: "https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/teams.json"
 description: |
-  The {{ table.name }} table contains information about teams in the {{ integration.display_name }} app.
+  The `{{ table.name }}` table contains information about teams in the {{ integration.display_name }} app.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "getTeams"
-    doc-link: "https://dev.kustomer.com/v1/teams/get-team"
+  name: "getTeams"
+  doc-link: "https://dev.kustomer.com/v1/teams/get-team"
 
 attributes:
   - name: "id"

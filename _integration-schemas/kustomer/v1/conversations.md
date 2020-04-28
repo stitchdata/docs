@@ -7,15 +7,13 @@ name: "conversations"
 doc-link: "https://dev.kustomer.com/v1/conversations/"
 singer-schema: "https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/conversations.json"
 description: |
-  The {{ table.name }} table contains information about conversations in the {{ integration.display_name }} app.
+  The `{{ table.name }}` table contains information about conversations in the {{ integration.display_name }} app.
 
 replication-method: "Key-based Incremental"
 
-replication-key: "gte"
-
 api-method:
-    name: "getConversations"
-    doc-link: "https://dev.kustomer.com/v1/conversations/get-conversation"
+  name: "getConversations"
+  doc-link: "https://dev.kustomer.com/v1/conversations/get-conversations"
 
 attributes:
   - name: "id"
@@ -24,15 +22,35 @@ attributes:
     description: "The conversation ID."
     #foreign-key-id: "conversation-id"
 
+  - name: "updated_at"
+    type: "string"
+    replication-key: true
+    description: ""
+
   - name: "assigned_teams"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
+
   - name: "assigned_users"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
+
   - name: "channels"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
+
   - name: "created_at"
     type: "string"
     description: ""
@@ -153,11 +171,19 @@ attributes:
     description: ""
     subattributes:
       - name: "assigned_teams"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
       - name: "assigned_users"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
       - name: "business_time"
         type: "integer"
         description: ""
@@ -168,8 +194,12 @@ attributes:
         type: "string"
         description: ""
       - name: "created_by_teams"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
       - name: "last_message_direction"
         type: "string"
         description: ""
@@ -247,8 +277,12 @@ attributes:
         type: "string"
         description: ""
       - name: "created_by_teams"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
       - name: "direction_type"
         type: "string"
         description: ""
@@ -263,11 +297,19 @@ attributes:
     description: ""
     subattributes:
       - name: "assigned_teams"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
       - name: "assigned_users"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
       - name: "business_time"
         type: "integer"
         description: ""
@@ -278,8 +320,12 @@ attributes:
         type: "string"
         description: ""
       - name: "created_by_teams"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
       - name: "id"
         type: "string"
         description: ""
@@ -297,11 +343,19 @@ attributes:
     description: ""
     subattributes:
       - name: "assigned_teams"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
       - name: "assigned_users"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
       - name: "business_time"
         type: "integer"
         description: ""
@@ -312,8 +366,12 @@ attributes:
         type: "string"
         description: ""
       - name: "created_by_teams"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
       - name: "id"
         type: "string"
         description: ""
@@ -338,11 +396,19 @@ attributes:
     description: ""
     subattributes:
       - name: "assigned_teams"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
       - name: "assigned_users"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
       - name: "business_time"
         type: "integer"
         description: ""
@@ -353,8 +419,12 @@ attributes:
         type: "string"
         description: ""
       - name: "created_by_teams"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
       - name: "last_message_direction"
         type: "string"
         description: ""
@@ -465,11 +535,19 @@ attributes:
     description: ""
     subattributes:
       - name: "assigned_teams"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
       - name: "assigned_users"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
       - name: "business_time"
         type: "integer"
         description: ""
@@ -480,8 +558,12 @@ attributes:
         type: "string"
         description: ""
       - name: "created_by_teams"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
       - name: "id"
         type: "string"
         description: ""
@@ -566,8 +648,12 @@ attributes:
     description: ""
     subattributes:
       - name: "sent_by_teams"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
   - name: "sla"
     type: "object"
     description: ""
@@ -674,8 +760,12 @@ attributes:
     type: "string"
     description: ""
   - name: "tags"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
   - name: "total_done"
     type: "object"
     description: ""
@@ -713,9 +803,6 @@ attributes:
         type: "integer"
         description: ""
   - name: "type"
-    type: "string"
-    description: ""
-  - name: "updated_at"
     type: "string"
     description: ""
 ---
