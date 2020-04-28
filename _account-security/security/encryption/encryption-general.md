@@ -111,7 +111,9 @@ sections:
       </td>
       </tr>
       {% endfor %}
-      </table> 
+      </table>
+
+      **Note**: [Reverse SSH tunnels]({{ link.security.reverse-ssh | prepend: site.baseurl }}) are also available for Stitch Enterprise customers.
 
   - title: "Advanced connectivity"
     anchor: "advanced-connectivity"
@@ -119,7 +121,7 @@ sections:
       Additional connection options are available as part of a Stitch Enterprise plan. This includes:
 
       - Virtual Private Network (VPN)
-      - Reverse SSH tunneling
+      - [Reverse SSH tunneling]({{ link.security.reverse-ssh | prepend: site.baseurl }})
       - [Amazon Web Services (AWS) Private Link](https://aws.amazon.com/privatelink/){:target="new"}
 
       Reach out to [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
