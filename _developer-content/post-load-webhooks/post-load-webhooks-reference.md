@@ -126,12 +126,10 @@ sections:
         content: |
           Post-load notification webhook requests are `POST` requests with a `User-Agent` of `StitchLoadingWebhook`. For example:
 
-          {% capture code %}curl -X "POST" "https://your-webhook-service.com/webhook" \
-               -H 'Content-Type: application/json' \
-               -H 'User-Agent: StitchLoadingWebhook'
-          {% endcapture %}
+          {% assign description = "Example request header" %}
+          {% assign header = site.data.connect.request-headers.post.user-agent | replace:"[REQUEST-URL]","https://your-webhook-service.com/webhook" %}
 
-          {% include layout/code-snippet.html language="json" code=code %}
+          {% include developers/api-request-examples.html code-description=description header=header code=code %}
 
           **Note**: At this time, custom request headers are not supported.
 

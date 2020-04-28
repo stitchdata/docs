@@ -22,6 +22,11 @@ get:
 # -------------------------- #
 
 post:
+  user-agent: |
+    curl -X "POST" "[REQUEST-URL]" \
+         -H 'Content-Type: application/json' \
+         -H 'User-Agent: StitchLoadingWebhook'
+
   no-token-required: |
     curl -X "POST" "{{ api.base-url }}{{ request-url | flatify }}" \
          -H 'Content-Type: application/json' \
