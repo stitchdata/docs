@@ -42,7 +42,6 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.title }}](#{{ section.anchor }})
   {% endfor %}
-  In this guide, we'll cover Stitch's supported connection options and provide links to additional resources.
 
 
 # -------------------------- #
@@ -57,11 +56,11 @@ ssh-tunnels:
 
   - name: "Amazon"
     guide: "ssh-amazon"
-    description: "Stitch currently supports connecting Amazon RDS and Amazon Redshift (destination only) databases."
+    description: "Stitch currently supports connecting Amazon RDS (including Aurora) and Amazon Redshift (destination only) databases."
 
   - name: "Microsoft Azure"
     guide: "ssh-microsoft-azure"
-    description: "Stitch currently supports connecting Microsoft Azure SQL Server (as an integration) and Azure SQL Data Warehouse (as a destination). Other Microsoft Azure offerings aren't currently supported."
+    description: "Stitch currently supports connecting Microsoft Azure SQL Server and MySQL databases (as integrations) and Azure SQL Data Warehouse (as a destination). Other Microsoft Azure offerings aren't currently supported."
 
 sections:
   - title: "SSL connections"
