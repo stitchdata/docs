@@ -77,7 +77,11 @@ frequently-asked-questions:
 
           - **For data pulled from an HTTP API or submitted directly to Stitch's Import API,** we'll use SSL/TLS-based encryption.
           
-          - **For data replicated from a database**, we can use the encryption functionality built into the database, or an SSH tunnel. 
+          - **For data replicated from a database**, we can use the encryption functionality built into the database or an SSH tunnel.
+
+          - **For data at rest**, Stitch uses [AES-256](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard){:target="new"} to encrypt data.
+
+          Refer to the [Data encryption guide]({{ link.security.encryption | prepend: site.baseurl }}) for more info.
 
       - question: "Are SSL connections supported?"
         anchor: "ssl-connection-support"
@@ -103,6 +107,8 @@ frequently-asked-questions:
         anchor: "vpn-connection-support"
         answer: |
           Additional connection options such as VPNs or reverse SSH tunnels may be implemented as part of an Enterprise plan. Contact [Stitch Sales]({{ site.sales | append: page.enterprise-utm.reverse-ssh-url }}) for more info.
+
+          Refer to the [Advanced connectivity section]({{ link.security.encryption | prepend: site.baseurl | append: "#advanced-connectivity" }}) in the Data encryption guide for more info.
 
   - topic: "Data Access"
     anchor: "stitch-access"
