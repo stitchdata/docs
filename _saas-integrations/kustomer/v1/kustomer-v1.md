@@ -92,27 +92,27 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      **A {{ integration.display_name }} admin role**. You need to have an Admin role to create an API key, or have a role that has **read** and **write** security permissions.
+      **A {{ integration.display_name }} admin role**. Admin permissions or a role with **read** and **write** security permissions are required to create an API key in {{ integration.display_name }}.
 
 setup-steps:
-  - title: "Obtain your API key"
+  - title: "Create a {{ integration.display_name }} API key"
     anchor: "obtain-api-key"
     content: |
       1. Login to your {{ integration.display_name }} account.
       2. Navigate to **Settings > API Keys**
       3. Click **New API Key**.
       4. Select the roles that can have access to the API key.
-      5. In the section where you are given the option to set an API expiration, leave this blank. You do not want your API key to expire, or else the integration will break.
-      6. Click **Create**
+      5. **Leave the API expriation options blank.** If you set an expiration date, the API key will expire and break the connection to Stitch. In the event that this happens, you'll need to re-generate the API key in {{ integration.display_name }} and enter the new key into Stitch.
+      6. Click **Create**.
       7. Copy the API key and keep it readily available for the next step.
 
-      **Note**: You can only copy the API key once, so save it somewhere secure for future reference.
+      **Note**: {{ integration.display_name }} will only display the key once, so save it somewhere secure for future reference.
   - title: "add integration"
     content: |
-      4. In the **API Key** field, enter the API key you obtained in [step 1](#obtain-api-key).
+      4. In the **API Key** field, paste the API key you obtained in [Step 1](#obtain-api-key).
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
+  - title: "track data"
 
 
 # -------------------------- #
@@ -120,14 +120,7 @@ setup-steps:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/kustomer
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
+# Each table has a its own .md file in /_integration-schemas/kustomer/v1
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
