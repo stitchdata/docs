@@ -52,7 +52,7 @@ arguments:
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of `200 OK` and a [Source object]({{ api.core-objects.sources.object }}) a `report_card` property.
+  If successful, the API will return a status of `200 OK` and a [Source object]({{ site.data.connect.core-objects.sources.object }}) a `report_card` property.
 
 
 # ------------------------------ #
@@ -61,14 +61,10 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
-    code: |
-      {% assign token-id = "544973525" %}
-
-      {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","126890" | replace:"{token_id",token-id | remove: right-bracket | strip_newlines }}
-           -H "Authorization: Bearer <CONNECT_ACCESS_TOKEN>" 
-           -H "Content-Type: application/json"
+    request-url: |
+      {% assign token-id = "544973525" %}{% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{source_id","126890" | replace:"{token_id",token-id | remove: right-bracket | strip_newlines }}
+    header: "{{ site.data.connect.request-headers.delete | flatify }}"
+    code: ""
 
   - type: "Response"
     language: "json"

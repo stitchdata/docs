@@ -24,7 +24,7 @@ layout: tutorial
 ## This is used only on the /stitch-connect/guides page.
 doc-type: "tutorial"
 icon: source
-order: 4
+order: 3
 
 description: "Create and configure a data source using the Connect API."
 
@@ -65,7 +65,7 @@ intro: |
 
 requirements:
   - item: |
-      **Access to Stitch Connect.** Connect access is a Stitch Enterprise feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
+      **Access to Stitch Connect and valid Connect API credentials.** Connect access is a Stitch Enterprise feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
 
 
 # -------------------------- #
@@ -76,6 +76,9 @@ steps:
   - title: "Get the source's API type"
     anchor: "get-source-api-type"
     content: |
+      {% assign api = site.data.connect.api %}
+      {% assign right-bracket = "}" %}
+
       To get started, you'll need to identify the API type of the data source you want to create. Every data source available in the Connect API has a `type`, and is typically similar to `platform.<source-type>`.
 
       For example: The API type for a Recurly source is `platform.recurly`.
@@ -91,13 +94,11 @@ steps:
 
       Use the [{{ source-types.get.method | upcase }} {{ source-types.get.name | flatify }} endpoint]({{ link.connect.api | append: source-types.get.anchor | prepend: site.baseurl }}) to get the report card for the source. In this example, we're retrieving the report card for a `platform.recurly` source:
 
-      {% assign right-bracket = "}" %}
+      {% assign request-url = source-types.get.name %}
 
-      ```json
-      curl {{ site.data.connect.api.base-url | strip_newlines }}{{ source-types.get.name | flatify | remove: right-bracket | replace:"{source_type","platform.recurly" | strip_newlines }} \
-           -H 'Content-Type: application/json' \
-           -H 'Authorization: Bearer <CONNECT_API_TOKEN>'
-      ```
+      {% assign description = "GET " | append: request-url %}
+
+      {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.get.without-body request-url=request-url %}
 
       The response will be a [Source object]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.object }}) with a [Connection step object]({{ link.connect.api | append: site.data.connect.data-structures.connection-steps.section | prepend: site.baseurl }}):
 
@@ -460,7 +461,7 @@ steps:
     content: |
       After field selection, the source's configuration status should be `fully_configured`. When `fully_configured`, Stitch can begin replication for the source using the schedule and stream/field selection data you provided.
 
-      You can verify the source's configuarion status by sending a request to [{{ sources.retrieve.method | upcase }} {{ sources.retrieve.name | flatify }}]({{ link.connect.api | prepend: site.baseurl | append: sources.retrieve.anchor }}), replacing `{source_id}` with the source's ID:
+      You can verify the source's configuration status by sending a request to [{{ sources.retrieve.method | upcase }} {{ sources.retrieve.name | flatify }}]({{ link.connect.api | prepend: site.baseurl | append: sources.retrieve.anchor }}), replacing `{source_id}` with the source's ID:
 
       ```json
       curl {{ site.data.connect.api.base-url | strip_newlines }}{{ sources.retrieve.name | flatify | remove: right-bracket | replace:"{source_id","233312" | strip_newlines }} \

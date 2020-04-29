@@ -21,7 +21,7 @@ type: "all"
 intro: |
   Sometimes, you may want to replicate data to a different location than what you initially connected to Stitch. 
 
-  For example: You now want to replicate data from your integrations to a different database in your Redshift cluster, or you simply decide that Redshift isn't the destination for you.
+  For example: You now want to replicate data from your integrations to a different database in your Amazon Redshift cluster, or you simply decide that Amazon Redshift isn't the destination for you.
 
 
 # -------------------------- #
@@ -39,21 +39,7 @@ sections:
   - title: "Considerations"
     anchor: "considerations"
     content: |
-      Here's what you need to know to ensure a smooth switch:
-
-      - **Some destinations may structure data differently than your current destination.** For example: if you're changing from Redshift to BigQuery, there will be some differences in how your data is stored. Detailed info about how Stitch loads data can be found in the [Data Loading Guide]({{ link.destinations.storage.loading-data | prepend: site.baseurl }}) for each destination.
-
-      - **Your integrations will be paused.** After the switch is complete, you’ll need to manually unpause the integrations you’d like to resume.
-
-      - **We won’t delete or transfer any data from your current destination.** To get historical data into your new destination, you'll need to queue a full re-sync of all your integrations. 
-
-         Re-syncing historical data will count towards your row usage and may take some time, depending on the volume of data and API limitations imposed by the provider.
-
-      - **Some webhook data may be lost during this process.** Due to their continuous, real-time nature, some webhook data may be lost during the switch.
-
-      - **Historical data from webhook-based integrations must be either manually backfilled or replayed.** Some webhook providers - such as Segment - allow customers on certain plans to 'replay' their historical data. This feature varies from provider to provider and may not always be available.
-
-         If you don't have the ability to replay historical webhook data, then it must be manually backfilled after the switch is complete.
+      {% include destinations/switching-destination-steps.html type="considerations" %}
 
   - title: "Switch destinations"
     anchor: "switch-destinations"
@@ -80,7 +66,7 @@ sections:
         content: |
           1. On the next page, click the icon of the destination type you want to switch to.
           2. Follow the instructions for that destination type to complete the setup. If you need some help, refer to the destination's setup guide:
-              {% assign destinations = site.destinations | where:"destination",true | sort:"display_name" %}
+              {% assign destinations = site.destinations | where:"destination",true | sort_natural:"display_name" %}
               {% for destination in destinations %}
               - [{{ destination.title | remove: " Destination Documentation" }}]({{ destination.url | prepend: site.baseurl | append: "#get-started" }})
              {% endfor %}

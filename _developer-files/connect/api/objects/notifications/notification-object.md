@@ -39,52 +39,52 @@ available-methods:
   - id: "create-custom-notification-recipient"
     title: "Create a custom email"
     method: "post"
-    short: "{{ api.core-objects.notifications.custom-emails.post.description | flatify }}"
+    short: "{{ site.data.connect.core-objects.notifications.custom-emails.post.description | flatify }}"
 
   - id: "disable-custom-notification-recipient"
     title: "Disable a custom email"
     method: "put"
-    short: "{{ api.core-objects.notifications.custom-emails.disable.description | flatify }}"
+    short: "{{ site.data.connect.core-objects.notifications.custom-emails.disable.description | flatify }}"
 
   - id: "enable-custom-notification-recipient"
     title: "Re-enable a custom email"
     method: "put"
-    short: "{{ api.core-objects.notifications.custom-emails.re-enable.description | flatify }}"
+    short: "{{ site.data.connect.core-objects.notifications.custom-emails.re-enable.description | flatify }}"
 
   - id: "list-custom-notification-recipients"
     title: "List custom emails"
     method: "get"
-    short: "{{ api.core-objects.notifications.custom-emails.list.description | flatify }}"
+    short: "{{ site.data.connect.core-objects.notifications.custom-emails.list.description | flatify }}"
 
   - id: "delete-custom-notification-recipient"
     title: "Delete a custom email"
     method: "delete"
-    short: "{{ api.core-objects.notifications.custom-emails.delete.description | flatify }}"
+    short: "{{ site.data.connect.core-objects.notifications.custom-emails.delete.description | flatify }}"
 
   - id: "create-hook-notification"
     title: "Create a webhook"
     method: "post"
-    short: "{{ api.core-objects.notifications.hooks.post.description | flatify }}"
+    short: "{{ site.data.connect.core-objects.notifications.hooks.post.description | flatify }}"
 
   - id: "disable-hook-notification"
     title: "Disable a webhook"
     method: "put"
-    short: "{{ api.core-objects.notifications.hooks.disable.description | flatify }}"
+    short: "{{ site.data.connect.core-objects.notifications.hooks.disable.description | flatify }}"
 
-  - id: "enable-hook-notification"
+  - id: "re-enable-hook-notification"
     title: "Re-enable a webhook"
     method: "put"
-    short: "{{ api.core-objects.notifications.hooks.re-enable.description | flatify }}"
+    short: "{{ site.data.connect.core-objects.notifications.hooks.re-enable.description | flatify }}"
 
   - id: "list-hook-notifications"
     title: "List webhooks"
     method: "get"
-    short: "{{ api.core-objects.notifications.hooks.list.description | flatify }}"
+    short: "{{ site.data.connect.core-objects.notifications.hooks.list.description | flatify }}"
 
   - id: "delete-hook-notification"
     title: "Delete a webhook"
     method: "delete"
-    short: "{{ api.core-objects.notifications.hooks.delete.description | flatify }}"
+    short: "{{ site.data.connect.core-objects.notifications.hooks.delete.description | flatify }}"
 
 
 

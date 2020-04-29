@@ -46,12 +46,12 @@ attributes:
     type: "object"
     description: "Details about the external accounts and users the user is associated with."
     subattributes: 
-      - name: "external_accounts"
+      - name: "external_account"
         type: "integer"
         description: "The ID of the external account associated with the user."
         foreign-key-id: "external-account-id"
 
-      - name: "external_users"
+      - name: "external_user"
         type: "integer"
         description: "The ID of the external user associated with the user."
 

@@ -1,15 +1,14 @@
 <!-- This is the formatting for the object code examples in the Connect API docs -->
 
 <h5 id="{{ form-property.key | append: "-example-usage" }}">
-  Example object
+  Example {{ form-property.title }} object
 </h5>
 
 {% case include.content %}
 
 <!-- Destination form property example -->
 {% when 'destination' %}
-{% highlight json %}
-{
+{% capture code %}{
  "type":"{{ form-property.api-type }}",
  "properties":{
    {% for attribute in all-form-attributes %}
@@ -19,7 +18,7 @@
    {%- endfor -%}
   }
 }
-{% endhighlight %}
+{% endcapture %}
 
 
 <!-- Source forms get their own formatting because the properties are all strings,
@@ -27,17 +26,32 @@
     typed. -->
 {% when 'source' %}
 
-{% highlight json %}
-{
+
+<!-- The IAPI object doesn't have any properties; all that's required to
+    create the source is a defined `type` property. -->
+{% if form-property.source-type == "import-api" %}
+{% capture code %}{
+ "type":"{{ form-property.api-type }}"
+}
+{% endcapture %}
+
+<!-- All other sources: -->
+{% else %}
+
+{% capture code %}{
  "type":"{{ form-property.api-type }}",
  "properties":{
-   {% for attribute in all-form-attributes %}
-   {%- if forloop.last == true -%}"{{ attribute.name }}":"{{ attribute.value | flatify | strip }}"
-   {% else %}"{{ attribute.name }}":"{{ attribute.value | flatify | strip }}",
+   {% for attribute in all-form-attributes %}{% capture attribute-value %}{% if attribute.type == "array" %}{{ attribute.value | flatify | strip }}{% else %}"{{ attribute.value | flatify | strip }}"{% endif %}{% endcapture %}
+   {%- if forloop.last == true -%}"{{ attribute.name }}":{{ attribute-value | flatify | strip }}
+   {% else %}"{{ attribute.name }}":{{ attribute-value | flatify | strip }},
    {% endif %}
    {%- endfor -%}
   }
 }
-{% endhighlight %}
+{% endcapture %}
+
+{% endif %}
 
 {% endcase %}
+
+{% include layout/code-snippet.html language="json" code=code %}

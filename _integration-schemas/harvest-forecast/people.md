@@ -69,6 +69,7 @@ attributes:
       - name: "value"
         type: "string"
         description: "The name of the role assigned to the person."
+        foreign-key-id: "role-id"
 
   - name: "subscribed"
     type: "boolean"

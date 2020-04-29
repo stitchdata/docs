@@ -1,6 +1,6 @@
 ---
 tap: "zuora"
-version: 1.0
+version: "1"
 
 name: "processedUsage"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Accounts

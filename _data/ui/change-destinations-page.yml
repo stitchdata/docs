@@ -1,4 +1,4 @@
-## This file contains the field names and descriptions that apepar
+## This file contains the field names and descriptions that appear
 ## in the Destination Switching pages.
 
 
@@ -15,6 +15,8 @@ default-copy:
     Stitch will pick up where it left off and only replicate **new** data to your new destination.
   historical-data-copy: &historical-data-copy |
     Stitch will clear all Replication Key values, queue a **full re-replication** of your integrations' data, and replicate all historical data to your new destination. For SaaS integrations, Stitch will replicate data beginning with the **Start Date** currently listed in the integration's settings.
+
+          **Note**: This isn't applicable to webhook integrations. Historical data for webhooks must be replayed or manually backfilled after the switch is complete.
 
 default-historical-data:
   - field: *new-data-only

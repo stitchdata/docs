@@ -58,10 +58,18 @@ features:
 
   - category: "Integrations"
     guides:
+      - key: "google-analytics-360-setup"
+        summary: |
+          Replicate data from {{ enterprise-doc.display_name }} using Stitch's {{ enterprise-doc.display_name }} integration.
+
       - key: "oracle-integration"
         summary: |
           {% assign oracle-rds-guide = site.database-integrations | where:"key","amazon-oracle-rds-integration" | first %}
           {{ enterprise-doc.summary }} This is applicable to any Oracle-based database, including [Amazon Oracle RDS]({{ oracle-rds-guide.url | prepend: site.baseurl }}).
+          
+      - key: "workday-raas-setup"
+        summary: |
+          Replicate data from multiple, configurable {{ enterprise-doc.display_name }} reports using Stitch's {{ enterprise-doc.display_name }} integration.
 
   - category: "Replication"
     guides:

@@ -129,6 +129,21 @@ object-attributes:
     value: |
       <TODO>
 
+  # Source: https://github.com/singer-io/tap-google-analytics/blob/master/spikes/discover_metrics_and_dimensions.py#L158
+  - name: "tap_google_analytics.all_cubes"
+    type: "array"
+    description: |
+      **For Google Analytics sources only.** An array of strings listing all the 'cubes' available in the Google Analytics source. A cube is a group of metrics and dimensions that are compatible together.
+
+      We recommend using [Google's Dimensions and Metrics Explorer](https://developers.google.com/analytics/devguides/reporting/core/dimsmets){:target="new"} to test combinations of metrics and dimensions for compatibility.
+    modifiable: false
+    applies-to: "google-analytics"
+
+
+# -------------------------- #
+#           EXAMPLES         #
+# -------------------------- #
+
 examples:
   - type: "Database source (non-view)"
     code: |
@@ -176,5 +191,95 @@ examples:
             "updated_at"
           ]
         }
+      }
+
+  - type: "Google Analytics source"
+    code: |
+      {
+         "metadata":{
+            "inclusion":"available",
+            "selected":null,
+            "table-key-properties":[
+               "_sdc_record_hash"
+            ],
+            "tap_google_analytics.all_cubes":[
+               "audience_size",
+               "per_active_visitors_date_active_visitors_14",
+               "cohorts_overview_nth_day",
+               "all_metrics_for_audiences_overview",
+               "Cube:analytics/per_ecommerce_refund_import_without_transaction_product_metrics",
+               "per_campaign_segmented_with_local_currency",
+               "per_social",
+               "per_geo_dimension_widening",
+               "per_exception",
+               "per_orphan",
+               "smart_goals",
+               "gwo_transaction_subcube",
+               "phone_analytics",
+               "per_dfa_floodlight_model",
+               "per_wmx_url",
+               "ga_experiment_results_metrics",
+               "per_active_visitors_day_active_visitors_30",
+               "per_active_visitors_day_active_visitors_28",
+               "per_dimension_widening",
+               "per_geo_dimension_widening_sub_continent_code",
+               "ga_exp_objective_metrics",
+               "cohorts_overview_nth_week",
+               "all_metrics_for_active_visitors_cubes",
+               "per_geo_dimension_widening_region_id",
+               "per_content_id_dimension_widening",
+               "per_active_visitors_date_active_visitors_7",
+               "per_active_visitors_nthday_active_visitors_14",
+               "per_sitelink_extension",
+               "per_ecommerce_dimension_widening",
+               "per_content_with_gwo_id_and_outcomes",
+               "per_active_visitors_nthday_active_visitors_28",
+               "per_cost_data_import",
+               "all_metrics_for_cohorts_overview",
+               "per_active_visitors_date_active_visitors_28",
+               "per_active_visitors_date_active_visitors_1",
+               "per_active_visitors_date_active_visitors_30",
+               "local_transaction",
+               "gdn_targeting",
+               "channel_grouping_rule_key",
+               "per_campaign_content",
+               "Cube:analytics/per_value_site_search_without_transaction_product_dimensions",
+               "per_product_with_local_currency",
+               "enhanced_campaign",
+               "Cube:analytics/per_value_site_search_without_transaction_product_metrics",
+               "per_active_visitors_day_active_visitors_14",
+               "store_visits",
+               "per_geo_dimension_widening_city_id",
+               "gwo_bandit_combination_metrics",
+               "per_active_visitors_day_active_visitors_1",
+               "per_geo_dimension_widening_country_iso_code",
+               "per_goal_request_uri",
+               "per_active_visitors_nthday_active_visitors_1",
+               "per_active_visitors_day_active_visitors_7",
+               "per_query_with_cost_metrics",
+               "per_active_visitors_nthday_active_visitors_30",
+               "per_campaign_shasta_with_local_currency",
+               "per_campaign_dart_search",
+               "individual_user_report",
+               "per_goal_funnel_request",
+               "per_tv_campaign",
+               "smart_data_dimension_subcube",
+               "gwo_bandit_metrics",
+               "per_web_property_query_RESTRICTED",
+               "per_campaign_with_local_currency",
+               "per_absolute_unique_visitors",
+               "per_campaign_id_dimension_widening",
+               "per_wmx_query",
+               "cohorts_overview_nth_month",
+               "per_active_visitors_nthday_active_visitors_7",
+               "per_user_id_dimension_widening",
+               "per_events_with_local_currency",
+               "per_wmx_site",
+               "per_dfa_model",
+               "per_content_with_local_currency",
+               "per_social_plus_site",
+               "Cube:analytics/per_ecommerce_refund_import_without_transaction_product_dimensions"
+            ]
+         }
       }
 ---

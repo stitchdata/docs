@@ -57,6 +57,10 @@ attributes:
         description: "The addon ID."
         foreign-key-id: "addon-id"
 
+      - name: "amount"
+        type: "integer"
+        description: ""
+
       - name: "object"
         type: "string"
         description: ""
@@ -182,6 +186,10 @@ attributes:
     type: "date-time"
     description: "The time the subscription was created."
 
+  - name: "created_from_ip"
+    type: "string"
+    description: ""
+
   - name: "currency_code"
     type: "string"
     description: "The currency code for the subscription in ISO 4217 format."
@@ -193,6 +201,10 @@ attributes:
   - name: "current_term_start"
     type: "date-time"
     description: "The start of the current billing term for the subscription."
+
+  - name: "custom_fields"
+    type: "string"
+    description: ""  
 
   - name: "customer_id"
     type: "string"
@@ -206,6 +218,10 @@ attributes:
   - name: "due_invoices_count"
     type: "integer"
     description: "The total number of invoices that are due for payment."
+
+  - name: "due_since"
+    type: "date-time"
+    description: ""
 
   - name: "event_based_addons"
     type: "array"
@@ -240,6 +256,11 @@ attributes:
     type: "number"
     description: "The exchange rate used for base currency conversion."
 
+  - name: "gift_id"
+    type: "string"
+    description: "The ID of the gift associated with the subscription."
+    foreign-key-id: "gift-id"
+
   - name: "has_scheduled_changes"
     type: "boolean"
     description: "If true, there are subscription changes scheduled on next renewal."
@@ -247,6 +268,10 @@ attributes:
   - name: "invoice_notes"
     type: "string"
     description: "The invoice notes for the subscription."
+
+  - name: "meta_data"
+    type: "string"
+    description: ""
 
   - name: "mrr"
     type: "integer"
@@ -258,6 +283,10 @@ attributes:
 
   - name: "object"
     type: "string"
+    description: ""
+
+  - name: "pause_date"
+    type: "date-time"
     description: ""
 
   - name: "payment_source_id"
@@ -362,6 +391,10 @@ attributes:
           - `custom_promotional_credit`
           - `custom_revenue_percent_based`
 
+      - name: "referral_system"
+        type: "string"
+        description: ""
+
       - name: "reward_status"
         type: "string"
         description: |
@@ -378,6 +411,14 @@ attributes:
   - name: "resource_version"
     type: "integer"
     description: "The version number of the subscription. Each update of the subscription results in an incremental change of this value. **Note**: This attribute will be present only if the resource has been updated after 2016-09-28."
+
+  - name: "resume_date"
+    type: "date-time"
+    description: ""
+
+  - name: "setup_fee"
+    type: "integer"
+    description: ""
 
   - name: "shipping_address"
     type: "object"
@@ -467,6 +508,10 @@ attributes:
       - `paused`
       - `cancelled`
 
+  - name: "total_dues"
+    type: "integer"
+    description: ""
+
   - name: "trial_end"
     type: "date-time"
     description: |
@@ -475,5 +520,5 @@ attributes:
   - name: "trial_start"
     type: "date-time"
     description: |
-      The start of the trial period for the subscription. The presence of this value for future subscriptions (`status: future`) implies the subscription will move to `in_trial` when the subscription starts.
+      The start of the trial period for the subscription. The presence of this value for future subscriptions (`status: future`) implies the subscription will move to `in_trial` when the subscription starts.  
 ---

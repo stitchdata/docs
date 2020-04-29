@@ -24,8 +24,7 @@ key: "bigquery-v1-migration"
 order: 1
 
 toc: true
-layout: tutorial
-use-tutorial-sidebar: false
+layout: general
 
 
 # -------------------------- #
@@ -77,29 +76,32 @@ requirements:
 #         Instructions       #
 # -------------------------- #
 
-steps:
-  - title: "Delete your existing {{ destination.display_name }} destination in Stitch"
+sections:
+  - title: "Considerations"
+    anchor: "considerations"
+    content: |
+      {% include destinations/switching-destination-steps.html type="considerations" %}
+
+  - title: "Step 1: Delete your existing {{ destination.display_name }} destination in Stitch"
     anchor: "delete-existing-destination"
     content: |
       In this step, you'll delete the current {{ destination.display_name }} v1 destination configuration in Stitch:
 
-      {% for substep in step.substeps %}
-      - [Step 1.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title | flatify }}](#{{ subsection.anchor }})
       {% endfor %}
-    substeps:
-      - title: "Select a historical data setting"
+    subsections:
+      - title: "Step 1.1: Select a historical data setting"
         anchor: "select-historical-data-setting"
         content: |
           {% include destinations/switching-destination-steps.html type="select-historical-data-setting" %}
 
-      - title: "Delete the existing {{ page.display_name }} destination in Stitch"
+      - title: "Step 1.2: Delete the existing {{ page.display_name }} destination in Stitch"
         anchor: "delete-current-destination"
         content: |
           {% include destinations/switching-destination-steps.html type="delete-current-destination" %}
 
-          Leave the current page in Stitch open and proceed to the next step.
-
-  - title: "Delete existing Stitch integration datasets in {{ page.display_name }}"
+  - title: "Step 2: Delete existing Stitch integration datasets in {{ page.display_name }}"
     anchor: "delete-existing-integration-datasets"
     content: |
       {% include important.html type="single-line" content="This step must be completed before you connect the new destination in Stitch or replication issues will occur." %}
@@ -110,69 +112,71 @@ steps:
 
       **Note**: This must be completed for every integration dataset created using a {{ destination.display_name }} v1 destination where you want to continue replicating data to the same dataset name. Additionally, this is applicable even if another Stitch account was used with {{ destination.display_name }} v1. If not completed, Stitch will encounter issues when attempting to load data.
 
+      **If you want to retain any historical webhook data**, create a backup of the data before deleting datasets from your {{ destination.display_name }} instance. If you have the ability to replay webhook data, you may not need to do this.
+
       Refer to [Google's documentation]({{ site.data.destinations.bigquery.resource-links.delete-dataset }}){:target="new"} for instructions on deleting datasets.
 
-  - title: "Set up {{ destination.display_name }} v2"
+  - title: "Step 3: Set up {{ destination.display_name }} v2"
     anchor: "set-up-v2-in-stitch"
     content: |
       Next, you'll configure the new {{ destination.display_name }} v2 destination in Stitch:
 
-      {% for substep in step.substeps %}
-      - [Step 3.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
       {% endfor %}
-    substeps:
-      - title: "Create a GCP IAM service account"
+    subsections:
+      - title: "Step 3.1: Create a GCP IAM service account"
         anchor: "create-gcp-iam-service-account"
         content: |
-          {% for sub-substep in substep.sub-substeps %}
-          - [Step 3.1.{{ forloop.index }}: {{ sub-substep.title }}](#{{ sub-substep.anchor }})
+          {% for sub-subsection in subsection.sub-subsections %}
+          - [{{ sub-subsection.title }}](#{{ sub-subsection.anchor }})
           {% endfor %}
-        sub-substeps:
-          - title: "Define the service account details"
+        sub-subsections:
+          - title: "Step 3.1.1: Define the service account details"
             anchor: "define-service-account-details"
             content: |
               {% include destinations/google-bigquery/create-iam-service-account.html type="define-service-account-details" %}
 
-          - title: "Assign BigQuery Admin permissions"
+          - title: "Step 3.1.2: Assign BigQuery Admin permissions"
             anchor: "assign-bigquery-admin-permissions"
             content: |
               {% include destinations/google-bigquery/create-iam-service-account.html type="assign-bq-admin" %}
 
-          - title: "Create a JSON project key"
+          - title: "Step 3.1.3: Create a JSON project key"
             anchor: "create-json-project-key"
             content: |
               {% include destinations/google-bigquery/create-iam-service-account.html type="create-json-project-key" %}
 
-      - title: "Connect Stitch"
+      - title: "Step 3.2: Connect Stitch"
         anchor: "connect-stitch"
         content: |
           To complete the setup, you'll upload the GCP project key file to Stitch and define settings for your {{ destination.display_name }} destination:
 
-          {% for sub-substep in substep.sub-substeps %}
-          - [Step 3.2.{{ forloop.index }}: {{ sub-substep.title }}](#{{ sub-substep.anchor }})
+          {% for sub-subsection in subsection.sub-subsections %}
+          - [{{ sub-subsection.title }}](#{{ sub-subsection.anchor }})
           {% endfor %}
-        sub-substeps:
-          - title: "Upload the JSON project key file to Stitch"
+        sub-subsections:
+          - title: "Step 3.2.1: Upload the JSON project key file to Stitch"
             anchor: "upload-json-project-key-file"
             content: |
               {% include destinations/google-bigquery/define-stitch-settings.html type="upload-project-file" version-migration=true %}
 
-          - title: "Select a Google Storage Location"
+          - title: "Step 3.2.2: Select a Google Storage Location"
             anchor: "select-gcp-storage-location"
             content: |
               {% include destinations/google-bigquery/define-stitch-settings.html type="select-gcs-location" %}
 
-          - title: "Define loading behavior"
+          - title: "Step 3.2.3: Define loading behavior"
             anchor: "define-loading-behavior"
             content: |
               {% include destinations/google-bigquery/define-stitch-settings.html type="define-loading-behavior" %}
 
-          - title: "Save the destination"
+          - title: "Step 3.2.4: Save the destination"
             anchor: "save-destination"
             content: |
               {% include shared/database-connection-settings.html type="finish-up" %}
 
-  - title: "Unpause your integrations"
+  - title: "Step 4: Unpause your integrations"
     anchor: "unpause-your-integrations"
     content: |
       {% include destinations/switching-destination-steps.html type="unpause-integrations" %}

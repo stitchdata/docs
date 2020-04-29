@@ -22,7 +22,7 @@ full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.replication-jobs.post.description }}"
 description: |
-  {{ api.core-objects.replication-jobs.post.description }}
+  {{ site.data.connect.core-objects.replication-jobs.post.description }}
 
   **Note**: Stitch allows only one replication job to run at a time. Attempting to start a job when another is in progress will return a status of `200 OK` and a single error object. See the **Responses** tab below for an example.
 
@@ -56,22 +56,20 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
-    code: |
-      {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","120643" | remove: right-bracket | strip_newlines }}
-           -H "Authorization: Bearer <ACCESS_TOKEN>" 
-           -H "Content-Type: application/json"
+    request-url: |
+      {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{source_id","120643" | remove: right-bracket | strip_newlines }}
+    header: "{{ site.data.connect.request-headers.put.without-body | flatify }}"
+    code: ""
 
-  - type: "Responses"
+  - type: "Response"
     subexamples:
-      - type: "Replication job successfully started"
+      - title: "Replication job successfully started"
         code: |
           {
           "job_name": "116078.120643.sync.c12fb0a7-7e4a-11e9-abdc-0edc2c318fba"
           }
 
-      - type: "Replication not started; another job is in progress"
+      - title: "Replication not started; another job is in progress"
         code: |
           {
             "error": {

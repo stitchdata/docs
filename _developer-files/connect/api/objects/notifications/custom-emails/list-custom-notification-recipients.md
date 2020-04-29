@@ -17,12 +17,12 @@ version: "1"
 title: "List custom emails"
 method: "get"
 short-url: |
-  {{ api.core-objects.notifications.custom-emails.list.name | flatify }}
+  {{ site.data.connect.core-objects.notifications.custom-emails.list.name | flatify }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.notifications.custom-emails.list.description }}"
+short: "{{ site.data.connect.core-objects.notifications.custom-emails.list.description }}"
 description: |
-  {{ api.core-objects.notifications.custom-emails.list.description }} This includes custom notification recipients that have been disabled.
+  {{ site.data.connect.core-objects.notifications.custom-emails.list.description }} This includes custom notification recipients that have been disabled.
   **Note**: To use this endpoint, your Stitch plan must include access to the [Custom notification list]({{ link.account.customize-notifications | prepend: site.baseurl }}) feature.
 
 
@@ -31,7 +31,7 @@ description: |
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and an array of [Custom Email Notification objects]({{ api.data-structures.notifications.custom-email.section }}), one for each custom notification recipient.
+  If successful, the API will return a status of <code class="api success">200 OK</code> and an array of [Custom Email Notification objects]({{ site.data.connect.data-structures.notifications.custom-email.section }}), one for each custom notification recipient.
 
 
 # ------------------------------ #
@@ -40,15 +40,11 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
-    code: |
-      {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip }}
-           -H "Authorization: Bearer <ACCESS_TOKEN>" 
-           -H "Content-Type: application/json"
+    request-url: "{{ endpoint.short-url | flatify | strip }}"
+    header: "{{ site.data.connect.request-headers.get.without-body | flatify }}"
+    code: ""
 
-  - type: "Responses"
-    language: "json"
+  - type: "Response"
     code: |
       [
         {
