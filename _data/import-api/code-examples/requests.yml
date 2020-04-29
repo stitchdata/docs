@@ -2,86 +2,38 @@
 #   EXAMPLE CURL REQUESTS    #
 # -------------------------- #
 
-get-status: |
-  curl {{ site.data.import-api.api.base-url }}{{ site.data.import-api.core-objects.api-status.url }}
-
-
-validate-request: |
-  curl -X POST {{ site.data.import-api.api.base-url }}{{ site.data.import-api.core-objects.validate.url }} \
-       -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
-       -H 'Content-Type: application/json' \
-       -d $'
-            {
-              "table_name": "customers",
-              "schema": {
-                "properties": {
-                  "id": {
-                    "type": "integer"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "age": {
-                    "type": "integer"
-                  },
-                  "has_magic": {
-                    "type": "boolean"
-                  }
-                }
-              },
-              "messages": [
-                {
-                  "action": "upsert",
-                  "sequence": 1565880017,
-                  "data": {
-                    "id": 1,
-                    "name": "Finn",
-                    "age": 15,
-                    "has_magic": false
-                  }
-                }
-              ],
-              "key_names": [
-                "id"
-              ]
-            }
-
 push-data: |
-  curl -X POST {{ site.data.import-api.api.base-url }}{{ site.data.import-api.core-objects.batch.url }} \
-       -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
-       -H 'Content-Type: application/json' \
-       -d $'
-            {
-              "table_name": "customers",
-              "schema": {
-                "properties": {
-                  "id": {
-                    "type": "integer"
-                  },
-                  "name": {
-                    "type": "string"
-                  },
-                  "age": {
-                    "type": "integer"
-                  },
-                  "has_magic": {
-                    "type": "boolean"
-                  }
-                }
-              },
-              "messages": [
-                {
-                  "action": "upsert",
-                  "sequence": 1565880017,
-                  "data": {
-                    "id": 1,
-                    "name": "Finn",
-                    "age": 15,
-                    "has_magic": false
-                  }
-                }
-              ],
-              "key_names": [
-                "id"
-              ]
-            }
+  '{
+     "table_name":"customers",
+     "schema":{
+        "properties":{
+           "id":{
+              "type":"integer"
+           },
+           "name":{
+              "type":"string"
+           },
+           "age":{
+              "type":"integer"
+           },
+           "has_magic":{
+              "type":"boolean"
+           }
+        }
+     },
+     "messages":[
+        {
+           "action":"upsert",
+           "sequence":1565880017,
+           "data":{
+              "id":1,
+              "name":"Finn",
+              "age":15,
+              "has_magic":false
+           }
+        }
+     ],
+     "key_names":[
+        "id"
+     ]
+  }'

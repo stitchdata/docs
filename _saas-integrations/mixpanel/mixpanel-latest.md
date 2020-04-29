@@ -153,7 +153,15 @@ setup-steps:
   - title: "add integration"
     content: |
       4. Paste your API credentials in the the **API Key** and **Secret** fields, respectively.
-  - title: "historical sync"
+  - title: "Define the historical sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+      
+      **Note**: {{ integration.display_name }} limits the number of days historical data may be accessed, depending on your {{ integration.display_name }} plan. If you select a Start Date greater than what your {{ integration.display_name }} account has access to, the {{ integration.display_name }} API will return an error and prevent Stitch from extracting data.
+      
+      For example: If you have a Starter Free {{ integration.display_name }} plan, you have access to 90 days of historical data (as of 04/28/2020). If you select a Start Date greater than 90 days, {{ integration.display_name }}'s API will prevent Stitch from extracting your data.
+      
+      Refer to [{{ integration.display_name }}'s documentation](https://help.mixpanel.com/hc/en-us/articles/115004511246){:target="new"} for more info and to check your {{ integration.display_name }} account's historical data access limit.
   - title: "replication frequency"
   - title: "track data"
 

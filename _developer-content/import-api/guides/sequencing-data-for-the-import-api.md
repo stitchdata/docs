@@ -87,8 +87,7 @@ sections:
 
           For example: The record below has a `sequence` value of `1574800199000`:
 
-          ```json
-          {
+          {% capture code %}{
              "action":"upsert",
              "sequence":1574800199000,
              "data":{
@@ -98,7 +97,9 @@ sections:
                 "has_magic":false
              }
           }
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html language="json" code=code %}
 
           In this example, `sequence` is a Unix epoch in milliseconds that translates to `Tuesday, November 26, 2019 8:29:59 PM GMT-05:00`.
 
@@ -106,21 +107,18 @@ sections:
         anchor: "record-sequencing-primary-keys"
         content: |
           {% capture append-only-notice %}
-          **Note**: This section only applies if the destination isn't configured to use Append-Only loading.
-
           If the destination uses or only supports Append-Only loading, data will not be de-duplicated using Primary Keys. The version of the record with the greatest sequence value will be loaded, but it will be appended to the destination table as a new row. This means that a table can contain several versions of a single record, showing how it has changed over time.
 
           Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info.
           {% endcapture %}
 
-          {% include note.html content=append-only-notice %}
+          {% include note.html first-line="**Note**: This section only applies if the destination isn't configured to use Append-Only loading." content=append-only-notice %}
 
           Every record sent to the Import API must have a `sequence` property. If Primary Keys are defined for the table records are sent to, Stitch will use the provided `sequence` value and the record's Primary Key to de-duplicate data. This process ensures that only the most recent version of a record is loaded into a destination.
 
           For example: Below is a single request containing two data points, both for the same record (`id: 2`). Only data point 1 would be loaded into the destination, as it has a greater `sequence` value than data point 2:
 
-          ```json
-          {
+          {% capture code %}{
              "action":"upsert",           /* Data point 1 */
              "sequence":1574807445000,    /* 11/26/2019 10:30:45 PM */
              "data":{
@@ -138,7 +136,10 @@ sections:
                 "has_magic":true
              }
           }
-          ```
+          
+          {% endcapture %}
+
+          {% include layout/code-snippet.html language="json" code=code %}
 
   - title: "Defining record sequences"
     anchor: "define-record-sequences"
@@ -171,16 +172,13 @@ sections:
     anchor: "examples"
     summary: "An example request"
     content: |
-      {% include note.html type="single-line" content="**Note**: This example request uses the Batch endpoint." %}
-
-      This request contains three data points: One for record `id: 1`, and two for `id: 2`.
+      This request for [POST {{ site.data.import-api.core-objects.batch.url }}]({{ link.import-api.api | append: site.data.import-api.core-objects.batch.anchor | prepend: site.baseurl }}) the contains three data points: One for record `id: 1`, and two for `id: 2`.
 
       If these data points were received in this order, only data points 1 and 2 would continue to Stitch.
 
       Data point 3 would not, as its `sequence` value is less than the `sequence` value for data point 2, which also has a Primary Key value of `id: 2`.
 
-      ```json
-      {
+      {% capture code %}{
          "table_name":"customers",
             "messages":[
             {
@@ -228,5 +226,9 @@ sections:
             }
          }
       }
-      ```
+      {% endcapture %}
+
+      {% assign description = "Example request for POST " | append: site.data.import-api.core-objects.batch.url %}
+
+      {% include layout/code-snippet.html code-description=description language="json" code=code %}
 ---

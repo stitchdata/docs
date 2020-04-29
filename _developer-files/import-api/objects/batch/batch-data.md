@@ -130,132 +130,126 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
     subexamples:
-      - type: "Pushing a single record"
+      - title: "Pushing a single record"
+        header: &header "{{ site.data.connect.request-headers.post.with-body }}"
+        request-url: &request-url "{{ endpoint.short-url | flatify }}"
         code: |
-          {% capture request-header %}
-          curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }} \
-               -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
-               -H "Content-Type: application/json" \
-               -d $
-          {% endcapture %}
+          '{
+              "table_name": "customers",
+              "schema": {
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "age": {
+                    "type": "integer"
+                  },
+                  "has_magic": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "messages": [
+                {
+                  "action": "upsert",
+                  "sequence": 1565880017,
+                  "data": {
+                    "id": 1,
+                    "name": "Finn",
+                    "age": 15,
+                    "has_magic": false
+                  }
+                }
+              ],
+              "key_names": [
+                "id"
+              ]
+            }'
 
-          {{ request-header | rstrip }}
-                    {
-                      "table_name": "customers",
-                      "schema": {
-                        "properties": {
-                          "id": {
-                            "type": "integer"
-                          },
-                          "name": {
-                            "type": "string"
-                          },
-                          "age": {
-                            "type": "integer"
-                          },
-                          "has_magic": {
-                            "type": "boolean"
-                          }
-                        }
-                      },
-                      "messages": [
-                        {
-                          "action": "upsert",
-                          "sequence": 1565880017,
-                          "data": {
-                            "id": 1,
-                            "name": "Finn",
-                            "age": 15,
-                            "has_magic": false
-                          }
-                        }
-                      ],
-                      "key_names": [
-                        "id"
-                      ]
-                    }
-
-
-      - type: "Pushing multiple records"
+      - title: "Pushing multiple records"
+        header: *header
+        request-url: *request-url
         code: |
-          {{ request-header | rstrip }}
-                    {
-                       "table_name":"customers",
-                       "schema":{
-                          "properties":{
-                             "id":{
-                                "type":"integer"
-                             },
-                             "name":{
-                                "type":"string"
-                             },
-                             "age":{
-                                "type":"integer"
-                             },
-                             "has_magic":{
-                                "type":"boolean"
-                             }
-                          }
-                       },
-                       "messages":[
-                          {
-                             "action":"upsert",
-                             "sequence":1565881320,
-                             "data":{
-                                "id":2,
-                                "name":"Jake",
-                                "age":6,
-                                "has_magic":true
-                             }
-                          },
-                          {
-                             "action":"upsert",
-                             "sequence":1565838645,
-                             "data":{
-                                "id":3,
-                                "name":"Bubblegum",
-                                "age":17,
-                                "has_magic":true
-                             }
-                          }
-                       ],
-                       "key_names":[
-                          "id"
-                       ]
-                    }
+          '{
+             "table_name":"customers",
+             "schema":{
+                "properties":{
+                   "id":{
+                      "type":"integer"
+                   },
+                   "name":{
+                      "type":"string"
+                   },
+                   "age":{
+                      "type":"integer"
+                   },
+                   "has_magic":{
+                      "type":"boolean"
+                   }
+                }
+             },
+             "messages":[
+                {
+                   "action":"upsert",
+                   "sequence":1565881320,
+                   "data":{
+                      "id":2,
+                      "name":"Jake",
+                      "age":6,
+                      "has_magic":true
+                   }
+                },
+                {
+                   "action":"upsert",
+                   "sequence":1565838645,
+                   "data":{
+                      "id":3,
+                      "name":"Bubblegum",
+                      "age":17,
+                      "has_magic":true
+                   }
+                }
+             ],
+             "key_names":[
+                "id"
+             ]
+          }'
 
-      - type: "Pushing a record without a Primary Key"
+      - title: "Pushing a record without a Primary Key"
+        header: *header
+        request-url: *request-url
         code: |
-          {{ request-header | rstrip }}
-                    {
-                       "table_name":"customers_no_primary_keys",
-                       "schema":{
-                          "properties":{
-                             "name":{
-                                "type":"string"
-                             },
-                             "age":{
-                                "type":"integer"
-                             },
-                             "has_magic":{
-                                "type":"boolean"
-                             }
-                          }
-                       },
-                       "messages":[
-                          {
-                             "action":"upsert",
-                             "sequence":1565881320,
-                             "data":{
-                                "name":"BMO",
-                                "age":2,
-                                "has_magic":false
-                             }
-                          }
-                       ]
-                    }
+          '{
+             "table_name":"customers_no_primary_keys",
+             "schema":{
+                "properties":{
+                   "name":{
+                      "type":"string"
+                   },
+                   "age":{
+                      "type":"integer"
+                   },
+                   "has_magic":{
+                      "type":"boolean"
+                   }
+                }
+             },
+             "messages":[
+                {
+                   "action":"upsert",
+                   "sequence":1565881320,
+                   "data":{
+                      "name":"BMO",
+                      "age":2,
+                      "has_magic":false
+                   }
+                }
+             ]
+          }'
 
   - type: "Response"
     language: "json"

@@ -21,6 +21,7 @@ short-url: |
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.push.short | flatify }}"
+
 description: |
   {% capture notice %}
   We recommend using the [Create a batch]({{ site.data.import-api.core-objects.batch.anchor }}) endpoint instead. The Batch endpoint allows you to specify a schema and enforce data types, while this endpoint does not.
@@ -123,100 +124,92 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
     subexamples:
-      - type: "Pushing a single record for a single table"
+      - title: "Pushing a single record for a single table"
+        header: &header "{{ site.data.connect.request-headers.post.with-body }}"
+        request-url: &request-url "{{ endpoint.short-url | flatify }}"
         code: |
-          {% capture request-header %}
-          curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }} \
-               -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
-               -H "Content-Type: application/json" \
-               -d $
-          {% endcapture %}
+          '[
+             {
+                "client_id":7723,
+                "table_name":"customers",
+                "sequence":1565880017,
+                "data":{
+                   "id":1,
+                   "name":"Finn"
+                },
+                "key_names":[
+                   "id"
+                ],
+                "action":"upsert"
+             }
+          ]'
 
-          {{ request-header | rstrip }}
-                  '[
-                    {
-                      "client_id": 7723,
-                      "table_name": "customers",
-                      "sequence": 1565880017,
-                      "data": {
-                        "id": 1,
-                        "name": "Finn"
-                      },
-                      "key_names": [
-                        "id"
-                      ],
-                      "action": "upsert"
-                    }
-                  ]'
-
-
-      - type: "Pushing multiple records for a single table"
+      - title: "Pushing multiple records for a single table"
+        header: *header
+        request-url: *request-url
         code: |
-          {{ request-header | rstrip }}
-                  '[
-                    {
-                      "client_id": 7723,
-                      "table_name": "customers",
-                      "sequence": 1565880017,
-                      "data": {
-                        "id": 4,
-                        "name": "BMO"
-                      },
-                      "key_names": [
-                        "id"
-                      ],
-                      "action": "upsert"
-                    },
-                    {
-                      "client_id": 7723,
-                      "table_name": "customers",
-                      "sequence": 1565838645,
-                      "data": {
-                        "id": 5,
-                        "name": "Ice King"
-                      },
-                      "key_names": [
-                        "id"
-                      ],
-                      "action": "upsert"
-                    }
-                  ]'
+          '[
+             {
+                "client_id":7723,
+                "table_name":"customers",
+                "sequence":1565880017,
+                "data":{
+                   "id":4,
+                   "name":"BMO"
+                },
+                "key_names":[
+                   "id"
+                ],
+                "action":"upsert"
+             },
+             {
+                "client_id":7723,
+                "table_name":"customers",
+                "sequence":1565838645,
+                "data":{
+                   "id":5,
+                   "name":"Ice King"
+                },
+                "key_names":[
+                   "id"
+                ],
+                "action":"upsert"
+             }
+          ]'
 
-
-      - type: "Pushing records for multiple tables"
+      - title: "Pushing records for multiple tables"
+        header: *header
+        request-url: *request-url
         code: |
-          {{ request-header | rstrip }}
-                  '[
-                    {
-                      "client_id": 7723,
-                      "table_name": "customers",
-                      "sequence": 1565880017,
-                      "data": {
-                        "id": 4,
-                        "name": "BMO"
-                      },
-                      "key_names": [
-                        "id"
-                      ],
-                      "action": "upsert"
-                    },
-                    {
-                      "client_id": 7723,
-                      "table_name": "orders",
-                      "sequence": 1565838645,
-                      "data": {
-                        "order_id": 561,
-                        "customer_id": 4
-                      },
-                      "key_names": [
-                        "order_id"
-                      ],
-                      "action": "upsert"
-                    }
-                  ]'
-
+          '[
+             {
+                "client_id":7723,
+                "table_name":"customers",
+                "sequence":1565880017,
+                "data":{
+                   "id":4,
+                   "name":"BMO"
+                },
+                "key_names":[
+                   "id"
+                ],
+                "action":"upsert"
+             },
+             {
+                "client_id":7723,
+                "table_name":"orders",
+                "sequence":1565838645,
+                "data":{
+                   "order_id":561,
+                   "customer_id":4
+                },
+                "key_names":[
+                   "order_id"
+                ],
+                "action":"upsert"
+             }
+          ]'
 
 
   - type: "Response"

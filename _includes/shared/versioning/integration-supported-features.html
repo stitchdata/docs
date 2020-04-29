@@ -23,7 +23,7 @@
         </td>
         {% for version in released-versions %}
             {% for integration in all-versioned-docs %}
-                {% if version.number == integration.this-version %}
+                {% if version.number == integration.this-version and version.status != "sunset" %}
                     <td class="table-subheading">
                         <strong>{{ display_name }}<br>
                         <a href="{{ integration.url | prepend: site.baseurl }}">version {{ version.number }}</a></strong>
@@ -63,7 +63,7 @@
                 <!-- Feature value columns -->
                 {% for version in released-versions %}
                     {% for integration in all-versioned-docs %}
-                        {% if version.number == integration.this-version %}
+                        {% if version.number == integration.this-version and version.status != "sunset" %}
                             <td>
                                 {{ attribute.field-value | flatify | markdownify }}
                             </td>

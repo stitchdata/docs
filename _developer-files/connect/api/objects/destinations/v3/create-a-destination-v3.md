@@ -54,147 +54,41 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
-    subexamples:
-      - type: "Create an Amazon S3 destination"
-        code: |
-          {% capture request-header %}
-          curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
-               -H "Authorization: Bearer <ACCESS_TOKEN>" 
-               -H "Content-Type: application/json"
-               -d "{
-          {% endcapture %}
-
-          {{ request-header | flatify | lstrip | rstrip }}
-                    "type":"s3",
-                    "connection": {
-                      "s3_bucket":"com-stitch-test-bucket",
-                      "output_file_format":"csv",
-                      "s3_key_format_string":"[integration_name]/[table_name]/[table_version]_[timestamp_loaded].csv",
-                      "csv_delimiter":",",
-                      "csv_force_quote":true
-                      }
-                   }"
-
-      - type: "Create an Amazon Redshift destination"
-        code: |
-          {{ request-header | flatify | lstrip | rstrip }}
-                    "type":"redshift",
-                    "connection": {
-                      "host":"<HOST>",
-                      "port":5439,
-                      "username":"<USERNAME>",
-                      "database":"<DATABASE>",
-                      "password":"<PASSWORD>",
-                      "ssl":false
-                      }
-                   }"
-
-      - type: "Create a PostgreSQL destination"
-        code: |
-          {{ request-header | flatify | lstrip | rstrip }}
-                    "type":"postgres",
-                    "connection": {
-                      "host":"<HOST>",
-                      "port":5432,
-                      "username":"<USERNAME>",
-                      "database":"<DATABASE>",
-                      "password":"<PASSWORD>",
-                      "ssl":false
-                      }
-                   }"
-
-      - type: "Create a Snowflake destination"
-        code: |
-          {{ request-header | flatify | lstrip | rstrip }}
-                    "type":"snowflake",
-                    "connection": {
-                      "host":"<HOST>",
-                      "port":443,
-                      "user":"<USERNAME>",
-                      "warehouse":"<WAREHOUSE>",
-                      "database":"<DATABASE>",
-                      "password":"<PASSWORD>",
-                      "role":"<OPTIONAL_ROLE>",
-                      "ssl":false
-                      }
-                   }"
+    header: "{{ site.data.connect.request-headers.post.with-body | flatify }}"
+    request-url: "{{ endpoint.short-url | flatify | strip_newlines }}"
+    code: |
+              '{
+                "type":"s3",
+                "connection": {
+                  "s3_bucket":"com-stitch-test-bucket",
+                  "output_file_format":"csv",
+                  "s3_key_format_string":"[integration_name]/[table_name]/[table_version]_[timestamp_loaded].csv",
+                  "csv_delimiter":",",
+                  "csv_force_quote":true
+                  }
+               }'
 
   - type: "Response"
-    language: "json"
-    subexamples:
-      - type: "Amazon S3 destination response"
-        description: |
-          **Note**: There are additional steps to creating an Amazon S3 destination beyond submitting a successful request to this endpoint. Refer to the [Amazon S3 Destination Form Property documentation]({{ api.form-properties.destination-forms.section | append: "-amazon-s3-object" }}) for more info.
-        code: |
-          {% capture response-header %}
-          HTTP/1.1 200 OK
-          Content-Type: application/json;charset=ISO-8859-1
-
-          {
-            "id":"<DESTINATION_ID>",
-            "type":"[DESTINATION-TYPE]",
-            "created_at":"2018-02-06T15:36:36Z",
-            "updated_at":"2018-02-06T15:36:36Z",
-            "connection": {
-          {% endcapture %}
-
-          {% capture last-check-object %}
-            "last_check":{
-                "error":false,
-                "started_at":"2018-02-06T16:15:19Z",
-                "completed_at":"2018-02-06T16:16:21Z"
-            }
-          }
-          {% endcapture %}
-
-          {{ response-header | flatify | replace: "[DESTINATION-TYPE]","s3" | lstrip | rstrip }}
-                "s3_bucket":"com-stitch-test-bucket",
-                "output_file_format":"csv",
-                "s3_key_format_string":"[integration_name]/[table_name]/[table_version]_[timestamp_loaded].csv",
-                "csv_delimiter":",",
-                "csv_force_quote":true,
-                "sentinel_key":"stitch-challenge-file-af295ad1-7a4b-4881-89dc-c9be27de13a5"
-            },
-          {{ last-check-object | rstrip }}
-
-      - type: "Amazon Redshift destination response"    
-        code: |
-          {{ response-header | flatify | replace: "[DESTINATION-TYPE]","redshift" | lstrip | rstrip }}
-                "host":"<HOST>",
-                "port":5439,
-                "username":"<USERNAME>",
-                "database":"<DATABASE>",
-                "password":"<PASSWORD>",
-                "ssl":false
-            },
-          {{ last-check-object | rstrip }}
-
-      - type: "PostgreSQL destination response"    
-        code: |
-          {{ response-header | flatify | replace: "[DESTINATION-TYPE]","postgres" | lstrip | rstrip }}
-                "host":"<HOST>",
-                "port":5432,
-                "username":"<USERNAME>",
-                "database":"<DATABASE>",
-                "password":"<PASSWORD>",
-                "ssl":false
-            },
-          {{ last-check-object | rstrip }}
-
-      - type: "Snowflake destination response"    
-        code: |
-          {{ response-header | flatify | replace: "[DESTINATION-TYPE]","snowflake" | lstrip | rstrip }}
-                "host":"<HOST>",
-                "port":443,
-                "user":"<USERNAME>",
-                "warehouse":"<WAREHOUSE>",
-                "database":"<DATABASE>",
-                "password":"<PASSWORD>",
-                "role":"<OPTIONAL_ROLE>",
-                "ssl":false
-            },
-          {{ last-check-object | rstrip }}
+    code: |
+      {
+        "id":"<DESTINATION_ID>",
+        "type":"s3",
+        "created_at":"2018-02-06T15:36:36Z",
+        "updated_at":"2018-02-06T15:36:36Z",
+        "connection": {
+            "s3_bucket":"com-stitch-test-bucket",
+            "output_file_format":"csv",
+            "s3_key_format_string":"[integration_name]/[table_name]/[table_version]_[timestamp_loaded].csv",
+            "csv_delimiter":",",
+            "csv_force_quote":true,
+            "sentinel_key":"stitch-challenge-file-af295ad1-7a4b-4881-89dc-c9be27de13a5"
+        },
+        "last_check":{
+            "error":false,
+            "started_at":"2018-02-06T16:15:19Z",
+            "completed_at":"2018-02-06T16:16:21Z"
+        }
+      }
 
   - type: "Errors"
 ---

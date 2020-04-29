@@ -17,12 +17,12 @@ version: "1"
 title: "Delete a custom email"
 method: "delete"
 short-url: |
-  {{ api.core-objects.notifications.custom-emails.delete.name | flatify }}
+  {{ site.data.connect.core-objects.notifications.custom-emails.delete.name | flatify }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.notifications.custom-emails.delete.description }}"
+short: "{{ site.data.connect.core-objects.notifications.custom-emails.delete.description }}"
 description: |
-  {{ api.core-objects.notifications.custom-emails.delete.description }}
+  {{ site.data.connect.core-objects.notifications.custom-emails.delete.description }}
   **Note**: To use this endpoint, your Stitch plan must include access to the [Custom notification list]({{ link.account.customize-notifications | prepend: site.baseurl }}) feature.
 
 
@@ -53,15 +53,12 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
-    code: |
-      {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{id","22" | remove: right-bracket | strip_newlines }}
-           -H "Authorization: Bearer <ACCESS_TOKEN>" 
-           -H "Content-Type: application/json"
+    request-url: |
+      {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{id","22" | remove: right-bracket | strip_newlines }}
+    header: "{{ site.data.connect.request-headers.delete | flatify }}"
+    code: ""
   
-  - type: "Responses"
-    language: "json"
+  - type: "Response"
     code: |
       [
         1

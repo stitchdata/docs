@@ -30,7 +30,7 @@ below.  -->
 {% if page.permalink contains "integrations" %}
   {% if page.this-version %}
     {% assign all-connection-settings = site.data.ui.database-integration-settings.[page.db-type].[page.name] %}
-      {% assign versioned-connection-settings = all-connection-settings | where:"version",page.this-version %}
+      {% assign versioned-connection-settings = all-connection-settings | where_exp:"field","field.version contains page.this-version" %}
         {% assign connection-settings = all-connection-settings | where:"version","all" | concat: versioned-connection-settings %}
 
   {% else %}
