@@ -25,7 +25,7 @@ layout: tutorial
 ## This is used only on the /stitch-connect/guides page.
 doc-type: "tutorial"
 icon: table-selection
-order: 3
+order: 4
 
 description: "Select streams and fields for replication."
 
