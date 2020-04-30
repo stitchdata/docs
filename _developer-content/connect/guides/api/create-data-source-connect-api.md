@@ -94,10 +94,9 @@ steps:
 
       Use the [{{ source-types.get.method | upcase }} {{ source-types.get.name | flatify }} endpoint]({{ link.connect.api | append: source-types.get.anchor | prepend: site.baseurl }}) to get the report card for the source. In this example, we're retrieving the report card for a `platform.recurly` source:
 
-      {% assign request-url = source-types.get.name %}
-
-      {% assign description = "GET " | append: request-url %}
-
+      {% assign example-url = source-types.get.name %}
+      {% assign request-url = example-url | flatify | remove: right-bracket | replace:"{source_type","platform.recurly" | strip_newlines %}
+      {% assign description = "GET " | append: example-url %}
       {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.get.without-body request-url=request-url %}
 
       The response will be a [Source object]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.object }}) with a [Connection step object]({{ link.connect.api | append: site.data.connect.data-structures.connection-steps.section | prepend: site.baseurl }}):
@@ -239,16 +238,16 @@ steps:
         }
       }
       {% endcapture %}
-
-      {% assign description = "Response for GET " | append: request-url %}
-
+      {% assign description = "Response for GET " | append: example-url %}
       {% include layout/code-snippet.html code-description=description code=code %}
 
       **Note**: To create the source in your account, the `details.access` property must be `true`. This indicates that the plan your Stitch account is using has access to the source.
 
+      {% assign form-property = site.developer-files | where:"key","source-form-properties-recurly-object" | first %}
+
       For Recurly sources, the following steps are required to fully configure the source:
 
-      1. **The `form` step**. Provide values for all required user-provided properties. These properties will have a `is_required: true` value and a `property_type: user_provided` value. Refer to the [{{ form-property.title }} documentation]({{ | append: "#" | append: form-property.key }}) for more info about these properties.
+      1. **The `form` step**. Provide values for all required user-provided properties. These properties will have a `is_required: true` value and a `property_type: user_provided` value. Refer to the [{{ form-property.title }} documentation]({{ link.connect.api | prepend: site.baseurl | append: "#" | append: form-property.key }}) for more info about these properties.
 
       2. **The `discover_schema` step.** Stitch runs a [connection check]({{ site.data.connect.core-objects.connection-checks.section | prepend: link.connect.api | prepend: site.baseurl }}) to test the provided `form` properties and detects the streams and fields available in the source. If all `form` properties are valid, including credentials, Stitch will automatically advance to the next step without any action required on your part.
 
@@ -263,14 +262,12 @@ steps:
 
       Use the [{{ sources.create.method | upcase }} {{ sources.create.name | flatify }} endpoint]({{ link.connect.api | prepend: site.baseurl | append: sources.create.anchor }}) to create the Recurly source. The request body must include the following properties:
 
-      {% assign form-property = site.developer-files | where:"key","source-form-properties-recurly-object" | first %}
-
       {% include developers/api-form-property-fields-logic.html content="source" %}
 
       - `type`: The API type of the source. In this example, this value will be `platform.recurly`.
       - `display_name`: {{ site.data.connect.general.common.attributes.display-name }}
 
-         For example:  A display name of `Recurly` will create a destination schema named `recurly`.
+         For example:  A display name of `Recurly` will create a destination schema named `recurly`. **Note**: The schema name can't be changed after the source has been created.
       - `properties`: A [Properties object]({{ site.data.connect.data-structures.properties.section | prepend: link.connect.api | prepend: site.baseurl }}) containing the properties required to configure the source. Refer to the [Source form property documentation]({{ site.data.connect.data-structures.source-form-properties.section | prepend: link.connect.api | prepend: site.baseurl }}) for your source for more info about the required properties.
 
          For `platform.recurly`, the properties are:
@@ -665,7 +662,7 @@ steps:
 
       Now that the source is `fully_configured`, you can start extracting data.
 
-      Stitch will automatically schedule a replication job based on the [schedule you set](##create-source-complete-form-step). To see when the next replication job will begin, check the  `schedule.next_fire_time` value in the Source object:
+      Stitch will automatically schedule a replication job based on the [schedule you set](#create-source-complete-form-step). To see when the next replication job will begin, check the  `schedule.next_fire_time` value in the Source object:
 
       {% capture code %}
       {
