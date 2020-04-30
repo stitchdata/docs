@@ -1,15 +1,30 @@
 ---
 tap: "outreach"
-version: "0.x"
+version: "1"
+
 name: "prospects"
-doc-link: ""
+doc-link: "https://api.outreach.io/api/v2/docs#prospect"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/prospects.json"
-description: ""
-replication-method: ""
+description: |
+  The {{ table.name }} table contains information about your prospects.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "Prospect"
+    doc-link: "https://api.outreach.io/api/v2/docs#prospect"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The prospect ID."
+    #foreign-key-id: "prospect-id"
+
+  - name: "updatedAt"
+    type: "date-time"
+    description: "The time the prospect was last updated."
+
   - name: "accountId"
     type: "integer"
     description: ""
@@ -304,9 +319,6 @@ attributes:
   - name: "homePhones"
     type: "string"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
   - name: "jobStartDate"
     type: "date-time"
     description: ""
@@ -441,9 +453,6 @@ attributes:
     description: ""
   - name: "twitterUsername"
     type: "string"
-    description: ""
-  - name: "updatedAt"
-    type: "date-time"
     description: ""
   - name: "updaterId"
     type: "integer"

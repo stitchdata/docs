@@ -1,15 +1,30 @@
 ---
 tap: "outreach"
-version: "0.x"
+version: "1"
+
 name: "users"
-doc-link: ""
+doc-link: "https://api.outreach.io/api/v2/docs#user"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/users.json"
-description: ""
-replication-method: ""
+description: |
+  The {{ table.name }} table contains information about individual users that use the {{ integration.display_name }} app.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "User"
+    doc-link: "https://api.outreach.io/api/v2/docs#user"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The user ID."
+    #foreign-key-id: "user-id"
+  
+  - name: "updatedAt"
+    type: "date-time"
+    description: "The time the user was last updated."
+
   - name: "activityNotificationsDisabled"
     type: "boolean"
     description: ""
@@ -76,9 +91,6 @@ attributes:
     description: ""
   - name: "firstName"
     type: "string"
-    description: ""
-  - name: "id"
-    type: "integer"
     description: ""
   - name: "inboundBridgePhone"
     type: "string"
@@ -169,9 +181,6 @@ attributes:
     description: ""
   - name: "unknownReplyEmailEnabled"
     type: "boolean"
-    description: ""
-  - name: "updatedAt"
-    type: "date-time"
     description: ""
   - name: "updaterId"
     type: "integer"

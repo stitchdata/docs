@@ -1,15 +1,31 @@
 ---
 tap: "outreach"
-version: "0.x"
+version: "1"
+
 name: "mailings"
-doc-link: ""
+doc-link: "https://api.outreach.io/api/v2/docs#mailing"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/mailings.json"
-description: ""
-replication-method: ""
+description: |
+  The {{ table.name }} table is a representation of a platform-related table.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "Mailing"
+    doc-link: "https://api.outreach.io/api/v2/docs#mailing"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The mailing ID."
+    #foreign-key-id: "mailing-id"
+
+  - name: "updatedAt"
+    type: "date-time"
+    description: "The time the mailing was last updated."
+    replication-key: true
+
   - name: "bodyHtml"
     type: "string"
     description: ""
@@ -45,9 +61,6 @@ attributes:
     description: ""
   - name: "followUpTaskType"
     type: "string"
-    description: ""
-  - name: "id"
-    type: "integer"
     description: ""
   - name: "mailboxAddress"
     type: "string"
@@ -137,9 +150,6 @@ attributes:
     type: "boolean"
     description: ""
   - name: "unsubscribedAt"
-    type: "date-time"
-    description: ""
-  - name: "updatedAt"
     type: "date-time"
     description: ""
 ---

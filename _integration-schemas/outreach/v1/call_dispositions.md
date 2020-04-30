@@ -1,22 +1,35 @@
 ---
 tap: "outreach"
-version: "0.x"
+version: "1"
+
 name: "call_dispositions"
-doc-link: ""
+doc-link: "https://api.outreach.io/api/v2/docs#callDisposition"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/call_dispositions.json"
-description: ""
-replication-method: ""
+description: |
+  The {{ table.name }} table contains information about call dispositions from your call log in {{ integration.display_name }}.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "Call Disposition"
+    doc-link: "https://api.outreach.io/api/v2/docs#callDisposition"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The call disposition ID."
+    #foreign-key-id: "disposition-id"
+
+  - name: "updatedAt"
+    type: "date-time"
+    description: "The time the call disposition was last updated." 
+    replication-key: true 
+
   - name: "createdAt"
     type: "date-time"
     description: ""
   - name: "creatorId"
-    type: "integer"
-    description: ""
-  - name: "id"
     type: "integer"
     description: ""
   - name: "name"
@@ -27,8 +40,5 @@ attributes:
     description: ""
   - name: "outcome"
     type: "string"
-    description: ""
-  - name: "updatedAt"
-    type: "date-time"
     description: ""
 ---

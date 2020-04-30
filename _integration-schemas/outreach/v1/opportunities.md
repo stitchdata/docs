@@ -1,15 +1,30 @@
 ---
 tap: "outreach"
-version: "0.x"
+version: "1"
+
 name: "opportunities"
-doc-link: ""
+doc-link: "https://api.outreach.io/api/v2/docs#opportunity"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/opportunities.json"
-description: ""
-replication-method: ""
+description: |
+  The {{ table.name }} table contains information about your pending deals and sales on {{ integration.display_name }}.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "Opoortunity"
+    doc-link: "https://api.outreach.io/api/v2/docs#opportunity"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: ""
+    #foreign-key-id: "opportunity-ID"
+
+  - name: "updatedAt"
+    type: "date-time"
+    description: "The time the opportunity was last updated."  
+
   - name: "accountId"
     type: "integer"
     description: ""
@@ -331,9 +346,6 @@ attributes:
   - name: "externalCreatedAt"
     type: "date-time"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
   - name: "name"
     type: "string"
     description: ""
@@ -363,9 +375,6 @@ attributes:
         type: "string"
         description: ""
   - name: "touchedAt"
-    type: "date-time"
-    description: ""
-  - name: "updatedAt"
     type: "date-time"
     description: ""
 ---

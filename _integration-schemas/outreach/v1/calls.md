@@ -1,15 +1,31 @@
 ---
 tap: "outreach"
-version: "0.x"
+version: "1"
+
 name: "calls"
-doc-link: ""
+doc-link: "https://api.outreach.io/api/v2/docs#call"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/calls.json"
-description: ""
-replication-method: ""
+description: |
+  The {{ table.name }} table contains information about inbound and outbount calls in your {{ integration.display_name }} call log.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "Call"
+    doc-link: "https://api.outreach.io/api/v2/docs#call"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The call ID."
+    #foreign-key-id: "call-id"
+
+  - name: "updatedAt"
+    type: "date-time"
+    description: "The time the call was last updated."
+    replication-key: true
+
   - name: "answeredAt"
     type: "date-time"
     description: ""
@@ -30,9 +46,6 @@ attributes:
     description: ""
   - name: "from"
     type: "string"
-    description: ""
-  - name: "id"
-    type: "integer"
     description: ""
   - name: "note"
     type: "string"
@@ -82,9 +95,6 @@ attributes:
     description: ""
   - name: "to"
     type: "string"
-    description: ""
-  - name: "updatedAt"
-    type: "date-time"
     description: ""
   - name: "userCallType"
     type: "string"

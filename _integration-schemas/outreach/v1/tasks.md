@@ -1,15 +1,30 @@
 ---
 tap: "outreach"
-version: "0.x"
+version: "1"
+
 name: "tasks"
-doc-link: ""
+doc-link: "https://api.outreach.io/api/v2/docs#task"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/tasks.json"
-description: ""
-replication-method: ""
+description: |
+  The {{ table.name }} table contains information about items that require action in {{ integration.display_name }}.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "Task"
+    doc-link: "https://api.outreach.io/api/v2/docs#task"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The task ID."
+    #foreign-key-id: "task-id"
+  
+  - name: "updatedAt"
+    type: "date-time"
+    description: "The time the task was last updated."
+
   - name: "accountId"
     type: "integer"
     description: ""
@@ -42,9 +57,6 @@ attributes:
     description: ""
   - name: "dueAt"
     type: "date-time"
-    description: ""
-  - name: "id"
-    type: "integer"
     description: ""
   - name: "mailingId"
     type: "integer"
@@ -93,8 +105,5 @@ attributes:
     description: ""
   - name: "templateId"
     type: "integer"
-    description: ""
-  - name: "updatedAt"
-    type: "date-time"
     description: ""
 ---

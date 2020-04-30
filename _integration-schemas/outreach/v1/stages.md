@@ -1,15 +1,30 @@
 ---
 tap: "outreach"
-version: "0.x"
+version: "1"
+
 name: "stages"
-doc-link: ""
+doc-link: "https://api.outreach.io/api/v2/docs#stage"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/stages.json"
-description: ""
-replication-method: ""
+description: |
+  The {{ table.name }} table contains information about different stages in a deal process.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "Stage"
+    doc-link: "https://api.outreach.io/api/v2/docs#stage"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The stage ID."
+    #foreign-key-id: "stage-id"
+
+  - name: "updatedAt"
+    type: "date-time"
+    description: "The time the stage was last updated."  
+
   - name: "color"
     type: "string"
     description: ""
@@ -19,17 +34,11 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
   - name: "name"
     type: "string"
     description: ""
   - name: "order"
     type: "integer"
-    description: ""
-  - name: "updatedAt"
-    type: "date-time"
     description: ""
   - name: "updaterId"
     type: "integer"
