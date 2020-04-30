@@ -13,10 +13,10 @@
 # -------------------------- #
 
 title: Recurly (v1)
-permalink: /integrations/saas/recurly/v1
+permalink: /integrations/saas/recurly
+redirect_from: /integrations/saas/recurly/v1
 keywords: recurly, integration, schema, etl recurly, recurly etl, recurly schema
 layout: singer
-input: false
 
 key: "recurly-setup"
 
@@ -46,6 +46,8 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Standard"
 status-url: "https://status.recurly.com/"
+
+api-type: "platform.recurly"
 
 anchor-scheduling: true
 cron-scheduling: true

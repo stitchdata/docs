@@ -27,10 +27,10 @@ object-attributes:
       The type of step. Possible values are:
 
       - `form` - The first step in every source's creation.
-      - `oauth` - If required, the OAuth step for the source's creation.
+      - `oauth` - If required, the OAuth step for the source's creation. **Note**: OAuth properties may be provided alongside `form` properties in a single `POST` or `PUT` request. A separate request isn't necessary.
       - `profile` - If required, the profile selection step. For example: Selecting a Facebook Ads profile.
-      - `discover_schema` - The step in which Stitch performs a [structure sync]({{ api.terms }}) to detect the tables and attributes available in the source.
-      - `field_selection` - The step in which tables and columns are selected for replication.
+      - `discover_schema` - The step in which Stitch performs a [structure sync]({{ api.terms }}) to detect the streams and fields available in the source.
+      - `field_selection` - The step in which streams and fields are selected for replication.
       - `fully_configured` - Achieved when the source has a successful connection and `field_selection` is complete.
 
   - name: "properties"

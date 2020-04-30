@@ -68,5 +68,5 @@ examples:
         code: "{{ site.data.connect.code-examples.connection-checks.successful | lstrip }}"
 
       - title: "A failed connection check"
-        code: "{{ site.data.connect.code-examples.connection-checks.in-progress | lstrip }}"
+        code: "{{ site.data.connect.code-examples.connection-checks.failed | lstrip }}"
 ---
