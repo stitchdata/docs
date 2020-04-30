@@ -70,7 +70,7 @@ requirements:
   - item: |
       **Access to a source with a `field_selection` connection step**. This guide will use a [Shopify SaaS source]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section |  append: "-shopify-object" }}) as an example, but any source type with a `field_selection` step will work.
 
-         Refer to the [Source Form Properties documentation]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section }}) for the sources supported by Connect. To determine if a source has a `field_selection` step, [retrieve its Report Card]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.source-types.get.anchor | flatify }}).
+         Refer to the [Destination and source API availability reference]({{ link.connect.guides.connection-reference | prepend: site.baseurl | append: "#sources-api-availability" }}) for the sources supported by Connect. To determine if a source has a `field_selection` step, [retrieve its Report Card]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.source-types.get.anchor | flatify }}).
 
 
 # -------------------------- #
@@ -87,7 +87,7 @@ steps:
       {% assign stream-id = "2288758" %}
       {% assign tap-stream-id = "custom_collections" %}
 
-      Create and configure a source. Refer to the [Quick start guide]({{ link.connect.guides.create-configure-a-source | flatify | prepend: site.baseurl }}) for instructions.
+      Create and configure a source. Refer to steps 1-3 of the [Create and configure a source using the Connect API guide]({{ link.connect.guides.create-configure-a-source | flatify | prepend: site.baseurl }}) for instructions.
   
   - title: "Wait for a successful connection check and discovery"
     anchor: "successful-connection-check-discovery"
@@ -288,9 +288,7 @@ steps:
 
           {% capture code %}{{ site.data.connect.code-examples.streams.request-bodies.database | rstrip | prepend: quote | append: quote }}
           {% endcapture %}
-
           {% assign description = "Example request body for a stream with a configurable Replication Method" %}
-
           {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
           **Note**: When `replication-method` is set to `INCREMENTAL`, the value of the `replication-key` property must be one of the following:
@@ -304,9 +302,7 @@ steps:
 
           {% capture code %}{{ site.data.connect.code-examples.streams.saas-stream | rstrip }}
           {% endcapture %}
-
           {% assign description = "Example metadata for a stream with a forced Replication Method" %}
-
           {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
           When the stream's metadata contains the `forced-replication-method` property, its Replication Method cannot be changed. If selected, the stream will use the `forced-replication-method` and the field in `valid-replication-keys` as a Replication Key, if applicable.
@@ -315,9 +311,7 @@ steps:
 
           {% capture code %}{{ site.data.connect.code-examples.streams.request-bodies.saas | rstrip | prepend: quote | append: quote }}
           {% endcapture %}
-
           {% assign description = "Example request body for a stream with a forced Replication Method" %}
-
           {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
       - title: "Submit the request"
@@ -328,9 +322,7 @@ steps:
 
           {% assign example-url = site.data.connect.core-objects.streams.update.name %}
           {% assign request-url = example-url | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines %}
-
           {% assign description = substep.endpoint %}
-
           {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.put.with-body request-url=request-url code=code%}
 
           {% capture code %}'{
@@ -367,12 +359,9 @@ steps:
 
       {% assign example-url = site.data.connect.core-objects.streams.update.name | strip_newlines %}
       {% assign request-url = example-url | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines %}
-
       {% assign description = "Selecting a single field via " | append: step.endpoint %}
-
       {% capture code %}{{ site.data.connect.code-examples.field-metadata.request-bodies.saas-field | rstrip | prepend: quote | append: quote }} 
       {% endcapture %}
-
       {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.put.with-body request-url=request-url code=code %}
 
       Multiple fields in a stream can be submitted as part of the same request. For each field included in the request body, include a `metadata` object referencing the field.
@@ -381,9 +370,7 @@ steps:
 
       {% capture code %}{{ site.data.connect.code-examples.field-metadata.request-bodies.saas-fields | rstrip | prepend: quote | append: quote }} 
       {% endcapture %}
-
       {% assign description = "Selecting multiple fields via " | append: step.endpoint %}
-
       {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.put.with-body request-url=request-url code=code %}
 
       **Note**: Fields with metadata properties of `inclusion: automatic` or `selected-by-default: true` don't need to be explicitly selected through a request. These fields will be automatically selected for replication regardless of their `selected` value. Refer to the [Field selection and compatibility rules guide]({{ link.connect.guides.field-selection-compatibility-rules | prepend: site.baseurl }}) for more info.
