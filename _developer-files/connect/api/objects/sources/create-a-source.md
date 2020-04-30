@@ -25,7 +25,10 @@ short: "{{ site.data.connect.core-objects.sources.create.short }}"
 description: |
   {{ site.data.connect.core-objects.sources.create.description | flatify }}
 
-  Refer to the [Destination and source API availability reference]({{ link.connect.guides.connection-reference | prepend: site.baseurl | append: "#sources-api-availability" }}) for info on the sources that are available in the API.
+  Refer to these resources for creating and configuring sources:
+
+  - [Destination and source API availability reference]({{ link.connect.guides.connection-reference | prepend: site.baseurl | append: "#sources-api-availability" }})
+  - [Create and configure a source using the Connect API]({{ link.connect.guides.create-configure-a-source | prepend: site.baseurl }})
 
 
 # -------------------------- #
