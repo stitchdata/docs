@@ -244,17 +244,29 @@ setup-steps:
   - title: "Retrieve your developer API keys from {{ integration.display_name }}"
     anchor: "retrieve-trello-api-keys"
     content: |
+      ![]({{ site.baseurl }}/images/integrations/trello-developer-keys.png){:align="right" style="max-width: 250px"}
+
       1. Sign into your {{ integration.display_name }} account.
       2. Go to the [{{ integration.display_name }} Developer API Keys page](https://trello.com/app-key/){:target="new"}.
       3. Add `https://app.stitchdata.com` to the **Allowed Origins**.
-      3. Locate the **Key** and **Secret** fields. 
+      4. Locate the following fields:
+         - The **Key** field in the **Developer API Keys** section
+         - The **Secret** field in the **OAuth** section
 
       Leave this page open for now - you'll need it to complete the setup in Stitch.
   - title: "add integration"
     content: |
-      4. Enter your {{ integration.display_name }} API Key and Secret into their respective fields.
+      4. In the **{{ integration.display_name }} Account Key** field, paste the value from the **Key** field on the Developer API Keys page.
+      5. In the **{{ integration.display_name }} Account Secret** field, paste the value from the **Secret** field on the Developer API Keys page.
   - title: "historical sync"
   - title: "replication frequency"
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
+    anchor: "grant-stitch-authorization"
+    content: |
+      1. Next, you'll be redirected to {{ integration.display_name }} to grant Stitch access to your {{ integration.display_name }} data.
+      2. Click **Allow** to grant authorization to Stitch.
+      3. After the authorization process is successfully completed, you'll be directed back to Stitch.
+      4. Click {{ app.buttons.finish-int-setup }}.
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
