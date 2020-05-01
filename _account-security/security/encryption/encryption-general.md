@@ -13,7 +13,7 @@ feedback: false
 
 key: "data-encryption-overview"
 type: "security"
-weight: 1
+weight: 2
 
 enterprise: true
 enterprise-cta:

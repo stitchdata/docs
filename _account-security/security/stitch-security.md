@@ -10,7 +10,7 @@ layout: faq
 toc: true
 
 type: "security"
-weight: 5
+weight: 1
 
 enterprise: true
 enterprise-cta:
