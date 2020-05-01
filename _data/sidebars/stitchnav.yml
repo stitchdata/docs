@@ -99,11 +99,20 @@ all-docs:
 
     - title: Security
       subsections:
+        - title: "Compliance"
+          url: "{{ link.security.faq }}#stitch-compliance"
+
         - title: "Data encryption"
           url: "{{ link.security.encryption }}"
 
-        - title: "FAQ"
-          url: "{{ link.security.faq }}"
+        - title: "Data access policies"
+          url: "{{ link.security.faq }}#stitch-access"
+
+        - title: "Protocols and recommendations"
+          url: "{{ link.security.faq }}#stitch-protocols-recommendations"
+
+        - title: "Reporting issues"
+          url: "{{ link.security.faq }}#security-issues"
 
     - title: Enterprise
       url: "{{ link.account.enterprise-features }}"
