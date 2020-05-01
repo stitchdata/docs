@@ -55,7 +55,16 @@ steps:
   - title: "Establish the reverse SSH tunnel"
     anchor: "establish-reverse-ssh-tunnel"
     content: |
-      After you receive the SSH connection information from us, run the following command to establish the tunnel, replacing the items in brackets:
+      After you receive the SSH connection information from us, you can establish the SSH tunnel. There are two methods you can use to accomplish this:
+
+      - [With autossh (recommended)](#with-autossh)
+      - [Without autossh](#without-autossh)
+
+      ### With autossh (recommended) {#with-autossh}
+
+      We recommend running SSH through [autossh](https://www.harding.motd.ca/autossh/){:target="new"}, which will start a copy of SSH, monitor it, and automatically restart the tunnel if it goes down or stops passing traffic. If you don't already have autossh installed, you'll need to do so before continuing. Refer to [autossh's documentation](https://www.harding.motd.ca/autossh/){:target="new"} for instructions.
+
+      The following command will establish the tunnel using autossh. When you run this, replace the items in brackets:
 
       {% capture code %}autossh -M 0 -f -N -R <TUNNEL_PORT>:<DATABASE_HOST_OR_IP>:<DATABASE_PORT> -i <SSH_PRIVATE_KEY> <SSH_USER>@<SSH_HOST> -o ServerAliveInterval=10 -o ServerAliveCountMax=1 -o ExitOnForwardFailure=yes 
       {% endcapture %}
@@ -66,6 +75,22 @@ steps:
       For example: Here's the same command, but with all the values inserted:
 
       {% capture code %}autossh -M 0 -f -N -R 10000:database.private.yourcompany.com:5432 -i id_rsa.pem yourcompany@33.44.55.66 -o ServerAliveInterval=10 -o ServerAliveCountMax=1 -o ExitOnForwardFailure=yes 
+      {% endcapture %}
+      {% include layout/code-snippet.html language="shell" code=code %}
+
+      ### Without autossh {#without-autossh}
+
+      To establish the tunnel without using autossh, run the following command, replacing the items in brackets:
+
+      {% capture code %}ssh -f -N -R <TUNNEL_PORT>:<DATABASE_HOST_OR_IP>:<DATABASE_PORT> -i <SSH_PRIVATE_KEY> <SSH_USER>@<SSH_HOST>
+      {% endcapture %}
+      {% include layout/code-snippet.html language="shell" code=code %}
+
+      The `<DATABASE_HOST_OR_IP>` and `<DATABASE_PORT>` values are the host/endpoint and port of the database you're connecting from, respectively. For `<TUNNEL_PORT>`, `<SSH_USER>`, and `<SSH_HOST>`, use the SSH connection values you received from our team.
+
+      Here's the same command, but with all the values inserted:
+
+      {% capture code %}ssh -f -N -R 10000:database.private.yourcompany.com:5432 -i id_rsa.pem yourcompany@33.44.55.66
       {% endcapture %}
       {% include layout/code-snippet.html language="shell" code=code %}
 ---
