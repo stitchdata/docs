@@ -3,7 +3,7 @@ tap: "bing-ads"
 version: "2"
 
 name: "keyword_performance_report"
-doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportcolumn#values
+doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/keywordperformancereportfilter?view=bingads-13
 singer-schema: 
 description: |
   The `{{ table.name }}` table contains performance data about keywords.

@@ -3,7 +3,7 @@ tap: "bing-ads"
 version: "2"
 
 name: "accounts"
-doc-link: https://docs.microsoft.com/en-us/bingads/customer-management-service/account
+doc-link: https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13
 singer-schema: 
 description: |
   The `{{ table.name }}` table contains high-level information about each of the ad accounts you selected during setup. Each row in this table corresponds to a single account.
