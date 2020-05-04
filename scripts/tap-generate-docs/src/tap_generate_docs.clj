@@ -483,6 +483,15 @@
           (System/exit 0))))))
 
 (comment
+  ;; How to run with just one file
+  (map (partial convert-multiary-type nil nil)
+       (-> "/Users/andylu/git/tap-closeio/tap_closeio/schemas/activities.json"
+           slurp
+           json/read-str
+           (get "properties")))
+  )
+
+(comment
   (def ^:dynamic *interactive* true)
   (-main "bigcommerce")
 
