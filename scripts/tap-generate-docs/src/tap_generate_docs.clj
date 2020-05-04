@@ -96,23 +96,25 @@
                      "subattributes"
                      (convert-object-properties tap-fs schema (property-json-schema-partial "properties"))))
             (= "array" (property-json-schema-partial "type"))
-            (let [items (property-json-schema-partial "items")
-                  item-type (items "type")
-                  converted-property (do
-                                       (when ((set item-type) "array")
-                                         (throw (ex-info (str "Currently cannot handle a type with arrays of arrays. "
-                                                              "Discuss how docs output should work if encountered.")
-                                                         {:property property})))
-                                       (if (or (= "object" item-type)
-                                               ((set item-type) "object"))
-                                         (convert-array-object-type tap-fs schema property items)
-                                         [(convert-multiary-type tap-fs schema ["value" items])]))]
-              ;; TODO Log (or verify that it's already logged) dropped value
-              (if (empty? converted-property)
-                base-converted-property
-                (assoc base-converted-property
-                       "subattributes"
-                       converted-property)))
+            (if (nil? (property-json-schema-partial "items"))
+              (throw (ex-info "Found array type without items defined: " {:property-name property-name}))
+              (let [items (property-json-schema-partial "items")
+                    item-type (items "type")
+                    converted-property (do
+                                         (when ((set item-type) "array")
+                                           (throw (ex-info (str "Currently cannot handle a type with arrays of arrays. "
+                                                                "Discuss how docs output should work if encountered.")
+                                                           {:property property})))
+                                         (if (or (= "object" item-type)
+                                                 ((set item-type) "object"))
+                                           (convert-array-object-type tap-fs schema property items)
+                                           [(convert-multiary-type tap-fs schema ["value" items])]))]
+                ;; TODO Log (or verify that it's already logged) dropped value
+                (if (empty? converted-property)
+                  base-converted-property
+                  (assoc base-converted-property
+                         "subattributes"
+                         converted-property))))
 
             (and (= "string" (property-json-schema-partial "type"))
                  (contains? property-json-schema-partial "enum"))
