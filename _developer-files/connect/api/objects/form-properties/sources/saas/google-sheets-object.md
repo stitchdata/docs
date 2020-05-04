@@ -31,7 +31,7 @@ docs-name: "google-sheets" # This should be whatever integration.name is. Ex: Li
 
 
 # -------------------------- #
-#      OBJECT ATTRIBUTES     #
+#       FORM PROPERTIES      #
 # -------------------------- #
 
 uses-start-date: true
@@ -47,5 +47,39 @@ object-attributes:
     required: true
     description: |
       The unique identifier of your spreadsheet. It's also a good idea to link back to the setup docs for this, since locating the spreadsheet ID isn't totally straightforward. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#obtain-spreadsheet-id" }}) for instructions on locating this info.
-    value: "<YOUR_SPREADSHEET_ID>"   
+    value: "<YOUR_SPREADSHEET_ID>"
+
+
+# -------------------------- #
+#       OAUTH PROPERTIES     #
+# -------------------------- #
+
+oauth-link: "https://developers.google.com/sheets/api/guides/authorizing?hl=en"
+
+oauth-description: ""
+
+oauth-properties:
+  - name: "client_id"
+    type: "string"
+    required: true
+    credential: true
+    description: |
+      Your {{ form-property.display-name }} OAuth application's client ID, obtained when you create an OAuth app with Google. Refer to [Google's documentation](https://developers.google.com/sheets/api/guides/authorizing?hl=en#OAuth2Authorizing){:target="new"} for more info.
+    value: "<YOUR_OAUTH_CLIENT_ID>"
+
+  - name: "client_secret"
+    type: "string"
+    required: true
+    credential: true
+    description: |
+      Your {{ form-property.display-name }} OAuth application's client secret, obtained when you create an OAuth app with Google. Refer to [Google's documentation](https://developers.google.com/sheets/api/guides/authorizing?hl=en#OAuth2Authorizing){:target="new"} for more info.
+    value: "<YOUR_OAUTH_CLIENT_SECRET>"
+
+  - name: "refresh_token"
+    type: "string"
+    required: true
+    credential: true
+    description: |
+      A long-lived token, used to generate new {{ form-property.display-name }} access tokens when old ones expire.
+    value: "<REFRESH_TOKEN>"
 ---
