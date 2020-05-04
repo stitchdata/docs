@@ -318,6 +318,26 @@
                                       {"definitions" {"integer" {"type" "integer"}}}
                                       ["an_string" {"$ref" "#/definitions/string"}]))))
 
+(deftest maybe-remove-anyOf-test
+  (are [x y] (= y
+                (maybe-remove-anyOf x))
+    ["field1" {"anyOf" [{"type" "string"}
+                        {"type" "integer"}]}]
+    ["field1" {"type" ["string" "integer"]}]
+
+    ["field2" {"anyOf" [{"type" ["null" "string"]}
+                        {"type" "integer"}]}]
+    ["field2" {"type" ["null" "string" "integer"]}]
+
+    ["field3" {"anyOf" [{"type" ["null" "string"]
+                         "format" "date-time"}
+                        {"type" "string"}]}]
+    ["field3" {"type" ["null" "string"]
+               "format" "date-time"}]
+
+    ["field4" {"type" ["null" "string"]}]
+    ["field4" {"type" ["null" "string"]}]))
+
 (deftest convert-types-with-bad-refs-tests
   (is (thrown? clojure.lang.ExceptionInfo
                (convert-multiary-type nil
