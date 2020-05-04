@@ -246,6 +246,13 @@
        "type" "date-time, integer"
        "description" ""}
 
+      ["a_date" {"anyOf" [{"type" ["null" "string"]
+                           "format" "date-time"}
+                          {"type" "integer"}]}]
+      {"name" "a_date"
+       "type" "date-time, integer"
+       "description" ""}
+
       ["a_date" {"type" "string"
                  "format" "date-time"}]
       {"name" "a_date"
