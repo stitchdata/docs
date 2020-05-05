@@ -11,7 +11,7 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Oportunity"
+    name: "Opportunity"
     doc-link: "https://api.outreach.io/api/v2/docs#opportunity"
 
 attributes:
