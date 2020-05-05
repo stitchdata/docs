@@ -23,6 +23,7 @@ attributes:
 
   - name: "updatedAt"
     type: "date-time"
+    replication-key: true
     description: "The time the call purpose was last updated."
 
   - name: "createdAt"
