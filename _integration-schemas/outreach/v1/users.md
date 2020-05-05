@@ -24,6 +24,7 @@ attributes:
   - name: "updatedAt"
     type: "date-time"
     description: "The time the user was last updated."
+    replication-key: true
 
   - name: "activityNotificationsDisabled"
     type: "boolean"

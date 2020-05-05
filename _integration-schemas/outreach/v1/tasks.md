@@ -24,6 +24,7 @@ attributes:
   - name: "updatedAt"
     type: "date-time"
     description: "The time the task was last updated."
+    replication-key: true
 
   - name: "accountId"
     type: "integer"

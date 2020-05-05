@@ -23,7 +23,8 @@ attributes:
 
   - name: "updatedAt"
     type: "date-time"
-    description: "The time the persona was last updated."  
+    description: "The time the persona was last updated." 
+    replication-key: true 
 
   - name: "createdAt"
     type: "date-time"

@@ -23,7 +23,8 @@ attributes:
 
   - name: "updatedAt"
     type: "date-time"
-    description: "The time the stage was last updated."  
+    description: "The time the stage was last updated." 
+    replication-key: true 
 
   - name: "color"
     type: "string"

@@ -44,7 +44,7 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-certified: true
+certified: false
 
 api-type: "platform.outreach"
 
@@ -91,14 +91,12 @@ feature-summary: |
 # -------------------------- #
 
 requirements-list:
-  - item: |
-      **An Outreach OAuth application**. If you have not set one up yet in {{ integration.display_name }}, refer to the [{{ integration.display_name }} API documentation](https://api.outreach.io/api/v2/docs#authentication) for more information.
-
+  
 setup-steps:
   - title: "add integration"
     anchor: "add-integration"
     content: |
-      4. In the **Quota Limit** field, define the percentage of your standard API quota Stitch is allowed to use. This is an optional field. Before you define the limit, refer to the [{{ integration.display_name }} API documentation](https://api.outreach.io/api/v2/docs#rate-limiting) to learn about your {{ integration.display_name }} rate limit.
+      4. In the **Quota Limit** field, define the percentage of your standard {{ integration.display_name }} API quota Stitch is allowed to use. This is an optional field. Before you define the limit, refer to the [{{ integration.display_name }} API documentation](https://api.outreach.io/api/v2/docs#rate-limiting) to learn about your {{ integration.display_name }} rate limit.
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data" ## remove this if the integration doesn't support at least table selection

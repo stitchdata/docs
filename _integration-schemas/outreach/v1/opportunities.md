@@ -11,7 +11,7 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Opportunity"
+    name: "Oportunity"
     doc-link: "https://api.outreach.io/api/v2/docs#opportunity"
 
 attributes:
@@ -23,7 +23,8 @@ attributes:
 
   - name: "updatedAt"
     type: "date-time"
-    description: "The time the opportunity was last updated."  
+    description: "The time the opportunity was last updated."
+    replication-key: true 
 
   - name: "accountId"
     type: "integer"

@@ -45,6 +45,6 @@ object-attributes:
     type: "string"
     required: false
     description: |
-      The percentage of your standard API quota Stitch is allowed to use. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#add-integration" }}) for more information on defining this limit.
-    value: "XX%"
+      The percentage of your standard {{ form-property.display-name }} API quota Stitch is allowed to use. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#add-integration" }}) for more information on defining this limit.
+    value: "XX"
 ---
