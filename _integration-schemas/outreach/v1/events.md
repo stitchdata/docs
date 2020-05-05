@@ -1,18 +1,19 @@
 ---
 tap: "outreach"
 version: "1"
+key: "event"
 
 name: "events"
 doc-link: "https://api.outreach.io/api/v2/docs#event"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/events.json"
 description: |
-  The {{ table.name }} table contains information about application events in your {{ integration.display_name }} account.
+  The `{{ table.name}}` table contains information about application events in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Event"
-    doc-link: "https://api.outreach.io/api/v2/docs#event"
+  name: "Get events"
+  doc-link: "https://api.outreach.io/api/v2/docs#event"
 
 attributes:
   - name: "id"
@@ -23,8 +24,8 @@ attributes:
 
   - name: "eventAt"
     type: "date-time"
-    description: ""
     replication-key: true
+    description: "The time the event occurred."
 
   - name: "body"
     type: "string"
@@ -38,14 +39,15 @@ attributes:
   - name: "mailingId"
     type: "integer"
     description: ""
+    # foreign-key-id: "mailing-id"
   - name: "payload"
     type: "object"
     description: ""
-    subattributes: [
-        ]
+    # subattributes: ""
   - name: "prospectId"
     type: "integer"
     description: ""
+    # foreign-key-id: "prospect-id"
   - name: "requestCity"
     type: "string"
     description: ""
@@ -64,4 +66,5 @@ attributes:
   - name: "userId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 ---

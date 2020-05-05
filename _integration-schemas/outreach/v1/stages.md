@@ -1,18 +1,19 @@
 ---
 tap: "outreach"
 version: "1"
+key: "stage"
 
 name: "stages"
 doc-link: "https://api.outreach.io/api/v2/docs#stage"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/stages.json"
 description: |
-  The {{ table.name }} table contains information about different stages in a deal process.
+  The `{{ table.name}}` table contains information about different stages in a deal process.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Stage"
-    doc-link: "https://api.outreach.io/api/v2/docs#stage"
+  name: "Get stages"
+  doc-link: "https://api.outreach.io/api/v2/docs#stage"
 
 attributes:
   - name: "id"

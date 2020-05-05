@@ -1,18 +1,19 @@
 ---
 tap: "outreach"
 version: "1"
+key: "task"
 
 name: "tasks"
 doc-link: "https://api.outreach.io/api/v2/docs#task"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/tasks.json"
 description: |
-  The {{ table.name }} table contains information about items that require action in {{ integration.display_name }}.
+  The `{{ table.name}}` table contains information about items that require action in {{ integration.display_name }}.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Task"
-    doc-link: "https://api.outreach.io/api/v2/docs#task"
+  name: "Get tasks"
+  doc-link: "https://api.outreach.io/api/v2/docs#task"
 
 attributes:
   - name: "id"
@@ -29,6 +30,7 @@ attributes:
   - name: "accountId"
     type: "integer"
     description: ""
+    # foreign-key-id: "account-id"
   - name: "action"
     type: "string"
     description: ""
@@ -38,6 +40,7 @@ attributes:
   - name: "callId"
     type: "integer"
     description: ""
+    # foreign-key-id: "call-id"
   - name: "compiledSequenceTemplateHtml"
     type: "string"
     description: ""
@@ -62,18 +65,21 @@ attributes:
   - name: "mailingId"
     type: "integer"
     description: ""
+    # foreign-key-id: "mailing-id"
   - name: "note"
     type: "string"
     description: ""
   - name: "opportunityId"
     type: "integer"
     description: ""
+    # foreign-key-id: "opportunity-id"
   - name: "ownerId"
     type: "integer"
     description: ""
   - name: "prospectId"
     type: "integer"
     description: ""
+    # foreign-key-id: "prospect-id"
   - name: "scheduledAt"
     type: "date-time"
     description: ""

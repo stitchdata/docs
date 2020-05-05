@@ -1,18 +1,19 @@
 ---
 tap: "outreach"
 version: "1"
+key: "call"
 
 name: "calls"
 doc-link: "https://api.outreach.io/api/v2/docs#call"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/calls.json"
 description: |
-  The {{ table.name }} table contains information about inbound and outbount calls in your {{ integration.display_name }} call log.
+  The `{{ table.name}}` table contains information about inbound and outbound calls in your {{ integration.display_name }} call logs.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Call"
-    doc-link: "https://api.outreach.io/api/v2/docs#call"
+  name: "Get calls"
+  doc-link: "https://api.outreach.io/api/v2/docs#call"
 
 attributes:
   - name: "id"
@@ -23,9 +24,9 @@ attributes:
 
   - name: "updatedAt"
     type: "date-time"
-    description: "The time the call was last updated."
     replication-key: true
-
+    description: "The time the call was last updated."
+    
   - name: "answeredAt"
     type: "date-time"
     description: ""
@@ -53,12 +54,14 @@ attributes:
   - name: "opportunityId"
     type: "integer"
     description: ""
+    # foreign-key-id: "opportunity-id"
   - name: "outcome"
     type: "string"
     description: ""
   - name: "prospectId"
     type: "integer"
     description: ""
+    # foreign-key-id: "prospect-id"
   - name: "recordingUrl"
     type: "string"
     description: ""
@@ -93,6 +96,7 @@ attributes:
   - name: "taskId"
     type: "integer"
     description: ""
+    # foreign-key-id: "task-id"
   - name: "to"
     type: "string"
     description: ""
@@ -102,6 +106,7 @@ attributes:
   - name: "userId"
     type: "integer"
     description: ""
+    # foreign-key-id: "user-id"
   - name: "voicemailRecordingUrl"
     type: "string"
     description: ""

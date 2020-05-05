@@ -6,7 +6,7 @@ name: "prospects"
 doc-link: "https://api.outreach.io/api/v2/docs#prospect"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/prospects.json"
 description: |
-  The {{ table.name }} table contains information about your prospects.
+  The `{{ table.name}}` table contains information about your prospects.
 
 replication-method: "Key-based Incremental"
 
@@ -29,6 +29,7 @@ attributes:
   - name: "accountId"
     type: "integer"
     description: ""
+    # foreign-key-id: "account-id"
   - name: "addedAt"
     type: "date-time"
     description: ""
@@ -379,6 +380,7 @@ attributes:
   - name: "personaId"
     type: "integer"
     description: ""
+    # foreign-key-id: "persona-id"
   - name: "personalNote1"
     type: "string"
     description: ""
@@ -427,6 +429,7 @@ attributes:
   - name: "stageId"
     type: "integer"
     description: ""
+    foreign-key-id: "stage-id"
   - name: "tags"
     type: "array"
     description: ""

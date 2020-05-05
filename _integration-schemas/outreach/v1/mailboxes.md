@@ -1,18 +1,19 @@
 ---
 tap: "outreach"
 version: "1"
+key: "mailbox"
 
 name: "mailboxes"
 doc-link: "https://api.outreach.io/api/v2/docs#mailbox"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/mailboxes.json"
 description: |
-  The {{ table.name }} table contains information about your {{ integration.display_name }} email mailbox.
+  The `{{ table.name}}` table contains information about your {{ integration.display_name }} email mailbox.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Mailbox"
-    doc-link: "https://api.outreach.io/api/v2/docs#mailbox"
+  name: "Get mailboxes"
+  doc-link: "https://api.outreach.io/api/v2/docs#mailbox"
 
 attributes:
   - name: "id"
@@ -55,9 +56,6 @@ attributes:
     description: ""
   - name: "exchangeVersion"
     type: "string"
-    description: ""
-  - name: "id"
-    type: "integer"
     description: ""
   - name: "imapHost"
     type: "string"
@@ -161,6 +159,7 @@ attributes:
   - name: "userId"
     type: "integer"
     description: ""
+    # foreign-key-id: "user-id"
   - name: "username"
     type: "string"
     description: ""

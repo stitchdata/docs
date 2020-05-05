@@ -1,18 +1,19 @@
 ---
 tap: "outreach"
 version: "1"
+key: "mailing"
 
 name: "mailings"
 doc-link: "https://api.outreach.io/api/v2/docs#mailing"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/mailings.json"
 description: |
-  The {{ table.name }} table is a representation of a platform-related email.
+  The `{{ table.name}}` table is a representation of a platform-related email.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Mailing"
-    doc-link: "https://api.outreach.io/api/v2/docs#mailing"
+  name: "Get mailings"
+  doc-link: "https://api.outreach.io/api/v2/docs#mailing"
 
 attributes:
   - name: "id"
@@ -68,6 +69,7 @@ attributes:
   - name: "mailboxId"
     type: "integer"
     description: ""
+    # foreign-key-id: "mailbox-id"
   - name: "mailingType"
     type: "string"
     description: ""
@@ -95,12 +97,14 @@ attributes:
   - name: "opportunityId"
     type: "integer"
     description: ""
+    # foreign-key-id: "opportunity-id"
   - name: "overrideSafetySettings"
     type: "boolean"
     description: ""
   - name: "prospectId"
     type: "integer"
     description: ""
+    # foreign-key-id: "prospect-id"
   - name: "references"
     type: "string"
     description: ""
@@ -140,6 +144,7 @@ attributes:
   - name: "taskId"
     type: "integer"
     description: ""
+    # foreign-key-id: "task-id"
   - name: "templateId"
     type: "integer"
     description: ""

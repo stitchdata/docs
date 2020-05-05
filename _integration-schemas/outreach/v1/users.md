@@ -1,18 +1,19 @@
 ---
 tap: "outreach"
 version: "1"
+key: "user"
 
 name: "users"
 doc-link: "https://api.outreach.io/api/v2/docs#user"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/users.json"
 description: |
-  The {{ table.name }} table contains information about individual users that use the {{ integration.display_name }} app.
+  The `{{ table.name}}` table contains information about individual users that use the {{ integration.display_name }} app.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "User"
-    doc-link: "https://api.outreach.io/api/v2/docs#user"
+  name: "Get users"
+  doc-link: "https://api.outreach.io/api/v2/docs#user"
 
 attributes:
   - name: "id"
@@ -81,6 +82,7 @@ attributes:
       - name: "id"
         type: "integer"
         description: ""
+        # foreign-key-id: "duty-id"
       - name: "name"
         type: "string"
         description: ""
@@ -123,6 +125,7 @@ attributes:
   - name: "mailboxId"
     type: "integer"
     description: ""
+    # foreign-key-id: "mailbox-id"
   - name: "name"
     type: "string"
     description: ""

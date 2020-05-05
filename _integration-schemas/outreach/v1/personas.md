@@ -1,18 +1,19 @@
 ---
 tap: "outreach"
 version: "1"
+key: "persona"
 
 name: "personas"
 doc-link: "https://api.outreach.io/api/v2/docs#persona"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/personas.json"
 description: |
-  The {{ table.name }} table contains information on descriptions and types of people.
+  The `{{ table.name}}` table contains information about descriptions and types of people in {{ integration.display_name }}.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Persona"
-    doc-link: "https://api.outreach.io/api/v2/docs#persona"
+  name: "Get personas"
+  doc-link: "https://api.outreach.io/api/v2/docs#persona"
 
 attributes:
   - name: "id"

@@ -1,18 +1,19 @@
 ---
 tap: "outreach"
 version: "1"
+key: "content-category"
 
 name: "content_categories"
 doc-link: "https://api.outreach.io/api/v2/docs#contentCategory"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/content_categories.json"
 description: |
-  The {{ table.name }} table contains information about content categories in {{ integration.display_name }}.
+  The `{{ table.name}}` table contains information about your content categories in {{ integration.display_name }}.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Content Category"
-    doc-link: "https://api.outreach.io/api/v2/docs#contentCategory"
+  name: "Get content categories"
+  doc-link: "https://api.outreach.io/api/v2/docs#contentCategory"
 
 attributes:
   - name: "id"

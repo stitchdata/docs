@@ -1,18 +1,19 @@
 ---
 tap: "outreach"
 version: "1"
+key: "duty"
 
 name: "duties"
 doc-link: "https://api.outreach.io/api/v2/docs#duty"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/duties.json"
 description: |
-  The {{ table.name }} table contains {{ integration.display_name }}-suggested job roles for users.
+  The `{{ table.name}}` table contains {{ integration.display_name }}-suggested job roles for users.
 
 replication-method: "Full Table"
 
 api-method:
-    name: "Duty"
-    doc-link: "https://api.outreach.io/api/v2/docs#duty"
+  name: "Get duties"
+  doc-link: "https://api.outreach.io/api/v2/docs#duty"
 
 attributes:
   - name: "id"

@@ -1,18 +1,19 @@
 ---
 tap: "outreach"
 version: "1"
+key: "team"
 
 name: "teams"
 doc-link: "https://api.outreach.io/api/v2/docs#team"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/teams.json"
 description: |
-  The {{ table.name }} table contains information about about groups of users on {{ integration.display_name }}.
+  The `{{ table.name}}` table contains information about groups of users in {{ integration.display_name }}.
 
 replication-method: "Full Table"
 
 api-method:
-    name: "Team"
-    doc-link: "https://api.outreach.io/api/v2/docs#team"
+  name: "Get teams"
+  doc-link: "https://api.outreach.io/api/v2/docs#team"
 
 attributes:
   - name: "id"

@@ -1,18 +1,19 @@
 ---
 tap: "outreach"
 version: "1"
+key: "call-purpose"
 
 name: "call_purposes"
 doc-link: "https://api.outreach.io/api/v2/docs#callPurpose"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/call_purposes.json"
 description: |
-  The {{ table.name }} table contains information about the purpose of calls in your {{ integration.display_name }} call log.
+  The `{{ table.name}}` table contains information about the purpose of calls in your {{ integration.display_name }} call logs.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Call Purpose"
-    doc-link: "https://api.outreach.io/api/v2/docs#callPurpose"
+  name: "Get call purposes"
+  doc-link: "https://api.outreach.io/api/v2/docs#callPurpose"
 
 attributes:
   - name: "id"

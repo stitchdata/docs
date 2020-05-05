@@ -1,24 +1,25 @@
 ---
 tap: "outreach"
 version: "1"
+key: "opportunity"
 
 name: "opportunities"
 doc-link: "https://api.outreach.io/api/v2/docs#opportunity"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/opportunities.json"
 description: |
-  The {{ table.name }} table contains information about your pending deals and sales on {{ integration.display_name }}.
+  The `{{ table.name}}` table contains information about your pending deals and sales in {{ integration.display_name }}.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Opportunity"
-    doc-link: "https://api.outreach.io/api/v2/docs#opportunity"
+  name: "Get pportunities"
+  doc-link: "https://api.outreach.io/api/v2/docs#opportunity"
 
 attributes:
   - name: "id"
     type: "integer"
     primary-key: true
-    description: ""
+    description: "The opportunity ID."
     #foreign-key-id: "opportunity-ID"
 
   - name: "updatedAt"

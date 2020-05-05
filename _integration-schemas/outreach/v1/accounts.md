@@ -1,18 +1,19 @@
 ---
 tap: "outreach"
 version: "1"
+key: "account"
 
 name: "accounts"
 doc-link: "https://api.outreach.io/api/v2/docs#account"
 singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/accounts.json"
 description: |
-  The {{ table.name}} table contains information about prospective clients on {{ integration.display_name }}.
+  The `{{ table.name }}` table contains information about prospective clients in {{ integration.display_name }}.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Account"
-    doc-link: "https://api.outreach.io/api/v2/docs#account"
+  name: "Get accounts"
+  doc-link: "https://api.outreach.io/api/v2/docs#account"
 
 attributes:
   - name: "id"
