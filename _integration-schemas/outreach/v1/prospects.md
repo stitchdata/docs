@@ -23,6 +23,7 @@ attributes:
 
   - name: "updatedAt"
     type: "date-time"
+    replication-key: true
     description: "The time the prospect was last updated."
 
   - name: "accountId"
