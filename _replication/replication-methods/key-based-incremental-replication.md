@@ -164,7 +164,23 @@ sections:
         content: |
           Due to the inclusive nature of Replication Keys, there will be some duplication during the extraction process. This is because Stitch checks for values that are greater than **or equal to** the last saved maximum Replication Key value.
 
-          Because of this approach, the record or records with Replication Key values equal to the maximum value will be selected for extraction during subsequent jobs. Most of the time, the number of re-replicated rows will be small. If, however, a bulk update occurs and a large number of records all have the same Replication Key value, you could see a high amount of rows being replicated during every replication job until a greater Replication Key value is detected.
+          Imagine a **DATE** field named `updated_date` is defined as a Replication Key, and Stitch runs an extraction at 12:01 AM on 05/01/2020.
+
+          Were Stitch to use **only** greater than, Stitch would not receive any other records that day, and any other new records that you add on 05/01/2020 would never be extracted. The next time Stitch would receive new data would be 05/02/2020, and the cycle would continue
+
+          Using **greater than or equal to**, Stitch continues to get records throughout the day, because the integration is asking for everything with 05/01/2020 or greater. This means that when Stitch runs an extraction at 2:00 AM, it gets that first record again, but it also gets all the new records.
+
+          The same thing happens with timestamps, at a much more granular level.
+
+          If a transaction is ran in the source that commits records with a timestamp of `2020-05-01 00:01:05`, but the integration already started a query at that exact time, the records in their transaction might not commit before we finish the extraction and store a bookmark of `2020-05-01 00:01:05`.
+
+          Because Stitch uses **grater than or equal to**, Stitch will request anything `2020-05-01 00:01:05` or greater to make sure that it gets the records that were committed after the select statement was ran.
+
+          Also, the product is designed to be one-size-fits-all, so we made this method use the most generally-sufficient approach.
+
+          Some customers have processes on their source side that use a way finer granularity or will never run the risk of the behavior that necessitates **greater than or equal to**, but we don’t have specific replication methods to account for all those situations. Stitch only has one approach for Key-based Incremental Replication.
+
+          Because of this approach, most of the time, the number of re-replicated rows will be small. If, however, a bulk update occurs and a large number of records all have the same Replication Key value, you could see a high amount of rows being replicated during every replication job until a greater Replication Key value is detected.
 
           #### Example {#extraction-duplication-example}
 
