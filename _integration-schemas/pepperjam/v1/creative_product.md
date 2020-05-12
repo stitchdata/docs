@@ -7,7 +7,7 @@ name: "creative_product"
 doc-link: "https://support.pepperjam.com/s/advertiser-api-documentation#ProductCreative"
 singer-schema: "https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/creative_product.json"
 description: |
-  The {{ table.name }} table contains information about product creatives in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains information about product creatives in your {{ integration.display_name }} account.
 
 replication-method: "Full Table"
 
@@ -19,8 +19,8 @@ attributes:
   - name: "id"
     type: "integer"
     primary-key: true
-    description: "The product ID."
-    #foreign-key-id: "product-id"
+    description: "The product creative ID."
+    #foreign-key-id: "creative-product-id"
 
   - name: "age_range"
     type: "string"
@@ -176,16 +176,16 @@ attributes:
     type: "string"
     description: ""
   - name: "price"
-    type: "null"
+    type: "number"
     description: ""
   - name: "price_retail"
-    type: "null"
+    type: "number"
     description: ""
   - name: "price_sale"
-    type: "null"
+    type: "number"
     description: ""
   - name: "price_shipping"
-    type: "null"
+    type: "number"
     description: ""
   - name: "processor"
     type: "string"

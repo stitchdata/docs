@@ -7,13 +7,13 @@ name: "publisher"
 doc-link: "https://support.pepperjam.com/s/advertiser-api-documentation#Publisher"
 singer-schema: "https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/publisher.json"
 description: |
-  The {{ table.name }} table contains information about the publishers, the publishers' status, and the publishers' term in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains information about the publishers, the publishers' status, and the publishers' term in your {{ integration.display_name }} account.
 
 replication-method: "Full Table"
 
 api-method:
-    name: "getPublisher"
-    doc-link: "https://support.pepperjam.com/s/advertiser-api-documentation#Publisher"
+  name: "getPublisher"
+  doc-link: "https://support.pepperjam.com/s/advertiser-api-documentation#Publisher"
 
 attributes:
   - name: "id"
@@ -23,8 +23,16 @@ attributes:
     #foreign-key-id: "publisher-id"
 
   - name: "category"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "id"
+        type: "integer"
+        description: ""
+
+      - name: "name"
+        type: "string"
+        description: ""
   - name: "company"
     type: "string"
     description: ""
@@ -35,8 +43,17 @@ attributes:
     type: "string"
     description: ""
   - name: "group"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "id"
+        type: "integer"
+        description: ""
+        foreign-key-id: "group-id"
+
+      - name: "name"
+        type: "string"
+        description: ""
   - name: "join_date"
     type: "date-time"
     description: ""
@@ -44,8 +61,16 @@ attributes:
     type: "string"
     description: ""
   - name: "promotional_method"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "id"
+        type: "integer"
+        description: ""
+
+      - name: "name"
+        type: "string"
+        description: ""
   - name: "request_date"
     type: "date-time"
     description: ""
@@ -56,8 +81,17 @@ attributes:
     type: "string"
     description: ""
   - name: "term"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "id"
+        type: "integer"
+        description: ""
+        foreign-key-id: "term-id"
+
+      - name: "name"
+        type: "string"
+        description: ""
   - name: "transparency"
     type: "integer"
     description: ""

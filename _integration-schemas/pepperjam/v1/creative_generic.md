@@ -7,7 +7,7 @@ name: "creative_generic"
 doc-link: "https://support.pepperjam.com/s/advertiser-api-documentation#Generic"
 singer-schema: "https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/creative_generic.json"
 description: |
-  The {{ table.name }} table contains information about generic link creatives in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains information about generic link creatives in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 

@@ -7,7 +7,7 @@ name: "creative_banner"
 doc-link: "https://support.pepperjam.com/s/advertiser-api-documentation#Banner"
 singer-schema: "https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/creative_banner.json"
 description: |
-  The {{ table.name }} table contains information about banner creatives in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains information about banner creatives in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 
@@ -58,11 +58,33 @@ attributes:
     type: "integer"
     description: ""
   - name: "private_affiliates"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "affiliate_id"
+        type: "integer"
+        description: ""
+        foreign-key-id: "affiliate-id"
+
+      - name: "first_name"
+        type: "string"
+        description: ""
+
+      - name: "last_name"
+        type: "string"
+        description: ""
   - name: "promotions"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "id"
+        type: "integer"
+        description: ""
+        foreign-key-id: "promotion-id"
+
+      - name: "name"
+        type: "string"
+        description: ""
   - name: "start_date"
     type: "date-time"
     description: ""
