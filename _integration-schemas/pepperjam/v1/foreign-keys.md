@@ -146,10 +146,10 @@ foreign-keys:
       - table: "transaction_details"
         join-on: "transaction_id"
         
-  - id: ""
-    table: ""
-    attribute: ""
+  - id: "process-date-id"
+    table: "transaction_history"
+    attribute: "process_date"
     all-foreign-keys:
-      - table: ""
-        join-on: ""                                    
+      - table: "transaction_history"
+        join-on: "process_date"                                    
 ---

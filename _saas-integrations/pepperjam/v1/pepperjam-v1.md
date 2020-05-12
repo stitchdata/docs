@@ -90,9 +90,6 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
-
-requirements-info:
-
 setup-steps:
   - title: "Obtain your API key"
     anchor: "obtain-api-key"

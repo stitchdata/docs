@@ -21,12 +21,6 @@ attributes:
     description: "The publisher ID."
     #foreign-key-id: "publisher-id"
 
-  - name: "sale_date"
-    type: "date-time"
-    primary-key: true
-    description: "The date the sale was made."
-    #foreign-key-id: "sale-date-id"
-
   - name: "order_id"
     type: "integer"
     description: "The order ID."
@@ -34,8 +28,10 @@ attributes:
 
   - name: "sale_date"
     type: "date-time"
+    primary-key: true
     description: "The date the sale was made."
-    replication-key: true  
+    replication-key: true
+    #foreign-key-id: "sale-date-id" 
 
   - name: "bonus_amount"
     type: "null"
