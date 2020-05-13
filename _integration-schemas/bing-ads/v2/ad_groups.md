@@ -3,7 +3,7 @@ tap: "bing-ads"
 version: "2"
 
 name: "ad_groups"
-doc-link: https://docs.microsoft.com/en-us/bingads/campaign-management-service/adgroup
+doc-link: https://docs.microsoft.com/en-us/advertising/campaign-management-service/getadgroupsbyids?view=bingads-13
 singer-schema: 
 description: |
   The `{{ table.name }}` table contains info about the ad groups associated with the campaigns in your Bing Ads account.

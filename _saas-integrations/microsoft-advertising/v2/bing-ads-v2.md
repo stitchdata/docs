@@ -27,7 +27,7 @@ tap-name: "Bing Ads"
 this-version: "2"
 
 api: |
-  [{{ integration.display_name }} v.12 API](https://docs.microsoft.com/en-us/advertising/guides/?view=bingads-12){:target="new"}
+  [{{ integration.display_name }} v.13 API](https://docs.microsoft.com/en-us/advertising/guides/?view=bingads-13){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #

@@ -58,7 +58,7 @@ arguments:
   - name: "properties"
     required: false
     type: "object"
-    description: "{{ connect.common.attributes.properties | flatify }}"
+    description: "A [Source Form Property object]({{ api.form-properties.source-forms.section }}) corresponding to the value of `type`."
 
 
 # -------------------------- #
