@@ -100,10 +100,10 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      **One header row** in your worksheets. If there are multiple headers, that are not in the first row, you run the risk of your worksheet data not being replicated correctly. Headers that are not in the first row may be counted as column data.
+      **One header row** in your worksheets. If there are multiple headers that are not in the first row, your worksheet data may not be replicated correctly. Headers that aren't in the first row may be extracted as column data.
       
 setup-steps:
-  - title: "Obtain your Spreadsheet ID"
+  - title: "Obtain your spreadsheet ID"
     anchor: "obtain-spreadsheet-id"
     content: |
       1. Go to [{{ integration.display_name }}](http://sheets.google.com){:target="new"} and log into the Google account associated with the spreadsheet you are looking to integrate.
@@ -122,7 +122,7 @@ setup-steps:
 #     Replication Details    #
 # -------------------------- #
 
-replication sections:  
+replication-sections:  
   - title: "Spreadsheet Setup"
     anchor: "spreadsheet-setup"
     content: |
