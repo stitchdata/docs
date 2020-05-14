@@ -98,6 +98,10 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
+requirements-list:
+  - item: |
+      **One header row** in your worksheets. If there are multiple headers, that are not in the first row, you run the risk of your worksheet data not being replicated correctly. Headers that are not in the first row may be counted as column data.
+      
 setup-steps:
   - title: "Obtain your Spreadsheet ID"
     anchor: "obtain-spreadsheet-id"
@@ -130,6 +134,11 @@ replication sections:
       Stitch's {{ integration.display_name }} integration will output tables containing metadata about your spreadsheet, as well as replications of your individual sheets. For each sheet, the integration will output the schema of its resources, based on the column headers and datatypes in row two. It will also output a record for all columns that have columns headers and for each row of data.
 
       The primary key in each row of a sheet is the row number. The field for the primary key is `__sdc_row`. The foreign keys included in the sheet are connected to the **Spreadsheet Metadata**, `__sdc_spreadsheet_id`, and the **Sheet Metadata**, `__sdc_sheet_id`.
+
+  - title: "Empty Worksheets"
+    anchor: "empty-worksheets"
+    content: |
+      In discovery and sync mode of your Stitch {{ integration.display_name }} integration, Stitch will check the worksheets' header and first data row (the second row) for data. If there is no data in either of those rows, Stitch will skip that worksheet for replication.
 
 
 
