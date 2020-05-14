@@ -53,6 +53,7 @@ sections:
       - **Cannot specify conditional criteria.** In SQL, this is equivalent to specifying a `WHERE` clause. For example: `{ "is_active": true }` is equal to `WHERE is_active = true`. This type of projection query is not currently supported in Stitch.
       - **Cannot combine inclusion and exclusion statements.** This means that a projection query can't both include and exclude fields. For example: `{ "name": 0, "type": 1 }`
       - **Must be valid JSON.** Projection queries must be valid JSON. Keys and string values must be enclosed in double quotes (`"`). You can use [JSONFormatter](https://jsonformatter.curiousconcept.com/){:target="new"} to validate the projection query before entering it into Stitch.
+      - **Must exclude the `_acl` field** if using access control list plugins with MongoDB. If the projection query is inclusion-based, then you must remove it.
 
       Projection queries that don't meet the above criteria will result in [errors during extraction](#error-troubleshooting).
 
