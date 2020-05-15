@@ -1,0 +1,39 @@
+# -------------------------- #
+#    Google Sheets Errors    #
+# -------------------------- #
+
+## This file contains extraction errors and how to (potentially)
+## fix them for the Google Sheets integration.
+
+## An object containing raw error messages
+raw-error:
+  malformed-sheet: &malformed-sheet "SKIPPING Malformed sheet: [sheet_name]"
+  empty-sheet: &empty-sheet "SKIPPING Empty sheet: [sheet_name]"
+  
+
+all:
+  - message: *malformed-sheet
+    id: "malformed-sheet"
+    applicable-to: &google-sheets-v1 "Google Sheets v1 integrations"
+    level: "info"
+    category: "Sheet setup"
+    version: "1" 
+    summary: "Malformed sheet"
+    cause: |
+      The sheet isn't formatted according to [Stitch's requirements]({{ site.baseurl }}/integrations/saas/google-sheets#setup-requirements).
+    fix-it: |
+      Verify that the sheet meet's Stitch's requirements and modify if necessary.
+
+  - message: *empty-sheet
+    id: "empty-sheet"
+    applicable-to: &google-sheets-v1 "Google Sheets v1 integrations"
+    level: "info"
+    category: "Sheet setup"
+    version: "1" 
+    summary: "Empty sheet"
+    cause: |
+      The sheet doesn't have a header row and a data row, as per [Stitch's requirements]({{ site.baseurl }}/integrations/saas/google-sheets#setup-requirements).
+    fix-it: |
+      Modify the sheet so that it contains a header row in the first row and a full row of data in the second row.
+
+      **Note**: Columns in the data row (second row) must all have non-`NULL` values. If a column in this row has a `NULL` value, a [malformed sheet error](#malformed-sheet) will surface during Extraction.
