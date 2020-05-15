@@ -42,8 +42,22 @@
                             <ul class="collapse" id="{{ category.title | slugify }}">
                         {% endcase %}
 
-                    {% for section in category.sections %}
-                        {% if section.subsections %}
+                    {% if category.form-type %}
+                        {% assign category-sections = all-form-properties | where: "form-type",category.form-type | sort: "display-name" %}
+                    {% else %}
+                        {% assign category-sections = category.sections %}
+                    {% endif %}
+
+                    {% for section in category-sections %}
+                        {% if category.form-type %}
+                            {% assign section-title = section.display-name %}
+                            {% assign section-url = section.key | prepend: "#" | prepend: page.permalink | prepend: site.baseurl %}
+                        {% else %}
+                            {% assign section-title = section.title %}
+                            {% assign section-url = section.url | flatify | prepend: site.baseurl  %}
+                        {% endif %}
+
+                        {% if section.subsections or section.oauth-attributes %}
                             <li class="subfolders">
                                 <a data-toggle="collapse" href="#{{ section.title | slugify }}"
                                 aria-expanded="{{ section.expand-by-default }}" aria-controls="{{ section.title | slugify }}"
@@ -53,7 +67,7 @@
                                 {% if section.method %}
                                     <span class="method {{ section.method }} method-bullet">{{ section.method | upcase | strip_newlines }}</span>
                                 {% endif %}
-                                    {{ section.title }}
+                                    {{ section-title | flatify }}
                                 </a>
 
                             {% case section.expand-by-default %}
@@ -63,23 +77,17 @@
                                     <ul class="collapse" id="{{ section.title | slugify }}">
                                 {% endcase %}
 
-                            {% case section.title %}
-                                {% when 'Source forms' or 'Destination forms' %}
-                                    {% if section.title == "Source forms" %}
-                                        {% assign form-properties = all-form-properties | where: "form-type","source" | sort: "display-name" %}
-
-                                    {% elsif section.title == "Destination forms" %}
-                                        {% assign form-properties = all-form-properties | where: "form-type","destination" | sort: "display-name" %}
-                                    {% endif %}
-                                    
-                                    {% for form-property in form-properties %}
-                                        <li>
-                                            <a href="{{ form-property.key | prepend: "#" | prepend: page.permalink | prepend: site.baseurl }}" class="api">
-                                                <span class="method object method-bullet">OBJECT</span>
-                                                {{ form-property.title | remove: "Source Form Property" | remove: "Destination Form Property" }}
-                                            </a>
-                                        </li>
-                                    {% endfor %}
+                                {% if section.oauth-attributes %}
+                                    <li>
+                                        <a href="{{ section-url | flatify }}">
+                                            Form properties
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ section-url | append: "-oauth" }}">
+                                            OAuth properties
+                                        </a>
+                                    </li>
 
                                 {% else %}
                                     {% for subsection in section.subsections %}
@@ -92,20 +100,22 @@
                                             </a>
                                         </li>
                                     {% endfor %}
-                            {% endcase %}
-                                    </ul>
-                                    <!-- Sub-section level -->
-                                </li>
+                                {% endif %}
+                                </ul>
+                                <!-- Sub-section level -->
+                            </li>
                         {% else %}
                             <li>
-                                <a href="{{ section.url | flatify | prepend: site.baseurl }}"
+                                <a href="{{ section-url }}"
                                 {% if section.method %}
                                     class="api">
                                     <span class="method {{ section.method }} method-bullet">{{ section.method | upcase | strip_newlines }}</span>
                                 {% else %}
                                     >
                                 {% endif %}
-                                {{ section.title | flatify }}</a>
+
+                            {{ section-title | flatify }}</a>
+
                             </li>
                         {% endif %}
                     {% endfor %}
