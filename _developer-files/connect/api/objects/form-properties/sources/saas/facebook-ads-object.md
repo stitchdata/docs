@@ -46,7 +46,7 @@ object-attributes:
       - `7`
       - `28`
 
-      To ensure your Facebook Ads and Stitch settings align, we recommend using the same attribution window in Stitch that you use in Facebook Ads. For example: If the attribution window is 28 days in Facebook, this value should be `28`.
+      To ensure your {{ form-property.display-name }} and Stitch settings align, we recommend using the same attribution window in Stitch that you use in {{ form-property.display-name }}. For example: If the attribution window is 28 days in Facebook, this value should be `28`.
 
       If your click and view windows differ, you should select the **greater** of the two. For example: If clicks have a window of `7` days and views have a window of `1` day, you should enter `7` for this setting.
     value: "7"
