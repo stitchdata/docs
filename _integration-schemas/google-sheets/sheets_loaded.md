@@ -1,12 +1,13 @@
 ---
 tap: "google-sheets"
 version: "1"
-key: "sheets_loaded"
+key: "sheets-loaded"
 
 name: "sheets_loaded"
 doc-link: "https://developers.google.com/sheets/api/reference/rest"
 singer-schema: "https://github.com/singer-io/tap-google-sheets/blob/master/tap_google_sheets/schemas/sheets_loaded.json"
-description: "This table contains table contains information about the individual sheets loaded."
+description: |
+  The `{{ table.name }}` table contains metadata about individual sheets loaded to your destination.
 
 replication-method: "Full Table"
 
