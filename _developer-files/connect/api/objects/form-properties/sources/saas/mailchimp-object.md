@@ -46,7 +46,7 @@ oauth-link: "https://mailchimp.com/developer/guides/how-to-use-oauth2/"
 
 oauth-description: ""
 
-oauth-properties:
+oauth-attributes:
   - name: "access_token"
     type: "string"
     required: true

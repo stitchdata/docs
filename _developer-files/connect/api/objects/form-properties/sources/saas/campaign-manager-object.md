@@ -46,7 +46,7 @@ oauth-link: "https://developers.google.com/doubleclick-advertisers/authorizing"
 
 oauth-description: ""
 
-oauth-properties:
+oauth-attributes:
   - name: "client_id"
     type: "string"
     required: true

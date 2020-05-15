@@ -48,7 +48,7 @@ oauth-link: "https://support.zendesk.com/hc/en-us/articles/203663836"
 
 oauth-description: ""
 
-oauth-properties:
+oauth-attributes:
   - name: "access_token"
     type: "string"
     required: true

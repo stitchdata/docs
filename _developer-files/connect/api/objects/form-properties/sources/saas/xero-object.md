@@ -57,7 +57,7 @@ oauth-description: ""
 
 # **Note**: Stitch's {{ form-property.display-name }} source is designed to work only with [{{ form-property.display-name }} Partner Applications](https://developer.xero.com/documentation/auth-and-limits/partner-applications){:target="new"}. Private Applications aren't currently supported.
 
-oauth-properties:
+oauth-attributes:
   - name: "consumer_key"
     type: "string"
     required: true

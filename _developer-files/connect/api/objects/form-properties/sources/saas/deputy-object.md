@@ -44,7 +44,7 @@ oauth-link: "https://www.deputy.com/api-doc/API/Authentication"
 
 oauth-description: ""
 
-oauth-properties:
+oauth-attributes:
   - name: "client_id"
     type: "string"
     required: true

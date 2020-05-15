@@ -46,7 +46,7 @@ oauth-link: "https://developers.asana.com/docs/authentication-basics"
 oauth-description: |
   TODO
 
-oauth-properties:
+oauth-attributes:
   - name: "access_token"
     type: "string"
     required: true

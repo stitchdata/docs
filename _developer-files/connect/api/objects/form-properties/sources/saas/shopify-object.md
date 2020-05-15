@@ -69,7 +69,7 @@ oauth-link: "https://shopify.dev/tutorials/authenticate-with-oauth#the-oauth-flo
 
 oauth-description: ""
 
-oauth-properties:
+oauth-attributes:
   - name: "api_key"
     type: "string"
     required: true

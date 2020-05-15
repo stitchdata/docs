@@ -38,7 +38,7 @@ oauth-link: "https://docs.microsoft.com/en-us/advertising/guides/authentication-
 
 oauth-description: ""
 
-oauth-properties:
+oauth-attributes:
   - name: "account_ids"
     type: "string"
     required: true

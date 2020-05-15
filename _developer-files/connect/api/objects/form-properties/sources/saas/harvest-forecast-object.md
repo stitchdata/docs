@@ -37,7 +37,7 @@ oauth-link: "https://help.getharvest.com/api-v2/authentication-api/authenticatio
 
 oauth-description: ""
 
-oauth-properties:
+oauth-attributes:
   - name: "client_id"
     type: "string"
     required: true

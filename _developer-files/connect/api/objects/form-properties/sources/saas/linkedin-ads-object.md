@@ -54,7 +54,7 @@ oauth-link: "https://docs.microsoft.com/en-us/linkedin/shared/authentication/aut
 
 oauth-description: ""
 
-oauth-properties:
+oauth-attributes:
   - name: "access_token"
     type: "string"
     required: true

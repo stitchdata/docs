@@ -46,7 +46,7 @@ oauth-link: "https://www.campaignmonitor.com/api/getting-started/#authenticating
 
 oauth-description: ""
 
-oauth-properties:
+oauth-attributes:
   - name: "access_token"
     type: "string"
     required: true

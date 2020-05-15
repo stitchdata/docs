@@ -38,7 +38,7 @@ oauth-link: "https://developers.google.com/adwords/api/docs/guides/authenticatio
 
 oauth-description: ""
 
-oauth-properties:
+oauth-attributes:
   - name: "customer_ids"
     type: "string"
     required: true

@@ -45,7 +45,7 @@ oauth-link: "https://developer.helpscout.com/mailbox-api/overview/authentication
 
 oauth-description: ""
 
-oauth-properties:
+oauth-attributes:
   - name: "client_id"
     type: "string"
     required: true

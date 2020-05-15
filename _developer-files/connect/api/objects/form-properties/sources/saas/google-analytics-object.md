@@ -82,7 +82,7 @@ oauth-link: "https://developers.google.com/analytics/devguides/reporting/core/v4
 
 oauth-description: ""
 
-oauth-properties:
+oauth-attributes:
   - name: "client_id"
     type: "string"
     required: true

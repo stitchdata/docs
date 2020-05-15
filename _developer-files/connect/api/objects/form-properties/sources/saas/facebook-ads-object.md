@@ -70,7 +70,7 @@ oauth-link: "https://developers.facebook.com/docs/marketing-api/access#authentic
 
 oauth-description: ""
 
-oauth-properties:
+oauth-attributes:
   - name: "access_token"
     type: "string"
     required: true

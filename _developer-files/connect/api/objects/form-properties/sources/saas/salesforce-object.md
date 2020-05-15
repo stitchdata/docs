@@ -69,7 +69,7 @@ oauth-link: "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api
 
 oauth-description: ""
 
-oauth-properties:
+oauth-attributes:
   - name: "client_id"
     type: "string"
     required: true

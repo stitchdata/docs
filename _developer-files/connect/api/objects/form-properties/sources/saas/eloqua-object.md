@@ -57,7 +57,7 @@ oauth-link: "https://docs.oracle.com/en/cloud/saas/marketing/eloqua-rest-api/Aut
 
 oauth-description: ""
 
-oauth-properties:
+oauth-attributes:
   - name: "client_id"
     type: "string"
     required: true

@@ -58,7 +58,7 @@ oauth-link: "https://developers.google.com/sheets/api/guides/authorizing?hl=en"
 
 oauth-description: ""
 
-oauth-properties:
+oauth-attributes:
   - name: "client_id"
     type: "string"
     required: true

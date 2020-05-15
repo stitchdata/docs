@@ -93,7 +93,7 @@ oauth-link: "https://stripe.com/docs/connect/oauth-reference"
 
 oauth-description: ""
 
-oauth-properties:
+oauth-attributes:
   - name: "account_id"
     type: "string"
     required: true

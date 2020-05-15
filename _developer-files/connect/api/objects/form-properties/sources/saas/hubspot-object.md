@@ -42,7 +42,7 @@ oauth-description: ""
 ## optional scopes: reports, automation, forms, sales-email-read
 # https://developers.hubspot.com/docs/methods/oauth2/initiate-oauth-integration#scopes
 
-oauth-properties:
+oauth-attributes:
   - name: "client_id"
     type: "string"
     required: true
