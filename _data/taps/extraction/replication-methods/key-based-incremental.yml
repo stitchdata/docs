@@ -107,15 +107,18 @@ hard-deletes:
 database-file-integrations:
   - item: "What's replicated during a replication job?"
     other-integrations: "Only new or updated rows in a table."
-    this-integration: "The entire contents of a modified file."
+    this-integration: |
+      The entire contents of a modified {{ file-name | default: "file" }}. {{ file-note | flatify }}
 
   - item: "What's used as a Replication Key?"
     other-integrations: "A column or columns in a table."
-    this-integration: "The time a file is modified."
+    this-integration: |
+      The time a {{ file-name | default: "file" }} is modified.
 
   - item: "Are Replication Keys inclusive?"
     other-integrations: "**Yes**. Rows with a Replication Key value **greater than or equal to** the last saved bookmark are replicated."
-    this-integration: "**No**. Only files with a modification timestamp value greater than the last saved bookmark are replicated."
+    this-integration: |
+      **No**. Only {{ file-name | default: "file" | append: "s" }} with a modification timestamp value greater than the last saved bookmark are replicated.
 
 
 

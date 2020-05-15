@@ -15,6 +15,9 @@ description: |
 
 replication-method: "Key-based Incremental"
 
+replication-key:
+  name: "Spreadsheet's modified_at"
+
 api-method:
   name: "getSheets"
   doc-link: "https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/sheets#top_of_page"

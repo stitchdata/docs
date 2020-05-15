@@ -1,6 +1,6 @@
 <!-- This file includes content that describes how key-based incremental
     replication works for integrations that are file system-based.
-    An example is Amazon S3 CSV, or Heap (which is based on S3). -->
+    An example is Amazon S3 CSV, Google Sheets, or Heap (which is based on S3). -->
 
 While data from {{ integration.display_name }} integrations is replicated using [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}), the behavior for this integration differs subtly from other integrations.
 
@@ -24,11 +24,11 @@ The table below compares Key-based Incremental Replication and [Replication Key]
 			<td align="right" width="30%; fixed">
 				<strong>{{ comparison.item | flatify }}</strong>
 			</td>
-			<td>
-				{{ comparison.this-integration | markdownify }}
+			<td width="35%; fixed">
+				{{ comparison.this-integration | flatify | markdownify }}
 			</td>
 			<td>
-				{{ comparison.other-integrations | markdownify }}
+				{{ comparison.other-integrations | flatify | markdownify }}
 			</td>
 		</tr>
 	{% endfor %}
