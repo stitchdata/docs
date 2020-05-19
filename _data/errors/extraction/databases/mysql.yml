@@ -17,6 +17,8 @@ raw-error:
   log-retention-purge: &log-retention-purge "Unable to replicate binlog stream because the following binary log(s) no longer exist: [binary_log_file_name]"
   binlog-current-position: &binlog-current-position "Requested position ([log_file_position_from_state]) for log file [binary_log_file_name] is greater than current position ([current_log_file_position_on_server])."
   version-requirement: &version-requirement "binlog_row_image system variable does not exist. MySQL version must be at least 5.6.2 to use binlog replication."
+  empty-table-binlog: &empty-table-binlog |
+    'NoneType' object is not subscriptable.
 
 
 documentation:
@@ -245,3 +247,17 @@ all:
        The version of the MySQL database is less than 5.6.2, which is the minimum version that supports binlog replication. Versions prior to 5.6.2 don't support the binlog replication feature, which is required to use Log-based Incremental Replication in Stitch.
     fix-it: |
       The source MySQL database must be running MySQL version 5.6.2 or greater to use binlog replication. If you can upgrade your database version, you may be able to use binlog replication.
+
+## Empty table error
+  - message: *binlog-unsupported-views
+    level: "critical"
+    category: "Log-based Incremental Replication"
+    category-doc: |
+      {{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation--views-are-unsupported" }}
+    version: "1"
+    id: "epmty-table-binlog"
+    applicable-to: *all-mysql
+    summary: "A view is using an unsupported Replication Method"
+    cause: |
+      The source object is a database view. Binary logging doesn't track events that occur in database views, so Stitch is unable to use Log-based Replication for views.
+    fix-it: |      
