@@ -94,7 +94,7 @@ setup-steps:
   - title: "Obtain your API key"
     anchor: "obtain-api-key"
     content: |
-      1. Login to you {{ integration.display_name }} account.
+      1. Login to your {{ integration.display_name }} account.
       2. Hover over the **Developer Kit** menu and then click **API Keys**.
       3. Click **Generate New Key**.
       4. Keep note of your API Key - you will need it to complete the next step.
