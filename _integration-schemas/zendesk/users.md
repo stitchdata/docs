@@ -277,13 +277,13 @@ attributes:
     type: "string"
     description: "The API URL associated with the user."
 
-  # - name: "user_fields"
-  #   type: "object"
-  #   description: "The values of custom fields in the user's record."
-  #   subattributes:
-  #     - name: "[TODO]"
-  #       type: 
-  #       description: 
+  - name: "user_fields"
+    type: "object"
+    description: "The values of custom fields in the user's record. These custom fields originate from the `user_fields` table in {{ integration.display_name }}."
+    subattributes:
+      - name: "CUSTOM_FIELD_NAME"
+        type: "varied"
+        description: "The custom field description."
 
   - name: "verified"
     type: "boolean"
