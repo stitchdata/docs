@@ -50,12 +50,72 @@ sections:
 
       These properties can also be found in the `form` step of the source or destination's report card. If the source or destination also supports OAuth authentication, the properties required for OAuth can be found in the `oauth` step of the report card. Refer to the [Performing OAuth with Stitch Connect guide]({{ link.connect.guides.configure-connection-oauth | prepend: site.baseurl }}) for more info about OAuth configuration for connections.
 
+  - title: "Search for a connection property"
+    anchor: "search-connection-properties"
+    content: |
+      {% assign form-properties = all-docs | where:"content-type","api-form" | sort_natural: "title" %}
+
+      <div class="on-page-search-container">
+        <input type="text" id="on-page-search" onkeyup="myFunction()" placeholder="Find a destination or source connection property">
+      </div>
+
+      <table class="attribute-list" id="list-form-properties">
+      <tr>
+      <th width="35%; fixed">
+      <strong>Connection property name</strong>
+      </th>
+      <th>
+      <strong>Connection type</strong>
+      </th>
+      <th>
+      <strong>Connection property type</strong>
+      </th>
+      </tr>
+      {% for form-property in form-properties %}
+      <tr>
+      <td width="35%; fixed">
+      <a href="#{{ form-property.key }}">{{ form-property.title | remove: " Destination Form Property" | remove: " Source Form Property" }}</a>
+      </td>
+      <td>
+      {{ form-property.form-type | capitalize }}
+      </td>
+      <td>
+      {{ form-property.api-type }}
+      </td>
+      </tr>
+      {% endfor %}
+      </table>
+
+      <script>
+      function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("on-page-search");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("list-form-properties");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+      </script>
+
   - title: "Destination connection properties"
     anchor: "destination-form-properties"
     content: |
       Destination connection properties should be sent in the `properties` argument when using the [Create]({{ api.core-objects.destinations.create.anchor }}) or [Update a Destination]({{ api.core-objects.destinations.update.anchor }}) endpoints.
 
-      {% include developers/api-endpoint-rollup.html type="form-property" subtype="destination" %}
+# {% include developers/api-endpoint-rollup.html type="form-property" subtype="destination" %}
     include: |
       {% include developers/api-form-properties.html content="destination" %}
       
