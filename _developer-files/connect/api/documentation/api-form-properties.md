@@ -48,7 +48,7 @@ sections:
 
       The `properties` objects contain the properties necessary to create a source or destination object.
 
-      These properties can also be found in the `form` step of the source or destination's report card. If the source or destination also supports OAuth authentication, the properties required for OAuth can be found in the `oauth` step of the report card. Refer to the [Performing OAuth with Stitch Connect guide](TODO) for more info about OAuth configuration for connections.
+      These properties can also be found in the `form` step of the source or destination's report card. If the source or destination also supports OAuth authentication, the properties required for OAuth can be found in the `oauth` step of the report card. Refer to the [Performing OAuth with Stitch Connect guide]({{ link.connect.guides.configure-connection-oauth | prepend: site.baseurl }}) for more info about OAuth configuration for connections.
 
   - title: "Destination connection properties"
     anchor: "destination-form-properties"
