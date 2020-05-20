@@ -2,25 +2,29 @@
 tap: "pepperjam"
 version: "1"
 key: "transaction_details"
-name: "transaction_details"
+name: "transaction-detail"
 
 doc-link: "https://support.pepperjam.com/s/advertiser-api-documentation#TransactionDetails"
 singer-schema: "https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/transaction_details.json"
 description: |
-  The {{ table.name }} table contains all publisher transaction details, within a 30-day time frame from the date of the last table replication, in your {{ integration.display_name }} account.
+  The {{ table.name }} table contains all publisher transaction details, within a {{ table.attribution-window-days }}-day time frame from the date of the last table replication.
+
+  **Note**: During every replication job, Stitch will replicate the last {{ table.attribution-window-days }} days' worth of data for this table.
 
 replication-method: "Key-based Incremental"
+attribution-window: true
+attribution-window-days: "30"
 
 api-method:
-    name: "getTransactionDetails"
-    doc-link: "https://support.pepperjam.com/s/advertiser-api-documentation#TransactionDetails"
+  name: "getTransactionDetails"
+  doc-link: "https://support.pepperjam.com/s/advertiser-api-documentation#TransactionDetails"
 
 attributes:
   - name: "transaction_id"
     type: "integer"
     primary-key: true
     description: "The transaction ID."
-    #foreign-key-id: "transaction-id"
+    foreign-key-id: "transaction-id"
 
   - name: "sale_date"
     type: "date-time"
@@ -31,13 +35,13 @@ attributes:
     type: "string"
     description: ""
   - name: "commission"
-    type: "null"
+    type: "number"
     description: ""
   - name: "commission_publisher"
-    type: "null"
+    type: "number"
     description: ""
   - name: "commission_site"
-    type: "null"
+    type: "number"
     description: ""
   - name: "company"
     type: "string"
@@ -48,12 +52,14 @@ attributes:
   - name: "creative_id"
     type: "string"
     description: ""
+    foreign-key-id: "creative-id"
   - name: "device_type"
     type: "string"
     description: ""
   - name: "group_id"
     type: "integer"
     description: ""
+    foreign-key-id: "group-id"
   - name: "link_type"
     type: "string"
     description: ""
@@ -63,17 +69,19 @@ attributes:
   - name: "order_id"
     type: "string"
     description: ""
+    foreign-key-id: "order-id"
   - name: "publisher"
     type: "string"
     description: ""
   - name: "publisher_id"
     type: "integer"
     description: ""
+    foreign-key-id: "publisher-id"
   - name: "publisher_type"
     type: "string"
     description: ""
   - name: "sale_amount"
-    type: "null"
+    type: "number"
     description: ""
   - name: "sale_date"
     type: "date-time"
