@@ -279,11 +279,11 @@ attributes:
 
   - name: "user_fields"
     type: "object"
-    description: "The values of custom fields in the user's record. These custom fields originate from the `user_fields` table in {{ integration.display_name }}."
+    description: "The values of custom fields in the user's record. A column will be created for every custom field with at least one non-null value."
     subattributes:
       - name: "CUSTOM_FIELD_NAME"
-        type: "varied"
-        description: "The custom field description."
+        type: "varies"
+        description: "The custom field. The name and data type of the custom field depend on the name and data type of the field in {{ integration.display_name }}."
 
   - name: "verified"
     type: "boolean"
