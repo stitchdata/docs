@@ -1,5 +1,5 @@
 ---
-title: Form Properties
+title: Connection properties
 product-type: "connect"
 content-type: "api-doc"
 order: 8
@@ -48,27 +48,21 @@ sections:
 
       The `properties` objects contain the properties necessary to create a source or destination object.
 
-      These properties can also be found in the source or destination's report card `step: form`.
+      These properties can also be found in the `form` step of the source or destination's report card. If the source or destination also supports OAuth authentication, the properties required for OAuth can be found in the `oauth` step of the report card. Refer to the [Performing OAuth with Stitch Connect guide](TODO) for more info about OAuth configuration for connections.
 
-      {% include developers/api-endpoint-rollup.html type="form-property" %}
-
-  - title: "Destination form properties"
+  - title: "Destination connection properties"
     anchor: "destination-form-properties"
     content: |
-      Destination form properties should be sent in the `properties` argument when using the [Create]({{ api.core-objects.destinations.create.anchor }}) or [Update a Destination]({{ api.core-objects.destinations.update.anchor }}) endpoints.
+      Destination connection properties should be sent in the `properties` argument when using the [Create]({{ api.core-objects.destinations.create.anchor }}) or [Update a Destination]({{ api.core-objects.destinations.update.anchor }}) endpoints.
 
       {% include developers/api-endpoint-rollup.html type="form-property" subtype="destination" %}
     include: |
       {% include developers/api-form-properties.html content="destination" %}
       
-  - title: "Source form properties"
+  - title: "Source connection properties"
     anchor: "source-form-properties"
     content: |
-      Source form properties should be sent in the `properties` argument when using the [Create]({{ api.core-objects.sources.create.anchor }}) or [Update a Source]({{ api.core-objects.sources.update.anchor }}) endpoints.
-
-      All properties should be sent as strings.
-
-      {% include developers/api-endpoint-rollup.html type="form-property" subtype="source" %}
+      Source connection properties should be sent in the `properties` argument when using the [Create]({{ api.core-objects.sources.create.anchor }}) or [Update a Source]({{ api.core-objects.sources.update.anchor }}) endpoints.
     include: |
       {% include developers/api-form-properties.html content="source" %}
 ---
