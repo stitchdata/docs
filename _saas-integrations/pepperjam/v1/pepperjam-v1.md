@@ -50,7 +50,7 @@ api-type: "platform.pepperjam"
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Standard"
+tier: "Free"
 
 anchor-scheduling: true
 cron-scheduling: true
@@ -94,13 +94,13 @@ setup-steps:
   - title: "Obtain your API key"
     anchor: "obtain-api-key"
     content: |
-      1. Login to your {{ integration.display_name }} account.
+      1. Login to you {{ integration.display_name }} account.
       2. Hover over the **Developer Kit** menu and then click **API Keys**.
       3. Click **Generate New Key**.
       4. Keep note of your API Key - you will need it to complete the next step.
   - title: "add integration"
     content: |
-      4. In the **API Key** field, enter the API key you obtained in [step 1](#obtain-api-key).
+      4. In the **API Key** field, paste the API key you obtained in [step 1](#obtain-api-key).
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data" ## remove this if the integration doesn't support at least table selection
