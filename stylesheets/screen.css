@@ -429,7 +429,7 @@ body.print h4 {color: #679DCE !important; font-size:14px; font-style: italic;}*/
 /* line 1, ../sass/_components.scss */
 .btn-default {
   border: 2px solid #0675c1;
-  color: #202020;
+  color: #000000;
   border-radius: 0;
   margin-bottom: 1rem;
   line-height: 1.4;
@@ -591,7 +591,7 @@ table {
 table tr {
   /*		td.description {
   						code {
-  							color: $magenta-relay;
+  							color: $rio-grande;
   			}
   		}*/
 }
@@ -729,7 +729,7 @@ table.attribute-list {
 table.attribute-list tr {
   /*		td.description {
   						code {
-  							color: $magenta-relay;
+  							color: $rio-grande;
   			}
   		}*/
 }
@@ -754,7 +754,7 @@ table.attribute-list tr td.attribute-name p {
 /* line 334, ../sass/_components.scss */
 table > thead > tr > th {
   background-color: #f2f2f2;
-  color: #202020;
+  color: #000000;
   border-bottom: 1px solid #dddddd;
 }
 
@@ -788,7 +788,7 @@ table.dataTable thead th, table.dataTable thead td {
 
 /* line 367, ../sass/_components.scss */
 table.dataTable > thead > tr > th {
-  background-color: #202020 !important;
+  background-color: #000000 !important;
   color: #EAEAEA;
 }
 
@@ -905,7 +905,7 @@ a[data-toggle="tooltip"] {
 
 /* line 479, ../sass/_components.scss */
 .panel-default > .panel-heading {
-  color: #202020;
+  color: #000000;
   background-color: #F2f2f2;
   border-color: #EAEAEA;
   border-radius: 0;
@@ -913,7 +913,7 @@ a[data-toggle="tooltip"] {
 
 /* line 486, ../sass/_components.scss */
 .panel-table-subattribute-heading {
-  color: #202020;
+  color: #000000;
   padding: 10px 15px;
   border-radius: 0;
   background-color: #EAEAEA;
@@ -941,7 +941,7 @@ a[data-toggle="tooltip"] {
   padding: 1.5em 2em;
   background: #ffffff;
   border: 3px solid #0675c1;
-  color: #202020;
+  color: #000000;
   border: 0;
 }
 /* line 515, ../sass/_components.scss */
@@ -965,7 +965,7 @@ a[data-toggle="tooltip"] {
 /* line 534, ../sass/_components.scss */
 .alert.alert-warning {
   border: 3px solid #66bdff;
-  color: #202020;
+  color: #000000;
   background: #ffffff;
 }
 
@@ -988,7 +988,7 @@ pre {
 }
 /* line 556, ../sass/_components.scss */
 .code-header .code-description-container {
-  color: #202020;
+  color: #000000;
   display: flex;
   flex: 2;
   justify-content: flex-start;
@@ -1012,7 +1012,7 @@ pre {
 /* line 579, ../sass/_components.scss */
 .code-header .copy-code-button:hover {
   text-decoration: none;
-  color: #202020;
+  color: #000000;
   transition: all 0.25s ease-in-out;
 }
 /* line 585, ../sass/_components.scss */
@@ -1070,7 +1070,7 @@ pre {
 }
 /* line 644, ../sass/_components.scss */
 .status-page .color-description:hover {
-  color: #gray-4;
+  color: #ABABAB;
   text-decoration: none;
 }
 /* line 650, ../sass/_components.scss */
@@ -1305,7 +1305,7 @@ blockquote p {
 }
 
 /*.sdk, .library, .wrapper {
-	background-color: $stitch-yellow;
+	background-color: $lochmara;
 }*/
 /* line 872, ../sass/_components.scss */
 .deprecated, .sunset {
@@ -1334,33 +1334,39 @@ blockquote p {
 }
 
 /* line 897, ../sass/_components.scss */
-.object {
+.object, .put {
   background-color: #66bdff;
+  /* blue */
 }
 
 /* line 901, ../sass/_components.scss */
-.post {
-  background-color: #82bd41;
+.destination {
+  background-color: #EA8330;
+  /* orange */
 }
 
 /* line 905, ../sass/_components.scss */
-.put {
-  background-color: #66bdff;
+.source {
+  background-color: #f3c446;
+  /* yellow */
 }
 
 /* line 909, ../sass/_components.scss */
-.get {
-  background-color: #0675c1;
+.post {
+  background-color: #82bd41;
+  /* green */
 }
 
 /* line 913, ../sass/_components.scss */
-.function {
+.get, .function {
   background-color: #0675c1;
+  /* dark blue */
 }
 
 /* line 917, ../sass/_components.scss */
 .delete {
   background-color: #E96065;
+  /* red */
 }
 
 /* line 921, ../sass/_components.scss */
