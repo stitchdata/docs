@@ -271,15 +271,8 @@ api:
                 method: "delete"
                 url: "{{ link.connect.api }}{{ api.core-objects.notifications.hooks.delete.anchor }}"
 
-      - title: "Destination connection properties"
+      - title: "Connection property objects"
         expand-by-default: false
-        form-type: "destination"
-        sections:
-          - 
-
-      - title: "Source connection properties"
-        expand-by-default: false
-        form-type: "source"
         sections:
           - 
 
