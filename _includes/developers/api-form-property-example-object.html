@@ -1,10 +1,10 @@
 <!-- This is the formatting for the object code examples in the Connect API docs -->
 
 <h5 id="{{ form-property.key }}-{{ include.property-type | downcase }}-example-usage">
-  Example {{ form-property.display-name }} {{ form-property.form-type }} object with {{ include.property-type }} properties
+  Example {{ form-property.display-name }} {{ form-property.form-type }} connection property object with {{ include.property-type }} properties
 </h5>
 
-{% case include.content %}
+{% case form-property.form-type %}
 
 <!-- Destination form property example -->
 {% when 'destination' %}
@@ -56,3 +56,5 @@
 {% endcapture %}
 
 {{ code-example | flatify | markdownify }}
+
+<a href="#search-connection-properties">Back to connection property object search</a>

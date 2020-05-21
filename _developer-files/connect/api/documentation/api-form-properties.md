@@ -1,8 +1,9 @@
 ---
-title: Connection properties
+title: Connection property objects
 product-type: "connect"
 content-type: "api-doc"
-order: 8
+anchor: "form-properties"
+order: 7
 
 # This parameter is used in _includes/connect/api-endpoint-rollup.html
 # To display the correct description for a given form property
@@ -46,11 +47,17 @@ sections:
   - content: |
       Stitch connects to a large, diverse universe of applications and data warehouses, each of which is configured differently.
 
-      The `properties` objects contain the properties necessary to create a source or destination object.
+      Connection property objects contain the properties necessary to create a source or destination object. Connection object property objects can contain two types of properties:
 
-      These properties can also be found in the `form` step of the source or destination's report card. If the source or destination also supports OAuth authentication, the properties required for OAuth can be found in the `oauth` step of the report card. Refer to the [Performing OAuth with Stitch Connect guide]({{ link.connect.guides.configure-connection-oauth | prepend: site.baseurl }}) for more info about OAuth configuration for connections.
+      - **Form properties** are required to create the source or destination and complete the connection's [`form` step]({{ site.data.connect.api.data-structures.connection-steps.section }}). The majority of sources and destinations will only have form properties.
 
-  - title: "Search for a connection property"
+      - **OAuth properties** are used to complete the source or destination's [`oauth` step]({{ site.data.connect.api.data-structures.connection-steps.section }}), if the connection supports OAuth. **OAuth properties are only required if you're performing OAuth for the connection yourself.** Otherwise, Stitch will perform the OAuth handshake using its own client credentials.
+
+         Refer to the [Performing OAuth with Stitch Connect]({{ link.connect.guides.configure-connection-oauth | prepend: site.baseurl }}) guide for more info.
+
+      All connection properties should be sent in the `properties` argument when creating or updating a source or destination. **Note**: OAuth properties may be provided alongside form properties in a single `POST` or `PUT` request. A separate request isn't necessary.
+
+  - title: "Search for a connection property object"
     anchor: "search-connection-properties"
     content: |
       {% assign form-properties = all-docs | where:"content-type","api-form" | sort_natural: "title" %}
@@ -110,19 +117,8 @@ sections:
       }
       </script>
 
-  - title: "Destination connection properties"
-    anchor: "destination-form-properties"
-    content: |
-      Destination connection properties should be sent in the `properties` argument when using the [Create]({{ api.core-objects.destinations.create.anchor }}) or [Update a Destination]({{ api.core-objects.destinations.update.anchor }}) endpoints.
-
-# {% include developers/api-endpoint-rollup.html type="form-property" subtype="destination" %}
+  - title: "All connection property objects"
+    anchor: "all-form-properties"
     include: |
-      {% include developers/api-form-properties.html content="destination" %}
-      
-  - title: "Source connection properties"
-    anchor: "source-form-properties"
-    content: |
-      Source connection properties should be sent in the `properties` argument when using the [Create]({{ api.core-objects.sources.create.anchor }}) or [Update a Source]({{ api.core-objects.sources.update.anchor }}) endpoints.
-    include: |
-      {% include developers/api-form-properties.html content="source" %}
+      {% include developers/api-form-properties.html %}
 ---
