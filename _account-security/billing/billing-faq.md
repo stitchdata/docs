@@ -303,15 +303,19 @@ frequently-asked-questions:
       - question: "What happens if I change my plan mid-billing cycle?"
         anchor: "change-plan-mid-cycle"
         answer: |
-          This depends on whether you're upgrading or downgrading your plan:
+          This depends on the billing cycle type for the plan.
+          
+          **For monthly plans**:
 
-          - **If you're upgrading or downgrading a Monthly Plan**, meaning the new plan has a greater or lower row limit than the current plan, the change will be effective immediately and you will be charged or refunded the difference between the current plan and the new plan.
+          If you're upgrading or downgrading a monthly plan, meaning the new plan has a greater or lower row limit than the current plan, the change will be effective immediately and you will be charged or refunded the difference between the current plan and the new plan.
 
-             In addition, if you're upgrading from the Free Plan to any Standard Plan, you will also have immediate access to Standard integrations.
+          In addition, if you're upgrading from the Free Plan to any Standard Plan, you will also have immediate access to Standard integrations.
+             
+          **For annual plans**:
 
-          - **If you're upgrading an Annual Plan**, meaning the new plan has a greater row limit than the current plan, the change will be effective immediately and you will be charged or refunded the difference between the current plan and the new plan.
+          - **If you're upgrading**, meaning the new plan has a greater row limit than the current plan, the change will be effective immediately and you will be charged the difference between the current plan and the new plan.
 
-          - **If you're downgrading an Annual Plan**, meaning the new plan has a lower row limit than the current plan, the change will take effect at the end of the billing cycle. This will ensure you can take full advantage of the higher row allotment and access to Standard integrations.
+          - **If you're downgrading**, meaning the new plan has a lower row limit than the current plan, the change will take effect at the end of the billing cycle. This ensures that you can take full advantage of the higher row allotment and access to Standard integrations for the remainder of the billing cycle.
 
 # -------------------------- #
 # PAYMENT DETAILS & INVOICES #
