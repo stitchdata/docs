@@ -45,7 +45,7 @@ mssql:
   - &database
     name: "{{ defaults.field-names.database }}"
     version: "all"
-    copy: "{{ defaults.field-copy.optional-database | flatify }}"
+    copy: "{{ defaults.field-copy.optional-database | flatify }} If this field is defined, Stitch will attempt to connect to only that database. If left undefined, Stitch will attempt to connect to all of the MS SQL databases your user has access to. To connect several specific databases, create an integration for each database you would like to connect and define it in this field."
 
 
 # -------------------------- #
