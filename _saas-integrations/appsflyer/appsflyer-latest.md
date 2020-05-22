@@ -74,7 +74,7 @@ setup-steps:
 
       Depending on the app's type (iOS, Android, or Windows), the app ID format will vary:
 
-      - **iOS** - This will be the iTunes ID of your app, without the `id` portion. For example: If the app is `id987654321`, the ID would be `987654321`.
+      - **iOS** - This will be the iTunes ID of your app. Example: `id987654321`.
       - **Android** - This will be the package name registered on AppsFlyer. For example: If the package is registered as `com.stitchdata.test`, the ID would be `com.stitchdata.test`.
       - **Windows** - This will be the Windows app ID. For example: `f1e2d3c4b5a6`
 
