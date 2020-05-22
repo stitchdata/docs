@@ -48,8 +48,7 @@ mssql:
     copy: |
       {{ defaults.field-copy.optional-database | flatify }}
       
-      **Note**: If this field is defined, Stitch will attempt to connect to only the database entered. If undefined, Stitch will attempt to connect to all of the databases the Stitch user has access to. To connect several specific databases, create an integration for each database you want to connect and define it in this field.
-
+            **Note**: If this field is defined, Stitch will attempt to connect to only the database entered. If undefined, Stitch will attempt to connect to all of the databases the Stitch user has access to. To connect several specific databases, create an integration for each database you want to connect and define it in this field.
 
 # -------------------------- #
 #            AZURE           #
