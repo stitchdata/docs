@@ -60,13 +60,12 @@ sections:
   - title: "Search for a connection property object"
     anchor: "search-connection-properties"
     content: |
+      Search all supported destination and source connection properties below. **Note**: If a connection isn't listed here, it isn't currently available in the API. Refer to the [Destination and Source API availability reference]({{ link.connect.guides.connection-reference | prepend: site.baseurl }}) for a full list of Stitch's connections.
+
       {% assign form-properties = all-docs | where:"content-type","api-form" | sort_natural: "title" %}
 
-      <div class="on-page-search-container">
-        <input type="text" id="on-page-search" onkeyup="myFunction()" placeholder="Find a destination or source connection property">
-      </div>
-
-      <table class="attribute-list" id="list-form-properties">
+      {% capture table %}
+      <table class="attribute-list" id="filter-table">
       <tr>
       <th width="35%; fixed">
       <strong>Connection property name</strong>
@@ -78,6 +77,7 @@ sections:
       <strong>Connection property type</strong>
       </th>
       </tr>
+      <tbody id="filter-body">
       {% for form-property in form-properties %}
       <tr>
       <td width="35%; fixed">
@@ -91,31 +91,17 @@ sections:
       </td>
       </tr>
       {% endfor %}
+      <tr id="noConnectionYet" style="display: none">
+      <td id="noConnectionYetName" colspan="3" align="center">
+        <strong>Don't see the connection you want?</strong>
+        <br>Refer to the <a href="{{ link.connect.guides.connection-reference | prepend: site.baseurl }}">Destination and Source API availability reference</a> to check the connection's availability in Stitch.
+      </td>
+      </tr>
+      </tbody>
       </table>
+      {% endcapture %}
 
-      <script>
-      function myFunction() {
-        // Declare variables
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("on-page-search");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("list-form-properties");
-        tr = table.getElementsByTagName("tr");
-
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td")[0];
-          if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
-            }
-          }
-        }
-      }
-      </script>
+      {% include layout/on-page-search/table-search.html placeholder-copy="Find a destination or source connection property" table=table %}
 
   - title: "All connection property objects"
     anchor: "all-form-properties"
