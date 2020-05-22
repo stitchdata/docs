@@ -43,6 +43,16 @@
   <!-- Note: DCM doesn't really have a replication key, so don't let this be misleading. This is only done to use the correct variable in this template. -->
     {% assign replication-key = "date" %}
 
+<!-- For Pepperjam -->
+  {% when "pepperjam" %}
+    {% assign window = "Attribution Window" %}
+    {% assign table = "transaction_details" %}
+    {% assign replication-key = "sale_date" %}
+    {% assign start-date = "July 3, 2017" %}
+    {% assign start-date-value = "2017-07-03 00:00:00" %}
+    {% assign replication-key-historical = "2017-06-03 00:00:00" %}
+    {% assign replication-key-ongoing = "2017-09-01 00:00:00" %}    
+
   {% endcase %}
 
 

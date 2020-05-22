@@ -61,10 +61,32 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: true
+  data-volume: true
+  lots-of-full-table: false
+
 # attribution-window: "# days"
 # attribution-is-configurable: 
 
 # setup-name: ""
+
+
+# -------------------------- #
+#      Querying Details      #
+# -------------------------- #
+
+## Pepperjam's attribution windows. Stitch queries for
+## this number of days during each replication job to
+## account for any updates to existing records made during
+## this time.
+
+replication-notes: true
+attribution-window: "30 days"
+attribution-is-configurable: false
 
 
 # -------------------------- #
@@ -104,6 +126,30 @@ setup-steps:
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data" ## remove this if the integration doesn't support at least table selection
+
+
+# -------------------------- #
+#      Replication Info      #
+# -------------------------- #
+
+replication-sections:
+  - title: "Attribution windows and data extraction"
+    anchor: "attribution-windows-data-extraction"
+    content: |
+      {% include note.html first-line="**Pepperjam tables with attribution windows**" content="The info in this section only applies to the following tables:
+        - `creative_performance`
+        - `creative_performance_by_publisher`
+        - `publisher_performance`
+        - `transaction_details`
+        - `transaction_history` (28-day attribution window)" %}
+
+      When Stitch runs a replication job for {{ integration.display_name }}, it will use the value of the **Attribution Window** setting to query for and extract data for Incremental tables. An attribution window is a period of time for attributing data and the lookback period after those actions occur during which the data is counted.
+
+      For example: If set to **7 days**, Stitch will replicate the past seven days' worth of data every time a replication job runs.
+
+      In the sections below are examples of how attribution windows impact how Stitch extracts data during historical and ongoing replication jobs.
+
+      {% include integrations/saas/ads-append-only-replication.html type="report-tables" %}
 
 
 # -------------------------- #
