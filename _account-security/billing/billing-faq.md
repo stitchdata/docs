@@ -305,11 +305,13 @@ frequently-asked-questions:
         answer: |
           This depends on whether you're upgrading or downgrading your plan:
 
-          - **If you're upgrading**, meaning the new plan has a greater row limit than the current plan, the change will be effective immediately and you will only be billed for the difference between the current plan and the new plan.
+          - **If you're upgrading or downgrading a Monthly Plan**, meaning the new plan has a greater or lower row limit than the current plan, the change will be effective immediately and you will be charged or refunded the difference between the current plan and the new plan.
 
              In addition, if you're upgrading from the Free Plan to any Standard Plan, you will also have immediate access to Standard integrations.
 
-          - **If you're downgrading**, meaning the new plan has a lower row limit than the current plan, the change will take effect at the end of the billing cycle. This will ensure you can take full advantage of the higher row allotment and access to Standard integrations.
+          - **If you're upgrading an Annual Plan**, meaning the new plan has a greater row limit than the current plan, the change will be effective immediately and you will be charged or refunded the difference between the current plan and the new plan.
+
+          - **If you're downgrading an Annual Plan**, meaning the new plan has a lower row limit than the current plan, the change will take effect at the end of the billing cycle. This will ensure you can take full advantage of the higher row allotment and access to Standard integrations.
 
 # -------------------------- #
 # PAYMENT DETAILS & INVOICES #
