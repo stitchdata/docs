@@ -73,11 +73,11 @@ mongodb:
     name: "Replica Set"
     version: "1, 2"
     copy: |
-      **Optional.** The name of the replica set to be used for Log-based Incremental Replication. To return the replica set name in {{ integration.display_name }}, use the command `rs.status()`. It will return your replica set name under the key "set":
+      **Optional.** The name of the replica set you created in [Step 3.1](##create-replica-set) to be used for Log-based Incremental Replication. If needed, you can return the replica set name using the `rs.status()` command. The replica set name will be returned under key `set`:
    
-           ```shell
-           "set" : "Name of your replica set",
-           ...
+            ```shell
+            "set" : "Name of your replica set",
+            ...
             ```
 
   - &schema-name
@@ -104,11 +104,11 @@ mongodb-atlas:
   - *password
   - *database
   - name: "Authentication Database"
-    version: "1"
+    version: "1,2"
     copy: |
       This must be `admin`. This is the name of the Stitch user's [authentication database](https://docs.mongodb.com/v3.4/core/security-users/#user-authentication-database){:target="new"}. This is the name of the database where the [Stitch database user was initially created](#create-database-user).
   - name: "Replica Set"
-    version: "2"
+    version: "1,2"
     copy: |
       **Optional.** The name of the replica set you retrieved in the previous step ([3.1](#locate-database-connection-details)) to be used for Log-based Incremental Replication.
   - *schema-name
