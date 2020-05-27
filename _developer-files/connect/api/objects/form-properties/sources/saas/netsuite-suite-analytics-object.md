@@ -13,9 +13,9 @@ key: "source-form-properties-netsuite-suite-analytics-object"
 #        OBJECT INFO         #
 # -------------------------- #
 
-title: "NetSuite Suite Analytics Source Form Property"
+title: "NetSuite SuiteAnalytics Source Form Property"
 api-type: "platform.netsuite-suite-analytics"
-display-name: "NetSuite Suite Analytics"
+display-name: "NetSuite SuiteAnalytics"
 
 source-type: "saas"
 docs-name: "netsuite-suite-analytics"
