@@ -145,6 +145,210 @@ setup-steps:
 
 
 # -------------------------- #
+#      Replication Info      #
+# -------------------------- #
+
+replication-sections:
+  - content: |
+      In this section:
+
+      {% for section in page.replication-sections %}
+      {% if section.title %}
+      - [{{ section.summary | flatify }}](#{{ section.anchor }})
+      {% endif %}
+      {% endfor %}
+
+  - title: "Extraction"
+    anchor: "extraction-details"
+    summary: "Details about Extraction, including object discovery, data typing, and selecting data for replication"
+    content: |
+      For every table set to replicate, Stitch will perform the following during Extraction:
+
+      {% for subsection in section.subsections %}
+      - [{{ subsection.summary | flatify }}](#{{ subsection.anchor }})
+      {% endfor %}
+
+    subsections:
+      - title: "Discovery"
+        anchor: "extraction--discovery"
+        summary: "Discover tables, their schemas, and data type columns"
+        content: |
+          During Discovery, Stitch will:
+
+          {% for sub-subsection in subsection.sub-subsections %}
+          - [{{ sub-subsection.summary | flatify }}](#{{ sub-subsection.anchor }})
+          {% endfor %}
+        sub-subsections:
+          - title: "Discover tables"
+            anchor: "discovery--objects"
+            summary: "Discover tables and their schemas"
+            columns:
+              - name: "table_name"
+                description: "The name of the table."
+
+              - name: "table_qualifer"
+                description: "The name of the table qualifier. Stitch uses this data to filter out system tables."
+
+              - name: "table_owner"
+                description: "The name of the table owner. Stitch uses this data to filter out system tables."
+
+              - name: "column_name"
+                description: "The name of a column in the table."
+
+              - name: "type_name"
+                description: "The data type of the `column_name` column. Stitch uses this data to [type columns](#discovery--data-types)."
+
+              - name: "oa_scale"
+                description:  "For `NUMBER` data types, the scale of the data in the `column_name` column. Stitch uses this data to [type columns](#discovery--data-types)."
+            content: |
+              To discover tables and their schemas, Stitch queries the `OA_COLUMNS` system table in the [Connect Schema](https://1796361.app.netsuite.com/app/help/helpcenter.nl?fid=section_158695828012.html){:target="new"} for the following info:
+
+              <table class="attribute-list">
+              <tr>
+              <td class="attribute-name"><strong>Column name</strong></td>
+              <td><strong>Description</strong></td>
+              </tr>
+              {% for column in sub-subsection.columns %}
+              <tr>
+              <td class="attribute-name"><strong>{{ column.name }}</strong></td>
+              <td>{{ column.description | flatify | markdownify }}</td>
+              </tr>
+              {% endfor %}
+              </table>
+
+              All tables where `table_qualifer != SCHEMA` and `table_owner != SYSTEM` will be returned and displayed in Stitch as avaiilable for replication.
+
+              Refer to [NetSuite's documentation](https://1796361.app.netsuite.com/app/help/helpcenter.nl?fid=section_4410183892.html){:target="new"} for more info about the `OA_COLUMNS` system table.
+
+          - title: "Data typing"
+            anchor: "discovery--data-types"
+            summary: "Type the data in discovered columns"
+            data-types:
+              - name: "varchar2"
+                stitch-type: "string"
+                notes: |
+                  The `VARCHAR2` data type includes `BOOLEAN` data due to how NetSuite stores these values.
+
+                  NetSuite stores `BOOLEAN` values as `VARCHAR2` with either a length of one (`"t"` or `"f"`) or three (`"yes"` or `"no"`). As typing can't be correctly asserted based on a length of one or three, these values are dicovered as strings.
+              
+              - name: "number"
+                stitch-type: "integer"
+                notes: |
+                  If the column's `oa_scale` value is `0`, Stitch will type the data as an `INTEGER`.
+
+              - name: "number"
+                stitch-type: "number"
+                notes: |
+                  If the column's `oa_scale` value is greater than `0`, Stitch will type the data as a `NUMBER`.
+              
+              - name: "timestamp"
+                stitch-type: "string (date-time)"
+                notes: |
+                  Stitch will type `TIMESTAMP` data as a `DATE-TIME`-formatted string.
+            content: |
+              Next, Stitch will assign data types to columns. To determine data types, Stitch uses the `type_name` and `oa_scale` columns returned [during table discovery](#discovery--objects).
+
+              In the following table:
+
+              - **NetSuite data type**: The data type in NetSuite, based on the column's `type_name` value.
+              - **Stitch data type**: The Stitch data type the NetSuite type will be mapped to.
+              - **Description:** Details about the data type or mapping.
+
+              <table class="attribute-list">
+              <tr>
+              <td class="attribute-name">
+              <strong>NetSuite data type</strong>
+              </td>
+              <td width="18%; fixed">
+              <strong>Stitch data type</strong>
+              </td>
+              <td>
+              <strong>Description</strong>
+              </td>
+              </tr>
+              {% for data-type in sub-subsection.data-types %}
+              <tr>
+              <td class="attribute-name">
+              <strong>{{ data-type.name | upcase }}</strong>
+              </td>
+              <td>
+              {{ data-type.stitch-type | upcase }}
+              </td>
+              <td>
+              {{ data-type.notes | flatify | markdownify }}
+              </td>
+              </tr>
+              {% endfor %}
+              </table>
+
+          - title: "Identifying Primary Keys"
+            anchor: "discovery--primary-keys"
+            summary: "Identify Primary Keys"
+            content: |
+              Stitch's approach to Primary Keys for {{ integration.display_name }} is a bit different than other integrations. In {{ integration.display_name }}, we've found that some tables might not have Primary Keys at all, or Primary Key columns may sometimes contain `NULL` values.
+
+              To ensure Primary Key accuracy in tables that have Primary Keys, Stitch will query the `OA_FKEYS` system table to check if the table has Primary Keys.
+
+              If the table has Primary Keys, Stitch will next:
+              
+              1. Combine all Primary Key column values on a per record basis
+              2. Hash the result and place the hash in a system column named `{{ system-column.record-hash }}`
+              3. Automatically set `{{ system-column.record-hash }}` and the table's Primary Key columns to replicate
+
+              **Note**: The presence of Primary Keys partially determines [how data is loaded into your destination](#loading-details).
+
+              Refer to [NetSuite's documentation](https://1796361.app.netsuite.com/app/help/helpcenter.nl?fid=section_4410184091.html){:target="new"} for more info about the `OA_FKEYS` system table.
+
+      - title: "Data replication"
+        anchor: "extraction--data-replication"
+        summary: "Select records for replication"
+        content: |
+          After discovery is completed, Stitch will move onto extracting data. The [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}) Stitch uses is dependent on whether the table contains valid [Replication Key columns]({{ link.replication.rep-keys | prepend: site.baseurl }}).
+
+          Stitch will default to using [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) if a table contains any of the following columns:
+
+          - `last_modified_date`
+          - `date_last_modified`
+          - `date_deleted`
+          - `date_last_modified_gmt` (`transaction_lines` table only)
+
+          If a table contains more than one of the above columns, you'll be prompted to select a column to use as a Replication Key when you set the table to replicate. Otherwise, Stitch will use the single column as the Replication Key for the table.
+
+          If a table doesn't contain any of the above columns, Stitch will default to using [Full Table Replication]({{ link.replication.full-table | prepend: site.baseurl }}).
+
+          As this integration supports configuring Replication Methods, you can toggle between Replication Methods for tables on the **Table Settings** page in Stitch.
+
+  - title: "Loading"
+    anchor: "loading-details"
+    summary: "Details about how data replicated from {{ integration.display_name }} is loaded into a destination"
+    content: |
+      How data replicated from an {{ integration.display_name }} integration is loaded into your destination depends on two factors:
+
+      1. **If the table has Primary Keys** identified [during discovery](#discovery--primary-keys).
+
+      2. **If your destination supports upserts, or updating existing rows**. For destinations that support upserts, Stitch uses Primary Keys to de-dupe data during loading. {{ site.data.tooltips.primary-key }}
+
+         **Note**: For Append-Only destinations, data will be loaded in an Append-Only manner regardless of whether a table has Primary Keys.
+
+    subsections:
+      - title: "Loading with Primary Keys"
+        anchor: "loading--with-primary-keys"
+        content: |
+          If the destination supports upserts and the table has Primary Keys, Stitch will de-dupe records using `{{ system-column.record-hash }}` as the Primary Key.
+
+          This means that existing rows will be overwritten with the most recent version of the row. A record can only have a single unique Primary Key value, ensuring that only one version of the record exists in the destination at a time.
+
+      - title: "Loading without Primary Keys"
+        anchor: "loading--without-primary-keys"
+        content: |
+          If the destination is Append-Only, or if the table doesn't have Primary Keys, data will be loaded in an Append-Only manner.
+
+          This means that existing rows will never be updated with new data. New and updated records will be appended to the end of the table as new rows.
+
+          **Note**: Querying Append-Only tables requires a different strategy than you might normally use. For instructions and a sample query, check out the [Querying Append-Only tables guide]({{ link.replication.append-only-querying | prepend: site.baseurl }}).
+
+
+# -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
 
