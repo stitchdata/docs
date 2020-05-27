@@ -9,9 +9,15 @@
 raw-error:
   malformed-sheet: &malformed-sheet "SKIPPING Malformed sheet: [sheet_name]"
   empty-sheet: &empty-sheet "SKIPPING Empty sheet: [sheet_name]"
-  
+  duplicate-column-names: &duplicate-column-names "DUPLICATE HEADER ERROR: SHEET: [sheet_name], COL: [column_name], CELL: [cell]"
+  no-column-header: &no-column-header |
+    SKIPPED COLUMN; NO COLUMN HEADER. SHEET: [sheet_name], COL: [column_name], CELL: [cell]
+    This column will be skipped during data loading.
+  consecutive-skipped-columns: &consecutive-skipped-columns "TWO CONSECUTIVE SKIPPED COLUMNS. STOPPING SCAN AT: SHEET: [sheet_name], COL: [column_name], CELL: [cell]"
+  data-type-error: &data-type-error "POSSIBLE DATA TYPE ERROR; SHEET: [sheet_name], COL: [column_name], CELL: [cell], TYPE: [data_type], VALUE: [value]"
 
 all:
+## MALFORMED SHEET  
   - message: *malformed-sheet
     id: "malformed-sheet"
     applicable-to: &google-sheets-v1 "Google Sheets v1 integrations"
@@ -22,18 +28,32 @@ all:
     cause: |
       The sheet isn't formatted according to [Stitch's requirements]({{ site.baseurl }}/integrations/saas/google-sheets#setup-requirements).
     fix-it: |
-      Verify that the sheet meet's Stitch's requirements and modify if necessary.
+      Verify that the sheet meets Stitch's requirements and modify if necessary.
 
+## EMPTY SHEET
   - message: *empty-sheet
     id: "empty-sheet"
-    applicable-to: &google-sheets-v1 "Google Sheets v1 integrations"
+    applicable-to: *google-sheets-v1
     level: "info"
     category: "Sheet setup"
     version: "1" 
     summary: "Empty sheet"
     cause: |
-      The sheet doesn't have a header row and a data row, as per [Stitch's requirements]({{ site.baseurl }}/integrations/saas/google-sheets#setup-requirements).
+      The sheet doesn't have a header row and a data row, as per [Stitch's requirements]({{ site.baseurl }}/integrations/saas/google-sheets#setup-requirements). Columns in the data row (second row) must all have non-`NULL` values.
     fix-it: |
       Modify the sheet so that it contains a header row in the first row and a full row of data in the second row.
 
-      **Note**: Columns in the data row (second row) must all have non-`NULL` values. If a column in this row has a `NULL` value, a [malformed sheet error](#malformed-sheet) will surface during Extraction.
+## DUPLICATE COLUMN NAMES
+  - message: *duplicate-column-names
+    id: "duplicate-column-names"
+    applicable-to: *google-sheets-v1
+    level: "warning"
+    category: "Sheet setup"
+    version: "1" 
+    summary: "Header row contains duplicate values"
+    cause: |
+      The sheet's header row contains duplicate values. Header row values are used to create column names and must therefore be unique, as per [Stitch's requirements]({{ site.baseurl }}/integrations/saas/google-sheets#setup-requirements).
+    fix-it: |
+      Modify the sheet's header row so that all values (column names) are unique, excluding case.
+
+      For example: While `customer_id` and `Customer_ID` may be unique due to case differences, this may still cause errors during extraction and loading. For this reason, column names must be completely unique.
