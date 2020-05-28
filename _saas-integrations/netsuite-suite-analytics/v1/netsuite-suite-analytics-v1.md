@@ -58,6 +58,7 @@ cron-scheduling: true
 extraction-logs: true
 loading-reports: true
 define-replication-methods: true
+define-replication-keys: true
 
 table-selection: true
 column-selection: true
@@ -220,6 +221,23 @@ replication-sections:
 
               Refer to [NetSuite's documentation](https://1796361.app.netsuite.com/app/help/helpcenter.nl?fid=section_4410183892.html){:target="new"} for more info about the `OA_COLUMNS` system table.
 
+          - title: "Identifying Primary Keys"
+            anchor: "discovery--primary-keys"
+            summary: "Identify Primary Keys"
+            content: |
+              Stitch's approach to Primary Keys for {{ integration.display_name }} is a bit different than other integrations. In {{ integration.display_name }}, we've found that some tables might not have Primary Keys at all, or Primary Key columns may sometimes contain `NULL` values.
+
+              To determine if a table has Primary Keys, Stitch queries the `OA_FKEYS` system table. If the table has Primary Keys, Stitch will:
+              
+              1. Combine all Primary Key column values on a per record basis
+              2. Hash the result and place the hash in a [system column]({{ link.destinations.storage.sdc-columns | prepend: site.baseurl }}) named `{{ system-column.record-hash }}`
+              3. Designate `{{ system-column.record-hash }}` as the table's Primary Key. Primary Key columns will have a {{ site.data.ui.icons.primary-key | flatify }} icon next to their name in Stitch.
+              4. Automatically set `{{ system-column.record-hash }}` and the table's Primary Key columns to replicate
+
+              **Note**: The presence of Primary Keys partially determines [how data is loaded into your destination](#loading-details).
+
+              Refer to [NetSuite's documentation](https://1796361.app.netsuite.com/app/help/helpcenter.nl?fid=section_4410184091.html){:target="new"} for more info about the `OA_FKEYS` system table.
+
           - title: "Data typing"
             anchor: "discovery--data-types"
             summary: "Type the data in discovered columns"
@@ -246,7 +264,7 @@ replication-sections:
                 notes: |
                   Stitch will type `TIMESTAMP` data as a `DATE-TIME`-formatted string.
             content: |
-              Next, Stitch will assign data types to columns. To determine data types, Stitch uses the `type_name` and `oa_scale` columns returned [during table discovery](#discovery--objects).
+              Next, Stitch will assign data types to columns. To determine data types, Stitch uses the `type_name` and `oa_scale` columns returned from the `OA_COLUMNS` system table [during table discovery](#discovery--objects).
 
               In the following table:
 
@@ -281,23 +299,7 @@ replication-sections:
               {% endfor %}
               </table>
 
-          - title: "Identifying Primary Keys"
-            anchor: "discovery--primary-keys"
-            summary: "Identify Primary Keys"
-            content: |
-              Stitch's approach to Primary Keys for {{ integration.display_name }} is a bit different than other integrations. In {{ integration.display_name }}, we've found that some tables might not have Primary Keys at all, or Primary Key columns may sometimes contain `NULL` values.
-
-              To ensure Primary Key accuracy in tables that have Primary Keys, Stitch will query the `OA_FKEYS` system table to check if the table has Primary Keys.
-
-              If the table has Primary Keys, Stitch will next:
-              
-              1. Combine all Primary Key column values on a per record basis
-              2. Hash the result and place the hash in a system column named `{{ system-column.record-hash }}`
-              3. Automatically set `{{ system-column.record-hash }}` and the table's Primary Key columns to replicate
-
-              **Note**: The presence of Primary Keys partially determines [how data is loaded into your destination](#loading-details).
-
-              Refer to [NetSuite's documentation](https://1796361.app.netsuite.com/app/help/helpcenter.nl?fid=section_4410184091.html){:target="new"} for more info about the `OA_FKEYS` system table.
+          
 
       - title: "Data replication"
         anchor: "extraction--data-replication"
