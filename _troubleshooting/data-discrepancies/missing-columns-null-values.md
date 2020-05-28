@@ -16,9 +16,9 @@ If you've noticed some missing columns or data from your data warehouse, the roo
 
 ## Stitch Replication
 
-When Stitch replicates your data, it uses the column's data type to determine how to correctly store the data in your data warehouse. If a column only contains `NULLs`, Stitch won't be able to infer the correct data type or store the data properly.
+When Stitch loads your data, it uses the column's data type to determine how to correctly store the data in your data warehouse. If a column only contains `NULLs`, Stitch's loading processes won't be able to infer the correct data type to store the data properly.
 
-In short: when a column only contains `NULLs`, it won't display inside Stitch or be replicated to your data warehouse. **The only exception to this is during the INITIAL sync of an integration.** During any subsequent syncs, columns filled with only `NULLs` will not be replicated.
+In short: when a column only contains `NULLs`, it won't be replicated to your data warehouse.
 
 ---
 
