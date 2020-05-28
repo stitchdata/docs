@@ -120,6 +120,10 @@ current-columns:
 
     **For NetSuite Suite Analytics integrations**, the hash consists of the values of the columns designated as Primary Keys by NetSuite for the table.
 
+  record-hash-netsuite-suite-analytics: |
+    A Stitch-generated SHA 256 hash that should be used as a Primary Key. The hash consists of a UTF-8 encoded JSON list containing the values of the columns designated as the table's Primary Keys by NetSuite.
+
+
 # REPORT DATE TIME
   report-date-time: &report-date-time "_sdc_report_datetime"
   report-date-time-description: &report-date-time-description |
