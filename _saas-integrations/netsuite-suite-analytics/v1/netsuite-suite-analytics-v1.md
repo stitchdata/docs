@@ -299,8 +299,6 @@ replication-sections:
               {% endfor %}
               </table>
 
-          
-
       - title: "Data replication"
         anchor: "extraction--data-replication"
         summary: "Select records for replication"
@@ -355,7 +353,32 @@ replication-sections:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/netsuite-analytics
+# Each table has a its own .md file in /_integration-schemas/netsuite-analytics/v1
+
+append-only-loading: |
+  **Note**: As this table doesn't have a Primary Key, data will be loaded using [Append-Only loading]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) even if your destination supports and is configured to use Upserts.
+
+netsuite-primary-keys: |
+  {% assign netsuite-pks = table.attributes | where:"netsuite-primary-key",true %}
+
+  NetSuite designates the following columns as Primary Keys for this table:
+
+  {% for pk in netsuite-pks %}
+  - `{{ pk.name }}`
+  {% endfor %}
+
+netsuite-primary-key-description: "**Note**: This column is used to create the `{{ system-column.record-hash }}` value."
+
+netsuite-replication-keys: |
+  {% assign netsuite-rks = table.attributes | where:"replication-key",true %}
+
+  If you set this table to replicate and select Key-based Incremental Replication, you'll need to also select a Replication Key.
+
+  There are multiple possible Replication Keys for this table:
+
+  {% for rk in netsuite-rks %}
+  - `{{ rk.name }}`
+  {% endfor %}
 
 
 # Remove this if you don't need it:
