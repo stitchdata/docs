@@ -32,7 +32,7 @@ singer: true
 status-url: ""
 
 tap-name: "NetSuite Suite Analytics"
-# repo-url: ## this is currently private
+repo-url: "Not applicable"
 
 this-version: "1"
 

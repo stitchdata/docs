@@ -32,6 +32,7 @@ display_name: "NetSuite"
 
 singer: true
 tap-name: "NetSuite"
+repo-url: "Not applicable"
 
 this-version: "1"
 
