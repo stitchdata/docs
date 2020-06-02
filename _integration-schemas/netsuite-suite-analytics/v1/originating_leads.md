@@ -5,7 +5,8 @@ key: "originating-lead"
 
 name: "originating_leads"
 doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/originatinglead.html"
-description: ""
+description: |
+  {{ integration.netsuite-replication-keys | flatify }}
 
 replication-method: "Key-based Incremental"
 
@@ -19,6 +20,12 @@ attributes:
       {{ integration.netsuite-primary-keys | flatify }}
 
   - name: "date_last_modified"
+    type: "date-time"
+    replication-key: true
+    description: |
+      The time the {{ table.key | replace: "-"," " }} was last modified.
+
+  - name: "last_modified_date"
     type: "date-time"
     replication-key: true
     description: |
@@ -275,10 +282,6 @@ attributes:
 
   - name: "job_type_id"
     type: "integer"
-    description: ""
-
-  - name: "last_modified_date"
-    type: "date-time"
     description: ""
 
   - name: "last_sale_period_id"

@@ -32,7 +32,7 @@ attributes:
 
   - name: "bill_of_materials_id"
     type: "integer"
-    netsuiteprimary-key: true
+    netsuite-primary-key: true
     description: ""
     foreign-key-id: "bill-of-materials-id"
 

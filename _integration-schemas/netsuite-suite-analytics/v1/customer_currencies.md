@@ -20,11 +20,13 @@ attributes:
 
   - name: "currency_id"
     type: "integer"
+    netsuite-primary-key: true
     description: ""
     foreign-key-id: "currency-id"
 
   - name: "customer_id"
     type: "integer"
+    netsuite-primary-key: true
     description: ""
     foreign-key-id: "customer-id"
 

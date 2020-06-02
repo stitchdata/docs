@@ -5,7 +5,8 @@ key: "customer"
 
 name: "customers"
 doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/customer.html"
-description: ""
+description: |
+  {{ integration.netsuite-replication-keys | flatify }}
 
 replication-method: "Key-based Incremental"
 
@@ -19,6 +20,12 @@ attributes:
       {{ integration.netsuite-primary-keys | flatify }}
 
   - name: "date_last_modified"
+    type: "date-time"
+    replication-key: true
+    description: |
+      The time the {{ table.key | replace: "-"," " }} was last modified.
+
+  - name: "last_modified_date"
     type: "date-time"
     replication-key: true
     description: |
@@ -272,9 +279,6 @@ attributes:
     description: ""
   - name: "language_id"
     type: "string"
-    description: ""
-  - name: "last_modified_date"
-    type: "date-time"
     description: ""
   - name: "last_sale_period_id"
     type: "integer"

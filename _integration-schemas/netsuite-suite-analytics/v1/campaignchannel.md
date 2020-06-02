@@ -5,7 +5,8 @@ key: "campaign-channel"
 
 name: "campaignchannel"
 doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignchannel.html"
-description: ""
+description: |
+  {{ integration.append-only-loading | flatify }}
 
 replication-method: "Key-based Incremental"
 

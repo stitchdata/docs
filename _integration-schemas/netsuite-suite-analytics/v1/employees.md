@@ -24,6 +24,12 @@ attributes:
     description: |
       The time the {{ table.key | replace: "-"," " }} was last modified.
 
+  - name: "last_modified_date"
+    type: "date-time"
+    replication-key: true
+    description: |
+      The time the {{ table.key | replace: "-"," " }} was last modified.
+
   - name: "accountnumber"
     type: "string"
     description: ""
@@ -168,10 +174,6 @@ attributes:
 
   - name: "labor_cost"
     type: "integer"
-    description: ""
-
-  - name: "last_modified_date"
-    type: "date-time"
     description: ""
 
   - name: "last_sales_activity"

@@ -1,11 +1,12 @@
 ---
-tap: "netsuite-suite-analytics"
-version: "1"
+# tap: "netsuite-suite-analytics"
+#version: "1"
 key: "last-sales-activity-record"
 
 name: "last_sales_activity_record"
 doc-link: ""
-description: ""
+description: |
+  {{ integration.netsuite-replication-keys | flatify }}
 
 replication-method: "Full Table"
 
@@ -18,6 +19,12 @@ attributes:
 
       {{ integration.netsuite-primary-keys | flatify }}
 
+  - name: "last_modified_date"
+    type: "date-time"
+    replication-key: true
+    description: |
+      The time the {{ table.key | replace: "-"," " }} was last modified.
+
   - name: "date_created"
     type: "date-time"
     description: ""
@@ -28,10 +35,6 @@ attributes:
 
   - name: "is_inactive"
     type: "string"
-    description: ""
-
-  - name: "last_modified_date"
-    type: "date-time"
     description: ""
 
   - name: "last_sales_activity"

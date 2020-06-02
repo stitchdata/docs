@@ -26,11 +26,13 @@ attributes:
 
   - name: "billing_class_id"
     type: "integer"
+    netsuite-primary-key: true
     description: ""
     foreign-key-id: "billing-class-id"
 
   - name: "currency_id"
     type: "integer"
+    netsuite-primary-key: true
     description: ""
     foreign-key-id: "currency-id"
 
@@ -48,6 +50,7 @@ attributes:
 
   - name: "item_id"
     type: "integer"
+    netsuite-primary-key: true
     description: ""
     foreign-key-id: "service-item-id"
 
@@ -57,6 +60,7 @@ attributes:
 
   - name: "item_price_id"
     type: "integer"
+    netsuite-primary-key: true
     description: ""
     foreign-key-id: "price-type-id"
 

@@ -7,7 +7,7 @@ name: "income_accounts"
 doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/income_accounts.html"
 description: ""
 
-replication-method: ""
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "{{ system-column.record-hash }}"

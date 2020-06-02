@@ -7,7 +7,7 @@ name: "bom_revision_components"
 doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/bom_revision_components.html"
 description: ""
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 
 attributes:
   - name: "{{ system-column.record-hash }}"

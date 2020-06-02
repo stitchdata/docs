@@ -5,9 +5,10 @@ key: "partner"
 
 name: "partners"
 doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/partner.html"
-description: ""
+description: |
+  {{ integration.netsuite-replication-keys | flatify }}
 
-replication-method: ""
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "{{ system-column.record-hash }}"
@@ -19,6 +20,12 @@ attributes:
       {{ integration.netsuite-primary-keys | flatify }}
 
   - name: "date_last_modified"
+    type: "date-time"
+    replication-key: true
+    description: |
+      The time the {{ table.key | replace: "-"," " }} was last modified.
+
+  - name: "last_modified_date"
     type: "date-time"
     replication-key: true
     description: |
@@ -102,10 +109,6 @@ attributes:
 
   - name: "isinactive"
     type: "string"
-    description: ""
-
-  - name: "last_modified_date"
-    type: "date-time"
     description: ""
 
   - name: "last_sales_activity"

@@ -7,7 +7,7 @@ name: "billing_rate_cards_versions"
 doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billing_rate_cards_versions.html"
 description: ""
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 
 attributes:
   - name: "{{ system-column.record-hash }}"

@@ -44,7 +44,7 @@ attributes:
 
   - name: "schedule_id"
     type: "integer"
-    netsuiteprimary-key: true
+    netsuite-primary-key: true
     description: ""
     foreign-key-id: "amortization-schedule-id"
 

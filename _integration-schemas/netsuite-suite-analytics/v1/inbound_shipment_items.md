@@ -4,8 +4,11 @@ version: "1"
 key: "inbound-shipment-items"
 
 name: "inbound_shipment_items"
-doc-link: ""
-description: ""
+doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/inboundshipment.html"
+description: |
+  From NetSuite's documentation:
+
+  > This table is available only for NetSuite accounts with the Inbound Shipment Management feature enabled.
 
 replication-method: "Full Table"
 
@@ -25,6 +28,7 @@ attributes:
   - name: "currency_id"
     type: "integer"
     description: ""
+    foreign-key-id: "currency-id"
 
   - name: "date_effective"
     type: "date-time"
@@ -40,6 +44,7 @@ attributes:
 
   - name: "inboundshipment_id"
     type: "integer"
+    netsuite-primary-key: true
     description: ""
 
   - name: "inboundshipmentitem_id"

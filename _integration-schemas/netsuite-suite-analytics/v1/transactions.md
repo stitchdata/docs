@@ -6,10 +6,13 @@ key: "transaction"
 name: "transactions"
 doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction.html"
 description: |
+  {{ integration.netsuite-replication-keys | flatify }}
+
   From NetSuite's documentation:
 
-  > - Credit and debit amounts are not exposed as columns in this table. However, you can query the `transaction_lines` table to obtain transaction credit and debit amounts. For more details, see [Connect Access to Transaction Credit and Debit Amounts](https://system.netsuite.com/app/help/helpcenter.nl?topic=DOC_section_4400769955){:target="new"}.
-  > - Item count and quantity values are not exposed as columns in in this table. However, you can query the `transaction_lines` table to obtain these values. For more details, see [Connect Access to Transaction Quantities](https://system.netsuite.com/app/help/helpcenter.nl?topic=DOC_section_1512507697){:target="new"}.
+  > Credit and debit amounts are not exposed as columns in this table. However, you can query the `transaction_lines` table to obtain transaction credit and debit amounts. For more details, see [Connect Access to Transaction Credit and Debit Amounts](https://system.netsuite.com/app/help/helpcenter.nl?topic=DOC_section_4400769955){:target="new"}.
+  
+  > Item count and quantity values are not exposed as columns in in this table. However, you can query the `transaction_lines` table to obtain these values. For more details, see [Connect Access to Transaction Quantities](https://system.netsuite.com/app/help/helpcenter.nl?topic=DOC_section_1512507697){:target="new"}.
 
 replication-method: "Key-based Incremental"
 
@@ -23,6 +26,12 @@ attributes:
       {{ integration.netsuite-primary-keys | flatify }}
 
   - name: "date_last_modified"
+    type: "date-time"
+    replication-key: true
+    description: |
+      The time the {{ table.key | replace: "-"," " }} was last modified.
+
+  - name: "last_modified_date"
     type: "date-time"
     replication-key: true
     description: |
@@ -287,10 +296,6 @@ attributes:
 
   - name: "landed_cost_allocation_method"
     type: "string"
-    description: ""
-
-  - name: "last_modified_date"
-    type: "date-time"
     description: ""
 
   - name: "last_sales_activity"

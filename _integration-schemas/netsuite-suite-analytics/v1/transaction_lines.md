@@ -8,8 +8,9 @@ doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_
 description: |
   From NetSuite's documentation:
 
-  > - Credit and debit amounts are not exposed as columns in this table. However, you can query this table to obtain transaction credit and debit amounts.
-  > - To obtain landed cost category names, you can include the `memo` column in your query. For each line where `is_landed_cost` is set to `Yes`, text is written to this column in the format `<Landed Cost Category Name>:<Item Name>`.
+  > Credit and debit amounts are not exposed as columns in this table. However, you can query this table to obtain transaction credit and debit amounts.
+  
+  > To obtain landed cost category names, you can include the `memo` column in your query. For each line where `is_landed_cost` is set to `Yes`, text is written to this column in the format `<Landed Cost Category Name>:<Item Name>`.
 
 replication-method: "Key-based Incremental"
 

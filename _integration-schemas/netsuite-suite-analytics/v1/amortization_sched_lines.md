@@ -20,13 +20,13 @@ attributes:
 
   - name: "account_id"
     type: "integer"
-    netsuiteprimary-key: true
+    netsuite-primary-key: true
     description: ""
     foreign-key-id: "account-id"
 
   - name: "accounting_period_id"
     type: "integer"
-    netsuiteprimary-key: true
+    netsuite-primary-key: true
     description: ""
     foreign-key-id: "accounting-period-id"
 
@@ -40,13 +40,13 @@ attributes:
 
   - name: "journal_id"
     type: "integer"
-    netsuiteprimary-key: true
+    netsuite-primary-key: true
     description: ""
     foreign-key-id: "transaction-id"
 
   - name: "schedule_id"
     type: "integer"
-    netsuiteprimary-key: true
+    netsuite-primary-key: true
     description: ""
     foreign-key-id: "amortization-schedule-id"
 ---

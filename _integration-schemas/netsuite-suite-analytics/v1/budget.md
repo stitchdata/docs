@@ -23,7 +23,7 @@ attributes:
     type: "integer"
     netsuite-primary-key: true
     description: "The budget ID. {{ integration.netsuite-primary-key-description | flatify }}"
-    foreign-key-id: "budget-id"
+    # foreign-key-id: "budget-id"
 
   - name: "account_id"
     type: "integer"

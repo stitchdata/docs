@@ -1,16 +1,14 @@
 ---
 tap: "netsuite-suite-analytics"
 version: "1"
-key: "notes-system-custom"
+key: "note-system"
 
-name: "notes_system_custom"
-doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/notes_system_custom.html"
+name: "notes_system"
+doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/notes_system.html"
 description: |
   From NetSuite's documentation:
 
-  > As of NetSuite 2017.1, the `notes_system_custom` table is obsolete. Use the [`system_notes_custom` table](#system-notes-custom) instead.
-
-  {{ integration.append-only-loading | flatify }}
+  > As of NetSuite 2017.1, the `notes_system` table is obsolete. Use the [`system_notes` table](#system-notes) instead.
 
 replication-method: "Key-based Incremental"
 
@@ -26,10 +24,6 @@ attributes:
     description: ""
     foreign-key-id: "entity-id"
 
-  - name: "comments"
-    type: "string"
-    description: ""
-
   - name: "company_id"
     type: "integer"
     description: ""
@@ -39,32 +33,12 @@ attributes:
     type: "string"
     description: ""
 
-  - name: "customfield_created_by"
-    type: "integer"
-    description: ""
-
-  - name: "customfield_created_date"
-    type: "date-time"
-    description: ""
-
-  - name: "customfield_modified_by"
-    type: "integer"
-    description: ""
-
-  - name: "customfield_modified_date"
-    type: "date-time"
-    description: ""
-
   - name: "direction"
     type: "string"
     description: ""
 
   - name: "event_id"
     type: "integer"
-    description: ""
-
-  - name: "isinactive"
-    type: "string"
     description: ""
 
   - name: "item_id"

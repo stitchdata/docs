@@ -8,7 +8,7 @@ doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_
 description: |
   {{ integration.append-only-loading | flatify }}
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 
 attributes:
   - name: "{{ system-column.record-hash }}"

@@ -7,7 +7,7 @@ name: "bill_of_distributions"
 doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/bill_of_distributions.html"
 description: ""
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 
 attributes:
   - name: "{{ system-column.record-hash }}"
@@ -24,7 +24,7 @@ attributes:
 
   - name: "bill_of_distribution_id"
     type: "integer"
-    netsuiteprimary-key: true
+    netsuite-primary-key: true
     description: ""
     # foreign-key-id: "bill-of-distribution-id"
 

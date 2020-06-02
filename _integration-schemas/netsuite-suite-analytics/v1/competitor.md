@@ -4,7 +4,7 @@ version: "1"
 key: "competitor"
 
 name: "competitor"
-doc-link: ""
+doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/competitor.html"
 description: ""
 
 replication-method: "Key-based Incremental"

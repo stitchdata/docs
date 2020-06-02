@@ -5,7 +5,8 @@ key: "campaign-subscription-status"
 
 name: "campaign_subscription_statuses"
 doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaign_subscription_statuses.html"
-description: ""
+description: |
+  {{ integration.netsuite-replication-keys | flatify }}
 
 replication-method: "Key-based Incremental"
 
@@ -24,17 +25,21 @@ attributes:
     description: |
       The time the {{ table.key | replace: "-"," " }} was last modified.
 
+  - name: "last_modified_date"
+    type: "date-time"
+    replication-key: true
+    description: |
+      The time the {{ table.key | replace: "-"," " }} was last modified.
+
   - name: "entity_id"
     type: "integer"
+    netsuite-primary-key: true
     description: ""
     foreign-key-id: "entity-id"
 
-  - name: "last_modified_date"
-    type: "date-time"
-    description: ""
-
   - name: "subscription_id"
     type: "integer"
+    netsuite-primary-key: true
     description: ""
     foreign-key-id: "campaign-subscription-id"
 

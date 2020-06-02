@@ -5,7 +5,6 @@ key: "project-revenue-rule"
 
 name: "project_revenue_rules"
 doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_revenue_rules.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite-suite-analytics/blob/master/tap_netsuite_suite_analytics/schemas/project_revenue_rules.json"
 description: ""
 
 replication-method: "Key-based Incremental"

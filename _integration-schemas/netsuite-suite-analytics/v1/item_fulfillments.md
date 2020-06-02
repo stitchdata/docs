@@ -5,9 +5,10 @@ key: "item-fulfillment"
 
 name: "item_fulfillments"
 doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/itemfulfillment.html"
-description: ""
+description: |
+  {{ integration.append-only-loading | flatify }}
 
-replication-method: ""
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "date_last_modified"

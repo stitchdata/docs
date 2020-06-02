@@ -42,6 +42,7 @@ attributes:
 
   - name: "search_engine_id"
     type: "integer"
+    netsuite-primary-key: true
     description: ""
     foreign-key-id: "search-engine-id"
 ---

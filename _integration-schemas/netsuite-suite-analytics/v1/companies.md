@@ -1,13 +1,14 @@
 ---
 tap: "netsuite-suite-analytics"
 version: "1"
-key: ""
+key: "company"
 
 name: "companies"
-doc-link: ""
-singer-schema: "https://github.com/singer-io/tap-netsuite-suite-analytics/blob/master/tap_netsuite_suite_analytics/schemas/companies.json"
+doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/companies.html"
 description: |
   {{ integration.netsuite-replication-keys | flatify }}
+
+  {{ integration.append-only-loading | flatify }}
 
 replication-method: "Key-based Incremental"
 
