@@ -15,18 +15,31 @@
              4. Split the reverse-pk-keys array, reverse it, and join it again -->
 
         <!-- Captures & cleans field names for PKs -->
-            {% capture clean-keys %}
-                {% for attribute in table.attributes %}{% if attribute.primary-key == true %}{{ attribute.name | flatify | append: " :" }}{% endif %}
-                {% endfor %}
-            {% endcapture %}
+            {% assign primary-keys = table.attributes | where:"primary-key",true %}
 
-            {% capture reverse-pk-keys %}
-                {{ clean-keys | split: "" | reverse | join: "" | remove_first: ": " }}
-            {% endcapture %}
+            {% assign primary-key-length = primary-keys.size %}
 
-            {% capture primary-keys %}
-                {{ reverse-pk-keys | split: "" | reverse | join: "" }}
-            {% endcapture %}
+            {% if primary-key-length == 0 %}
+                {% capture primary-keys %}
+                    None
+                {% endcapture %}
+
+            {% else %}
+                {% capture clean-keys %}
+                    {% for key in primary-keys %}{{ key.name | flatify | append: " :" }}
+                    {% endfor %}
+                {% endcapture %}
+
+                {% capture reverse-pk-keys %}
+                    {{ clean-keys | split: "" | reverse | join: "" | remove_first: ": " }}
+                {% endcapture %}
+
+                {% capture primary-keys %}
+                    {{ reverse-pk-keys | split: "" | reverse | join: "" }}
+                {% endcapture %}
+                
+            {% endif %}
+
         <!-- End PKs -->
 
 
