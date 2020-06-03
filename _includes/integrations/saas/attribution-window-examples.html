@@ -3,7 +3,7 @@
 {% capture historical-copy %}
 For historical and full re-replications of {{ integration.display_name }} data, Stitch will query for and extract data newer than or equal to the date defined in the **Start Date** field in the Integration Settings page.
 
-The **Start Date**, in conjunction with the **{{ window }}**, will define the minimum date Stitch should query for when extracting historical data. This is calculated as:
+The **Start Date**, in conjunction with the **{{ window }}**, defines the minimum date Stitch should query for when extracting historical data. This is calculated as:
 
 `Start Date - {{ window }} = Minimum Extraction Date`
 
@@ -34,7 +34,7 @@ ORDER BY {{ replication-key }}
 
 
 {% capture ongoing-copy %}
-For ongoing replication jobs, Stitch will query for and extract data using the last saved maximum value in the table's Replication Key column and the {{ window }} setting.
+For ongoing replication jobs, Stitch will query for and extract data using the last saved maximum value in the table's Replication Key column and the {{ window }} for the table.
 
 **Note:** This applies to every replication job that takes place after the historical replication job.
 
