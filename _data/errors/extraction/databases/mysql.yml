@@ -259,7 +259,7 @@ all:
     applicable-to: *all-mysql
     summary: "There are no Primary Keys in the table."
     cause: |
-      The table in the initial historical replication is empty. For Log-based Incremental Replication there must be Primary Keys in the table, as it is the only way to identify unique records. If the table is empty, there are no primary keys, therefore this error will occur. 
-      **Note**: Remaining tables will not be replicated, even if they contain valid data, if this error occurs.
+      The table is empty. For Log-based Incremental Replication there must be Primary Keys in the table, as it's the only way to identify unique records. If the table is empty, there are no Primary Key values, resulting in this error. 
+      **Note**: Remaining tables will not be replicated if this error occurs, even if they contain valid data.
     fix-it: |
       Use Key-based Incremental Replication to continue replication, or add Primary Keys to the table so that Log-based Incremental Replication can be used.
