@@ -9,7 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-pepperjam/blob/master/tap_peppe
 description: |
   The `{{ table.name }}` table contains information about your {{ integration.display_name }} creatives' performance within a {{ table.attribution-window-days }}-day time frame from the date of the last table replication.
 
-  **Note**: During every replication job, Stitch will replicate the last {{ table.attribution-window-days }} days' worth of data for this table.
+  **Note**: During every replication job, Stitch will replicate the last {{ table.attribution-window-days }} days' worth of data for this table. Refer to the [Attribution windows and data extraction](#attribution-windows-data-extraction) section for more info.
 
 replication-method: "Key-based Incremental"
 attribution-window: true

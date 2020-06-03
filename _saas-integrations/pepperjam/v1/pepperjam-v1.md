@@ -84,8 +84,7 @@ row-usage-hog-reasons:
 ## account for any updates to existing records made during
 ## this time.
 
-replication-notes: true
-attribution-window: "30 days"
+attribution-window: "28-30 days"
 attribution-is-configurable: false
 
 
@@ -116,16 +115,18 @@ setup-steps:
   - title: "Obtain your API key"
     anchor: "obtain-api-key"
     content: |
-      1. Login to you {{ integration.display_name }} account.
-      2. Hover over the **Developer Kit** menu and then click **API Keys**.
+      1. Login to your {{ integration.display_name }} account.
+      2. In the **Developer Kit** menu, click **API Keys**.
       3. Click **Generate New Key**.
-      4. Keep note of your API Key - you will need it to complete the next step.
+      4. Your API key will display.
+
+      Keep this page open - you'll need it to complete the next step.
   - title: "add integration"
     content: |
       4. In the **API Key** field, paste the API key you obtained in [step 1](#obtain-api-key).
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
+  - title: "track data"
 
 
 # -------------------------- #
@@ -136,24 +137,24 @@ replication-sections:
   - title: "Attribution windows and data extraction"
     anchor: "attribution-windows-data-extraction"
     content: |
-      Stitch replicates data in this way to account for updates made to existing records within an attribution window, thus ensuring you won’t make decisions based on stale (or false) data. As a result, you may see a higher number of replicated rows than what’s being generated in Pepperjam.
+      Every time Stitch runs a replication job for {{ integration.display_name }}, the last {{ integration.attribution-window }}' worth of data will be replicated for the following tables:
+
+      {% assign all-tables = site.integration-schemas | where:"tap",integration.name %}
+      {% assign all-version-tables = all-tables | where:"version",integration.this-version %}
+      {% assign tables-with-attribution = all-version-tables | where:"attribution-window",true %}
+
+      {% for table in tables-with-attribution %}
+      - `{{ table.name }}` - {{ table.attribution-window-days }} days
+      {% endfor %}
+
+      Stitch replicates data in this way to account for updates made to existing records within an attribution window, thus ensuring you won’t make decisions based on stale (or false) data. As a result, you may see a higher number of replicated rows than what’s being generated in {{ integration.display_name }}.
 
       Setting the Replication Frequency to a higher frequency - like 30 minutes - can result in re-replicating recent data and contribute to greater row usage. Replicating fewer tables or selecting a lower frequency can help keep your row count low.
 
       In the sections below are examples of how attribution windows impact how Stitch extracts data during historical and ongoing replication jobs.
 
-      {% include integrations/saas/ads-append-only-replication.html type="report-tables" %}
-
-  - title: "Pepperjam tables with attribution windows"
-    anchor: "tables-with-attribution"
-    content: |
-      Below is the list of tables in this integration with attribution windows:
-      {% assign all-tables = site.integration-schemas | where:"tap","pepperjam" %}
-      {% assign tables-with-attribution = all-tables | where:"attribution-window",true %}
-
-      {% for table in tables-with-attribution %}
-      - {{ table.name }} - {{ table.attribution-window-days }} days
-      {% endfor %}
+      {% include integrations/saas/ads-append-only-replication.html %}
+      {% include integrations/saas/attribution-window-examples.html %}
 
 # -------------------------- #
 #     Integration Tables     #

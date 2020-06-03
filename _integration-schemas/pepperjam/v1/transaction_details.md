@@ -1,15 +1,15 @@
 ---
 tap: "pepperjam"
 version: "1"
-key: "transaction_details"
-name: "transaction-detail"
+key: "transaction-detail"
 
+name: "transaction_details"
 doc-link: "https://support.pepperjam.com/s/advertiser-api-documentation#TransactionDetails"
 singer-schema: "https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/transaction_details.json"
 description: |
   The {{ table.name }} table contains all publisher transaction details, within a {{ table.attribution-window-days }}-day time frame from the date of the last table replication.
 
-  **Note**: During every replication job, Stitch will replicate the last {{ table.attribution-window-days }} days' worth of data for this table.
+  **Note**: During every replication job, Stitch will replicate the last {{ table.attribution-window-days }} days' worth of data for this table. Refer to the [Attribution windows and data extraction](#attribution-windows-data-extraction) section for more info.
 
 replication-method: "Key-based Incremental"
 attribution-window: true
