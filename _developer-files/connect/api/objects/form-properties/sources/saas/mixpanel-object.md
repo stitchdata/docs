@@ -62,7 +62,7 @@ object-attributes:
     description: |
       Number of days for date window looping through transactional endpoints with `from_date` and `to_date`. The default `date_window_size` is 30 days.
 
-      **Note**: If your project has large volumes of events, you may want to decrease the number of days to 14, 7, or even down to 1-2 days.
+      **Note**: If your project has large volumes of events, you may want to decrease the number of days to `14`, `7`, or even down to `1` or `2` days.
     value: "<XX>"
   
   - name: "project_timezone"
