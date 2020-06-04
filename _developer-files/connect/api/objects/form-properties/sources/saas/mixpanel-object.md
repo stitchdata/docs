@@ -69,7 +69,7 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      The timezone in which your date-time fields are stored for your project. You can find your project timezone in the project settings in the {{ form-property.display-name }} console. For more information on Mixpanel's project timezones, [click here](https://help.mixpanel.com/hc/en-us/articles/115004547203-Manage-Timezones-for-Projects-in-Mixpanel).
+      The timezone in which your date-time fields are stored for your project. You can find your project timezone in the project settings in the {{ form-property.display-name }} console. For more information on {{ form-property.display-name }}'s project timezones, [click here](https://help.mixpanel.com/hc/en-us/articles/115004547203-Manage-Timezones-for-Projects-in-Mixpanel){:target="new"}.
     value: "US/Pacific"
   
   - name: "select_properties_by_default"
