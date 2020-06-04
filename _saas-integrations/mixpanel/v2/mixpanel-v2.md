@@ -123,7 +123,7 @@ setup-steps:
   - title: "add integration"
     content: |
       4. In the **API Secret** field, paste the **API Secret** you retrieved from [step 1](#retrieve-timezone-api-secret).
-      5. In the **Attribution Window** field, enter the number of days you want your tables' attribution window to be. For more information on attribution windows refer to the [replication section](#attribution-windows-extraction).
+      5. In the **Attribution Window** field, enter the number of days you want your tables' attribution window to be. For more information on attribution windows, refer to the [Replication section](#attribution-windows-extraction).
       6. In the **Date Window Size** field, enter the number of days you want for date window looping through transactional endpoints with `from_date` and `to_date`. The default `date_window_size` is 30 days.
       **Note**: You may want to decrease the number of days if your project has a large volume of events. 
       7. In the **Project Timezone** field, paste the **F
