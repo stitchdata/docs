@@ -113,7 +113,7 @@ singer: &singer
   display-name: "Singer GitHub repository"
   name: "repo-url"
   field-value: |
-    {% if integration.singer == true %}
+    {% if integration.singer == true and integration.repo-url != "Not applicable" %}
     [{{ integration.repo-url | remove:"https://github.com/" }}]({{ integration.repo-url }}){:target="new"}
     {% else %}
     Not applicable
@@ -336,7 +336,6 @@ saas: &saas-integration-categories
     attributes:
       - *table-selection
       - *column-selection
-      - *table-level-reset
   - name: "Transparency"
     attributes: *transparency-category-attributes
 
