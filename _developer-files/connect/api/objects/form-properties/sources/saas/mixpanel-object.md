@@ -53,14 +53,16 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      Defines the number, in days, Stitch should use as an attribution window. To ensure your {{ form-property.display-name }} and Stitch settings align, we recommend using the same attribution window in Stitch that you use in {{ form-property.display-name }}. The default value for these attribution windows is five days. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#attribution-windows" }}) for more information about attribution windows for this integration.
+      Defines the number, in days, Stitch should use as an attribution window. To ensure your {{ form-property.display-name }} and Stitch settings align, we recommend using the same attribution window in Stitch that you use in {{ form-property.display-name }}. The default value for these attribution windows is five days. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#attribution-windows-extraction" }}) for more information about attribution windows for this integration.
     value: "XX"
   
   - name: "date_window_size"
     type: "string"
     required: true
     description: |
-      Number of days for date window looping through transactional endpoints with `from_date` and `to_date`. The default `date_window_size` is 30 days.
+      Number of days for a date looping window for the `export`, `funnel`, and `revenue` tables. The default `date_window_size` is 30 days.
+
+      Date looping will return records whose `from_date` and `to_date` fall between the number of days in the defined window size.
 
       **Note**: If your project has large volumes of events, you may want to decrease the number of days to `14`, `7`, or even down to `1` or `2` days.
     value: "<XX>"
@@ -76,6 +78,6 @@ object-attributes:
     type: "string"
     required: false
     description: |
-      A confifguration parameter - the only accepted values are `true` and `false`. When set to `true`, this parameter captures new properties in the `events` and `engage` tables' records. If set to false, new properties will be ignored.
+      A confifguration parameter - the only accepted values are `true` and `false`. When set to `true`, this parameter captures new properties in the `events` and `engage` tables' records. If set to `false`, new properties will be ignored.
     value: "true"
 ---
