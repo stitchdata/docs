@@ -113,7 +113,7 @@ requirements-list:
       **Admin privileges**. Your role in your {{ integration.display_name }} must be admin in order to be able to retrieve your API secret.
 
 setup-steps:
-  - title: "Retrieve your Mixpanel project timezone and API secret"
+  - title: "Retrieve your {{ integration.display_name }} project timezone and API secret"
     anchor: "retrieve-timezone-api-secret"
     content: |
       1. Login to your {{ integration.display_name }} account.
