@@ -34,7 +34,7 @@ status-url: ""
 tap-name: "Mixpanel"
 repo-url: https://github.com/singer-io/tap-mixpanel
 
-this-version: "2"
+this-version: "1"
 
 api: |
   [Mixpanel Event Export API & Mixpanel Query API.](https://developer.mixpanel.com/docs/mixpanel-apis){:target="new"}
