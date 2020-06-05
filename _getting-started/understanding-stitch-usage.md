@@ -474,7 +474,8 @@ sections:
           <p style="margin: 10px;">To find out more about your SaaS integrations' data structure and replication methods, we recommend checking out our extensive <a href="{{ site.baseurl }}/integrations/saas">SaaS integration docs</a>. Every SaaS integration has detailed info about the tables Stitch will replicate and the methods used to do so.</p>
 
           {% assign databases = site.database-integrations | where:"row-usage-hog",true %}
-          {% assign saas = site.saas-integrations | where:"row-usage-hog",true %}
+          {% assign all-saas = site.saas-integrations | where:"row-usage-hog",true %}
+          {% assign saas = all-saas | where:"input",true %}
 
           {% assign all-row-hogs = databases | concat: saas | sort:"display_name" %}
 
@@ -489,10 +490,17 @@ sections:
           </td>
           </tr>
           {% for row-hog in all-row-hogs %}
+          {% if row-hog.show-in-menus == false %}
+          {% assign show-in-menus = false %}
+          {% else %}
+          {% assign show-in-menus = true %}
+          {% endif %}
+
+          {% if show-in-menus == true %}
           <tr>
           <td class="attribute-name">
           <strong>
-          <a href="{{ row-hog.url | prepend: site.baseurl }}">{{ row-hog.display_name }}</a>
+          <a href="{{ row-hog.url | prepend: site.baseurl }}">{{ row-hog.display_name }} {% if row-hog.this-version %}(v{{ row-hog.this-version }}){% endif %}</a>
           </strong>
           </td>
           <td>
@@ -521,6 +529,7 @@ sections:
           </ul>
           </td>
           </tr>
+          {% endif %}
           {% endfor %}
           </table>
           </div>
