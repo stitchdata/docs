@@ -120,7 +120,14 @@ attributes:
 
       - name: "type"
         type: "string"
-        description: "The value of this field will be `conversation_message`."
+        description: |
+          The possible values of this field are:
+
+          - `conversation`
+          - `push`
+          - `twitter`
+          - `facebook`
+          - `email`
 
   - name: "conversation_parts"
     type: "array"
