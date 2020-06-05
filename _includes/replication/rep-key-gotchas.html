@@ -26,14 +26,14 @@ Before selecting a Replication Key for a {% if page.title contains "Mongo"%}coll
 
 5. **Some data types may not auto-increment.** Before using the field, you should verify the field's data type **and** that it auto-increments. Otherwise, Stitch may have issues detecting new data.
 
-#### Checking for Multiple Data Types
+#### Checking for multiple data types
 
 {% include integrations/databases/verify-mongo-data-types.html %}
 
 {% else %}
 - **Rows with `NULL` values in the Replication Key column will only be replicated during the first extraction of an integration**. This means subsequent extractions will not capture rows where the Replication Key is `NULL`. Stitch uses the Replication Key column to detect new and updated data - without it, data can't be correctly detected and replicated.
 
-   If the Replication Key field is entirely `NULL`, the entire source table will be extracted during each job until a non-`Null` value is received and stored as a bookmark.
+   If the Replication Key field is entirely `NULL`, the entire source table will be extracted during each job until a non-`NULL` value is received and stored as a bookmark.
 
 - **Auto-incrementing integers are only suitable Replication Keys for Append-Only tables**. If you want to use an auto-incrementing integer column as the Replication Key for your table, ensure that the table is Append-Only. 
 
