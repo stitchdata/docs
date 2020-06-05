@@ -47,24 +47,24 @@ object-attributes:
     required: true
     description: |
       The API secret of your project in your {{ form-property.display-name }} account. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-timezone-api-secret" }}) for instructions on obtaining this information. 
-    value: "YOUR_API_SECRET"
+    value: "<YOUR_API_SECRET>"
 
   - name: "attribution_window"
     type: "string"
     required: true
     description: |
-      Defines the number, in days, Stitch should use as an attribution window. To ensure your {{ form-property.display-name }} and Stitch settings align, we recommend using the same attribution window in Stitch that you use in {{ form-property.display-name }}. The default value for these attribution windows is five days. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#attribution-windows-extraction" }}) for more information about attribution windows for this integration.
-    value: "XX"
+      Defines the number, in days, Stitch should use as an attribution window. To ensure your {{ form-property.display-name }} and Stitch settings align, we recommend using the same attribution window in Stitch that you use in {{ form-property.display-name }}. [{{ form-property.display-name }}'s default attribution window](https://help.mixpanel.com/hc/en-us/articles/115004616486-Tracking-If-Users-Are-Offline){:target="new"} is five days (`5`).
+
+      Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#attribution-windows-extraction" }}) for more information about attribution windows for this integration.
+    value: "<XX>"
   
   - name: "date_window_size"
     type: "string"
     required: true
     description: |
-      Number of days for a date looping window for the `export`, `funnel`, and `revenue` tables. The default `date_window_size` is 30 days.
+      Defines the number, in days, for a date looping window for the `export`, `funnel`, and `revenue` tables. Date looping will return records whose `from_date` and `to_date` fall between the number of days in the defined window size.
 
-      Date looping will return records whose `from_date` and `to_date` fall between the number of days in the defined window size.
-
-      **Note**: If your project has large volumes of events, you may want to decrease the number of days to `14`, `7`, or even down to `1` or `2` days.
+      **Note**: If your project has large volumes of events, you may want to set the number of days to `14`, `7`, or even to `1` or `2` days.
     value: "<XX>"
   
   - name: "project_timezone"
