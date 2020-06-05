@@ -160,7 +160,7 @@ replication-sections:
             anchor: "discovery--data-types"
             summary: "Type the data in discovered columns"
             content: |
-              To determine data types, Stitch will analyze the first 1,000 rows in the [files included in object discovery](#discovery--objects).
+              To determine data types, Stitch will analyze the first two rows in the [files included in object discovery](#discovery--objects).
 
               If a column has not been specified as a string value, Stitch will attempt to parse the value as a string. If this fails, the column will be loaded as a nullable `STRING`.
 
@@ -170,9 +170,9 @@ replication-sections:
               2. If that fails, attempt to parse the value as an `INTEGER`
               3. If that fails, attempt to parse the value as a `DATE-TIME` value
               4. If that fails, attempt to parse the value as a `DATE` date
-              2. If that fails, attempt to parse the value as a `TIME` value
-              3. If that fails, type the column as a `STRING`. **Note**: If a column contains entirely null values, it will be created as an empty column in the destination with a type of `STRING`.
-      
+              5. If that fails, attempt to parse the value as a `TIME` value
+              6. If that fails, type the column as a `STRING` 
+
       - title: "Data replication"
         anchor: "extraction--data-replication"
         summary: "Select records (files) for replication"
