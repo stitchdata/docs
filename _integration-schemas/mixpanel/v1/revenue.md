@@ -9,7 +9,10 @@ singer-schema: "https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpan
 description: |
   The `{{ table.name }}` table contains info about revenue, segmented by day.
 
+  **Note**: This table is replicated using the **Attribution Window** value defined in the integration's settings page. Refer to the [Replication section](#attribution-windows-extraction) for more info.
+
 replication-method: "Key-based Incremental"
+attribution-window: true
 
 api-method:
   name: "Export formatted data (Revenue)"

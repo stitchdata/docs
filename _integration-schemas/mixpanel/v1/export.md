@@ -11,7 +11,10 @@ description: |
 
   The schema for this table is dynamic, meaning that the columns Stitch detects are dependent upon the properties provided upon upload in {{ integration.display_name }}. For every property available in {{ integration.display_name }} for `{{ table.name }}` records, Stitch will display a column in the integration's **Tables to Replicate** tab.
 
+  **Note**: This table is replicated using the **Attribution Window** value defined in the integration's settings page. Refer to the [Replication section](#attribution-windows-extraction) for more info.
+
 replication-method: "Key-based Incremental"
+attribution-window: true
 
 api-method:
   name: "Export raw data"
