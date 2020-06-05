@@ -13,7 +13,7 @@
 # -------------------------- #
 
 title: Mixpanel
-permalink: /integrations/saas/mixpanel
+permalink: /integrations/saas/mixpanel/v1
 keywords: mixpanel, integration, schema, etl mixpanel, mixpanel etl, mixpanel schema
 layout: singer
 # input: false
