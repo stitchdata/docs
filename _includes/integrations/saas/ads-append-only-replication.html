@@ -51,7 +51,15 @@
     {% assign start-date = "July 3, 2017" %}
     {% assign start-date-value = "2017-07-03 00:00:00" %}
     {% assign replication-key-historical = "2017-06-03 00:00:00" %}
-    {% assign replication-key-ongoing = "2017-09-01 00:00:00" %}    
+    {% assign replication-key-ongoing = "2017-09-01 00:00:00" %}
+
+<!-- For Mixpanel -->
+  {% when "mixpanel" %}
+    {% assign window = "Attribution Window" %}
+    {% assign table = "revenue" %}
+    {% assign replication-key = "date" %}
+    {% assign replication-key-historical = "2017-06-28 00:00:00" %}
+    {% assign replication-key-ongoing = "2017-09-26 00:00:00" %}        
 
   {% endcase %}
 
