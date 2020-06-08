@@ -266,6 +266,8 @@ sections:
     content: |
       If a table's projection expression doesn't meet [Stitch's requirements](#projection-query-stitch-requirements), a critical error will arise during Extraction. Extractions will not be successful until the issue is resolved.
 
+      Refer to the [Database integration extraction error reference]({{ link.troubleshooting.database-extraction-errors | prepend: site.baseurl | append: "#amazon-dynamodb-server-error-reference" }}) for {{ page.display_name }} extraction errors and help resolving them.
+
   - title: "Resources"
     anchor: "projection-query-resources"
     summary: "Additional resources for projection expressions"
