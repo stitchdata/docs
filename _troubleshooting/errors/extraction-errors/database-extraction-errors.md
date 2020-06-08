@@ -54,6 +54,17 @@ sections:
 
       {% include troubleshooting/error-messages.html display-name="Common" %}
 
+
+  - title: "Amazon DynamoDB extraction errors"
+    anchor: "amazon-dynamodb-server-error-reference"
+    db-type: "dynamodb"
+    content: |
+      {{ page.applicable-integrations-note | flatify }}
+
+      {% assign errors = site.data.errors.extraction.databases.dynamodb.all | sort_natural:"message" %}
+
+      {% include troubleshooting/error-messages.html top-anchor="amazon-dynamodb-server-error-reference" display-name="Amazon DynamoDB" %}
+
   - title: "Microsoft SQL Server extraction errors"
     anchor: "microsoft-sql-server-error-reference"
     db-type: "mssql"

@@ -128,7 +128,7 @@ sections:
           Return only the specified fields (`name`, `is_active`) in the `customers` table. If including multiple fields, separate them with a comma.
         projection-query: |
           ```json
-          "name, is_active"
+          name, is_active
           ```
         sql: |
           ```sql
@@ -149,7 +149,7 @@ sections:
           Refer to [{{ page.display_name }}'s documentation]({{ site.data.taps.links.dynamodb.expressions-attributes }}){:target="new"} for more examples of dot notation for map elements.
         projection-query: |
           ```json
-          "name, details.age, details.type"
+          name, details.age, details.type
           ```
         sql: |
           In destinations - like Snowflake - that also use dot notation to query nested data, the query might look like this:
@@ -173,7 +173,7 @@ sections:
           Refer to [{{ page.display_name }}'s documentation]({{ site.data.taps.links.dynamodb.expressions-attributes }}){:target="new"} for more examples of accessing fields in lists.
         projection-query: |
           ```json
-          "name, acquaintances[1]"
+          name, acquaintances[1]
           ```
         results: |
           {% assign results = section.data %}
@@ -265,6 +265,8 @@ sections:
     summary: "How to troubleshoot projection expression errors"
     content: |
       If a table's projection expression doesn't meet [Stitch's requirements](#projection-query-stitch-requirements), a critical error will arise during Extraction. Extractions will not be successful until the issue is resolved.
+
+      Refer to the [Database integration extraction error reference]({{ link.troubleshooting.database-extraction-errors | prepend: site.baseurl | append: "#amazon-dynamodb-server-error-reference" }}) for {{ page.display_name }} extraction errors and help resolving them.
 
   - title: "Resources"
     anchor: "projection-query-resources"
