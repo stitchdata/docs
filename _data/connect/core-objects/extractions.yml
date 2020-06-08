@@ -1,0 +1,29 @@
+# ----------------------------- #
+#     EXTRACTION CORE OBJECT    #
+# ----------------------------- #
+
+title: "Extractions"
+section: "#extraction--section"
+object: "#extraction--object"
+base: "/v4/{client_id}/extractions"
+description: |
+  An object representing an extraction job. Extraction is the first step in a replication job.
+  
+list:
+  name: "/v4/{client_id}/extractions"
+  title: "Get last extraction jobs for an account"
+  method: "get"
+  anchor: "#list-last-extractions"
+  short: "Lists the last completed extraction job for each source in a given account that has had a completed extraction job in the past 60 days."
+  description: |
+    {{ site.data.connect.core-objects.extractions.list.short | flatify }}
+
+    **Note**: This includes paused and deleted sources that have had a completed extraction job in the past 60 days.
+
+get-job-logs:
+  name: "/v4/{client_id}/extractions/{job_name}"
+  title: "Get logs for an extraction job"
+  method: "get"
+  anchor: "#get-logs-for-an-extraction-job"
+  short: &get-short "Retrieves the logs for an extraction job by its unique identifier."
+  description: *get-short
