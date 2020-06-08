@@ -162,7 +162,7 @@ replication-sections:
             content: |
               To determine data types, Stitch will analyze the first two rows in the [files included in object discovery](#discovery--objects).
 
-              If a column has not been specified as a string value, Stitch will attempt to parse the value as a string. If this fails, the column will be loaded as a nullable `STRING`.
+              If a column has been specified as a `STRING`, Stitch will attempt to parse the value as a string. If this fails, the column will be loaded as a nullable `STRING`.
 
               For all other columns, Stitch will perform the following to determine the column's data type:
 
