@@ -6,7 +6,7 @@
 product-type: "connect"
 content-type: "api-object"
 endpoint: "notifications"
-order: 11
+order: 12
 
 
 # -------------------------- #
