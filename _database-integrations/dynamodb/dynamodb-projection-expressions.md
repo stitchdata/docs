@@ -128,7 +128,7 @@ sections:
           Return only the specified fields (`name`, `is_active`) in the `customers` table. If including multiple fields, separate them with a comma.
         projection-query: |
           ```json
-          "name, is_active"
+          name, is_active
           ```
         sql: |
           ```sql
@@ -149,7 +149,7 @@ sections:
           Refer to [{{ page.display_name }}'s documentation]({{ site.data.taps.links.dynamodb.expressions-attributes }}){:target="new"} for more examples of dot notation for map elements.
         projection-query: |
           ```json
-          "name, details.age, details.type"
+          name, details.age, details.type
           ```
         sql: |
           In destinations - like Snowflake - that also use dot notation to query nested data, the query might look like this:
@@ -173,7 +173,7 @@ sections:
           Refer to [{{ page.display_name }}'s documentation]({{ site.data.taps.links.dynamodb.expressions-attributes }}){:target="new"} for more examples of accessing fields in lists.
         projection-query: |
           ```json
-          "name, acquaintances[1]"
+          name, acquaintances[1]
           ```
         results: |
           {% assign results = section.data %}
