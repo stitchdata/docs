@@ -37,7 +37,10 @@ arguments:
   - name: "client_id"
     required: true
     type: "path parameter"
-    description: "A path parameter corresponding to the unique ID of a Stitch account."
+    description: |
+      A path parameter corresponding to the unique ID of a Stitch account.
+
+      **Note**: The client ID must be associated with the provided access token.
     example-value: |
       116078
 
