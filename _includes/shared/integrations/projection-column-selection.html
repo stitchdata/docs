@@ -56,7 +56,7 @@ The following table indicates the availability of Stitch's {{ page.display_name 
 
 {% when "what-are-projection-queries" %}
 
-In {{ page.display_name }}, the default for queries is to return all fields in matching {{ table-name }}.  A [projection {{ projection-type }}]({{ site.data.taps.links[page.name].projection-queries }}){:target="new"} is used to specify or restrict the data returned in query results. By specifying a projection {{ projection-type }}, you can specify the fields you want to return or exclude.
+In {{ page.display_name }}, the default for queries is to return all fields in matching {{ table-name }}.  A [projection {{ projection-type }}]({{ site.data.taps.links[page.name]projection-queries }}){:target="new"} is used to specify or restrict the data returned in query results. By specifying a projection {{ projection-type }}, you can specify the fields you want to return or exclude.
 
 For example: Not specifying a {{ projection-type }} in Stitch is similar to `SELECT *` in SQL. If you wanted to only return a subset of fields, you'd specify them in the `SELECT` clause:
 
