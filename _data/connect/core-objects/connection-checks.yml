@@ -7,7 +7,7 @@ section: "#connection-checks--section"
 object: "#connection-check--object"
 base: "/v4/{connection_type}/{connection_id}/last-connection-check"
 description: |
-  A Connection Check object shows the results from a test of a connection's parameters.  {{ site.data.tooltips.connection-check | replace: "A test", "This is a test" }} The nature of the test varies by connection type.
+  An object representing a connection check. Connection Check objects show the results from a test of a connection's parameters. {{ site.data.tooltips.connection-check | replace: "A test", "This is a test" }} The nature of the test varies by connection type.
 
 get-source:
   name: "/v4/sources/{source_id}/last-connection-check"
