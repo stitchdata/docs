@@ -75,13 +75,15 @@ object-attributes:
 
   - name: "start_time"
     type: "timestamp"
-    description: "The date and time the connection check job started."
+    description: |
+      {{ site.data.connect.general.start-time | replace: "[JOB-TYPE]","connection check" }}
     example-value: |
       2019-01-15T15:15:19Z
 
   - name: "completion_time"
     type: "timestamp"
-    description: "The date and time the connection check job was completed."
+    description: |
+      {{ site.data.connect.general.completion-time | replace: "[JOB-TYPE]","connection check" }}
     example-value: |
       2019-01-15T15:15:22Z
 
@@ -106,48 +108,35 @@ object-attributes:
   - name: "discovery_exit_status"
     type: "integer"
     description: |
-      The exit status of the discovery portion of the connection check job. Possible values are:
-
-      - `null` - Job is still running
-      - `0` - Job was successful
-      - Any non-zero value - Discovery failed
+      {{ site.data.connect.general.discovery-exit-status | replace: "[JOB-TYPE]","connection check" }}
     example-value: |
       0
 
   - name: "discovery_error_message"
     type: "string"
     description: |
-      Exception message raised when discovery failed during the connection check job. If successful, this will be `null`.
+      {{ site.data.connect.general.discovery-error-message | replace: "[JOB-TYPE]","connection check" }}
     example-value: |
       null
 
   - name: "tap_exit_status"
     type: "integer"
     description: |
-      The exit status of the tap. Possible values are:
-
-      - `null` - Tap is still running
-      - `0` - Tap was successful
-      - Any non-zero value - Tap failed
-
+      {{ site.data.connect.general.tap-exit-status }}
     example-value: |
       0
 
   - name: "tap_error_message"
     type: "string"
     description: |
-      Exception message raised when extraction failed during the job. If successful, this will be `null`.
+      {{ site.data.connect.general.tap-error-message }}
     example-value: |
       null
 
   - name: "target_exit_status"
     type: "integer"
     description: |
-      The exit status of the target portion of the connection check job. Possible values are:
-
-      - `null` - Target is still running
-      - `0` - Target was successful
-      - Any non-zero value - Target failed
+      {{ site.data.connect.general.target-exit-status | replace: "[JOB-TYPE]","connection check" }}
     example-value: |
       0
 
