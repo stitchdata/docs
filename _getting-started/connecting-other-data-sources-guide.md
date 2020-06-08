@@ -65,7 +65,7 @@ sections:
       - title: "How Singer taps work"
         anchor: "how-singer-taps-work"
         content: |
-          Singer's extensible platform makes it easy to add any data source you need. You can build a Singer tap and use the [Singer target]({{ site.singer | append:"/target/stitch/" }}){:target="new"}, to post against the Import API. The data will be processed like data from any other integration.
+          Singer's extensible platform makes it easy to add any data source you need. You can build a Singer tap and use the [Stitch target]({{ site.singer | append:"/target/stitch/" }}){:target="new"} to post against the Import API. The data will be processed like data from any other integration.
 
           The process will look something like this:
 
