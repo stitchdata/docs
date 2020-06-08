@@ -19,7 +19,7 @@ endpoint-url: "/{client_id}/extractions"
 description: |
   {{ site.data.connect.core-objects.extractions.description | flatify }}
   
-intro-short: "{{ site.data.connect.core-objects.extractions.description | flatify }}" # Used in the API functionality section of the docs
+intro-short: "Retrieve status info about recent extraction jobs" # Used in the API functionality section of the docs
 
 
 # -------------------------- #
