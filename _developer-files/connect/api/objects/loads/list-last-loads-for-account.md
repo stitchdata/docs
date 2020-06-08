@@ -21,7 +21,10 @@ short-url: |
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ site.data.connect.core-objects.loads.list.short | flatify }}"
-description: "{{ site.data.connect.core-objects.loads.list.description | flatify }}"
+description: |
+  {% include note.html type="single-line" content="**This endpoint is in beta.**" %}
+
+  {{ site.data.connect.core-objects.loads.list.description | flatify }}
 
 
 # -------------------------- #
