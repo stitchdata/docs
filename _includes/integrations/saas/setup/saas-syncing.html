@@ -23,11 +23,12 @@ Check out the Schema section to [learn more about the available tables in {{ int
 {% if integration.define-replication-methods == true %}
 4. **Optional**: To define a table's [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}), click {{ app.buttons.update-table-settings }} on the right side of the page.
 
-   Whenever possible, Stitch will default to using Incremental Replication. In these cases, the table's Replication Key will be automatically selected and cannot be changed.
+   Whenever possible, Stitch will default to using Key-based Incremental Replication. {% if integration.define-replication-keys == true %}In some cases, you may be prompted to select a [Replication Key](#extraction--data-replication) for the table.{% else %}In these cases, the table's Replication Key will be automatically selected and cannot be changed.{% endif %}
 
    To change the table's Replication Method:
 
-   1. Select the Replication Method you want the table to use. **Note**: Some tables can only be replicated using Full Table Replication. Incremental Replication will be greyed out when this is applicable.
+   1. Select the Replication Method you want the table to use. **Note**: Some tables can only be replicated using Full Table Replication. Key-based Incremental Replication will be greyed out when this is applicable.
+   {% if integration.define-replication-keys == true %}2. If required, select a Replication Key for the table.{% endif %}
    2. Click {{ app.buttons.save-table-settings }}.
 {% endif %}
 4. Repeat this process for all the tables {% if integration.column-selection == true %}and columns{% endif %} you want to replicate.

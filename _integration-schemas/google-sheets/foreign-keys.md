@@ -28,8 +28,9 @@ foreign-keys:
       - table: "sheet_metadata"
         join-on: "spreadsheetId"
       - table: "sheets_loaded"
-        join-on: "spreadsheetId"  
-
+        join-on: "spreadsheetId"
+      - table: "sample_table"
+        join-on: "__sdc_spreadsheet_id"
 
   - id: "sheet-id"
     table: "sheet_metadata"
@@ -39,13 +40,6 @@ foreign-keys:
         join-on: "sheetId"
       - table: "sheets_loaded"
         join-on: "sheetId"
-
-
-  - id: "column-index"
-    table: "sheet_metadata"
-    attribute: "columns.column-index"
-    all-foreign-keys:
-      - table: "sheet_metadata"
-        join-on: "columns.column-index"
-
+      - table: "sample_table"
+        join-on: "__sdc_sheet_id"
 ---

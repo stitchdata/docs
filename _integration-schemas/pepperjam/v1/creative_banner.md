@@ -1,0 +1,103 @@
+---
+tap: "pepperjam"
+version: "1"
+key: "creative_banner"
+
+name: "creative_banner"
+doc-link: "https://support.pepperjam.com/s/advertiser-api-documentation#Banner"
+singer-schema: "https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/creative_banner.json"
+description: |
+  The `{{ table.name }}` table contains information about banner creatives in your {{ integration.display_name }} account.
+
+replication-method: "Key-based Incremental"
+
+api-method:
+    name: "getBannerCreative"
+    doc-link: "https://support.pepperjam.com/s/advertiser-api-documentation#Banner"
+
+attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The banner ID."
+    #foreign-key-id: "banner-id"
+
+  - name: "modified"
+    type: "date-time"
+    description: "The time the banner was last modified."
+    replication-key: true
+
+  - name: "allow_deep_link"
+    type: "integer"
+    description: ""
+  - name: "alt_text"
+    type: "string"
+    description: ""
+  - name: "banner_url"
+    type: "string"
+    description: ""
+  - name: "created"
+    type: "date-time"
+    description: ""
+  - name: "description"
+    type: "string"
+    description: ""
+  - name: "destination_url"
+    type: "string"
+    description: ""
+  - name: "end_date"
+    type: "date-time"
+    description: ""
+  - name: "height"
+    type: "integer"
+    description: ""
+  - name: "name"
+    type: "string"
+    description: ""
+  - name: "private"
+    type: "integer"
+    description: ""
+  - name: "private_affiliates"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "affiliate_id"
+        type: "integer"
+        description: ""
+        foreign-key-id: "affiliate-id"
+
+      - name: "first_name"
+        type: "string"
+        description: ""
+
+      - name: "last_name"
+        type: "string"
+        description: ""
+  - name: "promotions"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "id"
+        type: "integer"
+        description: ""
+        foreign-key-id: "promotion-id"
+
+      - name: "name"
+        type: "string"
+        description: ""
+  - name: "start_date"
+    type: "date-time"
+    description: ""
+  - name: "status"
+    type: "string"
+    description: ""
+  - name: "type"
+    type: "string"
+    description: ""
+  - name: "view_date"
+    type: "date-time"
+    description: ""
+  - name: "width"
+    type: "integer"
+    description: ""
+---

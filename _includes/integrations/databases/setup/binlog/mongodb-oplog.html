@@ -24,12 +24,16 @@ In this step, you'll edit the `/etc/mongod.conf` file to add a [replica set]({{ 
 
 3. Navigate to the `/etc/mongod.conf` file.
 
-4. In `/etc/mongod.conf`, uncomment `replication` and specify a name for the replica set (`replSetName`). In this example, we're using `rs0` as the replica set name:
+4. In `/etc/mongod.conf`, uncomment `replication` and specify a name for the replica set (`replSetName`). 
+
+   In this example, we're using `rs0` as the replica set name:
 
    ```shell
    replication:
       replSetName: "rs0"
 	 ```
+
+    Use the `rs.status()` command to return this replica set's name going forward.
 
 	 **Note**: As `/etc/mongod.conf` is a protected file, you may need to assume `sudo` to edit it.
 

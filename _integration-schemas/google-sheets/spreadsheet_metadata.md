@@ -6,13 +6,14 @@ key: "spreadsheet_metadata"
 name: "spreadsheet_metadata"
 doc-link: "https://developers.google.com/sheets/api/reference/rest"
 singer-schema: "https://github.com/singer-io/tap-google-sheets/blob/master/tap_google_sheets/schemas/spreadsheet_metadata.json"
-description: "This table contains metadata about the spreadsheet."
+description: |
+  The `{{ table.name }}` table contains metadata about the spreadsheet defined in the integration's settings.
 
 replication-method: "Full Table"
 
 api-method:
-    name: "getSheets"
-    doc-link: "https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/sheets#top_of_page"
+  name: "getSheets"
+  doc-link: "https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/sheets#top_of_page"
 
 attributes:
   - name: "spreadsheetId"
@@ -28,6 +29,7 @@ attributes:
       - name: "autoRecalc"
         type: "string"
         description: "The amount of time to wait before volatile functions are recalculated."
+        
       - name: "locale"
         type: "string"
         description: |
@@ -35,9 +37,11 @@ attributes:
             - an ISO 639-1 language code such as `en`
             - an ISO 639-2 language code such as `fil`, if no 639-1 code exists
             - a combination of the ISO language code and country code, such as `en_US`
+
       - name: "timeZone"
         type: "string"
         description: "The time zone of the spreadsheet, in CLDR format such as `America/New_York`. If the time zone isn't recognized, this may be a custom time zone such as `GMT-07:00`."
+
       - name: "title"
         type: "string"
         description: "The title of the spreadsheet."

@@ -84,22 +84,17 @@ feature-summary: |
 
 
 # -------------------------- #
-#      Incompatibilities     #
-# -------------------------- #
-
-## uncomment section below if integration is compatible with any Stitch destinations
-## if incompatible with multiple destinations, create a section for each destination
-
-## incompatible:
-  ## [redshift]: "always,sometimes,never"
-  ## reason: "copy" 
-
-# -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
 
+requirements-list:
+  - item: |
+      **A header row with unique column values in the first row of every sheet you want to replicate.** If there are multiple headers not in the first row, your worksheet data may not be replicated correctly. Headers that aren't in the first row may be extracted as column data.
+  - item: |
+      **A full row of data in the second row of every sheet you want to replicate.** Data must begin in the second row of the sheet. Values in this row may not be `NULL` or [issues will arise during Extraction](#discovery--objects).
+      
 setup-steps:
-  - title: "Obtain your Spreadsheet ID"
+  - title: "Obtain your spreadsheet ID"
     anchor: "obtain-spreadsheet-id"
     content: |
       1. Go to [{{ integration.display_name }}](http://sheets.google.com){:target="new"} and log into the Google account associated with the spreadsheet you are looking to integrate.
@@ -118,20 +113,86 @@ setup-steps:
 #     Replication Details    #
 # -------------------------- #
 
-replication sections:  
-  - title: "Spreadsheet Setup"
-    anchor: "spreadsheet-setup"
+replication-sections:
+  - content: |
+      In this section:
+
+      {% for section in page.replication-sections %}
+      {% if section.title %}
+      - [{{ section.summary | flatify }}](#{{ section.anchor }})
+      {% endif %}
+      {% endfor %}
+
+  - title: "Extraction"
+    anchor: "extraction-details"
+    summary: "Details about Extraction, including object discovery and selecting data for replication"
     content: |
-      For proper table replication in Stitch's {{ integration.display_name }} integration, all of your sheets must have column headers in the first row. Row two is where your data should begin.
+      For every table set to replicate, Stitch will perform the following during Extraction:
 
-  - title: "Replication Outputs for your Individual Sheets"
-    anchor: "replication-outputs"
+      {% for subsection in section.subsections %}
+      - [{{ subsection.summary | flatify }}](#{{ subsection.anchor }})
+      {% endfor %}
+    subsections:
+      - title: "Discovery"
+        anchor: "extraction--discovery"
+        summary: "Discover table schemas and type discovered columns"
+        content: |
+          During Discovery, Stitch will:
+
+          {% for sub-subsection in subsection.sub-subsections %}
+          - [{{ sub-subsection.summary | flatify }}](#{{ sub-subsection.anchor }})
+          {% endfor %}
+        sub-subsections:
+          - title: "Determining table schemas"
+            anchor: "discovery--objects"
+            summary: "Determine table schemas"
+            content: |
+              At the start of each replication job, Stitch will check the sheets's header row and first data row (the second row in the sheet) for data.
+
+              To be detected and properly replicated, every sheet set to replicate must have:
+
+              1. Column headers with unique values in the first row. If there are duplicate column names, Stitch will skip the sheet and surface a [duplicate column name error]({{ link.troubleshooting.google-sheets-extraction-errors | prepend: site.baseurl }}#duplicate-column-names).
+
+                 For example: Two columns in the header row can't be named `customer_id`. Uniqueness must not rely on case. While `customer_id` and `Customer_ID` may be unique due to case differences, this may still cause errors during extraction and loading. For this reason, column names must be completely unique.
+              2. A full row of data in the second row. If any column in this row contains a `NULL` value, Stitch will skip the sheet and surface a [malformed sheet message during extraction]({{ link.troubleshooting.google-sheets-extraction-errors | prepend: site.baseurl }}#malformed-sheet).
+
+              If the sheet doesn't contain a header row and a second row of data, Stitch will skip the sheet and surface an [empty sheet message during extraction]({{ link.troubleshooting.google-sheets-extraction-errors | prepend: site.baseurl }}#empty-sheet).
+      
+          - title: "Data typing"
+            anchor: "discovery--data-types"
+            summary: "Type the data in discovered columns"
+            content: |
+              To determine data types, Stitch will analyze the first two rows in the [files included in object discovery](#discovery--objects).
+
+              If a column has been specified as a `STRING`, Stitch will attempt to parse the value as a string. If this fails, the column will be loaded as a nullable `STRING`.
+
+              For all other columns, Stitch will perform the following to determine the column's data type:
+
+              1. Attempt to parse the value as a `BOOLEAN` value
+              2. If that fails, attempt to parse the value as an `INTEGER`
+              3. If that fails, attempt to parse the value as a `DATE-TIME` value
+              4. If that fails, attempt to parse the value as a `DATE` date
+              5. If that fails, attempt to parse the value as a `TIME` value
+              6. If that fails, type the column as a `STRING` 
+
+      - title: "Data replication"
+        anchor: "extraction--data-replication"
+        summary: "Select records (files) for replication"
+        content: |
+          After discovery is completed, Stitch will move onto extracting data from the sheets set to replicate.
+
+          {% assign file-name = "spreadsheet" %}
+          {% assign file-note = "This includes all sheets in the spreadsheet that are set to replicate, regardless of whether they have been modified." %}
+
+          {% include replication/extraction/file-modification-replication-keys.html %}
+
+          To reduce row usage, consider [scheduling the integration to replicate less frequently](#define-rep-frequency).
+
+  - title: "Loading"
+    anchor: "loading-details"
+    summary: "Details about how data replicated from {{ integration.display_name }} is loaded into a destination"
     content: |
-      Stitch's {{ integration.display_name }} integration will output tables containing metadata about your spreadsheet, as well as replications of your individual sheets. For each sheet, the integration will output the schema of its resources, based on the column headers and datatypes in row two. It will also output a record for all columns that have columns headers and for each row of data.
-
-      The primary key in each row of a sheet is the row number. The field for the primary key is `__sdc_row`. The foreign keys included in the sheet are connected to the **Spreadsheet Metadata**, `__sdc_spreadsheet_id`, and the **Sheet Metadata**, `__sdc_sheet_id`.
-
-
+      For every sheet you set to replicate, Stitch will create a table in your destination. These tables will contain the columns you select for replication, along with some system columns created by Stitch. Refer to the [sample table](#sample-table) in the next section for an example.
 
 
 # -------------------------- #
@@ -139,14 +200,7 @@ replication sections:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/google-sheeets
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
+# Each table has a its own .md file in /_integration-schemas/google-sheets
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

@@ -32,6 +32,7 @@ display_name: "NetSuite"
 
 singer: true
 tap-name: "NetSuite"
+repo-url: "Not applicable"
 
 this-version: "1"
 
@@ -172,7 +173,7 @@ setup-steps:
       5. Click the **Save** button. The confirmation page will display a **Consumer key/secret** section.
       6. **Copy the Consumer Key and Secret somewhere handy.** You'll need these credentials to complete the setup in Stitch.
 
-  - title: "Create a Stitch {{ destination.display_name }} role and configure permissions"
+  - title: "Create a Stitch {{ integration.display_name }} role and configure permissions"
     anchor: "create-configure-stitch-role"
     content: |
       To connect {{ integration.display_name }} to Stitch, we recommend that you create a Stitch-specific role and user for us. We suggest this to ensure that:
@@ -216,18 +217,8 @@ setup-steps:
     anchor: "create-stitch-netsuite-user"
     content: |
       {% include layout/image.html type="right" file="/integrations/netsuite-new-employee-page.png" alt="The Name, Email, Access tab, Password, and Role tabs highlighted in the NetSuite " max-width="450" enlarge=true %}
-      Next, you'll create a dedicated {{ integration.display_name }} user for Stitch and assign the Stitch role to it.
 
-      1. Using the global search, type `page: new employee` and click the **Page: New Employees** result.
-      2. In the Employee page, fill in the **Name**, **Email**, and any other required fields.
-      3. Click the **Access** tab, located in the bottom half of the page.
-      4. In the **Access** tab:
-
-         1. Check the **Manually assign or change password** box to create a password for the Stitch user.
-         2. Enter a password in the **Password** field, then again in the **Confirm Password** field.
-         3. In the **Roles** section, search the dropdown menu to locate the Stitch role you created in [Step 4](#create-configure-stitch-role).
-         3. Click **Add** once you've located the role.
-      5. When finished, click **Save** to create the user.
+      {% include integrations/saas/netsuite-create-user.html step-number="4" step-anchor="create-configure-stitch-role" %}
 
   - title: "Create access tokens for Stitch"
     anchor: "create-access-tokens"

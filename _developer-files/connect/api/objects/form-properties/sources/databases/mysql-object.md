@@ -33,7 +33,6 @@ description: ""
 
 uses-common-fields: true
 uses-feature-fields: true
-uses-feature-fields: true
 
 object-attributes:
   - name: "check_hostname"

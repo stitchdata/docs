@@ -23,7 +23,7 @@ all:
     cause: |
       Change Tracking is not enabled for the named database, which contains tables that are set to replicate and use Log-based Incremental Replication in Stitch.
     fix-it: |
-      Enabled Change Tracking for the database referenced in the error message. To use Change Tracking, you must enabled it both at the database and table level.
+      Enable Change Tracking for the database referenced in the error message. To use Change Tracking, you must enabled it both at the database and table level.
 
       To enable Change Tracking for the database, log into your database and run the following statement, replacing `<database_name>` with the name of the database:
 

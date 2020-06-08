@@ -1,18 +1,19 @@
 ---
 tap: "google-sheets"
 version: "1"
-key: "file_metadata"
+key: "file-metadata"
 
 name: "file_metadata"
 doc-link: "https://developers.google.com/sheets/api/reference/rest"
 singer-schema: "https://github.com/singer-io/tap-google-sheets/blob/master/tap_google_sheets/schemas/file_metadata.json"
-description: "This table contains metadata about the spreadsheet file."
+description: |
+  The `{{ table.name }}` table contains metadata about the spreadsheet defined in the integration's settings.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "getSheets"
-    doc-link: "https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/sheets#top_of_page"
+  name: "getSheets"
+  doc-link: "https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/sheets#top_of_page"
 
 attributes:
   - name: "id"
@@ -23,16 +24,16 @@ attributes:
 
   - name: "modifiedTime"
     type: "date-time"
+    replication-key: true
     description: "The date and time the file was last modified."
-    replication-key: true  
 
   - name: "createdTime"
     type: "date-time"
-    description: "The date the spreadsheet was created."
+    description: "The date the file was created."
 
   - name: "driveId"
     type: "string"
-    description: "The drive ID."
+    description: "The ID of the drive containing the file."
 
   - name: "lastModifyingUser"
     type: "object"
@@ -41,9 +42,11 @@ attributes:
       - name: "displayName"
         type: "string"
         description: "The user's display name."
+
       - name: "emailAdress"
         type: "string"
         description: "The user's email address."
+
       - name: "kind"
         type: "string"
         description: "The type of user."
