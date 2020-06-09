@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Lever
+title: Lever (v1)
 permalink: /integrations/saas/lever
 keywords: lever, integration, schema, etl lever, lever etl, lever schema
 layout: singer
@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-lever
 this-version: "1"
 
 api: |
-  [Lever v1](https://hire.lever.co/developer/documentation){:target="new"}
+  [Lever API (v1)](https://hire.lever.co/developer/documentation){:target="new"}
 
 
 # -------------------------- #
@@ -61,11 +61,6 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-# attribution-window: "# days"
-# attribution-is-configurable: 
-
-# setup-name: ""
-
 
 # -------------------------- #
 #      Feature Summary       #
@@ -76,23 +71,12 @@ feature-summary: |
 
 
 # -------------------------- #
-#      Incompatibilities     #
-# -------------------------- #
-
-## uncomment section below if integration is compatible with any Stitch destinations
-## if incompatible with multiple destinations, create a section for each destination
-
-## incompatible:
-  ## [redshift]: "always,sometimes,never"
-  ## reason: "copy" 
-
-# -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
 
 requirements-list:
   - item: |
-      **Super Admin** privileges. Your role in {{ integration.display_name }} needs to be Super Admin in order to obtain an API Key.
+      **Super Admin** privileges. Your role in {{ integration.display_name }} must be Super Admin in order to obtain an API Key.
 
 setup-steps:
   - title: "Obtain your API token"
@@ -104,16 +88,17 @@ setup-steps:
       4. On the API Credentials page, locate the **Generate New Key** link in the {{ integration.display_name }} API credentials section.
       5. If you would like your key to access confidential information, click on the **Allow access to confidential data** toggle. If not, skip to the next step.
       6. Click **DONE**.
-      7. Keep your API key readily available for the next step.
+      
+      Keep your API key readily available for the next step.
 
-      {% note.html type="single-line" content="**Note**: Once you save your API key, you cannot change it's access settings. To update access setting, you must generate a new API key." %}
+      {% include note.html type="single-line" content="**Note**: Once you save your API key, you cannot change its access settings. You'll need to generate a new API key to change access settings." %}
 
   - title: "add integration"
     content: |
-      4. In the **Token** field, paste the API Key you obtained in [step 1](#obtain-api-token).
+      4. In the **Token** field, paste the API Key you obtained in [Step 1](#obtain-api-token).
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
+  - title: "track data"
 
 
 # -------------------------- #
@@ -121,14 +106,7 @@ setup-steps:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/lever
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
+# Each table has a its own .md file in /_integration-schemas/lever/v1
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
