@@ -83,11 +83,11 @@ setup-steps:
     anchor: "obtain-api-token"
     content: |
       1. Login to your {{ integration.display_name }} account.
-      2. Hover over your account icon in the upper right corner of the page and click on **SETTINGS**.
-      3. On the settings page, click on **API Credentials**
+      2. Hover over your account icon in the upper right corner of the page and click **Settings**.
+      3. On the settings page, click **API Credentials**.
       4. On the API Credentials page, locate the **Generate New Key** link in the {{ integration.display_name }} API credentials section.
       5. If you would like your key to access confidential information, click on the **Allow access to confidential data** toggle. If not, skip to the next step.
-      6. Click **DONE**.
+      6. Click **Done**.
       
       Keep your API key readily available for the next step.
 
