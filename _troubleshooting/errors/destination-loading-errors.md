@@ -11,13 +11,12 @@ redirect_from:
   - /troubleshooting/destinations/destination-data-loading-errors
 
 summary: "Resolve errors related to loading data into your Stitch destination."
-type: "all-destinations, error"
 
 key: "destination-loading-errors"
 
 level: "guide"
 top-level: ""
-# category: "connection-errors"
+category: "loading-errors"
 type: "all-destinations, destination, error"
 popular: true
 

@@ -11,11 +11,10 @@ redirect_from:
 
 summary: "Resolve errors related to connecting to a database integration."
 type: "database-integration, error"
+category: "connection-errors"
 
 level: "guide"
 top-level: ""
-# category: "connection-errors"
-type: "integration, error"
 popular: true
 
 intro: |
