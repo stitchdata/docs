@@ -60,7 +60,7 @@ all-codes:
     text: "Request Entity Too Large"
     error: true
     description: |
-      The size of the request body exceeded 4MB.
+      The size of the request body exceeded {{ site.data.import-api.general.max-record-size }}.
 
   - code: "415"
     text: "Unsupported Media Type"

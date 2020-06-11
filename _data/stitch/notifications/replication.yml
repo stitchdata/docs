@@ -80,7 +80,7 @@ critical:
     content:
       - "The name of the affected table"
     potential-causes:
-      - "A record in the table exceeds Stitch's 4MB limit"
+      - "A record in the table exceeds Stitch's {{ site.data.import-api.general.max-record-size }} limit"
     app-category: "persistence"
     singer: false
 
