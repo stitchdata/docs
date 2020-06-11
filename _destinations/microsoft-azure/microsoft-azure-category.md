@@ -12,11 +12,12 @@
 #        Page Controls       #
 # -------------------------- #
 
-title: Microsoft Azure SQL Data Warehouse Destination Documentation
-permalink: /destinations/microsoft-azure-sql-data-warehouse
+title: Microsoft Azure Synapse Analytics Destination Documentation
+permalink: /destinations/microsoft-azure-synapse-analytics
+redirect_from: /destinations/microsoft-azure-sql-data-warehouse
 
-keywords: azure, azure sql data warehouse
-summary: "Documentation for Stitch's Microsoft Azure SQL Data Warehouse destination."
+keywords: azure, azure sql data warehouse, azure synapse, synapse, microsoft
+summary: "Documentation for Stitch's Microsoft Azure Synapse Analytics destination."
 
 destination: true
 content-type: "destination-category"
@@ -31,7 +32,7 @@ layout: general
 #     Destination Details    #
 # -------------------------- #
 
-display_name: "Microsoft Azure SQL Data Warehouse"
+display_name: "Microsoft Azure Synapse Analytics"
 type: "microsoft-azure"
 
 this-version: "1"

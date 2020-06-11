@@ -2,10 +2,11 @@
 # -------------------------- #
 #        Page Controls       #
 # -------------------------- #
-title: Microsoft Azure SQL Data Warehouse Destination Reference
-permalink: /destinations/microsoft-azure-sql-data-warehouse/reference
+title: Microsoft Azure Synapse Analytics Destination Reference
+permalink: /destinations/microsoft-azure-synapse-analytics/reference
+redirect_from: /destinations/microsoft-azure-sql-data-warehouse/reference
 keywords: microsoft azure, microsoft azure, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure
-summary: "Reference documentation for Stitch's Microsoft Azure SQL Data Warehouse destination, including info about Stitch features, replication, and transformations."
+summary: "Reference documentation for Stitch's Microsoft Azure Synapse Analytics destination, including info about Stitch features, replication, and transformations."
 
 content-type: "destination-overview"
 key: "microsoft-azure-reference"
@@ -37,7 +38,7 @@ related:
 #    Destination Details     #
 # -------------------------- #
 
-display_name: "Microsoft Azure SQL Data Warehouse"
+display_name: "Microsoft Azure Synapse Analytics"
 type: "microsoft-azure"
 db-type: "mssql"
 
@@ -61,12 +62,12 @@ this-version: "1"
 
 intro: |
   {% capture setup-notice %}
-  Stitch's {{ destination.display_name }} destination only works with Microsoft's [Azure SQL Data Warehouse product](https://azure.microsoft.com/en-us/services/sql-data-warehouse/){:target="new"}.
+  Stitch's {{ destination.display_name }} destination only works with Microsoft's [Microsoft Azure Synapse Analytics](https://azure.microsoft.com/en-us/services/synapse-analytics/){:target="new"}.
 
   Stitch doesn't currently support using Azure SQL Server or Azure SQL Database as a destination.
   {% endcapture %}
 
-  {% include note.html first-line="**Stitch only supports connecting to Azure SQL Data Warehouse instances**" content=setup-notice %}
+  {% include note.html first-line="**Stitch only supports connecting to Azure Synapse Analytics instances**" content=setup-notice %}
 
   {{ site.data.destinations.microsoft-azure.destination-details.description | flatify }}
 

@@ -48,7 +48,7 @@ sections:
       This guide is applicable to the following destinations:
 
       - [Google BigQuery (v2)]({{ link.destinations.overviews.bigquery | prepend: site.baseurl }})
-      - [Microsoft Azure SQL Data Warehouse]({{ link.destinations.overviews.azure | prepend: site.baseurl }})
+      - [Microsoft Azure Synapse Analytics]({{ link.destinations.overviews.azure | prepend: site.baseurl }})
 
   - title: "Usage in replication"
     anchor: "usage-in-replication"
@@ -87,7 +87,7 @@ sections:
       - title: "Example tables"
         anchor: "example-tables"
         content: |
-          For every column a table uses as a Primary Key, the `{{ primary-keys-table.name }}` table will contain a row containing the table's name, the name of the column, and for Microsoft Azure SQL Data Warehouse destinations, the column's position in the Primary Key array Stitch receives.
+          For every column a table uses as a Primary Key, the `{{ primary-keys-table.name }}` table will contain a row containing the table's name, the name of the column, and for Microsoft Azure Synapse Analytics destinations, the column's position in the Primary Key array Stitch receives.
 
           For example: If Stitch received the array `["email_id", "updated_at", "customer_id"]` for an `emails` table, the `{{ primary-keys-table.name }}` table would contain the following records:
 
@@ -122,12 +122,12 @@ sections:
 
               {{ subsection.example-table | flatify }}
 
-          - title: "Example table: Microsoft Azure SQL Data Warehouse"
+          - title: "Example table: Microsoft Azure Synapse Analytics"
             anchor: "example-table--azure-sql-data-warehouse"
             content: |
               {% assign attributes = "table_name|column_name|ordinal_position" | split:"|" %}
 
-              In Microsoft Azure SQL Data Warehouse destinations, the Primary Key data for the `emails` table will look like this in `{{ primary-keys-table.name }}`:
+              In Microsoft Azure Synapse Analytics destinations, the Primary Key data for the `emails` table will look like this in `{{ primary-keys-table.name }}`:
 
               {{ subsection.example-table | flatify }}
 
