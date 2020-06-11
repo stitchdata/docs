@@ -13,9 +13,9 @@ key: "destination-form-properties-azure-sql-data-warehouse-object"
 #        OBJECT INFO         #
 # -------------------------- #
 
-title: "Microsoft Azure SQL Data Warehouse Destination Form Property"
+title: "Microsoft Azure Synapse Analytics Destination Form Property"
 api-type: "azure_sqldw"
-display-name: "Azure SQL Data Warehouse"
+display-name: "Azure Synapse Analytics"
 
 docs-name: "microsoft-azure"
 db-type: "mssql"

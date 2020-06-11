@@ -1,9 +1,9 @@
 # -------------------------------------------------------- #
-#  Azure SQL Data Warehouse (DESTINATION) User Privileges  #
+#  Azure Synapse Analytics (DESTINATION) User Privileges   #
 # -------------------------------------------------------- #
 
 ## This file contains info about the privileges and setup steps
-## required to create a Stitch database user for an Azure SQL Data Warehouse destination.
+## required to create a Stitch database user for an Azure Synapse Analytics destination.
 
 ## This file includes info about the permissions required, the
 ## commands to grant those permissions, and the descriptions that
@@ -54,7 +54,7 @@ grant-control-to-user: &grant-control-sql |
 #   STEPS FOR CREATING USER  #
 # -------------------------- #
 
-## The individual steps for creating an Azure SQL Data Warehouse user for Stitch.
+## The individual steps for creating an Azure Synapse Analytics user for Stitch.
 
 microsoft-azure:
   - copy: "If you haven't already, connect to your {{ page.display_name }} instance using your SQL client."
