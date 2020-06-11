@@ -9,8 +9,10 @@ raw-error:
   10k-table-limit: &10k-table-limit |
     Stitch has discovered more than the maximum supported limit of 10,000 tables in your integration.
 
-  time-limit: &time-limit-error "The process was terminated.  Most often this occurs because the job has exceeded its allotted runtime. The next job will run based on the integration's schedule."
+  time-limit: &time-limit-error "The process was terminated. Most often this occurs because the job has exceeded its allotted runtime. The next job will run based on the integration's schedule."
 
+## The max record size value is kept in the Import API data files: _/data/import-api/general.yml
+  record-size-limit: &record-size-limit-error "A single record is larger than the Stitch API limit of {{ site.data.import-api.general.max-record-size }}"
 
 time-limit: &time-limit
   message: *time-limit-error
@@ -28,15 +30,29 @@ time-limit: &time-limit
 
     Stitch will automatically retry extraction based on the integration's schedule.
 
+record-size-limit: &record-size-limit
+  message: "{{ site.data.errors.extraction.common.raw-error.record-size-limit | flatify }}"
+  id: "record-size-limit"
+  applicable-to: "All integrations"
+  level: "critical"
+  category: "Extraction job limits"
+  summary: "Maximum record size exceeded"
+  cause: |
+    A single record exceeded the maximum size limit of {{ site.data.import-api.general.max-record-size }}. This limit is imposed by the [Import API]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#system-architecture" }}), which Stitch uses as part of the replication process. 
+  fix-it: |
+    Locate the record in the source and, if possible, modify it to be less than Stitch's limit. You can also try de-selecting columns in the table containing the record.
+
+
 # ---------------------------- #
 #  Database Extraction Errors  #
 # ---------------------------- #
 
 databases:
   - <<: *time-limit
+  - <<: *record-size-limit
   - message: *10k-table-limit
     id: "10k-table-limit"
-    applicable-to: "All integrations"
+    applicable-to: "All database integrations"
     level: "critical"
     category: "Discovery job limits"
     summary: "Maximum discoverable table limit exceeded"
@@ -54,3 +70,4 @@ databases:
 
 saas:
   - <<: *time-limit
+  - <<: *record-size-limit

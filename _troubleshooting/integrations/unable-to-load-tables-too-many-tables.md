@@ -7,8 +7,8 @@ layout: general
 toc: false
 
 key: "source-database-access-level-issue"
-
-type: "database-integration, replication"
+type: "database-integration, replication, error"
+category: "extraction-errors"
 promote: "false"
 
 intro: |

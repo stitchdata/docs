@@ -25,7 +25,7 @@ codes:
     description: "The request has an HTTP method that is not supported by the endpoint. `POST` and `GET` are supported by the Import API. Check that you’re using the correct HTTP method."
 
   - name: "413 Request Entity Too Large"
-    description: "The size of the request body was over 4MB."
+    description: "The size of the request body was over {{ site.data.import-api.general.max-record-size }}."
 
   - name: "415 Unsupported Media Type"
     description: "The content header of the request did not specify JSON or Transit."

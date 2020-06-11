@@ -184,7 +184,7 @@ destination-details-description: |
 max-record-size:
   title: "Maximum record size"
   tooltip: "The maximum size a single record can be to be loaded successfully into the destination."
-  default: "4MB"
+  default: "{{ site.data.import-api.general.max-record-size }}"
   additional-info: "{{ destination-data.max-record-size-additional-info | flatify }}"
 
 table-name-length:

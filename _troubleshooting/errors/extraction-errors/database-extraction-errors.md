@@ -16,7 +16,7 @@ summary: "Extraction errors for database integrations and how to resolve them."
 
 level: "guide"
 top-level: "replication"
-# category: "extraction-errors"
+category: "extraction-errors"
 type: "database-integration, error, replication"
 popular: true
 
@@ -48,12 +48,17 @@ sections:
   - title: "Common extraction errors"
     anchor: "common-error-reference"
     content: |
+      {% capture notice %}
+      **Looking for SaaS integrations?** Refer to the [Common SaaS Extraction Error Reference]({{ link.troubleshooting.saas-extraction-errors | prepend: site.baseurl }}).
+      {% endcapture %}
+
+      {% include note.html type="single-line" content=notice %}
+
       {% assign errors = site.data.errors.extraction.common.databases | sort_natural:"message" %}
 
       The following errors are applicable to all database integrations that support Extraction Logs:
 
       {% include troubleshooting/error-messages.html display-name="Common" %}
-
 
   - title: "Amazon DynamoDB extraction errors"
     anchor: "amazon-dynamodb-server-error-reference"

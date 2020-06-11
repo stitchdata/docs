@@ -6,6 +6,7 @@ tags: [troubleshooting_integrations, troubleshooting_errors]
 
 summary: "If you see a message that asks you to re-authorize an integration, it means that Stitch's permissions to that service have been revoked."
 type: "all-integrations, error"
+category: "connection-errors"
 ---
 {% include misc/data-files.html %}
 

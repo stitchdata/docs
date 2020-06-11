@@ -9,12 +9,16 @@ summary: "Extraction errors for Google Sheets integrations and how to resolve th
 
 level: "guide"
 top-level: "replication"
-# category: "extraction-errors"
+category: "extraction-errors"
+integration-type: "saas"
+
 type: "saas-integration, error, replication"
 
 sections:
   - content: |
-      These errors will surface in the Google Sheets integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}).
+      The errors in this guide are specific to Google Sheets integrations. Refer to the [Common SaaS extraction error reference]({{ link.troubleshooting.saas-extraction-errors | prepend: site.baseurl }}) for errors common to all SaaS integrations.
+
+      These errors will surface in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}).
 
       {% assign errors = site.data.errors.extraction.saas.google-sheets.all | sort_natural:"message" %}
 

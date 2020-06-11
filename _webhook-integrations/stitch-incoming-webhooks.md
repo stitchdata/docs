@@ -78,7 +78,7 @@ To use Stitch Incoming Webhooks:
 2. **The Webhook API you're integrating with meets the following requirements**:
    - The data sent by the webhook API must come to Stitch in **JSON format**. This is currently the only format Stitch supports.
    - The payload (or delivery) of the data must come via a `POST` request.
-   - Request bodies must be less than 4MB
+   - Request bodies must be less than {{ site.data.import-api.general.max-record-size }}
 
 You can determine if the webhook API you want to use meets the above criteria by checking out that provider's webhook API documentation.
 
