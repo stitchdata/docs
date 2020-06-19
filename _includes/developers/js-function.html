@@ -31,27 +31,7 @@
             The <code>{{ function.definition | remove: "(options)" }}</code> function expects an <code>options</code> object as the only argument. This object must contain all parameters marked as <font color="#E96065">REQUIRED</font>:
         </p>
 
-        <table class="attribute-list">
-            {% for option in function.options %}
-                <tr>
-                    <td class="attribute-name">
-                        <strong>
-                            {{ option.name }}
-                        </strong><br>
-                            {{ option.type | upcase }}<br>
-                        {% case option.required %}
-                            {% when true %}
-                                <font color="#E96065">REQUIRED</font>
-                            {% else %}
-                                OPTIONAL
-                            {% endcase %}
-                    </td>
-                    <td>
-                        {{ option.description | flatify | markdownify }}
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
+        {% include developers/attribute-table.html object=function.options td-width="25" multiple-versions=false %}
     {% endif %}
 
     <h4 id="{{ function.key | append: "-example-usage" }}">

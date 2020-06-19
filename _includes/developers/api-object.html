@@ -96,45 +96,8 @@
                             <!-- Get the version-object's attributes and concat them to any common attributes in the top-level object. -->
                                     {% assign all-attributes = version-object.object-attributes | concat: object.common-attributes | sort: "name" | compact %}
 
-                                    <table class="attribute-list">
-                                        {% for attribute in all-attributes %}
-                                            <tr>
-                                                <td class="attribute-name">
-                                                    <strong>
-                                                        {{ attribute.name }}
-                                                    </strong><br>
-                                                        {{ attribute.type | upcase }}
-                                                            {% if attribute.sub-type %}
-                                                            (<a href="{{ attribute.url | flatify }}">{{ attribute.sub-type | upcase | strip }}</a>)
-                                                        {% endif %}
-                                                </td>
-                                                <td>
-                                                    {{ attribute.description | flatify | markdownify }}
+                                    {% include developers/attribute-table.html object=all-attributes td-width="35" multiple-versions=true %}
 
-                                                    {% if attribute.subattributes %}
-                                                        <table class="attribute-list">
-                                                            {% for subattribute in attribute.subattributes %}
-                                                                <tr>
-                                                                    <td class="attribute-name">
-                                                                        <strong>
-                                                                            {{ subattribute.name }}
-                                                                        </strong><br>
-                                                                            {{ subattribute.type | upcase }}
-                                                                                {% if subattribute.sub-type %}
-                                                                                (<a href="{{ subattribute.url | flatify }}">{{ subattribute.sub-type | upcase | strip }}</a>)
-                                                                            {% endif %}
-                                                                    </td>
-                                                                    <td>
-                                                                        {{ subattribute.description | flatify | markdownify }}
-                                                                    </td>
-                                                                </tr>
-                                                            {% endfor %}
-                                                        </table>
-                                                    {% endif %}
-                                                </td>
-                                            </tr>
-                                        {% endfor %}
-                                    </table>
                                 {% endif %}
                             {% endfor %}
                         </div>
@@ -143,46 +106,7 @@
 
     <!-- If the object only has one version, run this: -->
             {% else %}
-                <table class="attribute-list">
-                    {% for attribute in object.object-attributes %}
-                        <tr>
-                            <td class="attribute-name">
-                                <strong>
-                                    {{ attribute.name }}
-                                </strong><br>
-                                    {{ attribute.type | upcase }}
-                                        {% if attribute.sub-type %}
-                                        (<a href="{{ attribute.url | flatify }}">{{ attribute.sub-type | upcase | strip }}</a>)
-                                    {% endif %}
-                            </td>
-                            <td>
-                                {{ attribute.description | flatify | markdownify }}
-
-                                {% if attribute.subattributes %}
-                                    <table class="attribute-list">
-                                        {% for subattribute in attribute.subattributes %}
-                                            <tr>
-                                                <td class="attribute-name">
-                                                    <strong>
-                                                        {{ subattribute.name }}
-                                                    </strong><br>
-                                                        {{ subattribute.type | upcase }}
-                                                            {% if subattribute.sub-type %}
-                                                            (<a href="{{ subattribute.url | flatify }}">{{ subattribute.sub-type | upcase | strip }}</a>)
-                                                        {% endif %}
-                                                </td>
-                                                <td>
-                                                    {{ subattribute.description | flatify | markdownify }}
-                                                </td>
-                                            </tr>
-                                        {% endfor %}
-                                    </table>
-                                {% endif %}
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </table>
-
+                {% include developers/attribute-table.html object=object.object-attributes td-width="25" multiple-versions=false %}
             {% endif %}
         <hr>
 
