@@ -7,14 +7,7 @@
 	{% for attribute in include.object %}
 	    <tr>
 		    <td width="{{ include.td-width }}%; fixed" align="right">
-	        	{% if attribute.url %}
-                    <a href="{{ attribute.url | flatify }}">
-                        {{ attribute.type | upcase }}
-                    </a>
-                {% else %}
-		            <strong>{{ attribute.name }}</strong>
-		        {% endif %}
-
+		        <strong>{{ attribute.name }}</strong>
 	        	<br>
 
 	        	{{ attribute.type | upcase }}
