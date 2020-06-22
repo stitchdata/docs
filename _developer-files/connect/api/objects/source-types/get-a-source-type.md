@@ -92,6 +92,26 @@ examples:
                 "tap_mutable": false
               },
               {
+                "name": "email_chunk_size",
+                "is_required": false,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^\\d+"
+                    }
+                  ]
+                },
+                "provided": false,
+                "tap_mutable": false
+              },
+              {
                 "name": "frequency_in_minutes",
                 "is_required": false,
                 "is_credential": false,
@@ -115,6 +135,32 @@ examples:
                 "tap_mutable": false
               },
               {
+                "name": "include_inactives",
+                "is_required": false,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "type": "string",
+                  "pattern": "^(true|false)$"
+                },
+                "provided": false,
+                "tap_mutable": false
+              },
+              {
+                "name": "require_content_scope",
+                "is_required": false,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "type": "string",
+                  "pattern": "^(true|false)$"
+                },
+                "provided": false,
+                "tap_mutable": false
+              },
+              {
                 "name": "start_date",
                 "is_required": true,
                 "is_credential": false,
@@ -123,6 +169,26 @@ examples:
                 "json_schema": {
                   "type": "string",
                   "pattern": "^\\d{4}-\\d{2}-\\d{2}T00:00:00Z$"
+                },
+                "provided": false,
+                "tap_mutable": false
+              },
+              {
+                "name": "subscription_chunk_size",
+                "is_required": false,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^\\d+"
+                    }
+                  ]
                 },
                 "provided": false,
                 "tap_mutable": false
@@ -199,8 +265,8 @@ examples:
         "details": {
           "pricing_tier": "premium",
           "pipeline_state": "released",
-          "default_scheduling_interval": 30,
           "default_start_date": "-30 days",
+          "default_scheduling_interval": 30,
           "protocol": "platform.hubspot",
           "access": true
         }
