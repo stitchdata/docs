@@ -54,5 +54,163 @@ object-attributes:
     type: "object"
     sub-type: "destination report card"
     url: "{{ api.data-structures.report-cards.destination.section }}"
-    description: "The destination Report Card object corresponding to the destination's `type`. For example: `s3` or `snowflake`."
+    description: "The Destination Report Card object corresponding to the destination's `type`. For example: `s3` or `snowflake`."
+
+
+# -------------------------- #
+#           EXAMPLES         #
+# -------------------------- #
+
+examples:
+  - code: |
+      {
+        "type": "redshift",
+        "current_step": 1,
+        "current_step_type": "form",
+        "steps": [
+          {
+            "type": "form",
+            "properties": [
+              {
+                "name": "database",
+                "is_required": true,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "type": "string"
+                },
+                "provided": false
+              },
+              {
+                "name": "encryption_host",
+                "is_required": false,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "ipv4"
+                    },
+                    {
+                      "type": "string",
+                      "format": "ipv6"
+                    },
+                    {
+                      "type": "string",
+                      "format": "hostname"
+                    }
+                  ]
+                },
+                "provided": false
+              },
+              {
+                "name": "encryption_port",
+                "is_required": false,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "type": "string",
+                  "pattern": "^\\d+$"
+                },
+                "provided": false
+              },
+              {
+                "name": "encryption_type",
+                "is_required": true,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "type": "string",
+                  "pattern": "^(ssh|none)$"
+                },
+                "provided": false
+              },
+              {
+                "name": "encryption_username",
+                "is_required": false,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "type": "string"
+                },
+                "provided": false
+              },
+              {
+                "name": "host",
+                "is_required": true,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "ipv4"
+                    },
+                    {
+                      "type": "string",
+                      "format": "ipv6"
+                    },
+                    {
+                      "type": "string",
+                      "format": "hostname"
+                    }
+                  ]
+                },
+                "provided": false
+              },
+              {
+                "name": "password",
+                "is_required": true,
+                "is_credential": true,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "type": "string"
+                },
+                "provided": false
+              },
+              {
+                "name": "port",
+                "is_required": true,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "type": "string",
+                  "pattern": "^\\d+$"
+                },
+                "provided": false
+              },
+              {
+                "name": "username",
+                "is_required": true,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "type": "string"
+                },
+                "provided": false
+              }
+            ]
+          },
+          {
+            "type": "fully_configured",
+            "properties": []
+          }
+        ],
+        "details": {
+          "pricing_tier": "standard",
+          "pipeline_state": "released",
+          "protocol": "redshift",
+          "access": true
+        }
+      }
 ---

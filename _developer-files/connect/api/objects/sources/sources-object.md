@@ -163,7 +163,141 @@ object-attributes:
 #           EXAMPLES         #
 # -------------------------- #
 
-  - name: "updated_at"
-    type: "timestamp"
-    description: "The time at which the object was last updated."
+examples:
+  - code: |
+      {
+        "properties": {
+          "anchor_time": "2018-11-06T22:00:00.000Z",
+          "cron_expression": null,
+          "frequency_in_minutes": "60",
+          "image_version": "1.latest",
+          "product": "pipeline",
+          "repository": "docs",
+          "start_date": "2017-11-06T21:20:32Z"
+        },
+        "updated_at": "2020-06-22T18:07:32Z",
+        "schedule": {
+          "type": "interval",
+          "unit": "minute",
+          "interval": 60.0,
+          "next_fire_time": "2020-06-22T19:00:00Z"
+        },
+        "check_job_name": "116078.108726.check.3e20af99-b4b3-11ea-a947-0e6d53ce325f",
+        "name": "github",
+        "type": "platform.github",
+        "deleted_at": null,
+        "system_paused_at": null,
+        "stitch_client_id": 116078,
+        "paused_at": null,
+        "id": 108726,
+        "display_name": "GitHub",
+        "created_at": "2018-11-06T21:22:45Z",
+        "report_card": {
+          "type": "platform.github",
+          "current_step": 4,
+          "current_step_type": "fully_configured",
+          "steps": [
+            {
+              "type": "form",
+              "properties": [
+                {
+                  "name": "access_token",
+                  "is_required": true,
+                  "is_credential": true,
+                  "system_provided": false,
+                  "property_type": "user_provided",
+                  "json_schema": {
+                    "type": "string"
+                  },
+                  "provided": true,
+                  "tap_mutable": false
+                },
+                {
+                  "name": "anchor_time",
+                  "is_required": false,
+                  "is_credential": false,
+                  "system_provided": false,
+                  "property_type": "user_provided",
+                  "json_schema": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "provided": true,
+                  "tap_mutable": false
+                },
+                {
+                  "name": "cron_expression",
+                  "is_required": false,
+                  "is_credential": false,
+                  "system_provided": false,
+                  "property_type": "user_provided",
+                  "json_schema": null,
+                  "provided": false,
+                  "tap_mutable": false
+                },
+                {
+                  "name": "frequency_in_minutes",
+                  "is_required": false,
+                  "is_credential": false,
+                  "system_provided": false,
+                  "property_type": "user_provided",
+                  "json_schema": {
+                    "type": "string",
+                    "pattern": "^1$|^30$|^60$|^360$|^720$|^1440$"
+                  },
+                  "provided": true,
+                  "tap_mutable": false
+                },
+                {
+                  "name": "image_version",
+                  "is_required": true,
+                  "is_credential": false,
+                  "system_provided": true,
+                  "property_type": "read_only",
+                  "json_schema": null,
+                  "provided": true,
+                  "tap_mutable": false
+                },
+                {
+                  "name": "repository",
+                  "is_required": true,
+                  "is_credential": false,
+                  "system_provided": false,
+                  "property_type": "user_provided",
+                  "json_schema": {
+                    "type": "string"
+                  },
+                  "provided": true,
+                  "tap_mutable": false
+                },
+                {
+                  "name": "start_date",
+                  "is_required": true,
+                  "is_credential": false,
+                  "system_provided": false,
+                  "property_type": "user_provided",
+                  "json_schema": {
+                    "type": "string",
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}T00:00:00Z$"
+                  },
+                  "provided": true,
+                  "tap_mutable": false
+                }
+              ]
+            },
+            {
+              "type": "discover_schema",
+              "properties": []
+            },
+            {
+              "type": "field_selection",
+              "properties": []
+            },
+            {
+              "type": "fully_configured",
+              "properties": []
+            }
+          ]
+        }
+      }
 ---

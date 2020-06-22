@@ -145,4 +145,27 @@ object-attributes:
     description: "This value will always be `null`."
     example-value: |
       null
+
+
+# -------------------------- #
+#           EXAMPLES         #
+# -------------------------- #
+
+examples:
+  - code: |
+      {
+        "target_exit_status": null,
+        "tap_error_message": null,
+        "check_exit_status": 0,
+        "name": "116078.244788.check.5c28cfab-8a51-11ea-9197-0ee6b2399f9b",
+        "start_time": "2020-04-29T19:41:03Z",
+        "mode": "check",
+        "tap_exit_status": null,
+        "target_error_message": null,
+        "discovery_exit_status": 0,
+        "status": "succeeded",
+        "completion_time": "2020-04-29T19:41:05Z",
+        "error": false,
+        "discovery_error_message": null
+      }
 ---

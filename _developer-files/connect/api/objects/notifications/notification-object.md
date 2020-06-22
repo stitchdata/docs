@@ -155,4 +155,35 @@ object-attributes:
         description: "**Applicable to hook notifications only.** The webhook URL that Stitch should deliver hook notifications to."
         example-value: |
           https://hooks.zapier.com/hooks/catch/some-hook-id
+
+
+# -------------------------- #
+#           EXAMPLES         #
+# -------------------------- #
+
+examples:
+  - type: "Custom email notification"
+    code: |
+      {
+        "id": 21,
+        "client_id": 116078,
+        "email_address": "stitch-custom-notification@yourdomain.com",
+        "created_at": "2019-07-16T17:35:25Z",
+        "disabled_at": null
+      }
+
+  - type: "Hook notification"
+    code: |
+      {
+        "id": 8,
+        "client_id": 116078,
+        "type": "post_load",
+        "version": 1,
+        "config": {
+          "url": "https://hooks.zapier.com/hooks/catch/some/webhook/id"
+        },
+        "created_at": "2019-07-17T17:30:37Z",
+        "modified_at": "2019-07-17T17:30:37Z",
+        "disabled_at": null
+      }
 ---
