@@ -77,7 +77,7 @@ examples:
   - type: "Request"
     request-url: |
       {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{source_id","86741" | remove: right-bracket | strip_newlines }}
-    header: "{{ site.data.connect.request-headers.post.with-body | flatify }}"
+    header: "{{ site.data.connect.request-headers.put.with-body | flatify }}"
     code: |
       '{
            "display_name":"Shopify",
