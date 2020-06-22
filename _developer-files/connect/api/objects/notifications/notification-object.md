@@ -113,7 +113,8 @@ object-attributes:
 
   - name: "modified_at"
     type: "date-time"
-    description: "The time at which the notification was last modified."
+    description: |
+      **Applicable to hook notifications only.** The time at which the notification was last modified.
     example-value: |
       2019-07-16T16:51:20Z
 
@@ -134,21 +135,20 @@ object-attributes:
   - name: "version"
     type: "integer"
     description: |
-      **Applicable to custom email notifications only.** The version of the hook service the notification is using.
+      **Applicable to hook notifications only.** The version of the hook service the notification is using.
     example-value: |
       1
 
   - name: "type"
     type: "string"
     description: |
-      **Applicable to hook notifications only.** The type of the notification.
+      **Applicable to hook notifications only.** The type of the notification. This will be `post_load`.
     example-value: |
       post_load
 
   - name: "config"
     type: "object"
     description: "**Applicable to hook notifications only.** The configuration for the hook."
-
     subattributes:
       - name: "url"
         type: "string"
