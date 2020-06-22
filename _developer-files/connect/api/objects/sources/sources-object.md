@@ -94,26 +94,6 @@ object-attributes:
     type: "integer"
     description: "The unique identifier for this source."
 
-  - name: "created_at"
-    type: "timestamp"
-    description: "The time at which the source object was created."
-
-  - name: "deleted_at"
-    type: "timestamp"
-    description: "The time at which the source object was deleted."
-
-  - name: "display_name"
-    type: "string"
-    description: "The display name of the source connection."
-
-  - name: "name"
-    type: "string"
-    description: "{{ connect.common.attributes.name }}"
-
-  - name: "paused_at"
-    type: "timestamp"
-    description: "If the connection was paused by the user, the time the pause began. Otherwise, or if the connection is active, this will be `null."
-
   - name: "properties"
     type: "object"
     sub-type: " source form properties"
@@ -123,23 +103,65 @@ object-attributes:
 
       **Note**: When included in responses, this object will contain the current values for the source's form properties. If an optional property (`is_required: false`) has not been provided, it will not be present in this object.
 
+  - name: "updated_at"
+    type: "timestamp"
+    description: "The time at which the object was last updated."
+
+  - name: "schedule"
+    type: "object"
+    sub-type: "schedule"
+    url: "{{ site.data.connect.data-structures.schedule.section }}"
+    description: |
+      An object describing the replication schedule for the source.
+
+      **Note**: This will be `null` if the source is paused or has been deleted.
+
+  - name: "check_job_name"
+    type: "string"
+    description: "The name of the last connection check job that ran for the source."
+
+  - name: "name"
+    type: "string"
+    description: "{{ connect.common.attributes.name }}"
+
+  - name: "type"
+    type: "string"
+    description: "The source type."
+
+  - name: "deleted_at"
+    type: "timestamp"
+    description: "The time at which the source object was deleted."
+
+  - name: "system_paused_at"
+    type: "timestamp"
+    description: "If the connection was paused by the system, the time the pause began. Otherwise, or if the connection is active, this will be `null`."
+
+  - name: "stitch_client_id"
+    type: "integer"
+    description: "The ID of the Stitch client account associated with the source."
+
+  - name: "paused_at"
+    type: "timestamp"
+    description: "If the connection was paused by the user, the time the pause began. Otherwise, or if the connection is active, this will be `null."
+
+  - name: "display_name"
+    type: "string"
+    description: "The display name of the source connection."
+
+  - name: "created_at"
+    type: "timestamp"
+    description: "The time at which the source object was created."
+
   - name: "report_card"
     type: "object"
     sub-type: "source report card"
     url: "{{ api.data-structures.report-cards.source.section }}"
     description: "A description of the source's configuration state."
 
-  - name: "stitch_client_id"
-    type: "integer"
-    description: "The ID of the Stitch client account."
 
-  - name: "system_paused_at"
-    type: "timestamp"
-    description: "If the connection was paused by the system, the time the pause began. Otherwise, or if the connection is active, this will be null."
-
-  - name: "type"
-    type: "string"
-    description: "The source type."
+# -------------------------- #
+#           EXAMPLES         #
+# -------------------------- #
 
   - name: "updated_at"
     type: "timestamp"
