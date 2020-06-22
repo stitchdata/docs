@@ -96,8 +96,17 @@
                             <!-- Get the version-object's attributes and concat them to any common attributes in the top-level object. -->
                                     {% assign all-attributes = version-object.object-attributes | concat: object.common-attributes | sort: "name" | compact %}
 
+                                    <h5 id="{{ object.title | slugify | append: "-v" | append: version-object.version | append: "-object-attributes" }}">
+                                        Object properties
+                                    </h5>
+
                                     {% include developers/attribute-table.html object=all-attributes td-width="35" multiple-versions=true %}
 
+                                    <h5 id="{{ object.title | slugify | append: "-v" | append: version-object.version | append: "-object-example" }}">
+                                        Example object
+                                    </h5>
+
+                                    {% include developers/api-examples.html type="version-object" %}
                                 {% endif %}
                             {% endfor %}
                         </div>
@@ -107,6 +116,12 @@
     <!-- If the object only has one version, run this: -->
             {% else %}
                 {% include developers/attribute-table.html object=object.object-attributes td-width="25" multiple-versions=false %}
+
+                <h5 id="{{ object.title | slugify | append: "-object-example" }}">
+                    Example object
+                </h5>
+
+                {% include developers/api-examples.html type="object" %}
             {% endif %}
         <hr>
 
