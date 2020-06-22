@@ -334,6 +334,10 @@ api:
             method: "object"
             url: "{{ link.connect.api }}{{ site.data.connect.data-structures.properties.section }}"
 
+          - title: "{{ site.data.connect.data-structures.schedule.title }}"
+            method: "object"
+            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.schedule.section }}"
+
           - title: "{{ site.data.connect.data-structures.report-cards.source.title }}"
             method: "object"
             url: "{{ link.connect.api }}{{ site.data.connect.data-structures.report-cards.source.section }}"
