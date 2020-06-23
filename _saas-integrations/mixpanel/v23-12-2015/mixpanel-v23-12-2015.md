@@ -1,10 +1,11 @@
 ---
-title: Mixpanel
-permalink: /integrations/saas/mixpanel
+title: Mixpanel (v23-12-2015)
+permalink: /integrations/saas/mixpanel/v23-12-2015
 keywords: mixpanel, integration, schema, etl mixpanel, mixpanel etl, mixpanel schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Mixpanel integration."
 layout: singer
 old-schema-template: true
+input: false
 
 key: "mixpanel-setup"
 

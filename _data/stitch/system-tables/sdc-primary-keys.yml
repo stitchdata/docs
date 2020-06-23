@@ -6,7 +6,7 @@ name: "_sdc_primary_keys"
 documentation: "{{ link.destinations.storage.primary-key-system-table | prepend: site.baseurl | flatify }}"
 
 description: |
-  Applicable only to Google BigQuery (v2) and Microsoft Azure SQL Data Warehouse destinations, the `{{ site.data.stitch.system-tables.sdc-primary-keys.name }}` table contains a list of the tables in an integration schema and the columns those tables use as Primary Keys. Every integration schema created by Stitch will contain this table.
+  Applicable only to Google BigQuery (v2) and Microsoft Azure Synapse Analytics destinations, the `{{ site.data.stitch.system-tables.sdc-primary-keys.name }}` table contains a list of the tables in an integration schema and the columns those tables use as Primary Keys. Every integration schema created by Stitch will contain this table.
 
 attributes:
   - name: &table-name "table_name"
@@ -25,7 +25,7 @@ attributes:
   - name: &ordinal-position "ordinal_position"
     type: "integer"
     description: |
-      **Note**: This column is only applicable to Microsoft Azure SQL Data Warehouse destinations.
+      **Note**: This column is only applicable to Microsoft Azure Synapse Analytics destinations.
 
       When Stitch receives data, Primary Keys are provided in an array. For example: `["email_id", "created_at", "customer_id"]`
 

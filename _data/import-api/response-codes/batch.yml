@@ -124,7 +124,7 @@ all:
   - code: "413"
     responses:
       - method: "post"
-        condition: "Request body exceeds 4MB"
+        condition: "Request body exceeds {{ site.data.import-api.general.max-record-size }}"
         version: "all"
         response-body: |
           ```json

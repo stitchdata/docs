@@ -65,7 +65,7 @@ sections:
       - title: "How Singer taps work"
         anchor: "how-singer-taps-work"
         content: |
-          Singer's extensible platform makes it easy to add any data source you need. You can build a Singer tap and use the [Stitch target]({{ site.singer | append:"/target/stitch/" }}){:target="new"}, which is our Import API, to push the data to Stitch, where the data will be processed like data from any other integration.
+          Singer's extensible platform makes it easy to add any data source you need. You can build a Singer tap and use the [Stitch target]({{ site.singer | append:"/target/stitch/" }}){:target="new"} to post against the Import API. The data will be processed like data from any other integration.
 
           The process will look something like this:
 
@@ -106,7 +106,7 @@ sections:
 
       1. The webhook's payload (delivery) must come via a `POST` request.
       2. The request body (data) must be valid JSON.
-      3. The request body must be less than 4MB in size.
+      3. The request body must be less than {{ site.data.import-api.general.max-record-size }} in size.
 
       Refer to the [Incoming Webhooks docs]({{ link.integrations.stitch-incoming-webhooks | prepend: site.baseurl }}) for more info.
 

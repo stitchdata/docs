@@ -5,7 +5,8 @@ permalink: /troubleshooting/salesforce-replication-too-many-columns
 tags: [troubleshooting_integrations, saas_integrations, error_notifications]
 
 summary: "If a single Salesforce object has a large number of columns set to replicate, issues with replication may arise."
-type: "saas-integration, replication"
+type: "saas-integration, replication, error"
+category: "extraction-errors"
 ---
 {% include misc/data-files.html %}
 
@@ -24,9 +25,9 @@ This issue is applicable to:
 
 ## Extraction Log Error
 
-{% include note.html type="single-line" content="Extraction logs are unavailable for Salesforce integrations using version 15-10-2017." %}
+{% include note.html type="single-line" content="Extraction Logs are unavailable for Salesforce integrations using version 15-10-2017." %}
 
-If the version of your Salesforce integration supports [extraction logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}), this is the error message that will display in Stitch:
+If the version of your Salesforce integration supports [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}), this is the error message that will display in Stitch:
 
 ```shell
 Bad Message 431 reason: Request Header Fields Too Large

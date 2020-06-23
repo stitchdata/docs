@@ -9,6 +9,7 @@ redirect_from: /troubleshooting/integrations/integration-connection-errors
 
 summary: "If Stitch is unable to connect to one of your SaaS integrations, the issue may be a security setting on the integration provider's side."
 type: "saas-integrations, connection, error"
+category: "connection-errors"
 ---
 {% include misc/data-files.html %}
 

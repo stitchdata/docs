@@ -12,12 +12,14 @@
 #        Page Controls       #
 # -------------------------- #
 
-title: Connecting a Microsoft Azure SQL Data Warehouse Destination to Stitch
-permalink: /destinations/microsoft-azure-sql-data-warehouse/connecting-a-microsoft-azure-sql-data-warehouse-to-stitch
-redirect_from: /destinations/microsoft-azure-sql-data-warehouse/connecting-microsoft-azure-sql-data-warehouse-to-stitch-ssh-tunnel
-keywords: microsoft azure sql data warehouse, microsoft azure data warehouse, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure, microsoft azure destination
+title: Connecting a Microsoft Azure Synapse Analytics Destination to Stitch
+permalink: /destinations/microsoft-azure-synapse-analytics/connecting-a-microsoft-azure-synapse-analytics-destination-to-stitch
+redirect_from:
+  - /destinations/microsoft-azure-sql-data-warehouse/connecting-a-microsoft-azure-sql-data-warehouse-to-stitch
+  - /destinations/microsoft-azure-sql-data-warehouse/connecting-microsoft-azure-sql-data-warehouse-to-stitch-ssh-tunnel
+keywords: microsoft azure sql data warehouse, microsoft azure data warehouse, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure, microsoft azure destination, synapse analytics, analytics, synapse
 
-summary: "Connect a Microsoft Azure SQL Data Warehouse database to your Stitch account as a destination."
+summary: "Connect a Microsoft Azure Synapse Analytics database to your Stitch account as a destination."
 
 content-type: "destination-setup"
 key: "azure-sql-dw-destination-setup"
@@ -32,7 +34,7 @@ use-tutorial-sidebar: false
 #     Destination Details    #
 # -------------------------- #
 
-display_name: "Microsoft Azure SQL Data Warehouse"
+display_name: "Microsoft Azure Synapse Analytics"
 name: "microsoft-azure"
 
 type: "microsoft-azure"
@@ -51,12 +53,12 @@ this-version: "1"
 
 intro: |
   {% capture setup-notice %}
-  Stitch's {{ destination.display_name }} destination only works with Microsoft's [Azure SQL Data Warehouse product](https://azure.microsoft.com/en-us/services/sql-data-warehouse/){:target="new"}.
+  Stitch's {{ destination.display_name }} destination only works with Microsoft's [Azure Synapse Analytics product](https://azure.microsoft.com/en-us/services/synapse-analytics/){:target="new"}.
 
   Stitch doesn't currently support using Azure SQL Server or Azure SQL Database as a destination. Attempting to connect these products to Stitch via the {{ destination.display_name }} destination in Stitch will result in errors.
   {% endcapture %}
 
-  {% include note.html first-line="**Stitch only supports connecting to Azure SQL Data Warehouse instances**" content=setup-notice %}
+  {% include note.html first-line="**Stitch only supports connecting to Azure Synapse Analytics instances**" content=setup-notice %}
   
 
 # -------------------------- #
@@ -65,7 +67,7 @@ intro: |
 
 requirements:
   - item: |
-      **An up-and-running {{ destination.display_name }} instance.** Instructions for creating a {{ destination.display_name }} destination are outside the scope of this tutorial; our instructions assume that you have an instance up and running. For help getting started with {{ destination.display_name }}, refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/create-data-warehouse-portal){:target="new"}.
+      **An up-and-running {{ destination.display_name }} instance.** Instructions for creating a {{ destination.display_name }} destination are outside the scope of this tutorial; our instructions assume that you have an instance up and running. For help getting started with {{ destination.display_name }}, refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal){:target="new"}.
   - item: |
       **An existing Azure Storage account.** Instructions for creating an Azure Storage account are outside the scope of this tutorial. For help getting started with an Azure Storage account, refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/azure/storage/){:target="new"}.
 

@@ -60,7 +60,7 @@ ssh-tunnels:
 
   - name: "Microsoft Azure"
     guide: "ssh-microsoft-azure"
-    description: "Stitch currently supports connecting Microsoft Azure SQL Server and MySQL databases (as integrations) and Azure SQL Data Warehouse (as a destination). Other Microsoft Azure offerings aren't currently supported."
+    description: "Stitch currently supports connecting Microsoft Azure SQL Server and MySQL databases (as integrations) and Azure Synapse Analytics (as a destination). Other Microsoft Azure offerings aren't currently supported."
 
 sections:
   - title: "Encryption in transit"
@@ -90,7 +90,7 @@ sections:
             content: |
               For any connection using an HTTP API - for example, integrations like [Salesforce]({{ site.baseurl }}/integrations/saas/salesforce) or [Facebook Ads]({{ site.baseurl }}/integrations/saas/facebook-ads) - or Stitch's [Import API]({{ link.integrations.import-api | prepend: site.baseurl }}), Stitch will use [SSL/TLS-based encryption](https://www.verisign.com/en_US/website-presence/online/ssl-certificates/index.xhtml){:target="new"} by default.
 
-              This is also applicable to Stitch's [Amazon Redshift]({{ link.destinations.overviews.redshift | prepend: site.baseurl }}), [Google BigQuery]({{ link.destinations.overviews.bigquery | prepend: site.baseurl }}), [Microsoft Azure SQL Data Warehouse]({{ link.destinations.overviews.azure | prepend: site.baseurl }}), and [Snowflake]({{ link.destinations.overviews.snowflake | prepend: site.baseurl }}) destination offerings.
+              This is also applicable to Stitch's [Amazon Redshift]({{ link.destinations.overviews.redshift | prepend: site.baseurl }}), [Google BigQuery]({{ link.destinations.overviews.bigquery | prepend: site.baseurl }}), [Microsoft Azure Synapse Analytics]({{ link.destinations.overviews.azure | prepend: site.baseurl }}), and [Snowflake]({{ link.destinations.overviews.snowflake | prepend: site.baseurl }}) destination offerings.
 
               Connections to these integrations and destinations will attempt to use verified SSL with no action required on your part.
 

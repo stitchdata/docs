@@ -157,6 +157,23 @@ replication-sections:
               2. A full row of data in the second row. If any column in this row contains a `NULL` value, Stitch will skip the sheet and surface a [malformed sheet message during extraction]({{ link.troubleshooting.google-sheets-extraction-errors | prepend: site.baseurl }}#malformed-sheet).
 
               If the sheet doesn't contain a header row and a second row of data, Stitch will skip the sheet and surface an [empty sheet message during extraction]({{ link.troubleshooting.google-sheets-extraction-errors | prepend: site.baseurl }}#empty-sheet).
+      
+          - title: "Data typing"
+            anchor: "discovery--data-types"
+            summary: "Type the data in discovered columns"
+            content: |
+              To determine data types, Stitch will analyze the first two rows in the [files included in object discovery](#discovery--objects).
+
+              If a column has been specified as a `STRING`, Stitch will attempt to parse the value as a string. If this fails, the column will be loaded as a nullable `STRING`.
+
+              For all other columns, Stitch will perform the following to determine the column's data type:
+
+              1. Attempt to parse the value as a `BOOLEAN` value
+              2. If that fails, attempt to parse the value as an `INTEGER`
+              3. If that fails, attempt to parse the value as a `DATE-TIME` value
+              4. If that fails, attempt to parse the value as a `DATE` date
+              5. If that fails, attempt to parse the value as a `TIME` value
+              6. If that fails, type the column as a `STRING` 
 
       - title: "Data replication"
         anchor: "extraction--data-replication"
