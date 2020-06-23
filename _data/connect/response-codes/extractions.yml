@@ -1,0 +1,36 @@
+# ---------------------------- #
+#  EXTRACTION ENDPOINT ERRORS  #
+# ---------------------------- #
+
+all:
+  - code: "401"
+    responses:
+      - method: "get"
+        condition: "The provided access token has been disabled, deleted, or doesn't have access to the provided Stitch client ID."
+        version: "all"
+
+  - code: "404"
+    responses:
+      - method: "get"
+        condition: "The requested extraction job doesn't exist."
+        version: "all"
+
+401:
+  &not-authorized
+  code: "401"
+  condition: "The provided access token has been disabled, deleted, or doesn't have access to the provided Stitch client ID."
+
+404:
+  &extraction-job-not-found
+  code: "404"
+  condition: "The requested extraction job doesn't exist."
+
+
+list-last-extractions:
+  v4:
+    - *not-authorized
+
+get-logs-for-an-extraction-job:
+  v4:
+    - *not-authorized
+    - *extraction-job-not-found
