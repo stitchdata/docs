@@ -26,7 +26,7 @@ description: |
   
   {{ site.data.connect.core-objects.extractions.get-job-logs.description | flatify }}
 
-  TODO: Explain how getting the logs works
+  {{ endpoint.returns | flatify }}
 
 
 # -------------------------- #
@@ -49,9 +49,12 @@ arguments:
   - name: "job_name"
     required: true
     type: "path parameter"
-    description: "A path parameter corresponding to the unique ID of the extraction job to be retrieved."
+    description: |
+      A path parameter corresponding to the unique ID of the extraction job to be retrieved.
+
+      Make a request to [GET {{ site.data.connect.core-objects.extractions.list.name | flatify }}]({{ site.data.connect.core-objects.extractions.list.anchor | flatify }}) to retrieve the most recent extraction jobs for the specified Stitch account.
     example-value: |
-      3.1.sync.d7f18b02-a17c-44b7-bbd5-dc30e1dc6ce5
+      116078.233312.sync.e4d8eae5-b23e-11ea-94a1-02cbbd504f7d
 
 
 # -------------------------- #
@@ -59,7 +62,7 @@ arguments:
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and TODO.
+  If successful, the API will return a status of `302 Found`. The **Location** header field in the response will contain a URL where you can download the logs for the specified extraction job.
 
 
 # ------------------------------ #
@@ -69,13 +72,22 @@ returns: |
 examples:
   - type: "Request"
     request-url: |
-      {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{client_id","116078" | replace: "{job_name","3.1.sync.d7f18b02-a17c-44b7-bbd5-dc30e1dc6ce5" | remove: right-bracket | strip_newlines }}
+      {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{client_id","116078" | replace: "{job_name","116078.233312.sync.e4d8eae5-b23e-11ea-94a1-02cbbd504f7d" | remove: right-bracket | strip_newlines }}
     header: "{{ site.data.connect.request-headers.get.without-body | flatify }}"
 
   - type: "Response"
-    language: "json"
+    language: "shell"
     code: |
-      TODO
+      HTTP/1.1 302 Found
+      Access-Control-Allow-Credentials: true
+      Access-Control-Allow-Headers: Authorization, X-Requested-With, Content-Type, Accept, X-Stitch-Csrf-Token
+      Access-Control-Allow-Methods: GET, POST, PUT, DELETE
+      Access-Control-Max-Age: 604800
+      Date: Tue, 23 Jun 2020 00:58:50 GMT
+      Location: https://com-stitchdata-prod-platform-pod-logs.s3.amazonaws.com/116078.233312.sync.e4d8eae5-b23e-11ea-94a1-02cbbd504f7d?x-amz-security-token=<TOKEN>
+      Server: nginx/1.10.2
+      Content-Length: 0
+      Connection: Close
 
   - type: "Errors"
     # Included only if there are errors for the endpoint

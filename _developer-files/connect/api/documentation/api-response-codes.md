@@ -6,7 +6,7 @@ order: 4
 
 sections:
   - content: |
-      The API will attempt to return [HTTP status codes](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes) for every request.
+      The API will attempt to return [HTTP status codes](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes){:target="new"} for every request.
 
       {% include developers/api-response-code-table.html %}
 
