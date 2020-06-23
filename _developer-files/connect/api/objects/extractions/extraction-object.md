@@ -5,7 +5,7 @@
 
 product-type: "connect"
 content-type: "api-object"
-endpoint: "extraction"
+endpoint: "extractions"
 order: 10
 
 

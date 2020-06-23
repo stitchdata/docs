@@ -5,7 +5,7 @@
 
 product-type: "connect"
 content-type: "api-endpoint"
-endpoint: "load"
+endpoint: "loads"
 key: "list-last-loads-for-account"
 version: "4"
 
@@ -25,6 +25,8 @@ description: |
   {% include note.html type="single-line" content="**This endpoint is in beta.**" %}
 
   {{ site.data.connect.core-objects.loads.list.description | flatify }}
+
+  Responses from this endpoint are paginated. Every page, or result set, can contain up to 100 load attempt records. Refer to the [Arguments section](#{{ endpoint.key }}--arguments) for more info.
 
 
 # -------------------------- #
@@ -50,7 +52,54 @@ arguments:
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and an array of [Load objects]({{ site.data.connect.core-objects.load.object }}), one for each stream associated with the provided client ID.
+  If successful, the API will return a status of <code class="api success">200 OK</code> and the following properties:
+
+response-attributes:
+  - name: "data"
+    type: "array"
+    description: |
+      An array of [Load objects]({{ site.data.connect.core-objects.loads.object }}), one for each stream TODO.
+
+      **Note**: Load objects are returned in descending order by `source_id`.
+
+  - name: "page"
+    type: "integer"
+    description: |
+      The number of the current page of results. Each page of results can contain up to 100 load attempt records.
+    example-value: |
+      1
+
+  - name: "total"
+    type: "integer"
+    description: |
+      The total number of load attempt records in the result set.
+    example-value: |
+      5
+
+  - name: "links"
+    type: "object"
+    description: |
+      An object containing links to the next and previous pages of results.
+
+      **Note**: This object will be empty if the result set contains less than 101 load attempt records, or `total < 101`.
+    subattributes:
+      - name: "next"
+        type: "string"
+        description: |
+          A URL leading to the next paginated set of load attempt results. Use a subsequent `GET` request to this URL to retrieve the results for this page.
+
+          Refer to the **Requests** tab for an example.
+        example-value: |
+          /v4/116078/loads?page=3
+
+      - name: "previous"
+        type: "string"
+        description: |
+          A URL leading to the previous paginated set of load attempt results. Use a subsequent `GET` request to this URL to retrieve the results for this page.
+
+          Refer to the **Requests** tab for an example.
+        example-value: |
+          /v4/116078/loads?page=1
 
 
 # ------------------------------ #
@@ -59,13 +108,110 @@ returns: |
 
 examples:
   - type: "Request"
-    request-url: "{{ endpoint.short-url | flatify | strip_newlines }}"
-    header: "{{ site.data.connect.request-headers.get.without-body | flatify }}"
+    subexamples:
+    - title: "Retrieving the first page of results"
+      request-url: "{{ endpoint.short-url | flatify | strip_newlines }}"
+      header: "{{ site.data.connect.request-headers.get.without-body | flatify }}"
+
+    - title: "Retrieving the second page of results"
+      request-url: "{{ endpoint.short-url | flatify | strip_newlines }}?page=2"
+      header: "{{ site.data.connect.request-headers.get.without-body | flatify }}"
 
   - type: "Response"
     language: "json"
-    code: |
-      TODO
+    subexamples:
+      - title: "Result set with less than 100 load attempt records"
+        code: |
+          {
+             "data":[
+                {
+                   "stitch_client_id":116078,
+                   "source_name":"recurly",
+                   "stream_name":"accounts",
+                   "last_batch_loaded_at":null,
+                   "error_state":{
+                      "notification_data":{
+                         "message":"establish a connection to your data warehouse",
+                         "exception_message":"establish a connection to your data warehouse",
+                         "warehouse_error_code":500151,
+                         "error":"LOADER_WAREHOUSE_ERROR",
+                         "new_column":null,
+                         "status":"ERROR",
+                         "warehouse_sql_state":"HY000",
+                         "action":"get-connection",
+                         "warehouse_message":"[Simba][SparkJDBCDriver](500151) Error setting/closing session: Open Session Error.",
+                         "column":null
+                      },
+                      "exception_chain":[
+                         {
+                            "class":"clojure.lang.ExceptionInfo",
+                            "message":"establish a connection to your data warehouse",
+                            "chain_sequence_num":0,
+                            "action":"get-connection"
+                         }
+                      ]
+                   }
+                },
+                {
+                   "stitch_client_id":116078,
+                   "source_name":"heroku_1",
+                   "stream_name":"customers",
+                   "last_batch_loaded_at":"2020-06-23T15:14:59Z",
+                   "error_state":null
+                }
+             ],
+             "page":1,
+             "total"2,
+             "links":{}
+          }
+
+      - title: "Result set with more than 100 load attempt records"
+        code: |
+          {
+             "data":[
+                {
+                   "stitch_client_id":116078,
+                   "source_name":"recurly",
+                   "stream_name":"accounts",
+                   "last_batch_loaded_at":null,
+                   "error_state":{
+                      "notification_data":{
+                         "message":"establish a connection to your data warehouse",
+                         "exception_message":"establish a connection to your data warehouse",
+                         "warehouse_error_code":500151,
+                         "error":"LOADER_WAREHOUSE_ERROR",
+                         "new_column":null,
+                         "status":"ERROR",
+                         "warehouse_sql_state":"HY000",
+                         "action":"get-connection",
+                         "warehouse_message":"[Simba][SparkJDBCDriver](500151) Error setting/closing session: Open Session Error.",
+                         "column":null
+                      },
+                      "exception_chain":[
+                         {
+                            "class":"clojure.lang.ExceptionInfo",
+                            "message":"establish a connection to your data warehouse",
+                            "chain_sequence_num":0,
+                            "action":"get-connection"
+                         }
+                      ]
+                   }
+                },
+                {
+                   "stitch_client_id":116078,
+                   "source_name":"heroku_1",
+                   "stream_name":"customers",
+                   "last_batch_loaded_at":"2020-06-23T15:14:59Z",
+                   "error_state":null
+                },
+                [...]
+             ],
+              "page": 1,
+              "total": 102,
+              "links": {
+                "next": "/v4/116078/loads?page=2"
+              }
+            }
 
   - type: "Errors"
     # Included only if there are errors for the endpoint

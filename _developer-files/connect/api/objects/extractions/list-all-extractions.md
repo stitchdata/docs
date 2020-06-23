@@ -5,7 +5,7 @@
 
 product-type: "connect"
 content-type: "api-endpoint"
-endpoint: "extraction"
+endpoint: "extractions"
 key: "list-last-extractions"
 version: "4"
 
@@ -84,7 +84,7 @@ response-attributes:
   - name: "total"
     type: "integer"
     description: |
-      The total number of extraction jobs in the result set.
+      The total number of extraction job records in the result set.
     example-value: |
       5
 

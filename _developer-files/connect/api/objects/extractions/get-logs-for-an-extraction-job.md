@@ -5,7 +5,7 @@
 
 product-type: "connect"
 content-type: "api-endpoint"
-endpoint: "extraction"
+endpoint: "extractions"
 key: "get-logs-for-an-extraction-job"
 version: "4"
 
