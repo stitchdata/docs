@@ -60,6 +60,20 @@ api:
         url: "{{ link.connect.api }}{{ site.data.connect.api.response-codes }}"
         drop-down: false
 
+      - title: "Rate limits"
+        sections:
+          - title: "Overview"
+            url: "{{ link.connect.api }}{{ site.data.connect.api.rate-limits }}"
+
+          - title: "Rate limit application"
+            url: "{{ link.connect.api }}#rate-limits--application"
+
+          - title: "Rate limit types"
+            url: "{{ link.connect.api }}#rate-limits--types"
+
+          - title: "Avoid rate limit violations"
+            url: "{{ link.connect.api }}#rate-limits--avoid-violations"
+
       - title: "Versioning"
         url: "{{ link.connect.api }}{{ site.data.connect.api.versioning }}"
         drop-down: false
