@@ -46,6 +46,20 @@ arguments:
     example-value: |
       116078
 
+  - name: "page"
+    required: false
+    type: "path parameter"
+    description: |
+      A path parameter corresponding to the page of results to retrieve, adhering to the format `?page={page_number}`, where `{page_number}` is the number of the page to retrieve.
+
+      Each results set, or page, can contain up to 100 load attempt records. This parameter is only required if you want to retrieve additional pages beyond the first 100 load attempt records. By default, a request to `{{ endpoint.short-url | flatify }}` is equivalent to a request for page `1` using this parameter.
+
+      If an account contains more than 100 load attempt records, the response will include data about subsequent pages that can be used to retrieve them.
+
+      Refer to the **Requests** tab for an example.
+    example-value: |
+      2
+
 
 # -------------------------- #
 #           RETURNS          #
@@ -58,7 +72,7 @@ response-attributes:
   - name: "data"
     type: "array"
     description: |
-      An array of [Load objects]({{ site.data.connect.core-objects.loads.object }}), one for each stream TODO.
+      An array of [Load objects]({{ site.data.connect.core-objects.loads.object }}), one for each stream [TODO].
 
       **Note**: Load objects are returned in descending order by `source_id`.
 
@@ -215,5 +229,5 @@ examples:
 
   - type: "Errors"
     # Included only if there are errors for the endpoint
-    # The errors live in: _data/connect/response-codes.yml
+    # The errors live in: _data/connect/response-codes/loads.yml
 ---
