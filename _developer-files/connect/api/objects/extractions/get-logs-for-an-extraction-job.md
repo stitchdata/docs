@@ -17,7 +17,7 @@ version: "4"
 title: "{{ site.data.connect.core-objects.extractions.get-job-logs.title | flatify }}"
 method: "get"
 short-url: |
-  /v{{ endpoint.version }}{{ object.endpoint-url }}/{job_name}
+  /v4/extractions/{job_name}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ site.data.connect.core-objects.extractions.get-job-logs.short | flatify }}"
@@ -27,6 +27,14 @@ description: |
   {{ site.data.connect.core-objects.extractions.get-job-logs.description | flatify }}
 
   {{ endpoint.returns | flatify }}
+
+
+# ---------------------------- #
+#  RATE LIMITING & PAGINATION  #
+# ---------------------------- #
+
+rate-limit-type: "jobs"
+pagination: "100"
 
 
 # -------------------------- #

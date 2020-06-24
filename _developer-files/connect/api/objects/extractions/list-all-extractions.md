@@ -17,7 +17,7 @@ version: "4"
 title: "{{ site.data.connect.core-objects.extractions.list.title | flatify }}"
 method: "get"
 short-url: |
-  /v{{ endpoint.version }}{{ object.endpoint-url }}
+  /v4/extractions
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ site.data.connect.core-objects.extractions.list.short | flatify }}"
@@ -27,6 +27,14 @@ description: |
   {{ site.data.connect.core-objects.extractions.list.description | flatify }}
 
   Responses from this endpoint are paginated. Every page, or result set, can contain up to 100 extraction records. Refer to the [Arguments section](#{{ endpoint.key }}--arguments) for more info.
+
+
+# ---------------------------- #
+#  RATE LIMITING & PAGINATION  #
+# ---------------------------- #
+
+rate-limit-type: "jobs"
+pagination: "100"
 
 
 # -------------------------- #

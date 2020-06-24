@@ -17,9 +17,10 @@ version: "4"
 title: "{{ site.data.connect.core-objects.loads.list.title | flatify }}"
 method: "get"
 short-url: |
-  /v{{ endpoint.version }}{{ object.endpoint-url }}
+  /v4/{client_id}/loads
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
+
 short: "{{ site.data.connect.core-objects.loads.list.short | flatify }}"
 description: |
   {% include note.html type="single-line" content="**This endpoint is in beta.**" %}
@@ -27,6 +28,14 @@ description: |
   {{ site.data.connect.core-objects.loads.list.description | flatify }}
 
   Responses from this endpoint are paginated. Every page, or result set, can contain up to 100 load attempt records. Refer to the [Arguments section](#{{ endpoint.key }}--arguments) for more info.
+
+
+# ---------------------------- #
+#  RATE LIMITING & PAGINATION  #
+# ---------------------------- #
+
+rate-limit-type: "jobs"
+pagination: "100"
 
 
 # -------------------------- #

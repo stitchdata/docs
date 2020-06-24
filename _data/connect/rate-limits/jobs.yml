@@ -1,0 +1,17 @@
+# -------------------------- #
+#       JOB RATE LIMITS      #
+# -------------------------- #
+
+## This file contains info about rate limits applicable to job-based Connect endpoints.
+
+## The rate limit type
+type: "jobs"
+
+## The total number of requests allowed, based on the time period limit
+request-limit: 30
+
+## The total time period, based on time-interval
+total-time: 10
+
+## The time unit applicable to total-time
+time-interval: "minute"
