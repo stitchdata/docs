@@ -92,6 +92,12 @@ the correct description for it. -->
             <strong>A {{ form-property.form-type }}'s OAuth properties are required only if you’re performing OAuth for this {{ form-property.form-type }} yourself.</strong> After you perform the OAuth handshake, use the <a href="{{ site.data.connect.core-objects[form-type]update.anchor }}">PUT {{ site.data.connect.core-objects[form-type]update.name | flatify }}</a> endpoint to update the {{ form-property.form-type }} with the OAuth properties listed below.
         </p>
 
+        {% if form-property.oauth-link %}
+            <p>
+                Refer to <a href="{{ form-property.oauth-link }}" target="new">{{ form-property.display-name }}'s documentation</a> for more info on performing OAuth with {{ form-property.display-name }}.
+            </p>
+        {% endif %}
+
         <p>
             <strong>Note</strong>: Attributes marked as <font color="#E96065">REQUIRED</font> must be provided to complete the <code>oauth</code> step.
         </p>
