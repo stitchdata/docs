@@ -53,16 +53,7 @@ intro-sections:
 
       {{ page.summary }} Configuring OAuth yourself is required only if you want to use your own OAuth client credentials. Otherwise, Stitch will use its own credentials to perform the OAuth handshake.
 
-
-
-      
-      - You can configure OAuth for any source with an `oauth` connection step
-      - OAuth configuration can occur during any step in the source configuration process, including `fully_configured`
-
-  - title: "doot"
-    anchor: "doot"
-    content: |
-      doot
+      You can configure OAuth for any source with an `oauth` connection step. 
 
 
 # -------------------------- #
