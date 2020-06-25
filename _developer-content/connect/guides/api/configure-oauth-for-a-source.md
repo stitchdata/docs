@@ -6,6 +6,7 @@
 title: Configure OAuth for a Data Source with the Connect API
 permalink: /developers/stitch-connect/guides/configure-oauth-for-a-source-with-stitch-connect
 summary: "Configure OAuth for a data source using your own OAuth client credentials and the Connect API."
+keywords: connect oauth, oauth, whitelabel, white label
 
 product-type: "connect"
 content-type: "guide"
@@ -37,9 +38,6 @@ related:
   - title: "Destination and source API availability"
     link: "{{ link.connect.guides.connection-reference | prepend: site.baseurl }}"
 
-  - title: ""
-    link: ""
-
   - title: "Connect API reference"
     link: "{{ link.connect.api | prepend: site.baseurl }}"
 
@@ -53,7 +51,13 @@ intro-sections:
 
       {{ page.summary }} Configuring OAuth yourself is required only if you want to use your own OAuth client credentials. Otherwise, Stitch will use its own credentials to perform the OAuth handshake.
 
-      You can configure OAuth for any source with an `oauth` connection step. 
+      Configuring OAuth allows you to completely white label the source setup process, ensuring your end users have a seamless experience. At a glance, the process will look like this:
+
+      1. Your application handles the OAuth handshake and redirects
+      2. Your application provides the required OAuth source properties to the Connect API
+      3. Stitch manages OAuth and refresh tokens on an ongoing basis for sources that utilze them
+
+      You can configure OAuth for any source with an `oauth` connection step.
 
 
 # -------------------------- #
