@@ -49,7 +49,7 @@ intro-sections:
   - content: |
       {% include misc/data-files.html %}
 
-      {{ page.summary }} Configuring OAuth yourself is required only if you want to use your own OAuth client credentials. Otherwise, Stitch will use its own credentials to perform the OAuth handshake.
+      Configuring OAuth yourself is required only if you want to use your own OAuth client credentials. Otherwise, Stitch will use its managed credentials to perform the OAuth handshake.
 
       Configuring OAuth allows you to completely white label the source setup process, ensuring your end users have a seamless experience. At a glance, the process will look like this:
 
@@ -69,7 +69,7 @@ requirements:
       **Access to Stitch Connect and valid Connect API credentials.** Connect access is a Stitch Enterprise feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
 
   - item: |
-      **Access to a source with an `oauth` connection step**. This guide will use a [Facebook Ads SaaS source]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section |  append: "-facebook-ads-object" }}) as an example, but any source type with an `oauth` connection step will work.
+      **Access to a source with an `oauth` connection step**. This guide will use a [Google Analytics SaaS source]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section |  append: "-google-analytics-object" }}) as an example, but any source type with an `oauth` connection step will work.
 
       To determine if a source has an `oauth` connection step, [retrieve its Report Card]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.source-types.get.anchor | flatify }}).
 
@@ -107,7 +107,7 @@ steps:
 
           To retrieve the source's OAuth properties, make a request to [{{ substep.endpoint | flatify }}]({{ link.connect.api | append: site.data.connect.core-objects.source-types.get.anchor | prepend: site.baseurl }}), replacing `{source_type}` with the type of the source:
           
-          {% assign request-url = example-url | flatify | replace: "{source_type","platform.facebook" | remove: right-bracket | strip_newlines %}
+          {% assign request-url = example-url | flatify | replace: "{source_type","platform.google-analytics" | remove: right-bracket | strip_newlines %}
 
           {% assign description = substep.endpoint %}
 
@@ -117,23 +117,13 @@ steps:
 
           {% capture code %}
           {
-            "type": "platform.facebook",
+            "type": "platform.google-analytics",
             "current_step": 1,
             "current_step_type": "form",
             "steps": [
               {
                 "type": "form",
                 "properties": [
-                  {
-                    "name": "aggregate_level",
-                    "is_required": false,
-                    "is_credential": false,
-                    "system_provided": false,
-                    "property_type": "user_provided",
-                    "json_schema": null,
-                    "provided": false,
-                    "tap_mutable": false
-                  },
                   {
                     "name": "anchor_time",
                     "is_required": false,
@@ -144,16 +134,6 @@ steps:
                       "type": "string",
                       "format": "date-time"
                     },
-                    "provided": false,
-                    "tap_mutable": false
-                  },
-                  {
-                    "name": "attribution_window",
-                    "is_required": false,
-                    "is_credential": false,
-                    "system_provided": false,
-                    "property_type": "user_provided",
-                    "json_schema": null,
                     "provided": false,
                     "tap_mutable": false
                   },
@@ -191,25 +171,42 @@ steps:
                     "tap_mutable": false
                   },
                   {
-                    "name": "include_deleted",
-                    "is_required": false,
+                    "name": "quota_user",
+                    "is_required": true,
                     "is_credential": false,
-                    "system_provided": false,
-                    "property_type": "user_provided",
+                    "system_provided": true,
+                    "property_type": "read_only",
                     "json_schema": {
-                      "type": "string",
-                      "pattern": "^(true|false)$"
+                      "type": "string"
                     },
                     "provided": false,
                     "tap_mutable": false
                   },
                   {
-                    "name": "insights_buffer_days",
+                    "name": "report_definitions",
                     "is_required": false,
                     "is_credential": false,
                     "system_provided": false,
                     "property_type": "user_provided",
-                    "json_schema": null,
+                    "json_schema": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false,
+                        "required": [
+                          "name",
+                          "id"
+                        ]
+                      }
+                    },
                     "provided": false,
                     "tap_mutable": false
                   },
@@ -229,10 +226,10 @@ steps:
                 ]
               },
               {
-                "type": "oauth",      // OAuth connection step property
+                "type": "oauth",
                 "properties": [
                   {
-                    "name": "access_token",
+                    "name": "client_id",
                     "is_required": true,
                     "is_credential": true,
                     "system_provided": true,
@@ -244,7 +241,31 @@ steps:
                     "tap_mutable": false
                   },
                   {
-                    "name": "account_id",
+                    "name": "client_secret",
+                    "is_required": true,
+                    "is_credential": true,
+                    "system_provided": true,
+                    "property_type": "system_provided_by_default",
+                    "json_schema": {
+                      "type": "string"
+                    },
+                    "provided": false,
+                    "tap_mutable": false
+                  },
+                  {
+                    "name": "refresh_token",
+                    "is_required": true,
+                    "is_credential": true,
+                    "system_provided": true,
+                    "property_type": "system_provided_by_default",
+                    "json_schema": {
+                      "type": "string"
+                    },
+                    "provided": false,
+                    "tap_mutable": false
+                  },
+                  {
+                    "name": "view_id",
                     "is_required": true,
                     "is_credential": false,
                     "system_provided": false,
@@ -272,10 +293,10 @@ steps:
             ],
             "details": {
               "pricing_tier": "standard",
-              "pipeline_state": "released",
+              "pipeline_state": "beta",
               "default_start_date": "-1 year",
-              "default_scheduling_interval": 30,
-              "protocol": "platform.facebook",
+              "default_scheduling_interval": 60,
+              "protocol": "platform.google-analytics",
               "access": true
             }
           }
@@ -285,7 +306,14 @@ steps:
 
           {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
-          For `platform.facebook` sources, the properties required for OAuth are `access_token` and `account_id`.
+          For `platform.google-analytics` sources, the properties required for OAuth are:
+
+          {% assign google-analytics-object = site.developer-files | where:"key","source-form-properties-google-analytics-object" | first %}
+          {% assign google-analytics-oauth = google-analytics-object.oauth-attributes %}
+
+          {% for attribute in google-analytics-oauth %}
+          - `{{ attribute.name }}`
+          {% endfor %}
 
       - title: "Understand OAuth property metadata"
         anchor: "understand-oauth-property-metadata"
@@ -317,14 +345,14 @@ steps:
 
           Additionally, consider the property's `property_type` value. To configure OAuth using your own OAuth client credentials, you'll need to provide values for properties where `property_type` is either `user_provided` or `system_provided_by_default`. If you don't provide a value for properties where `property_type: system_provided_by_default`, Stitch will use its own OAuth client credentials to perform the OAuth handshake. 
 
-          Consider the OAuth properties for `platform.facebook`:
+          Consider the OAuth properties for `platform.google-analytics`:
 
           {% capture code %}
           {
             "type": "oauth",
             "properties": [
               {
-                "name": "access_token",
+                "name": "client_id",
                 "is_required": true,
                 "is_credential": true,
                 "system_provided": true,
@@ -336,7 +364,31 @@ steps:
                 "tap_mutable": false
               },
               {
-                "name": "account_id",
+                "name": "client_secret",
+                "is_required": true,
+                "is_credential": true,
+                "system_provided": true,
+                "property_type": "system_provided_by_default",
+                "json_schema": {
+                  "type": "string"
+                },
+                "provided": false,
+                "tap_mutable": false
+              },
+              {
+                "name": "refresh_token",
+                "is_required": true,
+                "is_credential": true,
+                "system_provided": true,
+                "property_type": "system_provided_by_default",
+                "json_schema": {
+                  "type": "string"
+                },
+                "provided": false,
+                "tap_mutable": false
+              },
+              {
+                "name": "view_id",
                 "is_required": true,
                 "is_credential": false,
                 "system_provided": false,
@@ -351,9 +403,9 @@ steps:
           }
           {% endcapture %}
 
-          {% include layout/code-snippet.html code-description="OAuth properties for platform.facebook" language="json" code=code %}
+          {% include layout/code-snippet.html code-description="OAuth properties for platform.google-analytics" language="json" code=code %}
 
-          As `access_token` and `account_id` both have an `is_required: true` value, we'll need to provide values to configure OAuth.
+          As all the properties have an `is_required: true` value, we'll need to provide values for every property to configure OAuth.
 
   - title: "Perform an OAuth handshake with the source"
     anchor: "perform-oauth-handshake-with-source"
@@ -380,8 +432,10 @@ steps:
       {% assign description = step.endpoint %}
       {% capture code %}'{
          "properties":{
-            "access_token":"<FACEBOOK_ACCESS_TOKEN>",
-            "account_id":"<FACEBOOK_ADS_ACCOUNT_ID>"
+            "client_id":"<GOOGLE_ANALYTICS_CLIENT_ID>",
+            "client_secret":"<GOOGLE_ANALYTICS_CLIENT_SECRET>",
+            "refresh_token": "<GOOGLE_ANALYTICS_CLIENT_REFRESH_TOKEN>",
+            "view_id": "143355753"
          }
       }'
       {% endcapture %}
@@ -393,41 +447,39 @@ steps:
       {% capture code %}
       {
         "properties": {
-          "attribution_window": "7",
-          "account_id": "<FACEBOOK_ADS_ACCOUNT_ID>",      // non-credential OAuth property
+          "cron_expression": null,
           "frequency_in_minutes": "60",
-          "image_version": "1.latest",
-          "start_date": "2018-01-01T00:00:00Z"
+          "image_version": "0.latest",
+          "product": "pipeline",
+          "quota_user": "234588",
+          "report_definitions": [
+            {
+              "name": "Visitor Traffic",
+              "id": "a53305a5-d6c8-42d3-9c5d-65a524f217c1"
+            }
+          ],
+          "start_date": "2019-03-25T00:00:00Z",
+          "view_id": "143355753"
         },
-        "updated_at": "2020-06-09T18:39:12Z",
+        "updated_at": "2020-06-26T18:06:12Z",
         "schedule": null,
-        "name": "facebook_ads",
-        "type": "platform.facebook",
+        "name": "tap_google",
+        "type": "platform.google-analytics",
         "deleted_at": null,
         "system_paused_at": null,
         "stitch_client_id": 116078,
-        "paused_at": null,
-        "id": {{ source-id }},
-        "display_name": "Facebook Ads",
-        "created_at": "2020-06-09T18:37:49Z",
+        "paused_at": "2020-06-23T01:29:17Z",
+        "id": 122635,
+        "display_name": "Google Analytics",
+        "created_at": "2020-03-25T20:23:29Z",
         "report_card": {
-          "type": "platform.facebook",
+          "type": "platform.google-analytics",
           "current_step": 4,
           "current_step_type": "field_selection",
           "steps": [
             {
               "type": "form",
               "properties": [
-                {
-                  "name": "aggregate_level",
-                  "is_required": false,
-                  "is_credential": false,
-                  "system_provided": false,
-                  "property_type": "user_provided",
-                  "json_schema": null,
-                  "provided": false,
-                  "tap_mutable": false
-                },
                 {
                   "name": "anchor_time",
                   "is_required": false,
@@ -439,16 +491,6 @@ steps:
                     "format": "date-time"
                   },
                   "provided": false,
-                  "tap_mutable": false
-                },
-                {
-                  "name": "attribution_window",
-                  "is_required": false,
-                  "is_credential": false,
-                  "system_provided": false,
-                  "property_type": "user_provided",
-                  "json_schema": null,
-                  "provided": true,
                   "tap_mutable": false
                 },
                 {
@@ -485,26 +527,43 @@ steps:
                   "tap_mutable": false
                 },
                 {
-                  "name": "include_deleted",
+                  "name": "quota_user",
+                  "is_required": true,
+                  "is_credential": false,
+                  "system_provided": true,
+                  "property_type": "read_only",
+                  "json_schema": {
+                    "type": "string"
+                  },
+                  "provided": true,
+                  "tap_mutable": false
+                },
+                {
+                  "name": "report_definitions",
                   "is_required": false,
                   "is_credential": false,
                   "system_provided": false,
                   "property_type": "user_provided",
                   "json_schema": {
-                    "type": "string",
-                    "pattern": "^(true|false)$"
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "additionalProperties": false,
+                      "required": [
+                        "name",
+                        "id"
+                      ]
+                    }
                   },
-                  "provided": false,
-                  "tap_mutable": false
-                },
-                {
-                  "name": "insights_buffer_days",
-                  "is_required": false,
-                  "is_credential": false,
-                  "system_provided": false,
-                  "property_type": "user_provided",
-                  "json_schema": null,
-                  "provided": false,
+                  "provided": true,
                   "tap_mutable": false
                 },
                 {
@@ -526,7 +585,7 @@ steps:
               "type": "oauth",
               "properties": [
                 {
-                  "name": "access_token",
+                  "name": "client_id",
                   "is_required": true,
                   "is_credential": true,
                   "system_provided": true,
@@ -534,11 +593,35 @@ steps:
                   "json_schema": {
                     "type": "string"
                   },
-                  "provided": true,           // property has been provided
+                  "provided": true,
                   "tap_mutable": false
                 },
                 {
-                  "name": "account_id",
+                  "name": "client_secret",
+                  "is_required": true,
+                  "is_credential": true,
+                  "system_provided": true,
+                  "property_type": "system_provided_by_default",
+                  "json_schema": {
+                    "type": "string"
+                  },
+                  "provided": true,
+                  "tap_mutable": false
+                },
+                {
+                  "name": "refresh_token",
+                  "is_required": true,
+                  "is_credential": true,
+                  "system_provided": true,
+                  "property_type": "system_provided_by_default",
+                  "json_schema": {
+                    "type": "string"
+                  },
+                  "provided": true,
+                  "tap_mutable": false
+                },
+                {
+                  "name": "view_id",
                   "is_required": true,
                   "is_credential": false,
                   "system_provided": false,
@@ -546,7 +629,7 @@ steps:
                   "json_schema": {
                     "type": "string"
                   },
-                  "provided": true,           // property has been provided
+                  "provided": true,
                   "tap_mutable": false
                 }
               ]
