@@ -17,7 +17,7 @@ version: "4"
 title: "{{ site.data.connect.core-objects.extractions.list.title | flatify }}"
 method: "get"
 short-url: |
-  /v4/extractions
+  /v4/{client_id}/extractions
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ site.data.connect.core-objects.extractions.list.short | flatify }}"
@@ -33,8 +33,16 @@ description: |
 #  RATE LIMITING & PAGINATION  #
 # ---------------------------- #
 
+# The resource type, applicable to rate limits.
+# Info about this resource/rate limit type lives in: _data/connect/rate-limits
 rate-limit-type: "jobs"
+
+# The number of records returned for each page of results
 pagination: "100"
+
+# How results are ordered in the response
+order-by: "source_id"
+sort-type: "Ascending (0-9)"
 
 
 # -------------------------- #
@@ -130,11 +138,13 @@ examples:
   - type: "Request"
     subexamples:
     - title: "Retrieving the first page of results"
-      request-url: "{{ endpoint.short-url | flatify | strip_newlines }}"
+      request-url: |
+        {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{client_id","116078" | remove: right-bracket | strip_newlines }}
       header: "{{ site.data.connect.request-headers.get.without-body | flatify }}"
 
     - title: "Retrieving the second page of results"
-      request-url: "{{ endpoint.short-url | flatify | strip_newlines }}?page=2"
+      request-url: |
+        {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{client_id","116078" | remove: right-bracket | append: "?page=2" | strip_newlines }}
       header: "{{ site.data.connect.request-headers.get.without-body | flatify }}"
 
   - type: "Response"

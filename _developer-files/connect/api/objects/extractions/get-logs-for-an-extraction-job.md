@@ -17,7 +17,7 @@ version: "4"
 title: "{{ site.data.connect.core-objects.extractions.get-job-logs.title | flatify }}"
 method: "get"
 short-url: |
-  /v4/extractions/{job_name}
+  /v4/{client_id}/extractions/{job_name}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ site.data.connect.core-objects.extractions.get-job-logs.short | flatify }}"
@@ -30,11 +30,12 @@ description: |
 
 
 # ---------------------------- #
-#  RATE LIMITING & PAGINATION  #
+#        RATE LIMITING         #
 # ---------------------------- #
 
+# The resource type, applicable to rate limits.
+# Info about this resource/rate limit type lives in: _data/connect/rate-limits
 rate-limit-type: "jobs"
-pagination: "100"
 
 
 # -------------------------- #
