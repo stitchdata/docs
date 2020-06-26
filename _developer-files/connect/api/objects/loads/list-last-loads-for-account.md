@@ -27,8 +27,6 @@ description: |
 
   {{ site.data.connect.core-objects.loads.list.description | flatify }}
 
-  Responses from this endpoint are paginated. Every page, or result set, can contain up to 100 load attempt records. Refer to the [Arguments section](#{{ endpoint.key }}--arguments) for more info.
-
 
 # ---------------------------- #
 #  RATE LIMITING & PAGINATION  #
@@ -71,9 +69,9 @@ arguments:
 
       Each results set, or page, can contain up to 100 load attempt records. This parameter is only required if you want to retrieve additional pages beyond the first 100 load attempt records. By default, a request to `{{ endpoint.short-url | flatify }}` is equivalent to a request for page `1` using this parameter.
 
-      If an account contains more than 100 load attempt records, the response will include data about subsequent pages that can be used to retrieve them.
+      If an account contains more than 100 load attempt records, the response will include data about subsequent pages that can be used to retrieve them. Refer to the **Requests** tab for an example.
 
-      Refer to the **Requests** tab for an example.
+      Refer to the [Pagination section]({{ site.data.connect.api.pagination }}) for more info on paginating through lists.
     example-value: |
       2
 
@@ -89,9 +87,9 @@ response-attributes:
   - name: "data"
     type: "array"
     description: |
-      An array of [Load objects]({{ site.data.connect.core-objects.loads.object }}), one for each stream [TODO].
+      An array of [Load objects]({{ site.data.connect.core-objects.loads.object }}), one for each stream that has had an attempted load in the past 60 days.
 
-      **Note**: Load objects are returned in descending order by `source_id`.
+      **Note**: Load objects are returned in ascending order by `stream_id`.
 
   - name: "page"
     type: "integer"
