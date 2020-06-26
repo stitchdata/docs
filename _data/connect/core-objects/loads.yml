@@ -17,3 +17,5 @@ list:
   short: "Lists the most recent load attempt for each stream (table) in a given account."
   description: |
     {{ site.data.connect.core-objects.loads.list.short | flatify }}
+
+    **Note**: This includes streams that have had an attempted load attempt in the past 60 days.
