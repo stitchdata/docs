@@ -15,3 +15,9 @@ total-time: 10
 
 ## The time unit applicable to total-time
 time-interval: "minute"
+
+## Used in resource lists for endpoints
+description: |
+  This endpoint is subject to rate limiting for **job resource types.** Requests are limited to {{ site.data.connect.rate-limits.jobs.request-limit }} requests over a {{ site.data.connect.rate-limits.jobs.total-time }} {{ site.data.connect.rate-limits.jobs.time-interval }} per client ID.
+
+  **Note**: This limit applies to all requests **in aggregate** made to endpoints under the [jobs resource type](#rate-limits--types).
