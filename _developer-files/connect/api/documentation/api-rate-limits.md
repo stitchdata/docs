@@ -58,7 +58,9 @@ sections:
       </td>
       <td>
       <ul style="margin-top: 0px;">
-      {% assign endpoints = site.developer-files | where:"rate-limit-type",resource-type.id | group_by:"endpoint" %}
+      {% assign connect-endpoints = site.developer-files | where:"content-type","api-endpoint" %}
+      {% assign endpoints = connect-endpoints | where:"rate-limit-type",resource-type.id %}
+
       {% for endpoint in endpoints %}
       <li>
       <a href="#{{ endpoint.key }}">{{ endpoint.method | upcase }} {{ endpoint.short-url | flatify }}</a>
