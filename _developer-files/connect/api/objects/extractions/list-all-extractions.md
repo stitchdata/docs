@@ -26,8 +26,6 @@ description: |
   
   {{ site.data.connect.core-objects.extractions.list.description | flatify }}
 
-  Responses from this endpoint are paginated. Every page, or result set, can contain up to 100 extraction records. Refer to the [Arguments section](#{{ endpoint.key }}--arguments) for more info.
-
 
 # ---------------------------- #
 #  RATE LIMITING & PAGINATION  #
@@ -66,11 +64,11 @@ arguments:
     description: |
       A path parameter corresponding to the page of results to retrieve, adhering to the format `?page={page_number}`, where `{page_number}` is the number of the page to retrieve.
 
-      Each results set, or page, can contain up to 100 extraction records. This parameter is only required if you want to retrieve additional pages beyond the first 100 extraction records. By default, a request to `{{ endpoint.short-url | flatify }}` is equivalent to a request for page `1` using this parameter.
+      Each results set, or page, can contain up to 100 load attempt records. This parameter is only required if you want to retrieve additional pages beyond the first 100 load attempt records. By default, a request to `{{ endpoint.short-url | flatify }}` is equivalent to a request for page `1` using this parameter.
 
-      If an account contains more than 100 extraction records, the response will include data about subsequent pages that can be used to retrieve them.
+      If an account contains more than 100 load attempt records, the response will include data about subsequent pages that can be used to retrieve them. Refer to the **Requests** tab for an example.
 
-      Refer to the **Requests** tab for an example.
+      Refer to the [Pagination section]({{ site.data.connect.api.pagination }}) for more info on paginating through lists.
     example-value: |
       2
 
@@ -88,7 +86,7 @@ response-attributes:
     description: |
       An array of [Extraction objects]({{ site.data.connect.core-objects.extractions.object }}), one for each source that has had a completed extraction job in the past 60 days.
 
-      **Note**: Extraction objects are returned in descending order by `source_id`.
+      **Note**: Extraction objects are returned in ascending order by `source_id`.
 
   - name: "page"
     type: "integer"
