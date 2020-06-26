@@ -74,6 +74,26 @@ api:
           - title: "Avoid rate limit violations"
             url: "{{ link.connect.api }}#rate-limits--avoid-violations"
 
+      - title: "Pagination"
+        sections:
+          - title: "Overview"
+            url: "{{ link.connect.api }}{{ site.data.connect.api.pagination }}"
+
+          - title: "Per record page limits"
+            url: "{{ link.connect.api }}#pagination--per-page-record-limits"
+
+          - title: "Result sorting and ordering"
+            url: "{{ link.connect.api }}#pagination--result-sorting-ordering"
+
+          - title: "Pagination data"
+            url: "{{ link.connect.api }}#pagination--data"
+
+          - title: "Limitations"
+            url: "{{ link.connect.api }}#pagination--limitations"
+
+          - title: "Endpoints with pagination"
+            url: "{{ link.connect.api }}#pagination--endpoints"
+
       - title: "Versioning"
         url: "{{ link.connect.api }}{{ site.data.connect.api.versioning }}"
         drop-down: false

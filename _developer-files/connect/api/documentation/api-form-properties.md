@@ -1,8 +1,8 @@
 ---
-title: Form Properties
+title: Form properties
 product-type: "connect"
 content-type: "api-doc"
-order: 9
+order: 10
 
 # This parameter is used in _includes/connect/api-endpoint-rollup.html
 # To display the correct description for a given form property

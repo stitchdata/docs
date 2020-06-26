@@ -1,8 +1,8 @@
 ---
-title: Data Structures
+title: Data structures
 product-type: "connect"
 content-type: "api-doc"
-order: 8
+order: 9
 
 include: developers/api-data-structure.html
 ---

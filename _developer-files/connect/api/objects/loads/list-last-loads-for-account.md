@@ -34,8 +34,16 @@ description: |
 #  RATE LIMITING & PAGINATION  #
 # ---------------------------- #
 
+# The resource type, applicable to rate limits.
+# Info about this resource/rate limit type lives in: _data/connect/rate-limits
 rate-limit-type: "jobs"
+
+# The number of records returned for each page of results
 pagination: "100"
+
+# How results are ordered in the response
+order-by: "stream_name"
+sort-type: "Ascending (A-Z)"
 
 
 # -------------------------- #
