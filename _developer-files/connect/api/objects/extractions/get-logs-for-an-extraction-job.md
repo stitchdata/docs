@@ -17,7 +17,7 @@ version: "4"
 title: "{{ site.data.connect.core-objects.extractions.get-job-logs.title | flatify }}"
 method: "get"
 short-url: |
-  /v4/{client_id}/extractions/{job_name}
+  /v4/{stitch_client_id}/extractions/{job_name}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ site.data.connect.core-objects.extractions.get-job-logs.short | flatify }}"
@@ -43,7 +43,7 @@ rate-limit-type: "jobs"
 ## This depends on the method being used, and the type of endpoint.
 
 arguments:
-  - name: "client_id"
+  - name: "stitch_client_id"
     required: true
     type: "path parameter"
     description: |

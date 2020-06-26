@@ -69,9 +69,9 @@ object-attributes:
     example-value: |
       116078.233312.sync.2ca63ab0-8a4e-11ea-840a-12021e29a739
 
-  - name: "client_id"
+  - name: "stitch_client_id"
     type: "integer"
-    description: "The Stitch client ID associated with the extraction job."
+    description: "The Stitch client account ID associated with the extraction job."
     example-value: |
       116078
 

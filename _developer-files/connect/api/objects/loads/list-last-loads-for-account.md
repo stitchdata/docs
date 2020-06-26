@@ -17,7 +17,7 @@ version: "4"
 title: "{{ site.data.connect.core-objects.loads.list.title | flatify }}"
 method: "get"
 short-url: |
-  /v4/{client_id}/loads
+  /v4/{stitch_client_id}/loads
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 
@@ -51,7 +51,7 @@ sort-type: "Ascending (A-Z)"
 ## This depends on the method being used, and the type of endpoint.
 
 arguments:
-  - name: "client_id"
+  - name: "stitch_client_id"
     required: true
     type: "path parameter"
     description: |

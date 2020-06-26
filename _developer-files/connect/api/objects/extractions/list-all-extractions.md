@@ -17,7 +17,7 @@ version: "4"
 title: "{{ site.data.connect.core-objects.extractions.list.title | flatify }}"
 method: "get"
 short-url: |
-  /v4/{client_id}/extractions
+  /v4/{stitch_client_id}/extractions
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ site.data.connect.core-objects.extractions.list.short | flatify }}"
@@ -48,7 +48,7 @@ sort-type: "Ascending (0-9)"
 # -------------------------- #
 
 arguments:
-  - name: "client_id"
+  - name: "stitch_client_id"
     required: true
     type: "path parameter"
     description: |

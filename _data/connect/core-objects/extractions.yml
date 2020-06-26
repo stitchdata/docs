@@ -5,12 +5,12 @@
 title: "Extractions"
 section: "#extraction--section"
 object: "#extraction--object"
-base: "/v4/{client_id}/extractions"
+base: "/v4/{stitch_client_id}/extractions"
 description: |
   An object representing an extraction job. Extraction is the first step in a replication job.
   
 list:
-  name: "/v4/{client_id}/extractions"
+  name: "/v4/{stitch_client_id}/extractions"
   title: "List last extraction jobs for an account"
   method: "get"
   anchor: "#list-last-extractions"
@@ -21,7 +21,7 @@ list:
     **Note**: This includes paused and deleted sources that have had a completed extraction job in the past 60 days.
 
 get-job-logs:
-  name: "/v4/{client_id}/extractions/{job_name}"
+  name: "/v4/{stitch_client_id}/extractions/{job_name}"
   title: "Get logs for an extraction job"
   method: "get"
   anchor: "#get-logs-for-an-extraction-job"
