@@ -144,12 +144,12 @@ sections:
               ORDER BY id
              ```
              
-             **Note**: Stitch will automatically omit the `WHERE` clause in this statement if the table has no Primary Key or a Primary Key that is not sortable. 
+             **Note**: Stitch will automatically omit the `WHERE` clause in this statement if the table doesn't have a Primary Key or has a Primary Key that isn't sortable. 
 
       - title: "Ongoing replication jobs"
         anchor: "ongoing-replication-jobs"
         content: |
-          After the historical replication of a table is complete, Stitch will read updates for the table from the database's logs. During ongoing replication jobs using {{ page.title }}, a few things will happen:
+          After the historical replication of a table is complete, Stitch reads updates for the table from the database's logs. During ongoing replication jobs using {{ page.title }}, a few things will happen:
 
           1. Using the maximum log position ID from the previous job - in this case, the historical replication job - Stitch begins reading log messages in the binary file. Data for tables set to replicate is extracted. 
           2. At the end of the replication job, Stitch bookmarks its place in the log file by storing its current log position ID.
@@ -166,25 +166,62 @@ sections:
       2. Data is contained in a table, [not a view](#limitation--views-are-unsupported).
       3. Modifications to records are made only using [supported event types](#limitation--database-event-types).
       4. The structure of the table changes infrequently, if at all. Refer to the [Limitations section](#limitation--structural-changes) below for more info.
-      5. You're aware that, for PostgreSQL, only [master instances](#limitation--only-supports-master-instances-postgresql) support {{ page.title }} and that retaining [binary log files will increase the database's disk space usage](#limitation--disk-space-usage-postgresql).
+      5. **For PostgreSQL instances**: You're aware that only [master instances](#limitation--only-supports-master-instances-postgresql) support {{ page.title }} and that retaining [binary log files will increase the database's disk space usage](#limitation--disk-space-usage-postgresql).
+      6. **For MongoDB instances**: The `_id` field in a collection only contains a single data type. Multiple data types in the `_id` field can cause discrepancies during replication. Refer to the [Limitations section](#limitation--single-data-type-id-field-mongo) for more info and examples.
 
       If {{ page.title }} isn't appropriate, [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) may be a suitable alternative.
 
   - title: "Limitations of {{ page.title }}"
     anchor: "limitations"
+    back-to-list: "[Back to Limitations list](#limitations)"
     content: |
       Before you select {{ page.title }} as the Replication Method for a table, you should be aware of the limitations this method can have. Being aware of these limitations can help prevent data discrepancies, replication issues, and ensure your data is replicated in the most efficient manner possible.
 
-      The limitations of {{ page.title }} are:
+      The following tabs contain the limitations that apply to the databases that support {{ page.title }}. Click the tab for your database type to view its specific limitations for this replication method.
 
-      {% for subsection in section.subsections %}
-      - [{{ subsection.title | remove: "Limitation " | flatify | remove: ": " | remove:"1" | remove: "2" | remove: "3" | remove: "4" | remove: "5" | remove: "6" | remove: "7" | remove: "8" }}](#{{ subsection.anchor }})
-      {% endfor %}
+      {% assign databases = site.data.taps.extraction.replication-methods.log-based-incremental.databases %}
+
+      <ul id="profileTabs" class="nav nav-tabs">
+        {% for database in databases %}
+          <li{% if forloop.first == true %} class="active"{% endif %}>
+              <a href="#{{ database.type | append: "--limitation-summary-tab"}}" data-toggle="tab">
+                  {{ database.display-name }}
+              </a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <div class="tab-content">
+        {% for database in databases %}
+          <div role="tabpanel" class="tab-pane{% if forloop.first == true %} active{% endif %}" id="{{ database.type | append: "--limitation-summary-tab"}}">
+
+            <p>The following limitations are applicable to <strong>{% if database.type == "all" %}{{ database.display-name | downcase }}{% else %}{{ database.display-name }}-backed{% endif %}</strong> database integrations:</p>
+          
+            <ul>
+              {% for subsection in section.subsections %}
+                {% if subsection.databases == "all" or subsection.databases contains database.type %}
+                  {% assign limitation-title-string = "Limitation " | append: forloop.index | append: ": " %}
+                  <li>
+                    <a href="#{{ subsection.anchor }}">{{ subsection.title | flatify | remove: limitation-title-string }}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+
+            {% if database.type == "all" %}
+              <p>Refer to the other tabs for limitations that are applicable to specific database types.</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+      ---
 
 ## SUPPORTED DATABASES
     subsections:
       - title: "Limitation {{ forloop.index }}: Only available for certain databases"
         anchor: "limitation--availability"
+        databases: "all"
         content: |
           {% include misc/icons.html %}
           {{ page.title }} is available only for certain {{ page.supported-database-list | flatify | strip }} databases. While the original implementations of these databases support {{ page.title }} some cloud versions may not.
@@ -203,9 +240,12 @@ sections:
 
           {% include replication/log-based-replication-database-support.html %}
 
+          {{ section.back-to-list | flatify }}
+
 ## SUPPORTED EVENT TYPES
       - title: "Limitation {{ forloop.index }}: Only works with specific database event types"
         anchor: "limitation--database-event-types"
+        databases: "all"
         content: |
           {{ page.title }} reads data from a database's log and then replicates the changes. In order to replicate data, the event that caused a change to the data must be written to the log.
 
@@ -219,9 +259,12 @@ sections:
 
           For example: If data in a table is modified using `ALTER`, the changes won't be written to the log or identified by Stitch.
 
+          {{ section.back-to-list | flatify }}
+
 ## STRUCTURAL CHANGES
-      - title: "Limitation {{ forloop.index }}: Structural changes require manual intervention (Microsoft SQL Server, MySQL, PostgreSQL, Oracle)"
+      - title: "Limitation {{ forloop.index }}: Structural changes require manual intervention (Microsoft SQL Server, MySQL, Oracle, PostgreSQL)"
         anchor: "limitation--structural-changes"
+        databases: "mssql, mysql, oracle, postgres"
         content: |
           {% include note.html type="single-line" content="**Note**: This section is applicable only to **Microsoft SQL Server, MySQL, Oracle**, and **PostgreSQL**-backed database integrations." %}
 
@@ -234,7 +277,6 @@ sections:
           ```
 
           For this reason, Stitch recommends using {{ page.title }} with tables that have structures that don't change frequently.
-
         sub-subsections:
           - title: "Schema violation errors, explained"
             anchor: "schema-violation-errors"
@@ -309,17 +351,23 @@ sections:
 
               Where Stitch previously detected three columns, the log messages now contain data for four columns. Because the log messages don't contain field information and are read in order, Stitch would be unable to determine what column the `15`, `9`, and `19` values are for.
 
+              {{ section.back-to-list | flatify }}
+
 ## VIEWS
       - title: "Limitation {{ forloop.index }}: Cannot be used with views"
         anchor: "limitation--views-are-unsupported"
+        databases: "all"
         content: |
           {{ page.title }} can't be used with database views, as modifications to views are not written to log files.
 
           Stitch recommends using [Key-based Incremental Replication]({{ link.replication.key-based-rep | prepend: site.baseurl }}) instead, where possible.
 
+          {{ section.back-to-list | flatify }}
+
 ## MYSQL/ORACLE RETENTION PERIOD
       - title: "Limitation {{ forloop.index }}: Logs can age out and stop replication (Microsoft SQL Server, MySQL, and Oracle)"
         anchor: "limitation--log-retention"
+        databases: "mssql, mysql, oracle"
         content: |
           {% include note.html type="single-line" content="**Note**: This section is applicable only to **Microsoft SQL Server, MySQL,** and **Oracle**-backed database integrations." %}
 
@@ -353,9 +401,12 @@ sections:
                 - **For Oracle-RDS databases**, these are the [AWS automated backup]({{ site.baseurl }}/integrations/databases/amazon-oracle-rds#enable-aws-automated-backups) and [`archivelog retention hours`]({{ site.baseurl }}/integrations/databases/amazon-oracle-rds#define-archivelog-retention-hours) settings.
           3. **Any critical error that prevents Stitch from replicating data**, such as a connection issue that prevents Stitch from connecting to the database or a [schema violation](#limitation-3--structural-changes). If the error persists past the log retention period, the log will be purged before Stitch can read it.
 
+          {{ section.back-to-list | flatify }}
+
 ## POSTGRES INCREASE DISK SPACE
       - title: "Limitation {{ forloop.index }}: Will increase source disk space usage (PostgreSQL)"
         anchor: "limitation--disk-space-usage-postgresql"
+        databases: "postgres"
         content: |
           {% include note.html type="single-line" content="This section is applicable only to **PostgreSQL**-backed database integrations." %}
 
@@ -373,9 +424,12 @@ sections:
 
           **Note**: If you decide to permanently disable Log-based Incremental Replication for your PostgreSQL database, remove the replication slot to prevent further unnecessary disk space consumption.
 
+          {{ section.back-to-list | flatify }}
+
 ## POSTGRES MASTER INSTANCE
       - title: "Limitation {{ forloop.index }}: Can only be used with a master instance (PostgreSQL)"
         anchor: "limitation--only-supports-master-instances-postgresql"
+        databases: "postgres"
         content: |
           {% include note.html type="single-line" content="This section is applicable only to **PostgreSQL**-based database integrations." %}
           
@@ -385,9 +439,12 @@ sections:
 
           Otherwise, we recommend monitoring the instance's disk space usage during the first few replication jobs to minimize any negative impact on your database's performance.
 
+          {{ section.back-to-list | flatify }}
+
 ## MULTIPLE CONNECTIONS TO REPLICATION SLOT
       - title: "Limitation {{ forloop.index }}: Multiple connections to a replication slot can cause data loss in Stitch (PostgreSQL)"
         anchor: "limitation--replication-slot-data-loss-postgresql"
+        databases: "postgres"
         content: |
           {% include note.html type="single-line" content="This section is applicable only to **PostgreSQL**-based database integrations." %}
 
@@ -408,6 +465,37 @@ sections:
 
           To avoid data loss caused by this scenario, Stitch recommends creating a dedicated replication slot for PostgreSQL database you want to connect.
 
+          {{ section.back-to-list | flatify }}
+
+      - title: "Limitation {{ forloop.index }}: Multiple data types in the _id field can cause discrepancies during historical replication (MongoDB)"
+        anchor: "limitation--single-data-type-id-field-mongo"
+        databases: "mongo"
+        content: |
+          {% include note.html type="single-line" content="**Note**: This applies only to MongoDB-based database integrations." %}
+
+          Historical replication jobs works a little differently for MongoDB-based database integrations. For MongoDB, Stitch uses the `_id` field as the collection's Primary Key. 
+
+          During the historical replication job, Stitch first determines the current maximum value of the `_id` column. Next, Stitch queries for documents with `_id` values that are **less than or equal to** the current maximum `_id` value. 
+
+          For example: A query for a historical replication job for a MongoDB collection would look like this:
+
+          {% capture code %}
+             SELECT field_you_selected_1,
+                    field_you_selected_2,
+                    [...]
+               FROM schema.collection
+              WHERE _id <= [max _id value]
+           ORDER BY _id
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
+
+          The MongoDB integration functions this way to ensure that replication for the table can resume if a replication job is interrupted or doesn't finish before [the extraction job time limit]({{ link.troubleshooting.database-extraction-errors | prepend: site.baseurl | append: "#time-limit" }}).
+
+          Because MongoDB ranks BSON data types, this affects how the maximum `_id` value is determined. As a result, if multiple data types are present in the `_id` column, discrepancies may occur. Refer to the [Missing Mongo data due to multiple data types guide]({{ link.troubleshooting.mongo-multiple-data-types | prepend: site.baseurl }}) for more info and examples.
+          
+          {{ section.back-to-list | flatify }}
+
   - title: "Enable {{ page.title }}"
     anchor: "enabling-log-based-replication"
     content: |
@@ -418,9 +506,36 @@ sections:
       {% assign all-databases = site.database-integrations | where:"input",true %}
       {% assign only-binlog-databases = all-databases | where:"log-based-replication-master-instance",true | sort: "title" %}
 
-      {% for database in only-binlog-databases %}
-      - [{{ database.title }}]({{ database.url | prepend: site.baseurl }})
-      {% endfor %}
+      <ul id="profileTabs" class="nav nav-tabs">
+        {% for database in databases %}
+          {% unless database.type == "all" %}
+            <li{% if forloop.first == true %} class="active"{% endif %}>
+                <a href="#{{ database.type | append: "--binlog-setup-tab"}}" data-toggle="tab">
+                    {{ database.display-name }}
+                </a>
+            </li>
+          {% endunless %}
+        {% endfor %}
+      </ul>
+
+      <div class="tab-content">
+        {% for database in databases %}
+          {% unless database.type == "all" %}
+          <div role="tabpanel" class="tab-pane{% if forloop.first == true %} active{% endif %}" id="{{ database.type | append: "--binlog-setup-tab"}}">
+
+          {% assign binlog-databases-this-type = only-binlog-databases | where:"db-type",database.type | sort_natural:"title" %}
+          
+            <ul>
+              {% for binlog-database in binlog-databases-this-type %}
+                <li>
+                  <a href="{{ binlog-database.url | prepend: site.baseurl }}">{{ binlog-database.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endunless %}
+        {% endfor %}
+      </div>
 ---
 {% include misc/data-files.html %}
 {% include misc/icons.html %}

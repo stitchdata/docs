@@ -66,12 +66,14 @@ sections:
 
       If {{ page.title }} were a SQL query, it would look like this:
 
-      ```sql
+      {% capture code %}
       SELECT column_you_selected_1,
              column_you_selected_2,
              [...]
         FROM schema.table
-      ```
+      {% endcapture %}
+
+      {% include layout/code-snippet.html code=code language="sql" %}
 
 # During loading, the destination table will be overwritten with the newly extracted data. **Note**: This doesn't apply to append-only destinations like [BigQuery]({{ link.destinations.overviews.bigquery | prepend: site.baseurl }}) or [Amazon S3 CSV]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl }}).
 
@@ -82,7 +84,8 @@ sections:
 
       1. Records are hard deleted from the source.
       2. The table doesn't contain a suitable column for [Key-based Incremental Replication]({{ link.replication.key-based-rep | prepend: site.baseurl }}).
-      3. [Log-based Incremental Replication]({{ link.replication.log-based-rep | prepend: site.baseurl }}) is unavailable for the source. 
+      3. [Log-based Incremental Replication]({{ link.replication.log-based-rep | prepend: site.baseurl }}) is unavailable for the source.
+      4. **For MongoDB-backed database integrations**: The `_id` field contains only one data type. Refer to the [Limitations section](#limitation--mongo-multiple-data-types-discrepancies) for more info.
 
   - title: "Limitations of {{ page.title }}"
     anchor: "limitations"
@@ -92,19 +95,20 @@ sections:
       The limitations of {{ page.title }} are:
 
       {% for subsection in section.subsections %}
-      - [{{ subsection.title | remove: "Limitation " | remove: ": " | remove:"1" | remove: "2" | remove: "3" | remove: "4" | remove: "5" | remove: "6" }}](#{{ subsection.anchor }})
+      {% assign limitation-title = "Limitation " | append: forloop.index | append: ": " %}
+      - [{{ subsection.title | flatify | remove: limitation-title }}](#{{ subsection.anchor }})
       {% endfor %}
 
     subsections:
-      - title: "Limitation 1: Can cause latency"
-        anchor: "limitation-1--latency"
+      - title: "Limitation {{ forloop.index }}: Can cause latency"
+        anchor: "limitation--latency"
         content: |
           How large a source table is - that is, how many records the table contains - can affect how quickly Stitch is able to extract data from a source.
 
           In the case of large tables using {{ page.title }}, Stitch can only extract data as quickly as it is returned. This means that if a database or SaaS application returns data slowly, especially for a large table, latency in the replication process may increase. This is more probable with tables using {{ page.title }}.
 
-      - title: "Limitation 2: Increased row consumption"
-        anchor: "limitation-2--high-row-usage"
+      - title: "Limitation {{ forloop.index }}: Increased row consumption"
+        anchor: "limitation--high-row-usage"
         content: |
           Tables using {{ page.title }} are replicated fully during every replication job, regardless of whether individual records were updated or not.
 
@@ -138,12 +142,37 @@ sections:
 
           If the integration were to continue replicating every 30 minutes until 11:59:59, this table would use 480,000 rows in 24 hours. Depending on the [Stitch plan]({{ site.pricing }}){:target="new"} you're using, this type of usage can quickly use up your row allotment.
 
-      - title: "Limitation 3: Unavailable for some integrations"
-        anchor: "limitation-3--unavailable-integrations"
+      - title: "Limitation {{ forloop.index }}: Unavailable for some integrations"
+        anchor: "limitation--unavailable-integrations"
         content: |
           Currently, {{ page.title }} is unavailable for version v11-01-2016 of Stitch's MongoDB integration. This version of MongoDB only supports [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}).
 
           {{ page.title }} is supported for all other versions of Stitch's database and SaaS integrations.
+
+      - title: "Limitation {{ forloop.index }}: Multiple data types in the _id field can cause discrepancies (MongoDB)"
+        anchor: "limitation--mongo-multiple-data-types-discrepancies"
+        content: |
+          {% include note.html type="single-line" content="**Note**: This applies only to MongoDB-backed database integrations." %}
+
+          Full Table Replication works a little differently for MongoDB-backed database integrations. For MongoDB, Stitch uses the `_id` field in MongoDB collections as a pseudo-Replication Key. 
+
+          During the replication job, Stitch first determines the current maximum value of the `_id` column. Next, Stitch queries for documents with `_id` values that are **less than or equal to** the current maximum `_id` value. 
+
+          For example: A query for Full Table Replication for a MongoDB collection would look like this:
+
+          {% capture code %}
+          SELECT field_you_selected_1,
+                 field_you_selected_2,
+                 [...]
+            FROM schema.collection
+           WHERE _id <= [max _id value]
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
+
+          The MongoDB integration functions this way to ensure that replication for the table can resume if a replication job is interrupted or doesn't finish before [the extraction job time limit]({{ link.troubleshooting.database-extraction-errors | prepend: site.baseurl | append: "#time-limit" }}).
+
+          Because MongoDB ranks BSON data types, this affects how the maximum `_id` value is determined. As a result, if multiple data types are present in the `_id` column, discrepancies may occur. Refer to the [Missing Mongo data due to multiple data types guide]({{ link.troubleshooting.mongo-multiple-data-types | prepend: site.baseurl }}) for more info and examples.
 ---
 {% include misc/data-files.html %}
 {% include misc/icons.html %}
