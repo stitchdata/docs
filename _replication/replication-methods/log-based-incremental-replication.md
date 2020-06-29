@@ -496,6 +496,31 @@ sections:
           
           {{ section.back-to-list | flatify }}
 
+      - title: "Limitation {{ forloop.index }}: Duplication in replication (Microsoft SQL Server)"
+        anchor: "limitation--duplication-replication-key-inclusivity-mssql"
+        databases: "mssql"
+        content: |
+          {% include note.html type="single-line" content="**Note**: This applies only to Microsoft SQL Server-based database integrations." %}
+
+          For Microsoft SQL Server-based integrations, Stitch uses log position IDs **inclusively**. This means that during a replication job, Stitch will resume reading data with a **greater than or equal to** log position ID than the log position ID from the previous job.
+
+          If this were a SQL query, it would look like this:
+
+          {% capture code %}
+          SELECT id,
+                 column_you_selected_1,
+                 column_you_selected_2,
+                 [...]
+            FROM schema.table
+           WHERE log_position_id >= [last_saved_maximum_log_position_id]
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
+
+           As a result, there will be some duplication during the extraction process. This is because Stitch checks for log position IDs that are greater than **or equal to** the last saved maximum log position ID. Because of this approach, the record with a log position ID equal to the last saved maximum log position ID will be selected for extraction during the next job.
+
+          {{ section.back-to-list | flatify }}
+
   - title: "Enable {{ page.title }}"
     anchor: "enabling-log-based-replication"
     content: |
@@ -508,20 +533,20 @@ sections:
 
       <ul id="profileTabs" class="nav nav-tabs">
         {% for database in databases %}
-          {% unless database.type == "all" %}
-            <li{% if forloop.first == true %} class="active"{% endif %}>
+          {% if database.type != "all" %}
+            <li{% if database.type == "dynamodb" %} class="active"{% endif %}>
                 <a href="#{{ database.type | append: "--binlog-setup-tab"}}" data-toggle="tab">
                     {{ database.display-name }}
                 </a>
             </li>
-          {% endunless %}
+          {% endif %}
         {% endfor %}
       </ul>
 
       <div class="tab-content">
         {% for database in databases %}
-          {% unless database.type == "all" %}
-          <div role="tabpanel" class="tab-pane{% if forloop.first == true %} active{% endif %}" id="{{ database.type | append: "--binlog-setup-tab"}}">
+          {% if database.type != "all" %}
+          <div role="tabpanel" class="tab-pane{% if database.type == "dynamodb" %} active{% endif %}" id="{{ database.type | append: "--binlog-setup-tab"}}">
 
           {% assign binlog-databases-this-type = only-binlog-databases | where:"db-type",database.type | sort_natural:"title" %}
           
@@ -533,7 +558,7 @@ sections:
               {% endfor %}
             </ul>
           </div>
-          {% endunless %}
+          {% endif %}
         {% endfor %}
       </div>
 ---
