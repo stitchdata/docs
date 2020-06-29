@@ -1,129 +1,86 @@
 ---
 tap: "codat"
-version: "1"
-key: "company-info"
-
+version: "0.x"
+key: ""
 name: "company_info"
-doc-link: "https://docs.codat.io/reference/info"
+doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/company_info.json"
-description: |
-  The `{{ table.name }}` table contains company info. In {{ integration.display_name }}, company info includes information about a linked company such as address, phone number and company registration.
-
-replication-method: "Full Table"
-
+description: ""
+replication-method: ""
 api-method:
-    name: "List basic info for a company"
-    doc-link: "https://docs.codat.io/reference/info#info_list"
-
+    name: ""
+    doc-link: ""
 attributes:
-  - name: "companyId"
-    type: "string"
-    primary-key: true
-    description: "The company ID."
-    foreign-key-id: "company-id"
-
   - name: "accountingPlatformRef"
     type: "string"
-    description: "A company reference as provided by some accounting platforms."
-
+    description: ""
   - name: "addresses"
     type: "array"
-    description: "A list of addresses associated with the company."
+    description: ""
     subattributes:
       - name: "city"
         type: "string"
-        description: "The city."
-
+        description: ""
       - name: "country"
         type: "string"
-        description: "The country."
-
+        description: ""
       - name: "line1"
         type: "string"
-        description: "The first address line."
-
+        description: ""
       - name: "line2"
         type: "string"
-        description: "The second address line."
-
+        description: ""
       - name: "postalCode"
         type: "string"
-        description: "The zip or postal code."
-
+        description: ""
       - name: "region"
         type: "string"
-        description: "The region."
-
+        description: ""
       - name: "type"
         type: "string"
-        description: |
-          The type of the address. Possible values are:
-
-          - `Billing`
-          - `Delivery`
-          - `Unknown`
-
+        description: ""
   - name: "baseCurrency"
     type: "string"
-    description: "The currency set in the linked company's accounting platform."
-
+    description: ""
+  - name: "companyId"
+    type: "string"
+    description: ""
   - name: "companyLegalName"
     type: "string"
-    description: "The legal registered name of the linked company."
-
+    description: ""
   - name: "companyName"
     type: "string"
-    description: "The name of the linked company."
-
+    description: ""
   - name: "createdDate"
     type: "string"
-    description: "The date the linked company was created in the accounting platform."
-
+    description: ""
   - name: "financialYearStartDate"
     type: "date-time"
-    description: "The date for the start of the company's financial year."
-
+    description: ""
   - name: "phoneNumbers"
     type: "array"
-    description: "A list of phone numbers associated with the linked company."
+    description: ""
     subattributes:
       - name: "number"
         type: "string"
-        description: "The phone number."
-
+        description: ""
       - name: "type"
         type: "string"
-        description: |
-          The type of phone number. Possible values are:
-
-          - `Primary`
-          - `Landline`
-          - `Mobile`
-          - `Fax`
-          - `Unknown`
-
+        description: ""
   - name: "registrationNumber"
     type: "string"
-    description: "The registration number given to the linked company by the companies authority in the country of origin."
-
+    description: ""
   - name: "taxNumber"
     type: "string"
-    description: "The company tax number."
-
+    description: ""
   - name: "webLinks"
     type: "array"
-    description: "A list of web links associated with the company."
+    description: ""
     subattributes:
       - name: "type"
         type: "string"
-        description: |
-          The type of web link. Possible values are:
-
-          - `Website`
-          - `Social`
-          - `Unknown`
-
+        description: ""
       - name: "url"
         type: "string"
-        description: "The URL of the web link."
+        description: ""
 ---

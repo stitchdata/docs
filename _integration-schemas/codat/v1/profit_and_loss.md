@@ -1,106 +1,113 @@
 ---
 tap: "codat"
-version: "1"
-key: "profit-and-loss"
-
+version: "0.x"
+key: ""
 name: "profit_and_loss"
-doc-link: "https://docs.codat.io/docs/profit-and-loss-2"
+doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/profit_and_loss.json"
-description: |
-  The `{{ table.name }}` table contains profit and loss report data for a company over a time period.
-
-replication-method: "Full Table"
-
+description: ""
+replication-method: ""
 api-method:
-    name: "List latest profit and loss for a company"
-    doc-link: "https://docs.codat.io/reference/financials#financials_profitandloss"
-
+    name: ""
+    doc-link: ""
 attributes:
   - name: "companyId"
     type: "string"
-    primary-key: true
-    description: "The company ID."
-    foreign-key-id: "company-id"
-
+    description: ""
   - name: "currency"
     type: "string"
-    description: "The base currency for the company."
-
+    description: ""
   - name: "mostRecentAvailableMonth"
     type: "string"
-    description: "The most recent available month from which report data can be shown."
-
+    description: ""
   - name: "reportBasis"
     type: "string"
-    description: |
-      The basis of the report. Possible values are:
-
-      - `Accrual`
-      - `Cash`
-      - `Unknown`
-
+    description: ""
   - name: "reports"
     type: "array"
-    description: "A list of profit and loss reports."
+    description: ""
     subattributes:
       - name: "costOfSales"
         type: "array"
-        description: "A list of line items for cost of sales."
-        subattributes: &report
+        description: ""
+        subattributes:
           - name: "accountId"
             type: "string"
-            description: "The account ID."
-            foreign-key-id: "account-id"
-
+            description: ""
           - name: "name"
             type: "string"
-            description: "The name of the account."
-
+            description: ""
           - name: "value"
             type: "number"
-            description: "The balance of the account."
-
+            description: ""
       - name: "expenses"
         type: "array"
-        description: "A list of line items for expenses."
-        subattributes: *report
-
+        description: ""
+        subattributes:
+          - name: "accountId"
+            type: "string"
+            description: ""
+          - name: "name"
+            type: "string"
+            description: ""
+          - name: "value"
+            type: "number"
+            description: ""
       - name: "fromDate"
         type: "string"
-        description: "The date from which the report data begins."
-
+        description: ""
       - name: "grossProfit"
         type: "number"
-        description: "The gross profit of the company for the given date range (`fromDate - toDate`)."
-
+        description: ""
       - name: "income"
         type: "array"
-        description: "A list of line items for other income."
-        subattributes: *report
-
+        description: ""
+        subattributes:
+          - name: "accountId"
+            type: "string"
+            description: ""
+          - name: "name"
+            type: "string"
+            description: ""
+          - name: "value"
+            type: "number"
+            description: ""
       - name: "netOperatingProfit"
         type: "number"
-        description: "The net operating profit of the company for the given date range (`fromDate - toDate`)."
-
+        description: ""
       - name: "netOtherIncome"
         type: "number"
-        description: "The net other income of the company for the given date range (`fromDate - toDate`)."
-
+        description: ""
       - name: "netProfit"
         type: "number"
-        description: "The net profit of the company for the given date range (`fromDate - toDate`)."
-
+        description: ""
       - name: "otherExpenses"
         type: "array"
-        description: "A list of line items for other expenses."
-        subattributes: *report
-
+        description: ""
+        subattributes:
+          - name: "accountId"
+            type: "string"
+            description: ""
+          - name: "name"
+            type: "string"
+            description: ""
+          - name: "value"
+            type: "number"
+            description: ""
       - name: "otherIncome"
         type: "array"
-        description: "A list of line items for other income."
-        subattributes: *report
-
+        description: ""
+        subattributes:
+          - name: "accountId"
+            type: "string"
+            description: ""
+          - name: "name"
+            type: "string"
+            description: ""
+          - name: "value"
+            type: "number"
+            description: ""
       - name: "toDate"
         type: "string"
-        description: "The date for which the report data ends."
+        description: ""
 ---

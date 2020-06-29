@@ -1,152 +1,123 @@
 ---
 tap: "codat"
-version: "1"
-key: "customer"
-
+version: "0.x"
+key: ""
 name: "customers"
-doc-link: "https://docs.codat.io/reference/customers"
+doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/customers.json"
-description: |
-  The `{{ table.name }}` table contains info about the customers in your {{ integration.display_name }} instance. A customer is a person or organisation that buys goods or services.
-
-replication-method: "Full Table"
-
+description: ""
+replication-method: ""
 api-method:
-    name: "List customers"
-    doc-link: "https://docs.codat.io/reference/customers#customers_listpaged"
-
+    name: ""
+    doc-link: ""
 attributes:
-  - name: "companyId"
-    type: "string"
-    primary-key: true
-    description: "The ID of the company associated with the customer."
-    foreign-key-id: "company-id"
-
-  - name: "id"
-    type: "string"
-    primary-key: true
-    description: "The customer ID."
-    foreign-key-id: "customer-id"
-
   - name: "addresses"
     type: "array"
-    description: "A list of addresses associated with the customer."
-    subattributes: &address
+    description: ""
+    subattributes:
       - name: "city"
         type: "string"
-        description: "The city."
-
+        description: ""
       - name: "country"
         type: "string"
-        description: "The country."
-
+        description: ""
       - name: "line1"
         type: "string"
-        description: "The first address line."
-
+        description: ""
       - name: "line2"
         type: "string"
-        description: "The second address line."
-
+        description: ""
       - name: "postalCode"
         type: "string"
-        description: "The zip or postal code."
-
+        description: ""
       - name: "region"
         type: "string"
-        description: "The region."
-
+        description: ""
       - name: "type"
         type: "string"
-        description: |
-          The type of the address. Possible values are:
-
-          - `Billing`
-          - `Delivery`
-          - `Unknown`
-
+        description: ""
+  - name: "companyId"
+    type: "string"
+    description: ""
   - name: "contactName"
     type: "string"
-    description: "The name of the main contact for the customer."
-
+    description: ""
   - name: "contacts"
     type: "array"
-    description: "An array of contacts associated with the customer."
+    description: ""
     subattributes:
       - name: "address"
         type: "object"
-        description: "The contact's address."
-        subattributes: *address
-
+        description: ""
+        subattributes:
+          - name: "city"
+            type: "string"
+            description: ""
+          - name: "country"
+            type: "string"
+            description: ""
+          - name: "line1"
+            type: "string"
+            description: ""
+          - name: "line2"
+            type: "string"
+            description: ""
+          - name: "postalCode"
+            type: "string"
+            description: ""
+          - name: "region"
+            type: "string"
+            description: ""
+          - name: "type"
+            type: "string"
+            description: ""
       - name: "email"
         type: "string"
-        description: "The contact's email address."
-
+        description: ""
       - name: "modifiedDate"
         type: "date-time"
-        description: "The time the contact was last modified."
-
+        description: ""
       - name: "name"
         type: "string"
-        description: "The contact's name."
-
+        description: ""
       - name: "phone"
         type: "array"
-        description: "A list of phone numbers for the contact."
+        description: ""
         subattributes:
           - name: "number"
             type: "string"
-            description: "The phone number."
-
+            description: ""
           - name: "type"
             type: "string"
-            description: |
-              The type of phone number. Possible values are:
-
-              - `Primary`
-              - `Landline`
-              - `Mobile`
-              - `Fax`
-              - `Unknown`
-
+            description: ""
       - name: "status"
         type: "string"
-        description: &status |
-          The status. Possible values are:
-
-          - `Active`
-          - `Archived`
-          - `Unknown`
-
+        description: ""
   - name: "customerName"
     type: "string"
-    description: "The name of the customer."
-
+    description: ""
   - name: "defaultCurrency"
     type: "string"
-    description: "The default currency the customer's transactional data is recorded in."
-
+    description: ""
   - name: "emailAddress"
     type: "string"
-    description: "The customer's email address."
-
+    description: ""
+  - name: "id"
+    type: "string"
+    description: ""
   - name: "modifiedDate"
     type: "date-time"
-    description: "The time the customer was last modified."
-
+    description: ""
   - name: "phone"
     type: "string"
-    description: "The phone number for the contact."
-
+    description: ""
   - name: "registrationNumber"
     type: "string"
-    description: "The company number."
-
+    description: ""
   - name: "status"
     type: "string"
-    description: *status
-
+    description: ""
   - name: "taxNumber"
     type: "string"
-    description: "The company tax number."
+    description: ""
 ---

@@ -1,0 +1,26 @@
+---
+tap: "codat"
+version: "0.x"
+key: ""
+name: "events"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/events.json"
+description: ""
+replication-method: ""
+api-method:
+    name: ""
+    doc-link: ""
+attributes:
+  - name: "companyId"
+    type: "string"
+    description: ""
+  - name: "description"
+    type: "string"
+    description: ""
+  - name: "eventTimeUtc"
+    type: "string"
+    description: ""
+  - name: "type"
+    type: "string"
+    description: ""
+---
