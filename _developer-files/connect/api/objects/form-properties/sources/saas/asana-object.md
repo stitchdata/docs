@@ -43,8 +43,7 @@ uses-start-date: true
 
 oauth-link: "https://developers.asana.com/docs/authentication-basics"
 
-oauth-description: |
-  TODO
+oauth-description: ""
 
 oauth-attributes:
   - name: "access_token"
