@@ -6,7 +6,7 @@ Destination and source form properties are a little different,
 so we need to run logic specific to each type
 {% endcomment %}
 
-{% case include.content %}
+{% case form-property.form-type %}
 
 <!-- When the form property is a source, run this -->
     {% when 'source' %}

@@ -5,8 +5,8 @@ layout: page
 {% include misc/data-files.html %}
 
 
-<!-- This only runs for destination and integration pgaes.
-    The include assigns a different page variable, and displays the correc
+<!-- This only runs for destination and integration pages.
+    The include assigns a different page variable, and displays the correct
     beta notice when applicable. -->
     {% if page.permalink contains "destinations" or "integrations" %}
         {% include layout/destination-integration-variable-assignment.html %}
@@ -14,10 +14,24 @@ layout: page
 
 
 <!-- TUTORIAL INTRODUCTION -->
-    {% if page.intro %}
-    	{{ page.intro | flatify | markdownify }}
+    {% if page.intro or page.intro-sections %}
+        {% if page.intro %}
+        	{{ page.intro | flatify | markdownify }}
 
-    	<hr>
+            <hr>
+        {% elsif page.intro-sections %}
+            {% for section in page.intro-sections %}
+                {% if section.title %}
+                    <h2 id="{{ section.anchor }}">{{ section.title | flatify }}</h2>
+                {% endif %}
+
+                    {{ section.content | flatify | markdownify }}
+
+                {% unless forloop.last == false %}
+                    <hr>
+                {% endunless %}
+            {% endfor %}
+        {% endif %}
     {% endif %}
 
 
