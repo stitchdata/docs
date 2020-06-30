@@ -84,6 +84,6 @@ oauth-attributes:
     required: true
     credential: false
     description: |
-      TODO
+      The ID of the Google user authorizing the connection.
     value: "<USER_ID>"
 ---

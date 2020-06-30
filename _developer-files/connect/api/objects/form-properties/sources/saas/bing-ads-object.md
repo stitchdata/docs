@@ -95,6 +95,6 @@ oauth-attributes:
     required: false
     credential: false
     description: |
-      TODO: What is this? Is this equal to `UserName` here: https://docs.microsoft.com/en-us/advertising/guides/get-started?view=bingads-13#request-headers
-    value: ""
+      The ID of the user authorizing the connection.
+    value: "<USER_ID>"
 ---

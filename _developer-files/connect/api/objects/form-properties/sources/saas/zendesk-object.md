@@ -78,27 +78,30 @@ oauth-attributes:
     required: true
     credential: true
     description: |
-      TODO: It might be this? https://develop.zendesk.com/hc/en-us/articles/360001074348
-    value: ""
+      An OAuth token associated with the `client_id`. Refer to [{{ form-property.display-name }}'s documentation](https://develop.zendesk.com/hc/en-us/articles/360001074348){:target="new"} for more info.
+    value: "<YOUR_OAUTH_TOKEN>"
 
   - name: "marketplace_app_id"
     type: "string"
     required: true
     credential: false
     description: |
-    value: ""
+      The app ID assigned when you submit your app to the [{{ form-property.display-name }} Marketplace](https://developer.zendesk.com/apps/docs/publish/submit_your_app#submitting-integration-apps){:target="new"}.
+    value: "<YOUR_MARKETPLACE_APP_ID>"
 
   - name: "marketplace_name"
     type: "string"
     required: true
     credential: false
     description: |
-    value: ""
+      The name of the integration in the [{{ form-property.display-name }} Marketplace](https://developer.zendesk.com/apps/docs/publish/submit_your_app#submitting-integration-apps){:target="new"}.
+    value: "<YOUR_MARKETPLACE_INTEGRATION_NAME>"
 
   - name: "marketplace_organization_id"
     type: "string"
     required: true
     credential: false
     description: |
-    value: ""
+      The organization ID of your organization from the [{{ form-property.display-name }} Marketplace developer portal](https://apps.zendesk.com/organization){:target="new"}. 
+    value: "<YOUR_MARKETPLACE_ORGANIZATION_ID>"
 ---
