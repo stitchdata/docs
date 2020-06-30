@@ -43,10 +43,10 @@ the correct description for it. -->
 
         <ul>
             <li>
-                <a href="{{ form-property.key }}-form">Form properties</a>: Required to create the {{ form-property.form-type }} and complete the {{ form-property.form-type }}'s <code>form</code> step.
+                <a href="#{{ form-property.key }}-form">Form properties</a>: Required to create the {{ form-property.form-type }} and complete the {{ form-property.form-type }}'s <code>form</code> step.
             </li>
             <li>
-                <a href="{{ form-property.key }}-oauth">OAuth properties</a>: <strong>Required only if you're performing OAuth for this {{ form-property.form-type }} yourself.</strong> Refer to the <a href="{{ link.connect.guides.configure-connection-oauth | prepend: site.baseurl }}">Performing OAuth with Stitch Connect</a> guide for more info.
+                <a href="#{{ form-property.key }}-oauth">OAuth properties</a>: <strong>Required only if you're performing OAuth for this {{ form-property.form-type }} yourself.</strong> Refer to the <a href="{{ link.connect.guides.configure-connection-oauth | prepend: site.baseurl }}">Performing OAuth with Stitch Connect</a> guide for more info.
             </li>
         </ul>
     {% endif %}
@@ -91,6 +91,10 @@ the correct description for it. -->
         <p>
             <strong>A {{ form-property.form-type }}'s OAuth properties are required only if you’re performing OAuth for this {{ form-property.form-type }} yourself.</strong> After you perform the OAuth handshake, use the <a href="{{ site.data.connect.core-objects[form-type]update.anchor }}">PUT {{ site.data.connect.core-objects[form-type]update.name | flatify }}</a> endpoint to update the {{ form-property.form-type }} with the OAuth properties listed below.
         </p>
+
+        {% if form-property.oauth-description %}
+            {{ form-property.oauth-description | flatify | markdownify }}
+        {% endif %}
 
         {% if form-property.oauth-link %}
             <p>
