@@ -102,7 +102,7 @@ sections:
           - title: "Destinations"
             anchor: "concepts--destinations"
             content: |
-              Stitch supports some of the most popular data lakes, warehouses, and storage platforms as destinations, such as Amazon Redshift, Google BigQuery, and Microsoft Azure SQL Data Warehouse.
+              Stitch supports some of the most popular data lakes, warehouses, and storage platforms as destinations, such as Amazon Redshift, Google BigQuery, and Microsoft Azure Synapse Analytics.
 
               The destination you choose determines how replicated data is loaded and structured. This is discussed in more detail in the [Transformations](#transformations) section.
 

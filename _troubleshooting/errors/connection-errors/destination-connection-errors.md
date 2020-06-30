@@ -16,7 +16,7 @@ key: "destination-connection-errors"
 
 level: "guide"
 top-level: ""
-# category: "connection-errors"
+category: "connection-errors"
 type: "all-destinations, destination, error"
 popular: true
 

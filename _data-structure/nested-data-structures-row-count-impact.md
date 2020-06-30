@@ -27,7 +27,7 @@ key: "de-nesting-json"
 - **Destinations**: This article is applicable only to the following destinations, as they do not natively support nested data structures:
   - Amazon Redshift
   - Amazon S3 (CSV)
-  - Microsoft Azure SQL Data Warehouse
+  - Microsoft Azure Synapse Analytics
   - Panoply
   - PostgreSQL
 - **PostgreSQL `ARRAY` & `JSON` datatypes:** The info in this article is not applicable to PostgreSQL `ARRAY` and `JSON` data types. These data types will be stored as strings in your data warehouse, whether it's PostgreSQL, Panoply, or Redshift.{% endcapture %}

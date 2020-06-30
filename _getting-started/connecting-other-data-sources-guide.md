@@ -106,7 +106,7 @@ sections:
 
       1. The webhook's payload (delivery) must come via a `POST` request.
       2. The request body (data) must be valid JSON.
-      3. The request body must be less than 4MB in size.
+      3. The request body must be less than {{ site.data.import-api.general.max-record-size }} in size.
 
       Refer to the [Incoming Webhooks docs]({{ link.integrations.stitch-incoming-webhooks | prepend: site.baseurl }}) for more info.
 
