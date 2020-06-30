@@ -663,6 +663,7 @@ steps:
 # -------------------------- #
 
 next-steps: |
-  Congratulations on configuring OAuth for a source!
-  
+  Congratulations on configuring OAuth for a source! To fully configure a souce, you might also need to [select streams and fields]({{ link.connect.guides.select-streams-and-fields | prepend: site.baseurl }}) to replicate.
+
+  Check out the [Tutorials and resources]({{ link.connect.guides.category | prepend: site.baseurl }}) to see what else you can do with Stitch Connect.
 ---
