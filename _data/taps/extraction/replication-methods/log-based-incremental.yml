@@ -16,7 +16,7 @@ documentation: "{{ link.replication.log-based-incremental | prepend: site.baseur
 
 description: "{{ site.data.tooltips.log-based-incremental-rep }}"
 availability: |
-  [Select Amazon DynamoDB, Microsoft SQL Server, MongoDB, MySQL, Oracle, and PostgreSQL-backed database integrations]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation-1--availability" }})
+  [Select Amazon DynamoDB, Microsoft SQL Server, MongoDB, MySQL, Oracle, and PostgreSQL-backed database integrations]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation--availability" }})
 
 
 # -------------------------- #
@@ -24,10 +24,10 @@ availability: |
 # -------------------------- #
 
 view-support: |
- [Unsupported]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation-5--views-are-unsupported" }})
+ [Unsupported]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation--views-are-unsupported" }})
 
 structural-changes: |
-  [Require manual intervention]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation-4--structural-changes" }})
+  [Require manual intervention]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation--structural-changes" }})
 
 configuration-requirements: |
   An Amazon DynamoDB, Microsoft SQL Server, MongoDB, MySQL, Oracle, or PostgreSQL-backed database that:
@@ -36,9 +36,38 @@ configuration-requirements: |
   2. Can be configured to use Stitch's required database settings
 
 other: |
-  - Modifications to records must be made using [supported event types]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation-2--database-event-types" }})
+  - Modifications to records must be made using [supported event types]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation--database-event-types" }})
   - Logs can age out and stop replication
 
+
+# -------------------------- #
+#         DATABASES          #
+# -------------------------- #
+
+## The databases that support Log-based Incremental Replication.
+## This is primarily used in the Log-based Incremental Replication guide.
+
+databases:
+  - type: "all"
+    display-name: "All"
+
+  - type: "dynamodb"
+    display-name: "Amazon DynamoDB"
+
+  - type: "mssql"
+    display-name: "Microsoft SQL Server"
+
+  - type: "mongo"
+    display-name: "MongoDB"
+
+  - type: "mysql"
+    display-name: "MySQL"
+
+  - type: "oracle"
+    display-name: "Oracle"
+
+  - type: "postgres"
+    display-name: "PostgreSQL"
 
 
 # -------------------------- #
@@ -61,7 +90,7 @@ hard-deletes:
   destination: |
     Record will have a timestamp value in the `{{ system-column.deleted-at }}` column.
 
-    **Note**: Only deletes completed as part of a [supported event type]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation-2--database-event-types" }}) will be captured.
+    **Note**: Only deletes completed as part of a [supported event type]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation--database-event-types" }}) will be captured.
 
 
 # -------------------------- #

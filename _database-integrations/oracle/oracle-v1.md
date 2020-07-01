@@ -81,6 +81,7 @@ set-default-replication-method: true
 default-replication-method-required: true
 
 log-based-replication-minimum-version: "8.0"
+log-based-replication-maximum-version: "18c"
 log-based-replication-master-instance: true
 log-based-replication-read-replica: false
 
@@ -106,10 +107,14 @@ requirements-list:
 
         - **`GRANT` access to the objects you want to replicate.**  This is necessary to grant the privileges necessary for selecting data to the Stitch database user. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.db-type]reference-docs.grant }}){:target="new"} for more info.
 
-        - **Use System administrator (`SYSDBA`) privileges, if replicating data incrementally.** This is necessary to complete steps required to use {{ integration.display_name }} LogMiner, which enables the use of Log-based Incremental Replication. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.db-type]reference-docs.system-admin }}){:target="new"} for more info.
-      
   - item: |
-      **An existing Recovery Manager (RMAN) configuration, if replicating data incrementally.** RMAN is used to manage database backups and archive logs and is required to use Log-based Incremental Replication. Setting up RMAN is outside the scope of this tutorial. If you need help setting up and using RMAN, refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.db-type]recovery-manager }}){:target="new"} or loop in a member of your technical team.
+      **If using Log-based Incremental Replication, you need**:
+
+      - **A database using {{ integration.display_name }} {{ integration.log-based-replication-minimum-version }} through {{ integration.log-based-replication-maximum-version }}**. Versions earlier than {{ integration.log-based-replication-minimum-version }} and later than {{ integration.log-based-replication-maximum-version }} don't include LogMiner functionality, which is required for Log-based Incremental Replication.
+
+      - **System administrator (`SYSDBA`) privileges.** This is necessary to complete steps required to use {{ integration.display_name }} LogMiner. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.db-type]reference-docs.system-admin }}){:target="new"} for more info.
+
+      - **An existing Recovery Manager (RMAN) configuration.** RMAN is used to manage database backups and archive logs and is required to use Log-based Incremental Replication. Setting up RMAN is outside the scope of this tutorial. If you need help setting up and using RMAN, refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.db-type]recovery-manager }}){:target="new"} or loop in a member of your technical team.
 
 
 # -------------------------- #

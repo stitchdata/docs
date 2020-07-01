@@ -152,15 +152,14 @@ sections:
           - number: "2"
             display-name: "v2 (Upsert and Append-Only)"
             copy: |
-              **The cost to you will vary**
+              **Costs are subject to [BigQuery Data Manipulation Language (DML)]({{ site.data.destinations.bigquery.resource-links.dml }}){:target="new"} pricing**
 
-              Query costs for loading data depend on the loading behavior you select during destination setup:
+              Google charges for queries based on the number of bytes processed, or bytes read. Additionally, Google imposes [a minimum processing requirement]({{ site.data.destinations.bigquery.resource-links.on-demand-pricing }}){:target="new"} of 10MB per table referenced by the query, and with a minimum 10MB data processed per query.
 
-              - **Upsert**: **Costs associated with using the [BigQuery Data Manipulation Language (DML) function]({{ site.data.destinations.bigquery.resource-links.dml }}){:target="new"}**. Google charges for queries based on the number of bytes processed, or bytes read. Additionally, Google imposes [a minimum processing requirement]({{ site.data.destinations.bigquery.resource-links.on-demand-pricing }}){:target="new"} of 10MB per table referenced by the query, and with a minimum 10MB data processed per query.
+              This is applicable to both Upsert and Append-Only loading behavior.
 
-                 **Note**: As of {{ page.date | date: '%B %d, %Y' }}, this information is correct. Refer to [Google's pricing documentation]({{ site.data.destinations.bigquery.resource-links.dml-pricing }}){:target="new"} for the most up-to-date information, and [let us know]({{ site.github_issues }}){:target="new"} if something is outdated.
+              **Note**: As of {{ page.date | date: '%B %d, %Y' }}, this information is correct. Refer to [Google's pricing documentation]({{ site.data.destinations.bigquery.resource-links.dml-pricing }}){:target="new"} for the most up-to-date information, and [let us know]({{ site.github_issues }}){:target="new"} if something is outdated.
 
-              - **Append-Only**: **No cost to you**. The method Stitch uses to load data in an Append-Only manner is considered free under BigQuery's pricing model.
         content: |
           During loading, Stitch will run queries to move your data from the GCS bucket to BigQuery.
 

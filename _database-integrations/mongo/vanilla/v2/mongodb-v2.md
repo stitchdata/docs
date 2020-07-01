@@ -243,26 +243,3 @@ replication-sections:
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-## Troubleshooting
-
-### SSL Connection Errors {#ssl-connection-errors}
-
-{% assign ssl-error = site.data.errors.connection-checks.errors | where:"id","premature-file" %}
-
-{% for error in ssl-error %}
-```
-{{ error.message }}
-```
-
-{{ error.meaning }}
-
-{{ error.fix-it }}
-{% for listitem in error.fix-it-list %}
-- {{ listitem.item }}
-{% endfor %}
-{% endfor %}
-
-### Fields Missing from Replication Key Menu
-
-If fields you expect to see are missing from a collection's Replication Key menu, it may be that the fields aren't indexed. Refer to the [Mongo Replication Keys guide]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) for more info.
