@@ -3,10 +3,13 @@
 {% when 'oracle' %}
 
 {% capture log-based-notice %}
-Some data types may not be supported for Log-based Incremental Replication. Refer to the [Data types section](#data-types) for more info.
+Before configuring Log-based Incremental Replication, note the following:
+
+- **Not all database versions are supported.** Only Oracle databases using [a version from {{ integration.log-based-replication-minimum-version }} through {{ integration.log-based-replication-maximum-version }}](#setup-requirements) support [LogMiner]({{ site.data.taps.links[integration.db-type]logminer }}){:target="new"}, which is required to use Log-based Incremental Replication in Stitch.
+- **Some data types may not be supported**. Refer to the [Data types section](#data-types) for more info.
 {% endcapture %}
 
-{% include note.html first-line="**Note: Log-based Incremental Replication**" content=log-based-notice %}
+{% include note.html first-line="**Note: Log-based Incremental Replication requirements and limitations**" content=log-based-notice %}
 
 Log-based Incremental Replication is the most efficient way to replicate {{ integration.display_name }} data. Stitch uses [Oracle's LogMiner package]({{ site.data.taps.links[integration.db-type]logminer }}){:target="new"} to query Oracle's archive logs and retrieve all inserts, updates, and deletes to your database.
 

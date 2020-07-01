@@ -162,7 +162,7 @@ sections:
     content: |
       {{ page.title }} may be a good fit if:
 
-      1. The database is a {{ page.supported-database-list | flatify | strip }} database [that supports {{ page.title }}](#limitation--availability). 
+      1. The database is an {{ page.supported-database-list | flatify | strip }} database [that supports {{ page.title }}](#limitation--availability). 
       2. Data is contained in a table, [not a view](#limitation--views-are-unsupported).
       3. Modifications to records are made only using [supported event types](#limitation--database-event-types).
       4. The structure of the table changes infrequently, if at all. Refer to the [Limitations section](#limitation--structural-changes) below for more info.

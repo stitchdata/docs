@@ -19,6 +19,9 @@ raw-error:
     Unable to replicate with logminer for stream([table_name]) because supplmental_log_data is not set to 'ALL' for either the table or the database.
     Please run: ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
 
+  unsupported-version-for-logminer: &unsupported-version-for-logminer |
+    CONTINUOUS_MINE is desupported for use with DBMNS_LOGMNR.START_LOGMNR
+
 # When a log ages out before Stitch can replicate from it:
   missing-logfile: &missing-logfile |
     ORA-01291: missing logfile
@@ -29,13 +32,6 @@ raw-error:
 
   insufficient-privileges: &insufficient-privileges |
     ORA-01031: insufficient privileges
-
-# when a table somehow uses key-based inc
-  unsupported-replication-method: &unsupported-replication-method |
-    Unrecognized replication_method [REPLICATION_METHOD]
-
-  unknown-replication-method: &unknown-replication-method |
-    unknown sync method [REPLICATION_METHOD] for stream [table_name]
 
 
 all:
@@ -54,6 +50,30 @@ all:
     
     fix-it: |
       Change the view's Replication Method to [Key-based Incremental]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) or [Full Table]({{ link.replication.full-table | prepend: site.baseurl }}).
+
+  ## View replication error
+  - message: *unsupported-version-for-logminer
+    id: "unsupported-version-for-logminer"
+    applicable-to: &all-oracle "All Oracle-backed database integrations"
+    level: "critical"
+    category: &log-based-category "Log-based Incremental Replication"
+    category-doc: |
+      {{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation--views-are-unsupported" }}
+    version: "1"
+    summary: "The database is using a version that doesn't support LogMiner"
+    cause: |
+      The database is using a version that doesn't include support for Oracle's LogMiner package, which Stitch uses to perform Log-based Incremental Replication.
+
+      {% assign oracle-database = site.database-integrations | where:"key","oracle-integration" | first %}
+      {% assign logminer-versions = oracle-database.log-based-replication-minimum-version | append: " through " | append: oracle-database.log-based-replication-maximum-version %}
+
+      The database must be using a version from {{ logminer-versions | flatify }}.
+    
+    fix-it: |
+      To resolve this error, you have two options:
+
+      1. Modify the database to use a version that supports LogMiner
+      2. Use either [Full Table]({{ link.replication.full-table | prepend: site.baseurl }}) or [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) instead
 
 
 ## Unsupported supplemental_log_data parameter value
