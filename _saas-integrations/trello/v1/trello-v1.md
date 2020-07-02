@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Trello
+title: Trello (v1)
 permalink: /integrations/saas/trello
 keywords: trello, integration, schema, etl trello, trello etl, trello schema
 layout: singer
@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-trello
 this-version: "1"
 
 api: |
-  [Trello REST API](https://developer.atlassian.com/cloud/trello/guides/rest-api/api-introduction/){:target="new"}
+  [{{ integration.display_name }} REST API](https://developer.atlassian.com/cloud/trello/guides/rest-api/api-introduction/){:target="new"}
 
 
 # -------------------------- #
@@ -90,14 +90,104 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
-requirements-info: |
-  The {{ integration.display_name }} integration only requires your {{ integration.display_name }} login to connect to Stitch. This is done through OAuth authentication.
+requirements-list:
+  - item: |
+      **To be a member of every {{ integration.display_name }} board you want to replicate.** If a board is private and the user isn't a member, Stitch will be unable to access it. Before beginning the setup process, verify that the user setting up the integration has access to all the boards you want to replicate.
 
 setup-steps:
   - title: "add integration"
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
+    anchor: "grant-stitch-authorization"
+    content: |
+      1. Next, you'll be redirected to {{ integration.display_name }}.
+      2. Log into your {{ integration.display_name }} account and complete the authorization process.  When finished, you'll be redirected back to Stitch.
+      3. Click {{ app.buttons.finish-int-setup }}.
+  - title: "track data"
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+replication-sections:
+  - content: |
+      In this section:
+
+      {% for section in integration.replication-sections %}
+      {% if section.title %}
+      - [{{ section.title }}](#{{ section.anchor }})
+      {% endif %}
+      {% endfor %}
+
+  - title: "Data replication via board membership"
+    anchor: "data-replication-board-membership"
+    content: |
+      Stitch's {{ integration.display_name }} integration replicates data by first querying for the **boards** that the user authorizing the integration in Stitch is a member of. Specifically, Stitch uses the [Get boards that member belongs to endpoint](https://developer.atlassian.com/cloud/trello/rest/#api-members-id-boards-get){:target="new"} (`/1/members/{id}/boards`) to retrieve data for the [`boards`](#boards) table.
+
+      This means that during Extraction, the `boards` table will be queried first, and the results will then be used to query for other tables set to replicate.
+
+      This approach requires that, to replicate any other table, the `boards` table is set to replicate.
+
+      Let's take a look at what Extraction might look like for `boards` and `cards` using some SQL queries.
+
+      {% include note.html type="single-line" content="**Note**: The queries in this section aren't meant to be used to query replicated Trello data, and may not have parity with actual fields replicated by Stitch. They are for demonstration only." %}
+
+      {% assign authorizing-user-id = "559be34bc1f1b3f3383671b7" %}
+      {% assign board-id = "574f5d5202564aa4447e14a5" %}
+
+      1. Stitch queries for boards that the authorizing user is a member of. In this example, the authorizing user's ID is `{{ authorizing-user-id }}`:
+
+         ```sql
+         SELECT id as user_id,
+                idBoard
+           FROM members
+          WHERE id = '{{ authorizing-user-id }}'
+         ```
+
+         Which returns the following:
+
+         ```markdown
+         | id                       | idBoard                  |
+         |--------------------------+--------------------------|
+         | {{ authorizing-user-id }} | {{ board-id }} |
+         ```
+
+      2. Stitch queries for cards using the `idBoard` value returned in the first query:
+
+         ```sql
+         SELECT id as card_id,
+                idBoard,
+                <other card fields>
+           FROM cards
+          WHERE idBoard = '{{ board-id }}'
+         ```
+
+         Which returns the following:
+
+         ```markdown
+         | card_id                  | boardId                  |
+         |--------------------------+--------------------------|
+         | 5c26a3ce766676349d2f82d2 | {{ board-id }} |
+         | 5c2e83a628ffe90351d0208b | {{ board-id }} |
+         | 5c950cf7e1ad9b845171680b | {{ board-id }} |
+         ```
+
+      This approach is used for every table set to replicate. If you're missing data from tables, verify that `boards` is also selected.
+
+  - title: "Custom field support"
+    anchor: "custom-field-support"
+    content: |
+      Custom fields are supported for the following tables:
+
+      {% assign all-trello-tables = site.integration-schemas | where:"tap",integration.name | sort: name %}
+      {% assign trello-this-version-tables = all-trello-tables | where:"version",integration.this-version %}
+      {% assign tables-with-custom-field-support = trello-this-version-tables | where:"supports-custom-fields",true %}
+
+      {% for table in tables-with-custom-field-support %}
+      - [`{{ table.name }}`](#{{ table.name }})
+      {% endfor %}
 
 
 # -------------------------- #
@@ -105,14 +195,7 @@ setup-steps:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/trello
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
+# Each table has a its own .md file in /_integration-schemas/trello/v1
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
