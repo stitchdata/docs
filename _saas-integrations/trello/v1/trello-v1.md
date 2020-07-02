@@ -94,6 +94,8 @@ requirements-list:
   - item: |
       **To be a member of every {{ integration.display_name }} board you want to replicate.** If a board is private and the user isn't a member, Stitch will be unable to access it. Before beginning the setup process, verify that the user setting up the integration has access to all the boards you want to replicate.
 
+      Refer to the [Replication section](#data-replication-board-membership) for why this is required. 
+
 setup-steps:
   - title: "add integration"
   - title: "historical sync"
