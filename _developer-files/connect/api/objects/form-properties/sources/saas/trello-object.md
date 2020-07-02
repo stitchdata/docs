@@ -40,10 +40,40 @@ uses-start-date: true
 # and therefore don't need to be listed:
 # anchor_time, cron_expression, frequency_in_minutes, image_version, start_date 
 
-# object-attributes:
-#   - name: ""
-#     type: ""
-#     required: true/false
-#     description: ""
-#     value: ""
+# -------------------------- #
+#       OAUTH PROPERTIES     #
+# -------------------------- #
+
+oauth-link: "https://developer.atlassian.com/cloud/trello/guides/rest-api/authorization/#using-basic-oauth"
+
+oauth-description: ""
+
+oauth-attributes:
+  - name: "access_token"
+    type: "string"
+    required: true
+    credential: true
+    description: ""
+    value: "<ACCESS_TOKEN>"
+
+  - name: "access_token_secret"
+    type: "string"
+    required: true
+    credential: true
+    description: ""
+    value: "<ACCESS_TOKEN_SECRET>"
+
+  - name: "consumer_key"
+    type: "string"
+    required: true
+    credential: true
+    description: ""
+    value: "<CONSUMER_KEY>"
+
+  - name: "consumer_secret"
+    type: "string"
+    required: true
+    credential: true
+    description: ""
+    value: "<CONSUMER_SECRET>"
 ---
