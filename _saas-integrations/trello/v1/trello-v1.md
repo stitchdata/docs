@@ -124,11 +124,9 @@ replication-sections:
   - title: "Data replication via board membership"
     anchor: "data-replication-board-membership"
     content: |
-      Stitch's {{ integration.display_name }} integration replicates data by first querying for the **boards** that the user authorizing the integration in Stitch is a member of. Specifically, Stitch uses the [Get boards that member belongs to endpoint](https://developer.atlassian.com/cloud/trello/rest/#api-members-id-boards-get){:target="new"} (`/1/members/{id}/boards`) to retrieve data for the [`boards`](#boards) table.
+      Stitch's {{ integration.display_name }} integration replicates data by first querying for the **boards** that the user authorizing the integration in Stitch is a member of. Specifically, Stitch uses the [Get boards that member belongs to endpoint](https://developer.atlassian.com/cloud/trello/rest/#api-members-id-boards-get){:target="new"} (`/1/members/{id}/boards`) to retrieve the boards the user is a member of.
 
-      This means that during Extraction, the `boards` table will be queried first, and the results will then be used to query for other tables set to replicate.
-
-      This approach requires that, to replicate any other table, the `boards` table is set to replicate.
+      This means that to replicate data successfully, including [`boards`](#boards), the user who authorized the integration in Stitch must be a member of every board you want to replicate data from.
 
       Let's take a look at what Extraction might look like for `boards` and `cards` using some SQL queries.
 
@@ -174,7 +172,7 @@ replication-sections:
          | 5c950cf7e1ad9b845171680b | {{ board-id }} |
          ```
 
-      This approach is used for every table set to replicate. If you're missing data from tables, verify that `boards` is also selected.
+      This approach is used for every table set to replicate. If you're missing data, verify that the authorizing user is a member of the board.
 
   - title: "Custom field support"
     anchor: "custom-field-support"
