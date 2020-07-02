@@ -20,8 +20,8 @@ replication-method: "Full Table"
 supports-custom-fields: true
 
 api-method:
-    name: "Get a Board"
-    doc-link: "https://developer.atlassian.com/cloud/trello/rest/#api-boards-id-get"
+    name: "Get boards that a member belongs to"
+    doc-link: "https://developer.atlassian.com/cloud/trello/rest/#api-members-id-boards-get"
 
 attributes:
   - name: "id"

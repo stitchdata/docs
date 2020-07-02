@@ -14,7 +14,7 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "Get the Members of a Board"
+    name: "Get the members of a board"
     doc-link: "https://developer.atlassian.com/cloud/trello/rest/#api-boards-id-members-get"
 
 attributes:

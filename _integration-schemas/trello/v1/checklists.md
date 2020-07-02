@@ -14,7 +14,7 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "Get a Checklist"
+    name: "Get checklists on a board"
     doc-link: "https://developer.atlassian.com/cloud/trello/rest/#api-checklists-id-get"
 
 attributes:

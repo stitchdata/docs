@@ -14,7 +14,7 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Get Actions of a Board"
+    name: "Get actions of a board"
     doc-link: "https://developer.atlassian.com/cloud/trello/rest/#api-boards-boardId-actions-get"
 
 attributes:

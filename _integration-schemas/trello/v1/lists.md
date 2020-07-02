@@ -14,7 +14,7 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "Get Lists on a Board"
+    name: "Get lists on a board"
     doc-link: "https://developer.atlassian.com/cloud/trello/rest/#api-boards-id-lists-get"
 
 attributes:
