@@ -20,6 +20,9 @@ display-name: "Amazon S3"
 docs-name: "amazon-s3"
 db-type: "s3"
 
+property-description: |
+  an {{ form-property.display-name }} bucket
+
 description: |
   To set up an {{ form-property.display-name }} destination, users will need to:
 

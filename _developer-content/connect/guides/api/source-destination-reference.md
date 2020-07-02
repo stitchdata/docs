@@ -79,7 +79,7 @@ sections:
 
       - **Destination name**: The name of the destination and a link to its setup guide.
       - **API availability**: Indicates if the destination is available via the API. {{ supported | replace:"TOOLTIP","Available in Connect" }} indicates that the destination is supported; {{ not-supported | replace:"TOOLTIP","Not available in Connect" }} indicates the destination isn't supported.
-      - **API form property**: If the destination is supported, this column will contain the name of the destination's corresponding API [destination form property]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.destination-form-properties.section }}). Use this info to create the destination using the [Create a destination endpoint]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.destinations.create.anchor }}).
+      - **API connection property**: If the destination is supported, this column will contain the name of the destination's corresponding API [destination connection property]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.destination-form-properties.section }}). Use this info to create the destination using the [Create a destination endpoint]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.destinations.create.anchor }}).
 
       {% assign destinations = site.destinations | where:"content-type","destination-setup" | sort_natural:"display_name" %}
       {% assign form-properties = site.developer-files | where:"content-type","api-form" %}
@@ -87,14 +87,14 @@ sections:
 
       <table class="attribute-list">
       <tr>
-      <td align="right" width="35%; fixed">
+      <td width="35%; fixed">
       <strong>Destination name</strong>
       </td>
       <td>
       <strong>API availability</strong>
       </td>
       <td>
-      <strong>API form property</strong>
+      <strong>API connection property</strong>
       </td>
       </tr>
       {% for destination in destinations %}
@@ -104,7 +104,7 @@ sections:
 
       {% if destination.this-version == latest-version %}
       <tr>
-      <td class="attribute-name">
+      <td>
       <a href="{{ destination.url | prepend: site.baseurl }}">
       {{ destination.display_name }}
       </a>
@@ -146,24 +146,26 @@ sections:
 
       - **Source name**: The name of the source and a link to its setup guide.
       - **API availability**: Indicates if the source is available via the API. {{ supported | replace:"TOOLTIP","Available in Connect" }} indicates that the source is supported; {{ not-supported | replace:"TOOLTIP","Not available in Connect" }} indicates the source isn't supported.
-      - **API form property**: If the source is supported, this column will contain the name of the source's corresponding API [source form property]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section }}). Use this info to create the source using the [Create a source endpoint]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.create.anchor }}).
+      - **API connection property**: If the source is supported, this column will contain the name of the source's corresponding API [source connection property]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section }}). Use this info to create the source using the [Create a source endpoint]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.create.anchor }}).
 
+      {% capture table %}
       {% assign form-properties = site.developer-files | where:"content-type","api-form" %}
       {% assign forms-of-type = form-properties | where:"form-type","source" | sort:"display-name" %}
       {% assign all-connections = site.documents | where:"input",true | sort:"display_name" %}
 
-      <table class="attribute-list">
+      <table class="attribute-list" id="filter-table">
       <tr>
-      <td align="right" width="35%; fixed">
+      <th align="right" width="35%; fixed">
       <strong>Source name</strong>
-      </td>
-      <td>
+      </th>
+      <th>
       <strong>API availability</strong>
-      </td>
-      <td>
-      <strong>API form property</strong>
-      </td>
+      </th>
+      <th>
+      <strong>API connection property</strong>
+      </th>
       </tr>
+      <tbody id="filter-body">
       {% for connection in all-connections %}
 
       {% if connection.db-type %}
@@ -175,7 +177,7 @@ sections:
 
       {% if connection.this-version == latest-version %}
       <tr>
-      <td class="attribute-name">
+      <td>
       <a href="{{ connection.url | prepend: site.baseurl }}">
       {{ connection.display_name }}
       </a>
@@ -198,4 +200,14 @@ sections:
       </tr>
       {% endif %}
       {% endfor %}
+      <tr id="noConnectionYet" style="display: none">
+      <td id="noConnectionYetName" colspan="3" align="center">
+        <strong>Don't see the source you want?</strong> <a href="mailto:{{site.support}}">Let us know</a>!
+      </td>
+      </tr>
+      </tbody>
+      </table>
+      {% endcapture %}
+
+      {% include layout/on-page-search/table-search.html placeholder-copy="Find a source connection property" table=table %}
 ---

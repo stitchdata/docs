@@ -23,19 +23,22 @@ description: "{{ api.data-structures.properties.description | flatify }}"
 object-attributes:
   - name: "name"
     type: "string"
-    description: "The name of the property."
+    description: &name-desc "The name of the property."
+    oauth-description: *name-desc
     value: |
       "frequency_in_minutes"
 
   - name: "is_required"
     type: "boolean"
     description: "If `true`, the property is required for complete configuration."
+    oauth-description: "If `true`, the property is required for OAuth configuration."
     value: |
       true
 
   - name: "is_credential"
     type: "boolean"
-    description: "If `true`, the property is a credential or otherwise sensitive data."
+    description: &credential-desc "If `true`, the property is a credential or otherwise sensitive data. **Note**: Values for this property won't be returned by the API."
+    oauth-description: *credential-desc
     value: |
       false
 
@@ -57,6 +60,11 @@ object-attributes:
       - `system_provided_by_default` - Indicates the property used to be `system_provided: true`, but can now be set by the API consumer. These are generally properties associated with OAuth for generating refresh and access tokens.
 
          **Note**: Use caution when setting these properties, as using incorrect values can put the source into a non-functioning state.
+    oauth-description: |
+      Indicates the type of the property. For OAuth properties, possible values are:
+
+      - `user_provided` - Indicates the property must be set by you.
+      - `system_provided_by_default` - Indicates that the property is provided by Stitch by default, but can be set by you. **Note**: Use caution when setting these properties, as incorrect values may put the source into a non-functioning state.
     value: "user_provided"
 
   - name: "json_schema"
@@ -86,10 +94,17 @@ object-attributes:
               }
           ]
           ```
+    oauth-description: |
+      An array containing:
+
+      - `type` - A `string` indicating the expected data type of the property's value. For example: `boolean`
+      - `pattern` - A `string` indicating the expected pattern of the property's value. For example: `^\\d+$`
+      - `anyOf` - A series of arrays containing key-value pairs for the `type` and `format` combinations Stitch will accept as the property's value.
 
   - name: "provided"
     type: "boolean"
-    description: "If `true`, the property has been provided. For properties where `property_type: user_provided`, this indicates that the user has provided the property."
+    description: &provided-desc "If `true`, the property has been provided. For properties where `property_type: user_provided`, this indicates that the user has provided the property."
+    oauth-description: "If `true`, the property has been provided. For properties where `property_type: user_provided`, this indicates that you have provided the property."
     value: |
       true
 
