@@ -1,15 +1,23 @@
 ---
 tap: "trello"
 version: "1"
-key: ""
+key: "board"
 
 name: "boards"
 doc-link: "https://developer.atlassian.com/cloud/trello/rest/#api-boards-id-get"
 singer-schema: "https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/boards.json"
 description: |
-  The {{ table.name }} table contains information about your boards idividual boards in {{ integration.display_name }}.
+  {% include note.html type="single-line" content="**Note**: To replicate data for any other table, this table must be set to replicate. Refer to the [Replication section](#replication) for more info." %}
 
-replication-method: "Key-based Incremental"
+  The {{ table.name }} table contains info about the boards that the user that authorized the integration is a member of.
+
+  #### Custom field support
+
+  Custom fields are supported for this table.
+
+replication-method: "Full Table"
+
+supports-custom-fields: true
 
 api-method:
     name: "Get a Board"
@@ -20,32 +28,36 @@ attributes:
     type: "string"
     primary-key: true
     description: "The board ID."
-    #foreign-key-id: "boards-id"
-
-  - name: "dateLastActivity"
-    type: "date-time"
-    description: "The date the board last had activity on it."
-    replication-key: true
+    foreign-key-id: "board-id"
 
   - name: "closed"
     type: "boolean"
     description: ""
+
   - name: "creationMethod"
     type: "string"
     description: ""
+
+  - name: "dateLastActivity"
+    type: "date-time"
+    description: "The date the board last had activity on it."
   
   - name: "dateLastView"
     type: "date-time"
     description: ""
+
   - name: "datePluginDisable"
     type: "date-time"
     description: ""
+
   - name: "desc"
     type: "string"
     description: ""
+
   - name: "descData"
     type: "string"
     description: ""
+
   - name: "enterpriseOwned"
     type: "boolean"
     description: ""
@@ -53,12 +65,16 @@ attributes:
   - name: "idBoardSource"
     type: "string"
     description: ""
+
   - name: "idEnterprise"
     type: "string"
     description: ""
+
   - name: "idOrganization"
     type: "string"
     description: ""
+    # foreign-key-id: "organization-id"
+
   - name: "idTags"
     type: "array"
     description: ""
@@ -66,9 +82,12 @@ attributes:
       - name: "value"
         type: "string"
         description: ""
+        foreign-key-id: "tag-id"
+
   - name: "ixUpdate"
     type: "integer"
     description: ""
+
   - name: "labelNames"
     type: "object"
     description: ""
@@ -76,33 +95,43 @@ attributes:
       - name: "black"
         type: "string"
         description: ""
+
       - name: "blue"
         type: "string"
         description: ""
+
       - name: "green"
         type: "string"
         description: ""
+
       - name: "lime"
         type: "string"
         description: ""
+
       - name: "orange"
         type: "string"
         description: ""
+
       - name: "pink"
         type: "string"
         description: ""
+
       - name: "purple"
         type: "string"
         description: ""
+
       - name: "red"
         type: "string"
         description: ""
+
       - name: "sky"
         type: "string"
         description: ""
+
       - name: "yellow"
         type: "string"
         description: ""
+
   - name: "limits"
     type: "object"
     description: ""
@@ -118,12 +147,15 @@ attributes:
               - name: "disableAt"
                 type: "integer"
                 description: ""
+
               - name: "status"
                 type: "string"
                 description: ""
+
               - name: "warnAt"
                 type: "integer"
                 description: ""
+
   - name: "memberships"
     type: "array"
     description: ""
@@ -131,24 +163,32 @@ attributes:
       - name: "deactivated"
         type: "boolean"
         description: ""
+
       - name: "id"
         type: "string"
         description: ""
+
       - name: "idMember"
         type: "string"
         description: ""
+        foreign-key-id: "user-id"
+
       - name: "memberType"
         type: "string"
         description: ""
+
       - name: "unconfirmed"
         type: "boolean"
         description: ""
+
   - name: "name"
     type: "string"
     description: ""
+
   - name: "pinned"
     type: "boolean"
     description: ""
+
   - name: "powerUps"
     type: "array"
     description: ""
@@ -156,6 +196,7 @@ attributes:
       - name: "value"
         type: "string"
         description: ""
+
   - name: "prefs"
     type: "object"
     description: ""
@@ -236,6 +277,7 @@ attributes:
       - name: "voting"
         type: "string"
         description: ""
+
   - name: "premiumFeatures"
     type: "array"
     description: ""
@@ -243,21 +285,27 @@ attributes:
       - name: "value"
         type: "string"
         description: ""
+
   - name: "shortLink"
     type: "string"
     description: ""
+
   - name: "shortUrl"
     type: "string"
     description: ""
+
   - name: "starred"
     type: "boolean"
     description: ""
+
   - name: "subscribed"
     type: "boolean"
     description: ""
+
   - name: "templateGallery"
     type: "string"
     description: ""
+
   - name: "url"
     type: "string"
     description: ""
