@@ -7,7 +7,7 @@ name: "lists"
 doc-link: "https://developer.atlassian.com/cloud/trello/rest/#api-boards-id-lists-get"
 singer-schema: "https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/lists.json"
 description: |
-  The {{ table.name }} table contains info about lists on boards that the user who authorized the connection is a member of.
+  The {{ table.name }} table contains info about lists on boards that the [authorizing user](#data-replication-board-membership) is a member of.
 
   **Note**: To replicate this table, the [boards](#boards) table must be set to replicate.
 

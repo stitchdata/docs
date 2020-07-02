@@ -7,9 +7,7 @@ name: "users"
 doc-link: "https://developer.atlassian.com/cloud/trello/rest/#api-boards-id-members-get"
 singer-schema: "https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/users.json"
 description: |
-  The {{ table.name }} table contains information about users who are members of boards that the user who authorized the connection is also a member of.
-
-  **Note**: To replicate this table, the [boards](#boards) table must be set to replicate.
+  The {{ table.name }} table contains information about users who are members of boards that the [authorizing user](#data-replication-board-membership) is also a member of.
 
 replication-method: "Full Table"
 

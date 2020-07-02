@@ -7,9 +7,7 @@ name: "actions"
 doc-link: "https://developer.atlassian.com/cloud/trello/rest/#api-boards-boardId-actions-get"
 singer-schema: "https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/actions.json"
 description: |
-  The {{ table.name }} table contains information about the actions within a board in your {{ integration.display_name }} acocunt.
-
-  **Note**: To replicate this table, the [boards](#boards) table must be set to replicate.
+  The {{ table.name }} table contains information about the actions within each board the [authorizing user](#data-replication-board-membership) is a member of.
 
 replication-method: "Key-based Incremental"
 

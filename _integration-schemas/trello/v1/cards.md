@@ -7,9 +7,7 @@ name: "cards"
 doc-link: "https://developer.atlassian.com/cloud/trello/rest/#api-cards-id-get"
 singer-schema: "https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/cards.json"
 description: |
-  The {{ table.name }} table contains info about all of the cards cards on boards that the user who authorized the connection is a member of.
-
-  **Note**: To replicate this table, the [boards](#boards) table must be set to replicate.
+  The {{ table.name }} table contains info about all of the cards on boards that [authorizing user](#data-replication-board-membership) is a member of.
 
   #### Custom field support
 

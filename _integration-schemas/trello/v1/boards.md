@@ -7,9 +7,7 @@ name: "boards"
 doc-link: "https://developer.atlassian.com/cloud/trello/rest/#api-boards-id-get"
 singer-schema: "https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/boards.json"
 description: |
-  {% include note.html type="single-line" content="**Note**: To replicate data for any other table, this table must be set to replicate. Refer to the [Replication section](#replication) for more info." %}
-
-  The {{ table.name }} table contains info about the boards that the user that authorized the integration is a member of.
+  The {{ table.name }} table contains info about the boards that the [authorizing user](#data-replication-board-membership) is a member of.
 
   #### Custom field support
 

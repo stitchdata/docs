@@ -7,9 +7,7 @@ name: "checklists"
 doc-link: "https://developer.atlassian.com/cloud/trello/rest/#api-checklists-id-get"
 singer-schema: "https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/checklists.json"
 description: |
-  The {{ table.name }} table contains info about checklists on boards that the user who authorized the connection is a member of.
-
-  **Note**: To replicate this table, the [boards](#boards) table must be set to replicate.
+  The {{ table.name }} table contains info about checklists on boards that the [authorizing user](#data-replication-board-membership) is a member of.
 
 replication-method: "Full Table"
 
