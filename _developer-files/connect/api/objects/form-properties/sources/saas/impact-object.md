@@ -46,26 +46,26 @@ object-attributes:
     required: true
     description: |
       The read-only version of your {{ form-property.display-name }} Account SID. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-sid-auth" }}) for instructions on locating this info.
-    value: "YOUR_API_ACCOUNT_SID"
+    value: "<YOUR_API_ACCOUNT_SID>"
 
   - name: "api_catalog"
     type: "string"
     required: true
     description: |
-      The internal {{ form-property.display-name }} API you're using for the Stitch {{ form-property.display-name }} integration. Right now, the default option is `agencies`. Future options will include `advertisers`, and `partners`.
-    value: "YOUR_API_CATALOG"
+      The internal {{ form-property.display-name }} API you're using for the Stitch {{ form-property.display-name }} integration. The default option is `agencies`. Future options will include `advertisers` and `partners`.
+    value: "<YOUR_API_CATALOG>"
     
   - name: "auth_token"
     type: "string"
     required: true
     description: |
       The read-only version of your {{ form-property.display-name }} Auth Token. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-sid-auth" }}) for instructions on locating this info.
-    value: "YOUR_API_AUTH_TOKEN"
+    value: "<YOUR_API_AUTH_TOKEN>"
     
   - name: "model_id"
     type: "string/integer"
     required: false
     description: |
-      Identifies the conversion process and the necessary steps from click to conversion. It is an optional parameter for the `conversion_paths` endpoint, which shows conversions from clicks to conversion purchases. The only way to access this ID, you need to contact **Impact Radius Support** ([support@impactradius.com](support@impactradius.com)) or [open an {{ form-property.display-name }} help desk request](https://help.impactradius.com/hc/en-us/requests).
-    value: "YOUR_MODEL_ID"      
+      Identifies the conversion process and the necessary steps from click to conversion. It is an optional parameter for the `conversion_paths` endpoint, which shows conversions from clicks to conversion purchases. The only way to access this ID, you need to contact [{{ form-property.display-name }} Radius Support](mailto:support@impactradius.com) or [open an {{ form-property.display-name }} help desk request](https://help.impactradius.com/hc/en-us/requests){:target="new"} with {{ form-property.display-name }}.
+    value: "<YOUR_MODEL_ID>"
 ---
