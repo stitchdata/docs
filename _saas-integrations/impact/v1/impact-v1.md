@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-impact
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} REST API](https://developer.impact.com/default){:target="new"}
+  [{{ integration.display_name }} Radius API](https://developer.impact.com/default){:target="new"}
 
 
 # -------------------------- #
@@ -67,7 +67,9 @@ column-selection: true
 # -------------------------- #
 
 feature-summary: |
-  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }} and the Advertisers API catalog.
+
+  Refer to the [Schema](#schema) section for a list of objects available for replication.
 
 
 # -------------------------- #
@@ -79,7 +81,7 @@ requirements-list:
       **To have API access enabled for your {{ integration.display_name }} account.** To do this, login to the {{ integration.display_name }} console. Locate the gear icon and then click **Technical Settings > API Access**. Click **Enable API Access Now**.
 
 setup-steps:
-  - title: "Retrieve your {{ integration.display_name }} account SID and auth Token"
+  - title: "Retrieve your {{ integration.display_name }} account SID and auth token"
     anchor: "retrieve-sid-auth"
     content: |
       1. Login to your {{ integration.display_name }} console.
@@ -90,9 +92,9 @@ setup-steps:
 
   - title: "add integration"
     content: |
-      4. In the **Account SID** field, paste the read-only Account SID you copied from [Step 1](#retrieve-sid-auth).
-      5. In the **API Catalog** field, enter `Agencies`. This is the only API that Stitch's {{ integration.display_name }} supports for the time being.
-      6. In the **Auth Token** field, paste the read-only Auth Token that you copied from [Step 1](#retrieve-sid-auth).
+      4. In the **Account SID** field, paste the read-only Account SID you retrieved in [Step 1](#retrieve-sid-auth).
+      5. In the **API Catalog** field, select `Advertisers`.
+      6. In the **Auth Token** field, paste the read-only Auth Token that you retrieved in [Step 1](#retrieve-sid-auth).
       7. **Optional**: In the **Model ID** field, enter your model ID. This is used in the `conversion_paths` table to extract data about conversions from clicks to conversion purchases.
 
          To access your model ID, contact [{{ integration.display_name }} Radius Support](mailto:support@impactradius.com) or [open an {{ form-property.display-name }} help desk request](https://help.impactradius.com/hc/en-us/requests){:target="new"} with {{ integration.display_name }}.

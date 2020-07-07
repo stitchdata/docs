@@ -52,8 +52,8 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      The internal {{ form-property.display-name }} API you're using for the Stitch {{ form-property.display-name }} integration. The default option is `agencies`. Future options will include `advertisers` and `partners`.
-    value: "<YOUR_API_CATALOG>"
+      The internal {{ form-property.display-name }} API you're using for the Stitch {{ form-property.display-name }} integration. Currently the only supported option is `advertisers`.
+    value: "advertisers"
     
   - name: "auth_token"
     type: "string"
