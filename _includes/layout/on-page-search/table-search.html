@@ -1,0 +1,44 @@
+<script>
+  function filterTable() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue, noConnectionYet;
+    input = document.getElementById("on-page-search");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("filter-body");
+    tr = table.getElementsByTagName("tr");
+    noConnectionYet = document.getElementById("noConnectionYet");
+    
+    noConnectionYet.style.display = "none";
+
+    // Loop through all table rows, and hide those who don't match the search query
+    showing= 0;
+    for (i = 0; i < tr.length; i++) {
+      let showRow = false;
+      let tds = tr[i].getElementsByTagName("td");
+      Array.from(tds).forEach(td => {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          showRow = true;
+        }
+      })
+      if (showRow) {
+        tr[i].style.display = "";
+        showing++
+      }
+      else {
+        tr[i].style.display = "none";
+      }
+    }
+
+    if(showing == 0) {
+      noConnectionYet.style.display = "";
+      noConnectionYetName = document.getElementById("noConnectionYetName");
+    }
+  }
+</script>
+
+<div class="on-page-search-container">
+  <input type="text" id="on-page-search" onkeyup="filterTable()" placeholder="{{ include.placeholder-copy }}">
+</div>
+
+{{ include.table | flatify }}

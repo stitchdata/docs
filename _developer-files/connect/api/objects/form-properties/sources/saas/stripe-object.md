@@ -83,4 +83,30 @@ object-attributes:
       
     value: |
       "{\"events\":[[\"data\",\"id\"],[\"data\",\"amount\"],[\"data\",\"plan\"],[\"data\",\"plan\",\"id\"],[\"data\",\"plan\",\"active\"]]}"
+
+
+# -------------------------- #
+#       OAUTH PROPERTIES     #
+# -------------------------- #
+
+oauth-link: "https://stripe.com/docs/connect/oauth-reference"
+
+oauth-description: ""
+
+oauth-attributes:
+  - name: "account_id"
+    type: "string"
+    required: true
+    credential: false
+    description: |
+      The ID of the {{ form-property.display-name }} account being connected to Stitch.
+    value: "<ACCOUNT_ID>"
+
+  - name: "client_secret"
+    type: "string"
+    required: true
+    credential: true
+    description: |
+      The secret key of the {{ form-property.display-name }} account being connected to Stitch, available in the account's {{ form-property.display-name }} dashboard.
+    value: "<CLIENT_SECRET>"
 ---

@@ -34,11 +34,16 @@ This table is for {{ latest-version | prepend: "v" }} of Stitch's {{ feature.dat
           </td>
           {% for support-type in binlog-support %}
                <td>
-                    <strong>
-                         {{ support-type | remove:"log-based-replication" | replace:"-"," " }}
-                    </strong>
                     {% if support-type == "log-based-replication-Minimum-version" %}
-                         {{ info-icon | replace:"TOOLTIP","The minimum database version required to use Log-based Incremental Replication." }}
+                         <strong>
+                              Supported verion(s)
+                         </strong>
+
+                         {{ info-icon | replace:"TOOLTIP","The database versions supported for Log-based Incremental Replication." }}
+                    {% else %}
+                         <strong>
+                              {{ support-type | remove:"log-based-replication" | replace:"-"," " }}
+                         </strong>
                     {% endif %}
                </td>
           {% endfor %}
@@ -58,7 +63,7 @@ This table is for {{ latest-version | prepend: "v" }} of Stitch's {{ feature.dat
                                         {% when 'n/a' %}
                                              {{ not-applicable | replace:"TOOLTIP","Not applicable" }}
                                         {% else %}
-                                             {{ database[support-type] }}
+                                             {{ database[support-type] }}{% if database.log-based-replication-maximum-version %} - {{ database.log-based-replication-maximum-version }}{% else %}+{% endif %}
                                    {% endcase %}
 
                               {% else %}

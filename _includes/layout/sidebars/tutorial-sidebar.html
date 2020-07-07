@@ -13,13 +13,39 @@
     	<strong>In this guide:</strong>
     </li>
 
-    {% if page.intro %}
-	    <li>
-			<a href="#">
-		    	Introduction
-		    </a>
-		</li>
+    {% if page.intro or page.intro-sections %}
+        {% if page.intro %}
+    	    <li>
+    			<a href="#">
+    		    	Introduction
+    		    </a>
+    		</li>
+        {% elsif page.intro-sections %}
+            <li class="subfolders">
+                <a data-toggle="collapse" href="#introduction--menu" aria-expanded="false" aria-controls="#introduction--menu">
+                    Introduction 
+                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                </a>
+
+                <ul class="collapse" id="introduction--menu">
+                    <li>
+                        <a href="#">Introduction</a>
+                    </li>
+
+                    {% for section in page.intro-sections %}
+                        {% if section.title %}
+                            <li>
+                                <a href="#{{ section.anchor }}">
+                                    {{ section.title | flatify }}
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endif %}
 	{% endif %}
+
 
     {% if page.requirements %}
         <li>
