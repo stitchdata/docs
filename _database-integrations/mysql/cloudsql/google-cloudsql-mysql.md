@@ -83,10 +83,16 @@ notice: |
   If you want to connect a **PostgreSQL-based** CloudSQL instance, use [these instructions]({{ link.integrations.database-integration | prepend: site.baseurl | replace: "INTEGRATION","google-cloudsql-postgresql" }}).
 
 requirements-list:
+  - item: "**Permissions in Google Cloud that allow you to modify the database's connection settings.** This is required to whitelist Stitch's IP addresses."
   - item: |
       **The `CREATE USER` or `INSERT` privilege (for the `mysql` database).** The [`CREATE USER` privilege](https://dev.mysql.com/doc/refman/8.0/en/create-user.html){:target="new"} is required to create a database user for Stitch.
   - item: |
-      **The `GRANT OPTION` privilege in {{ integration.display_name }}.** The [`GRANT OPTION` privilege](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_grant-option){:target="new"} is required to grant the necessary privileges to the Stitch database user.
+      **The `GRANT OPTION` privilege.** The [`GRANT OPTION` privilege](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_grant-option){:target="new"} is required to grant the necessary privileges to the Stitch database user.
+  - item: |
+      **If using Log-based Replication**, you'll need:
+
+      - **A database running MySQL {{ integration.log-based-replication-minimum-version }} or greater** Earlier versions of MySQL do not include binlog replication functionality, which is required for Log-based Replication.
+      - **To connect to the master instance.** [Google doesn't currently support binlog replication on read replicas](https://cloud.google.com/sql/docs/mysql/replication/create-replica){:target="new"}.
 
 # -------------------------- #
 #     Setup Instructions     #
