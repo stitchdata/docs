@@ -1,11 +1,16 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Managing Notification Content for HIPAA Compliance
 permalink: /account-security/notifications/hipaa-compliant-notifications
 keywords: notifications, hipaa, hipaa compliance, hipaa-compliant, blank emails, blank error emails
 summary: "Suppress plain-text error messages in email notifications as part of making your Stitch account HIPAA-compliant."
 
-layout: general
 key: "hipaa-notifications"
+
+layout: general
 toc: true
 
 type: "notifications"
@@ -18,6 +23,11 @@ enterprise-cta:
   copy: |
     {{ page.enterprise-cta.feature | flatify }} is an Enterprise feature. Before replicating any sensitive data, contact Stitch Sales to ensure all requirements for HIPAA compliance are completed.
 
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
+
 intro: |
   {% include misc/data-files.html %}
 
@@ -28,6 +38,11 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
   {% endfor %}
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "Plain-text error suppression basics"

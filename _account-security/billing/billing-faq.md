@@ -1,7 +1,13 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Billing FAQ
 permalink: /account-security/billing-faq
 keywords: billing, bill info, payment history, tier, plan, charge, overage, invoice, payments, invoices
+
+key: "billing-faq"
 
 summary: "Learn how to manage and change your Stitch subscription plan, enter payment details, view invoices, and cancel your account."
 
@@ -10,6 +16,11 @@ layout: faq
 
 type: "billing"
 weight: 2
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 frequently-asked-questions:
 

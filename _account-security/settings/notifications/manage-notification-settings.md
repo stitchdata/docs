@@ -8,8 +8,8 @@ layout: general
 key: "manage-notification-settings"
 toc: true
 
-type: "account-settings, notifications"
-weight: 2
+type: "manage-your-account, notifications"
+weight: 3
 
 # In this guide, we'll cover:
 
