@@ -771,6 +771,15 @@ ul.tiles {
 		text-align: left;
 	}
 
+	.category-page {
+		text-align: left;
+
+		&:hover {
+			box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25) !important;
+			cursor: pointer;
+		}
+	}
+
 	li.category-version-toggle {
 		border: none;
 		display: list-item;
@@ -794,7 +803,6 @@ ul.link-tiles {
 	border: 0px;
 
 	li {
-
 		a {
 			display: inline-block;
 			color: $black;
