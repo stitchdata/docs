@@ -34,6 +34,10 @@ weight: 2
 intro: |
   {{ page.summary }}
 
+  {% for section in page.sections %}
+  - [{{ section.title }}](#{{ section.anchor }})
+  {% endfor %}
+
 sections:
   - title: "Managing your account"
     anchor: "manage-your-account-category"
