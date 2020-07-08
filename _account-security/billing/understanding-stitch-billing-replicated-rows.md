@@ -1,8 +1,14 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Understanding and Reducing Your Row Usage
 permalink: /account-security/understanding-stitch-billing-replicated-rows
 keywords: billing, bill info, payment history, tier, plan, charge, row usage, replicated row, replicated rows, usage, row count
 layout: general
+
+key: "understanding-row-usage"
 
 summary: "Learn the basics of Stitch billing, how to view & understand your usage, and keep your row count low."
 
@@ -11,12 +17,22 @@ toc: true
 type: "billing"
 weight: 1
 
+
+# -------------------------- #
+#         GUIDE INTRO        #
+# -------------------------- #
+
 intro: |
   {% include misc/data-files.html %}
 
   Much like the data part of a cell phone plan, each Stitch plan is allotted a certain number of replicated rows per month. For detailed info on pricing and what's included in each plan, refer to the [pricing page]({{ site.pricing }}){:target="new"} on our website.
 
   In this guide, we'll cover the basics of Stitch billing, how to check and understand your usage, and some tips for keeping your row count low.
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "Billing basics"

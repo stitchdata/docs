@@ -14,7 +14,7 @@ summary: "If you decide Stitch isn't for you, here's what you need to do to canc
 toc: false
 
 type: "billing, manage-your-account"
-weight: 6
+weight: 100
 ---
 {% include misc/data-files.html %}
 

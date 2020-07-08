@@ -7,13 +7,14 @@ title: Data Encryption
 permalink: /account-security/data-encryption
 summary: "Stitch offers secure options for making connections to all data sources and destinations, giving you the power to secure your data as you see fit."
 
+key: "data-encryption-overview"
+
 input: false
 layout: general
 feedback: false
-
-key: "data-encryption-overview"
-type: "security"
 weight: 2
+
+type: "security"
 
 enterprise: true
 enterprise-cta:

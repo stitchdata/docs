@@ -14,7 +14,7 @@ layout: general
 toc: true
 
 type: "manage-your-account, notifications"
-weight: 2
+weight: 3
 
 # In this guide, we'll cover:
 

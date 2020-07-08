@@ -4,6 +4,8 @@ keywords: troubleshooting, trouble, issue, help, billing, payment, card declined
 permalink: /troubleshooting/account/payment-processing-errors
 tags: [billing, troubleshooting_errors]
 
+key: "troubleshoot-payment-processing-errors"
+
 summary: "Encountering errors when trying to enter your payment info into Stitch? Before you contact support, we recommend seeing if these simple fixes resolve the issue."
 type: "account, error"
 toc: false

@@ -1,8 +1,14 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Security FAQ
 permalink: /account-security/security-faq
 redirect_from: /account-security/stitch-security
 keywords: security, secure, data access, credentials, security protocol, breach, encryption, encrypted, store data, retain data, vpn, ssl, hipaa, pci
+
+key: "security-faq"
 
 summary: "We take securing your data seriously. Here's what we do to ensure that your private data stays private and our recommended best practices for protecting your data."
 
@@ -21,6 +27,11 @@ enterprise-utm:
   hipaa-url: "?utm_medium=docs&utm_campaign=hipaa-compliance"
   reverse-ssh-url: "?utm_medium=docs&utm_campaign=reverse-ssh"
   soc2-url: "?utm_medium=docs&utm_campaign=soc2-compliance"
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 frequently-asked-questions:
   - topic: "Compliance"
