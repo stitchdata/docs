@@ -1,14 +1,19 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Managing Your Stitch API Keys
 permalink: /account-security/managing-stitch-api-keys
 keywords: api keys, create api key, stitch connect access
-layout: general
-
 summary: "Manage your Stitch API access keys."
-toc: true
 
 key: "manage-api-keys"
-type: "account-settings"
+
+layout: general
+toc: true
+
+type: "manage-your-account"
 weight: 4
 
 enterprise: true
@@ -16,6 +21,11 @@ enterprise-cta:
   feature: "API access"
   title: "{{ site.data.strings.enterprise.title.is-an }}"
   copy: "{{ site.data.strings.enterprise.copy.is-an | flatify }}"
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
 
 intro: |
   {% include misc/data-files.html %}
@@ -27,6 +37,11 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
   {% endfor %}
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "API key basics"

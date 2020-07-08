@@ -1,14 +1,25 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Managing Stitch Partner Account Access
 permalink: /account-security/managing-stitch-partner-account-access
-keywords: stitch partner, partner access
+keywords: stitch partner, partner access, partner keys, partner api, partner
 summary: "View and manage the Stitch partners you have authorized to access your Stitch account."
+
+key: "manage-partner-account-access"
 
 layout: general
 toc: true
 
-type: "account-settings"
+type: "manage-your-account"
 weight: 5
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
 
 intro: |
   {% capture notice %}
@@ -24,7 +35,12 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
   {% endfor %}
-  
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
+
 sections:
   - title: "How a Stitch partner is granted account access"
     anchor: "how-stitch-partner-get-account-access"
