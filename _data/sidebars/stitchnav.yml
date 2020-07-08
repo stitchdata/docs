@@ -86,16 +86,31 @@ all-docs:
         - title: "HIPAA-compliance"
           url: "{{ link.account.hipaa-notifications }}"
 
-        # - title: "Post-load Notifications"
-        #   url: "{{ link.account.post-load }}"
-
     - title: Billing
       subsections:
         - title: Understand your usage
           url: "{{ link.getting-started.row-usage }}"
 
-        - title: "FAQ"
-          url: "{{ link.billing.billing-faq }}"
+        - title: "Basics"
+          url: "{{ link.billing.billing-faq }}#billing-basics"
+
+        - title: "Integrations"
+          url: "{{ link.billing.billing-faq }}#integrations"
+
+        - title: "Historical data loads"
+          url: "{{ link.billing.billing-faq }}#historical-data-loads"
+
+        - title: "Row counts"
+          url: "{{ link.billing.billing-faq }}#row-usage"
+
+        - title: "Choose and change plans"
+          url: "{{ link.billing.billing-faq }}#manage-plans"
+
+        - title: "Payment details and invoices"
+          url: "{{ link.billing.billing-faq }}#payment-invoices"
+
+        - title: Cancel your account
+          url: "{{ link.account.cancel-account }}"
 
     - title: Security
       subsections:
