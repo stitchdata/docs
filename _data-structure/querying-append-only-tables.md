@@ -27,9 +27,7 @@ destination: "BigQuery"
 intro: |
   {% capture note %}
   - [Destinations configured to use Append-Only Loading]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl | append:"#reference--destinations-loading-behavior" }}), or
-  - Tables configured to use Append-Only Loading, such as [Google Ads]({{ site.baseurl }}/integrations/saas/google-ads#replication)
-
-  Additionally, note that you may need to modify the query in this guide to use it yourself.
+  - Tables configured to use Append-Only Loading, such as [Google Ads' Report tables]({{ site.baseurl }}/integrations/saas/google-ads#data-loading-append-only)
   {% endcapture %}
 
   {% include note.html first-line="**This guide is applicable to:**" content=note %}
@@ -48,6 +46,17 @@ intro: |
 # -------------------------- #
 
 sections:
+  - title: "Before using this guide"
+    anchor: "before-using-guide"
+    summary: "Things to know before using this guide"
+    content: |
+      Before using this guide, note that:
+
+      - You may need to modify the queries in this guide to use them yourself
+      - Stitch Support's expertise lies in replicating data, and as such does not provide data analysis or querying assistance. We can, however, help with data discrepancies.
+
+         If you'd like assistance with analysis or business intelligence solutions, we recommend reaching out to one of our [analytics partners]({{ site.partners }}){:target="new"}.
+
   - title: "Using system columns to identify record versions"
     anchor: "using-system-column"
     summary: "Columns you can use to identify record versions"
