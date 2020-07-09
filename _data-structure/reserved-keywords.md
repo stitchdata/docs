@@ -9,13 +9,13 @@ redirect_from: /data-structure/reserved-keywords
 keywords: keywords, reserved words, reserved keywords
 summary: "A reference of Stitch and destination-reserved keywords."
 
+key: "reserved-keywords"
+type: "system"
+
 layout: general
 toc: true
-
+weight: 4
 level: "guide"
-key: "reserved-keywords"
-
-weight: 7
 
 
 # -------------------------- #

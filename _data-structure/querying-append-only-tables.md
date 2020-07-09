@@ -10,7 +10,7 @@ keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, big
 summary: "Learn how Append-only Loading works and how to account for it in your queries."
 
 key: "append-only-querying"
-type: ""
+type: "interaction"
 
 layout: general
 toc: true
