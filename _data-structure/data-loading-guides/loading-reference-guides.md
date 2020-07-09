@@ -1,16 +1,25 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Destination Data Loading Reference Guides
 permalink: /replication/reference
 redirect_from: /data-structure/loading-stitch-data-into-destinations
+keywords: loading behavior, loading, how data is loaded, data structure
+summary: "Every destination handles data differently. Learn about what your destination supports, what it doesn't, and how Stitch will load your data as a result."
+
+key: "loading-reference"
+type: "loading-reference"
 
 layout: general
 toc: false
 feedback: false
 
-keywords: loading behavior, loading, how data is loaded, data structure
-summary: "Every destination handles data differently. Learn about what your destination supports, what it doesn't, and how Stitch will load your data as a result."
 
-key: "loading-reference"
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
 
 intro: |
   {% include misc/data-files.html %}
@@ -18,6 +27,11 @@ intro: |
   {{ page.summary }}
 
   Each guide covers scenarios involving Primary Keys, data types, object names, schema changes, and destination changes.
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "Select your destination"

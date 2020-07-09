@@ -1,15 +1,25 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Understanding Loading Behavior
 permalink: /replication/loading/understanding-loading-behavior
 keywords: loading behavior, loading, append, append-only, upsert, insert. truncate
 summary: "Learn about the methods Stitch uses to load data into your destination and what the impact will be on your destination tables."
 
+key: "understanding-loading-behavior"
+type: "loading-basics"
+
 layout: general
 toc: true
-
-content-type: "guide"
-key: "understanding-loading-behavior"
 order: 1
+content-type: "guide"
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
 
 intro: |
   {{ page.summary }}
@@ -19,6 +29,11 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
   {% endfor %}
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "Loading behavior types"

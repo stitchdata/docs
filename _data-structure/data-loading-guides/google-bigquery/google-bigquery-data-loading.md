@@ -1,12 +1,16 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Google BigQuery Loading Reference
 permalink: /replication/reference/google-bigquery
-
 redirect_from: /data-structure/bigquery-data-loading-behavior
-layout: general
 
-content-type: "loading-reference"
 key: "bigquery-loading-reference"
+
+layout: general
+content-type: "loading-reference"
 
 display_name: "Google BigQuery"
 type: "bigquery"

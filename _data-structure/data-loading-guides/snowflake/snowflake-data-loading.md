@@ -1,20 +1,27 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Snowflake Data Loading Reference
 permalink: /replication/reference/snowflake/
-
 redirect_from: /data-structure/snowflake-data-loading-behavior
-
-layout: general
 keywords: snowflake, snowflake data warehouse, snowflake data warehouse, snowflake etl, etl to snowflake
 summary: "Learn how Stitch will load data from your integrations into Stitch's Snowflake destination."
 
-content-type: "loading-reference"
 key: "snowflake-loading-reference"
+
+layout: general
+content-type: "loading-reference"
 
 display_name: "Snowflake"
 type: "snowflake"
-
 this-version: "1"
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
 
 intro: |
   {{ page.summary }}
@@ -30,6 +37,11 @@ intro: |
 ## The data & copy for Snowflake scenarios live here: _data/dataloading/snowflake
 ## The error messages for Snowflake live here: _data/errors/loading/snowflake.yml
 ## The data & copy for 'default' scenarios live here: _data/dataloading/scenarios
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "Primary Key scenarios"

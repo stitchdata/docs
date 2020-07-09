@@ -1,20 +1,28 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Google BigQuery (v2) Data Loading Reference
 permalink: /replication/reference/google-bigquery
 redirect_from: /data-structure/bigquery-data-loading-behavior
-
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery
 summary: "Learn how Stitch will load data from your integrations into version 2 of Stitch's Google BigQuery destination."
 
+key: "bigquery-loading-reference"
+
 layout: general
 content-type: "loading-reference"
-key: "bigquery-loading-reference"
 
 connection-type: "destination"
 display_name: "Google BigQuery"
 type: "bigquery"
-
 this-version: "2"
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
 
 intro: |
   {{ page_name }}
@@ -37,6 +45,11 @@ intro: |
 ## The data & copy for BigQuery scenarios live here: _data/dataloading/bigquery
 ## The error messages for BigQuery live here: _data/errors/loading/bigquery.yml
 ## The data & copy for 'default' scenarios live here: _data/dataloading/scenarios
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "Primary Key scenarios"
