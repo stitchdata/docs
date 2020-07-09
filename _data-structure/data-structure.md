@@ -1,51 +1,105 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Loading data
-permalink: /data-structure/
+permalink: /replication/loading
+redirect_from: /data-structure/
 keywords: data structure, schema, data load, loading data
 summary: "Resources for learning about how Stitch loads and organizes data into your destination."
 
+key: "loading-data-category"
+
+layout: general
 toc: false
 feedback: false
 
-level: "category"
 
 # -------------------------- #
 #       HOME PAGE DATA       #
 # -------------------------- #
 
+level: "category"
+
 icon: "database"
 display-title: "Loading data"
 display-summary: "Learn how Stitch will load and structure data in your destination."
 weight: 6
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
+
+intro: |
+  {% assign this-collection = site.data-structure %}
+
+  {{ page.summary }}
+
+  {% for section in page.sections %}
+  - [{{ section.title }}](#{{ section.anchor }})
+  {% endfor %}
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
+
+sections:
+  - title: "Understanding loading behavior"
+    anchor: "understand-loading-behavior-category"
+    additional-guides:
+      - title: "Monitoring Loading Progress"
+        url: "{{ link.replication.loading-reports | prepend: site.baseurl }}"
+        weight: 1
+    content: |
+      Understand the basics of how Stitch loads data in these starter guides.
+
+      {% assign guides = this-collection | where_exp:"guide","guide.type contains 'loading-basics'" | concat: section.additional-guides | sort:"weight" %}
+
+      {% include layout/category-section-tiles.html %}
+
+  - title: "Interacting with your data"
+    anchor: "interacting-with-your-data-category"
+    additional-guides:
+      - title: "Exploring Analysis Tools"
+        url: "{{ link.analysis-tools.main | prepend: site.baseurl }}"
+        weight: 1
+
+      - title: "Identifying and Resolving Record Rejections"
+        url: "{{ link.destinations.storage.rejected-records | prepend: site.baseurl }}"
+        weight: 2
+
+      - title: "Understanding the Primary Keys Table"
+        url: "{{ link.destinations.storage.rejected-records | prepend: site.baseurl }}"
+        weight: 3
+
+      - title: "Querying Append-Only Tables"
+        url: "{{ link.replication.append-only-querying | prepend: site.baseurl }}"
+        weight: 4
+    content: |
+      Resources and tutorials for interacting with data loaded by Stitch into your destination.
+
+      {% assign guides = section.additional-guides | sort:"weight" %}
+      {% include layout/category-section-tiles.html %}
+
+  - title: "Stitch system columns and tables"
+    anchor: "stitch-system-columns-tables-category"
+    content: |
+      Learn about the system columns, tables, and reserved keywords Stitch uses to load data.
+
+      {% assign guides = this-collection | where_exp:"guide","guide.type contains 'system'" | sort:"weight" %}
+
+      {% include layout/category-section-tiles.html %}
+
+  - title: "Destination loading references"
+    anchor: "destination-loading-references-category"
+    content: |
+      Every destination handles data differently. Learn about what your destination supports, what it doesn't, and how Stitch will load your data as a result in these detailed references.
+
+      {% assign guides = this-collection | where:"content-type","loading-reference" | sort: "display_name" %}
+
+      {% include layout/category-section-tiles.html %}
 ---
 {% include misc/data-files.html %}
-
-{{ page.summary }}
-
----
-
-## Data Loading by Destination
-
-Every destination handles data differently. Learn about what your destination supports, what it doesn’t, and how Stitch will load your data as a result.
-
-{% assign data-loading = site.data-structure | where:"category","data loading" | sort:"title" %}
-
-{% for page in data-loading %}
-### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
-{{ page.summary }}
-{% endfor %}
-
----
-
-## Additional Resources
-
-These resources contain additional detail that builds upon the info covered in each destination's data loading guide. Learn more about how Stitch structures the schemas it creates for integrations, how structural changes are handled, how to resolve record rejections, and more.
-
-{% for page in site.data-structure %}
-{% if page.permalink != "/data-structure/" and page.category != "data loading" %}
-{% unless page.title contains "Loading Data" %}
-### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
-{{ page.summary }}
-{% endunless %}
-{% endif %}
-{% endfor %}

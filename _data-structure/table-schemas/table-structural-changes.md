@@ -1,18 +1,30 @@
 ---
-title: Table Structural Changes
-permalink: /data-structure/table-structural-changes
-layout: general
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
+title: Understanding Table Structural Changes
+permalink: /replication/loading/understanding-table-structural-changes
+redirect_from: /data-structure/table-structural-changes
 keywords: redshift, amazon redshift, postgresql, varchar, varchar widening, column splitting, postgres, panoply, bigquery, structure change, schema change, column split
-
 summary: "From time to time, Stitch will encounter data that can't be loaded losslessly into the destination table in your destination. When this happens, Stitch may have to alter the structure of the table in order to successfully load the data."
-toc: true
-weight: 3
 
+key: "structure-changes"
+type: "loading-basics"
+
+layout: general
+toc: true
+weight: 5
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
+
+intro: |
+  {{ page.summary }}
 
 sections:
-  - content: |
-      {{ page.summary }}
-
   - title: "Reasons for table structural changes"
     anchor: "structural-change-reasons"
     content: |
@@ -134,27 +146,4 @@ sections:
           2. A [table-level reset]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}) is performed and a full re-replication is queued
 
       - **Removing columns**: When a column is removed in the source or de-selected from replication, Stitch will place default `NULLs` in the column going forward. Columns will not be removed from the destination.
-
-  - title: "Additional resources"
-    anchor: "additional-resources"
-    subsections:
-      - title: "Identify record rejections"
-        anchor: "identify-record-rejections"
-        content: |
-          If Stitch is unable to load data into a table, it'll look like data is missing in your destination.
-
-          When this occurs, check the [Rejected records table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}) for the integration. This can help you pinpoint the root cause of the problem and unblock your data.
-
-      - title: "Redshift/Panoply dependent views"
-        anchor: "redshift-panoply-dependent-views"
-        content: |
-          When a table's structure has changed and Stitch needs to load data into the new structure, an `ALTER` command will be issued. To successfully run this command, dependent views must be temporarily 'dropped' to allow Stitch to re-create the table. If you receive an error that looks like the following, dependent views may be the root cause:
-
-          ```sql
-          ERROR: cannot drop table SCHEMA.TABLE column type because other objects depend on it
-
-          Hint: Use DROP ... CASCADE to drop the dependent objects too.
-          ``` 
-
-          While an hour or two is usually sufficient to complete the process, some very large tables may require more time. **This [troubleshooting guide]({{ link.troubleshooting.view-dependency-errors | prepend: site.baseurl }}) will walk you through how to locate the dependent views and temporarily drop them.**
 ---

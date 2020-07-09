@@ -4,18 +4,20 @@
 # -------------------------- #
 
 title: Understanding Integration Schema Structures in Your Destination
-permalink: /data-structure/integration-schemas
-keywords: integration schemas, stitch schema, _sdc, sdc, stitch creates schemas, data warehouse
-tags: [replication]
-summary: "Learn how Stitch organizes the data replicated from your sources in your data warehouse."
+display-title: "Understanding Your Destination Schemas"
+
+permalink: /replication/loading/understanding-destination-schemas
+redirect_from: /data-structure/integration-schemas
+keywords: integration schemas, stitch schema, _sdc, sdc, stitch creates schemas, data warehouse, dataset, datasets
+summary: "Learn how Stitch organizes the data replicated from your sources in your destination."
+
+key: "integration-schemas"
+type: "loading-basics"
 
 layout: general
 toc: true
-
 level: "guide"
-key: "integration-schemas"
-
-weight: 1
+weight: 2
 
 
 # -------------------------- #
@@ -24,7 +26,7 @@ weight: 1
 
 intro: |
   {% include misc/data-files.html %}
-  For each integration that you add to Stitch, a schema specific to that integration will be created in your data warehouse. The integration's schema is where all the data Stitch replicates from the data source will be stored.
+  For each integration that you add to Stitch, a schema specific to that integration will be created in your destination. The integration's schema is where all the data Stitch replicates from the data source will be stored.
 
   In this guide, we'll cover:
 

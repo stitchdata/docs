@@ -1,20 +1,28 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Panoply Data Loading Reference
 permalink: /replication/reference/panoply/
 redirect_from: /data-structure/panoply-data-loading-behavior
-
-layout: general
 keywords: panoply, panoply data warehouse, panoply data warehouse, panoply etl, etl to panoply
 summary: "Learn how Stitch will load data from your integrations into Stitch's Panoply destination."
 
-content-type: "loading-reference"
 key: "panoply-loading-reference"
+
+layout: general
+content-type: "loading-reference"
 
 display_name: "Panoply"
 type: "redshift"
 branded: true
-
 this-version: "2"
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
 
 intro: |
   {{ page.summary }}
@@ -30,6 +38,11 @@ intro: |
 ## The data & copy for Amazon Redshift scenarios live here: _data/dataloading/redshift
 ## The error messages for Amazon Redshift live here: _data/errors/loading/redshift.yml
 ## The data & copy for 'default' scenarios live here: _data/dataloading/scenarios
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "Primary Key scenarios"

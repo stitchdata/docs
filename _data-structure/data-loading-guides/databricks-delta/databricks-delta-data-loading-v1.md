@@ -1,18 +1,26 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Databricks Delta (v1) Data Loading Reference
 permalink: /replication/reference/databricks-delta
-
-layout: general
 keywords: databricks delta, databricks delta data warehouse, databricks data warehouse, databricks etl, etl to databricks
 summary: "Learn how Stitch will load data from your integrations into Stitch's Databricks Delta destination."
 
-content-type: "loading-reference"
 key: "databricks-delta-loading-reference"
+
+layout: general
+content-type: "loading-reference"
 
 display_name: "Databricks Delta"
 type: "databricks-delta"
-
 this-version: "1"
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
 
 intro: |
   {{ page.summary }}
@@ -28,6 +36,11 @@ intro: |
 ## The data & copy for Databricks Delta scenarios live here: _data/dataloading/databricks-delta
 ## The error messages for Databricks Delta live here: _data/destinations/databricks-delta/loading-errors.yml
 ## The data & copy for 'default' scenarios live here: _data/dataloading/scenarios
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "Primary Key scenarios"

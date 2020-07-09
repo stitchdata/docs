@@ -154,23 +154,29 @@ destinations:
 # -------------------------- #
 ## used as link.destinations.storage.[id]
   storage:
-    system-tables-and-columns: &system-data /data-structure/system-tables-and-columns
-    stitch-schema: /data-structure/integration-schemas
-    sdc-columns: *system-data
+    ## GENERAL
     loading-data: /data-structure/loading-stitch-data-into-destinations
-    structure-changes: /data-structure/table-structural-changes
-    column-splitting: "/data-structure/table-structural-changes#columns-mixed-data-types"
-    varchar-widening: "/data-structure/table-structural-changes#widening-varchar-columns"
-    nested-structures: /data-structure/nested-data-structures-row-count-impact
-    rejected-records: /data-structure/identifying-rejected-records
-    redshift-encodings: /destinations/amazon-redshift/apply-encodings-sort-dist-keys-redshift
-    bigquery-partitioning: /destinations/google-bigquery/apply-table-partitioning-clustering
-    primary-key-system-table: /replication/loading/primary-keys-system-table
-
     loading-behavior: /replication/loading/understanding-loading-behavior
 
-    bigquery-nested-structures: /replication/loading/google-bigquery-storing-nested-data-structures
+    ## SYSTEM COLUMNS AND TABLES
+    system-tables-and-columns: &system-data /replication/reference/system-tables-columns
+    primary-key-system-table: /replication/reference/system-tables-columns/primary-keys
+    rejected-records: /replication/reference/system-tables-columns/rejected-records
+    sdc-columns: *system-data
 
+    ## SCHEMAS AND STRUCTURE
+    stitch-schema: /replication/loading/understanding-destination-schemas
+    structure-changes: /replication/loading/understanding-table-structural-changes
+    column-splitting: "/replication/loading/understanding-table-structural-changes#columns-mixed-data-types"
+    varchar-widening: "/replication/loading/understanding-table-structural-changes#widening-varchar-columns"
+    nested-structures: /replication/loading/understanding-loading-row-usage-for-nested-data-structures
+    bigquery-nested-structures: /replication/loading/google-bigquery-storing-nested-data-structures
+    
+    ## PERFORMANCE ENHANCEMENT
+    redshift-encodings: /destinations/amazon-redshift/apply-encodings-sort-dist-keys-redshift
+    bigquery-partitioning: /destinations/google-bigquery/apply-table-partitioning-clustering
+    
+    ## RESERVED KEYWORDS
     reserved-keywords:
       overview: /replication/loading/reserved-keywords
       redshift-v2: /replication/loading/reserved-keywords#redshift-v2-reserved-keywords
@@ -236,7 +242,7 @@ replication:
   key-based-incremental: /replication/replication-methods/key-based-incremental
   full-table: /replication/replication-methods/full-table
 
-  append-only-querying: /data-structure/querying-append-only-tables
+  append-only-querying: /replication/loading/querying-append-only-tables
   deleted-records: "/replication/deleted-record-handling"
 
 ## Replication Keys
@@ -295,6 +301,16 @@ import-api:
 
 webhooks:
   post-load: /developers/webhooks/post-load-webhooks
+
+
+# -------------------------- #
+#       Analysis Tools       #
+# -------------------------- #
+## used as link.analysis-tools.[id]
+
+analysis-tools: 
+  main: /analysis-tools/
+
 
 # -------------------------- #
 #       Troubleshooting      #

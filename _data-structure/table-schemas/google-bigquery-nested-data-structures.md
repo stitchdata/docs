@@ -1,20 +1,33 @@
 ---
-title: Google BigQuery and Storing Nested Data Structures
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
+title: Understanding Loading for Nested Data Structures in Google BigQuery Destinations
+display-title: "Loading Nested Data into Google BigQuery"
+
 permalink: /replication/loading/google-bigquery-storing-nested-data-structures
-
-layout: general
-toc: true
-feedback: false
-
 keywords: google bigquery, bigquery, destination, nested data structures, repeated records, arrays
 summary: "Understand how Stitch loads nested data structures in version 2 of the Google BigQuery destination."
 
 key: "bigquery-nested-data"
+type: "loading-basics"
+
+layout: general
+toc: true
+weight: 4
 
 this-version: "2"
 
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
+
 intro: |
   {% include misc/data-files.html %}
+
+  {% include note.html type="single-line" content="**Note**: This guide is applicable only to Google BigQuery v2 destinations." %}
 
   Google BigQuery supports nested records within tables, [whether it's a single record or repeated values]({{ site.data.destinations.bigquery.resource-links.nested-record }}){:target="new"}.
 
@@ -24,7 +37,7 @@ intro: |
 
   For example: Below is a record from a table named `people`. In this table, each person can only have a single `type`, but they might have multiple `friends`:
 
-  ```json
+  {% capture code %}
   {
      "id":1,
      "name":"Finn",
@@ -47,7 +60,9 @@ intro: |
         }
      ]
   }
-  ```
+  {% endcapture %}
+
+  {% include layout/code-snippet.html code=code %}
 
   In this guide, we'll cover how this data will be loaded into Google BigQuery, including:
   
@@ -114,6 +129,11 @@ data-display-table: |
   {% endfor %}
   </table>
 
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
+
 sections:
   - title: "Storing nested maps (JSON objects)"
     anchor: "storing-nested-maps"
@@ -153,7 +173,7 @@ sections:
 
       For example: This record contains a `details` object, which contains `type` and `has_magic` keys:
 
-      ```json
+      {% capture code %}
       {
          "id":1,
          "name":"Finn",
@@ -162,7 +182,9 @@ sections:
             "has_magic":false
          }
       }
-      ```
+      {% endcapture %}
+
+      {% include layout/code-snippet.html code=code %}
 
       When records containing objects are loaded into Google BigQuery, the object is loaded using the `RECORD` type and a mode of `NULLABLE`.
 
@@ -179,7 +201,7 @@ sections:
 
       To query nested data using the [standard SQL syntax]({{ site.data.destinations.bigquery.resource-links.standard-sql-syntax }}){:target="new"}, you can use dot notation to indicate the field(s) you want to reference. For example: The sample query below will return the `id`, `name`, and `details.type` fields:
 
-      ```sql
+      {% capture code %}
       SELECT id,
              name,
              details.type
@@ -190,7 +212,9 @@ sections:
       +----+------+--------------+
       | 1  | Finn | human        |
       +----+------+--------------+
-      ```
+      {% endcapture %}
+
+      {% include layout/code-snippet.html code=code %}
 
   - title: "Storing nested records (JSON arrays)"
     anchor: "storing-nested-records"
@@ -261,14 +285,16 @@ sections:
         content: |
           In this example, the record contains two arrays: `friends`, an array of strings, and `friend_ids`, an array of integers:
 
-          ```json
+          {% capture code %}
           {
              "id":1,
              "name":"Finn",
              "friends":["Jake","Bubblegum","BMO"],
              "friend_ids":[2, 3, 4]
           }
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code %}
 
           The above record would create this table schema in Google BigQuery:
 
@@ -331,7 +357,7 @@ sections:
         content: |
           In this example, the record contains a single array named `friends`, which contains a series of objects:
 
-          ```json
+          {% capture code %}
           {
              "id":1,
              "name":"Finn",
@@ -350,7 +376,9 @@ sections:
                 }
              ]
           }
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code %}
 
           The above record would create this table schema in Google BigQuery:
 
@@ -409,7 +437,7 @@ sections:
         content: |
           In this example, the record contains an array (`friend_ids`) which contains a series of arrays:
 
-          ```json
+          {% capture code %}
           {
              "id":1,
              "name":"Finn",
@@ -418,7 +446,7 @@ sections:
                 [4,5]
              ]
           }
-          ```
+          {% endcapture %}
 
           The above record would create this table schema in Google BigQuery:
 
@@ -476,13 +504,13 @@ sections:
         content: |
           In this example, the record contains a single array named `friend_ids`. Notice that the first two values in the array are strings (ex: `"2"` versus `2`), and the last value is an integer (ex: `4` versus `"4"`):
 
-          ```json
+          {% capture code %}
           {
              "id":1,
              "name":"Finn",
              "friend_ids":["2", "3", 4]
           }
-          ```
+          {% endcapture %}
 
           To accommodate the multiple data types, Stitch will create additional `value` columns, one for each data type, and append a data type suffix to the name of each additional column.
 
@@ -548,7 +576,7 @@ sections:
         content: |
           In this example, the record contains an array (`friend_ids`) which contains a series of nested arrays:
 
-          ```json
+          {% capture code %}
           {
              "id":1,
              "name":"Finn",
@@ -561,7 +589,9 @@ sections:
                 ]
              ]
           }
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code %}
 
           The above record would create this table schema in Google BigQuery:
 
