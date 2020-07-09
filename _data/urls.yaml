@@ -139,15 +139,15 @@ destinations:
 # -------------------------- #
 ## used as link.destinations.loading.[id]
   loading:
-    overview: /replication/reference
-    bigquery: /replication/reference/google-bigquery
-    bigquery-v1: /replication/reference/google-bigquery/v1
-    bigquery-v2: /replication/reference/google-bigquery
-    databricks-delta: /replication/reference/databricks-delta
-    panoply: /replication/reference/panoply
-    postgres: /replication/reference/postgresql
-    redshift: /replication/reference/amazon-redshift
-    snowflake: /replication/reference/snowflake
+    overview: /replication/reference/loading
+    bigquery: /replication/reference/loading/google-bigquery
+    bigquery-v1: /replication/reference/loading/google-bigquery/v1
+    bigquery-v2: /replication/reference/loading/google-bigquery
+    databricks-delta: /replication/reference/loading/databricks-delta
+    panoply: /replication/reference/loading/panoply
+    postgres: /replication/reference/loading/postgresql
+    redshift: /replication/reference/loading/amazon-redshift
+    snowflake: /replication/reference/loading/snowflake
 
 # -------------------------- #
 #        Data Storage        #
@@ -155,7 +155,7 @@ destinations:
 ## used as link.destinations.storage.[id]
   storage:
     ## GENERAL
-    loading-data: /data-structure/loading-stitch-data-into-destinations
+    loading-data: /replication/loading/reference
     loading-behavior: /replication/loading/understanding-loading-behavior
 
     ## SYSTEM COLUMNS AND TABLES

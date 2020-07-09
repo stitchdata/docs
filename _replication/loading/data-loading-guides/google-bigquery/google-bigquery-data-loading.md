@@ -4,8 +4,11 @@
 # -------------------------- #
 
 title: Google BigQuery Loading Reference
-permalink: /replication/reference/google-bigquery
-redirect_from: /data-structure/bigquery-data-loading-behavior
+permalink: /replication/loading/reference/google-bigquery
+redirect_to: /replication/loading/reference/google-bigquery/v2
+redirect_from:
+  - /replication/reference/google-bigquery
+  - /data-structure/bigquery-data-loading-behavior
 
 key: "bigquery-loading-reference"
 

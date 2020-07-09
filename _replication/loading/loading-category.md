@@ -33,7 +33,7 @@ weight: 6
 # -------------------------- #
 
 intro: |
-  {% assign this-collection = site.data-structure %}
+  {% assign this-collection = site.replication %}
 
   {{ page.summary }}
 
