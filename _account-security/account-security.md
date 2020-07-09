@@ -28,6 +28,8 @@ display-summary: "Set up and manage your Stitch account."
 weight: 2
 
 intro: |
+  {% assign this-collection = site.account-security %}
+
   {{ page.summary }}
 
   {% for section in page.sections %}
@@ -47,6 +49,8 @@ sections:
         url: "{{ link.account.enterprise-features }}"
         weight: 6
     content: |
+      {% assign guides = this-collection | where_exp:"guide","guide.type contains section.type" | concat: section.additional-guides | sort:"weight" %}
+
       {% include layout/category-section-tiles.html %}
 
   - title: "Managing your team"
@@ -69,12 +73,16 @@ sections:
         url: "{{ link.troubleshooting.troubleshoot-account-lockout }}"
         weight: 5
     content: |
+      {% assign guides = this-collection | where_exp:"guide","guide.type contains section.type" | concat: section.additional-guides | sort:"weight" %}
+
       {% include layout/category-section-tiles.html %}
 
   - title: "Managing notifications"
     anchor: "manage-notifications-category"
     type: "notifications"
     content: |
+      {% assign guides = this-collection | where_exp:"guide","guide.type contains section.type" | sort:"weight" %}
+
       {% include layout/category-section-tiles.html %}
 
   - title: "Managing billing and row usage"
@@ -105,6 +113,8 @@ sections:
         url: "{{ link.troubleshooting.troubleshoot-payment-processing-errors }}"
         weight: 7
     content: |
+      {% assign guides = this-collection | where_exp:"guide","guide.type contains section.type" | concat: section.additional-guides | sort:"weight" %}
+
       {% include layout/category-section-tiles.html %}
 
   - title: "Managing account security"
@@ -127,5 +137,7 @@ sections:
         url: "{{ link.security.faq }}#security-issues"
         weight: 6
     content: |
+      {% assign guides = this-collection | where_exp:"guide","guide.type contains section.type" | concat: section.additional-guides | sort:"weight" %}
+
       {% include layout/category-section-tiles.html %}
 ---
