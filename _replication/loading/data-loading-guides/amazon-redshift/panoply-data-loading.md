@@ -3,20 +3,23 @@
 #          PAGE INFO         #
 # -------------------------- #
 
-title: PostgreSQL Data Loading Reference
-permalink: /replication/reference/postgresql/
-redirect_from: /data-structure/postgresql-data-loading-behavior
-keywords: postgres, postgres data warehouse, postgres data warehouse, postgres etl, etl to postgres
-summary: "Learn how Stitch will load data from your integrations into Stitch's PostgreSQL destination."
+title: Panoply Data Loading Reference
+permalink: /replication/loading/reference/panoply
+redirect_from: 
+  - /replication/reference/panoply/
+  - /data-structure/panoply-data-loading-behavior
+keywords: panoply, panoply data warehouse, panoply data warehouse, panoply etl, etl to panoply
+summary: "Learn how Stitch will load data from your integrations into Stitch's Panoply destination."
 
-key: "postgresql-loading-reference"
+key: "panoply-loading-reference"
 
-content-type: "loading-reference"
 layout: general
+content-type: "loading-reference"
 
-display_name: "PostgreSQL"
-type: "postgres"
-this-version: "1"
+display_name: "Panoply"
+type: "redshift"
+branded: true
+this-version: "2"
 
 
 # -------------------------- #
@@ -32,10 +35,10 @@ intro: |
   - [{{ section.summary | flatify | remove: "Scenarios involving " | remove: "." | | capitalize | strip }}](#{{ section.anchor }})
   {% endfor %}
   
-  {% assign destination-reference = site.data.destinations.postgres %}
+  {% assign destination-reference = site.data.destinations.redshift %}
 
-## The data & copy for PostgreSQL scenarios live here: _data/dataloading/postgres
-## The error messages for PostgreSQL live here: _data/errors/loading/postgres.yml
+## The data & copy for Amazon Redshift scenarios live here: _data/dataloading/redshift
+## The error messages for Amazon Redshift live here: _data/errors/loading/redshift.yml
 ## The data & copy for 'default' scenarios live here: _data/dataloading/scenarios
 
 
@@ -44,19 +47,6 @@ intro: |
 # -------------------------- #
 
 sections:
-  - title: "Applicable destination types"
-    anchor: "applicable-destination-types"
-    summary: "The destinations this guide is applicable to"
-    content: |
-      This guide is applicable to the all variations of the {{ page.display_name }} destination, including:
-
-      {% assign setup-destinations = site.destinations | where:"content-type","destination-setup" %}
-      {% assign postgres-destinations = setup-destinations | where:"type","postgres" | sort:"title" %}
-
-      {% for destination in postgres-destinations %}
-      - [{{ destination.title | remove: "Connecting an " | remove: "Connecting a " | remove: " Destination to Stitch" }}]({{ destination.url | prepend: site.baseurl }})
-      {% endfor %}
-
   - title: "Primary Key scenarios"
     anchor: "primary-key-scenarios"
     summary: |

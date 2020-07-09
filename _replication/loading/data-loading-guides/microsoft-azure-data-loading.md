@@ -4,8 +4,10 @@
 # -------------------------- #
 
 title: Microsoft Azure Synapse Analytics Data Loading Behavior
-permalink: /data-structure/microsoft-azure-synapse-analytics-loading-behavior
-redirect_from: /data-structure/microsoft-azure-data-loading-behavior
+permalink: /replication/loading/reference/microsoft-azure-synapse-analytics
+redirect_from: 
+  - /data-structure/microsoft-azure-synapse-analytics-loading-behavior
+  - /data-structure/microsoft-azure-data-loading-behavior
 keywords: microsoft azure, google microsoft azure data warehouse, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure
 summary: "Learn how Stitch will load data from your integrations and handle various scenarios into a Microsoft Azure Synapse Analytics destination."
 

@@ -4,8 +4,10 @@
 # -------------------------- #
 
 title: Destination Data Loading Reference Guides
-permalink: /replication/reference
-redirect_from: /data-structure/loading-stitch-data-into-destinations
+permalink: /replication/loading/reference
+redirect_from:
+  - /replication/reference
+  - /data-structure/loading-stitch-data-into-destinations
 keywords: loading behavior, loading, how data is loaded, data structure
 summary: "Every destination handles data differently. Learn about what your destination supports, what it doesn't, and how Stitch will load your data as a result."
 
@@ -37,7 +39,7 @@ sections:
   - title: "Select your destination"
     anchor: "select-destination"
     content: |
-      {% assign data-loading-guides = site.data-structure | where:"content-type","loading-reference" | sort: "display_name" %}
+      {% assign data-loading-guides = site.replication | where:"content-type","loading-reference" | sort: "display_name" %}
 
       <ul class="tiles three-columns">
       {% for guide in data-loading-guides %}

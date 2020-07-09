@@ -3,21 +3,20 @@
 #          PAGE INFO         #
 # -------------------------- #
 
-title: Google BigQuery (v2) Data Loading Reference
-permalink: /replication/reference/google-bigquery
-redirect_from: /data-structure/bigquery-data-loading-behavior
-keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery
-summary: "Learn how Stitch will load data from your integrations into version 2 of Stitch's Google BigQuery destination."
+title: Databricks Delta (v1) Data Loading Reference
+permalink: /replication/loading/reference/databricks-delta
+redirect_from: /replication/reference/databricks-delta
+keywords: databricks delta, databricks delta data warehouse, databricks data warehouse, databricks etl, etl to databricks
+summary: "Learn how Stitch will load data from your integrations into Stitch's Databricks Delta destination."
 
-key: "bigquery-loading-reference"
+key: "databricks-delta-loading-reference"
 
 layout: general
 content-type: "loading-reference"
 
-connection-type: "destination"
-display_name: "Google BigQuery"
-type: "bigquery"
-this-version: "2"
+display_name: "Databricks Delta"
+type: "databricks-delta"
+this-version: "1"
 
 
 # -------------------------- #
@@ -25,13 +24,6 @@ this-version: "2"
 # -------------------------- #
 
 intro: |
-  {{ page_name }}
-  {% capture version-notice %}
-  **Note**: This guide is specific to **version 2** of the Google BigQuery destination. For info about data loading for version 1, refer to [version 1 of this guide]({{ link.destinations.loading.bigquery-v1 | prepend: site.baseurl }}).
-  {% endcapture %}
-
-  {% include note.html type="single-line" content=version-notice %}
-
   {{ page.summary }}
 
   In this guide, we'll cover data loading scenarios involving: 
@@ -40,10 +32,10 @@ intro: |
   - [{{ section.summary | flatify | remove: "Scenarios involving " | remove: "." | | capitalize | strip }}](#{{ section.anchor }})
   {% endfor %}
   
-  {% assign destination-reference = site.data.destinations.bigquery %}
+  {% assign destination-reference = site.data.destinations.databricks-delta %}
 
-## The data & copy for BigQuery scenarios live here: _data/dataloading/bigquery
-## The error messages for BigQuery live here: _data/errors/loading/bigquery.yml
+## The data & copy for Databricks Delta scenarios live here: _data/dataloading/databricks-delta
+## The error messages for Databricks Delta live here: _data/destinations/databricks-delta/loading-errors.yml
 ## The data & copy for 'default' scenarios live here: _data/dataloading/scenarios
 
 
@@ -60,7 +52,7 @@ sections:
       {% include data-structure/data-loading-tabs.html category="primary-keys"%}
 
   - title: "Replication Key scenarios"
-    anchor: "replication-keys-scenarios"
+    anchor: "replication-key-scenarios"
     summary: |
       {{ site.data.dataloading.scenarios.replication-keys.description }}
     content: |
@@ -74,7 +66,7 @@ sections:
       {% include data-structure/data-loading-tabs.html category="object-names" %}
 
   - title: "Table scenarios"
-    anchor: "table-scenarios"
+    anchor: "table-name-scenarios"
     summary: |
       {{ site.data.dataloading.scenarios.tables.description }}
     content: |

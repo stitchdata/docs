@@ -3,21 +3,20 @@
 #          PAGE INFO         #
 # -------------------------- #
 
-title: Panoply Data Loading Reference
-permalink: /replication/reference/panoply/
-redirect_from: /data-structure/panoply-data-loading-behavior
-keywords: panoply, panoply data warehouse, panoply data warehouse, panoply etl, etl to panoply
-summary: "Learn how Stitch will load data from your integrations into Stitch's Panoply destination."
+title: Google BigQuery (v1) Data Loading Reference
+permalink: /replication/loading/reference/google-bigquery/v1/
+redirect_from: /replication/reference/google-bigquery/v1/
+keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery
+summary: "Learn how Stitch will load data from your integrations into version 2 of Stitch's Google BigQuery destination."
 
-key: "panoply-loading-reference"
+key: "bigquery-loading-reference"
 
 layout: general
 content-type: "loading-reference"
 
-display_name: "Panoply"
-type: "redshift"
-branded: true
-this-version: "2"
+display_name: "Google BigQuery"
+type: "bigquery"
+this-version: "1"
 
 
 # -------------------------- #
@@ -25,6 +24,12 @@ this-version: "2"
 # -------------------------- #
 
 intro: |
+  {% capture version-notice %}
+  **Note**: This guide is specific to **version 1** of the Google BigQuery destination. For info about data loading for version 2, refer to [version 2 of this guide]({{ link.destinations.loading.bigquery-v2 | prepend: site.baseurl }}).
+  {% endcapture %}
+
+  {% include note.html type="single-line" content=version-notice %}
+
   {{ page.summary }}
 
   In this guide, we'll cover data loading scenarios involving: 
@@ -33,10 +38,10 @@ intro: |
   - [{{ section.summary | flatify | remove: "Scenarios involving " | remove: "." | | capitalize | strip }}](#{{ section.anchor }})
   {% endfor %}
   
-  {% assign destination-reference = site.data.destinations.redshift %}
+  {% assign destination-reference = site.data.destinations.bigquery %}
 
-## The data & copy for Amazon Redshift scenarios live here: _data/dataloading/redshift
-## The error messages for Amazon Redshift live here: _data/errors/loading/redshift.yml
+## The data & copy for BigQuery scenarios live here: _data/dataloading/bigquery
+## The error messages for BigQuery live here: _data/errors/loading/bigquery.yml
 ## The data & copy for 'default' scenarios live here: _data/dataloading/scenarios
 
 

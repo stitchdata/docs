@@ -3,20 +3,22 @@
 #          PAGE INFO         #
 # -------------------------- #
 
-title: Amazon Redshift Data Loading Reference
-permalink: /replication/reference/amazon-redshift/
-redirect_from: /data-structure/redshift-data-loading-behavior
-keywords: redshift, redshift data warehouse, redshift data warehouse, redshift etl, etl to redshift
-summary: "Learn how Stitch will load data from your integrations into Stitch's Amazon Redshift destination."
+title: Snowflake Data Loading Reference
+permalink: /replication/loading/reference/snowflake/
+redirect_from: 
+  - /replication/reference/snowflake/
+  - /data-structure/snowflake-data-loading-behavior
+keywords: snowflake, snowflake data warehouse, snowflake data warehouse, snowflake etl, etl to snowflake
+summary: "Learn how Stitch will load data from your integrations into Stitch's Snowflake destination."
 
-key: "redshift-loading-reference"
+key: "snowflake-loading-reference"
 
 layout: general
 content-type: "loading-reference"
 
-display_name: "Amazon Redshift"
-type: "redshift"
-this-version: "2"
+display_name: "Snowflake"
+type: "snowflake"
+this-version: "1"
 
 
 # -------------------------- #
@@ -32,10 +34,10 @@ intro: |
   - [{{ section.summary | flatify | remove: "Scenarios involving " | remove: "." | | capitalize | strip }}](#{{ section.anchor }})
   {% endfor %}
   
-  {% assign destination-reference = site.data.destinations.redshift %}
+  {% assign destination-reference = site.data.destinations.snowflake %}
 
-## The data & copy for Amazon Redshift scenarios live here: _data/dataloading/redshift
-## The error messages for Amazon Redshift live here: _data/errors/loading/redshift.yml
+## The data & copy for Snowflake scenarios live here: _data/dataloading/snowflake
+## The error messages for Snowflake live here: _data/errors/loading/snowflake.yml
 ## The data & copy for 'default' scenarios live here: _data/dataloading/scenarios
 
 
@@ -44,15 +46,6 @@ intro: |
 # -------------------------- #
 
 sections:
-  - title: "Applicable destination types"
-    anchor: "applicable-destination-types"
-    summary: "The destinations this guide is applicable to"
-    content: |
-      This guide is applicable to the all variations of the {{ page.display_name }} destination, including:
-
-      - [Amazon Redshift]({{ link.destinations.overviews.redshift | prepend: site.baseurl }})
-      - [Panoply]({{ link.destinations.overviews.panoply | prepend: site.baseurl }})
-
   - title: "Primary Key scenarios"
     anchor: "primary-key-scenarios"
     summary: |
