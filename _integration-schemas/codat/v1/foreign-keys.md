@@ -63,6 +63,20 @@ foreign-keys:
       - table: "payments"
       - table: "profit_and_loss"
       - table: "suppliers"
+      - table: "connections"
+        join-on: "companyId"
+      - table: "events"
+        join-on: "companyId"
+      - table: "items"
+        join-on: "companyId"
+      - table: "journal_entries"
+        join-on: "companyId"
+      - table: "tax_rates"
+        join-on: "companyId"
+      - table: "bill_payment"
+        join-on: "companyId"
+      - table: "bank_account_transactions"
+        join-on: "companyId"       
 
   - id: "credit-note-id"
     attribute: "creditNoteId"
@@ -118,4 +132,62 @@ foreign-keys:
         join-on: "supplierRef"
       - table: "suppliers"
         join-on: "id"
+
+  - id: "connection-id"
+    attribute: "id"
+    table: "connections"
+    all-foreign-keys:
+      - table: "connections"
+        join-on: "id"
+
+  - id: "event-time"
+    attribute: "eventTimeUtc" 
+    table: "events"
+    all-foreign-keys:
+      - table: "events"
+        join-on: "eventTimeUtc" 
+
+  - id: "item-id"
+    attribute: "id" 
+    table: "items"
+    all-foreign-keys:
+      - table: "items"
+        join-on: "id"
+        
+  - id: "journal-id"
+    attribute: "id" 
+    table: "journal_entries"
+    all-foreign-keys:
+      - table: "journal_entries"
+        join-on: "id"
+
+  - id: "tax-id"
+    attribute: "id" 
+    table: "tax_rates"
+    all-foreign-keys:
+      - table: "tax_rates"
+        join-on: "id"
+
+  - id: "bill-payment-id"
+    attribute: "id" 
+    table: "bill_payments"
+    all-foreign-keys:
+      - table: "bill_payments"
+        join-on: "id"
+
+  - id: "transaction-index-id"
+    attribute: "_transactionIndex" 
+    table: "bank_account_transactions"
+    all-foreign-keys:
+      - table: "bank_account_transactions"
+        join-on: "_transactionIndex"
+  
+  - id: "bank-account-id"
+    attribute: "id" 
+    table: "bank_accounts"
+    all-foreign-keys:
+      - table: "bank_accounts"
+        join-on: "id"        
+      - table: "bank_account_transactions"
+        join-on: "bankAccountId"                           
 ---
