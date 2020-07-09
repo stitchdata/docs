@@ -1,19 +1,15 @@
 <!-- Used to generate the tiles containing
     links on category pages. -->
 
-{% if section.additional-guides %}
-  {% assign guides = site[page.collection] | where_exp:"guide","guide.type contains section.type" | concat: section.additional-guides | sort:"weight" %}
-
-{% else %}
-
-  {% assign guides = site[page.collection] | where_exp:"guide","guide.type contains section.type" | sort:"weight" %}
-{% endif %}
-
 <ul class="tiles two-columns">
   {% for guide in guides %}
       <li class="category-page">
           <a href="{{ guide.url | flatify |  prepend: site.baseurl }}">
-              {{ guide.title | flatify }}
+          	{% if guide.display-title %}
+          		{{ guide.display-title | flatify }}
+          	{% else %}
+                {{ guide.title | flatify }}
+            {% endif %}
           </a>
       </li>
   {% endfor %}
