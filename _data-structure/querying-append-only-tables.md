@@ -1,68 +1,173 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Querying Append-Only Tables
-permalink: /data-structure/querying-append-only-tables
-tags: [destinations, bigquery_destination]
+permalink: /replication/loading/querying-append-only-tables
+redirect_from: /data-structure/querying-append-only-tables
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery, append-only, append only, query append only
-summary: "In this article, we'll cover how append-only replication works and how to account for it in your queries."
-weight: 4.0
-toc: true
+summary: "Learn how Append-only Loading works and how to account for it in your queries."
 
 key: "append-only-querying"
+type: ""
+
+layout: general
+toc: true
+order: 1
+content-type: "guide"
 
 destination: "BigQuery"
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
+
+intro: |
+  {% capture note %}
+  - [Destinations configured to use Append-Only Loading]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl | append:"#reference--destinations-loading-behavior" }}), or
+  - Tables configured to use Append-Only Loading, such as [Google Ads]({{ site.baseurl }}/integrations/saas/google-ads#replication)
+
+  Additionally, note that you may need to modify the query in this guide to use it yourself.
+  {% endcapture %}
+
+  {% include note.html first-line="**This guide is applicable to:**" content=note %}
+
+  When data is loaded using [Append-Only Loading]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl | append:"#reference--destinations-loading-behavior" }}), existing records aren't updated, but instead appended to tables as new rows. This means that as time goes on, tables will contain different versions of the same record, reflecting how the record has changed over time.
+
+  While data stored this way can provide insights and historical details, sometimes you may just want the latest version of a record. In this guide, we'll cover:
+
+  {% for section in page.sections %}
+  - [{{ section.summary }}](#{{ section.anchor }})
+  {% endfor %}
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
+
+sections:
+  - title: "Using system columns to identify record versions"
+    anchor: "using-system-column"
+    summary: "Columns you can use to identify record versions"
+    content: |
+      Every table created by Stitch contains columns prepended with `{{ system-column.prefix }}`. These are system columns created and used by Stitch to load data into your destination.
+
+      For this guide, we'll focus on just two columns:
+
+      <table>
+      <tr>
+      <td class="attribute-name">
+      <strong>Column name</strong>
+      </td>
+      <td>
+      <strong>Description</strong>
+      </td>
+      </tr>
+      <tr>
+      <td class="attribute-name">
+      <strong>{{ system-column.sequence }}</strong>
+      </td>
+      <td>
+      {{ system-column.sequence-description | flatify | markdownify }} 
+
+      {{ "Stitch uses this column's values in a few places to correctly order rows for loading, but it can be also used to retrieve the latest version of a record from an Append-Only table." | markdownify }} 
+
+      This is the primary column our strategy will use.
+      </td>
+      </tr>
+      <tr>
+      <td class="attribute-name">
+      <strong>{{ system-column.batched-at }}</strong>
+      </td>
+      <td>
+      {{ system-column.batched-at-description | flatify | markdownify }}
+
+      Our strategy will use this column as a "tie breaker."
+      </td>
+      </tr>
+      </table>
+
+  - title: "Retrieving the latest version of every record"
+    anchor: "latest-version-every-row"
+    summary: "A querying strategy that retrieves the latest version of every record"
+    content: |
+      {% include note.html type="single-line" content="**Note**: The query in this section is only intended to demonstrate a querying strategy. You may need to modify this query to use it yourself." %}
+
+      Let's take a look at an example. Assume we have an `orders` table that contains:
+
+      - A Primary Key of `id`,
+      - The system `{{ system-column.prefix }}` columns added by Stitch, and
+      - Other order attribute columns
+
+    subsections:
+      - title: "Only using {{ system-column.sequence }}"
+        anchor: "example--only-sdc-sequence"
+        content: |
+          If you wanted to create a snapshot of the latest version of this table, you could run a query like this using `{{ system-column.sequence }}`:
+
+          {% capture code %}
+              SELECT DISTINCT orders.*
+                     FROM [stitch-analytics-bigquery-123:ecommerce.orders] orders
+               INNER JOIN (
+                            SELECT id,
+                                   MAX({{ system-column.sequence }}) AS sequence
+                              FROM [stitch-analytics-bigquery-123:ecommerce.orders]
+                            GROUP BY id
+                          ) latest_orders
+                       ON orders.id = latest_orders.id
+                      AND orders.{{ system-column.sequence }} = latest_orders.sequence
+          {% endcapture %}
+
+          {% assign description = "Example only using " | append: system-column.sequence %}
+
+          {% include layout/code-snippet.html code=code code-description=description %}
+
+          Here's what's happening in this query:
+
+          1. The subquery retrieves a list of every record's Primary Key and maximum `{{ system-column.sequence }}` value.
+          2. The outer query selects distinct versions of the latest version of every record.
+          3. Lastly, the outer query joins the table to the list retrieved by the subquery, which makes all other columns available for querying.
+
+      - title: "Using {{ system-column.batched-at }} as a tie breaker"
+        anchor: "using--sdc-batched-at"
+        content: |
+          If only using `{{ system-column.sequence }}` doesn't yield the desired results, we recommend using `{{ system-column.batched-at }}` as a "tie breaker":
+
+          {% capture code %}
+              SELECT DISTINCT orders.*
+                     FROM [stitch-analytics-bigquery-123:ecommerce.orders] orders
+               INNER JOIN (
+                            SELECT id,
+                                   MAX({{ system-column.sequence }}) AS sequence,
+                                   MAX({{ system-column.batched-at }}) as batched_at
+                              FROM [stitch-analytics-bigquery-123:ecommerce.orders]
+                            GROUP BY id
+                          ) latest_orders
+                       ON orders.id = latest_orders.id
+                      AND orders.{{ system-column.sequence }} = latest_orders.sequence
+                      AND orders.{{ system-column.batched-at }} = latest_orders.batched_at
+          {% endcapture %}
+
+          {% assign description = "Example using " | append: system-column.sequence | append: " and " | append: system-column.batched-at %}
+
+          {% include layout/code-snippet.html code=code code-description=description %}
+
+          The `{{ system-column.batched-at }}` value indicates the time that Stitch loaded the batch containing the record into the destination. Selecting a record's maximum `{{ system-column.batched-at }}` and `{{ system-column.sequence }}` values excludes versions of the record from older batches from the results.
+
+  - title: "Create views in your destination"
+    anchor: "create-destination-views"
+    summary: "How to simplify querying by creating a view in your destination"
+    content: |
+      To make this easier, you can turn queries like the one above into a view. We recommend this approach because a view will encapsulate all the logic and simplify the process of querying against the latest version of your data.
+
+      Refer to the documentation for your destination for more info on creating views:
+
+      - [Amazon Redshift]({{ site.data.destinations.redshift.resource-links.create-views }}){:target="new"}
+      - [Google BigQuery]({{ site.data.destinations.bigquery.resource-links.create-views }}){:target="new"}
+      - [Microsoft Synapse SQL Analytics]({{ site.data.destinations.microsoft-azure.resource-links.create-views }}){:target="new"}
+      - [PostgreSQL]({{ site.data.destinations.postgres.resource-links.create-views }}){:target="new"}
+      - [Snowflake]({{ site.data.destinations.snowflake.resource-links.create-views }}){:target="new"}
 ---
 {% include misc/data-files.html %}
-
-{% capture note %}The querying strategy outline here can be applied to any table that is loaded in an <a href="#" data-toggle="tooltip" data-original-title="{{site.data.tooltips.append-only-rep}}">Append-Only</a> manner. This is applicable to **BigQuery** and **Amazon S3 (CSV) destinations**. {% endcapture %}
-
-{% include note.html type="single-line" content=note %}
-
-{{ site.data.tooltips.append-only-rep }}
-
-For tables using Incremental Replication, Stitch currently loads data into Google BigQuery in an append-only fashion. This means that as time goes on, tables will wind up containing many different versions of the same row.
-
-Data stored this way can provide insights and historical details about how those rows have changed over time - creating a timeline of the status changes of an order record, for example - but in some cases, you might just want the latest version of the table.
-
----
-
-## Grab the latest version of every row {#latest-version-every-row}
-
-In each Stitch-generated integration table, you'll see a few columns prepended with `{{ system-column.prefix }}`. The column we'll focus on here is the `{{ system-column.sequence }}` column. This column is a Unix epoch (down to the millisecond) attached to the record during replication and can help determine the order of all the versions of a row.
-
-Stitch uses these sequence values in a few places to correctly order rows for loading, but it can be also used to grab the latest version of a record in an append-only table.
-
-Let's take a look at an example. Assume we have an `orders` table that contains:
-
-- A Primary Key of `id`,
-- The system `{{ system-column.prefix }}` columns added by Stitch, and
-- Other order attribute columns
-
-If you wanted to create a snapshot of the latest version of this table, you could run a query like this:
-
-```sql
-    SELECT DISTINCT o.*
-      FROM [stitch-analytics-bigquery-123:ecommerce.orders] o
-INNER JOIN (
-     SELECT id,
-            MAX({{ system-column.sequence }}) AS seq,
-            MAX({{ system-column.batched-at }}) AS batch
-    FROM [stitch-analytics-bigquery-123:ecommerce.orders]
-    GROUP BY id) oo
-ON o.id = oo.id
-AND o.{{ system-column.sequence }} = oo.seq
-AND o.{{ system-column.batched-at }} = oo.batch
-```
-
-This approach uses a subquery to get a single list of every row's Primary Key, maximum sequence number, and maximum batched at timestamp. Since it's possible to have duplicate records in your warehouse, the query also selects only distinct records of the latest version of the row. It then joins the original table to the Primary Key, maximum sequence, and maximum batched at, which makes all other column values available for querying.
-
----
-
-## Create views in your data warehouse
-
-To make this easier, you can turn queries like the one above into a view. We recommend this approach because a view will encapsulate all the logic and simplify the process of querying against the latest version of your data.
-
-For more info on creating views in the data warehouses Stitch supports, check out these docs:
-
-- [Creating views in Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_VIEW.html){:target="new"}
-- [Creating views in Google BigQuery](https://cloud.google.com/bigquery/querying-data#views){:target="new"}
-- [Creating views in PostgreSQL](https://www.postgresql.org/docs/9.4/static/sql-createview.html){:target="new"}
