@@ -93,7 +93,7 @@ sections:
     anchor: "latest-version-every-row"
     summary: "A querying strategy that retrieves the latest version of every record"
     content: |
-      {% include note.html type="single-line" content="**Note**: The query in this section is only intended to demonstrate a querying strategy. You may need to modify this query to use it yourself." %}
+      {% include note.html type="single-line" content="**Note**: The queries in this section are only intended to demonstrate one approach to querying. You may need to modify the queries to use them yourself." %}
 
       Let's take a look at an example. Assume we have an `orders` table that contains:
 
