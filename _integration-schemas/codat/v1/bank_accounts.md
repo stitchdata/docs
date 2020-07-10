@@ -4,26 +4,33 @@ version: "1"
 key: ""
 
 name: "bank_accounts"
-doc-link: ""
+doc-link: "https://docs.codat.io/docs/bank-accounts"
 singer-schema: "https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/bank_accounts.json"
-description: ""
+description: |
+  The `{{ table.name }}` table contains informaiton about bank accounts for a given company in your {{ integration.display_name }} account.
 
-replication-method: ""
+replication-method: "Full Table"
 
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getBankAccounts"
+    doc-link: "https://docs.codat.io/reference/bankaccounts#bankaccounts_listaccountspaged"
 
 attributes:
   - name: "accountName"
     type: "string"
-    description: ""
+    primary-key: true
+    description: "The account name."
+    foreign-key-id: "account-name"
   - name: "companyId"
     type: "string"
-    description: ""
+    primary-key: true
+    description: "The company ID."
+    foreign-key-id: "company-id"
   - name: "connectionId"
     type: "string"
-    description: ""  
+    primary-key: true
+    description: "The connection ID."  
+    foreign-key-id: "connection-id"
     
   - name: "accountNumber"
     type: "string"

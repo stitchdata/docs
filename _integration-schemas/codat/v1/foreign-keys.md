@@ -76,7 +76,9 @@ foreign-keys:
       - table: "bill_payment"
         join-on: "companyId"
       - table: "bank_account_transactions"
-        join-on: "companyId"       
+        join-on: "companyId"
+      - table: "bank_accounts"
+        join-on: "companyId"     
 
   - id: "credit-note-id"
     attribute: "creditNoteId"
@@ -139,6 +141,8 @@ foreign-keys:
     all-foreign-keys:
       - table: "connections"
         join-on: "id"
+      - table: "bank_accounts"
+        join-on: "connection-id"  
 
   - id: "event-time"
     attribute: "eventTimeUtc" 
@@ -189,5 +193,14 @@ foreign-keys:
       - table: "bank_accounts"
         join-on: "id"        
       - table: "bank_account_transactions"
-        join-on: "bankAccountId"                           
+        join-on: "bankAccountId" 
+
+- id: "account-name"
+    attribute: "name" 
+    table: "accounts"
+    all-foreign-keys:
+      - table: "accounts"
+        join-on: "name"
+      - table: "bank_accounts"
+        join-on: "accountName"                                    
 ---

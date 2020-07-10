@@ -48,6 +48,7 @@ attributes:
   - name: "name"
     type: "string"
     description: "The name of the account."
+    foreign-key-id: "account-name"
 
   - name: "nominalCode"
     type: "string"
