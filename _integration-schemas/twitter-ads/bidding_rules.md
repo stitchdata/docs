@@ -1,0 +1,26 @@
+---
+tap: "twitter-ads"
+version: "0.x"
+key: ""
+name: "bidding_rules"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/bidding_rules.json"
+description: ""
+replication-method: ""
+api-method:
+    name: ""
+    doc-link: ""
+attributes:
+  - name: "currency"
+    type: "string"
+    description: ""
+  - name: "maximum_cpe_bid_local_micro"
+    type: "integer"
+    description: ""
+  - name: "minimum_cpe_bid_local_micro"
+    type: "integer"
+    description: ""
+  - name: "minimum_denomination"
+    type: "integer"
+    description: ""
+---
