@@ -12,43 +12,45 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: SAAS-INTEGRATION
-permalink: /integrations/saas/saas-integration
-keywords: saas-integration, integration, schema, etl saas-integration, saas-integration etl, saas-integration schema
+title: Twitter Ads
+permalink: /integrations/saas/twitter-ads
+keywords: twitter-ads, integration, schema, etl twitter-ads, twitter-ads etl, twitter-ads schema
 layout: singer
 # input: false
 
-key: "saas-integration-setup"
+key: "twitter-ads-setup"
 
 
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
 
-name: "saas-integration"
-display_name: "SAAS-INTEGRATION"
+name: "twitter-ads"
+display_name: "Twitter Ads"
 
 singer: true
 status-url: ""
 
-tap-name: ""
-repo-url: https://github.com/singer-io/tap-saas-integration
+tap-name: "twitter-ads"
+repo-url: https://github.com/singer-io/tap-twitter-ads
 
-this-version: ""
+this-version: "1"
 
 api: |
-  [](){:target="new"}
+  [Twitter Ads API v.7](https://developer.twitter.com/en/docs/ads/general/overview){:target="new"}
 
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-certified: true 
+certified: true
+
+api-type: "platform.twitter-ads"
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free/Standard/Enterprise"
+tier: "Free"
 
 anchor-scheduling: true
 cron-scheduling: true
@@ -56,8 +58,8 @@ cron-scheduling: true
 extraction-logs: true
 loading-reports: true
 
-table-selection: true/false
-column-selection: true/false
+table-selection: true
+column-selection: true
 
 # attribution-window: "# days"
 # attribution-is-configurable: 
@@ -88,17 +90,13 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
-requirements-list:
-  - item: ""
-  - item: ""
-
-requirements-info:
-
 setup-steps:
-  - title: ""
-    anchor: ""
+  - title: "Retrieve account ID"
+    anchor: "retrieve-account-id"
     content: |
-      [Add content]
+      1. Login to your {{ integration.display_name }} account.
+      2. Select the ads account that you'd like to integrate.
+      
   - title: "add integration"
     # content: |
       # starting with 4., add instructions for additional fields in UI. EX:
@@ -113,7 +111,7 @@ setup-steps:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/saas-integration
+# Each table has a its own .md file in /_integration-schemas/twitter-ads
 
 
 # Remove this if you don't need it:
