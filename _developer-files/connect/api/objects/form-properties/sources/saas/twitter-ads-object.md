@@ -15,16 +15,16 @@
 product-type: "connect"
 content-type: "api-form"
 form-type: "source"
-key: "source-form-properties-[integration]-object"
+key: "source-form-properties-twitter-ads-object"
 
 
 # -------------------------- #
 #        OBJECT INFO         #
 # -------------------------- #
 
-title: "[INTEGRATION] Source Form Property"
-api-type: "platform.[integration]"
-display-name: "[INTEGRATION]"
+title: "Twitter Ads Source Form Property"
+api-type: "platform.twitter-ads"
+display-name: "Twitter Ads"
 
 source-type: "saas"
 docs-name: "" # This should be whatever integration.name is. Ex: LinkedIn Ads is linkedin-ads
