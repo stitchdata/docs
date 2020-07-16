@@ -14,20 +14,20 @@
 
     {% when 'data-structure' %}
         {% assign item = structure %}
-        {% assign items = data-structures | sort:"title" %}
+        {% assign items = data-structures | sort_natural:"title" %}
 
     {% when 'form-property' %}
         {% case include.subtype %}
             {% assign all-form-properties = all-docs | where:"content-type","api-form" %}
 
             {% when 'destination' %}
-                {% assign form-properties = all-docs | where:"form-type","destination" | sort: "title" %}
+                {% assign form-properties = all-docs | where:"form-type","destination" | sort_natural: "title" %}
 
             {% when 'source' %}
-                {% assign form-properties = all-docs | where:"form-type","source" | sort: "title" %}
+                {% assign form-properties = all-docs | where:"form-type","source" | sort_natural: "title" %}
 
             {% else %}
-                {% assign form-properties = all-docs | where:"content-type","api-form" | sort: "title" %}
+                {% assign form-properties = all-docs | where:"content-type","api-form" | sort_natural: "title" %}
         {% endcase %}
 
             {% assign item = form-property %}

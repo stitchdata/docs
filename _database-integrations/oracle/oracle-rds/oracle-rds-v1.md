@@ -83,6 +83,7 @@ set-default-replication-method: true
 default-replication-method-required: true
 
 log-based-replication-minimum-version: "8.0"
+log-based-replication-maximum-version: "18c"
 log-based-replication-master-instance: true
 log-based-replication-read-replica: false
 
@@ -114,6 +115,11 @@ requirements-list:
         - **Create users and grant privileges.** The [`CREATE USER`]({{ site.data.taps.links[integration.db-type]reference-docs.create-user }}){:target="new"} and [`GRANT`]({{ site.data.taps.links[integration.db-type]reference-docs.grant }}){:target="new"} privileges are required to create a database user for Stitch and grant the necessary privileges to the user.
 
         - **`GRANT` access to the objects you want to replicate.**  This is necessary to grant the privileges necessary for selecting data to the Stitch database user. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.db-type]reference-docs.grant }}){:target="new"} for more info.
+
+  - item: |
+      **If using Log-based Incremental Replication, you need**:
+
+      - **A database using Oracle {{ integration.log-based-replication-minimum-version }} through {{ integration.log-based-replication-maximum-version }}**. Versions earlier than {{ integration.log-based-replication-minimum-version }} and later than {{ integration.log-based-replication-maximum-version }} don't include LogMiner functionality, which is required for Log-based Incremental Replication.
 
 
 # -------------------------- #

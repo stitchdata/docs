@@ -207,7 +207,11 @@ sections:
                       "type":"integer"
                    },
                    "has_magic":{
-                      "type":"boolean"
+                      "type":"boolean",
+                   },
+                   "modified_at":{
+                      "type":"string",
+                      "format":"date-time"
                    }
                 }
              },
@@ -219,7 +223,8 @@ sections:
                       "id":1,
                       "name":"Finn",
                       "age":15,
-                      "has_magic":false
+                      "has_magic":false,
+                      "modified_at":"2018-04-30T17:00:00Z"
                    }
                 }
              ]
@@ -333,6 +338,10 @@ sections:
                    },
                    "has_magic":{
                       "type":"boolean"
+                   },
+                   "modified_at":{
+                      "type":"string",
+                      "format":"date-time"
                    }
                 }
              }
@@ -352,20 +361,21 @@ sections:
                 "id":1,
                 "name":"Finn",
                 "age":15,
-                "has_magic":false
+                "has_magic":false,
+                "modified_at":"2018-04-30T17:00:00Z"
              }
           }
           {% endcapture %}
 
-          {% assign description = "Example record sent to the Import API" %}
+          {% assign description = "Example record sent to " | append: site.data.import-api.core-objects.batch.url %}
 
           {% include layout/code-snippet.html language="json" code-description=description code=code %}
 
           This data point would create a table similar to the following, depending on the data types used by your destination:
 
-          | id (integer) | name (string)  | age (integer) | has_magic (boolean) |
-          |--------------+----------------+---------------+---------------------|
-          | 1            | Finn           | 15            | false               |
+          | id (integer) | name (string)  | age (integer) | has_magic (boolean) | modified_at (timestamp) |
+          |--------------+----------------+---------------+---------------------+-------------------------|
+          | 1            | Finn           | 15            | false               | 2018-04-30T17:00:00Z    |
           
           
           Records sent to the Import API must adhere to the JSON schema for the table that contains them, or the API will return a `400` response and an error similar to the following:
@@ -408,7 +418,9 @@ sections:
           }
           {% endcapture %}
 
-          {% include layout/code-snippet.html language="json" code=code %}
+          {% assign code-description = "Example record sent to " | append: site.data.import-api.core-objects.push.url %}
+
+          {% include layout/code-snippet.html language="json" code=code code-description=code-description %}
 
           This data point would create a table similar to the following, depending on the data types used by your destination:
 

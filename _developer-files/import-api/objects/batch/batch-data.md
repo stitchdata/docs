@@ -150,7 +150,11 @@ examples:
                   },
                   "has_magic": {
                     "type": "boolean"
-                  }
+                  },
+                  "modified_at":{
+                      "type":"string",
+                      "format":"date-time"
+                   }
                 }
               },
               "messages": [
@@ -161,7 +165,8 @@ examples:
                     "id": 1,
                     "name": "Finn",
                     "age": 15,
-                    "has_magic": false
+                    "has_magic": false,
+                    "modified_at":"2020-01-13T21:25:03+0000"
                   }
                 }
               ],
@@ -189,6 +194,10 @@ examples:
                    },
                    "has_magic":{
                       "type":"boolean"
+                   },
+                   "modified_at":{
+                      "type":"string",
+                      "format":"date-time"
                    }
                 }
              },
@@ -200,7 +209,8 @@ examples:
                       "id":2,
                       "name":"Jake",
                       "age":6,
-                      "has_magic":true
+                      "has_magic":true,
+                      "modified_at":"2020-01-13T21:25:03+0000"
                    }
                 },
                 {
@@ -210,7 +220,8 @@ examples:
                       "id":3,
                       "name":"Bubblegum",
                       "age":17,
-                      "has_magic":true
+                      "has_magic":true,
+                      "modified_at":"2020-01-14T13:34:25+0000"
                    }
                 }
              ],
@@ -235,6 +246,10 @@ examples:
                    },
                    "has_magic":{
                       "type":"boolean"
+                   },
+                   "modified_at":{
+                      "type":"string",
+                      "format":"date-time"
                    }
                 }
              },
@@ -245,7 +260,8 @@ examples:
                    "data":{
                       "name":"BMO",
                       "age":2,
-                      "has_magic":false
+                      "has_magic":false,
+                      "modified_at":"2020-01-20T05:57:01+0000"
                    }
                 }
              ]

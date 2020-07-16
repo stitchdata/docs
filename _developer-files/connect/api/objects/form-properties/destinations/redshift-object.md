@@ -13,9 +13,9 @@ key: "destination-form-properties-redshift-object"
 #        OBJECT INFO         #
 # -------------------------- #
 
-title: "Redshift Destination Form Property"
+title: "Amazon Redshift Destination Form Property"
 api-type: "redshift"
-display-name: "Redshift"
+display-name: "Amazon Redshift"
 
 docs-name: "redshift"
 db-type: "redshift"

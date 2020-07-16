@@ -87,8 +87,10 @@ notice-copy: |
   If you want to connect a {{ integration.display_name }} instance as a **destination**, refer to the [Connecting a Self-Hosted {{ integration.display_name }} Destination guide]({{ link.destinations.setup.cloudsql-postgres | prepend: site.baseurl }}).
 
 requirements-list:
+  - item: "**A database running PostgreSQL 9.3.x or greater.** PostgreSQL 9.3.x is the minimum version Stitch supports for PostgreSQL integrations."
+  - item: "**Permissions in Google Cloud that allow you to modify the database's connection settings.** This is required to whitelist Stitch's IP addresses."
   - item: "**Permissions in PostgreSQL that allow you to create users.** This is required to create a database user for Stitch."
-  - item: "**To be running PostgeSQL 9.3+ or greater**. PostgreSQL 9.3.x is the minimum version Stitch supports for PostgreSQL integrations."
+  
 
 # -------------------------- #
 #     Setup Instructions     #

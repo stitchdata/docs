@@ -33,7 +33,7 @@ description: ""
 
 
 # -------------------------- #
-#      OBJECT ATTRIBUTES     #
+#       FORM PROPERTIES      #
 # -------------------------- #
 
 uses-start-date: true
@@ -59,4 +59,22 @@ object-attributes:
 
       For example: If the shop URL was `stitch-data.shopify.com`, this value would be `stitch-data`.
     value: "stitch-data"
+
+
+# -------------------------- #
+#       OAUTH PROPERTIES     #
+# -------------------------- #
+
+oauth-link: "https://shopify.dev/tutorials/authenticate-with-oauth#the-oauth-flow"
+
+oauth-description: ""
+
+oauth-attributes:
+  - name: "api_key"
+    type: "string"
+    required: true
+    credential: true
+    description: |
+      The API key for your {{ form-property.display-name }} shop, generated via an OAuth handshake.
+    value: "<API_KEY>"
 ---

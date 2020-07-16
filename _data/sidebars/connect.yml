@@ -329,8 +329,13 @@ api:
                 method: "delete"
                 url: "{{ link.connect.api }}{{ api.core-objects.notifications.hooks.delete.anchor }}"
 
+      - title: "Connection property objects"
+        expand-by-default: false
+        sections:
+          - 
+
       - title: "Data structures"
-        expand-by-default: true
+        expand-by-default: false
         sections: 
           - title: "{{ site.data.connect.data-structures.connection-steps.title }}"
             method: "object"
@@ -383,19 +388,6 @@ api:
           - title: "{{ site.data.connect.data-structures.stream-schemas.title }}"
             method: "object"
             url: "{{ link.connect.api }}{{ site.data.connect.data-structures.stream-schemas.section }}"
-
-      - title: "Form properties"
-        expand-by-default: true
-        sections:
-          - title: "Destination forms"
-            expand-by-default: false
-            subsections:
-              - 
-
-          - title: "Source forms"
-            expand-by-default: false
-            subsections:
-              - 
 
       - title: "JavaScript reference"
         new-page: true

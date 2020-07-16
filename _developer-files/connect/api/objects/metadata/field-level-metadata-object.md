@@ -93,7 +93,7 @@ object-attributes:
 
 # source for values: https://github.com/singer-io/tap-google-analytics/blob/master/spikes/discover_metrics_and_dimensions.py#L116
   - name: "tap_google_analytics.group"
-    type: "array"
+    type: "string"
     description: |
       **For Google Analytics sources only.** The group the field belongs to. Possible values are:
 

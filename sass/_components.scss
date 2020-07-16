@@ -1,6 +1,6 @@
 .btn-default {
-	border: 2px solid $stitch-yellow;
-	color: $protocol-black;
+	border: 2px solid $lochmara;
+	color: $black;
 	border-radius: 0;
 	margin-bottom: 1rem;
 	line-height: 1.4;
@@ -42,7 +42,7 @@
 	padding: 0;
 	border-radius: 0;
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
-	border: 1px solid $gray-2;
+	border: 1px solid $gallery;
 	z-index: 1;
 
 	li {
@@ -96,14 +96,14 @@
 .githubEditButton {
 	border: 0;
 	padding: 0;
-	color: $gray-4;
+	color: $silver-chalice;
 	margin-top: 1rem;
 	font-weight: 600;
 
 	&:hover {
 		background: transparent;
 		border: 0;
-		color: $gray-4;
+		color: $silver-chalice;
 		text-decoration: underline;
 	}
 
@@ -114,8 +114,8 @@
 
 #toc {
 	ul {
-		border-top: 1px solid $gray-2;
-		border-bottom: 1px solid $gray-2;
+		border-top: 1px solid $gallery;
+		border-bottom: 1px solid $gallery;
 		margin: 1.5em 0;
 		padding: 0.75em;
 		list-style: none;
@@ -144,7 +144,7 @@
 hr,
 .shaded {
 	border: 0;
-	border-bottom: 1px solid $gray-2;
+	border-bottom: 1px solid $gallery;
 	margin: 3em 0 1em;
 	width: 100%;
 	margin-left: auto;
@@ -156,7 +156,7 @@ hr,
 table {
 	font-size: 15px;
 	max-width: calc(100% - 2px);
-	border: 1px solid $gray-2;
+	border: 1px solid $gallery;
 	background-color: $white;
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -171,7 +171,7 @@ table {
 		}
 /*		td.description {
 						code {
-							color: $magenta-relay;
+							color: $rio-grande;
 			}
 		}*/
 		td.attribute-name {
@@ -203,11 +203,11 @@ table > tfoot > tr > td {
 	padding: 1em 1em 1em 1em;
 	line-height: 1.6;
 	vertical-align: top;
-	border-top: 1px solid $gray-2;
+	border-top: 1px solid $gallery;
 }
 
 td.table-subheading {
-	background-color: $gray-2;
+	background-color: $gallery;
 }
 
 table.table-snapshot > thead > tr > th,
@@ -217,8 +217,8 @@ table.table-snapshot > thead > tr > td,
 table.table-snapshot > tbody > tr > td,
 table.table-snapshot > tfoot > tr > td {
 	padding: 0.5em;
-	border-top: 1px solid $gray-2;
-	border-bottom: 1px solid $gray-2;
+	border-top: 1px solid $gallery;
+	border-bottom: 1px solid $gallery;
 }
 
 table {
@@ -228,7 +228,7 @@ table {
 				margin: 0px 0px 15px 0px;
 			}
 			&:last-of-type {
-				border-right: 1px solid $gray-2;
+				border-right: 1px solid $gallery;
 			}
 		}
 	}
@@ -318,7 +318,7 @@ table.attribute-list {
 		}
 /*		td.description {
 						code {
-							color: $magenta-relay;
+							color: $rio-grande;
 			}
 		}*/
 		td.attribute-name {
@@ -333,7 +333,7 @@ table.attribute-list {
 
 table > thead > tr > th {
 	background-color: #f2f2f2;
-	color: $protocol-black;
+	color: $black;
 	border-bottom: 1px solid #dddddd;
 }
 
@@ -365,16 +365,16 @@ table.dataTable thead th, table.dataTable thead td {
 }
 
 table.dataTable > thead > tr > th {
-	background-color: $protocol-black !important;
-	color: $gray-2;
+	background-color: $black !important;
+	color: $gallery;
 }
 
 table.dataTable.no-footer {
-	border-bottom: 1px solid $gray-2 !important;
+	border-bottom: 1px solid $gallery !important;
 }
 
 table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
-	border-top: 1px solid $gray-2 !important;
+	border-top: 1px solid $gallery !important;
 }
 
 .dataTables_wrapper .dataTables_filter input {
@@ -393,7 +393,7 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 	}
 
 	.fa {
-		color: $gray-3;
+		color: $gray;
 		margin-left: 5px;
 	}
 
@@ -421,7 +421,7 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 		&:before {
 			font-family: FontAwesome;
 			content: "\f107";
-			color: $blue-channel;
+			color: $lochmara;
 			margin-right: 8px;
 			font-weight: bold;
 		}
@@ -435,14 +435,14 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 
 /* TOOLTIPS */
 i[data-toggle="tooltip"] {
-	color: $gray-3;
+	color: $gray;
 	font-style: bold;
 	cursor: default;
 	margin-left: 3px;
 }
 
 a[data-toggle="tooltip"] {
-	color: $blue-channel;
+	color: $lochmara;
 	font-weight: bold;
 	cursor: default;
 	margin-left: 3px;
@@ -452,7 +452,7 @@ a[data-toggle="tooltip"] {
 	font-weight: 400;
 
 	a {
-		color: $stitch-yellow;
+		color: $lochmara;
 		text-decoration: underline;
 
 		&hover {
@@ -464,11 +464,11 @@ a[data-toggle="tooltip"] {
 
 /* PANEL STYLES */
 .panel-default {
-	border: 1px solid $gray-2;
+	border: 1px solid $gallery;
 }
 
 .panel-table-subattributes {
-	border: 1px solid $gray-5;
+	border: 1px solid $dark-silver;
 }
 
 .panel-group .panel {
@@ -477,17 +477,17 @@ a[data-toggle="tooltip"] {
 }
 
 .panel-default > .panel-heading {
-	color: $protocol-black;
-	background-color: $gray-1;
-	border-color: $gray-2;
+	color: $black;
+	background-color: $concrete;
+	border-color: $gallery;
 	border-radius: 0;
 }
 
 .panel-table-subattribute-heading {
-	color: $protocol-black;
+	color: $black;
 	padding: 10px 15px;
 	border-radius: 0;
-	background-color: $gray-2;
+	background-color: $gallery;
 }
 
 .panel-body > table {
@@ -495,10 +495,10 @@ a[data-toggle="tooltip"] {
 }
 
 .table-subattribute-label {
-	background-color: $gray-2;
+	background-color: $gallery;
 	display: block;
 	padding: .5em .5em .5em 1em;
-	color: $gray-3;
+	color: $gray;
 	font-size: 12px;
 }
 
@@ -509,7 +509,7 @@ a[data-toggle="tooltip"] {
 	padding: 1.5em 2em;
 	background: #ffffff;
 	border: 3px solid $lochmara;
-	color: $protocol-black;
+	color: $black;
 	border: 0;
 
 	p:last-of-type {
@@ -533,28 +533,28 @@ a[data-toggle="tooltip"] {
 
 	&.alert-warning {
 		border: 3px solid $scooter;
-		color: $protocol-black;
+		color: $black;
 		background: #ffffff;
 	}
 }
 
 /* CODE BLOCKS */
 pre {
-	border: 1px solid $gray-2;
-	background: $gray-1;
+	border: 1px solid $gallery;
+	background: $concrete;
 	border-radius: 0;
 }
 
 .code-header {
 	font-weight: bold;
 	display: flex;
-	background-color: $gray-2;
+	background-color: $gallery;
 	flex-wrap: wrap;
 	padding: 10px 10px 5px 10px;
 	margin-bottom: -25px;
 
 	.code-description-container {
-		color: $protocol-black;
+		color: $black;
 		display: flex;
 		flex: 2;
 		justify-content: flex-start;
@@ -578,7 +578,7 @@ pre {
 
 	    &:hover {
 	  		text-decoration: none;
-	  		color: $protocol-black;
+	  		color: $black;
 	  		transition: all 0.25s ease-in-out;
 		}
 
@@ -620,7 +620,7 @@ pre {
 $red: $chestnut-rose;
 $orange: $jaffa;
 $yellow: $lightning;
-$green: $green-junction;
+$green: $rio-grande;
 
 .status-page {
 	display: block;
@@ -639,10 +639,10 @@ $green: $green-junction;
 	}
 
 	.color-description {
-		color: $gray-3;
+		color: $gray;
 
 		&:hover {
-			color: #gray-4;
+			color: $silver-chalice;
 			text-decoration: none;
 		}
 	}
@@ -689,47 +689,23 @@ $green: $green-junction;
 	}
 }
 
-.algolia-autocomplete .ds-dropdown-menu {
-	margin: 4px 0 0 ;
-	border-radius: 2px;
-	overflow-y: scroll;
-	max-height: 90vh;
-	max-width: 90%;
-	min-width: 700px;
+/* ON-PAGE SEARCH */
+#on-page-search {
+  width: 100%;
+  padding: 1em;
+  line-height: 1.6;
+  border: 1px solid #ddd;
+  margin-bottom: -15px;
+  border-radius: 2px;
 
-	&:before {
-		display: none;
+  &:focus {
+		outline: -webkit-focus-ring-color auto 0px;
+		outline-color: -webkit-focus-ring-color;
+		outline-style: auto;
+		outline-width: 0px;
 	}
 }
 
-.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion.suggestion-layout-simple, .algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion:not(.suggestion-layout-simple) .algolia-docsearch-suggestion--content {
-	background: $gray-1;
-}
-
-.algolia-autocomplete .algolia-docsearch-suggestion--highlight {
-	background: $gray-2;
-	color: $black;
-}
-
-.algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {
-	border-radius: 0;
-	padding: 1rem;
-}
-
-.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
-	color: $gray-3;
-}
-
-.algolia-docsearch-suggestion--category-header {
-	display: none !important;
-}
-
-.algolia-autocomplete .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight {
-    padding: 0 0 1px;
-    background: inherit;
-    box-shadow: inset 0 -3px 0 0 rgba(255,210,1,1);
-    color: inherit;
- }
 
 /* TILES */
 ul.tiles {
@@ -743,7 +719,7 @@ ul.tiles {
 		display: inline-block;
 		vertical-align: top;
 		margin: 10px !important;
-		border: 1px solid $gray-2;
+		border: 1px solid $gallery;
 		line-height: 1.2em;
 		padding: 20px;
 
@@ -874,31 +850,31 @@ blockquote {
 }
 
 .tutorial, .beta {
-	background-color: $bit-blue;
+	background-color: $scooter;
 }
 
 .concept, .all-plans, .released {
-	background-color: $green-junction;
+	background-color: $rio-grande;
 }
 
 .reference {
-	background-color: $stitch-yellow;
+	background-color: $lochmara;
 }
 
 .troubleshooting {
-	background-color: $frequency-red;
+	background-color: $chestnut-rose;
 }
 
 /*.sdk, .library, .wrapper {
-	background-color: $stitch-yellow;
+	background-color: $lochmara;
 }*/
 
 .deprecated, .sunset {
-	background-color: $gray-byte;
+	background-color: $gray;
 }
 
 .enterprise {
-	background-color: $magenta-relay;
+	background-color: $rio-grande;
 }
 
 
@@ -907,7 +883,7 @@ blockquote {
 .api-js-heading {
 	width: 100%;
 	margin: 40px 0px 20px 0px;
-	border: 1px solid $gray-stream;
+	border: 1px solid $gallery;
 
 	div.method {
 		color: #ffffff;
@@ -918,28 +894,28 @@ blockquote {
 	}
 }
 
-.object {
-	background-color: $light-blue;
+.object, .put {
+	background-color: $scooter; /* blue */
+}
+
+.destination {
+	background-color: $jaffa; /* orange */
+}
+
+.source {
+	background-color: $lightning; /* yellow */
 }
 
 .post {
-	background-color: $green-junction;
+	background-color: $rio-grande; /* green */
 }
 
-.put {
-	background-color: $bit-blue;
-}
-
-.get {
-	background-color: $stitch-yellow;
-}
-
-.function {
-	background-color: $blue-channel;
+.get, .function {
+	background-color: $lochmara; /* dark blue */
 }
 
 .delete {
-	background-color: $frequency-red;
+	background-color: $chestnut-rose; /* red */
 }
 
 .method-bullet {
