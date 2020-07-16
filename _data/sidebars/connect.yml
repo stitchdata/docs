@@ -60,6 +60,40 @@ api:
         url: "{{ link.connect.api }}{{ site.data.connect.api.response-codes }}"
         drop-down: false
 
+      - title: "Rate limits"
+        sections:
+          - title: "Overview"
+            url: "{{ link.connect.api }}{{ site.data.connect.api.rate-limits }}"
+
+          - title: "Rate limit application"
+            url: "{{ link.connect.api }}#rate-limits--application"
+
+          - title: "Rate limit types"
+            url: "{{ link.connect.api }}#rate-limits--types"
+
+          - title: "Avoid rate limit violations"
+            url: "{{ link.connect.api }}#rate-limits--avoid-violations"
+
+      - title: "Pagination"
+        sections:
+          - title: "Overview"
+            url: "{{ link.connect.api }}{{ site.data.connect.api.pagination }}"
+
+          - title: "Per record page limits"
+            url: "{{ link.connect.api }}#pagination--per-page-record-limits"
+
+          - title: "Result sorting and ordering"
+            url: "{{ link.connect.api }}#pagination--result-sorting-ordering"
+
+          - title: "Pagination data"
+            url: "{{ link.connect.api }}#pagination--data"
+
+          - title: "Limitations"
+            url: "{{ link.connect.api }}#pagination--limitations"
+
+          - title: "Endpoints with pagination"
+            url: "{{ link.connect.api }}#pagination--endpoints"
+
       - title: "Versioning"
         url: "{{ link.connect.api }}{{ site.data.connect.api.versioning }}"
         drop-down: false
@@ -199,11 +233,11 @@ api:
                 method: "object"
                 url: "{{ link.connect.api }}{{ site.data.connect.core-objects.streams.object }}"
 
-              - title: "{{ api.core-objects.streams.list.title | flatify }}"
+              - title: "{{ site.data.connect.core-objects.streams.list.title | flatify }}"
                 method: "get"
                 url: "{{ link.connect.api }}{{ site.data.connect.core-objects.streams.list.anchor }}"
 
-              - title: "{{ api.core-objects.streams.retrieve-schema.title | flatify }}"
+              - title: "{{ site.data.connect.core-objects.streams.retrieve-schema.title | flatify }}"
                 method: "get"
                 url: "{{ link.connect.api }}{{ site.data.connect.core-objects.streams.retrieve-schema.anchor }}"
 
@@ -215,15 +249,39 @@ api:
             subsections:
               - title: "The replication job object"
                 method: "object"
-                url: "{{ link.connect.api }}{{ api.core-objects.replication-jobs.object }}"
+                url: "{{ link.connect.api }}{{ site.data.connect.core-objects.replication-jobs.object }}"
 
-              - title: "{{ api.core-objects.replication-jobs.post.title | flatify }}"
+              - title: "{{ site.data.connect.core-objects.replication-jobs.post.title | flatify }}"
                 method: "post"
-                url: "{{ link.connect.api }}{{ api.core-objects.replication-jobs.post.anchor }}"
+                url: "{{ link.connect.api }}{{ site.data.connect.core-objects.replication-jobs.post.anchor }}"
 
-              - title: "{{ api.core-objects.replication-jobs.delete.title | flatify }}"
+              - title: "{{ site.data.connect.core-objects.replication-jobs.delete.title | flatify }}"
                 method: "delete"
-                url: "{{ link.connect.api }}{{ api.core-objects.replication-jobs.delete.anchor }}"
+                url: "{{ link.connect.api }}{{ site.data.connect.core-objects.replication-jobs.delete.anchor }}"
+
+          - title: "Extractions"
+            subsections:
+              - title: "The extraction object"
+                method: "object"
+                url: "{{ link.connect.api }}{{ site.data.connect.core-objects.extractions.object }}"
+
+              - title: "{{ site.data.connect.core-objects.extractions.list.title | flatify }}"
+                method: "get"
+                url: "{{ link.connect.api }}{{ site.data.connect.core-objects.extractions.list.anchor }}"
+
+              - title: "{{ site.data.connect.core-objects.extractions.get-job-logs.title | flatify }}"
+                method: "get"
+                url: "{{ link.connect.api }}{{ site.data.connect.core-objects.extractions.get-job-logs.anchor }}"
+
+          - title: "Loads"
+            subsections:
+              - title: "The load object"
+                method: "object"
+                url: "{{ link.connect.api }}{{ site.data.connect.core-objects.loads.object }}"
+
+              - title: "{{ site.data.connect.core-objects.loads.list.title | flatify }}"
+                method: "get"
+                url: "{{ link.connect.api }}{{ site.data.connect.core-objects.loads.list.anchor }}"
 
           - title: "Notifications"
             subsections:
@@ -314,6 +372,10 @@ api:
           - title: "{{ site.data.connect.data-structures.properties.title }}"
             method: "object"
             url: "{{ link.connect.api }}{{ site.data.connect.data-structures.properties.section }}"
+
+          - title: "{{ site.data.connect.data-structures.schedule.title }}"
+            method: "object"
+            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.schedule.section }}"
 
           - title: "{{ site.data.connect.data-structures.report-cards.source.title }}"
             method: "object"

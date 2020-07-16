@@ -99,4 +99,46 @@ object-attributes:
 
       All fields included in `key_names` must be present in the [Schema object]({{ site.data.import-api.data-structures.schema.section }}) and every [Message object]({{ site.data.import-api.data-structures.message.section }}) in the request.
     value: "id"
+
+
+# -------------------------- #
+#           EXAMPLES         #
+# -------------------------- #
+
+examples:
+  - code: |
+      {
+        "table_name": "customers",
+        "schema": {
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "age": {
+              "type": "integer"
+            },
+            "has_magic": {
+              "type": "boolean"
+            }
+          }
+        },
+        "messages": [
+          {
+            "action": "upsert",
+            "sequence": 1565880017,
+            "data": {
+              "id": 1,
+              "name": "Finn",
+              "age": 15,
+              "has_magic": false
+            }
+          }
+        ],
+        "key_names": [
+          "id"
+        ]
+      }
 ---

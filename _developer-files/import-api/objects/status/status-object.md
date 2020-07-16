@@ -73,4 +73,13 @@ object-attributes:
     type: "string"
     description: "If applicable, the reason for the status."
     value: ""
+
+
+# -------------------------- #
+#           EXAMPLES         #
+# -------------------------- #
+
+examples:
+  - code: |
+      {{ site.data.import-api.code-examples.responses.get-status }}
 ---

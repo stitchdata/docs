@@ -45,31 +45,7 @@ object-attributes:
 examples:
   - code: |
       {  
-         "report_card":{  
-            "type":"platform.hubspot",
-            "current_step":2,
-            "steps":[  
-               {  
-                  "type":"form",
-                  "properties":[]
-               },
-               {  
-                  "type":"oauth",
-                  "properties":[]
-               },
-               {  
-                  "type":"discover_schema",
-                  "properties":[]
-               },
-               {  
-                  "type":"field_selection",
-                  "properties":[]
-               },
-               {  
-                  "type":"fully_configured",
-                  "properties":[]
-               }
-            ]
-         }
+        "type":"form",
+        "properties":[]
       }
 ---

@@ -1,4 +1,11 @@
 {% case include.type %}
+    {% when 'object' %}
+        {% assign item = object %}
+
+<!-- For objects with multiple versions. -->
+    {% when 'version-object' %}
+        {% assign item = version-object %}
+
     {% when 'endpoint' %}
         {% assign item = endpoint %}
 

@@ -6,7 +6,7 @@
 product-type: "connect"
 content-type: "api-object"
 endpoint: "notifications"
-order: 10
+order: 12
 
 
 # -------------------------- #
@@ -113,7 +113,8 @@ object-attributes:
 
   - name: "modified_at"
     type: "date-time"
-    description: "The time at which the notification was last modified."
+    description: |
+      **Applicable to hook notifications only.** The time at which the notification was last modified.
     example-value: |
       2019-07-16T16:51:20Z
 
@@ -134,25 +135,55 @@ object-attributes:
   - name: "version"
     type: "integer"
     description: |
-      **Applicable to custom email notifications only.** The version of the hook service the notification is using.
+      **Applicable to hook notifications only.** The version of the hook service the notification is using.
     example-value: |
       1
 
   - name: "type"
     type: "string"
     description: |
-      **Applicable to hook notifications only.** The type of the notification.
+      **Applicable to hook notifications only.** The type of the notification. This will be `post_load`.
     example-value: |
       post_load
 
   - name: "config"
     type: "object"
     description: "**Applicable to hook notifications only.** The configuration for the hook."
-
     subattributes:
       - name: "url"
         type: "string"
         description: "**Applicable to hook notifications only.** The webhook URL that Stitch should deliver hook notifications to."
         example-value: |
           https://hooks.zapier.com/hooks/catch/some-hook-id
+
+
+# -------------------------- #
+#           EXAMPLES         #
+# -------------------------- #
+
+examples:
+  - type: "Custom email notification"
+    code: |
+      {
+        "id": 21,
+        "client_id": 116078,
+        "email_address": "stitch-custom-notification@yourdomain.com",
+        "created_at": "2019-07-16T17:35:25Z",
+        "disabled_at": null
+      }
+
+  - type: "Hook notification"
+    code: |
+      {
+        "id": 8,
+        "client_id": 116078,
+        "type": "post_load",
+        "version": 1,
+        "config": {
+          "url": "https://hooks.zapier.com/hooks/catch/some/webhook/id"
+        },
+        "created_at": "2019-07-17T17:30:37Z",
+        "modified_at": "2019-07-17T17:30:37Z",
+        "disabled_at": null
+      }
 ---

@@ -66,11 +66,44 @@ common:
 
     type: "The source type. For example: `platform.hubspot` or `platform.marketo`."
 
-  # This string has placeholders becaused it's used for both source and destination documentation.
+  # This string has placeholders because it's used for both source and destination documentation.
   # When this is used, replace filters have to be used to display the correct copy
   # Ex: {{ connect.common.attributes.type-argument | replace: "[TYPE]","destination" | replace: "[TYPE-1]","s3" | replace: "[TYPE-2]","redshift" }}
     type-argument: |
       A path parameter indicating the `type` of [TYPE] to retrieve, such as `[TYPE-1]` or `[TYPE-2]`.
+
+start-time: |
+  The date and time the [JOB-TYPE] job started.
+
+completion-time: |
+  The date and time the [JOB-TYPE] job was completed.
+
+discovery-error-message: |
+  Exception message raised when discovery fails during the [JOB-TYPE] job. If successful, this will be `null`.
+
+discovery-exit-status: |
+  The exit status of the discovery portion of the [JOB-TYPE] job. Possible values are:
+
+  - `null` - Job is still running
+  - `0` - Job was successful
+  - Any non-zero value - Discovery failed
+
+tap-error-message: |
+  Exception message raised when extraction fails during the job. If successful, this will be `null`.
+
+tap-exit-status: |
+  The exit status of the tap. Possible values are:
+
+  - `null` - Tap is still running
+  - `0` - Tap was successful
+  - Any non-zero value - Tap failed
+
+target-exit-status: |
+  The exit status of the target portion of the [JOB-TYPE] job. Possible values are:
+
+  - `null` - Target is still running
+  - `0` - Target was successful
+  - Any non-zero value - Target failed
 
 
 # -------------------------- #

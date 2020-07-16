@@ -49,4 +49,15 @@ object-attributes:
     type: "string"
     description: |
       {{ connect.common.attributes.ephemeral-token | flatify }}
+
+
+# -------------------------- #
+#           EXAMPLES         #
+# -------------------------- #
+
+examples:
+  - code: |
+      {
+        "ephemeral_token":"<EPHEMERAL_TOKEN>"
+      }
 ---

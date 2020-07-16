@@ -2,11 +2,13 @@
 # and what the user should expect as a response from the API.
 
 list:
-  - name: "Request method"
+  - id: "request-method"
+    name: "Request method"
     description: |
       {{ endpoint.method | upcase }}
 
-  - name: "Resource URL"
+  - id: "resource-url"
+    name: "Resource URL"
     description: |
       {{ endpoint.short-url | flatify }}
 
@@ -14,7 +16,8 @@ list:
 ## The logic in the description will check the value
 ## of the `access-token-required` property and display
 ## the right copy. 
-  - name: "Authorization"
+  - id: "authorization"
+    name: "Authorization"
     description: |
       {% if endpoint.access-token-required == false %}
       Required. The request body must contain your partner credentials (`partner_id`, `partner_secret`).
@@ -25,7 +28,8 @@ list:
       {% endif %}
 
 ## Same logic as above ^
-  - name: "Request header"
+  - id: "request-header"
+    name: "Request header"
     description: |
       The request header must contain the following:
 
@@ -36,12 +40,38 @@ list:
 
       See the **Request** tab below for an example request.
 
-  - name: "Request body"
+  - id: "rate-limit"
+    name: "Rate limit"
+    description: |
+      {% if endpoint.rate-limit-type %}
+      {{ site.data.connect.rate-limits[endpoint.rate-limit-type]description | flatify }}
+      {% else %}
+      None
+      {% endif %}
+
+  - id: "request-body"
+    name: "Request body"
     description: |
       The request body must be valid JSON and contain the [required arguments]({{ page.permalink | prepend: site.baseurl }}{{ endpoint.key | append: "--arguments" | prepend: "#" }}).
 
-  - name: "Response format"
-    description: "Whether the request succeeds or fails, the API will return JSON."
+  - id: "pagination"
+    name: "Pagination"
+    description: |
+      {% if endpoint.pagination %}
+      Responses are [paginated]({{ site.data.connect.api.pagination }}). Each page may contain up to {{ endpoint.pagination }} records.
+      {% else %}
+      None
+      {% endif %}
 
-  - name: "Errors"
+  - id: "response-format"
+    name: "Response format"
+    description: |
+      Whether the request succeeds or fails, the API will return JSON.
+
+      {% if endpoint.pagination %}
+      **Note**: Responses will be [paginated]({{ site.data.connect.api.pagination }}).
+      {% endif %}
+
+  - id: "errors"
+    name: "Errors"
     description: "See the **Errors** tab, below."

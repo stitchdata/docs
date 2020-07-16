@@ -9,11 +9,12 @@
 <!-- Destination form property example -->
 {% when 'destination' %}
 {% capture code %}
-   {% for attribute in all-form-attributes %}
-   {%- if forloop.last == true -%}"{{ attribute.name }}":{{ attribute.value | flatify | append: "  " }}
-   {%- else -%}"{{ attribute.name }}":{{ attribute.value | rstrip | flatify | append: "," }}
-   {% endif %}
-   {%- endfor -%}
+{
+  {% for attribute in all-form-attributes %}{%- capture attribute-value -%}{% if attribute.type == "array" -%}{{ attribute.value | flatify | strip -}}{% else -%}{{ attribute.value | flatify | strip -}}{% endif -%}{%- endcapture -%}
+  {% if forloop.last == true -%}"{{ attribute.name }}":{{ attribute-value | flatify | strip -}}{% else %}"{{ attribute.name }}":{{ attribute-value | flatify | strip -}},
+  {% endif -%}
+  {% endfor %}
+}
 {% endcapture %}
 
 
@@ -34,11 +35,12 @@
 {% else %}
 
 {% capture code %}
-  {% for attribute in all-form-attributes %}{% capture attribute-value %}{% if attribute.type == "array" %}{{ attribute.value | flatify | strip }}{% else %}"{{ attribute.value | flatify | strip }}"{% endif %}{% endcapture %}
-  {%- if forloop.last == true -%}"{{ attribute.name }}":{{ attribute-value | flatify | strip }}
-  {% else %}"{{ attribute.name }}":{{ attribute-value | flatify | strip }},
-  {% endif %}
-  {%-  endfor -%}
+{
+  {% for attribute in all-form-attributes %}{%- capture attribute-value -%}{% if attribute.type == "array" -%}{{ attribute.value | flatify | strip -}}{% else -%}"{{ attribute.value | flatify | strip -}}"{% endif -%}{%- endcapture -%}
+  {% if forloop.last == true -%}"{{ attribute.name }}":{{ attribute-value | flatify | strip -}}{% else %}"{{ attribute.name }}":{{ attribute-value | flatify | strip -}},
+  {% endif -%}
+  {% endfor %}
+}
 {% endcapture %}
 
 {% endif %}
@@ -49,9 +51,7 @@
 <div class="code-header"><div class="copy-code-container"><div class="copy-code-button" data-code="{{ code | flatify | escape | rstrip }}" title="Copy to clipboard" tabindex="0"></div></div></div>
 
 {% capture code-example %}```json
-{
-  {{ code | flatify | rstrip | lstrip }}
-}
+{{ code | flatify | rstrip | lstrip }}
 ```
 {% endcapture %}
 

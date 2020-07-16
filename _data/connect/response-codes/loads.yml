@@ -1,0 +1,10 @@
+# ---------------------------- #
+#     LOADS ENDPOINT ERRORS    #
+# ---------------------------- #
+
+all:
+  - code: "401"
+    responses:
+      - method: "get"
+        condition: "The provided access token has been disabled, deleted, or doesn't have access to the provided Stitch client ID."
+        version: "all"

@@ -4,7 +4,7 @@
 <div class="table-responsive">
     <table class="attribute-list table-hover" {% if include.type == "endpoint" %}style="margin-top: 0px; margin-bottom: 0px;"{% endif %}>
         <tr>
-            <td align="right">
+            <td align="right" width="10%; fixed">
                 <strong>
                     Code
                 </strong>
@@ -49,7 +49,7 @@
                                     {{ response.condition | markdownify }}
                                 </td>
                                 <td>
-                                    {{ response.response-body | flatify | markdownify }}
+                                    {{ response.response-body | flatify | default: "None" | markdownify }}
                                 </td>
                             </tr>
                         {% endif %}

@@ -14,78 +14,7 @@
 
         <p>This endpoint accepts the following parameters:</p>
 
-            <table class="attribute-list">
-                {% for argument in endpoint.arguments %}
-                    <tr>
-                        <td width="20%; fixed" align="right">
-                            <strong>
-                                {{ argument.name }}
-                            </strong><br>
-                            {{ argument.type | upcase }}<br>
-                            
-                            {% case argument.required %}
-                                {% when true %}
-                                    <font color="#E96065">REQUIRED</font>
-                                {% else %}
-                                    OPTIONAL
-                            {% endcase %}
-                        </td>
-                        <td class="description">
-                            {{ argument.description | flatify | markdownify }}
-
-                            {% if argument.subarguments %}
-                                <table class="attribute-list">
-                                    {% for subargument in argument.subarguments %}
-                                        <tr>
-                                            <td width="20%; fixed" align="right">
-                                                <strong>
-                                                    {{ subargument.name }}
-                                                </strong><br>
-                                                {{ subargument.type | upcase }}<br>
-                                                
-                                                {% case subargument.required %}
-                                                    {% when true %}
-                                                        <font color="#E96065">REQUIRED</font>
-                                                    {% else %}
-                                                        OPTIONAL
-                                                {% endcase %}
-                                            </td>
-                                            <td class="description">
-                                                {{ subargument.description | flatify | markdownify }}
-
-                                                {% if subargument.sub-subarguments %}
-                                                    <table class="attribute-list">
-                                                        {% for sub-subargument in subargument.sub-subarguments %}
-                                                            <tr>
-                                                                <td class="attribute-name">
-                                                                    <strong>
-                                                                        {{ sub-subargument.name }}
-                                                                    </strong><br>
-                                                                    {{ sub-subargument.type | upcase }}<br>
-                                                                    
-                                                                    {% case sub-subargument.required %}
-                                                                        {% when true %}
-                                                                            <font color="#E96065">REQUIRED</font>
-                                                                        {% else %}
-                                                                            OPTIONAL
-                                                                    {% endcase %}
-                                                                </td>
-                                                                <td class="description">
-                                                                    {{ sub-subargument.description | flatify | markdownify }}
-                                                                </td>
-                                                            </tr>
-                                                        {% endfor %}
-                                                    </table>
-                                                {% endif %}
-                                            </td>
-                                        </tr>
-                                    {% endfor %}
-                                </table>
-                            {% endif %}
-                        </td>
-                    </tr>
-                {% endfor %}
-            </table>
+        {% include developers/attribute-table.html object=endpoint.arguments td-width="25" multiple-versions=false %}
     {% endif %}
 
 
@@ -93,7 +22,12 @@
     <h5 id="{{ endpoint.key | append: "--returns" }}">
         Returns
     </h5>
-        {{ endpoint.returns | flatify | markdownify }}
+
+    {{ endpoint.returns | flatify | markdownify }}
+
+    {% if endpoint.response-attributes %}
+        {% include developers/attribute-table.html object=endpoint.response-attributes td-width="25" multiple-versions=false %}
+    {% endif %}
 
 <!-- Displays the request, response, and error tabs -->
 {% include developers/api-examples.html type="endpoint" %}
