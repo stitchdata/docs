@@ -51,7 +51,7 @@ layout: page
 
 {% unless integration.no-schema == true %}
 <!-- SCHEMA DETAILS START -->
-<h2 id="schema">{{ integration.display_name }} table schemas</h2>
+<h2 id="schema">{{ integration.display_name }} table reference</h2>
 
 <!-- Displays an info box if there are multiple versions of an integration currently available -->
 
@@ -137,7 +137,10 @@ non-standard handling of certain data types, etc. -->
                 {% endfor %}
             {% endif %}
         {% endfor %}
-        <hr>
+
+        {% if forloop.last == true %}
+            <hr>
+        {% endif %}
     {% endif %}
 
 
