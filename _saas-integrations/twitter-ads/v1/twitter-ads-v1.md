@@ -112,17 +112,29 @@ setup-steps:
 
       Stitch's {{ integration.display_name }} integration supports the configuration of custom reports. For each report configured in the **Your Reports** section, a table will display in the **Tables to Replicate** tab as available for selection.
 
+      - [Creating a new report](#configure-reports--new-report)
+      - [Removing a report](#configure-reports--remove-report)
+
+      #### Creating a new report {#configure-reports--new-report}
+
       {% capture content %}
-      {{ integration.display_name }} enforces compatibility rules, which can affect the data available for extraction. When setting up custom reports, we recommend referring to the [Custom report entities, segments, and metric group compatibility reference](#custom-report-configuration-options) to ensure you get the data you want.
+      {{ integration.display_name }} enforces compatibility rules, which can affect the data available for extraction. When setting up custom reports, we recommend referring to the [Custom report options compatibility reference](#custom-report-configuration-options) to ensure you get the data you want.
       {% endcapture %}
       {% include important.html type="single-line" content=content %}
 
-      1. In the **Report Name** field, enter a name for the report.
-      2. In the **Entity** field, select the entity you want the report to use. The entity you select determines the metrics (columns) that will be available for replication.
-      3. In the **Segment** field, select the type of segmentation you want the report to use. **Note**: {{ integration.display_name }} doesn't support segmentation for some entity types.
-      4. In the **Granularity** field, select the level of aggregation you want the report to use.
+      To add a report, click the **+ Configure new report** link. For each report you configure, you'll define the following parameters:
 
-      To add another report, click the **+ Configure another report** link.
+      - **Report Name**: A name for the report, which is used to create the name of its corresponding destination table
+      - **Entity**: The {{ integration.display_name }} entity (object) to report on. The entity you select determines the metrics (columns) available for selection and the segments you can apply to those metrics. Refer to the [Custom report options compatibility reference](#custom-report-configuration-options) for more info.
+      - **Segment**: A segment to apply to the entity's available metrics. **Note**: Some entity and segment combinations may be incompatible. Refer to the [Segment compatibility reference](#custom-report-configuration-options--segments) for more info.
+      - **Granularity**: The granularity of the report data. Possible options are `DAY`, `HOUR`, and `TOTAL`.
+
+      #### Removing a report {#configure-reports--remove-report}
+
+      To remove a report, click the **- Remove this report** link.
+
+      **Note**: Removing a report will not remove the corresponding table or its data from your destination.
+
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data"
@@ -143,7 +155,7 @@ replication-sections:
       {% endif %}
       {% endfor %}
 
-  - title: "Custom report entities, segments, and metric group compatibility reference"
+  - title: "Custom report options compatibility reference"
     anchor: "custom-report-configuration-options"
     custom-report-options:
     # -------------------------- #
@@ -162,8 +174,8 @@ replication-sections:
           segment-compatibility: "none"
         - name: "organic_tweet"
           segment-compatibility: "none"
-        - name: "promoted_account"
-          segment-compatibility: "some"
+        # - name: "promoted_account"
+        #   segment-compatibility: "some"
         - name: "promoted_tweet"
           segment-compatibility: "some"
 
@@ -289,18 +301,18 @@ replication-sections:
           - **Entity**: The name of the entity
           - **Metric group availability**: The metric groups {{ integration.display_name }} supports for the entity, which determines the columns that will be available for selection in Stitch.
 
-             For example: If an entity supports the [ENGAGEMENT metric group](https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation#engagement){:target="new"}, you'll see `engagements`, `impressions`, `retweets`, etc. as available columns in the report in Stitch.
+             For example: If an entity supports the [BILLING metric group](https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation#BILLING){:target="new"}, you'll see the `billed_engagements` and `billed_charge_local_micro` metrics as available columns in the report in Stitch.
 
              Click the links in this column for more info about the data points (columns) the metric group contains.
           - **Segmentation compatibility**: Indicates the level of segment compatibility for the entity:
 
-             - {{ supported }} indicates the entity is compatible with all segments
-             - {{ sometimes-supported }} indicates the entity is compatible with some segments
-             - {{ not-supported }} indicates segmentation isn't supported for the entity
+             - {{ supported | replace:"TOOLTIP", "Full compatibility" }} indicates the entity is compatible with all segments
+             - {{ sometimes-supported | replace:"TOOLTIP", "Some compatibility"  }} indicates the entity is compatible with some segments
+             - {{ not-supported | replace:"TOOLTIP", "Segmentation not supported" }} indicates {{ integration.display_name }} doesn't support segmentation for the entity
 
              Refer to the [Segment compatibility reference](#custom-report-configuration-options--segments) for more info.
 
-          <table class="attribute-list table-hover">
+          <table class="attribute-list table-hover" style="font-size: 13px;">
             <tr>
               <td align="right">
                 <strong>Entity</strong>
@@ -333,11 +345,11 @@ replication-sections:
                 <td>
                   {% case entity.segment-compatibility %}
                     {% when 'all' %}
-                      {{ supported }} Full compatibility
+                      {{ supported | replace:"TOOLTIP", "Full compatibility" }} Full compatibility
                     {% when 'some' %}
-                      {{ sometimes-supported }} Some compatibility
+                      {{ sometimes-supported | replace:"TOOLTIP", "Some compatibility"  }} Some compatibility
                     {% when 'none' %}
-                      {{ not-supported }} No compatibility
+                      {{ not-supported | replace:"TOOLTIP", "Segmentation not supported" }} No compatibility
                   {% endcase %}
                 </td>
               </tr>
