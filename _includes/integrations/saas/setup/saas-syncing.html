@@ -2,7 +2,7 @@
 ### Set tables {% if integration.column-selection == true %}and columns {% endif %}to replicate {#syncing-data}
 {% endunless %}
 
-To complete the setup, you'll need to select the tables {% if integration.column-selection == true %}and columns {% endif %}you want to [replicate to your data warehouse]({{ link.replication.syncing | prepend: site.baseurl }}).
+To complete the setup, you'll need to select the tables {% if integration.column-selection == true %}and columns {% endif %}you want to [replicate to your destination]({{ link.replication.syncing | prepend: site.baseurl }}).
 
 {% case integration.name %}
 
