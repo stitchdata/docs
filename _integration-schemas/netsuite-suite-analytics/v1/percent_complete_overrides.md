@@ -9,6 +9,7 @@ description: |
   **Note**: This table’s data is available only to NetSuite accounts that have Advanced Revenue Management enabled.
 
 replication-method: "Full Table"
+loading-behavior: "Append-Only"
 
 attributes:
   - name: "accounting_period_id"

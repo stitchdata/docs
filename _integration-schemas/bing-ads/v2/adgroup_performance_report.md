@@ -25,7 +25,7 @@ description: |
   - `Status` is now `CampaignStatus`
 
 replication-method: "Key-based Incremental"
-append-only-loading: true
+loading-behavior: "Append-Only"
 
 attribution-window: true
 

@@ -11,7 +11,7 @@ description: |
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
 replication-method: "Key-based Incremental"
-append-only-loading: true
+loading-behavior: "Append-Only"
 
 attribution-window: true
 

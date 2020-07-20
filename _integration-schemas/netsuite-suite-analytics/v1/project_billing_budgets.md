@@ -8,6 +8,7 @@ doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_
 description: ""
 
 replication-method: "Full Table"
+loading-behavior: "Append-Only"
 
 attributes:
   - name: "amount"

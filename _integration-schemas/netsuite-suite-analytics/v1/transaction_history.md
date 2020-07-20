@@ -6,7 +6,9 @@ key: "transaction-history"
 name: "transaction_history"
 doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_history.html"
 description: ""
+
 replication-method: "Full Table"
+loading-behavior: "Append-Only"
 
 attributes:
   - name: "account_id"

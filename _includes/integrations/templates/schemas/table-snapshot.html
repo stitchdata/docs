@@ -1,44 +1,36 @@
 <!-- This file gets "overview" data for a given table: its Replication Key, Primary Key(s), API info, etc. -->
 
 
-<!-- Get the table's replication method and downcase it to use it as a key -->
-{% assign rep-method-key = table.replication-method | downcase %}
+<!-- Get the table's replication method and slugify it to use it as a key -->
+    {% assign rep-method-key = table.replication-method | slugify %}
 
+<!--  Get the list of snapshot fields, based on the table's rep method -->
+    {% assign rep-method-fields = site.data.taps.snapshot-attributes[rep-method-key] %}
 
-<!-- If the replication method is 'full table' -->
-{% if rep-method-key == 'full table' %}
-
-    <!-- If the table has a defined API property, create this array -->
+<!-- Get the table's API method data, if there is any. Otherwise, use the doc link value. -->
     {% if table.api-method.name %}
-        {% assign snapshot-fields = "replication-method|primary-key|api-endpoint" | split:"|" %}
-
-    <!-- Otherwise, create one with a doc link -->
+        {% assign doc-field = site.data.taps.snapshot-attributes.api-field %}
     {% else %}
-        {% if table.doc-link %}
-            {% assign snapshot-fields = "replication-method|primary-key|doc-link" | split:"|" %}
-        {% else %}
-            {% assign snapshot-fields = "replication-method|primary-key" | split:"|" %}
-        {% endif %}
+        {% assign doc-field = site.data.taps.snapshot-attributes.doc-link-field %}
     {% endif %}
 
-    {% include integrations/templates/schemas/table-keys.html key="primary-key" %}
-
-
-<!-- Otherwise, the table uses some type of '* incremental' replication, so do this -->
-{% else %}
-    {% if table.api-method.name %}
-        {% assign snapshot-fields = "replication-method|replication-key|primary-key|api-endpoint" | split:"|" %}
+<!-- If the table has a defined loading behavior, get it -->
+    {% if table.loading-behavior %}
+        {% assign loading-field = site.data.taps.snapshot-attributes.loading-field %}
     {% else %}
-        {% if table.doc-link %}    
-            {% assign snapshot-fields = "replication-method|replication-key|primary-key|doc-link" | split:"|" %}
-        {% else %}
-            {% assign snapshot-fields = "replication-method|replication-key|primary-key" | split:"|" %}
-        {% endif %}
+        {% assign loading-field = null | compact %}
     {% endif %}
 
+<!-- Reassign everything to snapshot fields -->
+    {% assign snapshot-fields = rep-method-fields | concat: doc-field | concat: loading-field %}
+
+<!-- Get the table's Primary Key(s) -->
     {% include integrations/templates/schemas/table-keys.html key="primary-key" %}
-    {% include integrations/templates/schemas/table-keys.html key="replication-key" %}
-{% endif %}
+
+<!-- If the replication method is 'full table', get its rep key -->
+    {% if rep-method-key != 'full-table' %}
+        {% include integrations/templates/schemas/table-keys.html key="replication-key" %}
+    {% endif %}
 
 
 <!-- And the snapshot table -->
@@ -50,14 +42,14 @@
             <tr>
         {% endif %}
             <td align="right" width="23%; fixed">
-                <strong>{{ site.data.taps.snapshot-attributes.field-names[field] | flatify | strip }}</strong>:
+                <strong>{{ site.data.taps.snapshot-attributes.field-names[field.name] | flatify | strip }}</strong>:
             </td>
         {% if field-index == 1 and forloop.last == true %}
             <td colspan="3">
         {% else %}
             <td width="27%; fixed">
         {% endif %}
-                {{ site.data.taps.snapshot-attributes.field-values[field] | flatify | markdownify | strip }}
+                {{ site.data.taps.snapshot-attributes.field-values[field.name] | flatify | markdownify | strip }}
             </td>
         {% if field-index == 0 %}
             </tr>

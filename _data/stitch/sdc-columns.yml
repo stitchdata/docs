@@ -107,6 +107,13 @@ current-columns:
 
     For example: The `ad_performance_report` table may contain data from several Ads accounts. The value in the `_sdc_customer_id` column allows you to associate records with the correct Ads account.
 
+# DIMENSION HASH KEY
+  dimension-hash-key: &dimension-hash-key "_sdc_dimensions_hash_key"
+  dimension-hash-key-description: &dimension-hash-key-description |
+    **Applicable only to Twitter Ads integrations,** this column is a a Stitch-generated MD5 hash that should be used as a Primary Key in tables created using the **Custom reports** feature.
+
+    The hash consists of a UTF-8 encoded JSON list containing of the [report's dimensions](https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/transform.py#L76){:target="new"}.
+
 # RECORD HASH
   record-hash: &record-hash "_sdc_record_hash"
   record-hash-description: &record-hash-description |

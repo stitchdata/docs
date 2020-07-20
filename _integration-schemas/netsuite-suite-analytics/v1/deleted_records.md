@@ -7,7 +7,9 @@ name: "deleted_records"
 doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/deletedrecord.html"
 description: |
   {{ integration.append-only-loading | flatify }}
+
 replication-method: "Key-based Incremental"
+loading-behavior: "Append-Only"
 
 attributes:
   - name: "date_deleted"

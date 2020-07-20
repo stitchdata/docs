@@ -19,7 +19,7 @@ description: |
   - `FinalMobileURL` is now `FinalMobileUrl`
 
 replication-method: "Key-based Incremental"
-append-only-loading: true
+loading-behavior: "Append-Only"
 
 attribution-window: true
 

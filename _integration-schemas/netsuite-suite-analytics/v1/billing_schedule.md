@@ -9,6 +9,7 @@ description: |
   The `{{ table.name }}` table contains info about the billing schedules in your NetSuite account.
 
 replication-method: "Full Table"
+loading-behavior: "Append-Only"
 
 attributes:
   - name: "bill_amount"
