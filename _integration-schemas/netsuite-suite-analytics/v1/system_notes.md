@@ -6,7 +6,9 @@ key: "system-note"
 name: "system_notes"
 doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/system_notes.html"
 description: ""
+
 replication-method: "Full Table"
+loading-behavior: "Append-Only"
 
 attributes:
   - name: "author_id"

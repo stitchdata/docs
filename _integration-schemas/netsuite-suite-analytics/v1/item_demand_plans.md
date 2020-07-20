@@ -11,6 +11,7 @@ description: |
   {{ integration.append-only-loading | flatify }}
 
 replication-method: "Key-based Incremental"
+loading-behavior: "Append-Only"
 
 attributes:
   - name: "date_last_modified"

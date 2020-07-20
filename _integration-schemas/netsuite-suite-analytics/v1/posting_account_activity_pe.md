@@ -11,6 +11,7 @@ description: |
   > This table includes all transactions. Note that when the ID of the `balance_from_subsidiary_id` and the `subsidiary_id` fields are different, the Period End Journal transaction represents transactions from the source subsidiary. When both fields have the same ID, the Period End Journal transaction represents transactions from the posting subsidiary.
 
 replication-method: "Full Table"
+loading-behavior: "Append-Only"
 
 attributes:
   - name: "account_id"
