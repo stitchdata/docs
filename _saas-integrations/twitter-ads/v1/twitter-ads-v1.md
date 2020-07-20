@@ -82,6 +82,10 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
+requirements-list:
+  - item: |
+      **To have access to the {{ integration.display_name }} accounts you want to replicate data from.**
+
 setup-steps:
   - title: "Retrieve account ID"
     anchor: "retrieve-account-id"
@@ -97,9 +101,9 @@ setup-steps:
   - title: "add integration"
     content: |
       4. In the **Account IDs** field, paste the account ID you copied from [Step 1](#retrieve-account-id). If you're adding multiple accounts IDs, format them as a comma-delimited list. For example: `accountId1, accountId2`
-      5. **Optional**: In the **Attribution Window** field, enter the number of days you want to use as a lookback period for reports. Refer to the [TODO]() section for more info.
-      6. **Optional**: Check the **with deleted** box if you want to include deleted records in the extraction Stitch performs. Refer to the [TODO]() section for more info.
-      7. In the **Country Codes** field, enter a comma-separated list of the [ISO Alpha-2 country codes](https://www.iban.com/country-codes){:target="new"} for each country you want to include in segmentation and targeting.
+      5. **Optional**: In the **Attribution Window** field, enter the number of days you want to use as a lookback period for [conversion reporting](https://business.twitter.com/en/help/campaign-measurement-and-analytics/conversion-tracking-for-websites.html){:target="new"} to stabilize. Custom report tables use this value during Extraction.
+      6. **Optional**: Check the **with deleted** box if you want to include deleted records in the extraction Stitch performs.
+      7. In the **Country Codes** field, enter a comma-separated list of the [ISO alpha-2 country codes](https://www.iban.com/country-codes){:target="new"} for each country you want to include in segmentation and targeting.
 
          For example: A list of `US, DE, IE` corresponds to `United States, Germany, Ireland`.
 
@@ -110,17 +114,19 @@ setup-steps:
     content: |
       {% include note.html type="single-line" content="**Note**: This step is optional. If you don't want to configure any reports, click the **- Remove this report** link." %}
 
-      Stitch's {{ integration.display_name }} integration supports the configuration of custom reports. For each report configured in the **Your Reports** section, a table will display in the **Tables to Replicate** tab as available for selection.
+      Stitch's {{ integration.display_name }} integration supports the configuration of custom reports. For each report configured in the **Your Reports** section, a table will display in the **Tables to Replicate** tab as available for selection. 
 
-      - [Creating a new report](#configure-reports--new-report)
-      - [Removing a report](#configure-reports--remove-report)
+      Refer to the [Table reference](#example-custom-report) for an example of a custom report table.
 
-      #### Creating a new report {#configure-reports--new-report}
+      - [Create a new report](#configure-reports--new-report)
+      - [Remove a report](#configure-reports--remove-report)
 
-      {% capture content %}
+      #### Create a new report {#configure-reports--new-report}
+
+      {% capture notice-content %}
       {{ integration.display_name }} enforces compatibility rules, which can affect the data available for extraction. When setting up custom reports, we recommend referring to the [Custom report options compatibility reference](#custom-report-configuration-options) to ensure you get the data you want.
       {% endcapture %}
-      {% include important.html type="single-line" content=content %}
+      {% include important.html type="single-line" content=notice-content %}
 
       To add a report, click the **+ Configure new report** link. For each report you configure, you'll define the following parameters:
 
@@ -129,12 +135,11 @@ setup-steps:
       - **Segment**: A segment to apply to the entity's available metrics. **Note**: Some entity and segment combinations may be incompatible. Refer to the [Segment compatibility reference](#custom-report-configuration-options--segments) for more info.
       - **Granularity**: The granularity of the report data. Possible options are `DAY`, `HOUR`, and `TOTAL`.
 
-      #### Removing a report {#configure-reports--remove-report}
+      #### Remove a report {#configure-reports--remove-report}
 
       To remove a report, click the **- Remove this report** link.
 
       **Note**: Removing a report will not remove the corresponding table or its data from your destination.
-
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data"
@@ -143,7 +148,6 @@ setup-steps:
 # -------------------------- #
 #     Replication Info       #
 # -------------------------- #
-
 
 replication-sections:
   - content: |
@@ -155,8 +159,104 @@ replication-sections:
       {% endif %}
       {% endfor %}
 
-  - title: "Custom report options compatibility reference"
-    anchor: "custom-report-configuration-options"
+  - title: "Extraction"
+    anchor: "extraction-details"
+    summary: "Details about Extraction, including object discovery and selecting data for replication"
+    content: |
+      This section provides a high-level look at extraction, but you can check out the [sync review on Google Docs](https://docs.google.com/document/d/1MrXWHGyOsCv-xI7ecuUWG0VIAy8ko5fwKn-I91p-PSc/edit){:target="new"} for a more technical look at this process.
+
+      For every table set to replicate, Stitch will perform the following during Extraction:
+
+      {% for subsection in section.subsections %}
+      - [{{ subsection.summary | flatify }}](#{{ subsection.anchor }})
+      {% endfor %}
+    subsections:
+      - title: "Discovery"
+        anchor: "extraction--discovery"
+        summary: "Discover available tables and columns"
+        content: |
+          During Discovery, Stitch will:
+
+          {% for sub-subsection in subsection.sub-subsections %}
+          - [{{ sub-subsection.summary | flatify }}](#{{ sub-subsection.anchor }})
+          {% endfor %}
+        sub-subsections:
+          - title: "Determining table availability"
+            anchor: "discovery--objects"
+            summary: "Determine table availability"
+            content: |
+              At the start of each replication job, Stitch performs a structure sync. During this phase, Stitch detects the objects available for replication.
+
+              There are two types of tables for {{ integration.display_name }}:
+
+              - **Core object tables**: These are tables that aren't created using the **Custom reports** feature in the integration's settings page. Table availability depends on the {{ integration.display_name }} Singer tap, which powers Stitch's integration. The tap contains a [JSON schema](https://github.com/singer-io/tap-twitter-ads/tree/master/tap_twitter_ads/schemas){:target="new"} for each available table.
+
+                 The [Table reference section](#schema) of this guide lists the tables currently available for replication, as well as info about how they replicate.
+
+              - **Custom report tables**: These are tables that are created using the **Custom reports** feature in the integration's settings page. Table availability depends on configuration of the report in the integration's settings page. **Note**: Custom report tables must also be set to replicate in the **Tables to Replicate** tab - Stitch won't automatically replicate them.
+
+                 Refer to the [Table reference](#example-custom-report) for an example of a custom report table.
+
+          - title: "Determining column availability"
+            anchor: "discovery--columns"
+            summary: "Determine column availability"
+            content: |
+              Column availability is dependent upon the type of table:
+
+              - **Core Object tables**: Column availability is determined by the [JSON schema](https://github.com/singer-io/tap-twitter-ads/tree/master/tap_twitter_ads/schemas){:target="new"} backing the table in the Singer tap.
+              - **Custom report tables**: Column availability is determined by the **Entity** selected during report configuration. Each entity in {{ integration.display_name }} is compatible with one or more metric groups. Each metric in a metric group corresponds to a column available for replication.
+
+                 For example: If the entity is compatible with the [BILLING metric group](https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation#BILLING){:target="new"}, you'd see `billed_engagements` and `billed_charge_local_micro` columns available for replication.
+
+                 Refer to the [Entity and metric group compatibility reference](#custom-report-configuration-options--compatibility) for more info.
+
+      - title: "Data replication"
+        anchor: "extraction--data-replication"
+        summary: "Extract records from selected tables and columns"
+        content: |
+          After discovery is completed, Stitch will move onto extracting data for the tables and columns you set to replicate.
+
+          How Stitch extracts data depends on the type of table being replicated:
+
+          - **Core object tables**: For these tables, extraction depends on the type of Replication Method the table uses. Refer to the [Table reference](#schema) for the Replication Method each table uses.
+
+          - **Custom report tables:** Custom report tables replicate using Key-based Incremental Replication and the [Attribution Window](#add-stitch-data-source) you define during setup. Attribution Windows are used in conjunction with Replication Keys to determine where Stitch should begin extraction for a table during each extraction job.
+
+  - title: "Loading"
+    anchor: "loading-details"
+    summary: "Details about how data replicated from {{ integration.display_name }} is loaded into a destination"
+    content: |
+      How data replicated from an {{ integration.display_name }} integration is loaded into your destination depends on two factors:
+
+      1. **The type of table being loaded**:
+         - **Core object tables** are loaded using [Upsert loading behavior]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl | append: "#loading-behavior-types--upsert" }}).
+         - **Custom report tables** are loaded using [Append-Only loading behavior]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl | append:"#loading-behavior-types--append-only" }}).
+
+      2. **If your destination supports upserts, or updating existing rows**. For destinations that support upserts, Stitch uses Primary Keys to de-dupe data during loading. {{ site.data.tooltips.primary-key }}
+
+      **Note**: For Append-Only destinations, data will be loaded in an Append-Only manner, regardless of the table type.
+
+
+# -------------------------- #
+#     Integration Tables     #
+# -------------------------- #
+
+# Looking for the table schemas & info?
+# Each table has a its own .md file in /_integration-schemas/twitter-ads
+
+# -------------------------- #
+#       Other Sections       #
+# -------------------------- #
+
+other-sections:
+  - title: "Reference"
+    anchor: "reference"
+    content: |
+      In this section:
+
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
     custom-report-options:
     # -------------------------- #
     #          ENTITIES          #
@@ -174,8 +274,8 @@ replication-sections:
           segment-compatibility: "none"
         - name: "organic_tweet"
           segment-compatibility: "none"
-        # - name: "promoted_account"
-        #   segment-compatibility: "some"
+        - name: "promoted_account"
+          segment-compatibility: "some"
         - name: "promoted_tweet"
           segment-compatibility: "some"
 
@@ -184,52 +284,63 @@ replication-sections:
     # -------------------------- #
       metric-groups:
         - name: "billing"
-          url: "https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation#BILLING"
+          doc: "https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation#BILLING"
+          schema: "https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/shared/billing.json"
           compatible-entities:
             - name: "funding_investment"
             - name: "campaign"
             - name: "line_item"
+            - name: "promoted_account"
             - name: "promoted_tweet"
             - name: "media_creative"
 
         - name: "engagement"
-          url: "https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation#engagement"
+          doc: "https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation#engagement"
+          schema: "https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/shared/engagement_all.json"
           compatible-entities:
             - name: "account"
             - name: "funding_investment"
             - name: "campaign"
             - name: "line_item"
+            - name: "promoted_account"
             - name: "promoted_tweet"
             - name: "media_creative"
             - name: "organic_tweet"
 
         - name: "life_time_value_mobiile_conversion"
-          url: "https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation#LIFE_TIME_VALUE_MOBILE_CONVERSION"
+          doc: "https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation#LIFE_TIME_VALUE_MOBILE_CONVERSION"
+          schema: "https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/shared/mobile_conversion.json"
           compatible-entities: &conversion-entities
             - name: "campaign"
             - name: "line_item"
+            - name: "promoted_account"
             - name: "promoted_tweet"
             - name: "media_creative"
 
         - name: "media"
-          url: "https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation#MEDIA"
+          doc: "https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation#MEDIA"
+          schema: "https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/shared/media.json"
           compatible-entities: *conversion-entities
 
         - name: "mobile_conversion"
-          url: "https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation#MOBILE_CONVERSION"
+          doc: "https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation#MOBILE_CONVERSION"
+          schema: "https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/shared/mobile_conversion.json"
           compatible-entities: *conversion-entities
 
         - name: "video"
-          url: "https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation#VIDEO"
+          doc: "https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation#VIDEO"
+          schema: "https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/shared/video.json"
           compatible-entities:
             - name: "campaign"
             - name: "line_item"
+            - name: "promoted_account"
             - name: "promoted_tweet"
             - name: "media_creative"
             - name: "organic_tweet"
 
         - name: "web_conversion"
-          url: "https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation#WEB_CONVERSION"
+          doc: "https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation#WEB_CONVERSION"
+          schema: "https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/shared/web_conversion.json"
           compatible-entities: *conversion-entities
 
     # -------------------------- #
@@ -275,19 +386,6 @@ replication-sections:
         - name: "swipeable_media"
         - name: "tv_ads"
         - name: "tv_shows"
-
-    # -------------------------- #
-    #       GRANULARITY          #
-    # -------------------------- #
-      granularity:
-        - name: "day"
-        - name: "hour"
-        - name: "total"
-  
-    content: |
-      {% for subsection in section.subsections %}
-      - [{{ subsection.title }}](#{{ subsection.anchor }})
-      {% endfor %}
     subsections:
       - title: "Entity and metric group compatibility reference"
         anchor: "custom-report-configuration-options--compatibility"
@@ -335,7 +433,7 @@ replication-sections:
                       {% for compatible-entity in metric-group.compatible-entities %}
                         {% if compatible-entity.name == entity.name %}
                           <li style="margin-top: 0px;">
-                            <a href="{{ metric-group.url }}" target="new">{{ metric-group.name | upcase }}</a>
+                            <a href="{{ metric-group.doc }}" target="new">{{ metric-group.name | upcase }}</a> (<a href="{{ metric-group.schema }}" target="new">JSON schema</a>)
                           </li>
                         {% endif %}
                       {% endfor %}
@@ -433,16 +531,6 @@ replication-sections:
         content: |
           - [{{ integration.display_name }} API Hierarchy and Terminology](https://developer.twitter.com/en/docs/tutorials/ads-api-hierarchy-terminology){:target="new"}
           - [{{ integration.display_name }} Metrics and Segmentation Rules](https://developer.twitter.com/en/docs/ads/analytics/overview/metrics-and-segmentation){:target="new"}
-
-        
-
-
-# -------------------------- #
-#     Integration Tables     #
-# -------------------------- #
-
-# Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/twitter-ads
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
