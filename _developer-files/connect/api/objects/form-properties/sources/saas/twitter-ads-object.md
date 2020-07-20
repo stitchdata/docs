@@ -27,11 +27,7 @@ api-type: "platform.twitter-ads"
 display-name: "Twitter Ads"
 
 source-type: "saas"
-docs-name: "twitter-ads" # This should be whatever integration.name is. Ex: LinkedIn Ads is linkedin-ads
-
-property-description: ""
-## Used to create a description for the object that doesn't adhere to the standard in _developers/connect/api/documentation/api-form-properties.html
-## See the Heap object for an example
+docs-name: "twitter-ads"
 
 
 # -------------------------- #
@@ -40,38 +36,37 @@ property-description: ""
 
 uses-start-date: true
 
-# Only source-specific attributes need to be listed here.
-# The following attributes are considered common,
-# and therefore don't need to be listed:
-# anchor_time, cron_expression, frequency_in_minutes, image_version, start_date 
-
 object-attributes:
   - name: "account_ids"
     type: "string"
     required: true
     description: |
-      "Your {{ form-property.display-name }} account ID. If adding multiple IDs, the list must be comma-delimited. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-account-id" }}) to retrieve this information."
+      A {{ form-property.display-name }} account ID, or a comma-delimited list of account IDs. For example: `accountId1, accountId2`
+
+      Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-account-id" }}) to retrieve this information.
     value: "<YOUR_ACCOUNT_ID_1>,<YOUR_ACCOUNT_ID_2>"
 
   - name: "attribution_window"
     type: "string"
     required: false
     description: |
-      The number of days of historical records to replicate for each replication job.
-    value: "XX"
+      The number of days of historical records to replicate for custom report tables during each replication job.
+    value: "14"
     
   - name: "country_codes"
     type: "string"
     required: false
     description: |
-      The comma-delimited list of ISO 2-letter country codes for targeting and segmenttation.
+      A comma-delimited list of ISO 2-letter country codes for targeting and segmentation. **Note**: This value is required to use some segment types in custom reports. Refer to the [Segment compatibility reference]({{ doc-link | append: "#custom-report-configuration-options--segments" }}) for more info.
     value: "US,MX,CA,DE"
     
   - name: "reports"
     type: "array"
     required: false
     description: |
-      An array of objects, each object pertaining to a custom report you want to create.
+      An array of objects, each object pertaining to a custom report.
+
+      **Note**: If provided, each property in this object must be provided to fully configure the custom report.
     value: |
       [
          {
@@ -91,19 +86,45 @@ object-attributes:
       - name: "name"
         type: "string"
         required: false
-        description: "The name of the custom report you want to create."
+        description: "The name of the custom report."
+      
       - name: "entity"
         type: "string"
         required: false
-        description: "The entity your custom report will source from."
+        description: |
+          The {{ integration.display_name }} entity (object) to report on. The entity determines the metrics (fields) available for selection and the segments you can apply to those metrics. Refer to the [Custom report options compatibility reference]({{ doc-link | append: "#custom-report-configuration-options" }}) for more info.
+
+          Accepted values are:
+
+          {% assign source-documentation = site.saas-integrations | where:"key","twitter-ads-setup" | first %}
+          {% assign source-reference = source-documentation.other-sections | where:"anchor","reference" | first %}
+          {% assign custom-report-options = source-reference.custom-report-options %}
+
+          {% for entity in custom-report-options.entities %}
+          - `{{ entity.name | upcase }}`
+          {% endfor %}
+      
       - name: "segment"
         type: "string"
         required: false
-        description: "The specific segment within the entity that the report will replicate data from."
+        description: |
+          The segment to apply to the `entity`'s available metrics. **Note**: Some entity and segment combinations may be incompatible. Refer to the [Segment compatibility reference]({{ doc-link | append: "#custom-report-configuration-options--segments" }}) for more info.
+
+          Accepted values are:
+
+          {% for segment in custom-report-options.segments %}
+          - `{{ segment.name | upcase }}`
+          {% endfor %}
+      
       - name: "granularity"
         type: "string"
         required: false
-        description: "The level of detail you want in your custom report."
+        description: |
+          The granularity of the custom report data. Accepted values are:
+
+          - `DAY`
+          - `HOUR`
+          - `TOTAL`
     
   - name: "with_deleted"
     type: "string"
@@ -143,7 +164,7 @@ oauth-attributes:
     required: true
     credential: true
     description: |
-      Your {{ form-property.display-name }} OAuth application's consumer key. This is obtained when you create an OAuth app with Google.
+      Your {{ form-property.display-name }} OAuth application's consumer key. This is obtained when you create an OAuth app with Twitter.
     value: "<CONSUMER_KEY>"
     
   - name: "consumer_secret"
@@ -151,6 +172,6 @@ oauth-attributes:
     required: true
     credential: true
     description: |
-      Your {{ form-property.display-name }} OAuth application's consumer secret. It is obtained when you create an OAuth app with Google.
+      Your {{ form-property.display-name }} OAuth application's consumer secret. This is obtained when you create an OAuth app with Twitter.
     value: "<CONSUMER_SECRET>"    
 ---
