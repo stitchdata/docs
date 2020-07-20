@@ -32,9 +32,11 @@
 ## Used in: _includes/integrations/templates/schemas/table-snapshot.html
 
 field-names:
-  replication-method: "Replication Method {{ info-icon | flatify }}"
+  replication-method: |
+    Replication Method {{ info-icon | replace:"TOOLTIP","Test" | flatify }}
   primary-key: "Primary Key {{ ui-icon.primary-key | flatify }}"
   replication-key: "Replication Key {{ ui-icon.replication-key | flatify }}"
+  loading-behavior: "Loading Behavior"
   api-endpoint: "API endpoint {{ info-icon | flatify }}"
   doc-link: "Official docs {{ info-icon | flatify }}"
 
@@ -48,8 +50,32 @@ field-values:
   replication-key: |
     {{ replication-keys | strip }} {% if table.replication-key.name %}{{ info-icon | replace:"TOOLTIP",table.replication-key.tooltip }}{% endif %}
 
+  loading-behavior: |
+    {% assign loading-behavior = table.loading-behavior | slugify %}
+    
+    <a href="{{ link.destinations.storage.loading-behavior | prepend: site.baseurl | append: "#loading-behavior-types--" | append: loading-behavior }}">{{ table.loading-behavior }}</a>
+
   api-endpoint: |
     <a href="{{ table.api-method.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} API documentation" target="new">{{ table.api-method.name }}</a>
 
   doc-link: |
     <a href="{{ table.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} documentation" target="new">Official Docs</a>
+
+
+full-table:
+  - name: "replication-method"
+  - name: "primary-key"
+
+key-based-incremental:
+  - name: "replication-method"
+  - name: "replication-key"
+  - name: "primary-key"
+
+loading-field:
+  - name: "loading-behavior"
+
+api-field:
+  - name: "api-endpoint"
+
+doc-link-field:
+  - name: "doc-link"
