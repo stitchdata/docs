@@ -64,9 +64,9 @@ arguments:
     description: |
       A path parameter corresponding to the page of results to retrieve, adhering to the format `?page={page_number}`, where `{page_number}` is the number of the page to retrieve.
 
-      Each results set, or page, can contain up to 100 load attempt records. This parameter is only required if you want to retrieve additional pages beyond the first 100 load attempt records. By default, a request to `{{ endpoint.short-url | flatify }}` is equivalent to a request for page `1` using this parameter.
+      Each results set, or page, can contain up to 100 extraction job records. This parameter is only required if you want to retrieve additional pages beyond the first 100 extraction job records. By default, a request to `{{ endpoint.short-url | flatify }}` is equivalent to a request for page `1` using this parameter.
 
-      If an account contains more than 100 load attempt records, the response will include data about subsequent pages that can be used to retrieve them. Refer to the **Requests** tab for an example.
+      If an account contains more than 100 extraction job records, the response will include data about subsequent pages that can be used to retrieve them. Refer to the **Requests** tab for an example.
 
       Refer to the [Pagination section]({{ site.data.connect.api.pagination }}) for more info on paginating through lists.
     example-value: |
