@@ -1,7 +1,7 @@
 ---
 tap: "codat"
 version: "1"
-key: ""
+key: "event"
 
 name: "events"
 doc-link: "https://docs.codat.io/reference/reports#reports_companyevents"
@@ -12,8 +12,8 @@ The {{ table.name }} table contains information about a given company's events i
 replication-method: "Full Table"
 
 api-method:
-    name: "getEvents"
-    doc-link: "https://docs.codat.io/reference/reports#reports_companyevents"
+  name: "Get events"
+  doc-link: "https://docs.codat.io/reference/reports#reports_companyevents"
 
 attributes:
   - name: "companyId"
@@ -21,14 +21,17 @@ attributes:
     primary-key: true
     description: "The company ID."
     foreign-key-id: "company-id"
+
   - name: "eventTimeUtc"
     type: "string"
     primary-key: true
     description: "The time of the event."
     foreign-key-id: "event-time" 
+
   - name: "description"
     type: "string"
     description: ""
+
   - name: "type"
     type: "string"
     description: ""

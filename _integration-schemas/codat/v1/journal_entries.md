@@ -1,7 +1,7 @@
 ---
 tap: "codat"
 version: "1"
-key: ""
+key: "journal-entry"
 
 name: "journal_entries"
 doc-link: "https://docs.codat.io/reference/journals"
@@ -12,8 +12,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "getJournalEntries"
-    doc-link: "https://docs.codat.io/reference/journals#journals_listpaged"
+  name: "Get journal entries"
+  doc-link: "https://docs.codat.io/reference/journals#journals_listpaged"
 
 attributes:
   - name: "companyId"
@@ -36,7 +36,7 @@ attributes:
   - name: "createdOn"
     type: "string"
     description: ""
-  
+
   - name: "journalLines"
     type: "array"
     description: ""
@@ -48,31 +48,40 @@ attributes:
           - name: "id"
             type: "string"
             description: ""
+            foreign-key-id: "account-id"
+
           - name: "name"
             type: "string"
             description: ""
+
       - name: "currency"
         type: "string"
         description: ""
+
       - name: "description"
         type: "string"
         description: ""
+
       - name: "grossAmount"
         type: "number"
         description: ""
+
       - name: "id"
         type: "string"
         description: ""
+
       - name: "netAmount"
         type: "number"
         description: ""
+
       - name: "taxAmount"
         type: "number"
         description: ""
-  
+
   - name: "postedOn"
     type: "string"
     description: ""
+
   - name: "sourceModifiedDate"
     type: "string"
     description: ""

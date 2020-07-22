@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "Get suppliers for a company"
-    doc-link: "https://docs.codat.io/reference/suppliers#suppliers_listpaged"
+  name: "Get suppliers for a company"
+  doc-link: "https://docs.codat.io/reference/suppliers#suppliers_listpaged"
 
 attributes:
   - name: "companyId"

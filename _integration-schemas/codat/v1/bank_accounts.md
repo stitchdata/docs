@@ -1,7 +1,7 @@
 ---
 tap: "codat"
 version: "1"
-key: ""
+key: "bank-account"
 
 name: "bank_accounts"
 doc-link: "https://docs.codat.io/docs/bank-accounts"
@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "getBankAccounts"
-    doc-link: "https://docs.codat.io/reference/bankaccounts#bankaccounts_listaccountspaged"
+  name: "getBankAccounts"
+  doc-link: "https://docs.codat.io/reference/bankaccounts#bankaccounts_listaccountspaged"
 
 attributes:
   - name: "accountName"
@@ -21,11 +21,13 @@ attributes:
     primary-key: true
     description: "The account name."
     foreign-key-id: "account-name"
+
   - name: "companyId"
     type: "string"
     primary-key: true
     description: "The company ID."
     foreign-key-id: "company-id"
+
   - name: "connectionId"
     type: "string"
     primary-key: true
@@ -35,36 +37,47 @@ attributes:
   - name: "accountNumber"
     type: "string"
     description: ""
+    
   - name: "availableBalance"
     type: "number"
     description: ""
+
   - name: "balance"
     type: "number"
     description: ""
+
   - name: "currency"
     type: "string"
     description: ""
+
   - name: "fromDate"
     type: "string"
     description: ""
+
   - name: "iban"
     type: "string"
     description: ""
+
   - name: "id"
     type: "string"
     description: ""
+
   - name: "modifiedDate"
     type: "string"
     description: ""
+
   - name: "overdraftLimit"
     type: "number"
     description: ""
+
   - name: "sortCode"
     type: "string"
     description: ""
+
   - name: "sourceModifiedDate"
     type: "string"
     description: ""
+
   - name: "toDate"
     type: "string"
     description: ""

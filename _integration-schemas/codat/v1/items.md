@@ -1,7 +1,7 @@
 ---
 tap: "codat"
 version: "1"
-key: ""
+key: "item"
 
 name: "items"
 doc-link: "https://docs.codat.io/reference/items"
@@ -13,8 +13,8 @@ replication-method: "Key-based Incremental"
 replication-key: "modifiedDate"
 
 api-method:
-    name: "getItems"
-    doc-link: "https://docs.codat.io/reference/items#items_listpaged"
+  name: "Get items"
+  doc-link: "https://docs.codat.io/reference/items#items_listpaged"
 
 attributes:
   - name: "companyId"
@@ -22,15 +22,17 @@ attributes:
     primary-key: true
     description: "The company ID."
     foreign-key-id: "company-id"
+
   - name: "id"
     type: "string"
     primary-key: true
     description: "The item ID."
     foreign-key-id: "item-id"
+
   - name: "billItem"
     type: "object"
     description: ""
-    subattributes:
+    subattributes: &ref-items
       - name: "accountRef"
         type: "object"
         description: ""
@@ -38,9 +40,12 @@ attributes:
           - name: "id"
             type: "string"
             description: ""
+            foreign-key-id: "account-id"
+
       - name: "description"
         type: "string"
         description: ""
+
       - name: "taxRateRef"
         type: "object"
         description: ""
@@ -48,51 +53,41 @@ attributes:
           - name: "id"
             type: "string"
             description: ""
+            foreign-key-id: "tax-id"
+
       - name: "unitPrice"
         type: "number"
         description: ""
+
   - name: "code"
     type: "string"
     description: ""
+
   - name: "invoiceItem"
     type: "object"
     description: ""
-    subattributes:
-      - name: "accountRef"
-        type: "object"
-        description: ""
-        subattributes:
-          - name: "id"
-            type: "string"
-            description: ""
-      - name: "description"
-        type: "string"
-        description: ""
-      - name: "taxRateRef"
-        type: "object"
-        description: ""
-        subattributes:
-          - name: "id"
-            type: "string"
-            description: ""
-      - name: "unitPrice"
-        type: "number"
-        description: ""
+    subattributes: *ref-items
+
   - name: "isBillItem"
     type: "boolean"
     description: ""
+
   - name: "isInvoiceItem"
     type: "boolean"
     description: ""
+
   - name: "itemStatus"
     type: "string"
     description: ""
+
   - name: "modifiedDate"
     type: "string"
     description: ""
+
   - name: "name"
     type: "string"
     description: ""
+
   - name: "sourceModifiedDate"
     type: "string"
     description: ""

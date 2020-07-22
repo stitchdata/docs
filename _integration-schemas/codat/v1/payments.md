@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "List payments for a company"
-    doc-link: "https://docs.codat.io/reference/payments#payments_listpaged"
+  name: "List payments for a company"
+  doc-link: "https://docs.codat.io/reference/payments#payments_listpaged"
 
 attributes:
   - name: "companyId"

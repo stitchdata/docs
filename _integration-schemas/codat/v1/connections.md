@@ -1,7 +1,7 @@
 ---
 tap: "codat"
 version: "1"
-key: ""
+key: "connection"
 
 name: "connections"
 doc-link: "https://docs.codat.io/reference/connection#connection_getconnection"
@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "getConnections"
-    doc-link: "https://docs.codat.io/reference/connection#connection_getconnection"
+  name: "Get connections"
+  doc-link: "https://docs.codat.io/reference/connection#connection_getconnection"
 
 attributes:
   - name: "companyId"

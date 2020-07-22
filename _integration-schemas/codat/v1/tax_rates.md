@@ -1,7 +1,7 @@
 ---
 tap: "codat"
 version: "1"
-key: ""
+key: "tax-rate"
 
 name: "tax_rates"
 doc-link: "https://docs.codat.io/reference/taxrates"
@@ -12,8 +12,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "getTaxRates"
-    doc-link: "https://docs.codat.io/reference/taxrates#taxrates_listpaged"
+  name: "Get tax rates"
+  doc-link: "https://docs.codat.io/reference/taxrates#taxrates_listpaged"
 
 attributes:
   - name: "companyId"
@@ -21,11 +21,13 @@ attributes:
     primary-key: true
     description: "The company ID."
     foreign-key-id: "company-id"
+
   - name: "id"
     type: "string"
     primary-key: true
     description: "The tax rate ID."
     foreign-key-id: "tax-id"
+
   - name: "modifiedDate"
     type: "string"
     description: "The date the tax rate was last modified."
@@ -34,6 +36,7 @@ attributes:
   - name: "code"
     type: "string"
     description: ""
+
   - name: "components"
     type: "array"
     description: ""
@@ -47,6 +50,7 @@ attributes:
       - name: "rate"
         type: "number"
         description: ""
+
   - name: "effectiveTaxRate"
     type: "number"
     description: ""
@@ -54,9 +58,11 @@ attributes:
   - name: "name"
     type: "string"
     description: ""
+
   - name: "sourceModifiedDate"
     type: "string"
     description: ""
+
   - name: "totalTaxRate"
     type: "number"
     description: ""

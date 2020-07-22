@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "List invoices for a company"
-    doc-link: "https://docs.codat.io/reference/invoices#invoices_listpaged"
+  name: "List invoices for a company"
+  doc-link: "https://docs.codat.io/reference/invoices#invoices_listpaged"
 
 attributes:
   - name: "companyId"

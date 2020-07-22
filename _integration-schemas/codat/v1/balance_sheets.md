@@ -20,6 +20,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the company the balance sheet is for."
+    foreign-key-id: "company-id"
 
   - name: "currency"
     type: "string"

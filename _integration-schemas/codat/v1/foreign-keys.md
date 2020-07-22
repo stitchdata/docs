@@ -4,13 +4,6 @@ tap-reference: "codat"
 version: "1"
 
 foreign-keys:
-  - id: "-id"
-    attribute: ""
-    table: ""
-    all-foreign-keys:
-      - table: ""
-        join-on: "id"
-
   - id: "account-id"
     attribute: "accountId"
     table: "accounts"
@@ -18,21 +11,51 @@ foreign-keys:
       - table: "accounts"
         join-on: "id"
       - table: "balance_sheets"
-        subtable: "reports.assets"
+        subattribute: "reports.assets"
       - table: "balance_sheets"
-        subtable: "reports.equity"
+        subattribute: "reports.equity"
       - table: "balance_sheets"
-        subtable: "reports.liabilities"
+        subattribute: "reports.liabilities"
       - table: "profit_and_loss"
-        subtable: "reports.costOfSales"
+        subattribute: "reports.costOfSales"
       - table: "profit_and_loss"
-        subtable: "reports.expenses"
+        subattribute: "reports.expenses"
       - table: "profit_and_loss"
-        subtable: "reports.income"
+        subattribute: "reports.income"
       - table: "profit_and_loss"
-        subtable: "reports.otherExpenses"
+        subattribute: "reports.otherExpenses"
       - table: "profit_and_loss"
-        subtable: "reports.otherIncome"
+        subattribute: "reports.otherIncome"
+      - table: "bills"
+        subattribute: "lineItems.accountRef"
+        join-on: "id"
+      - table: "items"
+        subattribute: "billItem.accountRef"
+        join-on: "id"
+      - table: "items"
+        subattribute: "invoiceItem.accountRef"
+        join-on: "id"
+      - table: "journal_entries"
+        subattribute: "journalLines.accountRef"
+        join-on: "id"
+
+  - id: "account-name"
+    attribute: "accountName" 
+    table: "accounts"
+    all-foreign-keys:
+      - table: "accounts"
+        join-on: "name"
+      - table: "bank_accounts"
+      - table: "bank_statement_lines"
+
+  - id: "bank-account-id"
+    attribute: "id" 
+    table: "bank_accounts"
+    all-foreign-keys:
+      - table: "bank_accounts"
+        join-on: "id"        
+      - table: "bank_account_transactions"
+        join-on: "bankAccountId"
 
   - id: "bank-statement-id"
     attribute: ""
@@ -48,6 +71,13 @@ foreign-keys:
       - table: "bills"
         join-on: "id"
 
+  - id: "bill-payment-id"
+    attribute: "id" 
+    table: "bill_payments"
+    all-foreign-keys:
+      - table: "bill_payments"
+        join-on: "id"
+
   - id: "company-id"
     attribute: "companyId"
     table: "companies"
@@ -56,6 +86,9 @@ foreign-keys:
         join-on: "id"
       - table: "balance_sheets"
       - table: "bank_statements"
+      - table: "bank_statement_lines"
+      - table: "bill_payments"
+        subattribute: "supplierRef"
       - table: "bills"
       - table: "company_info"
       - table: "customers"
@@ -64,21 +97,21 @@ foreign-keys:
       - table: "profit_and_loss"
       - table: "suppliers"
       - table: "connections"
-        join-on: "companyId"
       - table: "events"
-        join-on: "companyId"
       - table: "items"
-        join-on: "companyId"
       - table: "journal_entries"
-        join-on: "companyId"
       - table: "tax_rates"
-        join-on: "companyId"
       - table: "bill_payment"
-        join-on: "companyId"
       - table: "bank_account_transactions"
-        join-on: "companyId"
       - table: "bank_accounts"
-        join-on: "companyId"     
+
+  - id: "connection-id"
+    table: "connections"
+    attribute: "connectionId"
+    all-foreign-keys:
+      - table: "bank_accounts"
+      - table: "connections"
+        join-on: "id" 
 
   - id: "credit-note-id"
     attribute: "creditNoteId"
@@ -87,7 +120,7 @@ foreign-keys:
       - table: "credit_notes"
         join-on: "id"
       - table: "payments"
-        subtable: "lines.links"
+        subattribute: "lines.links"
         join-on: "id"
 
   - id: "customer-id"
@@ -95,15 +128,15 @@ foreign-keys:
     table: "customers"
     all-foreign-keys:
       - table: "credit_notes"
-        subtable: "customerRef"
+        subattribute: "customerRef"
         join-on: "id"
       - table: "customers"
         join-on: "id"
       - table: "credit_notes"
-        subtable: "customerRef"
+        subattribute: "customerRef"
         join-on: "id"
       - table: "payments"
-        subtable: "customerRef"
+        subattribute: "customerRef"
         join-on: "id"
 
   - id: "invoice-id"
@@ -113,7 +146,25 @@ foreign-keys:
       - table: "invoices"
         join-on: "id"
       - table: "payments"
-        subtable: "lines.links"
+        subattribute: "lines.links"
+        join-on: "id"
+
+  - id: "item-id"
+    attribute: "id" 
+    table: "items"
+    all-foreign-keys:
+      - table: "bills"
+        subattribute: "lineItems.itemRef"
+        join-on: "id"
+
+      - table: "items"
+        join-on: "id"
+        
+  - id: "journal-id"
+    attribute: "id" 
+    table: "journal_entries"
+    all-foreign-keys:
+      - table: "journal_entries"
         join-on: "id"
 
   - id: "payment-id"
@@ -123,7 +174,7 @@ foreign-keys:
       - table: "payments"
         join-on: "id"
       - table: "payments"
-        subtable: "lines.links"
+        subattribute: "lines.links"
         join-on: "id"
 
   - id: "supplier-id"
@@ -135,15 +186,6 @@ foreign-keys:
       - table: "suppliers"
         join-on: "id"
 
-  - id: "connection-id"
-    attribute: "id"
-    table: "connections"
-    all-foreign-keys:
-      - table: "connections"
-        join-on: "id"
-      - table: "bank_accounts"
-        join-on: "connection-id"  
-
   - id: "event-time"
     attribute: "eventTimeUtc" 
     table: "events"
@@ -151,32 +193,32 @@ foreign-keys:
       - table: "events"
         join-on: "eventTimeUtc" 
 
-  - id: "item-id"
-    attribute: "id" 
-    table: "items"
+  - id: "supplier-id"
+    table: "suppliers"
+    attribute: "supplierRef"
     all-foreign-keys:
-      - table: "items"
+      - table: "bill_payments"
+        subattribute: "supplierRef"
         join-on: "id"
-        
-  - id: "journal-id"
-    attribute: "id" 
-    table: "journal_entries"
-    all-foreign-keys:
-      - table: "journal_entries"
-        join-on: "id"
+      - table: "bills"
 
   - id: "tax-id"
     attribute: "id" 
     table: "tax_rates"
     all-foreign-keys:
-      - table: "tax_rates"
+      - table: "bills"
+        subattribute: "lineItems.taxRateRef"
         join-on: "id"
 
-  - id: "bill-payment-id"
-    attribute: "id" 
-    table: "bill_payments"
-    all-foreign-keys:
-      - table: "bill_payments"
+      - table: "items"
+        subattribute: "billItem.taxRateRef"
+        join-on: "id"
+
+      - table: "items"
+        subattribute: "invoiceItem.taxRateRef"
+        join-on: "id"
+
+      - table: "tax_rates"
         join-on: "id"
 
   - id: "transaction-index-id"
@@ -184,23 +226,5 @@ foreign-keys:
     table: "bank_account_transactions"
     all-foreign-keys:
       - table: "bank_account_transactions"
-        join-on: "_transactionIndex"
-  
-  - id: "bank-account-id"
-    attribute: "id" 
-    table: "bank_accounts"
-    all-foreign-keys:
-      - table: "bank_accounts"
-        join-on: "id"        
-      - table: "bank_account_transactions"
-        join-on: "bankAccountId" 
-
-- id: "account-name"
-    attribute: "name" 
-    table: "accounts"
-    all-foreign-keys:
-      - table: "accounts"
-        join-on: "name"
-      - table: "bank_accounts"
-        join-on: "accountName"                                    
+        join-on: "_transactionIndex"                
 ---

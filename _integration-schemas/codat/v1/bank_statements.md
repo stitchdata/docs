@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "List bank statements for a company"
-    doc-link: "https://docs.codat.io/reference/bankstatements#bankstatements_listpaged"
+  name: "List bank statements for a company"
+  doc-link: "https://docs.codat.io/reference/bankstatements#bankstatements_listpaged"
 
 attributes:
   - name: "id"
@@ -26,6 +26,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the company associated with the account."
+    foreign-key-id: "company-id"
 
   - name: "accountName"
     type: "string"
