@@ -12,7 +12,7 @@ tap: "heap"
 version: "1" 
 
 name: "users"
-doc-link: https://docs.heapanalytics.com/docs/heap-sql-retroactive-s3-specification
+doc-link: https://help.heap.io/heap-connect/heap-connect-guide/data-schema/#users-table
 description: |
   The `{{ table.name }}` table contains info about users.
 

@@ -129,7 +129,7 @@ replication-sections:
       - title: "{{ integration.display_name }} data syncs to Amazon S3"
         anchor: "heap-data-syncs-to-amazon-s3"
         content: |
-          {{ integration.display_name }} dumps data into Amazon S3 periodically. [By default, this is on a nightly basis](https://docs.heapanalytics.com/docs/heap-sql-retroactive-s3-specification#section-process-overview){:target="new"}.
+          {{ integration.display_name }} dumps data into Amazon S3 periodically. [By default, this is on a nightly basis](https://help.heap.io/integrations/data-warehouses/s3/#process-overview){:target="new"}.
 
           According to {{ integration.display_name }}'s documentation:
 
@@ -137,7 +137,7 @@ replication-sections:
 
           This means that while files will only include new and updated data pertinent to that specific object (table), a full resync may be included.
 
-      - title: "Incremental Replication using file modification timestamps"
+      - title: "Key-based Incremental Replication using file modification timestamps"
         anchor: "incremental-replication-for-heap"
         content: |
           To identify new and updated data for replication, Stitch will use file modification timestamps as [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}) and store them on a per-table basis. This means that only files dumped from a new {{ integration.display_name }} data sync will be selected for replication.
