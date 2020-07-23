@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Amplitude (v1.0)
+title: Amplitude (v1)
 permalink: /integrations/saas/amplitude
 keywords: amplitude, integration, schema, etl amplitude, amplitude etl, amplitude schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Amplitude integration."

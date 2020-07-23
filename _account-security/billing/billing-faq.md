@@ -66,7 +66,7 @@ frequently-asked-questions:
           <tr>
           {% endif %}
             <td width="33%; fixed">
-              <a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.title | remove: "(v1)" | remove: "(v2)" | remove: "(v1.0)" | remove: "(v2.0)" }}</a>
+              <a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.title | remove: "(v1)" | remove: "(v2)" }}</a>
             </td>
           {% case index %}
             {% when 0 %}
@@ -100,7 +100,7 @@ frequently-asked-questions:
           <tr>
           {% endif %}
             <td width="33%; fixed">
-              <a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.title | remove: "(v1)" | remove: "(v2)" | remove: "(v1.0)" | remove: "(v2.0)" }}</a>
+              <a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.title | remove: "(v1)" | remove: "(v2)" }}</a>
             </td>
           {% case index %}
             {% when 0 %}
@@ -134,7 +134,7 @@ frequently-asked-questions:
           <tr>
           {% endif %}
             <td width="33%; fixed">
-              <a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.title | remove: "(v1)" | remove: "(v2)" | remove: "(v1.0)" | remove: "(v2.0)" }}</a>
+              <a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.title | remove: "(v1)" | remove: "(v2)" }}</a>
             </td>
           {% case index %}
             {% when 0 %}

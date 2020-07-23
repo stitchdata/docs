@@ -1,15 +1,13 @@
 ---
 tap: "xero"
 version: "1"
+key: "journal"
 
 name: "journals"
 doc-link: &api-doc https://developer.xero.com/documentation/api/journals
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/journals.json
 description: |
   The `{{ table.name }}` table contains info about journal entries.
-
-replication-key:
-  name: "If-Modified-Since"
 
 replication-method: "Key-based Incremental"
 
@@ -24,13 +22,14 @@ attributes:
     description: "The journal ID."
     # foreign-key-id: "journal-id"
 
+  - name: "JournalNumber"
+    type: "string"
+    replication-key: true
+    description: "A {{ integration.display_name }}-generated journal number."
+
   - name: "JournalDate"
     type: "date-time"
     description: "The date the journal was posted."
-
-  - name: "JournalNumber"
-    type: "string"
-    description: "A {{ integration.display_name }}-generated journal number."
 
   - name: "CreatedDateUTC"
     type: "date-time"

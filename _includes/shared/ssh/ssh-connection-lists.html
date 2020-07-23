@@ -14,7 +14,7 @@
 
 {% capture integration-list %}
 {% for database-integration in ssh-database-integrations %}
-- [{% if page.hosting-type == "generic" %}Self-hosted {% endif %}{{ database-integration.title | remove: " (v1.0)" }}]({{ database-integration.url | prepend: site.baseurl }})
+- [{% if page.hosting-type == "generic" %}Self-hosted {% endif %}{{ database-integration.title | remove: " (v1)" }}]({{ database-integration.url | prepend: site.baseurl }})
 {% endfor %}
 {% endcapture %}
 

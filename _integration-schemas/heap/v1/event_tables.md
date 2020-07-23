@@ -12,7 +12,7 @@ tap: "heap"
 version: "1" 
 
 name: "[event_type]"
-doc-link: https://docs.heapanalytics.com/docs/heap-sql-retroactive-s3-specification
+doc-link: https://help.heap.io/heap-connect/heap-connect-guide/data-schema/#event-tables
 description: |
   For every event type defined in {{ integration.display_name }}, a table will display in the Stitch app. The name of the table will be the event name, which {{ integration.display_name }} will first strip the non-alphanumeric characters from. For example: The table name for `Sign Up - Click Link` will be transformed into `sign_up_click_link` by {{ integration.display_name }}.
 

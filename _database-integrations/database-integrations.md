@@ -44,7 +44,7 @@ sections:
 
           {% for integration in database-integrations %}
           {% if integration.ssl == true %}
-          - [{{ integration.title | remove: "(v1.0)" }}]({{ integration.url | prepend: site.baseurl }})
+          - [{{ integration.title | remove: "(v1)" }}]({{ integration.url | prepend: site.baseurl }})
           {% endif %}
           {% endfor %}
 

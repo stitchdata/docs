@@ -187,6 +187,15 @@ revoke-select: |
 grant-select-on-table: |
   GRANT SELECT ON <schema_name>.<table_name> to <stitch_username>
 
+grant-select-system-tables: |
+  GRANT SELECT ON all_constraints to <stitch_username>
+  GRANT SELECT ON all_cons_columns to <stitch_username>
+  GRANT SELECT ON all_tab_columns to <stitch_username>
+  GRANT SELECT ON all_tables to <stitch_username>
+  GRANT SELECT ON all_views to <stitch_username>
+  GRANT SELECT ON all_constraints to <stitch_username>
+  {{ site.data.taps.extraction.database-setup.user-privileges.oracle.select-v-database }}
+
 select-any-transaction: |
   GRANT SELECT ANY TRANSACTION TO <stitch_username>
 

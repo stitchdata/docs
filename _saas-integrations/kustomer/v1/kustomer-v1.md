@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Kustomer
+title: Kustomer (v1)
 permalink: /integrations/saas/kustomer
 keywords: kustomer, integration, schema, etl kustomer, kustomer etl, kustomer schema
 layout: singer
