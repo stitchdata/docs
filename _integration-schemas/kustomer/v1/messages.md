@@ -1,6 +1,6 @@
 ---
 tap: "kustomer"
-version: "1.0"
+version: "1"
 
 name: "messages"
 doc-link: "https://dev.kustomer.com/v1/messages/"

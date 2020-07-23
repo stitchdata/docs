@@ -6,7 +6,7 @@ name: "activities_[activity_type]"
 doc-link: "http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Activities/getLeadActivitiesUsingGET"
 singer-schema: https://github.com/singer-io/tap-marketo/blob/master/tap_marketo/schemas/activities.json
 description: |
-  In [version 1.0 of Stitch's Marketo integration]({{ site.baseurl }}/integrations/saas/{{ integration.name }}-v1), the `activities` table contained all data pertaining to lead activities.
+  In [version 1 of Stitch's Marketo integration]({{ site.baseurl }}/integrations/saas/{{ integration.name }}/v1), the `activities` table contained all data pertaining to lead activities.
 
   In this version, you can choose to replicate lead activity data for specific activity types. For every activity type defined in your {{ integration.display_name }} account, you'll see an `{{ table.name }}` table in the {{ app.buttons.tables }} tab. For example: `activities_click_email` contains lead activity data for the `click_email` activity type.
 

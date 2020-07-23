@@ -282,7 +282,7 @@ replication-sections:
   - title: "Data types"
     anchor: "data-types"
     content: |
-      {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true version="1.0" version-column-headers=false %}
+      {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true version="1" version-column-headers=false %}
 
 ---
 {% assign integration = page %}
