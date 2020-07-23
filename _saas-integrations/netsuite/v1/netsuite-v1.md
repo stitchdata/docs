@@ -111,22 +111,24 @@ setup-steps:
     content: |
       {% include note.html type="single-line" content="**Note**: This step is required only if IP address rules (**Setup > Company > Enable Features > Company > Access**) are enabled for your NetSuite account. Otherwise, skip to [Step 2](#configure-web-services-and-authentication-settings). " %}
 
-      {% capture ip-addresses %}
-      {% for ip-address in ip-addresses %}
-      {{ ip-address.ip }}{% unless forloop.last == true %},{% endunless %}
-      {% endfor %}
-      {% endcapture %}
-
-      {% include layout/inline_image.html type="right" file="integrations/netsuite-ip-addresses.png" alt="" max-width="400px" %}
       1. Sign into your {{ integration.display_name }} account as an administrator.
       2. In your {{ integration.display_name }} account, click **Setup > Company > Company Information**.
       3. In the **Allowed IP addresses** field, add the following comma-separated list of Stitch's IP addresses:
 
-         ```
-         {{ ip-addresses | strip_newlines }}
+         {% capture code %}{% for ip-address in ip-addresses %}{{ ip-address.ip }}{% unless forloop.last == true %}, {% endunless %}{% endfor %}{% endcapture %}
+
+         {% include layout/code-snippet.html use-code-block=false code=code language="shell" %}
+         
+         ```shell
+      {{ code | lstrip | rstrip | strip_newlines }}
          ```
 
          **Note**: Make sure you don't overwrite or change any existing IP addresses in this field - doing so could cause access issues for you and other {{ integration.display_name }} users in your account.
+
+         The screen should look like this:
+
+         ![The Company Information screen in NetSuite with the Allowed IP Addresses field populated with Stitch's IP addresses]({{ site.baseurl }}/images/integrations/netsuite-ip-addresses.png)
+
       4. Click **Save**.
 
   - title: "Configure Web Services and authentication settings"
@@ -328,35 +330,41 @@ replication-sections:
 
           For example: The following query would return all invoice records that exist in the `Transaction` and `Deleted` tables:
 
-          ```sql
+          {% capture code %}
              SELECT * 
                FROM netsuite.Transaction tran 
           LEFT JOIN netsuite.Deleted del
                  ON tran.internalId = del.internalId 
                 AND tran.type = 'invoice'
                 AND del.type = 'invoice'
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           If you're using a destination that is case-insensitive, some queries may result in errors. If this occurs, try using `LOWER` to resolve the issue:
 
-          ```sql
+          {% capture code %}
              SELECT *
                FROM netsuite.Transaction tran 
           LEFT JOIN netsuite.Deleted del 
                  ON tran.internalId = del.internalId 
           AND LOWER(tran.type) = LOWER(del.type)
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           To filter out deleted records from other data, you can run a query like this one:
 
-          ```sql
+          {% capture code %}
              SELECT *
                FROM netsuite.Transaction tran 
           LEFT JOIN netsuite.Deleted del
                  ON tran.internalId = del.internalId 
           AND LOWER(tran.type) = LOWER(del.type) 
               WHERE del.deletedDate is null;
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           Refer to the [`Deleted` table schema](#deleted) for more info about the available fields in the `Deleted` table.
 
