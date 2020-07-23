@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Adroll
+title: Adroll (v1)
 permalink: /integrations/saas/adroll
 keywords: adroll, integration, schema, etl adroll, adroll etl, adroll schema
 layout: singer
