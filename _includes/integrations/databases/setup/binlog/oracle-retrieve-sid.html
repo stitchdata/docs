@@ -4,8 +4,10 @@ An Oracle System ID (SID) is used to uniquely identify a specific database in yo
 
 To retrieve your database's SID, log into your database as a user with access to the `SYS.V_$THREAD` performance view and run the following:
 
-```sql
+{% capture code %}
 SELECT INSTANCE FROM SYS.V_$THREAD
-```
+{% endcapture %}
+
+{% include layout/code-snippet.html code=code language="sql" %}
 
 The value returned by the query will be the database's SID. Keep this handy - you'll need it to complete the setup.
