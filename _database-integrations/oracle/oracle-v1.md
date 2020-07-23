@@ -57,7 +57,7 @@ db-type: "oracle"
 
 ## Stitch features
 api-type: "platform.oracle"
-versions: "n/a"
+versions: "8.0 - 18c"
 ssh: true
 ssl: false
 
