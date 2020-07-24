@@ -3,17 +3,38 @@
 # --------------------------------- #
 
 - name: "array"
+  category: "other" #json 
+
 - name: "cidr"
+  category: "other" # network address type
+
 - name: "citext"
+  category: "character" 
+
 - name: "hstore"
   doc-link: "https://www.postgresql.org/docs/current/static/hstore.html"
+  category: "other"
+
 - name: "inet"
   doc-link: "https://www.postgresql.org/docs/current/static/datatype-net-types.html#datatype-inet"
+  category: "other" # network address type
+
 - name: "ip"
+  category: "other" # network address type
+
 - name: "json"
+  category: "other" # json
+
 - name: "jsonb"
+  category: "other" # json
+
 - name: "macaddr"
+  category: "other" # network address type
+
 - name: "money"
   doc-link: "https://www.postgresql.org/docs/10/static/datatype-money.html"
+  category: "numeric" # monetary
+
 - name: "uuid"
   doc-link: "https://www.postgresql.org/docs/10/static/datatype-uuid.html"
+  category: "other"

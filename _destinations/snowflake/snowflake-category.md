@@ -32,6 +32,7 @@ layout: general
 # -------------------------- #
 
 display_name: "Snowflake"
+name: "snowflake"
 type: "snowflake"
 
 this-version: "1"

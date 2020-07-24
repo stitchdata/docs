@@ -17,69 +17,78 @@ last-updated: "June 19, 2018"
 all-supported:
   - name: "bigint"
     stitch-type: "bigint"
-    integration: "all"
+    category: "numeric"
 
   - name: "bit"
     stitch-type: "boolean"
-    integration: "all"
+    category: "logical"
 
   - name: "char"
     stitch-type: "string"
-    integration: "all"
+    category: "character"
 
   - name: "date"
     stitch-type: "date"
-    integration: "all"
+    category: "date and time"
 
   - name: "decimal"
     stitch-type: "number"
-    integration: "all"
+    category: "numeric"
 
   - name: "double"
     stitch-type: "double"
-    integration: "all"
+    category: "numeric"
 
   - name: "float"
     stitch-type: "float"
-    integration: "all"
+    category: "numeric"
 
   - name: "integer"
     stitch-type: "integer"
-    integration: "all"
+    category: "numeric"
 
   - name: "longvarchar"
     stitch-type: "string"
-    integration: "all"
+    category: "character"
 
   - name: "longnvarchar"
     stitch-type: "string"
-    integration: "all"
+    category: "character"
 
   - name: "nchar"
     stitch-type: "string"
+    category: "character"
 
   - name: "nvarchar"
     stitch-type: "string"
+    category: "character"
 
   - name: "numeric"
     stitch-type: "number"
+    category: "numeric"
 
   - name: "real"
     stitch-type: "float"
+    category: "numeric"
 
   - name: "smallint"
     stitch-type: "integer"
+    category: "numeric"
 
   - name: "time"
     stitch-type: "date"
+    category: "date and time"
 
   - name: "timestamp"
     stitch-type: "date"
+    category: "date and time"
 
   - name: "tinyint"
     stitch-type: "integer"
     doc-link: "{{ link.troubleshooting.mysql-tinyint-bit }}"
     notes: "Under certain circumstances, Stitch may store this data type as `BIT(1)/boolean`. Click the link for more details."
+    category: "numeric"
 
   - name: "varchar"
     stitch-type: "string"
+    category: "character"

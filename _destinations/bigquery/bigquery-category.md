@@ -32,6 +32,7 @@ layout: general
 # -------------------------- #
 
 display_name: "Google BigQuery"
+name: "bigquery"
 type: "bigquery"
 
 sections:

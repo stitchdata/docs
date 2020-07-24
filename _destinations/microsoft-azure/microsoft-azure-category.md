@@ -33,6 +33,7 @@ layout: general
 # -------------------------- #
 
 display_name: "Microsoft Azure Synapse Analytics"
+name: "microsoft-azure"
 type: "microsoft-azure"
 
 this-version: "1"

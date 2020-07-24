@@ -10,7 +10,8 @@ key: "mongodb-integration"
 
 show-in-menus: true
 has-versions: true
-has-specific-data-types: false
+
+has-specific-data-types: true
 
 db-type: "mongo"
 name: "mongodb"

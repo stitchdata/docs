@@ -5,14 +5,14 @@
 
 title: Data Typing in Stitch
 # permalink: /replication/data-typing
-redirect_from: /replication/supported-data-types
+# redirect_from: /replication/supported-data-types
 keywords: 
 sidebar: stitchnav
 layout: general
 
 summary: ""
 
-content-type: "select-data"
+# content-type: "select-data"
 toc: true
 weight: 4
 

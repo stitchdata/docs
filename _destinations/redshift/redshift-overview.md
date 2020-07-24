@@ -37,6 +37,7 @@ related:
 # -------------------------- #
 
 display_name: "Amazon Redshift"
+name: "redshift"
 type: "redshift"
 
 this-version: "2"
