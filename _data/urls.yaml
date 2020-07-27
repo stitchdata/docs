@@ -227,6 +227,8 @@ replication:
   syncing-new-columns: /replication/syncing-new-additional-columns
   db-views: /replication/replicating-database-views
   supported-data-types: /replication/supported-data-types
+  data-typing: &data-typing /replication/extractions/understanding-data-typing
+  supported-data-types: *data-typing
 
 ## Replication Scheduling
   rep-scheduling: /replication/replication-scheduling
