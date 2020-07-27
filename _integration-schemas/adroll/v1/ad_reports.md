@@ -4,7 +4,7 @@ version: "1"
 key: ""
 
 name: "ad_reports"
-doc-link: ""
+doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-report-ad"
 singer-schema: "https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/ad_reports.json"
 description: |
   The `{{ table.name }}` table contains ad-level reporting data from your {{ integration.display_name }} account.

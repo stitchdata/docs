@@ -4,18 +4,24 @@ version: "1"
 key: ""
 
 name: "advertisables"
-doc-link: ""
+doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get"
 singer-schema: "https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/advertisables.json"
 description: |
   The `{{ table.name }}` table contains information about the advertisables in your {{ integration.display_name }} account.
 
-replication-method: ""
+replication-method: "Full Table"
 
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getAdvertisables"
+    doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get"
 
 attributes:
+  - name: "eid"
+    type: "string"
+    primary-key: true
+    description: "The advertisables EID."
+    foreign-key-id: "advertisables-eid"
+
   - name: "abm_onboarding_status"
     type: "string"
     description: ""
@@ -102,9 +108,7 @@ attributes:
   - name: "default_utm"
     type: "string"
     description: ""
-  - name: "eid"
-    type: "string"
-    description: ""
+  
   - name: "enable_customer_multi_dur_segs"
     type: "boolean"
     description: ""

@@ -4,18 +4,24 @@ version: "1"
 key: ""
 
 name: "ads"
-doc-link: ""
+doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-ad-get"
 singer-schema: "https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/ads.json"
 description: |
   The `{{ table.name }}` table contains information about the ads and creatives associated with the advertisables in your {{ integration.display_name }} account.
 
-replication-method: ""
+replication-method: "Full Table"
 
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getAds"
+    doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-ad-get"
 
 attributes:
+  - name: "eid"
+    type: "string"
+    primary-key: true
+    description: "The ads EID."
+    foreign-key-id: "ads-eid"
+
   - name: "ad_format"
     type: "string"
     description: ""

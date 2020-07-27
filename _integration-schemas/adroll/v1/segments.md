@@ -4,18 +4,23 @@ version: "1"
 key: ""
 
 name: "segments"
-doc-link: ""
+doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-segment-get"
 singer-schema: "https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/segments.json"
 description: |
   The `{{ table.name }}` table contains information about segments, or the lists of users that visit your {{ integration.display_name }} site.
 
-replication-method: ""
+replication-method: "Full Table"
 
 api-method:
     name: ""
-    doc-link: ""
+    doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-segment-get"
 
 attributes:
+  - name: "eid"
+    type: "string"
+    description: "The segment EID."
+    foreign-key-id: "segment-eid"
+    
   - name: "advertisable_eid"
     type: "string"
     description: ""
@@ -34,9 +39,7 @@ attributes:
   - name: "duration_sec"
     type: "integer"
     description: ""
-  - name: "eid"
-    type: "string"
-    description: ""
+  
   - name: "group"
     type: "integer"
     description: ""

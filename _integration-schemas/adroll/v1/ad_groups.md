@@ -4,7 +4,7 @@ version: "1"
 key: ""
 
 name: "ad_groups"
-doc-link: ""
+doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-adgroup-get"
 singer-schema: "https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/ad_groups.json"
 description: |
   The `{{ table.name }}` table contains info about the adgroups contained within the campaigns of your {{ integration.display_name }} account.
@@ -13,7 +13,7 @@ replication-method: "Full Table"
 
 api-method:
     name: "getAdgroup"
-    doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get_adgroups"
+    doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-adgroup-get"
 
 attributes:
   - name: "eid"

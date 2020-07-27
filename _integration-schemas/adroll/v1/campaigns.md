@@ -4,18 +4,24 @@ version: "1"
 key: ""
 
 name: "campaigns"
-doc-link: ""
+doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-campaign-get"
 singer-schema: "https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/campaigns.json"
 description: |
   The `{{ table.name }}` table contains information about the advertising campaigns in your {{ integration.display_name }} account.
 
-replication-method: ""
+replication-method: "Full Table"
 
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getCampaigns"
+    doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-campaign-get"
 
 attributes:
+  - name: "eid"
+    type: "string"
+    primary-key: true
+    description: "The campaign EID."
+    foreign-key-id: "campaign-eid"
+
   - name: "abm_type"
     type: "string"
     description: ""
@@ -53,9 +59,7 @@ attributes:
   - name: "created_date"
     type: "date-time"
     description: ""
-  - name: "eid"
-    type: "string"
-    description: ""
+  
   - name: "end_date"
     type: "date-time"
     description: ""
