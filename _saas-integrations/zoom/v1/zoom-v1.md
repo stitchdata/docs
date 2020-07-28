@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Zoom
+title: Zoom (v1)
 permalink: /integrations/saas/zoom
 keywords: zoom, integration, schema, etl zoom, zoom etl, zoom schema
 layout: coming-soon
