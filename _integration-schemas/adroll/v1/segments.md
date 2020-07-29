@@ -12,12 +12,13 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: ""
-    doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-segment-get"
+    name: "getAdvertisableSegments"
+    doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get_segments"
 
 attributes:
   - name: "eid"
     type: "string"
+    primary-key: true
     description: "The segment EID."
     foreign-key-id: "segment-eid"
     

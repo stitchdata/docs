@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "getCampaigns"
-    doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-campaign-get"
+    name: "getAdvertisableCampaigns"
+    doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get_campaigns"
 
 attributes:
   - name: "eid"

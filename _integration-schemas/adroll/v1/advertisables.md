@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "getAdvertisables"
-    doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get"
+    name: "getOrganizationAdvertisables"
+    doc-link: "https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-organization-get_advertisables"
 
 attributes:
   - name: "eid"
