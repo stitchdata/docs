@@ -222,9 +222,31 @@ foreign-keys:
         join-on: "id"
 
   - id: "transaction-index-id"
-    attribute: "_transactionIndex" 
+    attribute: "transactionIndex" 
     table: "bank_account_transactions"
     all-foreign-keys:
       - table: "bank_account_transactions"
+<<<<<<< Updated upstream
         join-on: "_transactionIndex"                
+=======
+        join-on: "transactionIndex"
+  
+  - id: "bank-account-id"
+    attribute: "id" 
+    table: "bank_accounts"
+    all-foreign-keys:
+      - table: "bank_accounts"
+        join-on: "id"        
+      - table: "bank_account_transactions"
+        join-on: "bankAccountId" 
+
+- id: "account-name"
+    attribute: "name" 
+    table: "accounts"
+    all-foreign-keys:
+      - table: "accounts"
+        join-on: "name"
+      - table: "bank_accounts"
+        join-on: "accountName"                                    
+>>>>>>> Stashed changes
 ---
