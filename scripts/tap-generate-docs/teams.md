@@ -1,0 +1,25 @@
+---
+tap: "intercom"
+version: "0.x"
+name: "teams"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/teams.json"
+description: ""
+replication-method: ""
+api-method:
+    name: ""
+    doc-link: ""
+attributes:
+  - name: "admin_ids"
+    type: "null"
+    description: ""
+  - name: "id"
+    type: "string"
+    description: ""
+  - name: "name"
+    type: "string"
+    description: ""
+  - name: "type"
+    type: "string"
+    description: ""
+---

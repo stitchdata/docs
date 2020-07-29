@@ -148,10 +148,10 @@ foreign-keys:
         subattribute: "user"
         join-on: "id"  
 
-  - id: "customer-attribute-name"
-    table: "customer_attributes"
+  - id: "contact-attribute-name"
+    table: "contact_attributes"
     attribute: "name"
     all-foreign-keys:
-      - table: "customer_attributes"
-        join-on: "name"      
+      - table: "contact_attributes"
+        join-on: "name"            
 ---

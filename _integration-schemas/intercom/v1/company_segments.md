@@ -1,17 +1,18 @@
 ---
 tap: "intercom"
 version: "1"
-name: "company_segments"
-doc-link: ""
 
+name: "company_segments"
+doc-link: "https://developers.intercom.com/intercom-api-reference/v2.0/reference#company-model"
 singer-schema: "https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/company_segments.json"
-description: ""
+description: |
+  The `{{ table.name }}` table contains information about company segments in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: ""
-    doc-link: ""
+    name: "listAllSegments"
+    doc-link: "https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-segments"
 
 attributes:
   - name: "id"

@@ -1,26 +1,15 @@
 ---
 tap: "intercom"
-version: "1"
-
+version: "0.x"
 name: "conversation_parts"
-doc-link: "https://developers.intercom.com/intercom-api-reference/v2.0/reference#conversation-model"
+doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/conversation_parts.json"
-description: |
-  The `{{ table.name }}` table lists parts of a conversation from the `conversations`table in your {{ integration.display_name }} account.
-
-replication-method: "Full Table"
-
+description: ""
+replication-method: ""
 api-method:
-    name: "retrieveAConversation"
-    doc-link: "https://developers.intercom.com/intercom-api-reference/v2.0/reference#retrieve-a-conversation"
-
+    name: ""
+    doc-link: ""
 attributes:
-  - name: "id"
-    type: "string"
-    primary-key: true
-    description: "The conversation part ID."
-    foreign-key-id: "part-id"
-
   - name: "assigned_to"
     type: "string"
     description: ""
@@ -29,12 +18,17 @@ attributes:
     description: ""
   - name: "author"
     type: "object"
-    description: "A list of conversation authors."
+    description: ""
     subattributes:
+      - name: "email"
+        type: "string"
+        description: ""
       - name: "id"
         type: "string"
-        description: "The author ID."
-        foreign-key-id: "author-id"
+        description: ""
+      - name: "name"
+        type: "string"
+        description: ""
       - name: "type"
         type: "string"
         description: ""
@@ -44,12 +38,9 @@ attributes:
   - name: "conversation_created_at"
     type: "date-time"
     description: ""
-
   - name: "conversation_id"
     type: "string"
-    description: "The conversation ID."
-    foreign-key-id: "conversation-id"
-
+    description: ""
   - name: "conversation_total_parts"
     type: "integer"
     description: ""
@@ -62,7 +53,9 @@ attributes:
   - name: "external_id"
     type: "string"
     description: ""
-  
+  - name: "id"
+    type: "string"
+    description: ""
   - name: "notified_at"
     type: "date-time"
     description: ""
