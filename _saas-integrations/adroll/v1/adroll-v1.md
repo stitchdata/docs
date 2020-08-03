@@ -61,11 +61,6 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-# attribution-window: "# days"
-# attribution-is-configurable: 
-
-# setup-name: ""
-
 
 # -------------------------- #
 #      Feature Summary       #
@@ -76,17 +71,6 @@ feature-summary: |
 
 
 # -------------------------- #
-#      Incompatibilities     #
-# -------------------------- #
-
-## uncomment section below if integration is compatible with any Stitch destinations
-## if incompatible with multiple destinations, create a section for each destination
-
-## incompatible:
-  ## [redshift]: "always,sometimes,never"
-  ## reason: "copy" 
-
-# -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
 
@@ -94,18 +78,15 @@ setup-steps:
   - title: "add integration"
   - title: "historical sync"
   - title: "replication frequency"
-  - title: |
-      Authorize Stitch to access {{ integration.display_name }}
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
     content: |
-      1. Next, you'll be prompted to sign into your {{ integration.display_name }} account.
-      2. A screen explaining what you're authorizing will display. **Note**: Stitch will only ever read your {{ integration.display_name }} data, and cannot create charges or any other records in {{ integration.display_name }}.
-      3. Click **Sign in with {{ integration.display_name }} to connect**.
-      4. Sign into your {{ integration.display_name }} account.
-      5. After the authorization process is successfully completed, you'll be directed back to Stitch.
-      6. Click {{ app.buttons.finish-int-setup }}.
+      1. In Stitch, click the **Authorize** button. You'll be prompted to sign into your {{ integration.display_name }} account.
+      2. A screen explaining what you're authorizing will display. **Note**: Stitch will only ever read your {{ integration.display_name }} data, and cannot create or modify records in {{ integration.display_name }}.
+      3. Click **Sign in with {{ integration.display_name }}** to sign into your {{ integration.display_name }} account.
+      4. After the authorization process successfully completes, you'll be directed back to Stitch.
+      5. Click {{ app.buttons.finish-int-setup }}.
   - title: "track data"
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
 
 
 # -------------------------- #
@@ -113,14 +94,7 @@ setup-steps:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/adroll
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
+# Each table has a its own .md file in /_integration-schemas/adroll/v1
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
