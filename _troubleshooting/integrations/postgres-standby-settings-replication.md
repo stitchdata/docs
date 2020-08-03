@@ -17,7 +17,7 @@ intro: |
 
   {% for database in postgresql-databases %}
   {% unless database.name == "heroku" %}
-  - [{{ database.title | remove: "(v1.0)" }}]({{ database.url | prepend: site.baseurl }})
+  - [{{ database.title | remove: "(v1)" }}]({{ database.url | prepend: site.baseurl }})
   {% endunless %}
   {% endfor %}
 

@@ -1,9 +1,11 @@
 ---
-title: Google CloudSQL MySQL
+title: Google CloudSQL MySQL (v1)
 keywords: google cloudsql, cloudsql, cloud sql, database integration, etl cloudsql, cloudsql etl, cloudsql mysql, cloudsql mysql etl
 permalink: /integrations/databases/google-cloudsql-mysql
 summary: "Connect and replicate data from your Google CloudSQL MySQL database using Stitch's Google CloudSQL MySQL integration."
 show-in-menus: true
+
+key: "cloudsql-mysql-integration"
 
 # -------------------------- #
 #         Tap Details        #
@@ -15,7 +17,7 @@ singer: true
 
 repo-url: https://github.com/singer-io/tap-mysql
 
-# this-version: "1.0"
+this-version: "1"
 
 hosting-type: "google-cloudsql"
 
@@ -26,7 +28,8 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+singer: true
+repo-url: https://github.com/singer-io/tap-mysql
 certified: true
 
 frequency: "30 minutes"
@@ -35,7 +38,7 @@ port: 3306
 db-type: "mysql"
 
 ## Stitch features
-
+api-type: "platform.cloudsql"
 versions: "n/a"
 ssh: false
 ssl: false
@@ -80,10 +83,16 @@ notice: |
   If you want to connect a **PostgreSQL-based** CloudSQL instance, use [these instructions]({{ link.integrations.database-integration | prepend: site.baseurl | replace: "INTEGRATION","google-cloudsql-postgresql" }}).
 
 requirements-list:
+  - item: "**Permissions in Google Cloud that allow you to modify the database's connection settings.** This is required to whitelist Stitch's IP addresses."
   - item: |
       **The `CREATE USER` or `INSERT` privilege (for the `mysql` database).** The [`CREATE USER` privilege](https://dev.mysql.com/doc/refman/8.0/en/create-user.html){:target="new"} is required to create a database user for Stitch.
   - item: |
-      **The `GRANT OPTION` privilege in {{ integration.display_name }}.** The [`GRANT OPTION` privilege](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_grant-option){:target="new"} is required to grant the necessary privileges to the Stitch database user.
+      **The `GRANT OPTION` privilege.** The [`GRANT OPTION` privilege](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_grant-option){:target="new"} is required to grant the necessary privileges to the Stitch database user.
+  - item: |
+      **If using Log-based Replication**, you'll need:
+
+      - **A database running MySQL {{ integration.log-based-replication-minimum-version }} or greater** Earlier versions of MySQL do not include binlog replication functionality, which is required for Log-based Replication.
+      - **To connect to the master instance.** [Google doesn't currently support binlog replication on read replicas](https://cloud.google.com/sql/docs/mysql/replication/create-replica){:target="new"}.
 
 # -------------------------- #
 #     Setup Instructions     #
@@ -166,6 +175,11 @@ setup-steps:
         anchor: "create-replication-schedule"
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
+
+      - title: "Save the integration"
+        anchor: "save-integration"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 
   - title: "Select data to replicate"
     anchor: "sync-data"

@@ -1,0 +1,26 @@
+# ----------------------------- #
+#   DynamoDB Extraction Errors  #
+# ----------------------------- #
+
+## This file contains the extraction errors that can arise 
+## while replicating data from a DynamoDB-backed database.
+
+raw-error:
+  quote-projection-expression-error: &quote-projection-expression-error |
+    An error occurred (ValidationException) when calling the Scan operation: Invalid ProjectionExpression: Syntax error; token: """, near: ""[FIELD_NAME]" 
+
+all:
+# Change tracking not enabled for database
+  - message: *quote-projection-expression-error
+    id: "quote-projection-expression-error"
+    applicable-to: &all-dynamodb "Amazon DynamoDB v1 database integrations"
+    level: "critical"
+    category: "Projection expressions"
+    category-doc: |
+      {{ link.integrations.dynamodb-projection-expressions | prepend: site.baseurl }}
+    version: "1"
+    summary: "Projection expression contains double quotes"
+    cause: |
+      A projection expression entered in Stitch contains double quotes.
+    fix-it: |
+      Remove double quotes from any projection expression and ensure they adhere to [Stitch's other requirements for projection expressions]({{ link.integrations.dynamodb-projection-expressions | prepend: site.baseurl | append: "#projection-query-stitch-requirements" }}).

@@ -36,39 +36,71 @@ sections:
   - title: "How {{ page.title }} works"
     anchor: "how-key-based-incremental-replication-works"
     content: |
-      When using {{ page.title }}, Stitch uses a column called a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}) to identify new and updated data in a table for replication. A Replication Key is a column that exists in a source table, and must be on of the following data types:
-
-      {% for data-type in site.data.taps.extraction.replication-methods.key-based-incremental.allowed-data-types %}
-      - {{ data-type }}
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title | flatify }}](#{{ subsection.anchor }})
       {% endfor %}
 
-      {% capture replication-keys-note %}
-      While this section touches on Replication Keys, a full walkthrough is outside the scope of this guide. Refer to the [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}) documentation to learn about Replication Key requirements and how to select appropriate Replication Key columns.
-      {% endcapture %}
-
-      {% include note.html type="single-line" content=replication-keys-note %}
-
-      When Stitch replicates a table using {{ page.title }}, a few things will happen:
-
-      1. During a replication job, Stitch stores the **maximum value** of a table's Replication Key column.
-      2. During the **next** replication job, Stitch will compare saved value from the previous job to Replication Key column values in the source.
-      3. Any rows in the table with a Replication Key **greater than or equal to the stored value** are replicated.
-      4. Stitch stores the new maximum value from the table's Replication Key column.
-      5. Repeat.
-
-      Let's use a SQL query as an example:
-
-      ```sql
-      SELECT replication_key_column,
-             column_you_selected_1,
-             column_you_selected_2,
-             [...]
-        FROM schema.table
-       WHERE replication_key_column >= 'last_saved_maximum_value'
-      ```
-
     subsections:
-      - title: "Data extraction and Replication Key types"
+      - title: "{{ page.title }} basics"
+        anchor: "key-based-incremental-basics"
+        content: |
+          When using {{ page.title }}, Stitch uses a column called a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}) - a column in a source table - to identify new and updated data in a table for replication.
+
+          When Stitch replicates a table using {{ page.title }}, a few things will happen:
+
+          1. During a replication job, Stitch stores the **maximum value** of a table's Replication Key column.
+          2. During the **next** replication job, Stitch will compare saved value from the previous job to Replication Key column values in the source.
+          3. Any rows in the table with a Replication Key **greater than or equal to the stored value** are replicated.
+          4. Stitch stores the new maximum value from the table's Replication Key column.
+          5. Repeat.
+
+          Let's use a SQL query as an example:
+
+          ```sql
+          SELECT replication_key_column,
+                 column_you_selected_1,
+                 column_you_selected_2,
+                 [...]
+            FROM schema.table
+           WHERE replication_key_column >= 'last_saved_maximum_value'
+          ```
+
+      - title: "Supported Replication Key data types"
+        anchor: "supported-replication-key-data-types"
+    # Replication Key data types live here: _data/taps/extraction/replication-methods/key-based-incremental.yml
+        content: |
+          {% capture replication-keys-note %}
+          While this section touches on Replication Keys, a full walkthrough is outside the scope of this guide. Refer to the [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}) documentation to learn about Replication Key requirements and how to select appropriate Replication Key columns.
+          {% endcapture %}
+
+          {% include note.html type="single-line" content=replication-keys-note %}
+
+          Replication Key columns must be one of the following data types:
+
+          <table class="attribute-list">
+          <tr>
+          <td width="25%; fixed" align="right"><strong>Data type</strong></td>
+          <td><strong>Available for</strong></td>
+          <td><strong>Notes</strong></td>
+          </tr>
+          {% assign supported-data-types = site.data.taps.extraction.replication-methods.key-based-incremental.allowed-data-types %}
+          {% for data-type in supported-data-types %}
+          <tr>
+          <td align="right"><strong>{{ data-type.type | upcase }}</strong></td>
+          <td>
+          {% if data-type.integration %}
+          {{ data-type.integration | append: " database integrations" }}
+          {% else %}
+          All integrations
+          {% endif %}
+          </td>
+          <td>
+          {{ data-type.notes | flatify | markdownify }}
+          </td>
+          </tr>
+          {% endfor %}
+          </table>
+      - title: "Replication Key type impact on data extraction"
         anchor: "data-extraction-replication-key-types"
         content: |
           Below are examples of how different Replication Key types impact the data extracted using {{ page.title }}.

@@ -1,0 +1,41 @@
+overview:
+  - title: sidebar
+    categories:
+      - title: "Products"
+        expand-by-default: true
+        sections:
+          - title: "Import API"
+            url: "{{ link.import-api.overview }}"
+
+          - title: "Post-load webhooks"
+            url: "{{ link.webhooks.post-load }}"
+
+          - title: "Connect"
+            url: "{{ link.connect.overview }}"
+
+      - title: "References"
+        expand-by-default: true
+        sections:
+          - title: "Import API"
+            url: "{{ link.import-api.api }}"
+
+          - title: "Post-load webhooks"
+            url: "{{ link.webhooks.post-load }}#webhook-payload"
+
+          - title: "Connect API"
+            url: "{{ link.connect.api }}"
+
+          - title: "Connect.js"
+            url: "{{ link.connect.js }}"
+
+      - title: "Guides"
+        expand-by-default: true
+        sections:
+          - title: "Import API"
+            url: "{{ link.import-api.guides.category }}"
+
+          - title: "Post-load webhooks"
+            url: "{{ link.account.post-load-notifications }}"
+
+          - title: "Connect"
+            url: "{{ link.connect.guides.category }}"

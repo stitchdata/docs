@@ -18,6 +18,8 @@ keywords: pipedrive, integration, schema, etl pipedrive, pipedrive etl, pipedriv
 layout: singer
 # input: false
 
+key: "pipedrive-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -29,7 +31,7 @@ singer: true
 tap-name: "Pipedrive"
 repo-url: https://github.com/singer-io/tap-pipedrive
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} REST API](https://developers.pipedrive.com/docs/api/v1/){:target="new"}
@@ -38,7 +40,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false 
 
 historical: "1 year"
@@ -46,8 +47,10 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: "http://status.pipedrive.com/"
 
+api-type: "platform.pipedrive"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

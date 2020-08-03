@@ -1,9 +1,11 @@
 ---
-title: Urban Airship (v1.0)
+title: Urban Airship (v1)
 permalink: /integrations/saas/urban-airship
 keywords: urban airship, integration, schema, etl urban airship, urban airship etl, urban airship schema
 summary: "Connection instructions and schema details for Stitch's Urban Airship integration."
 layout: singer
+
+key: "urban-airship-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -16,7 +18,7 @@ singer: true
 repo-url: https://github.com/singer-io/tap-urban-airship
 status-url: https://twitter.com/urbanairship
 
-# this-version: "1.0"
+this-version: "1"
 
 api: |
   [Airship API version 3](https://docs.airship.com/api/ua/){:target="new"}
@@ -25,15 +27,16 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 
+api-type: "platform.urban-airship"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 table-selection: false
 column-selection: false

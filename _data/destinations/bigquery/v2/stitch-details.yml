@@ -1,0 +1,54 @@
+# ----------------------------------- #
+# GOOGLE BIGQUERY (V2) STITCH DETAILS #
+# ----------------------------------- #
+
+# Details about Stitch's implementation &
+# requirements for Google BigQuery (v2) destinations.
+
+
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
+
+pricing-tier: "Standard"
+
+# stitch-plan-availability: "all"
+
+supported-versions: "n/a"
+
+available-in-connect: true
+
+api-type: "bigquery_v2"
+
+
+# ------------------------------ #
+#      CONNECTION METHODS        #
+# ------------------------------ #
+
+ssl: true
+
+connect-ssl: false ## Indicates whether SSL can be configured via the API
+
+ssh: false
+
+vpn: false
+
+
+# ------------------------------ #
+#    WORKLOAD PERFORMANCE MGMT   #
+# ------------------------------ #
+
+workload-performance-management: true
+workload-performance-management-description: |
+  To improve your query performance, you can apply partitioning and/or clustering to Stitch-created tables in your {{ destination.display_name }} destination. Your settings will remain intact even when new data is loaded.
+
+  Refer to the [Table partitioning and clustering guide]({{ link.destinations.storage.bigquery-partitioning | prepend: site.baseurl }}) for application instructions.
+
+
+# ------------------------------ #
+#     SUPPORTED GCS REGIONS      #
+# ------------------------------ #
+
+supported-regions: |
+  {% assign supported-regions = site.data.destinations.bigquery.v2.supported-regions %}
+  {{ supported-regions | size }} total. [Full list]({{ link.destinations.overviews.bigquery-v2 | prepend: site.baseurl | append: "#supported-gcs-regions" }}).

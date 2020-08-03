@@ -1,9 +1,9 @@
 ---
 tap: "shopify"
-version: "1.0"
+version: "1"
 
 name: "customers"
-doc-link: "https://help.shopify.com/en/api/reference/customers"
+doc-link: "https://shopify.dev/docs/admin-api/rest/reference/customers"
 singer-schema: "https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/customers.json"
 description: |
   The `{{ table.name }}` table contains info about the shop's customers. This includes their contact details, order history, and email marketing preferences.
@@ -16,7 +16,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Retrieve a list of customers"
-    doc-link: "https://help.shopify.com/en/api/reference/customers/customer#index"
+    doc-link: "https://shopify.dev/docs/admin-api/rest/reference/customers/customer?api[version]=2019-07"
 
 date-time: |
   The date and time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} when the [ITEM] was [ACTION].

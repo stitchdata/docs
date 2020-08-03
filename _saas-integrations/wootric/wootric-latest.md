@@ -1,9 +1,11 @@
 ---
-title: Wootric (v1.0)
+title: Wootric (v1)
 permalink: /integrations/saas/wootric
 keywords: wootric, integration, schema, etl wootric, wootric etl, wootric schema
 summary: "Connection instructions and schema details for Stitch's Wootric integration."
 layout: singer
+
+key: "wootric-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -15,7 +17,7 @@ display_name: "Wootric"
 singer: true
 repo-url: https://github.com/singer-io/tap-wootric
 
-# this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} API](https://docs.wootric.com/api/){:target="new"}
@@ -24,7 +26,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Deprecated"
 certified: false
 
 historical: "1 year"

@@ -1,6 +1,6 @@
 ---
 tap: "referral-saasquatch"
-# version: "1.0"
+version: "1"
 
 name: "referrals"
 doc-link: https://docs.referralsaasquatch.com/api/methods/#open_list_referrals
@@ -22,6 +22,14 @@ attributes:
     primary-key: true
     description: "The referral ID."
     # foreign-key-id: "referral-id"
+
+  - name: "dateConverted"
+    type: "date-time"
+    description: "The date the referral was converted."  
+
+  - name: "programId"
+    type: "string"
+    description: "The program ID."  
 
   - name: "referredUser"
     type: "string"

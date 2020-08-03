@@ -1,0 +1,47 @@
+<!-- This is for displaying Javascript reference content. -->
+
+{% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
+    {% assign functions = all-docs | where:"content-type","stitch-js-function" | sort:"order" %}
+
+{% for function in functions %}
+<!-- This ensures that example tabs from _includes/connect/api-examples.html will display correctly  -->
+    {% assign has-multiple-versions = "false" %}
+
+    <div class="api-js-heading">
+        <div class="method function">
+            FUNCTION
+        </div>
+
+        <div class="method-resource">
+            <h4 id="{{ function.key }}">
+                {{ function.definition }}
+            </h4>
+        </div>
+    </div>
+
+    <p>{{ function.description | flatify | markdownify }}</p>
+
+    {% if function.options %}
+
+        <h5 id="{{ function.key | append: "--arguments" }}">
+            Arguments
+        </h5>
+
+        <p>
+            The <code>{{ function.definition | remove: "(options)" }}</code> function expects an <code>options</code> object as the only argument. This object must contain all parameters marked as <font color="#E96065">REQUIRED</font>:
+        </p>
+
+        {% include developers/attribute-table.html object=function.options td-width="25" multiple-versions=false %}
+    {% endif %}
+
+    <h4 id="{{ function.key | append: "-example-usage" }}">
+        Example usage
+    </h4>
+
+    {% include developers/api-examples.html type="function" %}
+
+{% unless forloop.last == true %}
+    <hr>
+{% endunless %}
+
+{% endfor %}

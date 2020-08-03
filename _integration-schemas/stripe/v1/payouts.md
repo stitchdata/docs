@@ -1,6 +1,6 @@
 ---
 tap: "stripe"
-version: "1.0"
+version: "1"
 
 name: "payouts"
 doc-link: "https://stripe.com/docs/api/payouts"
@@ -19,7 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The payout ID."
-    #foreign-key-id: "payout-id"
+    foreign-key-id: "payout-id"
   
   - name: "created"
     type: "date-time"

@@ -1,6 +1,6 @@
 ---
 tap: "stripe"
-version: "1.0"
+version: "1"
 
 name: "plans"
 doc-link: "https://stripe.com/docs/api/plans"
@@ -111,9 +111,21 @@ attributes:
     type: "array"
     description: "The pricing tiers associated with the plan."
     subattributes:
-      - name: "value"
-        type: "integer"
-        description: "The pricing tier."
+      - name: "items"
+        type: "object"
+        description: "Details about the pricing tier associated with the plan."
+        subattributes:
+          - name: "flat_amount"
+            type: "integer"
+            description: "The price for the entire tier."
+
+          - name: "unit_amount"
+            type: "integer"
+            description: "The per unit price for units relevant to the tier."
+
+          - name: "up_to"
+            type: "integer"
+            description: "Up to and including to this quantity will be included in the tier."     
 
   - name: "tiers_mode"
     type: "string"

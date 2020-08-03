@@ -1,0 +1,160 @@
+//mobile
+
+@media only screen and (max-width: 1150px) {
+  .stitch-docs-navbar {
+    padding: 1em;
+  }
+}
+
+.mobile-close-out {
+  position: absolute;
+  background-image: url(../images/account-security/close-out.svg);
+  background-size: 30px;
+  height: 30px;
+  width: 30px;
+  right: 2em;
+  top: 1em;
+  cursor: pointer;
+  z-index: 2;
+}
+.mobile-show {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, rgba(35,114,136,1) 0%, rgba(24,26,40,1) 100%);
+  ul {
+    padding-top: 3em;
+    li {
+      padding: 1em;
+      display: block !important;
+      width: 280px;
+    }
+  }
+}
+@media only screen and (max-width: 1000px) {
+  #main {
+    .post-header,
+    .post-content {
+      margin: 0 1em;
+    }
+    .sidebar-column {
+      position: absolute;
+      margin-left: -375px;
+      width: 375px;
+      padding: 3rem 4rem 4rem 4rem;
+      background: $gray-1;
+      overflow-y: scroll;
+      overflow-x: visible;
+      height: calc(100vh - 4.5em);
+      transition: all 0.3s;
+    }
+    .sidebar-button {
+      position: fixed;
+      height: 40px;
+      width: 30px;
+      z-index: 4;
+      margin-top: 5px;
+      background-image: url(../images/account-security/right-arrow.svg);
+      background-repeat: no-repeat;
+      background-size: 70%;
+      background-position: center;
+      background-color: $protocol-black;
+      cursor: pointer;
+      left: 0;
+      top: 90px;
+      border-radius: 0 5px 5px 0;
+      transition: .3s;
+    }
+    .sidebar-column-show {
+      margin-left: 0;
+      width: 375px;
+      transition: all 0.3s;
+      z-index: 3;
+      box-shadow: 2px 0px 5px rgba(30, 30, 30, 0.2);
+      position: fixed;
+      .sidebar-button {
+        position: fixed;
+        height: 40px;
+        width: 30px;
+        z-index: 4;
+        margin-top: 70px;
+        background-repeat: no-repeat;
+        background-image: url(../images/account-security/left-arrow.svg);
+        background-size: 70%;
+        background-position: center;
+        background-color: #1e2023;
+        cursor: pointer;
+        left: 375px;
+        top:30px;
+        border-radius: 0 5px 5px 0;
+        transition: .3s;
+      }
+    }
+    .content-column {
+      position: static;
+      padding: 1em 1em 1em 30px;
+    }
+    .content-column .article {
+      max-width: 100%;
+    }
+
+    .content-column {
+      .breadbox {
+        width: 100%;
+        margin-left: 15px;
+      }
+    }
+
+    .two-columns, .three-columns {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  .stitch-docs-navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: linear-gradient(135deg, rgba(35,114,136,1) 0%, rgba(24,26,40,1) 100%);
+    width: 100%;
+    padding: 1em 2em;
+    height: 4.5em;
+    display: flex;
+    box-sizing: border-box;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    z-index: 5;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .stitch-docs-navbar {
+    .nav-right {
+      display: none;
+    }
+    .mobile-nav-icon {
+      position: absolute;
+      height: 4.5em;
+      width: 4.5em;
+      margin-top: -1em;
+      right: 1em;
+      cursor: pointer;
+      &:before {
+        content: " ";
+        position: absolute;
+        background-image: url(../images/account-security/menu-icon.svg);
+        background-size: 2em;
+        height: 2em;
+        width: 2em;
+        top: 1.25em;
+        left: 1.25em;
+      }
+    }
+  }
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}

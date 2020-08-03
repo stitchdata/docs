@@ -6,7 +6,10 @@ tags: [troubleshooting_destinations, troubleshooting_errors]
 
 summary: "If you received a `VACUUM` notification, it means that Stitch hasn't been able to successfully complete `VACUUM` some tables in your data warehouse for more than 10 days."
 type: "redshift-destination, error"
+category: "loading-errors"
 promote: "false"
+
+key: "redshift-vacuum-error"
 ---
 {% include misc/data-files.html %}
 

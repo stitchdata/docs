@@ -1,5 +1,5 @@
 ---
-title: PostgreSQL (v1.0)
+title: PostgreSQL (v1)
 keywords: postgresql, postgres, database integration, etl postgres, postgres etl, postgresql etl, etl
 permalink: /integrations/databases/postgresql/v1
 summary: "Connect and replicate data from your PostgreSQL database using Stitch's PostgreSQL integration."
@@ -7,6 +7,8 @@ summary: "Connect and replicate data from your PostgreSQL database using Stitch'
 microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://postgres.topostges.com/"
+
+key: "postgres-integration"
 
 # -------------------------- #
 #     Integration Details    #
@@ -21,7 +23,7 @@ repo-url: "https://github.com/singer-io/tap-postgres"
 
 hosting-type: "generic"
 
-this-version: "1.0"
+this-version: "1"
 
 driver: |
   [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}
@@ -30,7 +32,6 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 frequency: "1 hour"
@@ -39,7 +40,7 @@ port: 5432
 db-type: "postgres"
 
 ## Stitch features
-
+api-type: "platform.postgres"
 versions: "9.3+; 9.4+ for binlog"
 ssh: true
 ssl: true
@@ -102,6 +103,12 @@ requirements-list:
       - **A database running PostgreSQL 9.4 or greater** Earlier versions of PostgreSQL do not include logical replication functionality, which is required for Log-based Replication.
       - **The `SUPERUSER` privilege.** If using logical replication, this is required to define the appropriate server settings.
       - **To connect to the master instance.** Log-based replication will only work on master instances due to a feature gap in PostgreSQL 10. [Based on their forums](https://commitfest.postgresql.org/12/788/){:target="new"}, PostgreSQL is working on adding support for using logical replication on a read replica to a future version.
+      - **To check for TOASTed tables and columns**. TOASTed tables and columns in your {{ integration.display_name }} database can cause the following issues when using Log-Based Replication:
+
+          1. Recurring `no known snapshot` errors, or 
+          2. Inaccurate data replication. 
+
+          Refer to the [{{ integration.display_name }} documentation](https://www.postgresql.org/docs/9.5/storage-toast.html){:target="new"} for more information on what TOAST is and how to identify TOASTed tables and columns in your database.
   - item: |
       **If you're not using Log-based Replication**, you'll need:
 
@@ -202,7 +209,6 @@ setup-steps:
         anchor: "ssh-connection-details"
         content: |
           {% include shared/database-connection-settings.html type="ssh" %}
-
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
@@ -219,6 +225,11 @@ setup-steps:
         anchor: "create-replication-schedule"
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
+
+      - title: "Save the integration"
+        anchor: "save-integration"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 
   - title: "Select data to replicate"
     anchor: "sync-data"

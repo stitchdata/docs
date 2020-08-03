@@ -1,0 +1,141 @@
+# -------------------------------------------- #
+#                                              #
+#                  DATA TYPES                  #
+#                                              #
+# -------------------------------------------- #
+
+## Scenario data lives here: _data/dataloading/scenarios/data-types.yml
+## NOTE: If something is commented out and marked as 'uses default',
+   ## That means the copy for that thing lives in the file mentioned above.
+## Error data lives here: _data/errors/loading/postgres.yml
+
+## Column contains multiple data types
+- id: mixed-data-types
+  rejectable: false
+  data-type: "all"
+  # if: uses default
+  then:
+    v1: &mixed-data-types |
+      To accommodate data of varying types, Stitch will create multiple columns to ensure data is loaded with the correct type. In the destination, this will look like the column has been "split". 
+
+      For example: Stitch first detected that `order_confirmed` contained `BOOLEAN` data, but during a subsequent job, detected `STRING` values. To accommodate data of varying types, Stitch will:
+
+      1. Re-name the original column. The new name will be the column name and a suffix indicating the data type Stitch detected first. In this example, the new column name would be `order_confirmed__bl`, `__bl` indicating `BOOLEAN`.
+
+      2. Store data for the first-detected data type in the re-named column. In this example, all `BOOLEAN` data will be stored in `order_confirmed__bl`.
+
+      3. Create additional columns to store other data types, one for each data type detected. Suffixes indicating the data type will be appended to the column names. In this example, `STRING` data will be stored in `order_confirmed__st`.
+  
+
+## Table contains nested data
+- id: nested-data-structures
+  rejectable: false
+  data-type: "all"
+  # if: uses default
+  then:
+    v1: |
+      To ensure nested data can be loaded, Stitch will flatten objects and arrays into columns and subtables, respectively.
+
+      For more info and examples, refer to the [Handling nested data structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
+
+
+# -------------------------- #
+#   DATA TYPES > VARCHARs    #
+# -------------------------- #
+
+## VARCHAR Storage
+- id: varchar-storage
+  rejectable: false
+  data-type: "string"
+  # if: uses default
+  then:
+    v1: &varchar-storage |
+      Stitch will store all `VARCHAR/TEXT` data as `TEXT`.
+
+
+## VARCHAR Widening
+- id: varchar-widening
+  rejectable: false
+  data-type: "string"
+  # if: uses default  
+  then:
+    v1: &varchar-widening |
+      No widening will occur, as {{ destination.display_name }} stores `VARCHAR/TEXT` data as `TEXT`, which can store strings with unlimited lengths.
+
+
+# -------------------------- #
+#  DATA TYPES > Dates & Time #
+# -------------------------- #
+
+## Column contains date data with timezone info
+- id: date-with-timezone
+  rejectable: false
+  data-type: "date-timestamp"
+  # if: uses default
+  then:
+    v1: &date-with-timezone |
+      {{ destination.display_name }} will store the value in UTC as `TIMESTAMP WITHOUT TIMEZONE`.
+
+
+## Column contains timestamp data out of range
+- id: timestamps-out-of-range
+  rejectable: true
+  data-type: "date-timestamp"
+  # if: uses default
+  then:
+    v1: &timestamps-out-of-range "{{ site.data.dataloading.scenarios.data-types.timestamps-out-of-range.then | flatify }}"
+  error:
+    v1: &timestamps-out-of-range-error "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range | flatify }}"
+  fix-it: 
+    v1: &timestamps-out-of-range-fix-it |
+      {{ site.data.dataloading.scenarios.data-types.timestamps-out-of-range.fix-it | flatify | replace:"Up","up" }}
+
+
+# -------------------------- #
+#    DATA TYPES > Numeric    #
+# -------------------------- #
+
+## Column contains integer data
+# - id: integer-storage
+#   rejectable: false
+#   data-type: "integer"
+#   # if: uses default
+#   then:
+#     v1: |
+#       TODO: {{ destination.display_name }} will store integer data using the `INTEGER` and `BIGINT` data types, depending on the data's values.
+
+
+## Column contains integer data out of range
+- id: integer-out-of-range
+  rejectable: true
+  data-type: "integer"
+  # if: uses default
+  then:
+    v1: &integer-out-of-range "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.then | flatify }}"
+  error:
+    v1: &integer-out-of-range-error "{{ site.data.destinations.common.loading-errors.integer-out-of-range | flatify }}"
+  fix-it:
+    v1: &integer-out-of-range-fix-it "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.fix-it | flatify }}"
+
+
+# ## Column contains decimal data
+# - id: decimal-storage
+#   rejectable: false
+#   data-type: "decimal"
+#   # if: uses default
+#   then:
+#     v1: &decimal-storage |
+#       {{ destination.display_name }} will store decimal data as `DECIMAL(38,6)`.
+
+
+## Column contains decimal data out of range
+- id: decimals-out-of-range
+  rejectable: true
+  data-type: "decimal"
+  # if: uses default
+  then:
+    v1: &decimals-out-of-range "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.then | flatify }}"
+  error:
+    v1: &decimals-out-of-range-error "{{ site.data.destinations.common.loading-errors.decimal-out-of-range | flatify }}"
+  fix-it: 
+    v1: &decimals-out-of-range-fix-it "{{ site.data.dataloading.scenarios.data-types.decimals-out-of-range.fix-it | flatify }}"

@@ -9,7 +9,7 @@
 
 tap-reference: "onfleet"
 
-version: ""
+version: "1"
 
 foreign-keys:
   - id: "administrator-id"

@@ -1,0 +1,169 @@
+# ---------------------------- #
+#  AMAZON REDSHIFT DATA TYPING #
+# ---------------------------- #
+
+## Details about data typing for Amazon Redshift destinations.
+## Includes:
+##  - Stitch types mapped to Amazon Redshift-specific types
+##  - Data type suffixes
+##  - Limitations on each data type, imposed by Amazon Redshift
+
+
+## NOTE: Relevant files:
+##  - Stitch data types: _data/stitch/data-types.yml
+##  - All supported source types: _data/taps/extraction/data-types/common.yml
+
+
+# ---------------------------- #
+#       DATA TYPE MAPPING      #
+# ---------------------------- #
+
+# ---------------------------- #
+#           BIGINT             #
+# ---------------------------- #
+
+bigint:
+  destination-type: "bigint"
+  suffix: "bi"
+  doc-link: &integer-link "https://docs.aws.amazon.com/redshift/latest/dg/r_Numeric_types201.html#r_Numeric_types201-integer-types"
+  range: &integer-range "-9223372036854775808 to 9223372036854775807"
+  loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
+
+
+# ---------------------------- #
+#           BOOLEAN            #
+# ---------------------------- #
+
+boolean:
+  destination-type: "boolean"
+  suffix: "bo"
+  doc-link: "https://docs.aws.amazon.com/redshift/latest/dg/r_Boolean_type.html"
+
+
+# ---------------------------- #
+#            DATE              #
+# ---------------------------- #
+
+date:
+  destination-type: "timestamp"
+  suffix: "ti"
+  description: "Stored in UTC as `TIMESTAMP WITHOUT TIMEZONE`"
+  doc-link: "https://docs.aws.amazon.com/redshift/latest/dg/r_Datetime_types.html#r_Datetime_types-timestamp"
+  range: "4713 BC to 294276 AD"
+  loading-error: "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range }}"
+  # date-range: &date-range ""
+  # timezone-support: &timezone-support "None"
+
+
+# ---------------------------- #
+#           DOUBLE             #
+# ---------------------------- #
+
+double: &double
+  destination-type: "double"
+  suffix: "do"
+  doc-link: "https://docs.aws.amazon.com/redshift/latest/dg/r_Numeric_types201.html#r_Numeric_types201-floating-point-types"
+
+
+# ---------------------------- #
+#           FLOAT              #
+# ---------------------------- #
+
+float: *double
+
+
+# ---------------------------- #
+#           INTEGER            #
+# ---------------------------- #
+
+integer:
+  destination-type: "integer"
+  suffix: "it"
+  doc-link: *integer-link
+  range: *integer-range
+  loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
+
+# ---------------------------- #
+#           NUMBER             #
+# ---------------------------- #
+
+number:
+  destination-type: "decimal"
+  suffix: "de"
+  description: |
+    Precision must be between 1 and 38; scale must be between 0 and the precision value
+  doc-link: "https://docs.aws.amazon.com/redshift/latest/dg/r_Numeric_types201.html#r_Numeric_types201-decimal-or-numeric-type"
+  range: "Precision must be between 1 and 38; scale must be between 0 and the precision value"
+  loading-error: "{{ site.data.destinations.common.loading-errors.decimal-out-of-range }}"
+
+
+# ---------------------------- #
+#           STRING             #
+# ---------------------------- #
+
+string:
+  destination-type: "string"
+  suffix: "st"
+  description: |
+    Values that exceed {{ site.data.destinations.redshift.data-types.string.range }} in size will not be rejected, but truncated to {{ destination.display_name }}'s maximum width
+  doc-link: "https://docs.aws.amazon.com/redshift/latest/dg/r_Character_types.html#r_Character_types-varchar-or-character-varying"
+  range: "65535 bytes (64K -1)"
+
+
+
+list:
+  - id: "max-record-size"
+    categories: "data-limits"
+    important: true
+    value: *max-record-size
+    description: |
+      Records that exceed this limit will be rejected. Rejected columns are logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "date-and-time-timezone-support"
+    categories: "data-limits"
+    value: *timezone-support
+    description: |
+      {{ destination.display_name }} will store the value in UTC as `TIMESTAMP WITHOUT TIMEZONE`.
+
+      More info about timestamp data types can be found in [Amazon's documentation](https://docs.aws.amazon.com/redshift/latest/dg/r_Datetime_types.html){:target="new"}.
+
+  - id: "date-and-time-date-range"
+    categories: "data-limits"
+    value: *date-range
+    description: |
+      Date values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+      More info about {{ destination.display_name }} date data types can be found in [Amazon's documentation](https://docs.aws.amazon.com/redshift/latest/dg/r_Datetime_types.html){:target="new"}.
+
+  - id: "date-and-time-timestamp-range"
+    categories: "data-limits"
+    value: *timestamp-range
+    description: |
+      Timestamp values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+      More info about {{ destination.display_name }} time data types can be found in [Amazon's documentation](https://docs.aws.amazon.com/redshift/latest/dg/r_Datetime_types.html){:target="new"}.
+
+  - id: "integer-range"
+    categories: "data-limits"
+    value: *integer-range
+    description: |
+      Integer values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "decimal-precision"
+    categories: "data-limits"
+    value: *decimal-precision
+    description: |
+      Decimal values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "decimal-scale"
+    categories: "data-limits"
+    value: *decimal-scale
+    description: |
+      Decimal values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "strings-max-width"
+    categories: "data-limits"
+    value: *strings-max-width
+    important: true
+    description: |
+      String values that exceed this limit will be truncated to the maximum size to allow the data to be loaded into {{ destination.display_name }}.

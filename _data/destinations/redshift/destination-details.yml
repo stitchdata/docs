@@ -1,0 +1,66 @@
+# --------------------------------------- #
+#   AMAZON REDSHIFT DESTINATION DETAILS   #
+# --------------------------------------- #
+
+## Details about the destination provider.
+
+
+# -------------------------- #
+#       General/Pricing      #
+# -------------------------- #
+
+description: "Amazon Redshift is a fully managed, cloud-based data warehouse. As Redshift is built for online analytic processing and business intelligence applications, it excels at executing large-scale analytical queries. For this reason, it exhibits far better performance than traditional, row-based relational databases like MySQL and PostgreSQL."
+
+port: 5439
+
+fully-managed: false
+
+free-option: "Yes (plan and trial)"
+
+pricing-model: "Hourly"
+
+pricing-details: "Currently, {{ destination.display_name }} bases their pricing on an hourly rate that varies depending on the type and number of nodes in a cluster. The type and number of nodes you choose when creating a cluster is dependent on your needs and data set, but you can scale up or down over time should your requirements change."
+
+
+# -------------------------- #
+#         Table limits       #
+# -------------------------- #
+
+max-columns-per-table: "1,600"
+
+max-tables-per-database: "100,000"
+
+
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+case-sensitivity: "Insensitive"
+
+table-name-length: "127 characters"
+
+column-name-length: "115 characters"
+
+
+# -------------------------- #
+#     Column naming rules    #
+# -------------------------- #
+
+column-name-rules: |
+  - Must contain only letters (a-z, A-Z), numbers (0-9), or underscores (`_`)
+  - Must begin with a letter
+  - Must be less than the maximum length of {{ site.data.destinations.redshift.destination-details.column-name-length }}. Columns that exceed this limit will be [rejected by {{ destination.display_name }}]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+  - Must not be prefixed or suffixed with any of [{{ destination.display_name }}'s or Stitch's reserved keyword prefixes or suffixes]({{ link.destinations.storage.reserved-keywords.redshift | prepend: site.baseurl }})
+
+column-name-transformations:
+  - transformation: "Convert uppercase and mixed case to lowercase"
+    source-column: "<code>CuStOmErId</code> or <code>CUSTOMERID</code>"
+    destination-column: "<code>customerid</code>"
+
+  - transformation: "Remove special characters"
+    source-column: "<code>customer#id</code> or <code>!CuStOMerID</code>"
+    destination-column: "<code>customerid</code> and <code>customerid</code>"
+
+  - transformation: "Remove non-letter leading characters"
+    source-column: "<code>4customerid</code> or <code>_customerid</code>"
+    destination-column: "<code>customerid</code>"

@@ -1,6 +1,6 @@
 ---
 tap: "github"
-# version: ""
+version: "1"
 
 name: "assignees"
 doc-link: https://developer.github.com/v3/issues/assignees/

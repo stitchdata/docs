@@ -1,0 +1,60 @@
+<!-- This is the formatting for the object code examples in the Connect API docs -->
+
+<h5 id="{{ form-property.key }}-{{ include.property-type | downcase }}-example-usage">
+  Example {{ form-property.display-name }} {{ form-property.form-type }} connection property object with {{ include.property-type }} properties
+</h5>
+
+{% case form-property.form-type %}
+
+<!-- Destination form property example -->
+{% when 'destination' %}
+{% capture code %}
+{
+  {% for attribute in all-form-attributes %}{%- capture attribute-value -%}{% if attribute.type == "array" -%}{{ attribute.value | flatify | strip -}}{% else -%}{{ attribute.value | flatify | strip -}}{% endif -%}{%- endcapture -%}
+  {% if forloop.last == true -%}"{{ attribute.name }}":{{ attribute-value | flatify | strip -}}{% else %}"{{ attribute.name }}":{{ attribute-value | flatify | strip -}},
+  {% endif -%}
+  {% endfor %}
+}
+{% endcapture %}
+
+
+<!-- Source forms get their own formatting because the properties are all strings,
+    meaning they'll always be quoted ("thing": "thing"). Destinations are actually
+    typed. -->
+{% when 'source' %}
+
+
+<!-- The IAPI object doesn't have any properties; all that's required to
+    create the source is a defined `type` property. -->
+{% if form-property.source-type == "import-api" %}
+{% capture code %}
+   "type":"{{ form-property.api-type }}"
+{% endcapture %}
+
+<!-- All other sources: -->
+{% else %}
+
+{% capture code %}
+{
+  {% for attribute in all-form-attributes %}{%- capture attribute-value -%}{% if attribute.type == "array" -%}{{ attribute.value | flatify | strip -}}{% else -%}"{{ attribute.value | flatify | strip -}}"{% endif -%}{%- endcapture -%}
+  {% if forloop.last == true -%}"{{ attribute.name }}":{{ attribute-value | flatify | strip -}}{% else %}"{{ attribute.name }}":{{ attribute-value | flatify | strip -}},
+  {% endif -%}
+  {% endfor %}
+}
+{% endcapture %}
+
+{% endif %}
+
+{% endcase %}
+
+
+<div class="code-header"><div class="copy-code-container"><div class="copy-code-button" data-code="{{ code | flatify | escape | rstrip }}" title="Copy to clipboard" tabindex="0"></div></div></div>
+
+{% capture code-example %}```json
+{{ code | flatify | rstrip | lstrip }}
+```
+{% endcapture %}
+
+{{ code-example | flatify | markdownify }}
+
+<a href="#search-connection-properties">Back to connection property object search</a>

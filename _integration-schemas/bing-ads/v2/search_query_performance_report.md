@@ -1,9 +1,9 @@
 ---
 tap: "bing-ads"
-version: "2.0"
+version: "2"
 
 name: "search_query_performance_report"
-doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryperformancereportcolumn#values
+doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/searchqueryperformancereportfilter?view=bingads-13
 singer-schema: 
 description: |
   The `{{ table.name }} ` table contains performance data for search terms that resulted in a significant number of clicks in the last 30 days. As this data may change over time, use the `keyword_performance_report` table to analyze the overall performance of keywords.
@@ -12,7 +12,9 @@ description: |
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
-replication-method: "Append-Only (Incremental)"
+replication-method: "Key-based Incremental"
+loading-behavior: "Append-Only"
+
 attribution-window: true
 
 attributes:

@@ -66,8 +66,8 @@ sections:
           - [Canceling the account]({{ link.account.cancel-account | prepend: site.baseurl }})
           - Creating, deleting, and disabling [Stitch API access keys]({{ link.account.manage-api-keys | prepend: site.baseurl }}) (Enterprise plans only)
           - Disabling [partner access keys]({{ link.account.manage-partner-access | prepend: site.baseurl }})
-          - Adding, modifying, and deleting [destinations]({{ link.destinations.main | site.baseurl }})
-          - Adding, modifying, pausing, and deleting [integrations]({{ link.integrations.main | site.baseurl }})
+          - Adding, modifying, and deleting [destinations]({{ link.destinations.main | prepend: site.baseurl }})
+          - Adding, modifying, pausing, and deleting [integrations]({{ link.integrations.main | prepend: site.baseurl }})
           - [Select and de-select tables and columns]({{ link.replication.syncing | prepend: site.baseurl }}) (when available) for replication
           - Configuring table and database view replication settings, including [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}) and [Primary Keys (views only)]({{ link.replication.db-views | prepend: site.baseurl }})
           - [Resetting replication]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}) for integrations and tables (when available)

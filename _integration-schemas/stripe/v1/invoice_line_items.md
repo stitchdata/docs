@@ -1,6 +1,6 @@
 ---
 tap: "stripe"
-version: "1.0"
+version: "1"
 
 name: "invoice_line_items"
 doc-link: "https://stripe.com/docs/api/invoices/line_item"
@@ -23,12 +23,18 @@ api-method:
     doc-link: "https://stripe.com/docs/api/invoices/invoice_lines"
     
 attributes:
+  - name: "invoice"
+    type: "string"
+    primary-key: true
+    description: "The ID of the invoice that contains this line item."
+    foreign-key-id: "invoice-id"
+
   - name: "id"
     type: "string"
     primary-key: true
     description: "The invoice line item ID."
     foreign-key-id: "invoice-line-item-id"
-
+  
   - name: "created"
     type: "date-time"
     replication-key: true
@@ -50,11 +56,6 @@ attributes:
   - name: "discountable"
     type: "boolean"
     description: "Indicates whether discounts can apply to this line item."
-
-  - name: "invoice"
-    type: "string"
-    description: "The ID of the invoice that contains this line item."
-    foreign-key-id: "invoice-id"
 
   - name: "invoice_item"
     type: "string"

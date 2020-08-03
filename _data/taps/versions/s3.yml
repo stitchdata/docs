@@ -1,0 +1,33 @@
+# -------------------------- #
+#   AMAZON S3 CSV VERSIONS   #
+# -------------------------- #
+
+latest-version: "1"
+
+released-versions:
+  - number: "1"
+    status: "released"
+    date-released: "August 2, 2018"
+    # date-last-connection:
+    deprecation-date: ""
+    sunset-date: ""
+
+# -------------------------- #
+#  AMAZON S3 CSV CHANGELOG   #
+# -------------------------- #
+
+# Changelog entry types:
+# - new-release
+# - version-deprecation
+# - schema-change
+# - maintenance
+# - new-data
+
+# Depending on the entry type, some initial copy and a pre-defined
+# Summary heading might display. See:
+# _includes/shared/versioning/changelog.html
+
+changelog-entries:
+  - date: "August 2, 2018"
+    version: "1"
+    type: "new-release"

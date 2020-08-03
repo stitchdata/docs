@@ -4,7 +4,6 @@ permalink: /integrations/webhooks/contentful
 redirect_from: /integrations/saas/contentful
 ## Some users may experience a blip while the redirect works - it's normal.
 
-tags: [webhooks]
 keywords: contentful, integration, schema, etl contentful, contentful etl, contentful schema
 summary: "Connect your Contentful data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
@@ -14,8 +13,6 @@ summary: "Connect your Contentful data to Stitch using Stitch's Incoming Webhook
 
 name: "contentful"
 display_name: "Contentful"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -36,6 +33,9 @@ icon: /images/integrations/icons/contentful.svg
 
 table-selection: false
 column-selection: false
+
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #     Integration Tables     #

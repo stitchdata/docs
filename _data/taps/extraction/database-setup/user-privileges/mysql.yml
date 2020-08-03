@@ -39,6 +39,24 @@ mysql:
     reason: *replication-slave-reason
     doc-link: *replication-slave-doc
 
+
+# -------------------------- #
+#      AZURE PRIVILEGES      #
+# -------------------------- #
+
+microsoft-azure-mysql:
+  - name: *select-name
+    reason: *select-reason
+    doc-link: *select-doc
+
+  - name: *replication-client-name
+    reason: *replication-client-reason
+    doc-link: *replication-client-doc
+
+  - name: *replication-slave-name
+    reason: *replication-slave-reason
+    doc-link: *replication-slave-doc    
+
 # -------------------------- #
 #    MARIADB PRIVILEGES      #
 # -------------------------- #
@@ -123,8 +141,14 @@ aurora-rds:
 create-user-command: |
   CREATE USER '<stitch_username>'@'localhost' IDENTIFIED BY '<password>';
 
+grant-select-on-table: |
+  GRANT SELECT ON '<database_name>'.'<table_name>' to '<stitch_username>'@'localhost';
+
 grant-user-select-command: |
   GRANT SELECT ON *.* TO '<stitch_username>';
 
 grant-user-replication-command: |
-  GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '<stitch_username>';
+  GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '<stitch_username>'@'localhost';
+
+revoke-select: |
+  REVOKE SELECT ON *.* TO '<stitch_username>';

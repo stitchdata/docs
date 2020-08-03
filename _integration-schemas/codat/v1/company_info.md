@@ -1,6 +1,6 @@
 ---
 tap: "codat"
-version: "1.0"
+version: "1"
 key: "company-info"
 
 name: "company_info"
@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "List basic info for a company"
-    doc-link: "https://docs.codat.io/reference/info#info_list"
+  name: "List basic info for a company"
+  doc-link: "https://docs.codat.io/reference/info#info_list"
 
 attributes:
   - name: "companyId"

@@ -1,6 +1,6 @@
 ---
 tap: "revinate"
-# version: "1.0"
+version: "1"
 
 name: "hotel_reviews_snapshot"
 doc-link: https://porter.revinate.com/documentation#hotels

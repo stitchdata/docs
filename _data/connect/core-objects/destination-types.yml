@@ -2,11 +2,11 @@
 #  DESTINATION TYPE CORE OBJECT #
 # ----------------------------- #
 
-title: "Destination Types"
+title: "Destination types"
 section: "#destination-types"
 object: "#destination-type--object"
 base: "/v4/destination-types"
-description: "The Destination Type object contains the information needed to configure a destination."
+description: "An object containing the information needed to configure a destination."
 
 get:
   name: "{{ site.data.connect.api.core-objects.destination-types.base }}/{destination_type}"

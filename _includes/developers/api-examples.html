@@ -1,0 +1,165 @@
+{% case include.type %}
+    {% when 'object' %}
+        {% assign item = object %}
+
+<!-- For objects with multiple versions. -->
+    {% when 'version-object' %}
+        {% assign item = version-object %}
+
+    {% when 'endpoint' %}
+        {% assign item = endpoint %}
+
+    {% when 'function' %}
+        {% assign item = function %}
+
+    {% when 'data-structure' %}
+        {% assign item = structure %}
+
+    {% when 'data-sub-structure' %}
+        {% assign item = sub-structure %}
+{% endcase %}
+
+
+<!-- If there's more than one example, the page can get pretty long.
+    This will get the size of the example array and then determine
+    the correct formatting for displaying the examples. -->
+
+{% assign example-count = item.examples | size %}
+
+
+<!-- If there's only 1 example, just display it directly on the page: -->
+{% if example-count == 1 %}
+    {% for example in item.examples %}
+        {% if include.type == "endpoint" %}
+            {% capture description %}
+                {% if example.type == "Response" %}Response for {% endif %}{{ item.method | upcase }} {{ item.short-url | flatify }}
+            {% endcapture %}
+
+            {% if example.type == "Request" %}
+                {% include developers/api-request-examples.html code-description=description type="example" %}
+            {% else %}
+                {% include layout/code-snippet.html code-description=description language=example.language code=example.code %}
+            {% endif %}
+        {% else %}
+            {% include layout/code-snippet.html language=example.language code=example.code %}
+        {% endif %}
+    {% endfor %}
+
+
+<!-- If there's more than one example, put them into tabs -->
+{% else %}
+
+<ul id="example{{ item.key }}Tabs" class="nav nav-tabs">
+    {% for example in item.examples %}
+
+    <!-- This value comes from _includes/connect/api-endpoint.html -->
+        {% case has-multiple-versions %}
+            {% when "true" %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | append: "-v" | append: version.number | slugify %}
+            {% when "false" %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | slugify %}
+            {% else %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | slugify %}
+        {% endcase %}
+
+        {% if forloop.first == true %} 
+            <li class="active">
+        {% else %}
+            <li>
+        {% endif %}
+            <a href="#{{ tab-id }}" data-toggle="tab">
+            {{ example.type }}</a>
+        </li>
+        {% endfor %}
+</ul>
+  <div class="tab-content" style="padding: 0px; background-color: #FFFFFF;">
+    {% for example in item.examples %}
+
+    <!-- This value comes from _includes/connect/api-endpoint.html -->
+        {% case has-multiple-versions %}
+            {% when "true" %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | append: "-v" | append: version.number | slugify %}
+            {% when "false" %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | slugify %}
+            {% else %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | slugify %}
+        {% endcase %}
+
+        {% if forloop.first == true %}
+            <div role="tabpanel" class="tab-pane active" id="{{ tab-id }}">
+        {% else %}
+            <div role="tabpanel" class="tab-pane" id="{{ tab-id }}">
+        {% endif %}
+
+        {% case example.type %}
+            {% when 'Errors' %}
+                {% include developers/api-response-code-table.html type="endpoint" %}
+
+            {% else %}
+
+                {% if example.description %}
+                    {{ example.description | flatify | markdownify }}
+
+                    {% if example.image %}
+                        <center>
+                            <img src="{{ site.baseurl }}/images/{{ example.image }}" alt="{{ image.caption }}">
+                        </center>
+                    {% endif %}
+                {% endif %}
+
+
+<!-- If there are subexamples, list them out: -->
+{% if example.subexamples %}
+<p>
+    <strong>
+        {{ example.type | capitalize | append: "s" }} for {{ item.method | upcase }} {{ item.short-url | flatify }}
+    </strong>
+</p>
+
+{% for subexample in example.subexamples %}
+
+{% if subexample.description %}
+{{ subexample.description | flatify | markdownify }}
+{% endif %}
+
+    {% if include.type == "endpoint" %}
+        {% capture description %}
+            {% if subexample.title %}{{ subexample.title }}{% endif %}
+        {% endcapture %}
+
+        {% include developers/api-request-examples.html code-description=description type="subexample" %}
+
+    {% else %}
+        {% include layout/code-snippet.html language=subexample.language code=subexample.code %}
+    {% endif %}
+{% endfor %}
+
+{% else %}
+
+<!-- This is still inside the tab; it just has to be
+    flush left or Jekyll will throw a fit -->
+
+{% if include.type == "endpoint" %}
+    {% capture description %}
+        {% if example.type == "Response" %}Response for {% endif %}{{ item.method | upcase }} {{ item.short-url | flatify }}
+    {% endcapture %}
+
+    {% if example.type == "Request" %}
+        {% include developers/api-request-examples.html code-description=description type="example" %}
+
+    {% else %}
+        {% include layout/code-snippet.html code-description=description language=example.language code=example.code %}
+    {% endif %}
+
+{% else %}
+    {% include layout/code-snippet.html language=example.language code=example.code %}
+{% endif %}
+
+{% endif %}
+        {% endcase %}
+
+</div>
+{% endfor %}
+</div>
+
+{% endif %}

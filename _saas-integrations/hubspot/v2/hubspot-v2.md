@@ -1,9 +1,11 @@
 ---
-title: HubSpot
+title: HubSpot (v2)
 permalink: /integrations/saas/hubspot
 keywords: hubspot, integration, schema, etl hubspot, hubspot etl
 summary: "Connection instructions and schema details for Stitch's HubSpot integration."
+
 layout: singer
+key: "hubspot-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -15,7 +17,7 @@ display_name: "HubSpot"
 singer: true
 repo-url: https://github.com/singer-io/tap-hubspot
 
-this-version: "2.0"
+this-version: "2"
 
 api: |
   [{{ integration.display_name }} REST API](https://developers.hubspot.com/docs/overview){:target="new"}
@@ -24,7 +26,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "30 days"
@@ -32,11 +33,13 @@ frequency: "30 minutes"
 tier: "Standard"
 status-url: https://status.hubspot.com/
 
-table-selection: true
-column-selection: true
+api-type: "platform.hubspot"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
+
+table-selection: true
+column-selection: true
 
 extraction-logs: true
 loading-reports: true
@@ -54,7 +57,8 @@ row-usage-hog-reasons:
 #      Incompatibilities     #
 # -------------------------- #
 
-## See _data/destinations/reference/incompatibilities.yml
+## See the incompatibilities.yml files
+## in _data/destinations for details.
 
 has-incompatibilities: true
 
@@ -119,5 +123,5 @@ schema-sections:
       To account for this, consider creating a user-defined function to perform the conversion or building views on top of the raw data.
 
 ---
-{% assign integration = page %}
+
 {% include misc/data-files.html %}

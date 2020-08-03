@@ -1,0 +1,54 @@
+<!-- This is used to display lists of attributes in table format for developer docs. 
+	This functions similarly to the integrations/schemas/table-attributes.html include,
+	in that it will recursively (see line 56) loop through the attributes that are 
+	passed to it as an include parameter. -->
+
+<table class="attribute-list table-hover" {% if include.multiple-versions == true %}style="margin-top: 0px; margin-bottom: 0px;"{% endif %}>
+	{% for attribute in include.object %}
+	    <tr>
+		    <td width="{{ include.td-width }}%; fixed" align="right">
+		        <strong>{{ attribute.name }}</strong>
+	        	<br>
+
+	        	{{ attribute.type | upcase }}
+	        	
+	        	{% if attribute.sub-type %}
+                    (<a href="{{ attribute.url | flatify }}">{{ attribute.sub-type | upcase | strip }}</a>)
+                {% endif %}
+
+                <br>
+
+                {% if attribute.internal == true %}
+	            	<font color="#999999">INTERNAL</font>
+
+	            {% else %}
+
+		            {% if attribute.read-only == true %}
+		            	<font color="#999999">READ-ONLY</font>
+
+		            {% else %}
+		            	{% if attribute.required == true %}
+			                <font color="#E96065">REQUIRED</font>
+			            {% elsif attribute.required == false %}
+			                OPTIONAL
+			            {% endif %}
+		            {% endif %}
+		        {% endif %}
+		      
+		    </td>
+		    <td class="description">
+		    	{% if attribute.read-only == true %}
+		    		<p><strong>Note:</strong> This is a read-only property. Including it in <code>POST</code> or <code>PUT</code> requests will result in <code>InvalidProperties</code> errors.</p>
+		    	{% endif %}
+
+		    	{{ attribute.description | flatify | markdownify }}
+
+		    	{% if attribute.subattributes %}
+		    		<p>Contains the following properties:</p>
+
+		    		{% include developers/attribute-table.html object=attribute.subattributes %}
+		    	{% endif %}
+		    </td>
+		</tr>
+	{% endfor %}
+</table>

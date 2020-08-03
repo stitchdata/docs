@@ -3,11 +3,13 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: FullStory (v1.0)
+title: FullStory (v1)
 permalink: /integrations/saas/fullstory
 keywords: fullstory, integration, schema, etl fullstory, fullstory etl, fullstory schema
 summary: "Connection instructions, replication info, and schema details for Stitch's FullStory integration."
 layout: singer
+
+key: "fullstory-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -18,7 +20,7 @@ display_name: "FullStory"
 singer: true 
 repo-url: https://github.com/singer-io/tap-fullstory
 
-# this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} Data Export REST API](https://help.fullstory.com/develop-rest/data-export-api){:target="new"}
@@ -27,7 +29,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"
@@ -35,11 +36,13 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: https://fullstory.statuspage.io/
 
-table-selection: false
-column-selection: false
+api-type: "platform.fullstory"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
+
+table-selection: false
+column-selection: false
 
 extraction-logs: true
 loading-reports: true
@@ -92,20 +95,22 @@ replication-sections:
   - title: "Data updates and FullStory data export bundles"
     anchor: "data-updates-fullstory-data-export-bundles"
     content: |
-      FullStory data bundles event data together based on a time period setting you define. By default, a FullStory data bundle contains data about events that occurred during a 24 hour period.
+      {{ integration.display_name }} data bundles event data together based on a time period setting you define. By default, a {{ integration.display_name }} data bundle contains data about events that occurred during a 24 hour period.
 
-      **Note**: FullStory makes event bundles available 24 hours the last event in the bundle occurs.
+      **Note**: {{ integration.display_name }} makes event bundles available 24 hours the last event in the bundle occurs.
 
       For example: If your bundle period is set to 6 hours, a data export bundle for events that occur on June 1 between 12:00PM - 6:00PM will be available the following day, June 2, at 6:00PM.
 
       #### Impact on Stitch replication
 
-      Because FullStory only makes event data available a full day after events have occurred, records for the current date will only ever be available the next day. Event data that is one day old is considered "up to date" for this integration.
+      Because {{ integration.display_name }} only makes event data available a full day after events have occurred, records for the current date will only ever be available the next day. Event data that is one day old is considered "up to date" for this integration.
 
-  - title: "Data loading and Append-Only Replication"
+  - title: "Loading data using Append-Only loading"
     anchor: "data-loading-append-only"
     content: |
-      When Stitch loads the extracted data for {{ integration.display_name }} events into your destination, it will do so using Append-Only Replication. This is a type of Incremental Replication where existing rows aren't updated, but appended to the end of the table.
+      When Stitch loads the extracted data for {{ integration.display_name }} events into your destination, it will do so using Append-Only loading. This is a type of loading behavior where existing rows aren't updated, but appended to the end of the table. **Note**: Loading will be append-only even if the destination you're using supports Upsert loading.
+
+      Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info and examples.
 
       For {{ integration.display_name }}, this means that every captured event is equal to a single row in the `events` table. Using this data, you can view a given user's event history and construct a timeline of their actions.
 

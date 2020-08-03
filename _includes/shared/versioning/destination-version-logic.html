@@ -1,0 +1,35 @@
+
+<!-- Logic for displaying versions of destination pages. -->
+
+{% assign page_name = [include.item-name]type %}
+
+{% assign display_name = [include.item-name]display_name %}
+
+
+<!-- Get the correct versions 
+
+    If the include has a specific version parameter, only get the version being requested-->
+{% if include.this-version %}
+    {% assign released-versions = site.data.destinations[page_name]versions.released-versions | where:"number",include.this-version %}
+
+    {% assign only-this-version = released-versions | where:"number",[page_name]this-version | first %}
+
+<!-- Otherwise, get the full list of released versions. -->
+{% else %}
+    {% assign released-versions = site.data.destinations[page_name]versions.released-versions %}
+
+    {% assign total-versions = released-versions | size %}
+{% endif %}
+
+
+	{% assign this-version = released-versions | where:"number",page.this-version | first %}
+
+
+<!-- Pulls the latest version number for the destination -->
+    {% assign latest-version = site.data.destinations[page_name]versions.latest-version %}
+
+<!-- Last, pulls all docs that that match the given key  -->
+    {% assign all-versioned-docs = site.documents | where:"key",[include.item-name]key %}
+
+<!-- Get the doc that is the latest version based on the given key. -->
+	{% assign latest-version-doc = all-versioned-docs | where:"this-version",latest-version | first %}

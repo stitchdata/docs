@@ -1,9 +1,11 @@
 ---
-title: Taboola (v1.0)
+title: Taboola (v1)
 permalink: /integrations/saas/taboola
 keywords: taboola, taboola integration, schema, etl taboola, taboola etl, taboola schema
 summary: "Connection instructions and schema details for Stitch's Taboola integration."
 layout: singer
+
+key: "taboola-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -16,7 +18,7 @@ singer: true
 repo-url: https://github.com/singer-io/tap-taboola
 status-url: https://twitter.com/taboola?lang=en
 
-# this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} Backstage API](https://github.com/taboola/Backstage-API){:target="new"}
@@ -25,15 +27,16 @@ api: |
 #     Integration Details    #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 
+api-type: "platform.taboola"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 table-selection: false
 column-selection: false

@@ -1,6 +1,6 @@
 ---
 tap: "zuora"
-version: 1.0
+version: "1"
 
 name: "accountingCode"
 doc-link: https://live-www.zuora.com/developer/api-reference/#operation/GET_AllAccountingCodes

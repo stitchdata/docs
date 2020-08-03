@@ -1,35 +1,59 @@
 
 1. If you aren't already, log into your database as a user with `CREATE USER` and `GRANT` privileges.
-2. Run the following command to create the Stitch database user, replacing `<password>` with a secure password:
+2. Run the following command to create the Stitch database user, replacing `<stitch_username>` with the name of the database user and `<password>` with a secure password:
+
+   {% capture code %}
+   {{ site.data.taps.extraction.database-setup.user-privileges.oracle.create-user-command | flatify | rstrip }}
+   {% endcapture %}
+
+   {% include layout/code-snippet.html use-code-block=false code=code language="sql" %}
 
    ```sql
-   {{ site.data.taps.extraction.database-setup.user-privileges.oracle.create-user-command | flatify | rstrip }}
+{{ code | lstrip | rstrip }}
    ```
 
 3. Grant the Stitch user the `CREATE SESSION` privilege, which will allow Stitch to connect to the database:
 
-   ```sql
+   {% capture code %}
    {{ site.data.taps.extraction.database-setup.user-privileges.oracle.grant-create-session | flatify | rstrip }}
+   {% endcapture %}
+
+   {% include layout/code-snippet.html use-code-block=false code=code language="sql" %}
+
+   ```sql
+{{ code | lstrip | rstrip }}
    ```
 
-4. Grant the Stitch user `SELECT` privileges. This can be done one of two ways: Granting access to all tables, or only granting access to specific tables you want to replicate.
+4. Grant the Stitch user `SELECT` privileges on the following system tables:
 
-   - To grant Stitch access **to all tables**, run:
+   {% capture code %}
+   {{ site.data.taps.extraction.database-setup.user-privileges.oracle.grant-select-system-tables | flatify }}
+   {% endcapture %}
 
-     ```sql
-     {{ site.data.taps.extraction.database-setup.user-privileges.oracle.grant-select-all-tables | flatify | rstrip }}
-     ```
+   {% include layout/code-snippet.html use-code-block=false code=code language="sql" %}
 
-   - To grant Stitch access **to specific tables**, run the following command for each table you want to replicate. Replace `<SCHEMA>` and `<TABLE>` with the name of the schema and table, respectively:
+   ```sql
+{{ code | lstrip | rstrip }}
+   ```
 
-     ```sql
-     {{ site.data.taps.extraction.database-setup.user-privileges.oracle.grant-select-specific-tables | flatify | rstrip }}
-     ```
+5. Grant the Stitch user `SELECT` privileges by running this command for every table you want to replicate:
+
+   {% capture code %}
+   {{ site.data.taps.extraction.database-setup.user-privileges.oracle.grant-select-on-table | flatify | rstrip }}
+   {% endcapture %}
+
+   {% include layout/code-snippet.html use-code-block=false code=code language="sql" %}
+
+   ```sql
+{{ code | lstrip | rstrip }}
+   ```
+
+   Limiting access to only the tables you want to replicate ensures that the integration can complete discovery (a structure sync) in a timely manner. If you encounter issues in Stitch where tables aren't displaying, try limiting the Stitch database user's table access.
 
 {% capture log-based-replication-privileges %}
 If you want to use Log-based Incremental Replication, you'll also need to grant additional permissions to the Stitch user:
 
-```sql
+{% capture code %}
 {{ site.data.taps.extraction.database-setup.user-privileges.oracle.grant-execute-catalog-role | strip }}
 {{ site.data.taps.extraction.database-setup.user-privileges.oracle.select-any-transaction | strip }}
 {{ site.data.taps.extraction.database-setup.user-privileges.oracle.select-any-dictionary | strip }}
@@ -37,14 +61,17 @@ If you want to use Log-based Incremental Replication, you'll also need to grant 
 {{ site.data.taps.extraction.database-setup.user-privileges.oracle.execute-dbms-logmnr-d | strip }}
 {{ site.data.taps.extraction.database-setup.user-privileges.oracle.select-v-database | strip }}
 {{ site.data.taps.extraction.database-setup.user-privileges.oracle.select-v-archived-log | strip }}
-{{ site.data.taps.extraction.database-setup.user-privileges.oracle.select-logmnr-contents | strip }}
-```
+{% endcapture %}
+
+{% include layout/code-snippet.html code=code language="sql" %}
 
 **If you're using version 12 of {{ integration.display_name }}**, you'll also need to grant the `LOGMINING` privilege to the Stitch user:
 
-```sql
+{% capture code %}
 {{ site.data.taps.extraction.database-setup.user-privileges.oracle.grant-logmining-version-12 | strip }}
-```
+{% endcapture %}
+
+{% include layout/code-snippet.html code=code language="sql" %}
 {% endcapture %}
 
 {% include important.html first-line="**Using Log-based Incremental Replication**" content=log-based-replication-privileges %}

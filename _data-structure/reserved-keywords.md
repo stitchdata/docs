@@ -4,7 +4,8 @@
 # -------------------------- #
 
 title: Stitch and Destination Reserved Keywords
-permalink: /data-structure/reserved-keywords
+permalink: /replication/loading/reserved-keywords
+redirect_from: /data-structure/reserved-keywords
 keywords: keywords, reserved words, reserved keywords
 summary: "A reference of Stitch and destination-reserved keywords."
 
@@ -60,93 +61,78 @@ sections:
       - title: "Why can't I use reserved keywords?"
         anchor: "why-cant-i-use-reserved-keywords"
         content: |
-          Stitch [reserves its own keywords](#stitch-reserved-keywords) to ensure your data is loaded accurately.
+          Stitch reserves its own keywords to ensure your data is loaded accurately. Additionally, each destination has its own list of reserved keywords and its own reasons for reserving those words.
 
-          Additionally, each destination has [its own list of reserved keywords](#destination-reserved-keywords) and its own reasons for reserving those words.
+          Refer to the [Keyword reference section](reserved-keyword-reference) for info about the keywords reserved for each destination.
 
       - title: "What happens to data that contains reserved keywords?"
         anchor: "data-containing-reserved-keywords"
         content: |
           If a table or column contains a reserved keyword, the destination will reject the data and create a record in the [rejected records log]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
 
+          An error will also surface in the **Notifications** tab in Stitch.
+
   - title: "Reserved keyword reference"
     anchor: "reserved-keyword-reference"
     summary: "The keywords reserved by Stitch and its destinations"
     content: |
-      In Stitch, there are two types of keywords:
+      In this section are the reserved keywords for each destination supported by Stitch.
 
-      {% for subsection in section.subsections %}
-      - [{{ subsection.title }}](#{{ subsection.anchor }}): {{ subsection.summary }}
+      **Note**: Keywords are **case-insensitive**. This means that `ABC`, `aBc`, `abc`, etc. are all considered the same.
+
+      {% assign destinations = site.destinations | where:"destination",true | sort:"title" %}
+
+      {% for destination in destinations %}
+      {% if stitch.reserved-keywords[destination.type] %}
+      - [{{ destination.display_name }} ({{ destination.this-version | prepend: "v" }})](#{{ destination.type }}-{{ destination.this-version | prepend: "v" }}-reserved-keywords)
+      {% endif %}
       {% endfor %}
+      
+      {% assign table-attributes = "name|type|description" | split:"|" %}
+      {% for destination in destinations %}
 
-    subsections:
-      - title: "Stitch reserved keywords"
-        anchor: "stitch-reserved-keywords"
-        summary: "Keywords reserved by Stitch"
-        content: |
-          {% assign destinations = site.destinations | where:"destination",true | sort:"title" %}
+      {% if stitch.reserved-keywords[destination.type] %}
+      {% assign reserved-keywords = stitch.reserved-keywords[destination.type] | sort:"name" %}
 
-          The following table provides the list of reserved keywords in Stitch, the reason, and the destination(s) the keyword applies to.
+      ### {{ destination.display_name }} ({{ destination.this-version | prepend: "v" }}) reserved keywords {#{{ destination.type }}-{{ destination.this-version | prepend: "v" }}-reserved-keywords}
 
-          **Note**: Keywords are **case-insensitive**. This means that `ABC`, `aBc`, `abc`, etc. are all considered the same.
+      {% if site.data.destinations[destination.type]resource-links.reserved-words %}
+      Refer to [{{ destination.display_name }}'s documentation]({{ site.data.destinations[destination.type]resource-links.reserved-words }}){:target="new"} for the full list of keywords reserved by {{ destination.display_name }}.
+      {% endif %}
 
-          <table class="attribute-list">
-          <tr>
-          <td align="right" width="15%; fixed">
-          <strong>
-          Keyword
-          </strong>
-          </td>
-          <td>
-          <strong>
-          Comment
-          </strong>
-          </td>
-          <td width="35%; fixed">
-          <strong>
-          Applies to
-          </strong>
-          </td>
-          </tr>
-          {% assign reserved-keywords = stitch.reserved-keywords %}
-          {% for keyword in reserved-keywords %}
-          <tr>
-          <td align="right">
-          <strong>{{ keyword.name | flatify | upcase }}</strong>
-          </td>
-          <td>
-          {{ keyword.description | flatify | markdownify }}
-          </td>
+      <table class="attribute-list">
+      <tr>
+      {% for attribute in table-attributes %}
+      {% if forloop.first == true %}
+      <td align="right" width="20%; fixed">
+      <strong>
+      Keyword
 
-          <td>
-          {% if keyword.applies-to %}
-          <ul>
-          {% for destination in destinations %}
-          {% if keyword.applies-to contains destination.type %}
-          <li style="margin: 0px;">{{ destination.title | remove: " Destination" }}</li>
-          {% endif %}
-          {% endfor %}
-          </ul>
+      {% else %}
+      <td>
+      <strong>
+      {{ attribute | capitalize }}
+      {% endif %}
+      </strong>
+      </td>
+      {% endfor %}
+      </tr>
+      {% for keyword in reserved-keywords %}
+      <tr>
+      <td align="right">
+      <strong>{{ keyword.name | flatify | upcase }}</strong>
+      </td>
+      <td width="15%; fixed">
+      {{ keyword.type | capitalize }}
+      </td>
+      <td>
+      {{ keyword.description | flatify | markdownify }}
+      </td>
+      </tr>
+      {% endfor %}
+      </table>
+      {% endif %}
 
-          {% else %}
-          All destinations
-          {% endif %}
-
-          </td>
-          </tr>
-          {% endfor %}
-          </table>
-
-      - title: "Destination reserved keywords"
-        anchor: "destination-reserved-keywords"
-        summary: "Keywords reserved by the destination"
-        content: |
-          In addition to the keywords Stitch reserves, each destination also has its own list of reserved or limited keywords. For more info, including a list of reserved keywords, refer to your destination's official documentation: 
-
-          {% for destination in destinations %}
-          {% if site.data.destinations.resource-links[destination.type]reserved-words %}
-          - [{{ destination.title | remove: " Destination" }}]({{ site.data.destinations.resource-links[destination.type]reserved-words }}){:target="new"}
-          {% endif %}
-          {% endfor %}
+      {% endfor %}
 ---
 {% include misc/data-files.html %}

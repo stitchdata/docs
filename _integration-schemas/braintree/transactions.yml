@@ -1,6 +1,6 @@
 ---
 tap: "braintree"
-# version: ""
+version: "1"
 
 name: "transactions"
 doc-link: https://developers.braintreepayments.com/reference/request/transaction/search/java
@@ -139,4 +139,8 @@ attributes:
       - name: "success"
         type: "boolean"
         description: "Indicates if the funds were disbursed successfully."
+
+  - name: "subscription_id"
+    type: "string"
+    description: "The subscription ID."     
 ---

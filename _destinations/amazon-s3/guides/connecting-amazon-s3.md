@@ -19,6 +19,7 @@ keywords: amazon s3 data warehouse, amazon s3 data warehouse, etl to amazon s3, 
 summary: "Connect an Amazon S3 bucket to your Stitch account as a destination."
 
 content-type: "destination-setup"
+key: "amazon-s3-destination-setup"
 order: 1
 
 toc: true
@@ -30,12 +31,15 @@ use-tutorial-sidebar: false
 #     Destination Details    #
 # -------------------------- #
 
-type: "amazon-s3"
 display_name: "Amazon S3"
+name: "amazon-s3"
+
+type: "amazon-s3"
 
 ssh: false
 ssl: false
 
+this-version: "1"
 
 # -------------------------- #
 #        Requirements        #
@@ -152,72 +156,18 @@ steps:
   - title: "Grant and verify bucket access"
     anchor: "grant-verify-bucket-access"
     content: |
-      {% include important.html type="single-line" content="The bucket policy and challenge file name Stitch displays will only display once. Ensure you save them before moving on from this page." %}
+      {% include important.html type="single-line" content="The challenge file name Stitch displays will only display once. Ensure you save this before moving on from this page." %}
 
-      Next, Stitch will display a **Grant & Verify Access** page. This page contains the info you need to configure bucket access for Stitch, which is accomplished via a bucket policy. [A bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) is JSON-based access policy language to manage permissions to bucket resources.
-
-      **Note**: The policy Stitch provides is an auto-generated policy unique to the specific bucket you entered in the setup page. It allows Stitch to assume a role and access the bucket. An example might look like this:
-
-      ```json
-      {
-        "Version": "2012-10-17",
-        "Id": "",
-        "Statement": [
-          {
-            "Sid": "",
-            "Effect": "Allow",
-            "Principal": {
-              "AWS": [
-                "arn:aws:iam::218546966473:role/LoaderS3"
-              ]
-            },
-            "Action": [
-              "s3:PutObject",
-              "s3:GetObject",
-              "s3:ListBucket"
-            ],
-            "Resource": [
-              "arn:aws:s3:::<YOUR_S3_BUCKET_NAME>",
-              "arn:aws:s3:::<YOUR_S3_BUCKET_NAME>/*"
-            ]
-          }
-        ]
-      }
-      ```
+      {% include destinations/amazon-s3/add-verify-bucket-policy.html type="bucket-example" %}
 
     substeps:
       - title: "Add the Stitch bucket policy"
         anchor: "add-bucket-policy"
         content: |
-          To allow Stitch to access the bucket, you'll need to add a bucket policy using the AWS console. Follow the instructions in the tab below to add the bucket policy.
-
-          {% include destinations/templates/destination-user-setup.html %}
+          {% include destinations/amazon-s3/add-verify-bucket-policy.html type="add-bucket-policy" %}
 
       - title: "Verify bucket access"
         anchor: "verify-bucket-access"
         content: |
-          Next, to ensure that Stitch can access the bucket, you'll create a blank file that Stitch will use to test the permissions settings.
-
-          1. In Stitch, just below the bucket policy code, is the **Verify your bucket** section. In this section is a field containing the unique name of the test file you need to create:
-
-             ![Amazon S3 challenge file field in Stitch]({{ site.baseurl }}/images/destinations/amazon-s3-challenge-file-field.png)
-
-             **Note**: This file name will only display once. If you navigate out of this screen without saving the file name, you'll need to start over.
-
-          2. Create a blank file using the name displayed in this field. **Do not save the file with an extension (file type)** like `.csv` or `.txt`. In the image below, notice that there isn't any kind of file extension after the challenge file name:
-
-             ![Saving the Amazon S3 challenge file without a file extension]({{ site.baseurl }}/images/destinations/amazon-s3-challenge-file-creation.png)
-
-          3. Switch back to the AWS console and click the **Overview** tab.
-          4. Click the **Upload** button and follow the prompts to upload the file.
-          5. After the file has been uploaded to the bucket, switch back to where you have Stitch open.
-          6. Click **Check and Save** to save and test the connection to {{ destination.display_name }}.
-
-          {% capture challenge-file-notice %}
-          The challenge file must remain in the bucket even after the initial setup. If the file isn't created, or is removed at any point after the setup, you'll receive this error: `An error occurred (404) when calling the HeadObject operation: Not Found`
-
-          For troubleshooting, refer to the [Destination Connection Errors guide]({{ link.troubleshooting.dw-connection-errors | prepend: site.baseurl }}).
-          {% endcapture %}
-
-          {% include important.html first-line="**The challenge file must remain in your S3 bucket**" content=challenge-file-notice %}
+          {% include destinations/amazon-s3/add-verify-bucket-policy.html type="verify-bucket-access" %}
 ---

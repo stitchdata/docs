@@ -17,20 +17,18 @@ sections:
   - title: "Historical webhook data"
     anchor: "historical-webhook-data"
     content: |
-      Webhook data is sent in real-time, which means that only records created after you set up the integration in Stitch will be replicated to your data warehouse. 
+      Webhook data is sent in real-time, which means that only records created after you set up the integration in Stitch will be replicated to your destination. 
 
       While most webhook integrations don't retain historical data due to this as-it-happens approach, some apps may allow you to replay data and send it to Stitch. This is dependent on if the app has this feature, however. 
 
       If you want to replay historical webhook data and send it to Stitch, contact that app's support for assistance.
 
-  - title: "Append-Only Replication and querying"
+  - title: "Append-Only loading and querying"
     anchor: "append-only-replication"
     content: |
-      The majority of Stitch's webhook integrations replicate data in an Append-Only fashion. {{ site.data.tooltips.append-only-rep }}
+      The majority of Stitch's webhook integrations load data in an Append-Only fashion. {{ site.data.tooltips.append-only }} Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info and examples.
 
       While data stored using this method can provide insights and historical details about how rows change over time, grabbing the latest data does require a different querying strategy than usual. [Refer to the Querying Append-Only Tables guide for more details.]({{ link.replication.append-only-querying | prepend: site.baseurl }})
-
-      See the Replication Methods guide for [an example and in-depth explanation of Append-Only replication]({{ link.replication.rep-methods | prepend: site.baseurl | append:"##-only-incremental-replication" }}).
 
   - title: "All webhook integrations"
     anchor: "all-webhook-integrations"

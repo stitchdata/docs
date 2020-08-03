@@ -50,7 +50,7 @@ sass:
   sass_dir: _sass
 
 
-## The syntax highligher used for rendering code blocks
+## The syntax highlighter used for rendering code blocks
 highlighter: rouge
 
 ## Configs for the Markdown processor
@@ -80,9 +80,9 @@ collections:
    output: true
   analysis-integrations:
    output: true
-  connect-content:
+  developer-content:
    output: true
-  connect-files:
+  developer-files:
    output: false
   data-structure:
    output: true
@@ -144,6 +144,7 @@ defaults:
       type: database-integrations
     values:
       layout: database
+      connection-type: "integration"
       enterprise: false
       toc: true
       sidebar: stitchnav
@@ -161,11 +162,23 @@ defaults:
       type: destinations
     values:
       layout: general
+      connection-type: "destination"
       enterprise: false
       toc: true
       sidebar: stitchnav
       display-summary: "false"
 
+## Developer content
+  - scope:
+      type: developer-content
+    values:
+      layout: developer
+      display-summary: "false"
+      toc: false
+      feedback: false
+      summary: false
+
+## Developers
   - scope:
       type: developers
     values:
@@ -199,6 +212,7 @@ defaults:
       type: saas-integrations
     values:
       layout: saas
+      connection-type: "integration"
       enterprise: false
       toc: true
       sidebar: stitchnav
@@ -260,6 +274,7 @@ data-strategy: https://stitchdata.com/resources/guide/why-you-need-a-data-pipeli
 
 support: stitchsupport@talend.com
 sales: https://www.stitchdata.com/contact/
+community: https://community.stitchdata.com/
 sign-in: https://app.stitchdata.com
 
 ## Singer links

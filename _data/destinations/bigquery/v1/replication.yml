@@ -1,0 +1,34 @@
+# ------------------------------------------ #
+#  GOOGLE BIGQUERY (V1) REPLICATION DETAILS  #
+# ------------------------------------------ #
+
+## Details about replication/loading for
+## Stitch's Google BigQuery (v1) destination.
+
+
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
+
+primary-key-support: false
+
+nested-structure-support: true
+nested-structure-support-description: |
+  Nested data structures will be maintained.
+
+rename-original-column-in-split:  false
+
+
+# ------------------------------ #
+#       LOADING BEHAVIOR         #
+# ------------------------------ #
+
+configurable-loading-behavior: false
+
+default-loading-behavior: "Append-Only"
+
+loading-behavior-types:
+  - "Append-Only"
+
+loading-behavior-description: |
+  All data will be loaded in an Append-Only fashion. Refer to the [Loading behavior](#loading-behavior) section for more info.

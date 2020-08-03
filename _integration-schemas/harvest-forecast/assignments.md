@@ -1,6 +1,6 @@
 ---
 tap: "harvest-forecast"
-version: "1.0"
+version: "1"
 
 name: "assignments"
 doc-link:
@@ -51,6 +51,7 @@ attributes:
   - name: "placeholder_id"
     type: "integer"
     description: "If the assignment is a placeholder, this column will contain the placeholder ID."
+    foreign-key-id: "placeholder-id"
 
   - name: "repeated_assignment_set_id"
     type: "integer"

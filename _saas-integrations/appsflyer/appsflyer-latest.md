@@ -3,11 +3,13 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: AppsFlyer (v1.0)
+title: AppsFlyer (v1)
 permalink: /integrations/saas/appsflyer
 keywords: appsflyer, integration, schema, etl appsflyer, appsflyer etl, appsflyer schema
 summary: "Connection instructions, replication info, and schema details for Stitch's AppsFlyer integration."
 layout: singer
+
+key: "appsflyer-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -20,13 +22,12 @@ repo-url: https://github.com/singer-io/tap-appsflyer
 api: |
   [{{ integration.display_name }} Raw Data Reports V5 API](https://help.fullstory.com/develop-rest/data-export-api){:target="new"}
 
-# this-version: "1.0"
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "60 days"
@@ -34,13 +35,15 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: http://status.appsflyer.com/
 
+api-type: "platform.appsflyer"
+
+anchor-scheduling: true
+cron-scheduling: true
+
 table-selection: false
 column-selection: false
 
-anchor-scheduling: false
-cron-scheduling: false
-
-extraction-logs: false
+extraction-logs: true
 loading-reports: true
 
 
@@ -71,7 +74,7 @@ setup-steps:
 
       Depending on the app's type (iOS, Android, or Windows), the app ID format will vary:
 
-      - **iOS** - This will be the iTunes ID of your app, without the `id` portion. For example: If the app is `id987654321`, the ID would be `987654321`.
+      - **iOS** - This will be the iTunes ID of your app. Example: `id987654321`.
       - **Android** - This will be the package name registered on AppsFlyer. For example: If the package is registered as `com.stitchdata.test`, the ID would be `com.stitchdata.test`.
       - **Windows** - This will be the Windows app ID. For example: `f1e2d3c4b5a6`
 

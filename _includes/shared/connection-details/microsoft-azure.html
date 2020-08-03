@@ -1,9 +1,18 @@
 <!-- This file contains the steps for retrieving
-	an Azure SQL data warehouse's server/host address
+	an Azure Synapse Analytics' server/host address
 	in the Azure UI. -->
+{% case page.name %}
+{% when 'microsoft-azure' %}
+{% assign menu-items = "SQL Databases" %}
+{% assign image-file = "destinations/azure-dw-server-name-field.png" %}
 
-1. From your Azure dashboard, click **SQL databases**.
+{% when 'microsoft-azure-mysql' %}
+{% assign menu-items = "Azure Database for MySQL Server" %}
+{% assign image-file = "integrations/mysql-microsoft-azure-server-name-field.png" %}
+{% endcase %} 
+
+1. From your Azure dashboard, click **{{ menu-items }}**.
 2. On the page that displays, click the name of the database you want to connect to Stitch.
 3. The details page for the database will display. On this page, locate the **Server name** field, which is highlighted below:
 
-   ![The Server name field for an Azure database, highlighted]({{ site.baseurl }}/images/destinations/azure-dw-server-name-field.png)
+   ![The Server name field for an Azure database, highlighted]({{ site.baseurl }}/images/{{ image-file }})

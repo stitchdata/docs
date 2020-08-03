@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Mambu
+title: Mambu (v1)
 permalink: /integrations/saas/mambu
 keywords: mambu, integration, schema, etl mambu, mambu etl, mambu schema
 layout: singer
@@ -29,7 +29,7 @@ singer: true
 tap-name: "Mambu"
 repo-url: https://github.com/singer-io/tap-mambu
 
-# this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} v2.0](https://api.mambu.com/?shell#Welcome){:target="new"} and [v1.0 APIs](https://support.mambu.com/docs/rest-apis-overview){:target="new"}
@@ -38,8 +38,7 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
-certified: false 
+certified: true 
 
 historical: "1 year"
 frequency: "1 hour"

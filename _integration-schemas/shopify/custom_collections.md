@@ -1,9 +1,9 @@
 ---
 tap: "shopify"
-version: "1.0"
+version: "1"
 
 name: "custom_collections"
-doc-link: "https://help.shopify.com/en/api/reference/products/customcollection"
+doc-link: "https://shopify.dev/docs/admin-api/rest/reference/products/customcollection?api[version]=2019-07"
 singer-schema: "https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/custom_collections.json"
 description: |
   The `{{ table.name }}` table contains info about custom collections. A custom collection is a grouping of products that a merchant creates to make their store easier to browse.
@@ -12,7 +12,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Retrieve a list of custom collections"
-    doc-link: "https://help.shopify.com/en/api/reference/products/customcollection#index"
+    doc-link: "https://shopify.dev/docs/admin-api/rest/reference/products/customcollection?api[version]=2019-07"
 
 date-time: |
   The date and time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} when the [ITEM] was [ACTION].

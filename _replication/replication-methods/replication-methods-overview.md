@@ -35,7 +35,7 @@ sections:
         content: |
           {{ site.data.tooltips.log-based-incremental-rep }}
 
-          **Note**: This Replication Method is available only for Microsoft SQL Server, MySQL, Oracle, and PostgreSQL-backed databases that support binary log replication, and requires manual intervention when table structures change. [Learn more about Log-based Incremental Replication here]({{ link.replication.log-based-incremental | prepend: site.baseurl }}).
+          **Note**: This Replication Method is available only for Amazon DynamoDB, Microsoft SQL Server, MySQL, Oracle, and PostgreSQL-backed databases that support binary log replication, and requires manual intervention when table structures change. [Learn more about Log-based Incremental Replication here]({{ link.replication.log-based-incremental | prepend: site.baseurl }}).
 
       - title: "Key-based Incremental Replication"
         anchor: "key-based-incremental-replication"
@@ -108,7 +108,14 @@ sections:
 
       - **Database integrations**: Replication Methods are defined by you when tables are set to replicate. A table's Replication Method can be changed at any time in the {{ app.page-names.table-settings }} page.
 
-      - **SaaS integrations**: With the exception of Salesforce, Stitch pre-defines the Replication Methods used for every table set to replicate.
+      - **SaaS integrations**: Stitch pre-defines the Replication Methods used for every table set to replicate, with the exception of the following integrations:
+      
+         {% assign all-saas = site.saas-integrations | where:"input",true | sort_natural:"display_name" %}
+         {% assign configurable-integration-rep = all-saas | where:"define-replication-methods",true %}
+
+         {% for integration in configurable-integration-rep %}
+         - [{{ integration.display_name }} (v{{ integration.this-version }})]({{ integration.url | prepend: site.baseurl }})
+         {% endfor %}
 
          To learn more about the Replication Methods used by a particular SaaS integration, refer to the **Schema** section in the [integration's documentation]({{ site.baseurl }}/integrations/saas).
 

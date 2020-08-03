@@ -5,7 +5,8 @@ permalink: /troubleshooting/destinations/panoply-connection-issues
 tags: [troubleshooting_destinations, troubleshooting_errors]
 
 summary: "If you’re having trouble with setting up or connecting to your Panoply data warehouse in Stitch, try these troubleshooting steps before reaching out to support."
-type: "panoply-destination, connection"
+type: "panoply-destination, connection, error"
+category: "connection-errors"
 promote: "false"
 ---
 {% include misc/data-files.html %}
@@ -29,4 +30,4 @@ If you’ve recently reset your password in Panoply, you’ll also need to updat
 
 If you’re still running into problems with Panoply in Stitch, reach out to [Stitch support](mailto:{{ site.support }}).
 
-If you’re experiencing issues inside of Panoply, [reach out to Panoply support](https://panoply.io).
+If you’re experiencing issues inside of Panoply, [reach out to Panoply support](https://panoply.io){:target="new"}.

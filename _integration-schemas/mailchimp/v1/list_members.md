@@ -1,6 +1,6 @@
 ---
 tap: "mailchimp"
-version: "1.0"
+version: "1"
 
 key: "list-member"
 name: "list_members"
@@ -24,6 +24,12 @@ attributes:
     primary-key: true
     description: "The list member ID. This is the MD5 hash of the lowercase version of the list member’s email address."
     #foreign-key-id: "list-member-id"
+
+  - name: "list_id"
+    type: "string"
+    primary-key: true
+    description: "The list ID."
+    foreign-key-id: "list-id"
 
   - name: "last_changed"
     type: "date-time"
@@ -58,11 +64,6 @@ attributes:
     type: "string"
     description: "If set/detected, the subscriber’s language."
     doc-link: "https://mailchimp.com/help/view-and-edit-contact-languages/?_ga=2.133440206.1967669071.1563545438-786188311.1561484332"
-
-  - name: "list_id"
-    type: "string"
-    description: "The list ID."
-    foreign-key-id: "list-id"
 
   - name: "location"
     type: "object"

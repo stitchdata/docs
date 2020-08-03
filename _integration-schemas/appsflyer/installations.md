@@ -1,6 +1,6 @@
 ---
 tap: "appsflyer"
-# version: "1.0"
+version: "1"
 
 name: "installations"
 doc-link: https://support.appsflyer.com/hc/en-us/articles/208387843-Raw-Data-Reports-V5-

@@ -6,14 +6,14 @@ tags: [stitch_webhooks]
 keywords: incoming webhooks, etl webhooks, incoming webhooks etl, incoming webhooks schema, stitch webhooks, webhooks
 summary: "Stitch’s Incoming Webhooks integration provides a simple and flexible method to integrate dozens of webhook APIs with Stitch. This guide will walk you through how to set up a generic Incoming Webhook integration, how replication works, and what data you can expect to see."
 
+key: "incoming-webhooks-reference"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
 name: "incoming-webhooks"
 display_name: "Incoming Webhooks"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -35,6 +35,9 @@ icon:  /images/integrations/icons/incoming-webhooks.svg
 
 table-selection: false
 column-selection: false
+
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #     Integration Tables     #
@@ -75,7 +78,7 @@ To use Stitch Incoming Webhooks:
 2. **The Webhook API you're integrating with meets the following requirements**:
    - The data sent by the webhook API must come to Stitch in **JSON format**. This is currently the only format Stitch supports.
    - The payload (or delivery) of the data must come via a `POST` request.
-   - Request bodies must be less than 4MB
+   - Request bodies must be less than {{ site.data.import-api.general.max-record-size }}
 
 You can determine if the webhook API you want to use meets the above criteria by checking out that provider's webhook API documentation.
 

@@ -1,0 +1,32 @@
+# -------------------------- #
+#    EXAMPLE API RESPONSES   #
+# -------------------------- #
+
+get-status: |
+  {
+    "name": "pipeline.gate",
+    "version": "0.3.3-SNAPSHOT",
+    "revision": "a154360ad8c43182965049dbf6239aa7c1f3c84d",
+    "status": "OK",
+    "reason": null
+  }
+
+validate-request: |
+  {
+    "status": "OK",
+    "message": "Batch is valid!"
+  }
+
+
+
+batch-created: |
+  {
+    "status": "OK",
+    "message": "Batch Accepted!"
+  }
+
+batch-accepted: |
+  {
+    "status": "Accepted",
+    "message": "The batch is queued to be processed."
+  }

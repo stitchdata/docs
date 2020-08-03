@@ -1,0 +1,41 @@
+# ------------------------------------------ #
+#          PostgreSQL Loading Errors         #
+# ------------------------------------------ #
+
+## This file contains loading errors specific to PostgreSQL destinations.
+
+## Cannot create new schema
+- message: "Encountered error while attempting to create new schema."
+  id: "cannot-create-schema"
+  applicable-to: &postgres-destinations "All PostgreSQL-backed destinations"
+  level: "critical"
+  category: "Database user privileges"
+  summary: "Insufficient schema privileges"
+  cause: "Stitch is unable to create or load data into a schema in your destination. This is usually due to insufficient database user privileges."
+  fix-it: |
+    Verify that the Stitch database user has the required permissions, [as outlined here]({{ link.destinations.setup.self-hosted-postgres | prepend: site.baseurl | append: "#create-stitch-user" }}).
+
+## No space left on device
+- message: "ERROR: could not write block XXXX of temporary file: No space left on device"
+  id: "database-is-full"
+  applicable-to: *postgres-destinations
+  level: "critical"
+  category: "Destination disk space"
+  summary: "Insufficient storage space"
+  cause: "The PostgreSQL instance is full."
+  fix-it: &free-disk-space |
+    - Add additional space to make your PostgreSQL database larger, or
+    - Remove tables and/or data from the existing instance to free up disk space
+
+## No space left for staging
+- message: |
+    ERROR: could not extend file "base/16389/t2_285302": No space left on device
+    Hint: Check free disk space.
+    Where: COPY staging_0_[FILE_NAME], line [LINE_NUMBER]
+  id: "no-space-on-device"
+  applicable-to: *postgres-destinations
+  level: "critical"
+  category: "Destination disk space"
+  summary: "Disk is full"
+  cause: "The PostgreSQL instance is full."
+  fix-it: *free-disk-space

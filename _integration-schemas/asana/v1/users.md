@@ -1,11 +1,11 @@
 ---
 tap: "asana"
-version: "1.0"
+version: "1"
 key: "user"
 
 name: "users"
 doc-link: "https://asana.com/developers/api-reference/users"
-singer-schema: "https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/users.json"
+singer-schema: "https://github.com/singer-io/tap-asana/blob/cb441655c57734e0cf1f61c933b7905c8868b594/tap_asana/schemas/users.json"
 description: |
   The `{{ table.name }}` table contains info about the users in your {{ integration.display_name }} account.
 

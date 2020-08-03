@@ -1,11 +1,11 @@
 ---
 tap: "asana"
-version: "1.0"
+version: "1"
 key: "workspace"
 
 name: "workspaces"
 doc-link: "https://asana.com/developers/api-reference/workspaces"
-singer-schema: "https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/workspaces.json"
+singer-schema: "https://github.com/singer-io/tap-asana/blob/cb441655c57734e0cf1f61c933b7905c8868b594/tap_asana/schemas/workspaces.json"
 description: |
   The `{{ table.name }}` table contains info about the workspaces associated with your {{ integration.display_name }} account.
 

@@ -1,0 +1,42 @@
+# ----------------------------------- #
+#   DATABRICKS DELTA STITCH DETAILS   #
+# ----------------------------------- #
+
+# Details about Stitch's implementation &
+# requirements for Databricks Delta destinations.
+
+
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
+
+pricing-tier: "Standard"
+
+# stitch-plan-availability: "all"
+
+supported-versions: "Databricks Runtime Version 6.3+"
+
+available-in-connect: true
+
+api-type: "databricks_delta"
+
+
+# ------------------------------ #
+#      CONNECTION METHODS        #
+# ------------------------------ #
+
+ssl: true
+
+connect-ssl: false ## Indicates whether SSL can be configured via the API
+
+ssh: true
+
+vpn: false
+
+
+# ------------------------------ #
+#    WORKLOAD PERFORMANCE MGMT   #
+# ------------------------------ #
+
+workload-performance-management: false
+# workload-performance-management-description: ""

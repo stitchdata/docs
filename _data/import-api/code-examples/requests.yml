@@ -1,0 +1,39 @@
+# -------------------------- #
+#   EXAMPLE CURL REQUESTS    #
+# -------------------------- #
+
+push-data: |
+  '{
+     "table_name":"customers",
+     "schema":{
+        "properties":{
+           "id":{
+              "type":"integer"
+           },
+           "name":{
+              "type":"string"
+           },
+           "age":{
+              "type":"integer"
+           },
+           "has_magic":{
+              "type":"boolean"
+           }
+        }
+     },
+     "messages":[
+        {
+           "action":"upsert",
+           "sequence":1565880017,
+           "data":{
+              "id":1,
+              "name":"Finn",
+              "age":15,
+              "has_magic":false
+           }
+        }
+     ],
+     "key_names":[
+        "id"
+     ]
+  }'

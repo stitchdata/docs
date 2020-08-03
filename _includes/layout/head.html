@@ -8,23 +8,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="{% if page.summary %}{{ page.summary | strip_html | strip_newlines | truncate: 160 }}{% endif %}">
-<meta name="keywords" content="{{page.tags}}{% if page.tags %}, {% endif %} {{page.keywords}}">
+<meta class="swiftype" name="description" data-type="string" content="{% if page.summary %}{{ page.summary | strip_html | strip_newlines | truncate: 160 }}{% endif %}">
+<meta class="swiftype" name="keywords" data-type="string" content="{{page.tags}}{% if page.tags %}, {% endif %} {{page.keywords}}">
 <title>{{ include.title }} | {{ site.site_title }}</title>
 
 <meta property="og:title" content="{{ page.title }} | {{ site.site_title }}" />
 <meta property="og:description" content="{% if page.summary %}{{ page.summary | strip_html | strip_newlines | truncate: 160 }}{% endif %}" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="{{ site.baseurl }}" />
-<meta property="og:image" content="https://www.stitchdata.com/images/og-site-icon.png" />
+<meta property="og:image" content="https://www.stitchdata.com/images/og-site-icon-talend.png" />
 <meta property="og:site_name" content="Stitch Docs" />
 
 <meta name="twitter:creator" content="@stitch_data">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@stitch_data" />
-<meta name="twitter:image" content="https://www.stitchdata.com/images/og-site-icon.png" />
-
-<meta name=viewport content="width=1100, user-scalable=1">
+<meta name="twitter:image" content="https://www.stitchdata.com/images/og-site-icon-talend.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet" type="text/css" href="{{ "/css/bootstrap.min.css" | prepend: site.baseurl }}">
@@ -34,6 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="{{ "/css/theme-stitch.css" | prepend: site.baseurl }}">
 <link rel="stylesheet" href="{{ "/css/docsearch.min.css" | prepend: site.baseurl }}" />
 <link rel="stylesheet" href="{{ "/stylesheets/screen.css" | prepend: site.baseurl }}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- FONT AWESOME -->
 <script src="https://kit.fontawesome.com/e0e120b2f0.js"></script>
@@ -44,17 +44,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script src="{{ "/js/jquery.navgoco.min.js" | prepend: site.baseurl }}"></script>
 
 <!-- FAVICONS  -->
-<link href="/docs/images/apple-icon-57x57.png" rel="apple-touch-icon" type="image/png" />
-<link href="/docs/images/apple-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" type="image/png" />
-<link href="/docs/images/apple-icon-114x114.png" rel="apple-touch-icon-precomposed" sizes="114x114" type="image/png" />
-<link href="/docs/images/favicon-32x32.png" rel="shortcut icon" type="image/png" />
-<link href="/docs/images/favicon-32x32.png" rel="icon" type="image/png" />
+<link rel="/docs/images/apple-touch-icon" sizes="57x57" href="/docs/images/apple-icon-57x57.png">
+<link rel="/docs/images/apple-touch-icon" sizes="60x60" href="/docs/images/apple-icon-60x60.png">
+<link rel="/docs/images/apple-touch-icon" sizes="72x72" href="/docs/images/apple-icon-72x72.png">
+<link rel="/docs/images/apple-touch-icon" sizes="76x76" href="/docs/images/apple-icon-76x76.png">
+<link rel="/docs/images/apple-touch-icon" sizes="114x114" href="/docs/images/apple-icon-114x114.png">
+<link rel="/docs/images/apple-touch-icon" sizes="120x120" href="/docs/images/apple-icon-120x120.png">
+<link rel="/docs/images/apple-touch-icon" sizes="144x144" href="/docs/images/apple-icon-144x144.png">
+<link rel="/docs/images/apple-touch-icon" sizes="152x152" href="/docs/images/apple-icon-152x152.png">
+<link rel="/docs/images/apple-touch-icon" sizes="180x180" href="/docs/images/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/docs/images/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/docs/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/docs/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/docs/images/favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
 
 <link rel="stylesheet" href="{{ "/css/syntax.css" | prepend: site.baseurl }}">
 
-<!-- TYPEKIT -->
-<script src="https://use.typekit.net/hjq2wqe.js"></script>
-<script>try{Typekit.load({ async: true });}catch(e){}</script>
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
 
 <style type="text/css">
 	.js .fouc {display: none !important;}

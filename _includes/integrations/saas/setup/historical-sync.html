@@ -48,8 +48,8 @@ This means that data **equal to or newer than this date** will be replicated to 
 {% capture historical-tables %}
 This means that:
 
-- For tables using **Incremental Replication**, data **equal to or newer than this date** will be replicated to your data warehouse.
-- For tables using **Full Table Replication**, all data - including records that are older, equal to, or newer than this date - will be replicated to your data warehouse.
+- For tables using **Key-based Incremental Replication**, data **equal to or newer than this date** will be replicated to your destination.
+- For tables using **Full Table Replication**, all data - including records that are older, equal to, or newer than this date - will be replicated to your destination.
 {% endcapture %}
 {% endif %}
 {% endcase %}
@@ -58,8 +58,8 @@ This means that:
 ### Define the Historical Sync {#define-historical-sync}
 {% endunless %}
 
-The Sync Historical Data setting will define the starting date for your {{ integration.display_name }} integration. {{ historical-tables }}
+The Sync Historical Data setting defines the starting date for your {{ integration.display_name }} integration. {{ historical-tables }}
 
-Change this setting if you want to replicate data beyond {{ integration.display_name }}'s default setting of **{{ integration.historical }}**. {% unless integration.name == "amazon-s3-csv" %}For a detailed look at historical replication jobs, check out the [Syncing Historical SaaS Data]({{ link.replication.saas-historical | prepend: site.baseurl }}) guide.{% endunless %}
+{% unless integration.name == "mixpanel" %}Change this setting if you want to replicate data beyond {{ integration.display_name }}'s default setting of **{{ integration.historical }}**. {% endunless %}{% unless integration.name == "amazon-s3-csv" %}For a detailed look at historical replication jobs, check out the [Syncing Historical SaaS Data]({{ link.replication.saas-historical | prepend: site.baseurl }}) guide.{% endunless %}
 
 {{ include.step-content }}

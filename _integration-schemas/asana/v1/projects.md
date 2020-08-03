@@ -1,11 +1,11 @@
 ---
 tap: "asana"
-version: "1.0"
+version: "1"
 key: "project"
 
 name: "projects"
 doc-link: "https://asana.com/developers/api-reference/projects"
-singer-schema: "https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/projects.json"
+singer-schema: "https://github.com/singer-io/tap-asana/blob/cb441655c57734e0cf1f61c933b7905c8868b594/tap_asana/schemas/projects.json"
 description: |
   The `{{ table.name }}` table contains info about the projects the user who authorized the {{ integration.display_name }} integration in Stitch has access to.
 

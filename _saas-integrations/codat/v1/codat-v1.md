@@ -18,6 +18,8 @@ keywords: codat, integration, schema, etl codat, codat etl, codat schema
 layout: singer
 # input: false
 
+key: "codat-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -29,7 +31,7 @@ singer: true
 tap-name: "Codat"
 repo-url: https://github.com/singer-io/tap-codat
 
-# this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} API](https://docs.codat.io/docs){:target="new"}
@@ -38,7 +40,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"
@@ -46,8 +47,10 @@ frequency: "1 hour"
 tier: "Free"
 status-url: "https://status.codat.io/"
 
+api-type: "platform.codat"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

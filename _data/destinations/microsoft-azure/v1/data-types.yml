@@ -1,0 +1,167 @@
+# ---------------------------- #
+#  [DESTINATION] DATA TYPING   #
+# ---------------------------- #
+
+## Details about data typing for [destination] destinations.
+## Includes:
+##  - Stitch types mapped to [destination]-specific types
+##  - Data type suffixes
+##  - Limitations on each data type, imposed by [destination]
+
+
+## NOTE: Relevant files:
+##  - Stitch data types: _data/stitch/data-types.yml
+##  - All supported source types: _data/taps/extraction/data-types/common.yml
+
+
+# ---------------------------- #
+#       DATA TYPE MAPPING      #
+# ---------------------------- #
+
+# ---------------------------- #
+#           BIGINT             #
+# ---------------------------- #
+
+bigint: &bigint
+  destination-type: "bigint"
+  suffix: "bi"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15"
+  range: "-2^63 (-9,223,372,036,854,775,808) to 2^63-1 (9,223,372,036,854,775,807)"
+  loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
+
+
+# ---------------------------- #
+#           BOOLEAN            #
+# ---------------------------- #
+
+boolean:
+  destination-type: "boolean"
+  suffix: "bo"
+  description: "Values are stored as `1` (`true`), `0` (`false`), or `NULL`."
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/bit-transact-sql?view=sql-server-ver15"
+
+
+# ---------------------------- #
+#            DATE              #
+# ---------------------------- #
+
+date:
+  destination-type: "datetimeoffset"
+  suffix: "inst"
+  description: "Stored in UTC as `DATETIMEOFFSET(3)`"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetime-transact-sql?view=aps-pdw-2016-au7"
+  range: "**Dates**: 0001-01-01/January 1, 0001 AD, through 9999-12-31/December 31, 9999 AD; **Time**: 00:00:00 through 23:59:59.997"
+  loading-error: "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range }}"
+  # date-range: &date-range ""
+  # timezone-support: &timezone-support "None"
+
+
+# ---------------------------- #
+#           DOUBLE             #
+# ---------------------------- #
+
+double: &float
+  destination-type: "float"
+  suffix: "fl"
+  description: "Stored as `FLOAT(53)`"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/float-and-real-transact-sql?view=sql-server-ver15"
+
+
+# ---------------------------- #
+#           FLOAT              #
+# ---------------------------- #
+
+float: *float
+
+
+# ---------------------------- #
+#           INTEGER            #
+# ---------------------------- #
+
+integer: *bigint
+
+
+# ---------------------------- #
+#           NUMBER             #
+# ---------------------------- #
+
+number:
+  destination-type: "decimal"
+  suffix: "de"
+  description: |
+    Precision must be between 1 and 38; scale must be between 0 and the precision value
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/decimal-and-numeric-transact-sql?view=sql-server-ver15"
+  range: "Precision must be between 1 and 38; scale must be between 0 and the precision value"
+  loading-error: "{{ site.data.destinations.common.loading-errors.decimal-out-of-range }}"
+
+
+# ---------------------------- #
+#           STRING             #
+# ---------------------------- #
+
+string:
+  destination-type: "nvarchar"
+  suffix: "st"
+  description: "Columns will be automatically widened if the string length exceeds the current size. **Note**: String values that exceed the maximum width will be truncated."
+  range: "Maximum width is 4,000 bytes"
+  doc-link: ""
+
+list:
+  - id: "max-record-size"
+    categories: "data-limits"
+    important: true
+    value: *max-record-size
+    description: |
+      This limit is imposed by [PolyBase](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits#loads){:target="new"}, which is required to load data into {{ destination.display_name }} destinations.
+
+  - id: "boolean-values"
+    categories: "data-limits"
+    important: true
+    value: *boolean
+    description: |
+      {{ destination.display_name }} will store data typed as `BOOLEAN` using only the above values. These columns will be `BIT` columns in the destination.
+
+      For example: If a `BOOLEAN` source value is `true`, it will be stored as `1` in {{ destination.display_name }}.
+
+  - id: "date-and-time-timezone-support"
+    categories: "data-limits"
+    value: *timezone-support
+    description: |
+      {{ destination.display_name }} will store the value in UTC with the specified offset. These columns are type as `DATETIMEOFFSET`.
+
+      More info about timestamp data types can be found in [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017){:target="new"}.
+
+  - id: "date-and-time-date-range"
+    categories: "data-limits"
+    value: *date-range
+    description: |
+      Date values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+      More info about {{ destination.display_name }} date data types can be found in [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql?view=sql-server-2017){:target="new"}.
+
+  - id: "date-and-time-timestamp-range"
+    categories: "data-limits"
+    value: *timestamp-range
+    description: |
+      Timestamp values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+      More info about {{ destination.display_name }} time data types can be found in [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql?view=sql-server-2017){:target="new"}.
+
+  - id: "decimal-precision"
+    categories: "data-limits"
+    value: *decimal-precision
+    description: |
+      Decimal values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "decimal-scale"
+    categories: "data-limits"
+    value: *decimal-scale
+    description: |
+      Decimal values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "strings-max-width"
+    categories: "data-limits"
+    value: *strings-max-width
+    important: true
+    description: |
+      String values outside of this range will be truncated to the maximum allowed width.

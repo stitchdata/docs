@@ -1,0 +1,64 @@
+# -------------------------------------------- #
+#                                              #
+#                SCHEMA CHANGES                #
+#                                              #
+# -------------------------------------------- #
+
+description: |
+  Scenarios involving schema changes in the source or structural changes in the destination.
+
+## Add new column in SaaS integration/data source
+new-column-source:
+  heading: "a new column is added in a SaaS integration/data source?"
+  anchor: "new-column-saas-source"
+  if: "A new column is added in table already set to replicate."
+  then: |
+    1. Stitch will detect the new column during the integration's next structure sync.
+    2. The column will be automatically set to replicate.
+    3. **If the table uses Key-based Incremental Replication**, only records with a Replication Key value greater than or equal to the last saved bookmark value will be selected for replication. 
+
+       This means that if values for the new column were backfilled in existing records, the only way to have Stitch replicate these values is to either:
+
+          - Update the Replication Key values for all records **in the source**, OR 
+          - Reset the integration's Replication Keys in Stitch 
+
+    4. In the destination, the column will be appended to the end of the table.
+
+## Add column to Stitch-generated table in warehouse
+add-column-warehouse:
+  heading: "I add a column to a Stitch-generated table in my destination?"
+  anchor: "add-column-warehouse"
+  if: "A new column is added by you to a Stitch-generated table in {{ destination.display_name }}."
+  then: "Columns may be added to tables created by Stitch as long as they are nullable, meaning columns don't have `NOT NULL` constraints."
+
+## Column is removed from source
+removed-column-source:
+  heading: "a column is deleted from a data source?"
+  anchor: "removed-column-source"
+  if: "A column is deleted at the source."
+  then: |
+    How a deleted column is reflected in {{ destination.display_name }} depends on the Replication Method used by the table:
+
+    - **Key-based Incremental:** The column will remain in the destination, and default `NULL` values will be placed in it going forward.
+
+    - **Log-based Incremental:** Changes to a source table - including adding or removing columns, changing data types, etc. - require manual intervention before replication can continue. Refer to the [Log-based Incremental Replication documentation]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation-3--structural-changes" }}) for more info.
+
+    - **Full Table**: The column will remain in the destination, and default `NULL` values will be placed in it going forward.
+
+## Remove column from Stitch-replicated table in warehouse
+remove-column-warehouse:
+  heading: "a column is deleted from a Stitch-replicated table in the destination?"
+  anchor: "remove-column-warehouse"
+  if: "You remove a column from a Stitch-replicated table in your destination."
+  then: |
+    The result of deleting a column from a Stitch-generated table depends on the **type** of column being removed:
+
+    - **Primary Key columns**: Changing a table's Primary Key(s) is not permitted in {{ destination.display_name }}. If Primary Key columns are changed, Stitch will stop processing data for the table.
+    
+    - **General columns**:  If new data is detected for the removed column, Stitch will re-create it in {{ destination.display_name }}. This refers to all columns that are not prepended by `_sdc` or suffixed by a data type. For example: `customer_zip`, but not `customer_zip__st`.
+
+       **Note**: An integration must support selecting columns AND you must deselect the column in Stitch for the column removal to be permanent.
+    
+    - **_sdc columns**: Removing a Stitch replication column will prevent Stitch from loading replicated data into {{ destination.display_name }}.
+    
+    - **Columns with data type suffixes**: Removing a column created as result of accommodating [multiple data types](#multiple-data-types) will prevent Stitch from loading replicated data into the table. This applies to columns with names such as: `customer_zip__st`, `customer_zip__int`, etc.

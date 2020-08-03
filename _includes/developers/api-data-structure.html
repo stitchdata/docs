@@ -1,0 +1,82 @@
+<!-- This file contains the logic and formatting for displaying
+    API data structures. -->
+
+{% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
+    {% assign data-structures = all-docs | where:"content-type","api-structure" %}
+
+{% include developers/api-endpoint-rollup.html type="data-structure" %}
+
+{% for structure in data-structures %}
+
+    {% assign has-multiple-versions = "false" %}
+    
+    <div class="api-js-heading">
+        <div class="method object">
+            OBJECT
+        </div>
+
+        <div class="method-resource">
+            <h4 id="{{ structure.key }}">
+                The {{ structure.title }} object
+            </h4>
+        </div>
+    </div>
+
+        <p>{{ structure.description | flatify | markdownify }}</p>
+
+    {% if structure.object-attributes %}
+        {% include developers/attribute-table.html object=structure.object-attributes td-width="25" multiple-versions=false %}
+    {% endif %}
+
+
+    {% if structure.examples %}
+        <h4 id="{{ structure.key | append: "-example-usage" }}">
+            Example object
+        </h4>
+
+        {% include developers/api-examples.html type="data-structure" %}
+    {% endif %}
+
+
+    {% if structure.sub-structures %}
+        {% assign all-sub-structures = site.developer-files | where:"content-type","api-sub-structure" %}
+
+        {% for sub-structure in all-sub-structures %}
+            {% for sub in structure.sub-structures %}
+                {% if sub-structure.key == sub.key %}
+
+                    <div class="api-js-heading">
+                        <div class="method object">
+                            SUB-OBJECT
+                        </div>
+
+                        <div class="method-resource">
+                            <h4 id="{{ sub-structure.key }}">
+                                The {{ sub-structure.title }} object
+                            </h4>
+                        </div>
+                    </div>
+
+                    {{ sub-structure.description | flatify | markdownify }}
+
+                    {% include developers/attribute-table.html object=sub-structure.object-attributes td-width="25" multiple-versions=false %}
+
+                    {% if sub-structure.examples %}
+                        <h4 id="{{ sub-structure.key | append: "-example-usage" }}">
+                            Example object
+                        </h4>
+
+                        {% include developers/api-examples.html type="data-sub-structure" %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        
+    {% endif %}
+
+<!-- Horizontal rule separating sections -->
+{% unless forloop.last == true %}
+    <hr>
+{% endunless %}
+
+{% endfor %}

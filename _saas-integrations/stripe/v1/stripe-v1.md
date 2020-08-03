@@ -7,12 +7,14 @@
 ## https://docs-about-stitch-docs.netlify.com/reference/integration-templates/saas/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
-title: Stripe (v1.0)
+title: Stripe (v1)
 permalink: /integrations/saas/stripe
 keywords: stripe, integration, schema, etl stripe, stripe etl, stripe schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Stripe integration."
 layout: singer
 # input: false
+
+key: "stripe-setup"
 
 # -------------------------- #
 #     Integration Details    #
@@ -25,7 +27,7 @@ singer: true
 tap-name: "Stripe"
 repo-url: https://github.com/singer-io/tap-stripe
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} REST API](https://stripe.com/docs/api){:target="new"}
@@ -34,7 +36,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"
@@ -42,11 +43,13 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: "https://status.stripe.com/"
 
-table-selection: true
-column-selection: true
+api-type: "platform.stripe"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
+
+table-selection: true
+column-selection: true
 
 extraction-logs: true
 loading-reports: true
@@ -59,13 +62,16 @@ row-usage-hog-reasons:
   data-volume: false
   lots-of-full-table: false
 
+
 # -------------------------- #
-#      Incompatiblities      #
+#      Incompatibilities     #
 # -------------------------- #
 
-## See _data/destinations/reference/incompatibilities.yml
+## See the incompatibilities.yml files
+## in _data/destinations for details.
 
 has-incompatibilities: true
+
 
 # -------------------------- #
 #      Feature Summary       #

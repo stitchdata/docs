@@ -11,7 +11,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Oracle
+title: Oracle (v1)
 keywords: oracle, database integration, etl oracle, oracle etl
 permalink: /integrations/databases/oracle
 summary: "Connect and replicate data from your Oracle database using Stitch's Oracle integration."
@@ -30,7 +30,7 @@ singer: true
 tap-name: "Oracle"
 repo-url: "https://github.com/singer-io/tap-oracle"
 
-# this-version: "1.0"
+this-version: "1"
 has-specific-data-types: true
 
 hosting-type: "generic"
@@ -42,7 +42,6 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 enterprise: true
@@ -57,15 +56,15 @@ port: 1521
 db-type: "oracle"
 
 ## Stitch features
-
-versions: "n/a"
+api-type: "platform.oracle"
+versions: "8.0 - 18c"
 ssh: true
-ssl: true
+ssl: false
 
 ## General replication features
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true
@@ -82,6 +81,7 @@ set-default-replication-method: true
 default-replication-method-required: true
 
 log-based-replication-minimum-version: "8.0"
+log-based-replication-maximum-version: "18c"
 log-based-replication-master-instance: true
 log-based-replication-read-replica: false
 
@@ -90,7 +90,7 @@ log-based-replication-read-replica: false
 key-based-incremental-replication: true
 full-table-replication: true
 
-view-replication: false
+view-replication: true
 
 
 # -------------------------- #
@@ -107,10 +107,14 @@ requirements-list:
 
         - **`GRANT` access to the objects you want to replicate.**  This is necessary to grant the privileges necessary for selecting data to the Stitch database user. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.db-type]reference-docs.grant }}){:target="new"} for more info.
 
-        - **Use System administrator (`SYSDBA`) privileges, if replicating data incrementally.** This is necessary to complete steps required to use {{ integration.display_name }} LogMiner, which enables the use of Log-based Incremental Replication. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.db-type]reference-docs.system-admin }}){:target="new"} for more info.
-      
   - item: |
-      **An existing Recovery Manager (RMAN) configuration, if replicating data incrementally.** RMAN is used to manage database backups and archive logs and is required to use Log-based Incremental Replication. Setting up RMAN is outside the scope of this tutorial. If you need help setting up and using RMAN, refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.db-type]recovery-manager }}){:target="new"} or loop in a member of your technical team.
+      **If using Log-based Incremental Replication, you need**:
+
+      - **A database using {{ integration.display_name }} {{ integration.log-based-replication-minimum-version }} through {{ integration.log-based-replication-maximum-version }}**. Versions earlier than {{ integration.log-based-replication-minimum-version }} and later than {{ integration.log-based-replication-maximum-version }} don't include LogMiner functionality, which is required for Log-based Incremental Replication.
+
+      - **System administrator (`SYSDBA`) privileges.** This is necessary to complete steps required to use {{ integration.display_name }} LogMiner. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.db-type]reference-docs.system-admin }}){:target="new"} for more info.
+
+      - **An existing Recovery Manager (RMAN) configuration.** RMAN is used to manage database backups and archive logs and is required to use Log-based Incremental Replication. Setting up RMAN is outside the scope of this tutorial. If you need help setting up and using RMAN, refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.db-type]recovery-manager }}){:target="new"} or loop in a member of your technical team.
 
 
 # -------------------------- #
@@ -140,9 +144,11 @@ setup-steps:
         content: |
           To check the database's current mode, run:
 
-          ```sql
+          {% capture code %}
           {{ site.data.taps.extraction.database-setup.server-settings.oracle.log-mode.command | strip }}
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           {{ site.data.taps.extraction.database-setup.server-settings.oracle.log-mode.result.archivelog }} Skip to [Step 3.3 to configure RMAN backups](#configure-rman-backups).
 
@@ -161,23 +167,41 @@ setup-steps:
 
           1. Shut down the database instance. The database and any associated instances must be shut down before the database's archiving mode can be changed.
 
-             ```sql
+             {% capture code %}
              SHUTDOWN IMMEDIATE
+             {% endcapture %}
+
+             {% include layout/code-snippet.html use-code-block=false code=code language="sql" %}
+
+             ```sql
+          {{ code | lstrip | rstrip }}
              ```
 
           2. **If desired, back up the database.** [Oracle recommends backing up databases before any major changes]({{ site.data.taps.links[integration.name]change-archive-mode }}){:target="new"}. Refer to [Oracle's documentation]({{ site.data.taps.links[integration.name]recovery-manager-backups }}){:target="new"} for more info.
 
           3. Start a new instance and mount (but not open) the database:
 
-             ```sql
+             {% capture code %}
              STARTUP MOUNT
+             {% endcapture %}
+
+             {% include layout/code-snippet.html use-code-block=false code=code language="sql" %}
+
+             ```sql
+          {{ code | lstrip | rstrip }}
              ```
 
           4. Change the database's archiving mode and re-open it:
 
-             ```sql
+             {% capture code %}
              ALTER DATABASE ARCHIVELOG
              ALTER DATABASE OPEN
+             {% endcapture %}
+
+             {% include layout/code-snippet.html use-code-block=false code=code language="sql" %}
+
+             ```sql
+          {{ code | lstrip | rstrip }}
              ```
 
       - title: "Configure RMAN backups"
@@ -193,9 +217,11 @@ setup-steps:
 
           Stitch recommends a retention period of at least 3 days, but strongly recommends 7. To specify the RMAN retention policy, run the following:
 
-          ```sql
+          {% capture code %}
           {{ site.data.taps.extraction.database-setup.server-settings.oracle.rman-retention-policy | strip }}
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           {% capture disk-storage-notice %}
           To ensure that archive log files don't consume all of your available disk space, you should also set the `DB_RECOVERY_FILE_DEST_SIZE` parameter to a value that agrees with your available disk quota. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.name]reference-docs.db-recovery-file-dest-size }}){:target="new"} for more info about this parameter.
@@ -219,23 +245,37 @@ setup-steps:
 
             To enable supplemental logging **at the database level**, run:
 
-            ```sql
+            {% capture code %}
             ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS
+            {% endcapture %}
+
+            {% include layout/code-snippet.html use-code-block=false code=code language="sql" %}
+
+            ```sql
+          {{ code | lstrip | rstrip }}
             ```
 
           - **At the table level**, this means that only changes made to the specified table will be logged in the redo log files. By only applying logging to the tables you want to replicate through Stitch, this may reduce the overall disk space used by redo log files.
 
             To enable supplemental logging **at the table level**, run the following for **every table you want to replicate through Stitch**:
 
-            ```sql
+            {% capture code %}
             ALTER TABLE <SCHEMA_NAME>.<TABLE_NAME> ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS
+            {% endcapture %}
+
+            {% include layout/code-snippet.html use-code-block=false code=code language="sql" %}
+
+            ```sql
+          {{ code | lstrip | rstrip }}
             ```
 
           Next, verify that supplemental logging was successfully enabled by running the following query:
 
-          ```sql
+          {% capture code %}
           {{ site.data.taps.extraction.database-setup.server-settings.oracle.supplemental-logging.command | strip }}
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           If the returned value is `YES` or `IMPLICIT`, supplemental logging is enabled.
 
@@ -278,11 +318,6 @@ setup-steps:
         content: |
           {% include shared/database-connection-settings.html type="ssh" %}
 
-      - title: "Define the SSL connection details"
-        anchor: "ssl-connection-details"
-        content: |
-          {% include shared/database-connection-settings.html type="ssl" %}
-
       - title: "Define the default replication method"
         anchor: "define-default-replication-method"
         content: |
@@ -307,12 +342,12 @@ replication-sections:
   - content: |
       {% for section in integration.replication-sections %}
       {% if section.title %}
-      - [{{ section.title }}]({{ section.anchor }})
+      - [{{ section.title }}](#{{ section.anchor }})
       {% endif %}
       {% endfor %}
 
   - title: "Overview of Log-based Incremental Replication using LogMiner"
-    anchor: "logminer-replication-overview"
+    anchor: "logminer-replication-integration"
     content: |
       Stitch uses {{ integration.display_name }}'s [LogMiner package]({{ site.data.taps.links[integration.name]logminer }}){:target="new"} to replicate data incrementally. This means that when Log-based Incremental is selected as the Replication Method for a table, Stitch will only replicate new or updated data for the table during each replication job.
 
@@ -323,7 +358,7 @@ replication-sections:
   - title: "Data types"
     anchor: "data-types"
     content: |
-      {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true version="1.0" version-column-headers=false %}
+      {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true version="1" version-column-headers=false %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

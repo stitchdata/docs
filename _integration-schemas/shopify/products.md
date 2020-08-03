@@ -1,9 +1,9 @@
 ---
 tap: "shopify"
-version: "1.0"
+version: "1"
 
 name: "products"
-doc-link: "https://help.shopify.com/en/api/reference/products/product"
+doc-link: "https://shopify.dev/docs/admin-api/rest/reference/products"
 singer-schema: "https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/products.json"
 description: |
   The `{{ table.name }}` table contains info about a shop's products.
@@ -16,7 +16,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Retrieve a list of products"
-    doc-link: "https://help.shopify.com/en/api/reference/products/product#index"
+    doc-link: "https://shopify.dev/docs/admin-api/rest/reference/products/product?api[version]=2019-07"
 
 date-time: |
   The date and time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} when the [ITEM] was [ACTION].

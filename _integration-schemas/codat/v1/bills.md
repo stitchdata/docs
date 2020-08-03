@@ -1,6 +1,6 @@
 ---
 tap: "codat"
-version: "1.0"
+version: "1"
 key: "bill"
 
 name: "bills"
@@ -9,7 +9,10 @@ singer-schema: "https://github.com/singer-io/tap-codat/blob/master/tap_codat/sch
 description: |
   The `{{ table.name }}` table contains info about the bills in your {{ integration.display_name }} account. A bill is an itemized record of goods or services purchased from a [supplier](#suppliers).
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
+
+replication-key:
+  name: "modifiedDate"
 
 api-method:
     name: "Get bills for a company"
@@ -20,12 +23,13 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the company associated with the bill."
-    #foreign-key-id: "bill-id"
+    foreign-key-id: "company-id"
 
   - name: "id"
     type: "string"
     primary-key: true
     description: "The bill ID."
+    #foreign-key-id: "bill-id"
 
   - name: "amountDue"
     type: "number"
@@ -75,4 +79,79 @@ attributes:
   - name: "totalAmount"
     type: "number"
     description: "The total amount of the bill, including tax."
+
+  - name: "lineItems"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "description"
+        type: "string"
+        description: "The name of the goods or services."
+      
+      - name: "unitAmount"
+        type: "number"
+        description: "The price of each unit of goods or services."
+      
+      - name: "quantity"
+        type: "number"
+        description: "The number of units of goods or services."
+      
+      - name: "discountAmount"
+        type: "number"
+        description: "The value of the discounts applied."
+      
+      - name: "subTotal"
+        type: "number"
+        description: "The price of the goods or services, including the discounts."
+      
+      - name: "taxAmount"
+        type: "number"
+        description: "The amount of tax on the line items."
+      
+      - name: "totalAmount"
+        type: "number"
+        description: "The price of the good or services, including the discounts and tax."
+      
+      - name: "accountRef"
+        type: "object"
+        description: "The account the line items are linked to."
+        subattributes:
+          - name: "id"
+            type: "string"
+            description: ""
+            foreign-key-id: "account-id"
+
+          - name: "name"
+            type: "string"
+            description: ""
+      
+      - name: "discountPercentage"
+        type: "number"
+        description: "The percentage rate of the discounts, from `0` to `100`."
+      
+      - name: "taxRateRef"
+        type: "object"
+        description: "The tax rate that the line items are linked to."
+        subattributes:
+          - name: "id"
+            type: "string"
+            description: "The tax rate ID."
+            foreign-key-id: "tax-id"
+
+          - name: "name"
+            type: "string"
+            description: "The tax rate name."
+      
+      - name: "itemRef"
+        type: "object"
+        description: "The product, service type, or inventory that is linked to the line item."
+        subattributes:
+          - name: "id"
+            type: "string"
+            description: "The item ID."
+            foreign-key-id: "item-id"
+
+          - name: "name"
+            type: "string"
+            description: "The item name."     
 ---

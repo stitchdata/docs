@@ -1,0 +1,19 @@
+# --------------------------------------- #
+#    DATABRICKS DELTA LOADING ERRORS      #
+# --------------------------------------- #
+
+primary-key-mismatch: "incoming pks([new_pk_column(s)]) do not match pks([original_pk_column(s)]) in existing table([table_name])"
+
+primary-key-does-not-exist: "missing pk([pk_column]) from updated record"
+
+table-name-limit: "table name ([table_name]) is too long ([table_name_length]) for databricks delta max identifier length of {{ site.data.destinations.databricks-delta.destination-details.table-name-length }}"
+
+column-name-limit: "column name ([column_name]) is too long ([column_name_limit]"
+
+timestamp-out-of-range: "timestamp ([timestamp]) out of range for column [column_name]"
+
+float-out-of-range: "float ([float]) out of range for column [column_name]"
+
+decimal-out-of-range: "decimal ([decimal]) out of range for column [column_name]"
+
+long-out-of-range: "long ([long]) out of range for column [column_name]"

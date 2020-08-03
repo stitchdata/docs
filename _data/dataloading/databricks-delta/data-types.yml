@@ -1,0 +1,143 @@
+# -------------------------------------------- #
+#                                              #
+#                  DATA TYPES                  #
+#                                              #
+# -------------------------------------------- #
+
+## Scenario data lives here: _data/dataloading/scenarios/data-types.yml
+## NOTE: If something is commented out and marked as 'uses default',
+   ## That means the copy for that thing lives in the file mentioned above.
+## Error data lives here: _data/errors/loading/snowflake.yml
+
+## Column contains multiple data types
+- id: mixed-data-types
+  rejectable: false
+  data-type: "all"
+  # if: uses default
+  then:
+    v1: &mixed-data-types |
+      To accommodate data of varying types, Stitch will create multiple columns to ensure data is loaded with the correct type. In the destination, this will look like the column has been "split". 
+
+      For example: Stitch first detected that `order_confirmed` contained `BOOLEAN` data, but during a subsequent job, detected `STRING` values. To accommodate data of varying types, Stitch will:
+
+      1. Store data for the original data type in the original column. In this example, only `BOOLEAN` values will be stored in `order_confirmed`. The name of the original column will not change.
+
+      2. Create additional columns to store the other data types - one for each data type detected - and append the data type to the column name. In this example, a `order_confirmed__st` column will be created to store `STRING` values.
+
+      **Note**: If the column is used as a Primary Key for the table, this scenario will result in a loading error. Refer to the [Primary Key scenarios](#primary-key-scenarios) section for more info and examples.
+  
+
+## Table contains nested data
+- id: nested-data-structures
+  rejectable: false
+  data-type: "all"
+  # if: uses default
+  then:
+  # Data below is pulled from _data/destinations/databricks-delta/v1/replication.yml
+    v1: |
+      {{ destination-reference.v1.replication.nested-structure-support-description }}
+
+
+# -------------------------- #
+#   DATA TYPES > VARCHARs    #
+# -------------------------- #
+
+## VARCHAR Storage
+- id: varchar-storage
+  rejectable: false
+  data-type: "string"
+  # if: uses default
+  then:
+    v1: &varchar-storage |
+      {{ destination.display_name }} will store `VARCHAR` data as `STRING`.
+
+
+## VARCHAR Widening
+- id: varchar-widening
+  rejectable: false
+  data-type: "string"
+  # if: uses default  
+  then:
+    v1: &varchar-widening |
+      No widening will occur.
+
+
+# -------------------------- #
+#  DATA TYPES > Dates & Time #
+# -------------------------- #
+
+## Column contains date data with timezone info
+- id: date-with-timezone
+  rejectable: false
+  data-type: "date-timestamp"
+  # if: uses default
+  then:
+    v1: &date-with-timezone |
+      {{ destination.display_name }} will store the value as `TIMESTAMP WITH TIMEZONE`. In {{ destination.display_name }}, this data is stored with timezone information and expressed as UTC.
+
+
+## Column contains timestamp data out of range
+- id: timestamps-out-of-range
+  rejectable: true
+  data-type: "date-timestamp"
+  # if: uses default
+  then:
+    v1: &timestamps-out-of-range "{{ site.data.dataloading.scenarios.data-types.timestamps-out-of-range.then | flatify }}"
+## Data lives in _data/destinations/databricks-delta/loading-errors.yml
+  error:
+    v1: &timestamps-out-of-range-error "{{ destination-reference.loading-errors.timestamp-out-of-range | flatify }}"
+  fix-it: 
+    v1: &timestamps-out-of-range-fix-it |
+      {{ site.data.dataloading.scenarios.data-types.timestamps-out-of-range.fix-it | flatify | replace:"Up","up" }}
+
+
+# -------------------------- #
+#    DATA TYPES > Numeric    #
+# -------------------------- #
+
+## Column contains decimal data
+- id: integer-storage
+  rejectable: false
+  data-type: "integer"
+  # if: uses default
+  then:
+    v1: |
+      {{ destination.display_name }} will store integer data as `BIGINT`.
+
+
+## Column contains integer data out of range
+- id: integer-out-of-range
+  rejectable: true
+  data-type: "integer"
+  # if: uses default
+  then:
+    v1: &integer-out-of-range "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.then | flatify }}"
+## Data lives in _data/destinations/databricks-delta/loading-errors.yml
+  error:
+    v1: &integer-out-of-range-error "{{ destination-reference.loading-errors.long-out-of-range | flatify }}"
+  fix-it:
+    v1: &integer-out-of-range-fix-it "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.fix-it | flatify }}"
+
+
+## Column contains decimal data
+- id: decimal-storage
+  rejectable: false
+  data-type: "decimal"
+  # if: uses default
+  then:
+    v1: &decimal-storage |
+      {{ destination.display_name }} will store decimal data as `DECIMAL(38,6)`.
+
+
+## Column contains decimal data out of range
+- id: decimals-out-of-range
+  rejectable: true
+  data-type: "decimal"
+  # if: uses default
+  then:
+    v1: &decimals-out-of-range "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.then | flatify }}"
+## Data lives in _data/destinations/databricks-delta/loading-errors.yml
+  error:
+    v1: &timestamps-out-of-range-error "{{ destination-reference.loading-errors.decimal-out-of-range | flatify }}"
+  fix-it: 
+    v1: &decimals-out-of-range-fix-it "{{ site.data.dataloading.scenarios.data-types.decimals-out-of-range.fix-it | flatify }}"

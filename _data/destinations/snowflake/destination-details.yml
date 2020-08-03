@@ -1,0 +1,74 @@
+# --------------------------------------- #
+#      SNOWFLAKE DESTINATION DETAILS      #
+# --------------------------------------- #
+
+## Details about the destination provider.
+
+
+# -------------------------- #
+#       General/Pricing      #
+# -------------------------- #
+
+description: "Snowflake is a SQL data warehouse built from the ground up for the cloud, designed with a patented new architecture to handle today’s and tomorrow’s data and analytics."
+
+port: 443
+
+fully-managed: true
+
+free-option: "No"
+
+pricing-model: "Usage"
+
+pricing-details: |
+  {{ destination.display_name }} pricing is based on two factors: The volume or data stored in your {{ destination.display_name }} destination and the amount of compute usage (the time the server runs) in seconds. 
+
+  {{ destination.display_name }} offers two types of plans, each with varying levels of access and features. There are On Demand plans which are commitment-free and usage-based. The alternative is a Capacity option, which guarantees secure price discounts. [Learn more about {{ destination.display_name }} plans and pricing here]({{ site.data.destinations[destination.type]resource-links.pricing }}){:target="new"}.
+
+
+# -------------------------- #
+#         Table limits       #
+# -------------------------- #
+
+max-columns-per-table: "None"
+
+max-tables-per-database: "100,000"
+
+
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+case-sensitivity: "Insensitive"
+
+table-name-length: "255 characters"
+
+column-name-length: "251 characters"
+
+
+# -------------------------- #
+#     Column naming rules    #
+# -------------------------- #
+
+column-name-rules: |
+  - Must contain only letters (a-z, A-Z), numbers (0-9), or underscores (`_`)
+  - Must begin with a letter or underscore
+  - Must be less than the maximum length of {{ site.data.destinations.snowflake.destination-details.column-name-length }}. Columns that exceed this limit will be [rejected by {{ destination.display_name }}]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+  {% assign destination-version = destination.type | append: "-v" | append: destination.this-version %}
+  - Must not be prefixed or suffixed with any of [{{ destination.display_name }}'s or Stitch's reserved keyword prefixes or suffixes]({{ link.destinations.storage.reserved-keywords[destination-version] | prepend: site.baseurl }})
+
+column-name-transformations:
+  - transformation: "Convert lowercase and mixed case to uppercase"
+    source-column: "<code>CuStOmErId</code> or <code>customerid</code>"
+    destination-column: "<code>CUSTOMERID</code>"
+
+  - transformation: "Remove spaces"
+    source-column: "<code>CUSTOMER ID</code>"
+    destination-column: "<code>CUSTOMERID</code>"
+
+  - transformation: "Remove special characters"
+    source-column: "<code>CUSTOMER#ID</code> or <code>!CUSTOMERID</code>"
+    destination-column: "<code>CUSTOMERID</code> and <code>CUSTOMERID</code>"
+
+  - transformation: "Remove non-letter leading characters"
+    source-column: "<code>4CUSTOMERID</code> or <code>_CUSTOMERID</code>"
+    destination-column: "<code>CUSTOMERID</code>"

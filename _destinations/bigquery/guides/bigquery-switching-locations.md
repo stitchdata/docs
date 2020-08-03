@@ -3,12 +3,17 @@
 #        Page Controls       #
 # -------------------------- #
 
-title: Change the Location of a Google BigQuery Destination
-permalink: /destinations/bigquery/changing-google-bigquery-destination-data-locations
+title: Changing the Location of a Google BigQuery (v1) Destination
+permalink: /destinations/google-bigquery/v1/changing-data-locations
+redirect_from: 
+  - /destinations/bigquery/changing-google-bigquery-destination-data-locations
+  - /destinations/google-bigquery/changing-google-bigquery-destination-data-locations
+
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery, bigquery destination
 
 summary: "Change the location of your Google BigQuery destination."
 
+key: "switch-bigquery-location"
 content-type: "destination-setup"
 order: 2
 
@@ -16,7 +21,7 @@ toc: true
 layout: tutorial
 use-tutorial-sidebar: false
 
-display_name: "BigQuery"
+display_name: "Google BigQuery"
 type: "bigquery"
 
 
@@ -25,7 +30,7 @@ type: "bigquery"
 # -------------------------- #
 
 intro: |
-  {% capture only-for-existing-destinations %}This guide is only for changing **existing** {{ destination.display_name }} destinations, or those already connected to Stitch. To connect a new {{ destination.display_name }} destination, [refer to these instructions]({{ link.destinations.setup.bigquery | prepend: site.baseurl }}).
+  {% capture only-for-existing-destinations %}This guide is only for changing **existing** {{ destination.display_name }} v1 destinations, or those already connected to Stitch. To connect a new {{ destination.display_name }} destination, [refer to these instructions]({{ link.destinations.setup.bigquery-v1 | prepend: site.baseurl }}).
   {% endcapture %}
 
   {% include important.html type="single-line" content=only-for-existing-destinations %}
@@ -81,11 +86,11 @@ steps:
     anchor: "connect-new-bigquery-destination"
     content: |
       {% capture permissions %}
-      1. **A user with full access to an existing [Google Cloud Platform (GCP) project within {{ destination.display_name }}]({{ site.data.destinations.resource-links[destination.type]setup-project }}){:target="_blank"}**.
+      1. **A user with full access to an existing [Google Cloud Platform (GCP) project within {{ destination.display_name }}]({{ site.data.destinations[destination.type]resource-links.setup-project }}){:target="_blank"}**.
 
       2. **Admin permissions for BigQuery and Google Cloud Storage (GCS)**. This includes the BigQuery Admin and Storage Admin permissions. Stitch requires these permissions to [create and use a GCS bucket](https://cloud.google.com/storage/docs/access-control/bucket-level-iam){:target="_blank"} to load replicated data into BigQuery.
 
-      3. **Access to a project where [billing is enabled]({{ site.data.destinations.resource-links[destination.type]enable-billing }}){:target="_blank"} and a credit card is attached**. Even if you're using BigQuery's free trial, billing must still be enabled for Stitch to load data.
+      3. **Access to a project where [billing is enabled]({{ site.data.destinations[destination.type]resource-links.enable-billing }}){:target="_blank"} and a credit card is attached**. Even if you're using BigQuery's free trial, billing must still be enabled for Stitch to load data.
       {% endcapture %}
 
       {% include important.html first-line="**Requirements for connecting BigQuery:**" content=permissions %}

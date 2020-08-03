@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: NetSuite (v1.0)
+title: NetSuite (v1)
 permalink: /integrations/saas/netsuite-suitetalk
 redirect_from: 
   - /integrations/saas/netsuite
@@ -20,6 +20,8 @@ redirect_from:
 keywords: netsuite, integration, schema, etl netsuite, netsuite etl, netsuite schema
 layout: singer
 # input: false
+
+key: "netsuite-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -30,8 +32,9 @@ display_name: "NetSuite"
 
 singer: true
 tap-name: "NetSuite"
+repo-url: "Not applicable"
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   {{ integration.display_name }} SuiteTalk API (v2017_2)
@@ -40,15 +43,16 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true 
 
 historical: "1 year"
 frequency: "1 hour"
 tier: "Standard"
 
+api-type: "platform.netsuite"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true
@@ -107,22 +111,24 @@ setup-steps:
     content: |
       {% include note.html type="single-line" content="**Note**: This step is required only if IP address rules (**Setup > Company > Enable Features > Company > Access**) are enabled for your NetSuite account. Otherwise, skip to [Step 2](#configure-web-services-and-authentication-settings). " %}
 
-      {% capture ip-addresses %}
-      {% for ip-address in ip-addresses %}
-      {{ ip-address.ip }}{% unless forloop.last == true %},{% endunless %}
-      {% endfor %}
-      {% endcapture %}
-
-      {% include layout/inline_image.html type="right" file="integrations/netsuite-ip-addresses.png" alt="" max-width="400px" %}
       1. Sign into your {{ integration.display_name }} account as an administrator.
       2. In your {{ integration.display_name }} account, click **Setup > Company > Company Information**.
       3. In the **Allowed IP addresses** field, add the following comma-separated list of Stitch's IP addresses:
 
-         ```
-         {{ ip-addresses | strip_newlines }}
+         {% capture code %}{% for ip-address in ip-addresses %}{{ ip-address.ip }}{% unless forloop.last == true %}, {% endunless %}{% endfor %}{% endcapture %}
+
+         {% include layout/code-snippet.html use-code-block=false code=code language="shell" %}
+         
+         ```shell
+      {{ code | lstrip | rstrip | strip_newlines }}
          ```
 
          **Note**: Make sure you don't overwrite or change any existing IP addresses in this field - doing so could cause access issues for you and other {{ integration.display_name }} users in your account.
+
+         The screen should look like this:
+
+         ![The Company Information screen in NetSuite with the Allowed IP Addresses field populated with Stitch's IP addresses]({{ site.baseurl }}/images/integrations/netsuite-ip-addresses.png)
+
       4. Click **Save**.
 
   - title: "Configure Web Services and authentication settings"
@@ -169,7 +175,7 @@ setup-steps:
       5. Click the **Save** button. The confirmation page will display a **Consumer key/secret** section.
       6. **Copy the Consumer Key and Secret somewhere handy.** You'll need these credentials to complete the setup in Stitch.
 
-  - title: "Create a Stitch {{ destination.display_name }} role and configure permissions"
+  - title: "Create a Stitch {{ integration.display_name }} role and configure permissions"
     anchor: "create-configure-stitch-role"
     content: |
       To connect {{ integration.display_name }} to Stitch, we recommend that you create a Stitch-specific role and user for us. We suggest this to ensure that:
@@ -213,18 +219,8 @@ setup-steps:
     anchor: "create-stitch-netsuite-user"
     content: |
       {% include layout/image.html type="right" file="/integrations/netsuite-new-employee-page.png" alt="The Name, Email, Access tab, Password, and Role tabs highlighted in the NetSuite " max-width="450" enlarge=true %}
-      Next, you'll create a dedicated {{ integration.display_name }} user for Stitch and assign the Stitch role to it.
 
-      1. Using the global search, type `page: new employee` and click the **Page: New Employees** result.
-      2. In the Employee page, fill in the **Name**, **Email**, and any other required fields.
-      3. Click the **Access** tab, located in the bottom half of the page.
-      4. In the **Access** tab:
-
-         1. Check the **Manually assign or change password** box to create a password for the Stitch user.
-         2. Enter a password in the **Password** field, then again in the **Confirm Password** field.
-         3. In the **Roles** section, search the dropdown menu to locate the Stitch role you created in [Step 4](#create-configure-stitch-role).
-         3. Click **Add** once you've located the role.
-      5. When finished, click **Save** to create the user.
+      {% include integrations/saas/netsuite-create-user.html step-number="4" step-anchor="create-configure-stitch-role" %}
 
   - title: "Create access tokens for Stitch"
     anchor: "create-access-tokens"
@@ -273,7 +269,9 @@ replication-sections:
       In this section:
 
       {% for section in page.replication-sections %}
+      {% if section.title %}
       - [{{ section.title | flatify }}](#{{ section.anchor }})
+      {% endif %}
       {% endfor %}
 
   - title: "Custom records"
@@ -285,11 +283,11 @@ replication-sections:
       - title: "Table names for custom record types"
         anchor: "custom-record-types-table-names"
         content: |
-          Custom record tables are named `customrecord_[custom_record_name]`, where `[custom_record_name]` is the value of the ID field in the Custom Record Setup page in {{ integration.display_name }}.
+          Custom record tables are named `custrecord_[custom_record_name]`, where `[custom_record_name]` is the value of the ID field in the Custom Record Setup page in {{ integration.display_name }}.
 
-          For example: If a custom record were named `promo discount` in {{ integration.display_name }}, the corresponding table for those records would be named `customrecord_promo_discount`.
+          For example: If a custom record were named `promo discount` in {{ integration.display_name }}, the corresponding table for those records would be named `custrecord_promo_discount`.
 
-          If the ID field in the Custom Record Setup page is left blank, {{ integration.display_name }} will auto-assign a numerical ID to the record. In Stitch, the table for the custom record would then be something like `customrecord_123`, where `123` is the ID auto-assigned by {{ integration.display_name }}.
+          If the ID field in the Custom Record Setup page is left blank, {{ integration.display_name }} will auto-assign a numerical ID to the record. In Stitch, the table for the custom record would then be something like `custrecord_123`, where `123` is the ID auto-assigned by {{ integration.display_name }}.
 
       - title: "Replication methods for custom record types"
         anchor: "custom-record-type-replication"
@@ -332,35 +330,41 @@ replication-sections:
 
           For example: The following query would return all invoice records that exist in the `Transaction` and `Deleted` tables:
 
-          ```sql
+          {% capture code %}
              SELECT * 
                FROM netsuite.Transaction tran 
           LEFT JOIN netsuite.Deleted del
                  ON tran.internalId = del.internalId 
                 AND tran.type = 'invoice'
                 AND del.type = 'invoice'
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           If you're using a destination that is case-insensitive, some queries may result in errors. If this occurs, try using `LOWER` to resolve the issue:
 
-          ```sql
+          {% capture code %}
              SELECT *
                FROM netsuite.Transaction tran 
           LEFT JOIN netsuite.Deleted del 
                  ON tran.internalId = del.internalId 
           AND LOWER(tran.type) = LOWER(del.type)
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           To filter out deleted records from other data, you can run a query like this one:
 
-          ```sql
+          {% capture code %}
              SELECT *
                FROM netsuite.Transaction tran 
           LEFT JOIN netsuite.Deleted del
                  ON tran.internalId = del.internalId 
           AND LOWER(tran.type) = LOWER(del.type) 
               WHERE del.deletedDate is null;
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           Refer to the [`Deleted` table schema](#deleted) for more info about the available fields in the `Deleted` table.
 

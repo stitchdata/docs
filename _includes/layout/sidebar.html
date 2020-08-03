@@ -1,8 +1,8 @@
 {% include misc/data-files.html %}
 
 {% case page.layout %}
-    {% when 'connect' %}
-        {% include layout/sidebars/connect-sidebar.html %}
+    {% when 'developer' %}
+        {% include layout/sidebars/developer-sidebar.html %}
     {% when 'tutorial' %}
     <!-- This is temporary until the tutorial and on-page navigation is improved. -->
         {% if page.use-tutorial-sidebar == false %}

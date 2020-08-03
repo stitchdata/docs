@@ -1,308 +1,327 @@
 /* Top nav */
 .stitch-docs-navbar {
-	position: fixed;
-	left: 0;
-	top: 0;
-	background: $protocol-black;
-	width: 100%;
-	padding: 1em 4em;
-	height: 4.5em;
-	display: flex;
-	box-sizing: border-box;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	min-width: 1200px;
-	z-index: 5;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: linear-gradient(135deg, rgba(35,114,136,1) 0%, rgba(24,26,40,1) 100%); // dark green to dark blue
+  width: 100%;
+  padding: 1em 4em;
+  height: 4.5em;
+  display: flex;
+  box-sizing: border-box;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  z-index: 5;
 
-	.nav-left {
-		display: flex;
-		flex: 1;
-	}
+  .nav-left {
+    display: flex;
+    flex: 1;
+  }
 
-	.nav-right {
-		display: flex;
-		justify-content: flex-end;
-		flex: 4;
+  .nav-right {
+    display: flex;
+    justify-content: flex-end;
+    flex: 4;
 
-		li {
-			display: inline-block;
-			margin-left: 25px;
-			vertical-align: middle;
-			line-height: 1rem;
+    ul {
+      padding-inline-start: 0;
+    }
 
-			a {
-				color: $white;
+    li {
+      display: inline-block;
+      margin-left: 25px;
+      vertical-align: middle;
+      line-height: 1rem;
 
-				&:hover {
-					color: $gray-3;
-					text-decoration: none;
-				}
-			}
-			&.sign-up {
-				a {
-					color: $stitch-yellow;
-					font-weight: bold;
-				}
-			}
-		}
-	}
+      a {
+        color: $white;
 
-	#stitch_logomark {
-		display: inline-block;
-		float: left;
-		vertical-align: middle;
-	}
+        &:hover {
+          opacity: 0.8;
+          text-decoration: none;
+        }
+      }
+      &.sign-up {
+        a {
+          color: $scooter;
+          font-weight: bold;
+        }
+      }
+    }
+  }
 
-	.navbar-brand {
-		color: $white;
-		padding: 0;
-		display: inline-block;
-		margin: 0.5em 0;
-		float: left;
-		vertical-align: middle;
-		margin-left: 10px;
-	}
+  svg {
+    display: inline-block;
+    float: left;
+    vertical-align: middle;
+    height: 38px;
+  }
 
-	#search-demo-container {
-		position: relative;
-	}
+  .navbar-brand {
+    color: $white;
+    padding: 0;
+    display: inline-block;
+    margin: 0.5em 0;
+    float: left;
+    vertical-align: middle;
+    margin-left: 10px;
+  }
 
-	#search-input {
-		margin: 0;
-		margin-top: 2px;
-		display: inline-block;
-		vertical-align: middle;
-		width: 250px;
-		border-radius: 2px;
-		padding-left: 35px;
-		height: inherit;
-		background: #ffffff;
-	}
+  #search-demo-container {
+    position: relative;
+  }
 
-	.img {
-		height: 20px;
-		width: 20px;
-		position: absolute;
-		left: 10px;
-		top: 10px;
-		font-size: 1.2rem;
-		color: $gray-3;
-	}
+  #search-input {
+    margin: 0;
+    margin-top: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 250px;
+    border-radius: 2px;
+    padding-left: 35px;
+    height: inherit;
+    background: #ffffff;
+  }
+
+  .img {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 1.2rem;
+    color: $gray-3;
+  }
 }
 
 body {
-	padding-top: 4.5em;
+  padding-top: 4.5em;
 }
-
 
 /* Page layout -- columns */
 
 #main {
-	position: absolute;
-	width: 100%;
-	top: 4.5em;
+  position: absolute;
+  width: 100%;
+  top: 4.5em;
 
-	.sidebar-column {
-		position: fixed;
-		width: 375px;
-		padding: 3rem 4rem 4rem 4rem;
-		background: $gray-1;
-		overflow-y: auto;
-		overflow-x: hidden;
-		height: calc(100vh - 4.5em);
+  .sidebar-column {
+    position: fixed;
+    width: 375px;
+    padding: 3rem 4rem 4rem 4rem;
+    background: $gray-1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(100vh - 4.5em);
 
-	  #mysidebar {
-			/* top level list items */
-			min-width: 300px;
+    #mysidebar {
+      /* top level list items */
+      min-width: 300px;
 
-			li {
-				a {
-					color: $protocol-black;
-				}
+      li {
+        a {
+          color: $protocol-black;
+          background: $gray-1;
+          font-weight: 400;
 
-				ul {
-					list-style: none;
-					padding-left: 30px;
+          &:hover {
+            background: $gray-2;
+          }
+        }
 
-					li {
-						a {
-							color: $protocol-black;
-							font-size: 0.85rem;
-							margin: 0.75em 0;
-							display: block;
-							max-width: 254px;
+        &:hover {
+          background: gray-1;
+        }
 
-							&:hover {
-								color: $gray-3;
-								text-decoration: none;
-							}
+        ul {
+          list-style: none;
+          padding-left: 30px;
+          background: $gray-1;
 
-							span {
-								color: $protocol-black;
-							}
-						}
+          li {
+            a {
+              color: $protocol-black;
+              font-size: 0.85rem;
+              margin: 0.5em 0;
+              padding: 2px 5px;
+              display: block;
+              max-width: 254px;
+              font-weight: 400;
 
-						.api {
-							margin: 1.1em 0em 1.25em 0em;
-						}
-					}
-				}
-			}
-		}
-	}
+              &:hover {
+                color: $lochmara;
+                text-decoration: none;
+              }
 
-	.content-column {
-		position: absolute;
-		left: 375px;
-		padding: 2em 4em;
+              span {
+                color: $protocol-black;
+              }
+            }
 
-		.article {
-			max-width: 52em;
-			margin-top: 6rem;
-		}
+            .api {
+              margin: 1.1em 0em 1.25em 0em;
+            }
+          }
+        }
+      }
+    }
+  }
 
-		.breadbox {
-			position: fixed;
-			top: 68px;
-			background: #FFFFFF;
-			width: 52em;
-			max-width: 100%;
-			min-height: 6.35em;
-			z-index: 2;
+  .content-column {
+    position: absolute;
+    left: 375px;
+    padding: 2em 4em;
 
-			.breadcrumb-container {
-				width: 100%;
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				border-bottom: 2px solid $stitch-yellow;
-				padding-bottom: 0.5em;
-				margin-bottom: 0.5em;
+    .article {
+      max-width: 52em;
+      margin-top: 6rem;
+    }
 
-				.dropdown-menu {
-					li {
-						a,
-						&.active {
-							padding: .5em;
-						}
+    .breadbox {
+      position: fixed;
+      top: 68px;
+      background: rgb(255,255,255);
+      background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 90%, rgba(255,255,255,0) 100%);
+      min-height: 6.35em;
+      z-index: 2;
+      width: 52em;
+      max-width: 100%;
 
-						a:hover {
-							color: $white;
-						}
-					}
-				}
+      .breadcrumb-container {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-bottom: 2px solid $lochmara;
+        padding-bottom: 0.5em;
+        margin-bottom: 0.5em;
+        font-weight: 700;
 
-				a {
-					color: $protocol-black;
+        .dropdown-menu {
+          li {
 
-					&:hover {
-						color: $gray-3;
-						text-decoration: none;
-					}
-				}
+            a,
+            &.active {
+              padding: 0.5em;
+              color: $protocol-black;
+            }
 
-				.menu-left,
-				.menu-right {
-					display: inline-block;
-					vertical-align: bottom;
-				}
+            a:hover {
+              color: $white;
+            }
+          }
+        }
 
-				.menu-left {
-					font-size: 0.8rem;
-					letter-spacing: 0.3px;
-					width: calc(100% - 12em);
-					line-height: 1.4;
+        strong {
+          color: $lochmara;
+        }
 
-				}
+        a {
+          color: $protocol-black;
 
-				.menu-right {
-					padding-bottom: 0.25em;
+          &:hover {
+            color: $gray-5;
+            text-decoration: none;
+          }
+        }
 
-					.btn {
-						width: 10em;
-						min-width: fit-content;
-					}
-				}
+        .menu-left,
+        .menu-right {
+          display: inline-block;
+          vertical-align: bottom;
+        }
 
-				.breadbox {
-					max-width: 52em;
-				}
-			}
-		}
-	}
+        .menu-left {
+          font-size: 0.8rem;
+          letter-spacing: 0.3px;
+          width: calc(100% - 12em);
+          line-height: 1.4;
+        }
+
+        .menu-right {
+          padding-bottom: 0.25em;
+
+          .btn {
+            width: 10em;
+            min-width: fit-content;
+          }
+        }
+      }
+    }
+  }
 }
 
 .columns {
-	list-style-type: none;
-	list-style-position: inside;//this is important addition
-	columns: 2;
-	-webkit-columns: 2;
-	-moz-columns: 2;
+  list-style-type: none;
+  list-style-position: inside; //this is important addition
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
 
-	@media screen and (max-width: 1100px) {
-		columns: 1;
-		-webkit-columns: 1;
-		-moz-columns: 1;
-	}
+  @media screen and (max-width: 1100px) {
+    columns: 1;
+    -webkit-columns: 1;
+    -moz-columns: 1;
+  }
 
-	&.more {
-		li {
-			&:last-of-type {
-				a {
-					border: 1px solid #999999;
-					border-radius: 0;
-					margin-bottom: 1rem;
-					border: 3px solid $stitch-yellow;
-					color: $protocol-black;
-					display: inline-block;
-					padding: 5px 20px;
-					margin-bottom: 0;
-					font-size: 14px;
-					font-weight: bold;
-					line-height: 1.428571429;
-					text-align: center;
-					vertical-align: middle;
-					cursor: pointer;
-					white-space: nowrap;
-					margin-top: 0.5rem;
-					text-transform: uppercase;
+  &.more {
+    li {
+      &:last-of-type {
+        a {
+          border: 1px solid #999999;
+          border-radius: 0;
+          margin-bottom: 1rem;
+          border: 3px solid $stitch-yellow;
+          color: $protocol-black;
+          display: inline-block;
+          padding: 5px 20px;
+          margin-bottom: 0;
+          font-size: 14px;
+          font-weight: bold;
+          line-height: 1.428571429;
+          text-align: center;
+          vertical-align: middle;
+          cursor: pointer;
+          white-space: nowrap;
+          margin-top: 0.5rem;
+          text-transform: uppercase;
 
-					&:hover {
-						background: $stitch-yellow;
-						text-decoration: none;
-					}
-					&:focus {
-						text-decoration: none;
-						background: $stitch-yellow;
-					}
-				}
-			}
-		}
-	}
+          &:hover {
+            background: $stitch-yellow;
+            text-decoration: none;
+          }
+          &:focus {
+            text-decoration: none;
+            background: $stitch-yellow;
+          }
+        }
+      }
+    }
+  }
 }
 
 footer {
-	text-align: left;
-	color: $gray-3;
-	margin: 2em 0;
-	line-height: 1.6em;
+  text-align: left;
+  color: $gray-3;
+  margin: 2em 0;
+  line-height: 1.6em;
 
-	.site-generation {
-		float: left;
-	}
+  .site-generation {
+    float: left;
+  }
 
-	.links {
-		float: right;
-		p {
-			font-weight: 600;
-			text-align: right;
-			margin-bottom: 0px;
-		}
+  .links {
+    float: right;
+    p {
+      font-weight: 600;
+      text-align: right;
+      margin-bottom: 0px;
+    }
 
-		ul {
-			list-style: none;
-			padding: 0px;
-			text-align: right;
-		}
-	}
+    ul {
+      list-style: none;
+      padding: 0px;
+      text-align: right;
+    }
+  }
 }

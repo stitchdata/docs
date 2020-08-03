@@ -1,6 +1,6 @@
 ---
 tap: "codat"
-version: "1.0"
+version: "1"
 key: "customer"
 
 name: "customers"
@@ -9,7 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-codat/blob/master/tap_codat/sch
 description: |
   The `{{ table.name }}` table contains info about the customers in your {{ integration.display_name }} instance. A customer is a person or organisation that buys goods or services.
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
 
 api-method:
     name: "List customers"
@@ -27,6 +27,11 @@ attributes:
     primary-key: true
     description: "The customer ID."
     foreign-key-id: "customer-id"
+
+  - name: "modifiedDate"
+    type: "date-time"
+    description: "The time the customer was last modified."
+    replication-key: true 
 
   - name: "addresses"
     type: "array"
@@ -129,10 +134,6 @@ attributes:
   - name: "emailAddress"
     type: "string"
     description: "The customer's email address."
-
-  - name: "modifiedDate"
-    type: "date-time"
-    description: "The time the customer was last modified."
 
   - name: "phone"
     type: "string"

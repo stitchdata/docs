@@ -12,14 +12,17 @@ section: "{{ site.data.urls.connect.api }}"
 
 interest-form: "https://docs.google.com/forms/d/e/1FAIpQLSc1-GcfQOa94JQfEL_CVdLkVZX62Byr6v0ik3YAWH3kIp6yFg/viewform"
 
-introduction: "#introduction"
+introduction: "#introduction-section"
 access-api: "#access-the-api"
-authentication: "#authentication"
+authentication: "#authentication-overview"
 quick-start: "#quick-start"
 
 response-codes: "#response-codes"
 error-message-formats: "#error-message-formats"
 error-message-text: "#error-message-text"
+
+rate-limits: "#rate-limit-overview"
+pagination: "#pagination--overview"
 
 versioning: "#versioning"
 terms: "#terminology"
@@ -497,13 +500,13 @@ data-structures:
 
   notifications:
     custom-email:
-      title: "Custom Email Notification"
+      title: "Custom email notification"
       section: "#custom-email-notification-object"
       description: |
         A Custom Email Notification object contains information about an email address configured in the account's [Custom Notification list]({{ link.account.customize-notifications | prepend: site.baseurl }}).
 
     hook:
-      title: "Hook Notification"
+      title: "Hook notification"
       section: "#hook-notification-object"
       description: |
         A Hook Notification object contains information about a webhook configured in the account's [Post-load hook list]({{ link.account.post-load-notifications | prepend: site.baseurl }}).

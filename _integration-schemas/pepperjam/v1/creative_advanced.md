@@ -1,0 +1,103 @@
+---
+tap: "pepperjam"
+version: "1"
+key: "creative_advanced"
+
+name: "creative_advanced"
+doc-link: "https://support.pepperjam.com/s/advertiser-api-documentation#AdvancedLinks"
+singer-schema: "https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/creative_advanced.json"
+description: |
+  The `{{ table.name }}` table contains information about advanced link creatives in your {{ integration.display_name }} account.
+
+replication-method: "Key-based Incremental"
+
+api-method:
+  name: "getAdvancedLinksCreative"
+  doc-link: "https://support.pepperjam.com/s/advertiser-api-documentation#AdvancedLinks"
+
+attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The advanced link creative ID."
+    #foreign-key-id: "advanced-link-id"
+
+  - name: "modified"
+    type: "date-time"
+    description: "The time the advanced link was last modified."
+    replication-key: true  
+
+  - name: "code"
+    type: "string"
+    description: ""
+  - name: "created"
+    type: "date-time"
+    description: ""
+  - name: "description"
+    type: "string"
+    description: ""
+  - name: "end_date"
+    type: "date-time"
+    description: ""
+  - name: "flash_url"
+    type: "string"
+    description: ""
+  - name: "name"
+    type: "string"
+    description: ""
+  - name: "personalized"
+    type: "integer"
+    description: ""
+  - name: "private"
+    type: "integer"
+    description: ""
+  - name: "private_affiliates"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "affiliate_id"
+        type: "integer"
+        description: ""
+        foreign-key-id: "affiliate-id"
+
+      - name: "first_name"
+        type: "string"
+        description: ""
+
+      - name: "last_name"
+        type: "string"
+        description: ""
+  - name: "promotions"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "id"
+        type: "integer"
+        description: ""
+        foreign-key-id: "promotion-id"
+
+      - name: "name"
+        type: "string"
+        description: ""
+  - name: "start_date"
+    type: "date-time"
+    description: ""
+  - name: "status"
+    type: "string"
+    description: ""
+  - name: "sub_type"
+    type: "string"
+    description: ""
+  - name: "supression_url"
+    type: "string"
+    description: ""
+  - name: "type"
+    type: "string"
+    description: ""
+  - name: "verified"
+    type: "string"
+    description: ""
+  - name: "view_date"
+    type: "date-time"
+    description: ""
+---

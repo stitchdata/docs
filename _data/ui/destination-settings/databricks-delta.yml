@@ -1,0 +1,23 @@
+# ------------------------------ #
+#  DATABRICKS DELTA DESTINATION  #
+# ------------------------------ #
+
+## This file contains the properties required to successfully set up
+## a Databricks Delta destination in Stitch.
+
+## NOTE: 'defaults' is a variable assigned to this file: 
+## /_data/ui/common/database-connections.yml
+
+
+databricks-delta:
+  - name: "Access Token"
+    copy: |
+      Paste the access token you generated in [Step 2.4](generate-databricks-api-access-token).
+
+  - name: "JDBC URL"
+    copy: |
+      Paste the JDBC URL you retrieved in [Step 2.3](#retrieve-jdbc-url).
+
+  - name: "Bucket Name"
+    copy: |
+      Enter the name of Amazon S3 bucket you configured in [Step 1](#configure-s3-bucket-access-in-aws). Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `stitch-databricks-delta-bucket`

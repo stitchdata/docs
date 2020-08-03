@@ -1,11 +1,13 @@
 ---
-title: Amazon PostgreSQL RDS (v1.0)
+title: Amazon PostgreSQL RDS (v1)
 keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl
 permalink: /integrations/databases/amazon-rds-postgresql/v1
 summary: "Connect and replicate data from your Amazon PostgreSQL RDS using Stitch's PostgreSQL integration."
 microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://postgres.topostges.com/"
+
+key: "postgresql-rds-integration"
 
 # -------------------------- #
 #     Integration Details    #
@@ -20,7 +22,7 @@ repo-url: "https://github.com/singer-io/tap-postgres"
 
 hosting-type: "amazon"
 
-this-version: "1.0"
+this-version: "1"
 
 driver: |
   [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}
@@ -29,7 +31,6 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 setup-name: "PostgreSQL"
 
@@ -39,7 +40,7 @@ port: 5432
 db-type: "postgres"
 
 # Stitch features
-
+api-type: "platform.postgres"
 versions: "9.3+; 9.4+ for binlog"
 ssh: true
 ssl: true
@@ -104,7 +105,9 @@ requirements-list:
       **If you're not using Log-based Incremental Replication**, you'll need:
 
       - **A database running PostgreSQL 9.3.x or greater.** PostgreSQL 9.3.x is the minimum version Stitch supports for PostgreSQL integrations.
-      - **To verify if the database is a read replica, or follower**. While we always recommend connecting a replica over a production database, this also means you may need to verify some of its settings - specifically the `max_standby_streaming_delay` and `max_standby_archive_delay` settings - before connecting it to Stitch. We recommend setting these parameters to 8-12 hours for an initial replication job, and then decreasing them afterwards.
+      - **To verify if the database is a read replica, or follower**. While we always recommend connecting a replica over a production database, this also means you may need to verify some of its settings before connecting it to Stitch:
+         - `max_standby_streaming_delay`, `max_standby_archive_delay` settings - We recommend setting these parameters to 8-12 hours for an initial replication job and then decreasing them afterwards.
+         - `hot_standby_feedback` - Set this to `on` - or `1` for true. This will avoid the `conflict with recovery` error when a parameter group updates.
 
 
 # -------------------------- #
@@ -194,6 +197,11 @@ setup-steps:
         anchor: "create-replication-schedule"
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
+
+      - title: "Save the integration"
+        anchor: "save-integration"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 
   - title: "Select data to replicate"
     anchor: "sync-data"

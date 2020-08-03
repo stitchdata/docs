@@ -1,6 +1,6 @@
 ---
 tap: "chargebee"
-version: "1.0"
+version: "1"
 key: "invoice"
 
 name: "invoices"
@@ -270,6 +270,14 @@ attributes:
     type: "boolean"
     description: "Indicates if the invoice is gifted or not."
 
+  - name: "is_partial_tax_applied"
+    type: "boolean"
+    description: "Indicates if partial tax has been applied."
+
+  - name: "is_non_compliance_tax"
+    type: "boolean"
+    description: ""
+
   - name: "issued_credit_notes"
     type: "array"
     description: "A list of credit notes issued for the invoice."
@@ -441,6 +449,30 @@ attributes:
         type: "integer"
         description: "The unit amount of the line item, in cents."
 
+  - name: "line_item_tiers"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "line_item_id"
+        type: "string"
+        description: ""
+
+      - name: "starting_unit"
+        type: "integer"
+        description: ""
+
+      - name: "ending_unit"
+        type: "integer"
+        description: ""
+
+      - name: "quantity_used"
+        type: "integer"
+        description: ""
+
+      - name: "unit_amount"
+        type: "integer"
+        description: ""
+
   - name: "linked_orders"
     type: "array"
     description: "A list of orders associated with the invoice."
@@ -494,6 +526,14 @@ attributes:
       - name: "applied_at"
         type: "date-time"
         description: "The time the amount was applied."
+
+      - name: "document_number"
+        type: "integer"
+        description: ""
+
+      - name: "order_type"
+        type: "string"
+        description: ""
 
       - name: "txn_amount"
         type: "integer"
@@ -617,6 +657,10 @@ attributes:
   - name: "tax"
     type: "integer"
     description: "The total tax amount for the invoice, in cents."
+
+  - name: "taxable_amount"
+    type: "integer"
+    description: ""
 
   - name: "taxes"
     type: "array"

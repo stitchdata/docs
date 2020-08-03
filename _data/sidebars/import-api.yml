@@ -1,0 +1,155 @@
+overview:
+  - title: sidebar
+    categories:
+      - title: "Stitch Import API"
+        new-page: true
+        url: &overview "{{ link.import-api.overview }}"
+
+      - title: "Guides"
+        new-page: true
+        content-type: "guide"
+        url: "{{ link.import-api.guides.category }}"
+
+      - title: "Development"
+        expand-by-default: true
+        sections:
+          - title: "Quick start"
+            new-page: true
+            url: "{{ link.import-api.guides.quick-start }}"
+
+          - title: "Authentication"
+            new-page: true
+            url: "{{ site.data.import-api.api.authentication | prepend: link.import-api.api }}"
+
+          - title: "Response codes"
+            new-page: true
+            url: "{{ site.data.import-api.api.response-codes | prepend: link.import-api.api }}"
+
+          - title: "Libraries and resources"
+            new-page: true
+            url: "{{ link.import-api.overview }}#libraries-and-resources"
+
+      - title: "Import API reference"
+        new-page: true
+        url: &api "{{ link.import-api.api }}"
+
+      - title: "All developer docs"
+        new-page: true
+        url: &api "{{ link.developers }}"
+
+api:
+  - title: sidebar
+    categories:
+      - title: "Stitch Import API"
+        new-page: true
+        url: *overview
+
+      - title: Introduction
+        url: "{{ link.import-api.api }}#introduction"
+        drop-down: false
+
+      - title: Quick start
+        url: "{{ link.import-api.guides.quick-start }}"
+        drop-down: false
+
+      - title: "Authentication"
+        url: "{{ link.import-api.api }}#authentication"
+        drop-down: false
+
+      - title: "Response codes"
+        drop-down: true
+        sections:
+          - title: "Response codes"
+            url: "{{ link.import-api.api }}#all-response-codes"
+
+          - title: "Response message format"
+            url: "{{ link.import-api.api }}#response-error-message-formats"
+
+          - title: "Error message format"
+            url: "{{ link.import-api.api }}#error-message-formats"
+
+          - title: "Error message text"
+            url: "{{ link.import-api.api }}#error-message-text"
+
+      - title: "Versioning"
+        url: "{{ link.import-api.api }}#versioning"
+        drop-down: false
+
+      - title: "Methods"
+        expand-by-default: true
+        sections:
+          - title: "Check Import API status"
+            expand-by-default: true
+            subsections:
+              - title: "API Status object"
+                method: "object"
+                url: "{{ link.import-api.api }}{{ site.data.import-api.core-objects.api-status.object-anchor }}"
+
+              - title: "Get Import API status"
+                method: "get"
+                url: "{{ link.import-api.api }}{{ site.data.import-api.core-objects.api-status.anchor }}"
+
+          - title: "Send a batch of data to Stitch"
+            expand-by-default: true
+            subsections:
+              - title: "Batch object"
+                method: "object"
+                url: "{{ link.import-api.api }}{{ site.data.import-api.core-objects.batch.object-anchor }}"
+
+              - title: "Create a batch"
+                method: "post"
+                url: "{{ link.import-api.api }}{{ site.data.import-api.core-objects.batch.anchor }}"
+
+          - title: "Validate push requests"
+            expand-by-default: true
+            subsections:
+              - title: "Validation object"
+                method: "object"
+                url: "{{ link.import-api.api }}{{ site.data.import-api.core-objects.validate.object-anchor }}"
+
+              - title: "Validate a push request"
+                method: "post"
+                url: "{{ link.import-api.api }}{{ site.data.import-api.core-objects.validate.anchor }}"
+
+          - title: "Push data to Stitch"
+            expand-by-default: true
+            subsections:
+              - title: "Push object"
+                method: "object"
+                url: "{{ link.import-api.api }}{{ site.data.import-api.core-objects.push.object-anchor }}"
+
+              - title: "Push data"
+                method: "post"
+                url: "{{ link.import-api.api }}{{ site.data.import-api.core-objects.push.anchor }}"
+
+      - title: "Data structures"
+        expand-by-default: true
+        sections:
+          - title: "Batch status object"
+            method: "object"
+            url: "{{ link.import-api.api }}{{ site.data.import-api.data-structures.batch-status.section }}" 
+
+          - title: "Error reason object"
+            method: "object"
+            url: "{{ link.import-api.api }}{{ site.data.import-api.data-structures.error-reason.section }}"
+
+          - title: "Error object"
+            method: "object"
+            url: "{{ link.import-api.api }}{{ site.data.import-api.data-structures.error.section }}"
+
+          - title: "Message object"
+            method: "object"
+            url: "{{ link.import-api.api }}{{ site.data.import-api.data-structures.message.section }}"
+
+          - title: "Schema object"
+            method: "object"
+            url: "{{ link.import-api.api }}{{ site.data.import-api.data-structures.schema.section }}"
+
+      - title: "Resources"
+        expand-by-default: false
+        sections:
+          - title: "Guides"
+            url: "{{ link.import-api.guides.category }}"
+
+          - title: "Libraries"
+            url: "{{ link.import-api.overview }}#libraries-and-resources"

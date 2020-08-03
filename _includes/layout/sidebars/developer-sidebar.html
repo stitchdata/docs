@@ -1,0 +1,130 @@
+{% include misc/data-files.html %}
+
+{% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
+
+    {% if page.product-type == "connect" %}
+        {% assign api = site.data.connect.api %}
+        {% assign js = site.data.connect.js-client %}
+        {% assign all-docs = site.developer-files | where:"product-type","connect" %}
+        {% assign all-form-properties = all-docs | where: "content-type","api-form" %}
+    {% endif %}
+
+{% assign navigation = site.data.sidebars[page.product-type][page.sidebar] %}
+
+<div class="menu-list" data-swiftype-index='false'>
+
+<ul id="mysidebar" class="nav">
+    <!-- Stitch status widget -->
+    <a class="status-page" href="http://status.stitchdata.com" target="_blank">
+        <span class="color-dot"></span>
+        <span class="color-description"></span>
+    </a>
+        {% for doc in navigation %}
+            <!-- Top-level items -->
+
+            {% for category in doc.categories %}
+                <li>
+                    {% if category.sections %}
+                        <a data-toggle="collapse" href="#{{ category.title | slugify }}" 
+                           aria-expanded="{{ category.expand-by-default }}" aria-controls="{{ category.title | slugify }}">
+                                {{ category.title }} 
+                        </a>
+                    {% else %}
+                       <a href="{{ category.url | flatify | prepend: site.baseurl }}">{{ category.title | flatify }}</a>
+                       
+                    {% endif %}
+            
+                {% if category.sections %}
+                    {% case category.expand-by-default %}
+                        {% when true %}
+                            <ul class="collapse in" id="{{ category.title | slugify }}">
+                        {% else %}
+                            <ul class="collapse" id="{{ category.title | slugify }}">
+                        {% endcase %}
+
+                    {% if category.title == "Connection property objects" %}
+                        {% assign category-sections = all-form-properties | where: "content-type","api-form" | sort_natural: "display-name" %}
+
+                        <li>
+                            <a href="#form-properties">Overview</a>
+                        </li>
+
+                        <li>
+                            <a href="#search-connection-properties">Search connection property objects</a>
+                        </li>
+                    {% else %}
+                        {% assign category-sections = category.sections %}
+                    {% endif %}
+
+                    {% for section in category-sections %}
+                        {% if category.title == "Connection property objects" %}
+                            {% assign section-title = section.display-name %}
+                            {% assign section-url = section.key | prepend: "#" | prepend: page.permalink | prepend: site.baseurl %}
+                            {% assign method = section.form-type %}
+                        {% else %}
+                            {% assign section-title = section.title %}
+                            {% assign section-url = section.url | flatify | prepend: site.baseurl  %}
+                            {% assign method = section.method %}
+                        {% endif %}
+
+                        {% if section.subsections %}
+                            <li class="subfolders">
+                                <a data-toggle="collapse" href="#{{ section.title | slugify }}"
+                                aria-expanded="{{ section.expand-by-default }}" aria-controls="{{ section.title | slugify }}"
+                                
+                                {% if section.method %}
+                                 class="api">
+                                    
+                                    <span class="method {{ section.method }} method-bullet">{{ section.method | upcase | strip_newlines }}></span>
+                                {% else %}
+                                    >
+                                {% endif %}
+
+                                    {{ section-title | flatify }}
+                                </a>
+
+                            {% case section.expand-by-default %}
+                                {% when true %}
+                                    <ul class="collapse in" id="{{ section.title | slugify }}">
+                                {% else %}
+                                    <ul class="collapse" id="{{ section.title | slugify }}">
+                            {% endcase %}
+
+                                    {% for subsection in section.subsections %}
+                                        <li>
+                                            <a href="{{ subsection.url | flatify | prepend: site.baseurl }}" class="api">
+                                                {% if subsection.method %}
+                                                    <span class="method {{ subsection.method }} method-bullet">{{ subsection.method | upcase | strip_newlines }}</span>
+                                                {% endif %}
+                                                {{ subsection.title | flatify }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                <!-- Sub-section level -->
+                            </li>
+                        {% else %}
+                            <li>
+                                <a href="{{ section-url }}"
+                                {% if section.method or category.title == "Connection property objects" %}
+                                    class="api">
+                                    <span class="method {{ method }} method-bullet">{{ method | upcase | strip_newlines }}</span>
+                                {% else %}
+                                    >
+                                {% endif %}
+
+                                {{ section-title | flatify }}</a>
+
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                    <!-- Section level -->
+                </li>
+            {% endif %}
+                <!-- Category level -->
+            {% endfor %}
+        {% endfor %}
+    </ul> 
+    <!-- Top-level - by status page -->
+</div>

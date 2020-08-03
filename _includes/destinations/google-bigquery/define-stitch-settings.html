@@ -1,0 +1,52 @@
+<!-- This file contains the content used in Google BigQuery v2
+	destination setup guides for completing the setup in Stitch. -->
+
+
+{% case include.type %}
+
+<!-- UPLOADING THE JSON PROJECT KEY FILE -->
+{% when 'upload-project-file' %}
+
+{% if include.version-migration == true %}
+1. Navigate back to the page where your Stitch account is open.
+2. Click the **{{ destination.display_name }}** icon.
+{% else %}
+1. {{ site.data.app.sign-in | flatify }}
+2. Click the {{ app.menu-paths.destination-settings }}.
+3. Click the **{{ destination.display_name }}** icon.
+{% endif %}
+
+4. Scroll to the **Your service account** section.
+5. In the **Your Key File** field, click the <img src="{{ site.baseurl }}/images/icons/upload-file.svg" alt="File upload icon" style="border: 0px;"> icon and locate the JSON project key file you created in [Step 1.3](#create-json-project-key).
+
+Once uploaded, the **BigQuery Project Name** field will automatically populate with the name of the GCP project in the JSON project key file.
+
+
+<!-- SELECTING A GOOGLE CLOUD STORAGE LOCATION -->
+{% when 'select-gcs-location' %}
+Next, you'll select the region used by your Google Cloud Storage (GCS) instance. This setting determines the region of the internal [Google Storage Bucket](https://cloud.google.com/storage/docs/key-terms#buckets){:target="new"} Stitch uses during the replication process.
+
+Using the **Google Cloud Storage Location** dropdown, select your GCS region. Refer to the [{{ destination.display_name }} v2 reference]({{ link.destinations.overviews.bigquery-v2 | prepend: site.baseurl | append: "#supported-gcs-regions" }}) for the list of regions this version of the {{ destination.display_name }} destination supports.
+
+**Note**: Changing this setting will result in replication issues if data migration isn't completed correctly.
+
+
+<!-- DEFINING LOADING BEHAVIOR -->
+{% when 'define-loading-behavior' %}
+{% capture loading-setting-note %}
+**Note**: Loading behavior can't be changed after the destination is created. To change {{ destination.display_name }} loading behavior, you'll need to [delete and re-create the destination]({{ link.destinations.switch-destinations | prepend: site.baseurl }}).
+{% endcapture %}
+
+{% include note.html type="single-line" content=loading-setting-note %}
+
+The last step is to define how Stitch will handle changes to existing records in your {{ destination.display_name }} destination:
+
+- **Upsert**: Existing rows will be updated with the most recent version of the record from the source. With this option, only the most recent version of a record will exist in {{ destination.display_name }}. 
+
+- **Append**: Existing rows aren't updated. Newer versions of existing records are added as new rows to the end of tables. With this option, many versions of the record will exist in {{ destination.display_name }}, capturing how a record changed over time.
+
+Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info and examples.
+
+**Note**: This setting may impact your {{ destination.display_name }} costs. [Learn more]({{ link.destinations.overviews.bigquery-pricing | prepend: site.baseurl }}).
+
+{% endcase %}

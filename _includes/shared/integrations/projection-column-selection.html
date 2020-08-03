@@ -1,0 +1,105 @@
+{% include shared/versioning/integration-version-logic.html item-name="page" %}
+
+{% case page.name %}
+{% when 'mongodb' %}
+
+{% assign table-name = "documents" %}
+{% assign projection-type = "query" %}
+{% assign group-type = "Collection" %}
+
+{% when 'dynamodb' %}
+{% assign table-name = "tables" %}
+{% assign projection-type = "expression" %}
+{% assign group-type = "Table" %}
+
+{% endcase %}
+
+{% case include.type %}
+{% when "feature-availability" %}
+
+{% include misc/icons.html %}
+
+The following table indicates the availability of Stitch's {{ page.display_name }} projection {{ projection-type }} feature for each version of the {{ page.display_name }} integration.
+
+{% assign page-key = page.name | append:"-integration" %}
+
+<table class="attribute-list">
+<tr>
+<td class="attribute-name">
+<strong>Integration version</strong>
+</td>
+<td>
+<strong>Availability</strong>
+</td>
+</tr>
+{% for version in released-versions %}
+{% assign this-integration = site.database-integrations | where:"key",page-key %}
+{% assign integration-version = this-integration | where:"this-version",version.number | first %}
+<tr>
+<td class="attribute-name">
+<strong>
+<a href="{{ integration-version.url | prepend: site.baseurl }}">{{ version.number | prepend: "v" }}</a>
+</strong>
+</td>
+<td>
+{% case integration-version.column-selection %}
+{% when true %}
+{{ supported | replace:"TOOLTIP","Field selection via projection queries is supported for this integration version." }} Supported
+{% when false %}
+{{ not-supported | replace:"TOOLTIP","Field selection via projection queries is not supported for this integration version." }} Unsupported
+{% endcase %}
+</td>
+</tr>
+
+{% endfor %}
+</table>
+
+{% when "what-are-projection-queries" %}
+
+In {{ page.display_name }}, the default for queries is to return all fields in matching {{ table-name }}.  A [projection {{ projection-type }}]({{ site.data.taps.links[page.name]projection-queries }}){:target="new"} is used to specify or restrict the data returned in query results. By specifying a projection {{ projection-type }}, you can specify the fields you want to return or exclude.
+
+For example: Not specifying a {{ projection-type }} in Stitch is similar to `SELECT *` in SQL. If you wanted to only return a subset of fields, you'd specify them in the `SELECT` clause:
+
+```sql
+SELECT name,
+     is_active
+FROM customers
+```	
+
+
+{% when "adding-new-projection-query" %}
+
+When you set a {{ group-type | downcase }} to replicate in Stitch, you can define a projection {{ projection-type }} for the {{ group-type | downcase }} in the **{{ group-type }} Settings** page.
+
+1. In the {{ page.display_name }} integration, click the **{{ group-type }}s to Replicate** tab.
+2. Navigate to the desired {{ group-type | downcase }}.
+3. Click the checkbox to the left of the {{ group-type | downcase }} to set it to replicate. This will also open the **{{ group-type }} Details** page:
+
+   ![The {{ page.display_name }} {{ group-type }} Details page in Stitch.]({{ site.baseurl }}/images/integrations/{{ page.name }}-{{ group-type | downcase }}-details.png)
+4. Click the **View {{ group-type }} Settings** button.
+5. On the **{{ group-type }} Settings** page, scroll down to the **Fields to Replicate** section.
+6. Enter the projection {{ projection-type }} you want the {{ group-type | downcase }} to use in the **Projection {{ projection-type }}** field:
+
+   ![The Projection {{ projection-type }} field in the {{ group-type }} Settings page in Stitch.]({{ site.baseurl }}/images/integrations/{{ page.name }}-projection-{{ projection-type }}.png)
+
+ {% if page.name == 'mongodb' %}
+
+   **Note**: Projection queries include the `_id` field by default, so you don't need to specify it in your query.
+
+ {% endif %}
+
+7. Click {{ app.buttons.save-table-settings }} to save your changes.
+
+Stitch will use the {{ group-type | downcase }}'s projection {{ projection-type }} during the next scheduled replication job, even if a job is currently in progress.
+
+
+
+{% when "modifying-existing-projection-query" %}
+
+To modify an existing projection {{ projection-type }}, follow the steps [in the previous section](#adding-new-projection-query), modifying the {{ projection-type }} as needed. When finished, click {{ app.buttons.save-table-settings }} to save your changes.
+
+Stitch will use the {{ group-type | downcase }}'s projection {{ projection-type }} during the next scheduled replication job, even if a job is currently in progress.
+
+**Note**: Modifying a projection {{ projection-type }} won't trigger a full re-replication of a {{ group-type | downcase }}. If the {{ group-type | downcase }} uses a type of incremental replication, you'll need to [manually reset the {{ group-type | downcase }}]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}) to backfill the values for any new fields.
+
+{% endcase %}        

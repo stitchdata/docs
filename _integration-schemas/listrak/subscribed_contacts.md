@@ -1,6 +1,6 @@
 ---
 tap: "listrak"
-# version: "1.0"
+version: "1"
 
 name: "subscribed_contacts"
 doc-link:

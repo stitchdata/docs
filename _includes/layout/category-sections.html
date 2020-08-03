@@ -1,0 +1,13 @@
+{% for guide in section.guides %}
+  {% if guide.version %}
+    {% assign all-guides = site.documents | where:"key",guide.key %}
+    {% assign this-guide = all-guides | where:"this-version",guide.version | first %}
+  {% else %}
+    {% assign this-guide = site.documents | where:"key",guide.key | first %}
+{% endif %}
+
+<span class="h4">
+[{{ this-guide.title }}]({{ this-guide.url | prepend: site.baseurl }})
+</span>
+{{ this-guide.summary | markdownify }}
+{% endfor %}

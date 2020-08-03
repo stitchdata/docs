@@ -1,0 +1,68 @@
+{% assign items = site.data[page.product-type]api-resource-details.list %}
+
+<!-- Checks to see if the endpoint has an argument list -->
+{% if endpoint.arguments %}
+
+    <!-- Next, check if all the arguments are request body or some other type - ex: a path parameter -->
+    {% assign all-arguments = endpoint.arguments | size %}
+    {% assign non-body-arguments = endpoint.arguments | where:"type","path parameter" | size %}
+
+    {% assign request-body-arguments = all-arguments | minus: non-body-arguments %}
+{% endif %}
+
+<!-- Checks to see if the endpoint has an error list, then assigns a value-->
+
+{% if endpoint.examples %}
+    {% assign errors-are-present = endpoint.examples | where:"type","Errors" | size %}
+{% endif %}
+    
+<h5 id="{{ endpoint.key | append: "--resource-list" }}">
+    Resource list
+</h5>
+
+<table class="attribute-list">
+    {% for item in items %}
+        {% case item.id %}
+            {% when 'request-body' %}
+            <!-- Only run the code if the endpoint has an argument list with request body arguments -->
+                {% unless request-body-arguments == 0 %}
+                    <tr>
+                        <td class="attribute-name">
+                            <strong>
+                                {{ item.name }}
+                            </strong>
+                        </td>
+                        <td class="description">
+                            {{ item.description | flatify | markdownify }}
+                        </td>
+                    </tr>
+                {% endunless %}
+            {% when 'errors' %}
+            <!-- Only run the code if the endpoint has an error list -->
+            <!-- Endpoints without an error list will have an errors-are-present value of 0 -->
+                {% unless errors-are-present == 0 %}
+                    <tr>
+                        <td class="attribute-name">
+                            <strong>
+                                {{ item.name }}
+                            </strong>
+                        </td>
+                        <td class="description">
+                            {{ item.description | flatify | markdownify }}
+                        </td>
+                    </tr>
+                {% endunless %}
+            {% else %}
+                <tr>
+                    <td class="attribute-name">
+                        <strong>
+                            {{ item.name }}
+                        </strong>
+                    </td>
+                    <td class="description">
+                        {{ item.description | flatify | markdownify }}
+                    </td>
+                </tr>
+        {% endcase %}
+    {% endfor %}
+</table>

@@ -1,9 +1,9 @@
 ---
 tap: "shopify"
-version: "1.0"
+version: "1"
 
 name: "abandoned_checkouts"
-doc-link: "https://help.shopify.com/en/api/reference/orders/abandoned_checkouts"
+doc-link: "https://shopify.dev/docs/admin-api/rest/reference/orders/abandoned-checkouts?api[version]=2019-07"
 singer-schema: "https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/abandoned_checkouts.json"
 description: |
   The `{{ table.name }}` table contains info about abandoned checkouts. {{ integration.display_name }} considers a checkout to be abandoned when a customer has entered billing and shipping details, but hasn't completed the purchase.
@@ -12,7 +12,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Retrieve all abandoned checkouts"
-    doc-link: "https://help.shopify.com/en/api/reference/orders/abandoned_checkouts"
+    doc-link: "https://shopify.dev/docs/admin-api/rest/reference/orders/abandoned-checkouts?api[version]=2019-07"
 
 date-time: |
   The date and time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} when the [ITEM] was [ACTION].

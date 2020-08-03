@@ -1,0 +1,136 @@
+<!-- This file contains the logic and display code for integration version comparisons and
+        integration snapshots. -->
+
+
+
+<!-- Used to generate the Supported/Unsupported icons -->
+{% include misc/icons.html %}
+{% include misc/data-files.html %}
+
+<!-- The logic for pulling version info is in this include -->
+    {% include shared/versioning/integration-version-logic.html connection-type="integration" item-name="page" %}
+
+<!-- Get the list of categories/features for the feature type: databases, saas, or webhooks -->
+    {% assign snapshot-categories = site.data.taps.features[include.feature-type] %}
+
+{% case include.type %}
+{% when 'version-comparison' %}
+<h3 id="supported-features">{{ display_name }} version comparison</h3>
+
+<table class="attribute-list">
+    <tr>
+        <td class="table-subheading">
+        </td>
+        {% for version in released-versions %}
+            {% for integration in all-versioned-docs %}
+                {% if version.number == integration.this-version and version.status != "sunset" %}
+                    <td class="table-subheading">
+                        <strong>{{ display_name }}<br>
+                        <a href="{{ integration.url | prepend: site.baseurl }}">version {{ version.number }}</a></strong>
+                        {% if version.number == latest-version %} (latest){% endif %}
+                    </td>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </tr>
+
+    {% for category in snapshot-categories %}
+        <tr>
+            <td colspan="{{ all-versioned-docs | size | plus: 1 }}" class="table-subheading">
+                <strong>{{ category.name | replace:"-"," " | upcase }}</strong>
+            </td>
+        </tr>
+
+        {% for attribute in category.attributes %}
+            <tr>
+                <td width="30%; fixed" align="right">
+                    <strong>
+                        {% if attribute.doc-link %}
+                            <a href="{{ attribute.doc-link | flatify }}">{{ attribute.display-name }}</a>
+                        {% else %}
+                            {{ attribute.display-name }}
+                        {% endif %}
+
+                        {% if attribute.tooltip %}
+                            {% capture clean-tooltip %}
+                                {{ attribute.tooltip | flatify }}
+                            {% endcapture %}
+
+                            {{ info-icon | replace:"TOOLTIP",clean-tooltip }}
+                        {% endif %}
+                    </strong>
+                </td>
+                <!-- Feature value columns -->
+                {% for version in released-versions %}
+                    {% for integration in all-versioned-docs %}
+                        {% if version.number == integration.this-version and version.status != "sunset" %}
+                            <td>
+                                {{ attribute.field-value | flatify | markdownify }}
+                            </td>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            <!-- End feature value columns loop -->
+            </tr>
+        {% endfor %}
+    {% endfor %}
+</table>
+
+{% when 'integration-snapshot' %}
+<h2 id="{{ integration.name }}-feature-snapshot">{{ integration.display_name }} feature snapshot</h2>
+
+    <p>A high-level look at Stitch's {{ integration.display_name }}{% if integration.this-version %} ({{ integration.this-version | prepend: "v" }}){% endif %} integration, including release status, useful links, and the features supported in Stitch.</p>
+
+<table class="attribute-list">
+    {% for category in snapshot-categories %}
+
+        {% assign total-attribute-count = category.attributes | size %}
+            {% assign attribute-count = total-attribute-count | modulo: 2 %}
+
+        <tr>
+            <td colspan="4" class="table-subheading">
+                <strong>{{ category.name | replace:"-"," " | upcase }}</strong>
+            </td>
+        </tr>
+        {% for attribute in category.attributes %}
+            <!-- Get the index of the attribute in the attributes array, then divide it by 2 
+            and get the remainder. If there's an odd number of attributes in the array, 
+            the last attribute has a row to itself and uses a column span to keep the
+            structure of the table. -->
+
+            {% assign attribute-number = forloop.index | modulo: 2 %}
+
+            {% if attribute-number == 1 %}
+                <tr>
+            {% endif %}
+                <td width="27%; fixed" align="right">
+                    {% if attribute.doc-link %}
+                        <strong><a href="{{ attribute.doc-link | flatify }}">{{ attribute.display-name }}</a></strong>
+                    {% else %}
+                        <strong>{{ attribute.display-name }}</strong>
+                    {% endif %}
+
+                    {% if attribute.tooltip %}
+                        {% capture clean-tooltip %}
+                            {{ attribute.tooltip | flatify }}
+                        {% endcapture %}
+
+                        {{ info-icon | replace:"TOOLTIP",clean-tooltip }}
+                    {% endif %}
+                </td>
+                <td width="23%; fixed" {% if forloop.last == true and attribute-number == 1 %}colspan="3"{% endif %}>
+                    {{ attribute.field-value | flatify | markdownify }}
+                </td>
+            {% case attribute-number %}
+                {% when 0 %}
+                    </tr>
+                {% when 1 %}
+                    {% if forloop.last == true %}
+                        </tr>
+                    {% endif %}
+            {% endcase %}
+        {% endfor %}
+    {% endfor %}
+</table>
+
+{% endcase %}

@@ -19,6 +19,8 @@ summary: "Connection instructions, replication info, and schema details for Stit
 layout: singer
 # input: false
 
+key: "salesforce-marketing-cloud-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -31,7 +33,7 @@ tap-name: "Exact Target"
 repo-url: https://github.com/singer-io/tap-exacttarget
 status-url: "https://status.salesforce.com/"
 
-# this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} SOAP Web Service API](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/web_service_guide.htm){:target="new"}
@@ -40,15 +42,16 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false 
 
 historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 
+api-type: "platform.exacttarget"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true
@@ -120,46 +123,63 @@ requirements-list:
   - item: |
       **A {{ integration.display_name }} user with the Marketing Cloud Administrator Role**. Salesforce requires this to [generate {{ integration.display_name }} API credentials](https://help.salesforce.com/articleView?id=mc_overview_marketing_cloud_roles.htm&type=5){:target="new"}.
 
-      **Note**: While this role is required to complete the setup, you'll be able to limit Stitch's access in {{ integration.display_name }}. This is outlined in [Step 1.2 of this guide](#add-api-component-to-package).
+      **Note**: While this role is required to complete the setup, you'll be able to limit Stitch's access in {{ integration.display_name }}. This is outlined in [Step 2.2 of this guide](#add-api-component-to-package).
 
 setup-steps:
+  - title: "Retrieve your {{ integration.display_name }} tenant subdomain"
+    anchor: "retrieve-tenant-subdomain"
+    content: |
+      A [tenant subdomain](https://help.salesforce.com/articleView?id=mc_rn_october_2018_platform_tenant_specific_subdomains.htm&type=5){:target="new"} is an auto-generated ID unique to your {{ integration.display_name }} account. You can retrieve this info by looking at the URL when you sign into your {{ integration.display_name }} account.
+
+      1. Navigate to the [{{ integration.display_name }} login page](https://mc.exacttarget.com/){:target="new"}.
+      2. Enter your {{ integration.display_name }} username and click **Next**.
+      3. Look at the URL for the page you're currently on.  The string between `https://` and `.login` is your tenant subdomain:
+
+         ![The tenant subdomain, highlighted in the login URL for {{ integration.display_name }}]({{ site.baseurl }}/images/integrations/salesforce-marketing-cloud-tenant-subdomain.png)
+
+         In this example, the tenant subdomain is `mcx21dt54chc0gprl638px2g7r48`. Keep this handy - you'll need it to complete the setup in Stitch.
+      4. Enter your {{ integration.display_name }} password and click **Log In**.
+
   - title: "Generate API credentials"
     anchor: "generate-api-credentials"
     content: |
       To use {{ integration.display_name }}'s API, you need a client ID and secret. These credentials are generated when you create an installed package in Marketing Cloud and add an API Integration component.
 
       {% for substep in step.substeps %}
-      - [Step 1.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      - [Step 2.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
       {% endfor %}
 
     substeps:
-# https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-app-development.meta/mc-app-development/install-packages.htm
       - title: "Create an Installed Package for Stitch"
         anchor: "create-installed-package"
         content: |
-          1. Sign into your {{ integration.display_name }} account.
-          2. Click the **user menu** in the top right corner, then **Administration**.
-          3. On the **Administration** page, click **Account > Installed Packages**.
+          2. While signed into your {{ integration.display_name }} account, click the **user menu** in the top right corner, then **Setup**.
+          3. In the menu on the left side, click **Apps > Installed Packages**.
           4. Click the **New** button.
           5. In the **New Package Details** window, enter a **Name** and **Description** for the package. For example: `Stitch`
           6. Click **Save**.
 
 # https://developer.salesforce.com/docs/atlas.en-us.mc-app-development.meta/mc-app-development/api-integration.htm
-      - title: "Add an API Integration component to the package and set permissions"
+      - title: "Configure the package settings"
         anchor: "add-api-component-to-package"
         content: |
           After the package has been saved, you'll need to add a component and grant the required permissions. This will allow Stitch to connect to your {{ integration.display_name }} instance.
 
           1. Click the **Add Component** button.
-          2. In the **Add Component** window, select the **API Integration** option.
-          3. In the **Add API Integration** window, you'll grant permissions to the Stitch app. 
+          2. Select the **API Integration** option in the **Choose Your Component Type** window. Click **Next**.
+          3. Select the **Server-to-Server** option in the **Choose Your Integration Type** window:
+
+             ![Server-to-Server integration type highlighted in the Choose Your Integration Type window of the Installed Package creation workflow]({{ site.baseurl }}/images/integrations/salesforce-marketing-cloud-server-to-server.png)
+
+             Click **Next**.
+          4. In the **Set Server-to-Server Properties** window, you'll grant permissions to the Stitch app. 
 
              The table below lists the categories of permissions and the specific permissions Stitch requires. Unless otherwise noted, select the **Read** permission next to the following options:
 
              <table class="attribute-list">
              {% for category in integration.permission-categories %}
              {% cycle 'cat-before':'<tr>','','',''' %}
-             <td class="25%; fixed">
+             <td width="25%; fixed">
              <p><strong>{{ category.name }}</strong></p>
              <ul>
              {% for permission in category.permissions %}
@@ -173,7 +193,7 @@ setup-steps:
 
              **Note**: To replicate **Data Extension** data, you will also need to select the **Write** permission.
 
-          4. Click **Save**.
+          5. Click **Save**.
 
       - title: "Locate your API credentials"
         anchor: "locate-api-credentials"
@@ -186,8 +206,9 @@ setup-steps:
 
   - title: "add integration"
     content: |
-      4. In the **Client ID** field, paste the {{ integration.display_name }} Client ID you retrieved in [Step 1.3](#locate-api-credentials).
-      5. In the **Client Secret** field, paste the {{ integration.display_name }} Client Secret you retrieved in [Step 1.3](#locate-api-credentials).
+      4. In the **Client ID** field, paste the {{ integration.display_name }} Client ID you retrieved in [Step 2.3](#locate-api-credentials).
+      5. In the **Client Secret** field, paste the {{ integration.display_name }} Client Secret you retrieved in [Step 2.3](#locate-api-credentials).
+      6. In the **Tenant Subdomain** field, paste the {{ integration.display_name }} tenant subdomain you retrieved in [Step 1](#retrieve-tenant-subdomain).
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data"

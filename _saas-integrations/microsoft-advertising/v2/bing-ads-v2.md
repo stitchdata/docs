@@ -11,6 +11,8 @@ keywords: bing ads, integration, schema, etl bing ads, bing ads etl, bing ads sc
 summary: "Connection instructions, replication info, and schema details for Stitch's Microsoft Advertising (Bing Ads) integration."
 layout: singer
 
+key: "bing-ads-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -22,16 +24,15 @@ singer: true
 repo-url: https://github.com/singer-io/tap-bing-ads
 tap-name: "Bing Ads"
 
-this-version: "2.0"
+this-version: "2"
 
 api: |
-  [{{ integration.display_name }} v.12 API](https://docs.microsoft.com/en-us/advertising/guides/?view=bingads-12){:target="new"}
+  [{{ integration.display_name }} v.13 API](https://docs.microsoft.com/en-us/advertising/guides/?view=bingads-13){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"
@@ -39,6 +40,8 @@ frequency: "24 hours"
 tier: "Free"
 auth: "oauth"
 status-url: https://status.bingads.com/
+
+api-type: "platform.bing-ads"
 
 table-selection: true
 column-selection: true
@@ -48,6 +51,10 @@ cron-scheduling: false
 
 extraction-logs: true
 loading-reports: true
+
+append-only-integration: false
+append-only-tables: true
+append-only-tables-description: "All Report tables"
 
 ## Row usage details
 

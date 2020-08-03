@@ -1,0 +1,33 @@
+<!-- This file is included in _includes/connect/api-endpoint.html
+
+    This displays information about a given endpoint. -->
+
+
+<!-- The endpoint's resource list -->
+{% include developers/api-resource-list.html %}
+
+<!-- The arguments the endpoint accepts -->
+    {% if endpoint.arguments %}
+        <h5 id="{{ endpoint.key | append: "--arguments" }}">
+            Arguments
+        </h5>
+
+        <p>This endpoint accepts the following parameters:</p>
+
+        {% include developers/attribute-table.html object=endpoint.arguments td-width="25" multiple-versions=false %}
+    {% endif %}
+
+
+<!-- Description of what the endpoint returns -->
+    <h5 id="{{ endpoint.key | append: "--returns" }}">
+        Returns
+    </h5>
+
+    {{ endpoint.returns | flatify | markdownify }}
+
+    {% if endpoint.response-attributes %}
+        {% include developers/attribute-table.html object=endpoint.response-attributes td-width="25" multiple-versions=false %}
+    {% endif %}
+
+<!-- Displays the request, response, and error tabs -->
+{% include developers/api-examples.html type="endpoint" %}

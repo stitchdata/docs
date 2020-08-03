@@ -3,10 +3,10 @@ title: Zendesk Chat (Zopim)
 permalink: /integrations/saas/zendesk-chat
 keywords: zopim, integration, schema, etl zopim, zopim etl, zopim schema, zendesk chat, zendesk
 summary: "Connection instructions and schema details for Stitch's Zendesk Chat integration."
-format: ## controls formatting options in template
-  schema-list: true
-  table-desc: true
-  list: expand
+layout: singer
+old-schema-template: true
+
+key: "zendesk-chat-setup"
 
 # -------------------------- #
 #     Integration Details    #
@@ -18,6 +18,8 @@ display_name: "Zendesk Chat"
 singer: false
 status-url: "https://status.zendesk.com/"
 
+this-version: "1"
+
 api: |
   [{{ integration.display_name }} API](https://developer.zendesk.com/rest_api/docs/chat/introduction){:target="new"}
 
@@ -25,7 +27,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Closed Beta"
 certified: false
 
 historical: "1 year"
@@ -197,42 +198,32 @@ tables:
       - name: enabled
       - name: description
 
+# -------------------------- #
+#      Setup Instructions    #
+# -------------------------- #
+
+requirements-list:
+  - item: |
+      **Owner permissions in {{ integration.display_name }}**. The user who authorizes the integration must have [Owner permissions in {{ integration.display_name }}](https://chat.zendesk.com/hc/en-us/articles/212679597-Understanding-and-managing-roles-in-Zendesk-Chat){:target="_blank"}. Otherwise, Stitch will encounter authentication issues and be unable to replicate data.
+
+  - item: |
+      **An Advanced or Premium {{ integration.display_name }} account.** Zendesk only allows customers on their Advanced or Paid {{ integration.display_name }} plans to utilize the Rest API, which is what Stitch uses to connect to your {{ integration.display_name }} account and replicate data.
+
+        If your {{ integration.display_name }} account is on Lite or Basic, you will need to upgrade your {{ integration.display_name }} plan. [More info on {{ integration.display_name }} plans can be found on Zendesk's website](https://www.zendesk.com/chat/compare/#compare){:target="_blank"}.
+
+setup-steps:
+  - title: "add integration"
+  - title: "historical sync"
+  - title: "replication frequency"
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
+    anchor: "authorize-stitch"
+    content: |
+      Lastly, you'll be directed to Zendesk's website to complete the setup.
+
+      1. Enter your {{ integration.display_name }} credentials and click **Login**.
+      2. Complete the authorization process.
+      3. After the authorization process successfully completes, you'll be redirected back to Stitch.
+      4. Click {{ app.buttons.finish-int-setup }}.
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-
-
-{% contentfor setup %}
-Connecting your {{ integration.display_name }} (formerly known as Zopim) data to Stitch is a four-step process:
-
-1. [Add {{ integration.display_name }} as a Stitch data source](#add-stitch-data-source)
-2. [Define the Historical Sync](#define-historical-sync)
-3. [Define the Replication Frequency](#define-rep-frequency)
-4. [Authorize Stitch to access Zopim](#authorize-stitch)
-
-### Prerequisites {#prerequisites}
-
-1. **Owner permissions in {{ integration.display_name }}**. The user who authorizes the integration must have [Owner permissions in {{ integration.display_name }}](https://chat.zendesk.com/hc/en-us/articles/212679597-Understanding-and-managing-roles-in-Zendesk-Chat){:target="_blank"}. Otherwise, Stitch will encounter authentication issues and be unable to replicate data.
-
-2. **An Advanced or Premium {{ integration.display_name }} account.** Zendesk only allows customers on their Advanced or Paid {{ integration.display_name }} plans to utilize the Rest API, which is what Stitch uses to connect to your {{ integration.display_name }} account and replicate data.
-
-   If your {{ integration.display_name }} account is on Lite or Basic, you will need to upgrade your {{ integration.display_name }} plan. [More info on {{ integration.display_name }} plans can be found on Zendesk's website](https://www.zendesk.com/chat/compare/#compare){:target="_blank"}.  
-
-{% include integrations/shared-setup/connection-setup.html %}
-
-{% include integrations/saas/setup/historical-sync.html %}
-
-{% include integrations/shared-setup/replication-frequency.html %}
-
-### Authorizing Stitch to Access {{ integration.display_name }} {#authorize-stitch}
-
-Lastly, you'll be directed to Zendesk's website to complete the setup.
-
-1. Enter your {{ integration.display_name }} credentials and click **Login**.
-2. Complete the authorization process.
-4. After the authorization process successfully completes, you'll be redirected back to Stitch.
-5. Click {{ app.buttons.finish-int-setup }}.
-
-{% include integrations/shared-setup/initial-syncs.html %}
-{% endcontentfor %}

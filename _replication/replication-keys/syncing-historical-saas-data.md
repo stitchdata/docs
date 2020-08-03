@@ -32,7 +32,7 @@ Unless you define a different starting date for an integration, Stitch will use 
 
 ![Selecting a custom start date in the Integration Settings page of the Stitch app]({{ site.baseurl }}/images/replication/saas-historical-start-date-default.gif)
 
-The majority of integrations have a default starting date of **-1 year** from the date the integration is created. For example: If you use the integration's default date of -1 year and the date you create the integration is January 22, 2019, Stitch queue a historical replication job for data created/updated between January 22, 2018 - January 20, 2019.
+The majority of integrations have a default starting date of **-1 year** from the date the integration is created. For example: If you use the integration's default date of -1 year and the date you create the integration is January 22, 2019, Stitch queue a historical replication job for data created/updated between January 22, 2018 - January 22, 2019.
 
 ### Default starting dates {#starting-date-rollup}
 

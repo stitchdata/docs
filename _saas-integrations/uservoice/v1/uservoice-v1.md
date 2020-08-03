@@ -3,11 +3,13 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: UserVoice (v1.0)
+title: UserVoice (v1)
 permalink: /integrations/saas/uservoice
 keywords: uservoice, integration, schema, etl uservoice, uservoice etl, uservoice schema
 summary: "Connections instructions, replication info, and schema details for Stitch's UserVoice integration."
 layout: singer
+
+key: "uservoice-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -19,7 +21,7 @@ display_name: "UserVoice"
 singer: true 
 repo-url: https://github.com/singer-io/tap-uservoice
 
-# this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} API](https://developer.uservoice.com/docs/api/v2/getting-started/){:target="new"}
@@ -28,7 +30,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"
@@ -36,8 +37,16 @@ frequency: "1 hour"
 tier: "Free"
 status-url: https://status.uservoice.com/
 
+api-type: "platform.uservoice"
+
+anchor-scheduling: true
+cron-scheduling: true
+
 table-selection: true
 column-selection: true
+
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Feature Summary       #

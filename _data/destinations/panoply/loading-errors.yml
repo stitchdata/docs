@@ -1,0 +1,45 @@
+table-owner: &table-owner "ERROR: must be owner of relation [TABLE_NAME]"
+# <td valign="top">Stitch is not the owner of tables in Redshift, which is needed to perform functions necessary to loading data.</td>
+# <td valign="top">Verify that the Stitch user has all the required permissions as outlined <a href="{{ link.destinations.setup.redshift | prepend: site.baseurl }}">in this article</a>.
+
+denied-schema: &denied-schema "ERROR: permission denied for schema [SCHEMA_NAME]"
+# Stitch does not have permissions to create tables within a schema in Redshift.
+
+schema-creation: &schema-creation "Encountered error while attempting to create new schema."
+# Stitch is unable to create or load data into a schema in your data warehouse.
+
+password-failed: &password-failed |
+  FATAL: password authentication failed for user "[USER_NAME]"
+
+database-does-not-exist: &database-does-not-exist |
+  FATAL: database "[DATABASE_NAME]" does not exist
+
+connection-failed: &connection-failed "The connection attempt failed."
+# <td valign="top">Stitch cannot connect to the Redshift instance.</td>
+# <td valign="top">Verify and test your Redshift configuration in the <strong>{{ app.page-names.dw-settings }}</strong> page of Stitch.
+
+io-error: &io-error "An I/O error occurred while sending to the backend."
+
+resize-mode: &resize-mode |
+  ERROR: Cannot execute query because system is in resize mode
+  Detail: System is in resize mode, and ONLY read-only queries are allowed to execute.
+# <td valign="top">Someone adjusted (up or down) the number of nodes of your Redshift instance and Amazon is currently applying that change.</td>
+# <td valign="top">This is a transient issue - Stitch should be able to resume syncing data once the resize is completed.
+# </td>
+
+dependent-views: &dependent-views |
+  ERROR: cannot drop table [SCHEMA_NAME].[TABLE_NAME] column type because other objects depend on it
+  Hint: Use DROP ... CASCADE< to drop the dependent objects too.
+
+disk-full-detail: &disk-full-detail |
+  ERROR: Disk Full Detail:
+  -----------------------------
+  error:  Disk Full
+  code:      1016
+  context:   node: 3
+  query:     1005177
+  location:  fdisk_api.cpp:345
+  process:   query3_66 [pid=27629]
+  -----------------------------
+# <li>Add additional nodes to make your Redshift instance larger, OR</li>
+# <li>Remove tables and/or data from the existing instance to free up disk space.</li>

@@ -1,6 +1,6 @@
 ---
 tap: "bronto"
-# version: ""
+version: "1"
 
 name: "list"
 doc-link: http://dev.bronto.com/api/soap/objects/general/maillistobject/

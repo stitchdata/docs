@@ -1,11 +1,11 @@
 ---
 tap: "asana"
-version: "1.0"
+version: "1"
 key: "tag"
 
 name: "tags"
 doc-link: "https://asana.com/developers/api-reference/tags"
-singer-schema: "https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/tags.json"
+singer-schema: "https://github.com/singer-io/tap-asana/blob/cb441655c57734e0cf1f61c933b7905c8868b594/tap_asana/schemas/tags.json"
 description: |
   The `{{ table.name }}` table contains info about the tags in your {{ integration.display_name }} account. A tag is a label that can be attached to any task in Asana.
 

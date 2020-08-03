@@ -1,0 +1,71 @@
+# -------------------------- #
+#   CONNECT REQUEST HEADERS  #
+# -------------------------- #
+
+
+# -------------------------- #
+#        GET REQUESTS        #
+# -------------------------- #
+
+get:
+  without-body: |
+    curl "{{ api.base-url }}{{ request-url | flatify }}" \
+         -H 'Authorization: Bearer <ACCESS_TOKEN>' \
+         -H 'Content-Type: application/json'
+
+  no-token-required: |
+    curl "{{ api.base-url }}{{ request-url | flatify }}" 
+
+
+# -------------------------- #
+#        POST REQUESTS       #
+# -------------------------- #
+
+post:
+  user-agent: |
+    curl -X "POST" "[REQUEST-URL]" \
+         -H 'Content-Type: application/json' \
+         -H 'User-Agent: StitchLoadingWebhook'
+
+  no-token-required: |
+    curl -X "POST" "{{ api.base-url }}{{ request-url | flatify }}" \
+         -H 'Content-Type: application/json' \
+         -d $
+
+  without-body: |
+    curl -X "POST" "{{ api.base-url }}{{ request-url | flatify }}" \
+         -H 'Authorization: Bearer <ACCESS_TOKEN>' \
+         -H 'Content-Type: application/json'
+
+  with-body: |
+    curl -X "POST" "{{ api.base-url }}{{ request-url | flatify }}" \
+         -H 'Authorization: Bearer <ACCESS_TOKEN>' \
+         -H 'Content-Type: application/json' \
+         -d $
+
+
+# -------------------------- #
+#        PUT REQUESTS        #
+# -------------------------- #
+
+put:
+  without-body: |
+    curl -X "PUT" "{{ api.base-url }}{{ request-url | flatify }}" \
+         -H 'Authorization: Bearer <ACCESS_TOKEN>' \
+         -H 'Content-Type: application/json'
+
+  with-body: |
+    curl -X "PUT" "{{ api.base-url }}{{ request-url | flatify }}" \
+         -H 'Authorization: Bearer <ACCESS_TOKEN>' \
+         -H 'Content-Type: application/json' \
+         -d $
+
+
+# -------------------------- #
+#       DELETE REQUESTS      #
+# -------------------------- #
+
+delete: |
+  curl -X "DELETE" "{{ api.base-url }}{{ request-url | flatify }}" \
+       -H 'Authorization: Bearer <ACCESS_TOKEN>' \
+       -H 'Content-Type: application/json'

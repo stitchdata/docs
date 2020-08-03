@@ -1,0 +1,85 @@
+# ------------------------------#
+#     SUPPORTED DATA TYPES      #
+# ------------------------------#
+
+## The data types supported by Stitch for ALL integrations.
+## If a column shows as 'Unsupported' in the UI, it may be an unsupported data type.
+
+## NOTE: This list does NOT include data types that are supported by specific integrations.
+
+## Relevant files:
+## Stitch mapped data types: _data/taps/extraction/data-types/stitch-types.yml
+## Integration-specific data types: _data/taps/extraction/data-types/*
+
+
+last-updated: "June 19, 2018"
+
+all-supported:
+  - name: "bigint"
+    stitch-type: "bigint"
+    integration: "all"
+
+  - name: "bit"
+    stitch-type: "boolean"
+    integration: "all"
+
+  - name: "char"
+    stitch-type: "string"
+    integration: "all"
+
+  - name: "date"
+    stitch-type: "date"
+    integration: "all"
+
+  - name: "decimal"
+    stitch-type: "number"
+    integration: "all"
+
+  - name: "double"
+    stitch-type: "double"
+    integration: "all"
+
+  - name: "float"
+    stitch-type: "float"
+    integration: "all"
+
+  - name: "integer"
+    stitch-type: "integer"
+    integration: "all"
+
+  - name: "longvarchar"
+    stitch-type: "string"
+    integration: "all"
+
+  - name: "longnvarchar"
+    stitch-type: "string"
+    integration: "all"
+
+  - name: "nchar"
+    stitch-type: "string"
+
+  - name: "nvarchar"
+    stitch-type: "string"
+
+  - name: "numeric"
+    stitch-type: "number"
+
+  - name: "real"
+    stitch-type: "float"
+
+  - name: "smallint"
+    stitch-type: "integer"
+
+  - name: "time"
+    stitch-type: "date"
+
+  - name: "timestamp"
+    stitch-type: "date"
+
+  - name: "tinyint"
+    stitch-type: "integer"
+    doc-link: "{{ link.troubleshooting.mysql-tinyint-bit }}"
+    notes: "Under certain circumstances, Stitch may store this data type as `BIT(1)/boolean`. Click the link for more details."
+
+  - name: "varchar"
+    stitch-type: "string"

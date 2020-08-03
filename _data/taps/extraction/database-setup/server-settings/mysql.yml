@@ -62,6 +62,27 @@ defaults:
 
 
 # -------------------------- #
+#       AZURE SETTINGS       #
+# -------------------------- #
+
+microsoft-azure-mysql:
+  - name: *binlog-row-image-name
+    value: *binlog-row-image-value
+    description: *binlog-row-image-description
+    doc-link: "https://docs.microsoft.com/en-us/azure/mysql/howto-data-in-replication#configure-the-master-server"
+
+  - name: *binlog-expire-logs-seconds-name
+    value: *binlog-expire-logs-seconds-value
+    description: *binlog-expire-logs-seconds-description
+    doc-link: "https://docs.microsoft.com/en-us/azure/mysql/howto-data-in-replication#configure-the-master-server"
+
+  - name: *log-slave-update-name
+    value: *log-slave-update-value
+    description: *log-slave-update-description
+    doc-link: "https://docs.microsoft.com/en-us/azure/mysql/howto-data-in-replication#configure-the-master-server"
+
+
+# -------------------------- #
 #      CLOUDSQL SETTINGS     #
 # -------------------------- #
 

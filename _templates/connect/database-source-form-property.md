@@ -14,6 +14,7 @@
 #        CONTENT TYPE        #
 # -------------------------- #
 
+product-type: "connect"
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-[integration]-object"

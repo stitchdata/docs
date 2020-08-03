@@ -11,11 +11,13 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Amazon Oracle RDS
+title: Amazon Oracle RDS (v1)
 keywords: oracle, oracle rds, database integration, etl oracle, oracle etl
 permalink: /integrations/databases/amazon-oracle-rds
 summary: "Connect and replicate data from your Amazon Oracle RDS database using Stitch's Oracle integration."
 show-in-menus: true
+
+key: "amazon-oracle-rds-integration"
 
 # -------------------------- #
 #     Integration Details    #
@@ -28,7 +30,7 @@ singer: true
 tap-name: "Oracle"
 repo-url: "https://github.com/singer-io/tap-oracle"
 
-# this-version: "1.0"
+this-version: "1"
 has-specific-data-types: true
 
 hosting-type: "amazon"
@@ -40,7 +42,6 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 enterprise: true
@@ -57,15 +58,15 @@ port: 1521
 db-type: "oracle"
 
 ## Stitch features
-
-versions: "n/a"
+api-type: "platform.oracle"
+versions: "8.0 - 18c"
 ssh: true
-ssl: true
+ssl: false
 
 ## General replication features
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true
@@ -82,6 +83,7 @@ set-default-replication-method: true
 default-replication-method-required: true
 
 log-based-replication-minimum-version: "8.0"
+log-based-replication-maximum-version: "18c"
 log-based-replication-master-instance: true
 log-based-replication-read-replica: false
 
@@ -90,7 +92,7 @@ log-based-replication-read-replica: false
 key-based-incremental-replication: true
 full-table-replication: true
 
-view-replication: false
+view-replication: true
 
 
 # -------------------------- #
@@ -113,6 +115,11 @@ requirements-list:
         - **Create users and grant privileges.** The [`CREATE USER`]({{ site.data.taps.links[integration.db-type]reference-docs.create-user }}){:target="new"} and [`GRANT`]({{ site.data.taps.links[integration.db-type]reference-docs.grant }}){:target="new"} privileges are required to create a database user for Stitch and grant the necessary privileges to the user.
 
         - **`GRANT` access to the objects you want to replicate.**  This is necessary to grant the privileges necessary for selecting data to the Stitch database user. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.db-type]reference-docs.grant }}){:target="new"} for more info.
+
+  - item: |
+      **If using Log-based Incremental Replication, you need**:
+
+      - **A database using Oracle {{ integration.log-based-replication-minimum-version }} through {{ integration.log-based-replication-maximum-version }}**. Versions earlier than {{ integration.log-based-replication-minimum-version }} and later than {{ integration.log-based-replication-maximum-version }} don't include LogMiner functionality, which is required for Log-based Incremental Replication.
 
 
 # -------------------------- #
@@ -159,9 +166,11 @@ setup-steps:
 
           In this example, archive logs will be retained for seven days (`24 hours x 7 days = 168 hours`):
 
-          ```sql
+          {% capture code %}
           {{ site.data.taps.extraction.database-setup.server-settings.oracle.log-mode.rds | strip }}
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           Stitch recommends a minimum of three days for the retention period, but strongly recommends seven.
 
@@ -172,17 +181,21 @@ setup-steps:
 
           To enable supplemental logging, run:
 
-          ```sql
+          {% capture code %}
           {{ site.data.taps.extraction.database-setup.server-settings.oracle.supplemental-logging.rds | strip }}
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           The result should be `PL/SQL procedure successfully completed`.
 
           Next, verify that supplemental logging was successfully enabled by running the following query:
 
-          ```sql
+          {% capture code %}
           {{ site.data.taps.extraction.database-setup.server-settings.oracle.supplemental-logging.command | strip }}
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           If the result is `YES`, supplemental logging was successfully enabled.
 
@@ -229,11 +242,6 @@ setup-steps:
         content: |
           {% include shared/database-connection-settings.html type="ssh" %}
 
-      - title: "Define the SSL connection details"
-        anchor: "ssl-connection-details"
-        content: |
-          {% include shared/database-connection-settings.html type="ssl" %}
-
       - title: "Define the default replication method"
         anchor: "define-default-replication-method"
         content: |
@@ -263,7 +271,7 @@ replication-sections:
       {% endfor %}
 
   - title: "Overview of Log-based Incremental Replication using LogMiner"
-    anchor: "logminer-replication-overview"
+    anchor: "logminer-replication-integration"
     content: |
       Stitch uses {{ integration.display_name }}'s [LogMiner package]({{ site.data.taps.links[integration.name]logminer }}){:target="new"} to replicate data incrementally. This means that when Log-based Incremental is selected as the Replication Method for a table, Stitch will only replicate new or updated data for the table during each replication job.
 
@@ -274,7 +282,7 @@ replication-sections:
   - title: "Data types"
     anchor: "data-types"
     content: |
-      {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true version="1.0" version-column-headers=false %}
+      {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true version="1" version-column-headers=false %}
 
 ---
 {% assign integration = page %}

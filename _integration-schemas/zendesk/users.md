@@ -1,6 +1,6 @@
 ---
 tap: "zendesk"
-version: "1.0"
+version: "1"
 
 name: "users"
 doc-link: https://developer.zendesk.com/rest_api/docs/support/users
@@ -277,13 +277,13 @@ attributes:
     type: "string"
     description: "The API URL associated with the user."
 
-  # - name: "user_fields"
-  #   type: "object"
-  #   description: "The values of custom fields in the user's record."
-  #   subattributes:
-  #     - name: "[TODO]"
-  #       type: 
-  #       description: 
+  - name: "user_fields"
+    type: "object"
+    description: "The values of custom fields in the user's record. A column will be created for every custom field with at least one non-null value."
+    subattributes:
+      - name: "CUSTOM_FIELD_NAME"
+        type: "varies"
+        description: "The custom field. The name and data type of the custom field depend on the name and data type of the field in {{ integration.display_name }}."
 
   - name: "verified"
     type: "boolean"

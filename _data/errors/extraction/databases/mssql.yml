@@ -6,17 +6,24 @@
 ## while replicating data from a MSSQL-backed database.
 
 raw-error:
-  ct-not-enabled-for-table: &ct-not-enabled-for-table "Cannot sync stream: [NAME] using log-based replication. Change Tracking is not enabled for table: [TABLE_NAME]"
-  ct-not-enabled-for-database: &ct-not-enabled-for-database "Cannot sync stream: [NAME] using log-based replication. Change Tracking is not enabled for database: [TABLE_NAME]"
+  ct-not-enabled-for-table: &ct-not-enabled-for-table "Cannot sync stream: [TABLE_NAME] using log-based replication. Change Tracking is not enabled for table: [TABLE_NAME]"
+  ct-not-enabled-for-database: &ct-not-enabled-for-database "Cannot sync stream: [TABLE_NAME] using log-based replication. Change Tracking is not enabled for database: [DATABASE_NAME]"
 
 all:
 # Change tracking not enabled for database
   - message: *ct-not-enabled-for-database
     id: "ct-not-enabled-for-database"
+    applicable-to: &all-mssql "Microsoft SQL Server v1-backed database integrations"
     level: "critical"
-    meaning: "Change Tracking is not enabled for the named database."
+    category: &log-based-category "Log-based Incremental Replication"
+    category-doc: |
+      {{ link.replication.log-based-incremental | prepend: site.baseurl }}
+    version: "1"
+    summary: "Change tracking isn't enabled for a database"
+    cause: |
+      Change Tracking is not enabled for the named database, which contains tables that are set to replicate and use Log-based Incremental Replication in Stitch.
     fix-it: |
-      Enabled Change Tracking for the database referenced in the error message. To use Change Tracking, you must enabled it both at the database and table level.
+      Enable Change Tracking for the database referenced in the error message. To use Change Tracking, you must enabled it both at the database and table level.
 
       To enable Change Tracking for the database, log into your database and run the following statement, replacing `<database_name>` with the name of the database:
 
@@ -27,8 +34,15 @@ all:
 # Change tracking not enabled for table
   - message: *ct-not-enabled-for-table
     id: "ct-not-enabled-for-table"
+    applicable-to: *all-mssql
     level: "critical"
-    meaning: "Change tracking is not enabled for the named table."
+    category: *log-based-category
+    category-doc: |
+      {{ link.replication.log-based-incremental | prepend: site.baseurl }}
+    version: "1"
+    summary: "Change tracking isn't enabled for a table"
+    cause: |
+      Change tracking is not enabled for the named table, which is set to replicate and use Log-based Incremental Replication.
     fix-it: |
       Enable change tracking for the table referenced in the error message. To use Change Tracking, you must enabled it both at the database and table level. Microsoft SQL Server requires that Change Tracking be enabled for every table you want to use Log-based Incremental for.
 

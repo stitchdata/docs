@@ -1,0 +1,20 @@
+# ------------------------------------------ #
+#  POSTGRESQL DESTINATION INCOMPATIBILITIES  #
+# ------------------------------------------ #
+
+## This file contains a list of sources that may
+## be incompatible with Stitch's PostgreSQL destination.
+
+- integration: "hubspot"
+  version: "any"
+  level: "sometimes"
+  reason: &table-name-denesting |
+    [Flattening nested JSON structures]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) may result in tables and columns with names that exceed {{ destination.display_name }}'s character limit for object names:
+
+    - {{ site.data.destinations[destination.type]destination-details.table-name-length }} characters for tables
+    - {{ site.data.destinations[destination.type]destination-details.column-name-length }} characters for columns
+
+- integration: "stripe"
+  version: "any"
+  level: "sometimes"
+  reason: *table-name-denesting

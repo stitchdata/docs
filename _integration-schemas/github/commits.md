@@ -1,6 +1,6 @@
 ---
 tap: "github"
-# version: ""
+version: "1"
 
 name: "commits"
 doc-link:

@@ -1,6 +1,6 @@
 ---
 tap: "bing-ads"
-version: "1.0"
+version: "1"
 
 name: "goals_and_funnels_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportcolumn

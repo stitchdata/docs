@@ -4,36 +4,9 @@ layout: page
 {% assign integration = page %}
 {% include misc/data-files.html %}
 
-{% assign released-versions = site.data.taps.versions[integration.name].released-versions %}
-{% assign latest-version = site.data.taps.versions[integration.name].latest-version %}
+<!-- SUPPORT AND SINGER NOTICE-->
+    {% include notifications/status-support/connection-notices.html %}
 
-<!-- SUPPORT AND SINGER NOTICE
-    This won't display for Stitch Certified integrations where
-    the version has been officially deprecated (both removed from
-    the product AND support is discontinued) 
-
-    Instead, users will see the DEPRECATION NOTICE below, where
-    they'll be prompted to upgrade to the newest version of the integration -->
-
-    {% if integration.this-version %}
-        {% for version in released-versions %}
-            {% if version.number == integration.this-version %}
-                {% case version.deprecated %}
-                    {% when true %}
-                        {% include notifications/integration-deprecation-notice.html %}
-                    {% when false %}
-                        {% include notifications/support-beta-singer-notice.html %}
-                {% endcase %}
-            {% endif %}
-        {% endfor %}
-
-        {% else %}
-            {% include notifications/support-beta-singer-notice.html %}
-    {% endif %}
-
-<!-- DEPRECATION NOTICE 
-    This only displays for integrations where version.deprecated == true -->
-    
 
 <!-- INTEGRATION-SPECIFIC NOTICES -->
 {% if integration.notice %}
@@ -59,7 +32,7 @@ layout: page
         {% assign snapshot-type = "saas" %}
     {% endif %}
 
-    {% include integrations/templates/versioning/integration-supported-features.html type="integration-snapshot" feature-type=snapshot-type %}
+    {% include shared/versioning/integration-supported-features.html type="integration-snapshot" feature-type=snapshot-type %}
 
 
 <!-- CONNECTION INSTRUCTIONS -->
@@ -71,46 +44,16 @@ layout: page
 
 <!-- REPLICATION DETAILS -->
 {% if integration.replication-sections %}
-    <h2 id="replication">{{ integration.display_name }} Replication</h2>
-
-    {% for section in integration.replication-sections %}
-        {% if section.title == "attribution window" %}
-            <h3 id="{{ integration.display_name |  downcase }}-attribution-windows">{{ integration.display_name }} Replication and Attribution Windows</h3>
-
-            {% capture attribution-window %}
-            {% include integrations/saas/attribution-windows.html %}
-            {% endcapture %}
-
-            {{ attribution-window | markdownify }}
-
-        {% else %}
-
-            {% if section.title %}
-                <h3 id="{{ section.anchor }}">{{ section.title | flatify }}</h3>
-            {% endif %}
-
-            {{ section.content | flatify | markdownify }}
-
-            {% if section.subsections %}
-                {% for subsection in section.subsections %}
-                    <h4 id="{{ subsection.anchor }}">{{ subsection.title | flatify }}</h4>
-
-                    {{ subsection.content | flatify | markdownify }}
-                {% endfor %}
-            {% endif %}
-        {% endif %}
-    {% endfor %}
-
-    <hr>
+    {% include layout/additional-sections.html section-type="replication" %}
 {% endif %}
 
 
 
 {% unless integration.no-schema == true %}
 <!-- SCHEMA DETAILS START -->
-<h2 id="schema">{{ integration.display_name }} table schemas</h2>
+<h2 id="schema">{{ integration.display_name }} table reference</h2>
 
-<!-- Displays an info box if there are multiple versions of an integration currenly available -->
+<!-- Displays an info box if there are multiple versions of an integration currently available -->
 
 {% if integration.this-version %}
 {% assign integration = page %}
@@ -120,7 +63,7 @@ Schemas and naming conventions can change from version to version, so we recomme
 The schema and info displayed below is for **version {{ integration.this-version }}** of this integration.
 
 {% if integration.this-version == latest-version %}
-  This is the latest version of the {{ integration.display_name }} integraiton.
+  This is the latest version of the {{ integration.display_name }} integration.
 {% endif %}
 {% endcapture %}
 
@@ -164,7 +107,9 @@ non-standard handling of certain data types, etc. -->
     {% else %}
     {% endif %}
 {% else %}
-    {% include integrations/templates/schemas/table-schemas.html %}
+    {% unless integration.exclude-table-schemas == true %}
+        {% include integrations/templates/schemas/table-schemas.html %}
+    {% endunless %}
 {% endif %}
 <!-- SCHEMA DETAILS END -->
 {% endunless %}
@@ -192,7 +137,10 @@ non-standard handling of certain data types, etc. -->
                 {% endfor %}
             {% endif %}
         {% endfor %}
-        <hr>
+
+        {% if forloop.last == true %}
+            <hr>
+        {% endif %}
     {% endif %}
 
 

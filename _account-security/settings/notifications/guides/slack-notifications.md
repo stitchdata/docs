@@ -10,6 +10,7 @@ summary: "Integrate Stitch notifications with Slack using Stitch's Custom email 
 input: false
 layout: general
 
+key: "slack-email-notifications"
 type: "notifications"
 weight: 6
 

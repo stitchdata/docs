@@ -13,7 +13,7 @@
 
 {% case include.replication-method %}
     {% when 'full-table' %}
-        {% assign deletion-methods = "soft|hard|bigquery" | split: "|" %}
+        {% assign deletion-methods = "soft|hard|append-only" | split: "|" %}
 
     {% else %}
         {% assign deletion-methods = "soft|hard" | split: "|" %}
@@ -35,8 +35,8 @@
         {% endcase %}
 
         {% case deletion-method %}
-            {% when 'bigquery' %}
-                <a href="#{{ include.replication-method }}-{{ deletion-method }}-delete-tab" data-toggle="tab">Hard deletes in BigQuery</a>
+            {% when 'append-only' %}
+                <a href="#{{ include.replication-method }}-{{ deletion-method }}-delete-tab" data-toggle="tab">Hard deletes with Append-Only loading</a>
             {% else %}
                 <a href="#{{ include.replication-method }}-{{ deletion-method }}-delete-tab" data-toggle="tab">{{ deletion-method | capitalize }} deletes</a>
         {% endcase %}
@@ -58,8 +58,8 @@
             {% if deletion-method == delete.type %}
                 <span class="h3">
                     {% case deletion-method %}
-                        {% when 'bigquery' %}
-                            Hard deletes with {{ replication-method-display-name }} in BigQuery
+                        {% when 'append-only' %}
+                            Hard deletes with Append-Only loading
 
                         {% else %}
                             {{ delete.type | capitalize | append: " deletes" }} with {{ replication-method-display-name }}
@@ -72,8 +72,8 @@
                             <span class="h4">
 
                                 {% case deletion-method %}
-                                    {% when 'bigquery' %}
-                                        Hard delete in BigQuery: {{ example.job | capitalize | append: " job" }} 
+                                    {% when 'append-only' %}
+                                        Hard delete with Append-Only loading: {{ example.job | capitalize | append: " job" }} 
 
                                     {% else %}
                                         {{ delete.type | capitalize | append: " delete" }}: {{ example.job | capitalize | append: " job" }}

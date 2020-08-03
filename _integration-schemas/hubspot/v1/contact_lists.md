@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "1"
 
 name: "contact_lists"
 doc-link: https://developers.hubspot.com/docs/methods/lists/contact-lists-overview

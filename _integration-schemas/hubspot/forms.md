@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "2.0"
+version: "2"
 
 name: "forms"
 doc-link: https://developers.hubspot.com/docs/methods/forms/forms_overview

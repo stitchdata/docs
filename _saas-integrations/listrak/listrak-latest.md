@@ -3,11 +3,13 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Listrak (v1.0)
+title: Listrak (v1)
 permalink: /integrations/saas/listrak
 keywords: listrak, integration, schema, etl listrak, listrak etl, listrak schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Listrak integration."
 layout: singer
+
+key: "listrak-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -18,7 +20,7 @@ display_name: "Listrak"
 singer: true 
 repo-url: https://github.com/singer-io/tap-listrak
 
-# this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} SOAP API](https://webservices.listrak.com/SoapWSDL.aspx){:target="new"}
@@ -27,7 +29,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"
@@ -35,11 +36,13 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: 
 
-table-selection: true
-column-selection: false
+api-type: "platform.listrak"
 
 anchor-scheduling: true
 cron-scheduling: false
+
+table-selection: true
+column-selection: false
 
 extraction-logs: true
 loading-reports: true
@@ -90,6 +93,16 @@ setup-steps:
          - **Analytics Access** - This allows the Stitch user to view analytics for messages, contacts, and lists for available lists.
          - **API Access** - This allows the Stitch user to replicate data from your {{ integration.display_name }} using the {{ integration.display_name }} API.
       9. Click **Add User** when finished.
+
+  - title: "Add Stitch IP Addresses to SOAP API Whitelist."
+    anchor: "ip-addresses-whitelist"  
+    content: |
+      1. In your {{ integration.display_name }} account, navigate to **Manage > Accounts > SOAP API IP Authorization**.
+      2. Add the following IP addresses:
+           {% for ip in ip-addresses %}
+           - {{ ip.ip }}
+           {% endfor %}
+  
   - title: "add integration"
     content: |
       4. In the **Username** field, enter the Stitch {{ integration.display_name }} user's username.

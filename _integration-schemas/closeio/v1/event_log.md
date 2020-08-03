@@ -1,6 +1,6 @@
 ---
 tap: "closeio"
-version: "1.0"
+version: "1"
 
 name: "event_log"
 doc-link: ""

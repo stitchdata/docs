@@ -4,33 +4,33 @@
 
 <!-- Display the block that shows the Singer project, IAPI, and generic webhooks -->
 {% when 'where-is-integration' %}
-<ul class="tiles">
-        <li>
-            <a href="{{ site.singer }}" target="new">
-                <img src="{{ site.baseurl }}/images/integrations/icons/singer.svg" alt="Singer.io">
-            </a>
-            <strong>Singer.io</strong><br>
-            <a href="https://github.com/singer-io/getting-started" target="new">Get Started</a> | <a href="{{ site.singer-roadmap }}" target="new">Roadmap</a>
-        </li>
+<ul class="tiles three-columns">
+    <li>
+        <a href="{{ site.singer }}" target="new">
+            <img src="{{ site.baseurl }}/images/integrations/icons/singer.svg" alt="Singer.io">
+        </a>
+        <strong>Singer.io</strong><br>
+        <a href="https://github.com/singer-io/getting-started" target="new">Get Started</a> | <a href="{{ site.singer-roadmap }}" target="new">Roadmap</a>
+    </li>
 
-    <!-- Only show this if the include asks for it -->
-    <!-- The IAPI and webhooks aren't applicable to database integrations, so don't show this there -->
+<!-- Only show this if the include asks for it -->
+<!-- The IAPI and webhooks aren't applicable to database integrations, so don't show this there -->
 
-        {% if include.which-integrations %}
-            {% assign iapi = site.documents | where:"name","import-api" %}
-            {% assign webhooks = site.documents | where:"name","incoming-webhooks" %}
-            {% assign iapi-and-webhooks = iapi | concat: webhooks | sort:"title" %}
+    {% if include.which-integrations %}
+        {% assign iapi = site.documents | where:"key","import-api-overview" %}
+        {% assign webhooks = site.documents | where:"key","incoming-webhooks-reference" %}
+        {% assign iapi-and-webhooks = iapi | concat: webhooks | sort:"title" %}
 
-            {% for integration in iapi-and-webhooks %}
-                <li>
-                    <a href="{{ integration.url | prepend: site.baseurl }}">
-                        <img src="{{ integration.icon | prepend: site.baseurl }}" alt="{{ integration.display_name }}">
-                    </a>
-                    <strong>{{ integration.title }}</strong><br>
-                     <a href="{{ integration.url | prepend: site.baseurl }}">Get Started</a>
-                </li>
-            {% endfor %}
-        {% endif %}
+        {% for integration in iapi-and-webhooks %}
+            <li>
+                <a href="{{ integration.url | prepend: site.baseurl }}">
+                    <img src="{{ site.baseurl }}/images/integrations/icons/{{ integration.name }}.svg" alt="{{ integration.title }}">
+                </a>
+                <strong>{{ integration.title }}</strong><br>
+                 <a href="{{ integration.url | prepend: site.baseurl }}">Get Started</a>
+            </li>
+        {% endfor %}
+    {% endif %}
 </ul>
 
 <!-- For SaaS integrations-->
@@ -67,7 +67,7 @@
 
 
 <!-- Generate the tiles for the integrations using the variables assigned by include.type -->
-<ul class="tiles">
+<ul class="tiles three-columns">
     {% for integration in integrations %}
         <li>
             <a href="{{ integration.url | prepend: site.baseurl }}">
@@ -87,14 +87,13 @@
             </strong><br>
 
         <!-- If the integration is versioned, or has an overview page and has-versions == true -->
-            {% if integration.this-version or integration.has-versions == true %}
-                {% include integrations/templates/versioning/integration-version-menu.html menu-type="category-page" %}
+            {% include shared/versioning/version-menu.html connection-type="integration" menu-type="category-page" item-name="integration" %}
 
-            {% else %}
+            {% if total-versions <= 1 %}
                 <a href="{{ integration.url | prepend: site.baseurl | append: "#setup" }}">Setup</a>
                     {% if integration.permalink contains "databases" or 
                           integration.permalink contains "webhooks" or
-                          integration.replication-notes == true %}
+                          integration.replication-sections %}
                         | <a href="{{ integration.url | prepend: site.baseurl | append: "#replication" }}">Replication</a>
                     {% endif %}
 

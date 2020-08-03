@@ -30,7 +30,7 @@ below.  -->
 {% if page.permalink contains "integrations" %}
   {% if page.this-version %}
     {% assign all-connection-settings = site.data.ui.database-integration-settings.[page.db-type].[page.name] %}
-      {% assign versioned-connection-settings = all-connection-settings | where:"version",page.this-version %}
+      {% assign versioned-connection-settings = all-connection-settings | where_exp:"field","field.version contains page.this-version" %}
         {% assign connection-settings = all-connection-settings | where:"version","all" | concat: versioned-connection-settings %}
 
   {% else %}
@@ -46,11 +46,24 @@ below.  -->
 
 <!-- FOR DESTINATIONS -->
 {% elsif page.permalink contains "destinations" %}
+<!-- This doesn't actually append fields - it just assigns a variable so that data
+    from the common file can be used in other files. -->
   {% assign common = site.data.ui.destination-settings.common %}
 
-  {% assign destination-name = page.display_name | slugify %}
-    {% assign connection-settings = site.data.ui.destination-settings[page.type][destination-name] %}
-      {% assign ssl-fields = site.data.ui.destination-settings[page.type]ssl %}
+  {% assign destination-name = page.name %}
+
+<!-- Logic that checks for version info, and gets the correct data file
+    if there's more than one version -->
+  {% case include.use-version %}
+    {% when true %}
+      {% assign version = page.this-version | prepend: "v" %}
+        {% assign connection-settings = site.data.ui.destination-settings[page.type][destination-name][version] %}
+
+    {% else %}
+      {% assign connection-settings = site.data.ui.destination-settings[page.type][destination-name] %}
+  {% endcase %}
+
+    {% assign ssl-fields = site.data.ui.destination-settings[page.type]ssl %}
 
   {% capture stitch-location-copy %}
   Click the {{ app.menu-paths.destination-settings }}.
@@ -62,6 +75,7 @@ below.  -->
 {% case include.type %}
 
 {% when 'general' %}
+
 <!-- GENERAL INSTRUCTIONS -->
 1. If you aren't signed into your Stitch account, [sign in now]({{ site.sign-in }}){:target="_blank"}.
 2. {{ stitch-location-copy }}
@@ -138,6 +152,6 @@ Click the **{{ defaults.field-names.ssl }}** checkbox if you're using an SSL con
 
 When finished, click {{ save-connection-button | flatify }}.
 
-Stitch will perform a connection test to the {{ page.display_name }} database; if successful, a *Success!* mesage will display at the top of the screen. **Note**: This test may take a few minutes to complete.
+Stitch will perform a connection test to the {{ page.display_name }} database; if successful, a *Success!* message will display at the top of the screen. **Note**: This test may take a few minutes to complete.
 
 {% endcase %}

@@ -1,5 +1,5 @@
 ---
-title: Amazon Aurora (MySQL) RDS
+title: Amazon Aurora MySQL RDS (v1)
 keywords: amazon aurora, aurora mysql, database integration, etl aurora, aurora etl
 permalink: /integrations/databases/amazon-aurora-mysql
 summary: "Connect and replicate data from your Amazon Aurora RDS database using Stitch's Aurora integration."
@@ -7,6 +7,8 @@ microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://mysql.topostgres.com/"
 show-in-menus: true
+
+key: "aurora-rds-integration"
 
 # -------------------------- #
 #         Tap Details        #
@@ -19,7 +21,7 @@ singer: true
 tap-name: "MySQL"
 repo-url: https://github.com/singer-io/tap-mysql
 
-# this-version: "1.0"
+this-version: "1"
 
 hosting-type: "amazon"
 
@@ -30,7 +32,8 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+singer: true
+repo-url: https://github.com/singer-io/tap-mysql
 certified: true
 setup-name: "Amazon Aurora"
 
@@ -40,7 +43,7 @@ port: 3306
 db-type: "mysql"
 
 ## Stitch features
-
+api-type: "platform.aurora"
 versions: "n/a"
 ssh: true
 ssl: true
@@ -94,6 +97,7 @@ requirements-list:
       **The `CREATE USER` or `INSERT` privilege (for the `mysql` database).** The [`CREATE USER` privilege](https://dev.mysql.com/doc/refman/8.0/en/create-user.html){:target="new"} is required to create a database user for Stitch.
   - item: |
       **The `GRANT OPTION` privilege in {{ integration.display_name }}.** The [`GRANT OPTION` privilege](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_grant-option){:target="new"} is required to grant the necessary privileges to the Stitch database user.
+
 
 # -------------------------- #
 #     Setup Instructions     #

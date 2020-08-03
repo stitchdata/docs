@@ -12,11 +12,13 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: LivePerson
+title: LivePerson (v1)
 permalink: /integrations/saas/liveperson
 keywords: liveperson, integration, schema, etl liveperson, liveperson etl, liveperson schema
 layout: singer
 # input: false
+
+key: "liveperson-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -29,7 +31,7 @@ singer: true
 tap-name: "LivePerson"
 repo-url: https://github.com/singer-io/tap-liveperson
 
-# this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} Data Access API](https://developers.liveperson.com/data-access-api-overview.html){:target="new"}
@@ -39,7 +41,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: false
 
 historical: "1 year"
@@ -47,8 +48,10 @@ frequency: "1 hour"
 tier: "Free"
 status-url: "https://status.liveperson.com/"
 
+api-type: "platform.liveperson"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

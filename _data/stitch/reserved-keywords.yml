@@ -2,54 +2,187 @@
 #  RESERVED WORDS FOR DESTINATIONS #
 # -------------------------------- #
 
-## The keywords listed here are reserved or limited.
+## This file contains the reserved keywords for Stitch
+## and its destinations.
 
-- name: "{{ system-column.prefix }}"
-  description: "Can't be used in table or column names."
+## The COMMON list (below) contains keywords that are shared
+## between at least two destinations. The anchors are then
+## referenced in the individual list for each destination,
+## if it's applicable.
 
-- name: "{{ system-column.rjm-prefix }}"
-  description: "Can't be used in table or column names."
+common:
+  - &sdc-prefix
+    name: "{{ system-column.prefix }}"
+    type: "stitch"
+    description: "Can't be used as a prefix in table or column names."
 
-- name: "__bi"
-  description: &changed-types "Can't be used in column names; reserved by Stitch to accommodate changed data types."
-  applies-to: "redshift, panoply, postgres"
+  - &rjm-prefix
+    name: "{{ system-column.rjm-prefix }}"
+    type: "stitch"
+    description: "Can't be used as a prefix in table or column names."
 
-- name: "__bo"
-  description: *changed-types
-  applies-to: "redshift, panoply, azure, postgres, bigquery, snowflake"
+  - &bigint-suffix
+    name: "__bi"
+    type: "stitch"
+    description: &changed-types "Can't be used as a suffix in column names; reserved by Stitch to accommodate changed data types."
 
-- name: "__de"
-  description: *changed-types
-  applies-to: "redshift, panoply, azure, postgres, snowflake"
+  - &boolean-suffix
+    name: "__bo"
+    type: "stitch"
+    description: *changed-types
 
-- name: "__do"
-  description: *changed-types
-  applies-to: "redshift, panoply, postgres"
+  - &decimal-suffix
+    name: "__de"
+    type: "stitch"
+    description: *changed-types
 
-- name: "__fl"
-  description: *changed-types
-  applies-to: "azure, bigquery, snowflake"
+  - &double-suffix
+    name: "__do"
+    type: "stitch"
+    description: *changed-types
 
-- name: "__inst"
-  description: *changed-types
-  applies-to: "microsoft-azure"
+  - &float-suffix
+    name: "__fl"
+    type: "stitch"
+    description: *changed-types
 
-- name: "__it"
-  description: *changed-types
-  applies-to: "redshift, panoply, bigquery, postgres, snowflake"
+  - &integer-suffix
+    name: "__it"
+    type: "stitch"
+    description: *changed-types
 
-- name: "__nu"
-  description: *changed-types
-  applies-to: "bigquery"
+  - &string-suffix
+    name: "__st"
+    type: "stitch"
+    description: *changed-types
 
-- name: "__st"
-  description: *changed-types
-  applies-to: "redshift, panoply, azure, postgres, bigquery, snowflake"
+  - &timestamp-suffix
+    name: "__ti"
+    type: "stitch"
+    description: *changed-types
 
-- name: "__ti"
-  description: *changed-types
-  applies-to: "redshift, panoply, postgres, bigquery, snowflake"
 
-- name: "__va"
-  description: *changed-types
-  applies-to: "snowflake"
+# -------------------------------- #
+#         GOOGLE BIGQUERY          #
+# -------------------------------- #
+  
+bigquery:
+  - *sdc-prefix
+  - *rjm-prefix
+  - *boolean-suffix
+  - *float-suffix
+  - *integer-suffix
+  - name: "__nu" # For the NUMERIC data type
+    type: "stitch"
+    description: *changed-types
+  - *string-suffix
+  - *timestamp-suffix
+
+  - name: "_table_"
+    type: "destination"
+    description: &bigquery-prefix "Can't be used as a prefix in column names."
+
+  - name: "_file_"
+    type: "destination"
+    description: *bigquery-prefix
+
+  - name: "_partition_"
+    type: "destination"
+    description: *bigquery-prefix
+
+  - name: "_row_timestamp"
+    type: "destination"
+    description: *bigquery-prefix
+
+
+# -------------------------------- #
+#         DATABRICKS DELTA         #
+# -------------------------------- #
+  
+databricks-delta:
+  - *sdc-prefix
+  - *rjm-prefix
+  - *boolean-suffix
+  - name: "__db"
+    type: "stitch"
+    description: *changed-types
+  - *float-suffix
+  - *integer-suffix
+  - name: "__lg"
+    type: "stitch"
+    description: *changed-types
+  - *string-suffix
+  - *timestamp-suffix
+
+
+# ----------------------------------- #
+# MICROSOFT AZURE SYNAPSE ANALYTICS   #
+# ----------------------------------- #
+
+microsoft-azure:
+  - *sdc-prefix
+  - *rjm-prefix
+  - *boolean-suffix
+  - *decimal-suffix
+  - *float-suffix
+  - name: "__inst" # For the DATETIME data type
+    type: "stitch"
+    description: *changed-types
+  - *string-suffix
+
+
+# -------------------------------- #
+#         AMAZON REDSHIFT          #
+# -------------------------------- #
+
+redshift: &redshift-keywords
+  - *sdc-prefix
+  - *rjm-prefix
+  - *bigint-suffix
+  - *boolean-suffix
+  - *decimal-suffix
+  - *double-suffix
+  - *integer-suffix
+  - *string-suffix
+  - *timestamp-suffix
+
+
+# -------------------------------- #
+#           PANOPLY.IO             #
+# -------------------------------- #
+
+panoply: *redshift-keywords
+
+
+# -------------------------------- #
+#            POSTGRESQL            #
+# -------------------------------- #
+
+postgres:
+  - *sdc-prefix
+  - *rjm-prefix
+  - *bigint-suffix
+  - *boolean-suffix
+  - *decimal-suffix
+  - *double-suffix
+  - *integer-suffix
+  - *string-suffix
+  - *timestamp-suffix
+
+
+# -------------------------------- #
+#             SNOWFLAKE            #
+# -------------------------------- #
+
+snowflake:
+  - *sdc-prefix
+  - *rjm-prefix
+  - *boolean-suffix
+  - *decimal-suffix
+  - *float-suffix
+  - *integer-suffix
+  - *string-suffix
+  - *timestamp-suffix
+  - name: "__va" # For the VARIANT data type
+    type: "stitch"
+    description: *changed-types

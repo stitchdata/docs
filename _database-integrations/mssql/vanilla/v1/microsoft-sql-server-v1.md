@@ -5,7 +5,8 @@ permalink: /integrations/databases/microsoft-sql-server/v1
 summary: "Connect and replicate data from your Microsoft SQL Server database using Stitch's Microsoft SQL Server integration."
 show-in-menus: false
 
-hosting-type: "generic"
+key: "mssql-integration"
+
 
 # -------------------------- #
 #     Integration Details    #
@@ -16,7 +17,7 @@ display_name: "Microsoft SQL Server"
 
 hosting-type: "generic"
 
-this-version: "1.0"
+this-version: "1"
 
 driver: "7.2.1.jre8"
 
@@ -24,7 +25,8 @@ driver: "7.2.1.jre8"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+singer: true
+repo-url: https://github.com/singer-io/tap-mssql
 certified: true
 
 frequency: "30 minutes"
@@ -33,7 +35,7 @@ port: 1433
 db-type: "mssql"
 
 ## Stitch features
-
+api-type: "platform.mssql"
 versions: "2012 through 2017"
 ssh: true
 ssl: true
@@ -41,7 +43,7 @@ ssl: true
 ## General replication features
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true
@@ -151,6 +153,13 @@ setup-steps:
         anchor: "ssl-connection-details"
         content: |
           {% include shared/database-connection-settings.html type="ssl" %}
+
+      - title: "Define Log-based Replication setting"
+        anchor: "define-log-based-replication-setting"
+        content: |
+          {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication. [Click to skip ahead](#create-replication-schedule)." %}
+
+          {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html %}    
 
       - title: "Create a replication schedule"
         anchor: "create-replication-schedule"

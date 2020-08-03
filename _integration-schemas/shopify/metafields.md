@@ -1,9 +1,9 @@
 ---
 tap: "shopify"
-version: "1.0"
+version: "1"
 
 name: "metafields"
-doc-link: "https://help.shopify.com/en/api/reference/metafield"
+doc-link: "https://shopify.dev/docs/admin-api/rest/reference/metafield?api[version]=2019-07"
 singer-schema: "https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/metafields.json"
 description: |
   The `{{ table.name }}` table contains info about resource metafields. These are arbitrary fields used to store additional information about resources.
@@ -20,7 +20,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Retrieve a list of metafields that belong to a resource"
-    doc-link: "https://help.shopify.com/en/api/reference/metafield#index"
+    doc-link: "https://shopify.dev/docs/admin-api/rest/reference/metafield?api[version]=2019-07"
 
 date-time: |
   The date and time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} when the [ITEM] was [ACTION].

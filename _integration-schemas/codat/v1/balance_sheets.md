@@ -1,6 +1,6 @@
 ---
 tap: "codat"
-version: "1.0"
+version: "1"
 key: "balance-sheet"
 
 name: "balance_sheets"
@@ -12,14 +12,15 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "List balance sheets for a company"
-    doc-link: "https://docs.codat.io/reference/financials#financials_balancesheet"
+  name: "List balance sheets for a company"
+  doc-link: "https://docs.codat.io/reference/financials#financials_balancesheet"
 
 attributes:
   - name: "companyId"
     type: "string"
     primary-key: true
     description: "The ID of the company the balance sheet is for."
+    foreign-key-id: "company-id"
 
   - name: "currency"
     type: "string"

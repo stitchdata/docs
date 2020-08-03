@@ -1,6 +1,6 @@
 ---
 tap: "codat"
-version: "1.0"
+version: "1"
 key: "account"
 
 name: "accounts"
@@ -9,11 +9,11 @@ singer-schema: "https://github.com/singer-io/tap-codat/blob/master/tap_codat/sch
 description: |
   The `{{ table.name }}` table contains info about the accounts in your {{ integration.display_name }} instance. In {{ integration.display_name }}, an account is a category used to record accounting transactions for a business.
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List accounts"
-    doc-link: "https://docs.codat.io/reference/accounts#accounts_list"
+  name: "List accounts"
+  doc-link: "https://docs.codat.io/reference/accounts#accounts_list"
 
 attributes:
   - name: "id"
@@ -28,6 +28,11 @@ attributes:
     description: "The ID of the company associated with the account."
     foreign-key-id: "company-id"
 
+  - name: "modifiedDate"
+    type: "string"
+    replication-key: true
+    description: ""
+
   - name: "currency"
     type: "string"
     description: "The currency of the account."
@@ -37,9 +42,17 @@ attributes:
     type: "number"
     description: "The current balance of the account."
 
+  - name: "description"
+    type: "string"
+    description: ""
+
   - name: "fullyQualifiedName"
     type: "string"
     description: "The full name of the account. For example: `Liability.Current.VAT`"
+
+  - name: "fullyQualifiedCategory"
+    type: "string"
+    description: ""
 
   - name: "isBankAccount"
     type: "boolean"
@@ -48,10 +61,15 @@ attributes:
   - name: "name"
     type: "string"
     description: "The name of the account."
+    foreign-key-id: "account-name"
 
   - name: "nominalCode"
     type: "string"
     description: "The reference given to each nominal account for a business."
+
+  - name: "sourceModifiedDate"
+    type: "string"
+    description: ""
 
   - name: "status"
     type: "string"

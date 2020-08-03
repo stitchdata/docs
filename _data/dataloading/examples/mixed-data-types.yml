@@ -49,10 +49,10 @@ example-tab-copy: |
 
 destinations:
 # ---------------------------------- #
-# MICROSOFT AZURE SQL DATA WAREHOUSE #
+# MICROSOFT AZURE SYNAPSE ANALYTICS  #
 # ---------------------------------- #
 
-  - name: "Azure SQL Data Warehouse"
+  - name: "Azure Synapse Analytics"
     table-is-altered: true
     original-column: "The column name remains as-is. The column's data type will be the first data type Stitch detected for the column. For example: `age` will only store `BIGINT` data. If a different data type is detected for `age`, it will be stored in an additional column and this column will be `null`."
     additional-columns: "The column's data type is appended to the column name. Only data of this type will be stored in this column. For example: `age__fl` will only store float/double data. If a different data type is detected for `age__fl`, it will be stored in the correctly typed column and this column will be `null`."

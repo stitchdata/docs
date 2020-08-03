@@ -3,12 +3,14 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Amplitude (v1.0)
+title: Amplitude (v1)
 permalink: /integrations/saas/amplitude
 keywords: amplitude, integration, schema, etl amplitude, amplitude etl, amplitude schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Amplitude integration."
 layout: singer
 # input: false
+
+key: "amplitude-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -21,13 +23,12 @@ singer: true
 tap-name: "Amplitude"
 repo-url: https://github.com/singer-io/tap-amplitude
 
-# this-version: "1.0"
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false 
 
 historical: "n/a"
@@ -35,8 +36,10 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: "https://status.amplitude.com/"
 
+api-type: "platform.amplitude"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

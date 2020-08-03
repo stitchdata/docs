@@ -1,0 +1,18 @@
+# -------------------------------------------- #
+#                                              #
+#               REPLICATION KEYS               #
+#                                              #
+# -------------------------------------------- #
+
+## Scenario data lives here: _data/dataloading/scenarios/replication-keys.yml
+## NOTE: If something is commented out and marked as 'uses default',
+   ## That means the copy for that thing lives in the file mentioned above.
+## Error data lives here: _data/errors/loading/bigquery.yml
+
+## Replication Key contains NULLs
+- id: null-rep-keys
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &rep-keys "{{ site.data.dataloading.scenarios.replication-keys.null-rep-keys.then | flatify }}"
+    v2: *rep-keys

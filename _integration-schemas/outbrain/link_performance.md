@@ -1,5 +1,6 @@
 ---
 # tap: "outbrain"
+# version: "1"
 
 # Not currently persisted as it makes the replication take too long
 # for accounts with tons of campaigns. This results in continually

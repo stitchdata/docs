@@ -8,14 +8,22 @@
 
 
 # -------------------------- #
-#   [INTEGRATION] VERSIONS   #
+#      INTERCOM VERSIONS     #
 # -------------------------- #
 
-latest-version: "1.0"
+latest-version: "1"
 
 released-versions:
-  - number: "1.0"
+  - number: "1"
+    status: "beta"
     date-released: "11-05-2019"
     # date-last-connection:
-    deprecated: false
-    deprecation-date: "n/a"
+    deprecation-date: ""
+    sunset-date: ""
+
+  - number: "02-02-2016" # not a singer tap
+    status: "released"
+    date-released: "February 2, 2016"
+    # date-last-connection:
+    deprecation-date: ""
+    sunset-date: ""

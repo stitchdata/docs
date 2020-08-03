@@ -1,9 +1,9 @@
 ---
 tap: "bing-ads"
-version: "2.0"
+version: "2"
 
 name: "campaigns"
-doc-link: https://docs.microsoft.com/en-us/bingads/campaign-management-service/campaign
+doc-link: https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignsbyids?view=bingads-13
 singer-schema: 
 description: |
   The `{{ table.name }}` table contains info about the campaigns in your Bing Ads account.

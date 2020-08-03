@@ -3,7 +3,10 @@ title: MongoDB (v1)
 keywords: mongodb, mongo, database integration, etl mongo, mongodb etl
 permalink: /integrations/databases/mongodb/v1
 summary: "Connect and replicate data from your MongoDB database using Stitch's Mongo integration."
+show-in-menus: false
 input: false
+
+key: "mongodb-integration"
 
 # -------------------------- #
 #     Integration Details    #
@@ -14,7 +17,7 @@ display_name: "MongoDB"
 
 hosting-type: "generic"
 
-this-version: "1.0"
+this-version: "1"
 
 driver: |
   [PyMongo 3.8.0](https://docs.mongodb.com/ecosystem/drivers/pymongo/){:target="new"}
@@ -24,8 +27,8 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 singer: true
+repo-url: "https://github.com/singer-io/tap-mongodb"
 certified: true
 
 frequency: "30 minutes"
@@ -33,8 +36,10 @@ tier: "Standard"
 port: 27017
 db-type: "mongo"
 
+
 ## Stitch features
 
+api-type: "platform.mongodb"
 versions: "2.6 through 4.0"
 ssh: true
 ssl: true
@@ -74,6 +79,16 @@ row-usage-hog-reasons:
   data-structure: true
   data-volume: true
   lots-of-full-table: false
+
+
+# -------------------------- #
+#      Incompatibilities     #
+# -------------------------- #
+
+## See the incompatibilities.yml files
+## in _data/destinations for details.
+
+has-incompatibilities: true
 
 
 # -------------------------- #
@@ -227,15 +242,6 @@ replication-sections:
       If your destination doesn't natively support nested data structures, Stitch will de-nest them to load them into the destination. Depending on how deeply nested the data is and the per table column limit of the destination, Stitch may encounter issues when loading heavily nested data.
 
       Refer to the [Nested Data Structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) for more info and examples.
-
-
-# -------------------------- #
-#      Incompatiblities      #
-# -------------------------- #
-
-## See _data/destinations/reference/incompatibilities.yml
-
-has-incompatibilities: true
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

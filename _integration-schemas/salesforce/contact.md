@@ -1,6 +1,6 @@
 ---
 tap: "salesforce"
-version: "1.0"
+version: "1"
 
 name: "contact"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_contact.htm

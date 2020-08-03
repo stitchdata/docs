@@ -1,7 +1,12 @@
 
-The Stitch public key is used to authorize the Stitch SSH user. This key is specific to your Stitch account.
+{% if page.name == "sftp" %}
+The Stitch public key is used to perform key-pair authentication to the {{ page.display_name }} server. This key is specific to your Stitch account.
 
-**Note**: If the key isn't properly installed, Stitch will be unable to access your database. 
+{% else %}
+The Stitch public key is used to authorize the Stitch SSH user. This key is specific to your Stitch account.
+{% endif %}
+
+**Note**: If the key isn't properly installed, Stitch will be unable to access the server. 
 
 To retrieve your public key, use the instructions below:
 

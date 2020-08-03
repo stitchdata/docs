@@ -5,6 +5,8 @@ keywords: shopify, integration, schema, etl shopify, shopify etl, shopify schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Shopify integration."
 layout: singer
 
+key: "shopify-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -16,16 +18,15 @@ singer: true
 tap-name: "Shopify"
 repo-url: https://github.com/singer-io/tap-shopify
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
-  [{{ integration.display_name }} REST Admin API](https://help.shopify.com/en/api/reference){:target="new"}
+  [{{ integration.display_name }} REST Admin API (v2019-07)](https://shopify.dev/docs/admin-api/rest/reference){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"
@@ -33,11 +34,13 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: "https://status.shopify.com/"
 
-table-selection: true
-column-selection: true
+api-type: "platform.shopify"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
+
+table-selection: true
+column-selection: true
 
 extraction-logs: true
 loading-reports: true
@@ -78,6 +81,18 @@ setup-steps:
       4. Click {{ app.buttons.finish-int-setup }}.
   - title: "track data"
 
+# -------------------------- #
+#     Replication Details    #
+# -------------------------- #
+
+replication-sections:  
+  - title: "Replicating order refunds"
+  - anchor: "order-refunds"
+  - content: |
+      To extract order refund data, Stitch queries every order in your account. If you have the `order_refunds` table selected for replication, the process can potentially be very slow depending on how many orders and refunds exist in your {{ integration.display_name }} account. As tables are extracted one at a time, this could cause extraction to not proceed for days at a time. To ensure timely replication of your other selected tables, consider creating a separate integration for only the `order_refunds` table.
+
+      **Note**: Creating a separate integration for your `order_refunds` table may negatively affect your {{ integration.display_name }} API quota.
+      
 
 # -------------------------- #
 #     Integration Tables     #

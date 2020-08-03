@@ -11,6 +11,8 @@ keywords: bing ads, integration, schema, etl bing ads, bing ads etl, bing ads sc
 layout: singer
 input: false
 
+key: "bing-ads-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -22,13 +24,12 @@ singer: true
 repo-url: https://github.com/singer-io/tap-bing-ads
 tap-name: "Bing Ads"
 
-this-version: "1.0"
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Deprecated"
 certified: true
 
 historical: "1 year"

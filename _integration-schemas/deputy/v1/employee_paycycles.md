@@ -1,6 +1,6 @@
 ---
 tap: "deputy"
-version: "1.0"
+version: "1"
 key: "employee-paycycle"
 
 name: "employee_paycycles"

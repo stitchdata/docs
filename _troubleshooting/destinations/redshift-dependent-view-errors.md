@@ -6,8 +6,10 @@ tags: [troubleshooting_destinations, troubleshooting_errors]
 
 summary: "If you've received a 'Dependent Views' error for your Redshift or Panoply data warehouse, you may need to temporarily drop dependent objects."
 type: "redshift-destination, error, replication"
+category: "loading-errors"
 promote: "false"
 
+key: "redshift-view-dependencies"
 
 solutions-pros-cons:
   - option: "Late Binding Views"

@@ -1,0 +1,37 @@
+# --------------------------------------- #
+#      AMAZON S3 REPLICATION DETAILS      #
+# --------------------------------------- #
+
+## Details about replication/loading for
+## Stitch's Amazon S3 destination.
+
+
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
+
+primary-key-support: false
+
+nested-structure-support: "Depends on data storage format (CSV or JSON)"
+nested-structure-support-description: |
+  Depending on the data storage format you select, nested data structures may be kept intact or flattened into relational objects:
+
+  - **CSV**: Nested data structures will be flattened into relational objects.
+  - **JSON**: Nested data will be kept intact.
+
+# rename-original-column-in-split:  "false"
+
+
+# ------------------------------ #
+#       LOADING BEHAVIOR         #
+# ------------------------------ #
+
+configurable-loading-behavior: false
+
+default-loading-behavior: "Append-Only"
+
+loading-behavior-types:
+  - "Append-Only"
+
+loading-behavior-description: |
+  All data will be loaded in an Append-Only fashion. Refer to the [Loading behavior](#loading-behavior) section for more info.

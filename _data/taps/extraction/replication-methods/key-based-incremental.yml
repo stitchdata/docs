@@ -34,7 +34,7 @@ configuration-requirements: |
   A column with one of the following data types that's suitable as a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}):
 
   {% for data in site.data.taps.extraction.replication-methods.key-based-incremental.allowed-data-types %}
-  - {{ data.type | flatify }}
+  - {{ data.type | upcase }}{% if data.integration != "All" %}{% capture tooltip %}Supported for {{ data.integration }} integrations only {% endcapture %}{{ info-icon | replace:"TOOLTIP",tooltip }}{% endif %}
   {% endfor %}
 
   **Note**: Refer to the [MongoDB Replication Keys]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) guide for considerations specific to MongoDB.
@@ -42,18 +42,40 @@ configuration-requirements: |
 other: ""
 
 allowed-data-types:
-  - type: "`TIMESTAMP`"
-  - type: "`DATETIME`"
-  - type: "`INTEGER`"
-  - type: |
-      `ObjectId` {{ info-icon | replace:"TOOLTIP","Supported only for MongoDB v1+ integrations" }}
-  - type: |
-      `NUMBER` {{ info-icon | replace:"TOOLTIP","Supported only for Oracle integrations" }}
+  - type: "datetime"
+    integration: "All"
+  
+  - type: "integer"
+    integration: "All"
+    notes: "Includes `BIGINT` and `MEDIUMINT`"
+  
+  - type: "timestamp"
+    integration: "All"
+  
+  - type: "float"
+    integration: "MongoDB v1+"
+    integration-type: "database"
+  
+  - type: "int64"
+    integration: "MongoDB v1+"
+    integration-type: "database"
+  
+  - type: "number"
+    integration: "Oracle v1+"
+    integration-type: "database"
+
+  - type: "objectid"
+    integration: "MongoDB v1+"
+    integration-type: "database"
+
+  - type: "uuid"
+    integration: "MongoDB v1+"
+    integration-type: "database"
 
 other-requirements:
   - "Must be a top-level field"
   - "Must exist in the root of the document (MongoDB only)"
-  - "Must be indexed (MongoDB only)"
+  - "Must be single-field indexed (MongoDB only)"
 
 
 # -------------------------- #
@@ -83,17 +105,20 @@ hard-deletes:
 ## are replicated.
 
 database-file-integrations:
+  - item: "What's replicated during a replication job?"
+    other-integrations: "Only new or updated rows in a table."
+    this-integration: |
+      The entire contents of a modified {{ file-name | default: "file" }}. {{ file-note | flatify }}
+
   - item: "What's used as a Replication Key?"
     other-integrations: "A column or columns in a table."
-    this-integration: "The time a file is modified."
+    this-integration: |
+      The time a {{ file-name | default: "file" }} is modified.
 
   - item: "Are Replication Keys inclusive?"
     other-integrations: "**Yes**. Rows with a Replication Key value **greater than or equal to** the last saved bookmark are replicated."
-    this-integration: "**No**. Only files with a modification timestamp value greater than the last saved bookmark are replicated."
-
-  - item: "What's replicated during a replication job?"
-    other-integrations: "Only new or updated rows in a table."
-    this-integration: "The entire contents of a modified file."
+    this-integration: |
+      **No**. Only {{ file-name | default: "file" | append: "s" }} with a modification timestamp value greater than the last saved bookmark are replicated.
 
 
 

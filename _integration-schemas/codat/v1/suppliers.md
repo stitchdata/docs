@@ -1,6 +1,6 @@
 ---
 tap: "codat"
-version: "1.0"
+version: "1"
 key: "supplier"
 
 name: "suppliers"
@@ -9,11 +9,14 @@ singer-schema: "https://github.com/singer-io/tap-codat/blob/master/tap_codat/sch
 description: |
   The `{{ table.name }}` table contains info about the suppliers in your {{ integration.display_name }} instance. A supplier is a person or organization that provides a product or service.
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
+
+replication-key:
+  name: "modifiedDate"
 
 api-method:
-    name: "Get suppliers for a company"
-    doc-link: "https://docs.codat.io/reference/suppliers#suppliers_listpaged"
+  name: "Get suppliers for a company"
+  doc-link: "https://docs.codat.io/reference/suppliers#suppliers_listpaged"
 
 attributes:
   - name: "companyId"

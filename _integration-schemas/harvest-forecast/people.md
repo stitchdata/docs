@@ -1,6 +1,6 @@
 ---
 tap: "harvest-forecast"
-version: "1.0"
+version: "1"
 
 name: "people"
 doc-link:
@@ -69,6 +69,7 @@ attributes:
       - name: "value"
         type: "string"
         description: "The name of the role assigned to the person."
+        foreign-key-id: "role-id"
 
   - name: "subscribed"
     type: "boolean"

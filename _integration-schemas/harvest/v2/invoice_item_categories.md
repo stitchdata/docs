@@ -1,6 +1,6 @@
 ---
 tap: "harvest"
-version: "2.0"
+version: "2"
 
 name: "invoice_item_categories"
 doc-link: https://help.getharvest.com/api-v2/invoices-api/invoices/invoice-item-categories/

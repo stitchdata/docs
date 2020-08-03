@@ -2,22 +2,24 @@
 #  REPLICATION JOB CORE OBJECT  #
 # ----------------------------- #
 
-title: "Replication Jobs"
+title: "Replication jobs"
 section: "#replication-jobs"
 object: "#replication-job--object"
-base: "/v4/sources/{source_id}/sync"
-description: "todo."
+base: &base "/v4/sources/{source_id}/sync"
+description: "An object representing a replication job. A replication job consists of three phases: Extraction, Preparation, and Loading."
 
 post:
-  name: "{{ site.data.connect.api.core-objects.replication-jobs.base }}"
+  name: *base
   title: "Start a replication job"
   method: "post"
   anchor: "#start-a-job"
-  description: "Starts a replication job for a source using the source's unique identifier."
+  description: &post-description "Starts a replication job for a source using the source's unique identifier."
+  short: *post-description
 
 delete:
-  name: "{{ site.data.connect.api.core-objects.replication-jobs.base }}"
+  name: *base
   title: "Stop a replication job"
   method: "delete"
   anchor: "#stop-a-job"
-  description: "Stops an in-progress replication job for a source using the source's unique identifier."
+  description: &delete-description "Stops an in-progress replication job for a source using the source's unique identifier."
+  short: *delete-description

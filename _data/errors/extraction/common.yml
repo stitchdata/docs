@@ -7,35 +7,67 @@
 
 raw-error:
   10k-table-limit: &10k-table-limit |
-    Stitch has discovered more than the maximum supported limit of 10,000 tables in your integration. [...]
+    Stitch has discovered more than the maximum supported limit of 10,000 tables in your integration.
 
-  time-limit: &time-limit "The process was terminated.  Most often this occurs because the job has exceeded its allotted runtime. The next job will run based on the integration's schedule."
+  time-limit: &time-limit-error "The process was terminated. Most often this occurs because the job has exceeded its allotted runtime. The next job will run based on the integration's schedule."
+
+## The max record size value is kept in the Import API data files: _/data/import-api/general.yml
+  record-size-limit: &record-size-limit-error "A single record is larger than the Stitch API limit of {{ site.data.import-api.general.max-record-size }}"
+
+time-limit: &time-limit
+  message: *time-limit-error
+  id: "time-limit"
+  applicable-to: "All integrations"
+  level: "info"
+  category: "Extraction job limits"
+  summary: "Extraction job time limit exceeded"
+  cause: |
+    The extraction exceeded the maximum six hour limit set for individual extraction jobs.
+
+    Stitch sets a maximum limit of six hours for individual extraction jobs. This is done to balance resource usage across Stitch, and to help prevent unexpected or unintended continuations of connections against integrations.
+  fix-it: |
+    To help decrease the runtime of extraction, we recommend de-selecting unneeded tables and columns. This will reduce the amount of data being replicated.
+
+    Stitch will automatically retry extraction based on the integration's schedule.
+
+record-size-limit: &record-size-limit
+  message: "{{ site.data.errors.extraction.common.raw-error.record-size-limit | flatify }}"
+  id: "record-size-limit"
+  applicable-to: "All integrations"
+  level: "critical"
+  category: "Extraction job limits"
+  summary: "Maximum record size exceeded"
+  cause: |
+    A single record exceeded the maximum size limit of {{ site.data.import-api.general.max-record-size }}. This limit is imposed by the [Import API]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#system-architecture" }}), which Stitch uses as part of the replication process. 
+  fix-it: |
+    Locate the record in the source and, if possible, modify it to be less than Stitch's limit. You can also try de-selecting columns in the table containing the record.
 
 
-all:
-  - message: *time-limit
-    id: "time-limit"
-    level: "info"
-    meaning: "The extraction exceeded the maximum six hour limit set for individual extraction jobs."
-    fix-it: |
-      Stitch sets a maximum limit of six hours for individual extraction jobs. This is done to balance resource usage across Stitch, and to help prevent unexpected or unintended continuations of connections against integrations.
+# ---------------------------- #
+#  Database Extraction Errors  #
+# ---------------------------- #
 
-      To help decrease the runtime of extraction, we recommend de-selecting unneeded tables and columns. This will reduce the amount of data being replicated.
-
-      Stitch will automatically retry extraction based on the integration's schedule.
-
+databases:
+  - <<: *time-limit
+  - <<: *record-size-limit
   - message: *10k-table-limit
     id: "10k-table-limit"
+    applicable-to: "All database integrations"
     level: "critical"
-    meaning: |
-      Stitch discovered more than the maximum limit of 10,000 tables for the integration. This will typically apply to database integrations.
+    category: "Discovery job limits"
+    summary: "Maximum discoverable table limit exceeded"
+    cause: |
+      Stitch discovered more than the maximum limit of 10,000 tables for the integration.
     fix-it: |
       Decrease the number of discoverable tables by limiting the Stitch database user's access only to tables you want to replicate. You can accomplish this by altering the Stitch database user's privileges in the database.
 
-      Use the documentation for your database to modify the Stitch database user's table access:
+      Refer to the [documentation for your database]({{ site.baseurl }}/integrations/databases/#all-database-integrations) for instructions.
 
-      - [Microsoft SQL Server](https://docs.microsoft.com/en-us/sql/t-sql/statements/grant-object-permissions-transact-sql?view=sql-server-2017){:target="new"}
-      - [MongoDB](https://docs.mongodb.com/v4.0/core/collection-level-access-control/){:target="new"}
-      - [MySQL](https://dev.mysql.com/doc/refman/5.7/en/grant.html#grant-table-privileges){:target="new"}
-      - [Oracle](https://docs.oracle.com/javadb/10.8.3.0/ref/rrefsqljgrant.html){:target="new"}
-      - [PostgreSQL](https://www.postgresql.org/docs/10/sql-grant.html){:target="new"}
+
+# ---------------------------- #
+#    SaaS Extraction Errors    #
+# ---------------------------- #
+
+saas:
+  - <<: *time-limit
+  - <<: *record-size-limit

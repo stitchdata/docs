@@ -1,9 +1,9 @@
 ---
 tap: "bing-ads"
-version: "2.0"
+version: "2"
 
 name: "campaign_performance_report"
-doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportcolumn#values
+doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/dsacategoryperformancereportfilter?view=bingads-13
 singer-schema: 
 description: |
   The `{{ table.name }}` table contains performance data for campaigns, aggregated by day..
@@ -24,7 +24,9 @@ description: |
   - `HistoricLandingPageExperience` is now `HistoricalLandingPageExperience`
   - `Status` is now `CampaignStatus`
 
-replication-method: "Append-Only (Incremental)"
+replication-method: "Key-based Incremental"
+loading-behavior: "Append-Only"
+
 attribution-window: true
 
 attributes:

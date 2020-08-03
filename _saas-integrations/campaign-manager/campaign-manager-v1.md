@@ -13,6 +13,8 @@ summary: "Connection instructions, replication info, and schema details for Stit
 layout: singer
 # input: false
 
+key: "campaign-manager-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -24,7 +26,7 @@ singer: true
 tap-name: "Campaign Manager"
 repo-url: https://github.com/singer-io/tap-doubleclick-campaign-manager
 
-# this-version: "1.0"
+this-version: "1"
 
 api: |
   [DCM/DFA Reporting and Trafficking API](https://developers.google.com/doubleclick-advertisers/getting_started){:target="new"}
@@ -33,7 +35,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"
@@ -41,14 +42,20 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: "https://ads.google.com/status#hl=en&v=status"
 
+api-type: "platform.doubleclick-campaign-manager"
+
 anchor-scheduling: true
 cron-scheduling: false
+
+table-selection: true
+column-selection: false
+table-level-reset: false
 
 extraction-logs: true
 loading-reports: true
 
-table-selection: true
-column-selection: false
+append-only-integration: true
+
 
 # https://support.google.com/dcm/partner/answer/6110224?hl=en&ref_topic=4388017
 # Info about data freshness for metrics
@@ -69,7 +76,7 @@ requirements-list:
   - item: |
       **A Campaign Manager account**. Refer to [Google's website](https://www.google.com/doubleclick/advertisers/){:target="new"} for signup information.
   - item: |
-      **API access.** Most Campaign Manager accounts have this enabled by default. If you're not sure, contact your DoubleClick representative or the [Campaign Manager support team](mailto: dcm-support@google.com).
+      **API access.** Most {{ destination.display_name }} accounts have this enabled by default. If you're not sure, contact your {{ destination.display_name }} representative or the [{{ destination.display_name }} support team](mailto: dcm-support@google.com).
   - item: |
       **Access to the reports you want to replicate.** Stitch will only be able to replicate the reports that the user who authorizes the integration has access to.
 

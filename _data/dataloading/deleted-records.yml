@@ -85,7 +85,7 @@ log-based-incremental:
 
       **Note**: Identifying hard deleted records is dependent on how the record is deleted, as not all event types are recorded by databases in binary logs. For example: If a record is deleted using `TRUNCATE` in a MySQL database, Stitch will not detect the deletion.
 
-      The following event types will be detected by {{ replication-method-display-name }} for MySQL- and PostgreSQL-backed database integrations:
+      The following event types will be detected by {{ replication-method-display-name }} for database integrations that support this Replication Method:
 
       - `INSERT`
       - `UPDATE`
@@ -126,7 +126,7 @@ log-based-incremental:
 
           Stitch reads the log message for record `2` and identifies the record as deleted.
         destination: |
-          Record `2` will remain in the table, but have a timestamp in the `{{ system-column.deleted-at }}` column indicating when the deletion took place.
+          Record `2` is overwritten with the exception of its Primary Key value. Stitch will place a timestamp in the `{{ system-column.deleted-at }}` column to indicate when the deletion took place.
         tables:
           - location: "source"
             records:
@@ -146,7 +146,7 @@ log-based-incremental:
                 _sdc_deleted_at: ""
 
               - id: "2"
-                name: "Jake"
+                name: ""
                 _sdc_deleted_at: "2018-07-28 04:05:00"
 
               - id: "3"
@@ -359,12 +359,12 @@ full-table:
       In this example, we'll demonstrates what happens when a record is hard-deleted - or removed entirely - from the source.
 
       {% capture switch-view-notice %}
-      If using a BigQuery destination, this example is relevant only to integrations where you can define Replication Methods for tables.
+      [If using a destination that's configured to use Append-Only loading]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl | append: "#reference--destinations-loading-behavior" }}), this example is relevant only to integrations that support configurable Replication Methods.
 
-      For other integrations used with BigQuery destinations, see the **Hard deletes in BigQuery** tab for an example of how hard deletes are handled.
+      For other integrations, see the **Hard deletes with Append-Only loading** tab for an example of how hard deletes are handled.
       {% endcapture %}
 
-      {% include important.html first-line="**BigQuery destinations**" content=switch-view-notice %}
+      {% include important.html first-line="**Append-Only destinations**" content=switch-view-notice %}
     columns:
       - name: "id"
       - name: "name"
@@ -406,11 +406,11 @@ full-table:
           - location: "destination"
             records: *full-hard-second-source-table
 
-  - type: "bigquery"
+  - type: "append-only"
     description: |
-      In this example, we'll demonstrates what happens when a record is hard-deleted - or removed entirely - from the source.
+      In this example, we'll demonstrates what happens when a record is hard-deleted from the source and loaded into a destination using Append-Only loading.
 
-      How hard deletes are handled in BigQuery depends on the **integration**:
+      How hard deletes are handled in an Append-Only destination depends on the **integration**:
 
       - **If you can define Replication Methods for an integration**, Stitch will delete and re-create tables in a single transaction. This is the scenario described in the **Hard deletes** tab for this section.
       - **Otherwise**, Stitch will append the table in full to the destination table. **This is the scenario we'll outline here.**

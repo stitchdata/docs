@@ -1,6 +1,6 @@
 ---
 tap: "harvest"
-version: "2.0"
+version: "2"
 
 name: "expense_categories"
 doc-link: https://help.getharvest.com/api-v2/expenses-api/expenses/expense-categories/
