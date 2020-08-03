@@ -46,11 +46,9 @@ object-attributes:
     type: "string"
     required: false
     description: |
-      An ISO 8601-compliant date to indicate the date that Stitch should stop replicating data from your {{ form-property.display-name }} account.
-
-    Adding an end date could be useful, especially if you want to replicate campaign data from a specific period.
+      An ISO 8601-compliant date to indicate the date that Stitch should stop replicating data from your {{ form-property.display-name }} account. This can be useful if you want to replicate campaign data from a specific timerange.
     value: |
-      YYYY-MM-DDT00:00:00Z
+      2020-08-01T00:00:00Z
 
 
 # -------------------------- #
