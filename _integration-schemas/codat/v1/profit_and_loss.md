@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "List latest profit and loss for a company"
-    doc-link: "https://docs.codat.io/reference/financials#financials_profitandloss"
+  name: "List latest profit and loss for a company"
+  doc-link: "https://docs.codat.io/reference/financials#financials_profitandloss"
 
 attributes:
   - name: "companyId"

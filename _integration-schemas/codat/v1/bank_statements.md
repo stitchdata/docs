@@ -9,11 +9,14 @@ singer-schema: "https://github.com/singer-io/tap-codat/blob/master/tap_codat/sch
 description: |
   The `{{ table.name }}` table contains info about bank statement report data for a company over a time period.
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
+
+replication-key:
+  name: "modifiedDate"
 
 api-method:
-    name: "List bank statements for a company"
-    doc-link: "https://docs.codat.io/reference/bankstatements#bankstatements_listpaged"
+  name: "List bank statements for a company"
+  doc-link: "https://docs.codat.io/reference/bankstatements#bankstatements_listpaged"
 
 attributes:
   - name: "id"
@@ -26,6 +29,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the company associated with the account."
+    foreign-key-id: "company-id"
 
   - name: "accountName"
     type: "string"
