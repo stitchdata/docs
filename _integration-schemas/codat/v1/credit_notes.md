@@ -9,7 +9,10 @@ singer-schema: "https://github.com/singer-io/tap-codat/blob/master/tap_codat/sch
 description: |
   The `{{ table.name }}` table contains info about the credit notes in your {{ integration.display_name }} instance.
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
+
+replication-key: 
+  name: "modifiedDate"
 
 api-method:
     name: "List credit notes for a company"

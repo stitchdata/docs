@@ -9,7 +9,10 @@ singer-schema: "https://github.com/singer-io/tap-codat/blob/master/tap_codat/sch
 description: |
   The `{{ table.name }}` table contains info about bank statement report data for a company over a time period.
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
+
+replication-key:
+  name: "modifiedDate"
 
 api-method:
   name: "List bank statements for a company"

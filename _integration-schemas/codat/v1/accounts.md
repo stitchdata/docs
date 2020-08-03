@@ -9,7 +9,10 @@ singer-schema: "https://github.com/singer-io/tap-codat/blob/master/tap_codat/sch
 description: |
   The `{{ table.name }}` table contains info about the accounts in your {{ integration.display_name }} instance. In {{ integration.display_name }}, an account is a category used to record accounting transactions for a business.
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
+
+replication-key: 
+  name: "modifiedDate"
 
 api-method:
     name: "List accounts"

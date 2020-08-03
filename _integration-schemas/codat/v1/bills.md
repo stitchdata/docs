@@ -11,7 +11,8 @@ description: |
 
 replication-method: "Key-based Incremental"
 
-replication-key: "modifiedDate"
+replication-key:
+  name: "modifiedDate"
 
 api-method:
     name: "Get bills for a company"

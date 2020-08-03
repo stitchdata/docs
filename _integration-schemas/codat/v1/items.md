@@ -10,7 +10,6 @@ description: |
   The {{ table.name }} table contains information about items for a given company in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
-replication-key: "modifiedDate"
 
 api-method:
   name: "Get items"
@@ -28,6 +27,11 @@ attributes:
     primary-key: true
     description: "The item ID."
     foreign-key-id: "item-id"
+
+  - name: "modifiedDate"
+    type: "string"
+    description: "The date the item was last modified."
+    replication-key: true  
 
   - name: "billItem"
     type: "object"
@@ -77,10 +81,6 @@ attributes:
     description: ""
 
   - name: "itemStatus"
-    type: "string"
-    description: ""
-
-  - name: "modifiedDate"
     type: "string"
     description: ""
 

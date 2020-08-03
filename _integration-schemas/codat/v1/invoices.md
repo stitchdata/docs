@@ -9,7 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-codat/blob/master/tap_codat/sch
 description: |
   The `{{ table.name }}` table contains info about the invoices in your {{ integration.display_name }} instance. An invoice is an itemized record of goods or services sold to a [customer](#customers).
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: "List invoices for a company"
@@ -27,6 +27,11 @@ attributes:
     primary-key: true
     description: "The invoice ID."
     foreign-key-id: "invoice-id"
+
+  - name: "modifiedDate"
+    type: "date-time"
+    description: "The time the invoice was last modified."
+    replication-key: true
 
   - name: "amountDue"
     type: "number"
@@ -92,10 +97,6 @@ attributes:
       - name: "unitAmount"
         type: "number"
         description: "The price of each unit of goods or services."
-
-  - name: "modifiedDate"
-    type: "date-time"
-    description: "The time the invoice was last modified."
 
   - name: "paidOnDate"
     type: "date-time"
