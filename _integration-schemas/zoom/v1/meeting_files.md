@@ -1,0 +1,26 @@
+---
+tap: "zoom"
+version: "0.x"
+key: ""
+name: "meeting_files"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meeting_files.json"
+description: ""
+replication-method: ""
+api-method:
+    name: ""
+    doc-link: ""
+attributes:
+  - name: "download_url"
+    type: "string"
+    description: ""
+  - name: "file_name"
+    type: "string"
+    description: ""
+  - name: "file_size"
+    type: "integer"
+    description: ""
+  - name: "meeting_uuid"
+    type: "string"
+    description: ""
+---

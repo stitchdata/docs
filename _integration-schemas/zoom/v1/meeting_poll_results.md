@@ -1,0 +1,33 @@
+---
+tap: "zoom"
+version: "0.x"
+key: ""
+name: "meeting_poll_results"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meeting_poll_results.json"
+description: ""
+replication-method: ""
+api-method:
+    name: ""
+    doc-link: ""
+attributes:
+  - name: "email"
+    type: "string"
+    description: ""
+  - name: "meeting_uuid"
+    type: "string"
+    description: ""
+  - name: "name"
+    type: "string"
+    description: ""
+  - name: "question_details"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "answer"
+        type: "string"
+        description: ""
+      - name: "question"
+        type: "string"
+        description: ""
+---
