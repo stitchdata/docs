@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "List balance sheets for a company"
-    doc-link: "https://docs.codat.io/reference/financials#financials_balancesheet"
+  name: "List balance sheets for a company"
+  doc-link: "https://docs.codat.io/reference/financials#financials_balancesheet"
 
 attributes:
   - name: "companyId"

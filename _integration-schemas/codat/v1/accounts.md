@@ -11,12 +11,9 @@ description: |
 
 replication-method: "Key-based Incremental"
 
-replication-key: 
-  name: "modifiedDate"
-
 api-method:
-    name: "List accounts"
-    doc-link: "https://docs.codat.io/reference/accounts#accounts_list"
+  name: "List accounts"
+  doc-link: "https://docs.codat.io/reference/accounts#accounts_list"
 
 attributes:
   - name: "id"
@@ -31,6 +28,11 @@ attributes:
     description: "The ID of the company associated with the account."
     foreign-key-id: "company-id"
 
+  - name: "modifiedDate"
+    type: "string"
+    replication-key: true
+    description: ""
+
   - name: "currency"
     type: "string"
     description: "The currency of the account."
@@ -40,9 +42,17 @@ attributes:
     type: "number"
     description: "The current balance of the account."
 
+  - name: "description"
+    type: "string"
+    description: ""
+
   - name: "fullyQualifiedName"
     type: "string"
     description: "The full name of the account. For example: `Liability.Current.VAT`"
+
+  - name: "fullyQualifiedCategory"
+    type: "string"
+    description: ""
 
   - name: "isBankAccount"
     type: "boolean"
@@ -56,6 +66,10 @@ attributes:
   - name: "nominalCode"
     type: "string"
     description: "The reference given to each nominal account for a business."
+
+  - name: "sourceModifiedDate"
+    type: "string"
+    description: ""
 
   - name: "status"
     type: "string"
