@@ -49,6 +49,8 @@ cron-scheduling: false
 
 table-selection: true
 column-selection: false
+
+integration-level-reset: false
 table-level-reset: false
 
 extraction-logs: true

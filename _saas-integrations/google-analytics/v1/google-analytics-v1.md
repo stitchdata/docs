@@ -55,12 +55,12 @@ api-type: "platform.google-analytics"
 anchor-scheduling: true
 cron-scheduling: true
 
+extraction-logs: true
+loading-reports: true
+
 table-selection: true
 column-selection: true
 table-level-reset: true
-
-extraction-logs: true
-loading-reports: true
 
 
 # -------------------------- #
