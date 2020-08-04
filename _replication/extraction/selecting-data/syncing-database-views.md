@@ -1,24 +1,44 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Replicating Database Views
-permalink: /replication/replicating-database-views
+permalink: /replication/extractions/replicating-database-views
+redirect_from: /replication/replicating-database-views
 keywords: replicate, replication, replicate views, view, database view, replicate database view
-tags: [replication]
-layout: general
-
-content-type: "select-data"
-toc: true
-weight: 3
-
 summary: "Replicating a database view is almost the same as replicating a database table. In this guide, we'll cover the database integrations that support views and the additional steps required to replicate a database view."
 
-sections:
-  - content: |
-      {{ page.summary }}
+key: "replicate-database-views"
 
-  - title: "Supported databases"
-    anchor: "supported-databases"
+layout: general
+content-type: "select-data"
+toc: true
+weight: 2
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
+
+intro: |
+  In this guide, we'll cover:
+
+  {% for section in page.sections %}
+  - [{{ section.summary }}](#{{ section.anchor }})
+  {% endfor %}
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
+
+sections:
+  - title: "Applicable databases"
+    anchor: "applicable-databases"
+    summary: "The database integrations this guide applies to"
     content: |
-      Database views can be replicated from the following database integrations only:
+      Database views can be replicated from the following database integrations:
 
       {% assign all-databases = site.database-integrations | where:"input",true %}
       {% assign databases-with-view-support = all-databases | where:"view-replication",true | sort:"display_name" %}
@@ -29,6 +49,7 @@ sections:
 
   - title: "Setting a view to replicate"
     anchor: "set-view-to-replicate"
+    summary: "How to set a view to replicate"
     content: |
       To replicate a database view, follow these steps:
 
@@ -64,8 +85,9 @@ sections:
         content: |
           Next, you'll define the Primary Key setting for the view. There are two options:
 
-          - **No Primary Key:** The view will be replicated using [Append-Only Replication]({{ link.replication.append-only | prepend: site.baseurl }}). Existing rows will not be updated, and any new rows will be appended to the end of the table.
-          - **Custom Primary Key:** If selected, the field or fields you define will be used as the view's Primary Keys. To add additional fields, click the **Add** button.
+          - **No Primary Key:** Without a Primary Key, data will be loaded using [Append-Only Loading]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}), even if your destination is configured to use Upsert Loading. This means that existing rows will not be updated, and any new rows will be appended to the end of the table.
+
+          - **Custom Primary Key:** If selected, the field or fields you define will be used as the view's Primary Keys. To add additional fields, click the **Add** button. If your destination is configured to use [Upsert Loading]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}), records will be de-duped during loading.
 
           **Note**: You can change the Primary Key setting - including adding or removing fields to the Custom Primary Key - at any time, but doing so will require a full re-replication of the view. This is to ensure that there aren't any gaps in the data.
 

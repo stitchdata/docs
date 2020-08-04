@@ -7,7 +7,7 @@ layout: general
 
 content-type: "replication-methods"
 toc: true
-weight: 5
+weight: 7
 
 summary: "Stitch's detection of deleted records depends on how records are deleted in the source and the Replication Method being used. In this guide, we explain the different deletion methods and how each one works with each of Stitch's supported Replication Methods."
 

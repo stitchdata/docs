@@ -1,16 +1,27 @@
 ---
-title: Start and stop replication jobs
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
+title: Starting and Stopping Replication Jobs
 permalink: /replication/extractions/start-stop-extraction-jobs
-keywords: start job, force job, stop job, stop replication, start extraction
+keywords: start job, force job, stop job, stop replication, start extraction, extraction job
 summary: "All integrations run on a schedule, but you can also start and stop extractions on demand. This is useful for testing configuration changes or recovering from an error."
 
+key: "start-stop-extraction"
+content-type: "replication-scheduling"
+
 layout: general
-content-type: ""
 toc: true
 weight: 3
 
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
+
 intro: |
-  {% include note.html first-line="**Feature availability**" content="This feature is available only for integrations powered by Singer taps. As integrations are converted to the Singer system, this feature will be made available." %}
+  {% include note.html type="single-line" content="**Feature availability**: This feature is available only for integrations powered by Singer taps. As integrations are converted to the Singer system, this feature will be made available." %}
 
   All Stitch integrations run on a schedule, but Stitch can also start and stop an integration on demand. This is useful for testing configuration changes or recovering from an error.
 
@@ -19,6 +30,11 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
   {% endfor %}
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "About replication jobs"

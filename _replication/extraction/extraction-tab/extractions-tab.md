@@ -1,11 +1,12 @@
 ---
-title: Extractions
-permalink: /replication/extractions
+title: Extraction Tab Features
+permalink: /replication/extractions/extraction-tab-features
 keywords: extractions, extraction job, replication job, start job, force start, tab
 summary: "An integration's Extractions tab provides detail about the extraction portion of the replication process for a the integration. This includes detailed logs and on-demand job controls."
 
-layout: general
+key: "extractions-tab"
 
+layout: general
 content-type: ""
 toc: true
 weight: 1

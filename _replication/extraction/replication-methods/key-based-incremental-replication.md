@@ -2,12 +2,12 @@
 title: Key-based Incremental Replication
 permalink: /replication/replication-methods/key-based-incremental
 keywords: replicate, replication, replication method, stitch replicates data
-tags: [replication]
 layout: general
 
+key: "key-based-incremental-replication"
 content-type: "replication-methods"
 toc: true
-weight: 3
+weight: 4
 
 summary: "Key-based Incremental Replication is a replication method in which Stitch identifies new and updated data using a column called a Replication Key. This guide contains an overview of how Key-based Incremental Replication works, when it should be used, its limitations, and how to enable it for an integration."
 
@@ -20,21 +20,26 @@ summary: "Key-based Incremental Replication is a replication method in which Sti
 ## _data/taps/extraction/replication-methods/key-based-incremental.yml
 
 
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
+
+intro: |
+  {{ page.title }} is a method of replication that replicates new or updated data from a data source. In this guide, we'll cover:
+
+  {% for section in page.sections %}
+  - [{{ section.summary }}](#{{ section.anchor }})
+  {% endfor %}
+
+
 # --------------------------- #
 #       CONTENT SECTIONS      #
 # --------------------------- #
 
 sections:
-  - content: |
-      {{ page.title }} is a method of replication that replicates new or updated data from a data source. In this guide, we'll cover:
-
-      1. [How it works (with examples)](#how-key-based-incremental-replication-works),
-      2. [When it should be used](#when-key-based-incremental-replication),
-      3. [Limitations of this Replication Method](#limitations), and
-      4. [How to enable it for your integration](#enabling-key-based-replication)
-
   - title: "How {{ page.title }} works"
     anchor: "how-key-based-incremental-replication-works"
+    summary: "How it works (with examples)"
     content: |
       {% for subsection in section.subsections %}
       - [{{ subsection.title | flatify }}](#{{ subsection.anchor }})
@@ -49,8 +54,8 @@ sections:
           When Stitch replicates a table using {{ page.title }}, a few things will happen:
 
           1. During a replication job, Stitch stores the **maximum value** of a table's Replication Key column.
-          2. During the **next** replication job, Stitch will compare saved value from the previous job to Replication Key column values in the source.
-          3. Any rows in the table with a Replication Key **greater than or equal to the stored value** are replicated.
+          2. During the **next** replication job, Stitch compares the saved value from the previous job to Replication Key column values in the source.
+          3. Any records in the table with a Replication Key **greater than or equal to the stored value**`*` are replicated.
           4. Stitch stores the new maximum value from the table's Replication Key column.
           5. Repeat.
 
@@ -61,9 +66,11 @@ sections:
                  column_you_selected_1,
                  column_you_selected_2,
                  [...]
-            FROM schema.table
+            FROM table
            WHERE replication_key_column >= 'last_saved_maximum_value'
           ```
+
+          `*` Some integrations may not use Replicaion Keys inclusively. In this case, records with Replication Key values that are **greater than** the last saved value are extracted.
 
       - title: "Supported Replication Key data types"
         anchor: "supported-replication-key-data-types"
@@ -125,6 +132,7 @@ sections:
 
   - title: "When {{ page.title }} should be used"
     anchor: "when-key-based-incremental-replication"
+    summary: "When Key-based Incremental Replication should be used"
     content: |
       Aside from [Log-based Replication](#log-based-replication) where it's supported, {{ page.title }} is the most efficient method for replicating your data. If Log-based Replication is unavailable for your source, {{ page.title }} may be a good fit if:
 
@@ -135,6 +143,7 @@ sections:
 
   - title: "Limitations of {{ page.title }}"
     anchor: "limitations"
+    summary: "Limitations of this Replication Method"
     content: |
       Before you select {{ page.title }} as the Replication Method for a table, you should be aware of the limitations this method can have. Being aware of these limitations can help prevent data discrepancies and ensure your data is replicated in the most efficient manner possible.
 
@@ -189,6 +198,7 @@ sections:
 
   - title: "Enable {{ page.title }}"
     anchor: "enabling-key-based-replication"
+    summary: "How to enable Key-based Incremental Replication for your integration"
     content: |
       {{ page.title }} is available for use with the majority of Stitch integrations. Depending on the type of integration, enabling this Replication Method will vary:
 
