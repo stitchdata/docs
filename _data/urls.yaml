@@ -248,9 +248,9 @@ replication:
   deleted-records: "/replication/deleted-record-handling"
 
 ## Replication Keys
-  rep-keys: /replication/replication-keys
-  mongo-rep-keys: /replication/mongo-replication-keys
-  reset-rep-keys: "/replication/replication-keys#resetting-replication-keys"
+  rep-keys: /replication/extractions/replication-keys
+  mongo-rep-keys: /replication/extractions/replication-keys
+  reset-rep-keys: /replication/extractions/replication-keys/resetting-replication-keys
 
 ## Historical Data & Progress
   saas-historical: /replication/syncing-historical-saas-data-resetting-replication-keys
