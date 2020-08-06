@@ -1,16 +1,27 @@
 ---
 tap: "zoom"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "users"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/users.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains user data from your {{ integration.display_name }} account.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getUsers"
+    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/users/users"
+
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "Your user ID."
+    foreign-key-id: "user-id"
+    
   - name: "created_at"
     type: "date-time"
     description: ""
@@ -30,9 +41,7 @@ attributes:
       - name: "value"
         type: "string"
         description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+  
   - name: "im_group_ids"
     type: "array"
     description: ""

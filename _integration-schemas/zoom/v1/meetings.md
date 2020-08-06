@@ -1,16 +1,27 @@
 ---
 tap: "zoom"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "meetings"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meetings.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about meetings in {{ integration.display_name }} account.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getMeetings"
+    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetings"
+
 attributes:
+  - name: "uuid"
+    type: "string"
+    primary-key: true
+    description: "The meeting UUID"
+    foreign-key-id: "meeting-uuid"
+
   - name: "agenda"
     type: "string"
     description: ""

@@ -1,22 +1,33 @@
 ---
 tap: "zoom"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "meeting_poll_results"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meeting_poll_results.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about the results of polls from your {{ integration.display_name }} meetings.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getPastMeetingPolls"
+    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/listpastmeetingpolls"
+
 attributes:
   - name: "email"
     type: "string"
-    description: ""
+    primary-key: true
+    description: |
+      The email used for the {{ integration.display_name }} meeting.
+    foreign-key-id: "meeting-email"  
   - name: "meeting_uuid"
     type: "string"
-    description: ""
+    primary-key: true
+    description: "The meeting UUID"
+    foreign-key-id: "meeting-uuid"
+    
   - name: "name"
     type: "string"
     description: ""
