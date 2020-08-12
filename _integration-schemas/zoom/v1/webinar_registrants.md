@@ -1,16 +1,33 @@
 ---
 tap: "zoom"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "webinar_registrants"
-doc-link: ""
+doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarregistrants"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_registrants.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about the users registered for a webinar in your {{ integration.display_name }} account.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getWebinarRegistrants"
+    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarregistrants"
+
 attributes:
+  - name: "webinar_id"
+    type: "string"
+    primary-key: true
+    description: "The webinar ID."
+    foreign-key-id: "webinar-id"
+
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The registrant ID." 
+    foreign-key-id: "webinar-registrant-id" 
+
   - name: "address"
     type: "string"
     description: ""
@@ -42,9 +59,7 @@ attributes:
   - name: "first_name"
     type: "string"
     description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+  
   - name: "industry"
     type: "string"
     description: ""
@@ -78,9 +93,7 @@ attributes:
   - name: "status"
     type: "string"
     description: ""
-  - name: "webinar_id"
-    type: "string"
-    description: ""
+  
   - name: "zip"
     type: "string"
     description: ""

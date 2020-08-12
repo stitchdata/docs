@@ -1,16 +1,24 @@
 ---
 tap: "zoom"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "webinars"
-doc-link: ""
+doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinars"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinars.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information bout webinars scheduled from your {{ integration.display_name }} account.
+
+replication-method: "Full Table"
 api-method:
     name: ""
-    doc-link: ""
+    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinars"
 attributes:
+  - name: "uuid"
+    type: "string"
+    primary-key: true
+    description: "The webinar UUID."
+    foreign-key-id: "webinar-uuid"
   - name: "agenda"
     type: "string"
     description: ""
@@ -186,8 +194,5 @@ attributes:
         description: ""
   - name: "type"
     type: "integer"
-    description: ""
-  - name: "uuid"
-    type: "string"
     description: ""
 ---

@@ -1,20 +1,33 @@
 ---
 tap: "zoom"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "webinar_panelists"
-doc-link: ""
+doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarpanelists"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_panelists.json"
 description: ""
-replication-method: ""
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getWebinarPanelists"
+    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarpanelists"
+
 attributes:
-  - name: "email"
-    type: "string"
-    description: ""
   - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The panelist ID."
+    foreign-key-id: "panelist-id"
+
+  - name: "webinar_id"
+    type: "string"
+    primary-key: true
+    description: "The webinar ID."
+    foreign-key-id: "webinar-id"
+
+  - name: "email"
     type: "string"
     description: ""
   - name: "join_url"
@@ -23,7 +36,5 @@ attributes:
   - name: "name"
     type: "string"
     description: ""
-  - name: "webinar_id"
-    type: "string"
-    description: ""
+  
 ---

@@ -4,7 +4,7 @@ version: "1"
 key: ""
 
 name: "meetings"
-doc-link: ""
+doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetings"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meetings.json"
 description: |
   The `{{ table.name }}` table contains information about meetings in {{ integration.display_name }} account.

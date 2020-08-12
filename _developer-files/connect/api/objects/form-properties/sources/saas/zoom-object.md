@@ -60,13 +60,13 @@ object-attributes:
     type: "string"
     required: false
     description: |
-      Your {{ form-property.display-name }} JSON Web Token (JWT). Only use this if you plan to connect to Stitch using a JWT app. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-keys" }}) to retrieve this information.
+      Your {{ form-property.display-name }} JSON Web Token (JWT). Only use this if you plan to connect to Stitch using a JWT app. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#obtain-tokens" }}) to retrieve this information.
     value: "<YOUR_JWT>"
     
   - name: "refresh_token"
     type: string
     required: false
     description: |
-      Your {{ form-property.display-name }} refresh token. Only use this if you plan to connect to Stitch using an OAuth app. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-keys" }}) to retrieve this information.
+      Your {{ form-property.display-name }} refresh token. Only use this if you plan to connect to Stitch using an OAuth app. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#obtain-tokens" }}) to retrieve this information.
     value: "<YOUR_REFRESH_TOKEN>"      
 ---

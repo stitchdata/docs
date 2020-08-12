@@ -4,10 +4,10 @@ version: "1"
 key: ""
 
 name: "meeting_files"
-doc-link: ""
+doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/listpastmeetingfiles"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meeting_files.json"
 description: |
-  The `{{ table.name }}` table contains information about files shared in-meeting in your {{ integration.display_name }} account. The files are deleted after 24 hours fo the meeting completion time.
+  The `{{ table.name }}` table contains information about files shared in-meeting in your {{ integration.display_name }} account. {{ integration.display_name }} deletes these files 24 hours after completion of the meeting.
 
 replication-method: "Full Table"
 

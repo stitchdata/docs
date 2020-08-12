@@ -1,16 +1,33 @@
 ---
 tap: "zoom"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "webinar_absentees"
-doc-link: ""
+doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarabsentees"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_absentees.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about webinar absentees from your {{ integration.display_name }} webinars.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getWebinarAbsentees"
+    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarabsentees"
+
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The absentee ID."
+    foreign-key-id: "absentee-id"
+
+  - name: "webinar_uuid"
+    type: "string"
+    primary-key: true
+    description: "The webinar UUID."
+    foreign-key-id: "webinar-uuid"  
+
   - name: "address"
     type: "string"
     description: ""
@@ -42,9 +59,7 @@ attributes:
   - name: "first_name"
     type: "string"
     description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+  
   - name: "industry"
     type: "string"
     description: ""
@@ -78,9 +93,7 @@ attributes:
   - name: "status"
     type: "string"
     description: ""
-  - name: "webinar_uuid"
-    type: "string"
-    description: ""
+  
   - name: "zip"
     type: "string"
     description: ""

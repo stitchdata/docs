@@ -1,19 +1,33 @@
 ---
 tap: "zoom"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "webinar_polls"
-doc-link: ""
+doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarpolls"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_polls.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about polls in your {{ integration.display_name }} webinars.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getWebinarPolls"
+    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarpolls"
+
 attributes:
   - name: "id"
     type: "string"
-    description: ""
+    primary-key: true
+    description: "The webinar poll ID."
+    foreign-key-id: "webinar-poll-id"
+
+  - name: "webinar_id"
+    type: "string"
+    primary-key: true
+    description: "The webinar ID."
+    foreign-key-id: "webinar-id"
+      
   - name: "questions"
     type: "array"
     description: ""
@@ -37,7 +51,5 @@ attributes:
   - name: "title"
     type: "string"
     description: ""
-  - name: "webinar_id"
-    type: "string"
-    description: ""
+  
 ---

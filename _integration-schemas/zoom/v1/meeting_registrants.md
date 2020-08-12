@@ -1,16 +1,33 @@
 ---
 tap: "zoom"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "meeting_registrants"
-doc-link: ""
+doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingregistrants"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meeting_registrants.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains the list of users who have registered for your {{ integration.display_name }} meetings.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getMeetingRegistrants"
+    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingregistrants"
+
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The registrant's user ID."
+    foreign-key-id: "registrant-id"
+
+  - name: "meeting_id"
+    type: "string"
+    primary-key: true
+    description: "The meeting ID."
+    foreign-key-id: "meeting-id"  
+
   - name: "address"
     type: "string"
     description: ""
@@ -42,9 +59,7 @@ attributes:
   - name: "first_name"
     type: "string"
     description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+  
   - name: "industry"
     type: "string"
     description: ""
@@ -57,9 +72,7 @@ attributes:
   - name: "last_name"
     type: "string"
     description: ""
-  - name: "meeting_id"
-    type: "string"
-    description: ""
+  
   - name: "no_of_employees"
     type: "string"
     description: ""

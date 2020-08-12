@@ -1,20 +1,34 @@
 ---
 tap: "zoom"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "report_meeting_participants"
-doc-link: ""
+doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportmeetingparticipants"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/report_meeting_participants.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about your {{ integration.display_name}}'s meeting participants.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getMeetingParticipants"
+    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportmeetingparticipants"
+
 attributes:
-  - name: "duration"
-    type: "string"
-    description: ""
   - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The participant ID."
+    foreign-key-id: "participant-id"
+
+  - name: "meeting_id"
+    type: "string"
+    primary-key: true
+    description: "The meeting ID."
+    foreign-key-id: "meeting-id"
+      
+  - name: "duration"
     type: "string"
     description: ""
   - name: "join_time"
@@ -22,9 +36,6 @@ attributes:
     description: ""
   - name: "leave_time"
     type: "date-time"
-    description: ""
-  - name: "meeting_id"
-    type: "string"
     description: ""
   - name: "name"
     type: "string"

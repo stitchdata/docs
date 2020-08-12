@@ -1,19 +1,32 @@
 ---
 tap: "zoom"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "webinar_tracking_sources"
-doc-link: ""
+doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/gettrackingsources"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_tracking_sources.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` lists all information about tracking sources in you {{ integration.display_name }} account.
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getWebinarTrackingSources"
+    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/gettrackingsources"
+
 attributes:
   - name: "id"
     type: "string"
-    description: ""
+    primary-key: true
+    description: "The tracking source ID."
+    foreign-key-id: "tracking-source-id"
+
+  - name: "webinar_id"
+    type: "string"
+    primary-key: true
+    description: "The webinar ID."
+    foreign-key-id: "webinar-id"
+
   - name: "registration_count"
     type: "integer"
     description: ""
@@ -25,8 +38,5 @@ attributes:
     description: ""
   - name: "visitor_count"
     type: "integer"
-    description: ""
-  - name: "webinar_id"
-    type: "string"
     description: ""
 ---

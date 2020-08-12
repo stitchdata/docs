@@ -1,16 +1,27 @@
 ---
 tap: "zoom"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "webinar_questions"
-doc-link: ""
+doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarregistrantsquestionsget"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_questions.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about your questions to be answered when registering for a {{ integration.display_name }} webinar.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getWebinarQuestions"
+    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarregistrantsquestionsget"
+
 attributes:
+  - name: "webinar_id"
+    type: "string"
+    primary-key: true
+    description: "The webinar ID."
+    foreign-key-id: "webinar-id"
+
   - name: "custom_questions"
     type: "array"
     description: ""
@@ -41,7 +52,4 @@ attributes:
       - name: "required"
         type: "boolean"
         description: ""
-  - name: "webinar_id"
-    type: "string"
-    description: ""
 ---

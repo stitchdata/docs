@@ -1,19 +1,32 @@
 ---
 tap: "zoom"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "webinar_qna_results"
-doc-link: ""
+doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/listpastwebinarqa"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_qna_results.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about about the questions and answers from specific {{ integration.display_name }} webinars.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getWebinarQA"
+    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/listpastwebinarqa"
+
 attributes:
+  - name: "webinar_uuid"
+    type: "string"
+    primary-key: true
+    description: "The webinar UUID."
+    foreign-key-id: "webinar-uuid"
   - name: "email"
     type: "string"
-    description: ""
+    primary-key: true
+    description: "The email used for the webinar Q & A session."
+    foreign-key-id: "webinar-email"
+    
   - name: "name"
     type: "string"
     description: ""

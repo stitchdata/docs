@@ -4,7 +4,7 @@ version: "1"
 key: ""
 
 name: "users"
-doc-link: ""
+doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/users/users"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/users.json"
 description: |
   The `{{ table.name }}` table contains user data from your {{ integration.display_name }} account.

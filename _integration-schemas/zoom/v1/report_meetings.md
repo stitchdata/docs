@@ -1,16 +1,27 @@
 ---
 tap: "zoom"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "report_meetings"
-doc-link: ""
+doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportmeetingdetails"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/report_meetings.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains detailed reports about past {{ integration.display_name }} meetings.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getMeetingReport"
+    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportmeetingdetails"
+
 attributes:
+  - name: "uuid"
+    type: "string"
+    primary-key: true
+    description: "The report UUID."
+    foreign-key-id: "report-uuid"
+    
   - name: "dept"
     type: "integer"
     description: ""
@@ -55,9 +66,6 @@ attributes:
     type: "string"
     description: ""
   - name: "user_name"
-    type: "string"
-    description: ""
-  - name: "uuid"
     type: "string"
     description: ""
 ---
