@@ -3,7 +3,7 @@
 #          PAGE INFO         #
 # -------------------------- #
 
-title: Loading data
+title: Loading Data
 permalink: /replication/loading
 redirect_from: /data-structure/
 keywords: data structure, schema, data load, loading data
