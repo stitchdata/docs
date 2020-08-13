@@ -48,10 +48,13 @@ attributes:
   - name: "label"
     type: "string"
     description: ""
-  
   - name: "options"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "value"
+        type: "[TYPE]"
+        description: "[DESCRIPTION]"
   - name: "type"
     type: "string"
     description: ""

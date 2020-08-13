@@ -46,7 +46,11 @@ attributes:
   - name: "team_ids"
     type: "array"
     description: "A list of the of team IDs that the admin is part of."
-    foreign-key-id: "team-id"
+    subattributes:
+      - name: "value"
+        type: "integer"
+        description: "[DESCRIPTION]"
+        foreign-key-id: "team-id"
   - name: "type"
     type: "string"
     description: ""

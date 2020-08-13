@@ -6,7 +6,7 @@ name: "conversation_parts"
 doc-link: "https://developers.intercom.com/intercom-api-reference/v2.0/reference#conversation-model"
 singer-schema: "https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/conversation_parts.json"
 description: |
-  The `{{ table.name }}` table lists parts of a conversation from the `conversations`table in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table lists parts of a conversation from the `conversations`table in your {{ integration.display_name }} account. The only conversation parts that will replicate in full will be the ones whose parent conversation in the `conversations` table have updated.
 
 replication-method: "Full Table"
 
@@ -23,7 +23,8 @@ attributes:
 
   - name: "assigned_to"
     type: "string"
-    description: ""
+    description: "The admin ID that the conversation part is assigned to."
+    foreign-key-id: "admin-id"
   - name: "attachments"
     type: "null"
     description: ""
@@ -33,8 +34,7 @@ attributes:
     subattributes:
       - name: "id"
         type: "string"
-        description: "The author ID."
-        foreign-key-id: "author-id"
+        description: "The author ID. This could either be the user ID or admin ID."
       - name: "type"
         type: "string"
         description: ""

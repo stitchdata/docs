@@ -10,7 +10,7 @@ description: |
 
   #### Custom Attributes
 
-  If applicable, Stitch will replicate custom fields related to `{{ table.name }}` in Intercom.
+  If applicable, Stitch will replicate custom fields related to `{{ table.name }}` in {{ integration.display_name }}.
 
 replication-method: "Key-based Incremental"
 
@@ -39,11 +39,6 @@ attributes:
   - name: "custom_attributes"
     type: "object"
     description: ""
-    subattributes:
-      - name: "DELETEME"
-        type: "string"
-        description: ""
-  
   - name: "industry"
     type: "string"
     description: ""

@@ -1,6 +1,6 @@
 ---
 title: Intercom
-permalink: /integrations/saas/intercom
+permalink: /integrations/saas/intercom/v02-02-2016
 keywords: intercom, integration, schema, etl intercom, intercom etl, intercom schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Intercom integration."
 layout: singer

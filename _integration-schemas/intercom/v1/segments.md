@@ -3,7 +3,7 @@ tap: "intercom"
 version: "1"
 
 name: "segments"
-doc-link: ""
+doc-link: "https://developers.intercom.com/intercom-api-reference/v2.0/reference#segment-model"
 singer-schema: "https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/segments.json"
 description: 
   The `{{ table.name }}` table contains information about segments within your {{ integration.display_name }} account.
@@ -11,8 +11,8 @@ description:
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all segments"
+    doc-link: "https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-segments"
 
 attributes:
   - name: "id"

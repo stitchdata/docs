@@ -28,11 +28,6 @@ display-name: "Intercom"
 source-type: "saas"
 docs-name: "intercom" 
 
-property-description: ""
-## Used to create a description for the object that doesn't adhere to the standard in _developers/connect/api/documentation/api-form-properties.html
-## See the Heap object for an example
-
-
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
@@ -44,10 +39,21 @@ uses-start-date: true
 # and therefore don't need to be listed:
 # anchor_time, cron_expression, frequency_in_minutes, image_version, start_date 
 
-object-attributes:
+
+# -------------------------- #
+#       OAUTH PROPERTIES     #
+# -------------------------- #
+
+oauth-link: "https://developers.intercom.com/building-apps/docs/setting-up-oauth"
+
+oauth-description: ""
+
+oauth-attributes:
   - name: "access_token"
     type: "string"
     required: true
-    description: "The token used to access your workspace's data via API."
-    value: "YOU_API_ACCESS_TOKEN"
+    credential: true
+    description: |
+      The token used to access your {{ form-property.display-name }} workspace's data via API.
+    value: "<YOUR_API_ACCESS_TOKEN>"   
 ---

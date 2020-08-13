@@ -32,8 +32,7 @@ attributes:
     subattributes:
       - name: "id"
         type: "integer"
-        description: "The assignee ID."
-        foreign-key-id: "asignee-id"
+        description: "The assignee ID. This could either be a team ID or admin ID depending on the type assigned to this subattribute."
 
       - name: "type"
         type: "string"
@@ -43,8 +42,12 @@ attributes:
     description: "A list of message details."
     subattributes:
       - name: "attachments"
-        type: "null"
-        description: ""
+        type: "array"
+        description: "A list of attachment details"
+        subattributes:
+          - name: "value"
+            type: "[TYPE]"
+            description: "[DESCRIPTION]"
       - name: "author"
         type: "object"
         description: "A list of authors."
@@ -103,7 +106,8 @@ attributes:
         subattributes:
           - name: "id"
             type: "integer"
-            description: ""
+            description: "The admin ID of the teammate."
+            foreign-key-id: "admin-id"
           - name: "type"
             type: "string"
             description: ""

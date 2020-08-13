@@ -20,6 +20,14 @@ foreign-keys:
         join-on: "id"
       - table: "teams"
         subattribute: "admin_ids"
+        join-on: "id"
+      - table: "conversation_parts"
+        join-on: "admin-id"
+      - table: "conversations"
+        subattribute: "conversation_rating.teammate"
+        join-on: "id"
+      - table: "teams"
+        subattribute: "admin_ids"
         join-on: "id"  
   
   - id: "team-id"
@@ -113,20 +121,9 @@ foreign-keys:
     table: "authors"
     attribute: "id"
     all-foreign-keys:
-      - table: "conversation_parts"
-        subattribute: "author"
-        join-on: "id"
       - table: "conversations"
         subattribute: "conversation_message.author"
         join-on: "id"  
-
-  - id: "assignee-id"
-    table: "assignees"
-    attribute: "id"
-    all-foreign-keys:
-      - table: "conversations"
-        subattribute: "assignee"
-        join-on: "id"
 
   - id: "customer-id"
     table: "customers"
