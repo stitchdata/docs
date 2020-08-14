@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "List basic info for a company"
-    doc-link: "https://docs.codat.io/reference/info#info_list"
+  name: "List basic info for a company"
+  doc-link: "https://docs.codat.io/reference/info#info_list"
 
 attributes:
   - name: "companyId"

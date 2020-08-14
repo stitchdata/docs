@@ -12,14 +12,15 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "List companies"
-    doc-link: "https://docs.codat.io/reference/companies#companies_listpaged"
+  name: "List companies"
+  doc-link: "https://docs.codat.io/reference/companies#companies_listpaged"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The company ID."
+    foreign-key-id: "company-id"
 
   - name: "lastSync"
     type: "date-time"
