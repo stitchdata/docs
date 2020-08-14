@@ -1,9 +1,23 @@
 ---
-title: Intercom
-permalink: /integrations/saas/intercom
+# -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/integration-templates/saas/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+
+# -------------------------- #
+#      Page & Formatting     #
+# -------------------------- #
+
+title: Intercom (v02-02-2016)
+permalink: /integrations/saas/intercom/v02-02-2016
 keywords: intercom, integration, schema, etl intercom, intercom etl, intercom schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Intercom integration."
 layout: singer
+input: false
 
 key: "intercom-setup"
 
