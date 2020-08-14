@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "List all tags"
-    doc-link: "https://developers.intercom.com/intercom-api-reference/reference#list-tags-for-an-app"
+  name: "List all tags"
+  doc-link: "https://developers.intercom.com/intercom-api-reference/reference#list-tags-for-an-app"
 
 attributes:
   - name: "id"
