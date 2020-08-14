@@ -12,8 +12,8 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: SAAS-INTEGRATION
-permalink: /integrations/saas/saas-integration
+title: SAAS-INTEGRATION (vVERSION)
+permalink: /integrations/saas/saas-integration ## Add if there are multiple versions: /vVERSION
 keywords: saas-integration, integration, schema, etl saas-integration, saas-integration etl, saas-integration schema
 layout: singer
 # input: false
@@ -31,7 +31,7 @@ display_name: "SAAS-INTEGRATION"
 singer: true
 status-url: ""
 
-tap-name: ""
+tap-name: "" ## Ex: Intercom, not intercom
 repo-url: https://github.com/singer-io/tap-saas-integration
 
 this-version: ""
@@ -49,6 +49,8 @@ certified: true
 historical: "1 year"
 frequency: "1 hour"
 tier: "Free/Standard/Enterprise"
+
+api-type: ""
 
 anchor-scheduling: true
 cron-scheduling: true

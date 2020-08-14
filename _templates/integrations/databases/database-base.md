@@ -60,6 +60,7 @@ db-type: ""
 
 ## Stitch features
 
+api-type: ""
 versions: "n/a"
 ssh: true/false
 ssl: true/false
