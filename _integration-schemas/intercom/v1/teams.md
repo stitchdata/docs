@@ -1,6 +1,7 @@
 ---
 tap: "intercom"
 version: "1"
+key: "team"
 
 name: "teams"
 doc-link: "https://developers.intercom.com/intercom-api-reference/reference#teams-model"
@@ -11,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "List all teams"
-    doc-link: "https://developers.intercom.com/intercom-api-reference/reference#list-teams"
+  name: "List all teams"
+  doc-link: "https://developers.intercom.com/intercom-api-reference/reference#list-teams"
 
 attributes:
   - name: "id"
@@ -23,7 +24,7 @@ attributes:
 
   - name: "admin_ids"
     type: "array"
-    description: "A list of admin IDs."
+    description: "The admins that belong to the team."
     subattributes:
       - name: "id"
         type: "string"
@@ -32,8 +33,9 @@ attributes:
   
   - name: "name"
     type: "string"
-    description: ""
+    description: "The name of the team."
+
   - name: "type"
     type: "string"
-    description: ""
+    description: "This will be `team`."
 ---

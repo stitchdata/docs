@@ -11,8 +11,8 @@ description:
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List all segments"
-    doc-link: "https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-segments"
+  name: "List all segments"
+  doc-link: "https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-segments"
 
 attributes:
   - name: "id"
@@ -28,15 +28,17 @@ attributes:
 
   - name: "count"
     type: "integer"
-    description: ""
+    description: "The number of items in the segment."
+
   - name: "created_at"
     type: "date-time"
-    description: ""
+    description: "The time the segment was created."
   
   - name: "name"
     type: "string"
-    description: ""
+    description: "The name of the segment."
+
   - name: "type"
     type: "string"
-    description: ""
+    description: "This will be `segment`."
 ---

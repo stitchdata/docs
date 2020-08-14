@@ -1,6 +1,7 @@
 ---
 tap: "intercom"
 version: "1"
+key: "contact-attribute"
 
 name: "contact_attributes"
 doc-link: "https://developers.intercom.com/intercom-api-reference/v2.0/reference#data-attribute-model"
@@ -11,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "listAllDataAttributes"
-    doc-link: "https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-data-attributes"
+  name: "List all data attributes"
+  doc-link: "https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-data-attributes"
 
 attributes:
   - name: "name"
@@ -22,50 +23,67 @@ attributes:
     foreign-key-id: "contact-attribute-name"
 
   - name: "admin_id"
-    type: "string"
-    description: ""
+    type: "integer"
+    description: "The ID of the admin that created the attribute."
+    foreign-key-id: "admin-id"
+
   - name: "api_writable"
     type: "boolean"
-    description: ""
+    description: "Indicates if the attribute can be updated via {{ integration.display_name }}'s API."
+
   - name: "archived"
     type: "boolean"
-    description: ""
+    description: "Indicates if the attribute is archived."
+
   - name: "created_at"
     type: "date-time"
-    description: ""
+    description: "The time the attribute was created."
+
   - name: "custom"
     type: "boolean"
     description: ""
+
   - name: "data_type"
     type: "string"
-    description: ""
+    description: |
+      The type of data stored for the attribute. Possible values are:
+
+      - `string`
+      - `fixnum`
+      - `float`
+      - `boolean`
+      - `date`
+      - `options`
+
   - name: "description"
     type: "string"
-    description: ""
+    description: "The description for the attribute."
+
   - name: "full_name"
     type: "string"
     description: ""
+
   - name: "label"
     type: "string"
-    description: ""
-  - name: "model"
-    type: "string"
-    description: ""
-  
+    description: "The name of the attribute."
+
   - name: "options"
     type: "array"
-    description: ""
+    description: "The pre-defined options for the attribute."
     subattributes:
       - name: "value"
-        type: "string"
+        type: "varies"
         description: ""
+  
   - name: "type"
     type: "string"
-    description: ""
+    description: "This will be `data_attribute`."
+
   - name: "ui_writable"
     type: "boolean"
-    description: ""
+    description: "Indicates if the attribute can be updated via {{ integration.display_name }}'s UI."
+
   - name: "updated_at"
     type: "date-time"
-    description: ""
+    description: "The last time the attribute was updated."
 ---

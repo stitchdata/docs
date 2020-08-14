@@ -1,6 +1,7 @@
 ---
 tap: "intercom"
 version: "1"
+key: "tag"
 
 name: "tags"
 doc-link: "https://developers.intercom.com/intercom-api-reference/reference#tag-model"
@@ -23,8 +24,9 @@ attributes:
     
   - name: "name"
     type: "string"
-    description: ""
+    description: "The name of the tag."
+
   - name: "type"
     type: "string"
-    description: ""
+    description: "This will be `tag`."
 ---

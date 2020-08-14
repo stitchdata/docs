@@ -1,6 +1,7 @@
 ---
 tap: "intercom"
 version: "1"
+key: "company-segment"
 
 name: "company_segments"
 doc-link: "https://developers.intercom.com/intercom-api-reference/v2.0/reference#company-model"
@@ -11,15 +12,15 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "listAllSegments"
-    doc-link: "https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-segments"
+  name: "List all segments"
+  doc-link: "https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-segments"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The company segment ID."
-    foreign-key-id: "company-segment" 
+    # foreign-key-id: "company-segment-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -29,13 +30,16 @@ attributes:
   - name: "count"
     type: "integer"
     description: ""
+
   - name: "created_at"
     type: "date-time"
-    description: ""
+    description: "The time the company segment was created."
+
   - name: "name"
     type: "string"
-    description: ""
+    description: "The name of the segment."
+
   - name: "type"
     type: "string"
-    description: ""
+    description: "The value of this field will be `segment`."
 ---
