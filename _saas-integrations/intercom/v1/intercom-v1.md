@@ -12,11 +12,14 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Intercom
-permalink: /integrations/saas/intercom/
+title: Intercom (v1)
+permalink: /integrations/saas/intercom
 keywords: intercom, integration, schema, etl intercom, intercom etl, intercom schema
 layout: singer
 # input: false
+
+key: "intercom-setup"
+
 
 # -------------------------- #
 #         Tap Details        #
@@ -26,24 +29,27 @@ name: "intercom"
 display_name: "Intercom"
 
 singer: true 
-tap-name: "intercom"
+tap-name: "Intercom"
 repo-url: https://github.com/singer-io/tap-intercom
+
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} API (V2.0)](https://developers.intercom.com/intercom-api-reference/v2.0/reference){:target="new"}
 
-this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-certified: true 
+certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Standard"
 status-url: "https://status.intercom.io/"
+
+api-type: "platform.intercom"
 
 anchor-scheduling: true
 cron-scheduling: true
@@ -63,8 +69,7 @@ setup-steps:
   - title: "add integration"
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "track data"
-  - title: "Authorize Stitch to Access {{ integration.display_name }}"
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "authorize-stitch"
     content: |
       Lastly, you'll be directed to {{ integration.display_name }}'s website to complete the setup.
@@ -74,6 +79,9 @@ setup-steps:
       3. Click **Connect.**
       4. After the authorization process successfully completes, you'll be redirected back to Stitch.
       5. Click {{ app.buttons.finish-int-setup }}.
+
+  - title: "track data"
+  
 
 # -------------------------- #
 #     Integration Tables     #
