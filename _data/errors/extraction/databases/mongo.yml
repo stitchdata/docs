@@ -18,6 +18,11 @@ raw-error:
 
 # '[VALUE]' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
 
+  oplog-age-out: &oplog-age-out |
+    Clearing state because Oplog has aged out
+    Must complete full table sync before starting oplog replication for [COLLECTION_NAME]
+
+
 documentation:
   projection-queries: &projection-queries
     category: "Projection queries"
@@ -148,3 +153,19 @@ all:
       {% for integration in applicable-integrations %}
       - [{{ integration.display_name }}]({{ integration.url | prepend: site.baseurl | append: "/v2" | append: "#create-a-database-user" }})
       {% endfor %}
+
+  - message: *oplog-age-out
+    id: "oplog-age-out-full-table-replication"
+    applicable-to: *all-mongo
+    level: "info"
+    category: "Log-based Incremental Replication"
+    category-doc: |
+      {{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation--log-retention" }}
+    version: "1,2"
+    summary: "Insufficient maximum OpLog size"
+    cause: |
+      The OpLog's maximum size is insufficient, causing log files to age out before Stitch can replicate them. When this occurs, Stitch will clear the saved log position ID for any affection collection(s) and re-replicate them in full.
+    fix-it: |
+      Increase the maximum size of the OpLog using the [replSetResizeOplog](https://docs.mongodb.com/v4.0/reference/command/replSetResizeOplog/#dbcmd.replSetResizeOplog){:target="new"} command.
+
+      **Note**: As the maximum size you need depends on your database, it may take some experimentation to identify the best setting. Mongo doesn't currently recommend an OpLog size.

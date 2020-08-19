@@ -6,9 +6,12 @@
 
 # "Primary key change is not permitted"
 
+numeric-out-of-range: &numeric-out-of-range "Numeric out of range for BigQuery on [NUMERIC]"
+primary-key-change: &primary-key-change "Primary key change is not permitted"
+
 all:
 ## Primary Key change not allowed
-  - message: "Primary key change is not permitted"
+  - message: *primary-key-change
     id: "pk-change-not-permitted"
     applicable-to: "Google BigQuery v2 destinations"
     level: "critical"
@@ -25,7 +28,7 @@ all:
     fix-it: |
       Reset the table(s) mentioned in the error. This will queue a full re-replication of the table(s), which will ensure Primary Keys are correctly captured and used to de-dupe data when loading.
 
-  - message: "Numeric out of range for BigQuery on [NUMERIC]"
+  - message: *numeric-out-of-range
     id: "numeric-out-of-range"
     applicable-to: "All Google BigQuery destination versions"
     level: "warning"
