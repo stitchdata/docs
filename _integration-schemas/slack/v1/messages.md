@@ -19,14 +19,13 @@ attributes:
   - name: "channel_id"
     type: "string"
     primary-key: true
-    description: "The conversation ID."
+    description: "The channel ID."
     foreign-key-id: "conversation-id"
 
   - name: "ts"
     type: "date-time"
     primary-key: true
     description: "The conversation timestamp."
-    foreign-key-id: "timestamp"
     replication-key: true
 
   - name: "blocks"
@@ -141,7 +140,8 @@ attributes:
         subattributes:
           - name: "value"
             type: "string"
-            description: ""
+            description: "The user-id"
+            foreign-key-id: "user-id"
   - name: "reply_count"
     type: "integer"
     description: ""
@@ -188,7 +188,8 @@ attributes:
     description: ""
   - name: "user"
     type: "string"
-    description: ""
+    description: "The user ID."
+    foreign-key-id: "user-id"
   - name: "user_team"
     type: "string"
     description: ""

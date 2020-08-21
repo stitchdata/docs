@@ -7,7 +7,7 @@ name: "channels"
 doc-link: "https://api.slack.com/docs/conversations-api"
 singer-schema: "https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/channels.json"
 description: |
-  The `{{ table.name }}` table lists information about all conversations in your {{ integration.display_name }} team.
+  The `{{ table.name }}` table lists all channel-related information, such as conversations, channels and direct messages in your {{ integration.display_name }} workspace. Some records that Stitch can replicate are dependent on certain fields being selected in the setup. Refer to the {{ integration.display_name }} [setup steps](#add-integration) to see what each of the fields control.
 
 replication-method: "Full Table"
 
@@ -19,8 +19,8 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: "The conversation ID."
-    foreign-key-id: "conversation-id"
+    description: "The channel ID."
+    foreign-key-id: "channel-id"
 
   - name: "channel_id"
     type: "string"
@@ -30,7 +30,8 @@ attributes:
     description: ""
   - name: "creator"
     type: "string"
-    description: ""
+    description: "The creator's user ID."
+    foreign-key-id: "user-id"
   
   - name: "is_archived"
     type: "boolean"
@@ -70,11 +71,12 @@ attributes:
     description: ""
   - name: "members"
     type: "array"
-    description: ""
+    description: "The channel members."
     subattributes:
       - name: "value"
         type: "string"
-        description: ""
+        description: "The user ID."
+        foreign-key-id: "user-id"
   - name: "name"
     type: "string"
     description: ""
@@ -93,7 +95,8 @@ attributes:
     subattributes:
       - name: "value"
         type: "string"
-        description: ""
+        description: "The team ID."
+        foreign-key-id: "team-id"
   - name: "pending_shared"
     type: "array"
     description: ""
@@ -127,7 +130,8 @@ attributes:
     subattributes:
       - name: "value"
         type: "string"
-        description: ""
+        description: "The team ID."
+        foreign-key-id: "team-id"
   - name: "topic"
     type: "object"
     description: ""

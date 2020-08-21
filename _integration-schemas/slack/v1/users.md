@@ -7,7 +7,7 @@ name: "users"
 doc-link: "https://api.slack.com/methods/users.list"
 singer-schema: "https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/users.json"
 description: |
-  The `{{ table.name }}` table lists all users in your {{ integration.display_name }} team.
+  The `{{ table.name }}` table lists all users in your {{ integration.display_name }} team. This includes deactivated and deleted users.
 
 replication-method: "Key-based Incremental"
 
@@ -66,7 +66,8 @@ attributes:
     description: ""
   - name: "team_id"
     type: "string"
-    description: ""
+    description: "The team ID."
+    foreign-key-id: "team-id"
   - name: "tz"
     type: "string"
     description: ""

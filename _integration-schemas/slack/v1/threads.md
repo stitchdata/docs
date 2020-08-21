@@ -7,7 +7,7 @@ name: "threads"
 doc-link: "https://api.slack.com/docs/conversations-api"
 singer-schema: "https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/threads.json"
 description: |
-  The `{{ table.name }}` table contains information about conversation threads in your {{ integration.display_name }} team. This table will do a Full Table Replication for each parent message that is added.
+  The `{{ table.name }}` table contains information about conversation threads in your {{ integration.display_name }} team. Each time a message in a thread is updated, the entire thread and all the messages it contains will be replicated in full.
 
 replication-method: "Full Table"
 
@@ -20,17 +20,16 @@ attributes:
     type: "string"
     primary-key: true
     description: "The channel ID."
+    foreign-key-id: "channel-id"
 
   - name: "thread_ts"
     type: "string"
     primary-key: true
     description: "The conversation thread timestamp."
-    #foreign-key-id: "thread-timestamp"
 
   - name: "ts"
     type: "date-time"
     description: "The conversation timestamp."
-    foreign-key-id: "timestamp"
       
   - name: "blocks"
     type: "array"
@@ -55,7 +54,8 @@ attributes:
     subattributes:
       - name: "value"
         type: "string"
-        description: ""
+        description: "The user IDs."
+        foreign-key-id: "user-id"
   - name: "reply_users_count"
     type: "number"
     description: ""
@@ -64,7 +64,8 @@ attributes:
     description: ""
   - name: "team"
     type: "string"
-    description: ""
+    description: "The team ID."
+    foreign-key-id: "team-id"
   - name: "text"
     type: "string"
     description: ""
@@ -74,5 +75,6 @@ attributes:
     description: ""
   - name: "user"
     type: "string"
-    description: ""
+    description: "The user ID."
+    foreign-key-id: "user-id"
 ---

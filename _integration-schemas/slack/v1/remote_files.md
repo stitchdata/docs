@@ -7,7 +7,7 @@ name: "remote_files"
 doc-link: "https://api.slack.com/methods/files.remote.list"
 singer-schema: "https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/remote_files.json"
 description: |
-  The `{{ table.name }}` table contains information about remote files added to your {{ integration.display_name }} team. These files can be filtered with a date window and lookback period in your {{ integration.display_name }} App.
+  The `{{ table.name }}` table contains information about remote files added to your {{ integration.display_name }} team. Stitch applies a a lookback period of 14 days and a default date window of five days to this table.
 
 replication-method: "Key-based Incremental"
 
@@ -28,7 +28,8 @@ attributes:
     subattributes:
       - name: "value"
         type: "string"
-        description: ""
+        description: "The channel ID."
+        foreign-key-id: "channel-id"
   - name: "comments_count"
     type: "integer"
     description: ""
@@ -125,8 +126,6 @@ attributes:
   - name: "pinned_info"
     type: "object"
     description: ""
-    subattributes: [
-        ]
   - name: "pinned_to"
     type: "array"
     description: ""
@@ -235,7 +234,8 @@ attributes:
     description: ""
   - name: "user"
     type: "string"
-    description: ""
+    description: "The user ID."
+    foreign-key-id: "user-id"
   - name: "user_team"
     type: "string"
     description: ""

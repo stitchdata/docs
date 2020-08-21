@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-slack
 this-version: "1"
 
 api: |
-  [Slack Web API](https://api.slack.com/web){:target="new"}
+  [{{ integration.display_name }} Web API](https://api.slack.com/web){:target="new"}
 
 
 # -------------------------- #
@@ -94,7 +94,7 @@ setup-steps:
   - title: "Create a Slack App"
     anchor: "slack-app"
     content: |
-      1. Go to the [{{ integration.display_name }} App site](api.slack.com/apps).
+      1. Go to the [{{ integration.display_name }} App site](https://api.slack.com/apps){:target="new"}.
       2. Click **Create and App**.
       3. Enter a name for your App and select the workspace you want to replicate data from, then click **Create App**.
       4. In the left-side menu panel, click **Install App**.
@@ -129,6 +129,7 @@ setup-steps:
       3. Scroll down to the **App Credentials** section and copy the **Verification Token**. Keep the token readily available for the next step.
   
   - title: "add integration"
+    anchor: "add-integration"
     content: |
       4. In the **Token** field, paste the verification token you copied from [step 3](#verification-token).
       5. Check the **Join public channels** box if you'd like to sync all public channels in the workspace you're replicating, and not just the channels you've personally joined.

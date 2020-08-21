@@ -65,7 +65,8 @@ attributes:
     subattributes:
       - name: "value"
         type: "string"
-        description: ""
+        description: "The user IDs."
+        foreign-key-id: "user-id"
   - name: "name"
     type: "string"
     description: ""
