@@ -7,12 +7,12 @@ name: "meeting_polls"
 doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingpolls"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meeting_polls.json"
 description: |
-  The `{table.name}` table contains information about the polls from your {{ integration.display_name }} meetings.
+  The `{{table.name}}` table contains information about the polls from your {{ integration.display_name }} meetings.
 
 replication-method: "Full Table"
 
 api-method:
-    name: ""
+    name: "getMeetingPolls"
     doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingpolls"
 
 attributes:

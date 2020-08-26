@@ -12,7 +12,7 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: ""
+    name: "getWebinarFiles"
     doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/listpastwebinarfiles"
 
 attributes:
@@ -25,7 +25,7 @@ attributes:
   - name: "file_name"
     type: "string"
     primary-key: true
-    description: "The name of the files share during the webinar."
+    description: "The name of the files shared during the webinar."
     foreign-key-id: "webinar-files"
 
   - name: "download_url"

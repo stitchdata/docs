@@ -19,7 +19,7 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: "Your user ID."
+    description: "A user ID."
     foreign-key-id: "user-id"
     
   - name: "created_at"

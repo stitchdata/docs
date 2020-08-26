@@ -6,7 +6,8 @@ key: ""
 name: "webinar_panelists"
 doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarpanelists"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_panelists.json"
-description: ""
+description: |
+  The `{{ table.name }}` table contains information about your {{ integration.display_name}} webinar panelists. To retrieve this information, you must have a pro plan or higher with with the webinar add-on enabled.
 
 replication-method: "Full Table"
 

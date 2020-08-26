@@ -7,7 +7,7 @@ name: "webinar_questions"
 doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarregistrantsquestionsget"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_questions.json"
 description: |
-  The `{{ table.name }}` table contains information about your questions to be answered when registering for a {{ integration.display_name }} webinar.
+  The `{{ table.name }}` table contains information about your questions to be answered when registering for a {{ integration.display_name }} webinar. To retrieve this information, you must have a **Rate Limit Label** value of `Light`, pro plan or higher with a Webinar add-on, and the following scopes: `webinar:read:admin`, `webinar:read`.
 
 replication-method: "Full Table"
 

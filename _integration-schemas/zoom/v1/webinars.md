@@ -7,11 +7,12 @@ name: "webinars"
 doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinars"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinars.json"
 description: |
-  The `{{ table.name }}` table contains information bout webinars scheduled from your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains information bout webinars scheduled from your {{ integration.display_name }} account. To retrieve this information you must have a pro plan or higher with a webinar add-on, a **Rate Limit Label** value of `Medium`, and the following scopes: `webinar:read:admin`, `webinar:read`.
 
 replication-method: "Full Table"
+
 api-method:
-    name: ""
+    name: "getWebinars"
     doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinars"
 attributes:
   - name: "uuid"

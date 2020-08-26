@@ -20,12 +20,12 @@ attributes:
     type: "string"
     primary-key: true
     description: |
-      The email used for the {{ integration.display_name }} meeting. 
+      The email of the user who submitted in the poll. 
 
   - name: "meeting_uuid"
     type: "string"
     primary-key: true
-    description: "The meeting UUID"
+    description: "The meeting UUID."
     foreign-key-id: "meeting-uuid"
     
   - name: "name"

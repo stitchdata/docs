@@ -7,7 +7,7 @@ name: "meetings"
 doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetings"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meetings.json"
 description: |
-  The `{{ table.name }}` table contains information about meetings in {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains information about instant, scheduled, and recurring meetings in your {{ integration.display_name }} account.
 
 replication-method: "Full Table"
 
@@ -19,7 +19,7 @@ attributes:
   - name: "uuid"
     type: "string"
     primary-key: true
-    description: "The meeting UUID"
+    description: "The meeting UUID."
     foreign-key-id: "meeting-uuid"
 
   - name: "agenda"
@@ -31,7 +31,7 @@ attributes:
   - name: "duration"
     type: "integer"
     description: ""
-  - name: "encrypted_Password"
+  - name: "encrypted_password"
     type: "string"
     description: ""
   - name: "h323_password"
@@ -40,9 +40,12 @@ attributes:
   - name: "host_id"
     type: "string"
     description: ""
+
   - name: "id"
     type: "integer"
-    description: ""
+    description: "The meeting ID."
+    foreign-key-id: "meeting-id"
+
   - name: "join_url"
     type: "string"
     description: ""
@@ -228,8 +231,5 @@ attributes:
         description: ""
   - name: "type"
     type: "integer"
-    description: ""
-  - name: "uuid"
-    type: "string"
     description: ""
 ---

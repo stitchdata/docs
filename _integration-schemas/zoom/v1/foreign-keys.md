@@ -18,6 +18,10 @@ foreign-keys:
     all-foreign-keys:
       - table: "users"
         join-on: "id"
+      - table: "report_meeting_participants"
+        join-on: "user_id" 
+      - table: "report_webinar_participants"
+        join-on: "user_id"   
 
   - id: "meeting-uuid"
     table: "meetings"
@@ -55,7 +59,11 @@ foreign-keys:
       - table: "meeting_questions"
         join-on: "meeting_id"
       - table: "report_meeting_participants"
-        join-on: "meeting_id"   
+        join-on: "meeting_id" 
+      - table: "meeting"
+        join-on: "meeting_id"
+      - table: "report_meetings"
+        join-on: "meeting_id"     
 
   - id: "poll-id"
     table: "meeting_polls"

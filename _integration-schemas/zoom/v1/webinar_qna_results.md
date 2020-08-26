@@ -40,7 +40,4 @@ attributes:
       - name: "question"
         type: "string"
         description: ""
-  - name: "webinar_uuid"
-    type: "string"
-    description: ""
 ---

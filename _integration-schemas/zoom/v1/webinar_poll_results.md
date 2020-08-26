@@ -7,7 +7,7 @@ name: "webinar_poll_results"
 doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/listpastwebinarpollresults"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_poll_results.json"
 description: |
-  The `{{ table.name }}` data contains information about poll results from your {{ integration.display_name }} webinar. The only way this information is available is if the host user's role is **Pro** and if the meeting was scheduled.
+  The `{{ table.name }}` data contains information about poll results from specific {{ integration.display_name }} webinars. To retrieve this information, you need a webinar license, a **Rate Limit Label** value of `Medium`, and the following scopes: `webinar:read:admin`, `webinar:read`.
 
 replication-method: "Full Table"
 
@@ -19,7 +19,7 @@ attributes:
   - name: "webinar_uuid"
     type: "string"
     primary-key: true
-    description: "The webinar UUID"
+    description: "The webinar UUID."
     foreign-key-id: "webinar-uuid"
 
   - name: "email"

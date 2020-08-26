@@ -7,7 +7,7 @@ name: "report_meeting_participants"
 doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportmeetingparticipants"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/report_meeting_participants.json"
 description: |
-  The `{{ table.name }}` table contains information about your {{ integration.display_name}}'s meeting participants.
+  The `{{ table.name }}` table contains information about your {{ integration.display_name}}'s meeting participants. To retrieve this data, you must have a {{ integration.display_name }} pro plan or higher.
 
 replication-method: "Full Table"
 
@@ -45,5 +45,6 @@ attributes:
     description: ""
   - name: "user_id"
     type: "string"
-    description: ""
+    description: "The user ID."
+    foreign-key-id: "user-id"
 ---

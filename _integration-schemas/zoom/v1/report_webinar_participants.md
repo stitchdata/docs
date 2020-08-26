@@ -7,7 +7,7 @@ name: "report_webinar_participants"
 doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportwebinarparticipants"
 singer-schema: "https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/report_webinar_participants.json"
 description: |
-  The `{{ table.name }}` table contains information about your {{ integration.display_name}}'s webinar participants.
+  The `{{ table.name }}` table contains information about your {{ integration.display_name}}'s webinar participants. To retrieve this information, you must have a pro plan or higher with with the webinar add-on enabled.
 
 replication-method: "Full Table"
 
@@ -49,5 +49,6 @@ attributes:
     description: ""
   - name: "user_id"
     type: "string"
-    description: ""
+    description: "The user ID."
+    foreign-key-id: "user-id"
 ---
