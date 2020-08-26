@@ -7,7 +7,7 @@ name: "remote_files"
 doc-link: "https://api.slack.com/methods/files.remote.list"
 singer-schema: "https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/remote_files.json"
 description: |
-  The `{{ table.name }}` table contains information about remote files added to your {{ integration.display_name }} team. Stitch applies a a lookback period of 14 days and a default date window of five days to this table.
+  The `{{ table.name }}` table contains information about remote files added to your {{ integration.display_name }} team. Stitch applies a lookback period of 14 days and a default date window of five days to this table. A lookback period is a certain amount of days worth of historical data that Stitch will replicate. This exists to manage the volume of data flowing through the integration since files are typically shared often in {{ integration.display_name }}.
 
 replication-method: "Key-based Incremental"
 
@@ -21,6 +21,11 @@ attributes:
     primary-key: true
     description: "The remote file ID."
     #foreign-key-id: "remote-file-id"
+
+  - name: "updated"
+    type: "date-time"
+    description: "The time the file was last updated."
+    replication-key: true  
 
   - name: "channels"
     type: "array"
@@ -66,7 +71,8 @@ attributes:
     subattributes:
       - name: "value"
         type: "string"
-        description: ""
+        description: "The group ID."
+        foreign-key-id: "group-id"
   - name: "has_rich_preview"
     type: "boolean"
     description: ""
@@ -147,7 +153,8 @@ attributes:
     description: ""
   - name: "source_team"
     type: "string"
-    description: ""
+    description: "The source team ID."
+    foreign-key-id: "team-id"
   - name: "state"
     type: "string"
     description: ""
@@ -223,9 +230,7 @@ attributes:
   - name: "title"
     type: "string"
     description: ""
-  - name: "updated"
-    type: "date-time"
-    description: ""
+  
   - name: "url_private"
     type: "uri"
     description: ""
@@ -238,7 +243,8 @@ attributes:
     foreign-key-id: "user-id"
   - name: "user_team"
     type: "string"
-    description: ""
+    description: "The user's team ID."
+    foreign-key-id: "team-id"
   - name: "username"
     type: "string"
     description: ""

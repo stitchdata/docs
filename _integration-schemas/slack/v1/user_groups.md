@@ -20,7 +20,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "User group ID."
-    #foreign-key-id: "group-id"
+    foreign-key-id: "group-id"
 
   - name: "created"
     type: "date-time"
@@ -78,7 +78,8 @@ attributes:
     description: ""
   - name: "parent_group"
     type: "string"
-    description: ""
+    description: "The parent group ID."
+    foreign-key-id: "group-id"
   - name: "priority"
     type: "number"
     description: ""
@@ -88,7 +89,8 @@ attributes:
     subattributes:
       - name: "creator"
         type: "string"
-        description: ""
+        description: "The creator's user ID."
+        foreign-key-id: "user-id"
       - name: "last_set"
         type: "integer"
         description: ""
@@ -101,7 +103,8 @@ attributes:
     subattributes:
       - name: "creator"
         type: "string"
-        description: ""
+        description: "The creator's user ID."
+        foreign-key-id: "user-id"
       - name: "last_set"
         type: "integer"
         description: ""

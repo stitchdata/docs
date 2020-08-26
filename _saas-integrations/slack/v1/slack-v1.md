@@ -61,8 +61,8 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-# attribution-window: "# days"
-# attribution-is-configurable: 
+attribution-window: "14 days"
+attribution-is-configurable: false
 
 # setup-name: ""
 
@@ -95,17 +95,17 @@ setup-steps:
     anchor: "slack-app"
     content: |
       1. Go to the [{{ integration.display_name }} App site](https://api.slack.com/apps){:target="new"}.
-      2. Click **Create and App**.
+      2. Click **Create an App**.
       3. Enter a name for your App and select the workspace you want to replicate data from, then click **Create App**.
       4. In the left-side menu panel, click **Install App**.
-      5. Click **Request to Install**, to install your app. The app must be installed so that you're allowed you to connect to Stitch.
+      5. Click **Request to Install** to install your app. The app must be installed to be allowed to connect to Stitch.
   
   - title: "Assign relevant scopes"
     anchor: "assign-scopes"
     content: |
       1. Log into your {{ integration.display_name }} app.
       2. In the left-side menu panel, click **OAuth & Permissions**.
-      3. Scroll down to the **Scopes**.
+       3. Scroll down to the **Scopes** section.
       4. For this integration to work, there are a minimum amount of required scopes that need to be added in the **Bot Token Scopes** catecory. They are:
           - `channels:history`
           - `channels:join`
@@ -132,9 +132,9 @@ setup-steps:
     anchor: "add-integration"
     content: |
       4. In the **Token** field, paste the verification token you copied from [step 3](#verification-token).
-      5. Check the **Join public channels** box if you'd like to sync all public channels in the workspace you're replicating, and not just the channels you've personally joined.
-      4. Check the **Include private channels** box if you'd like to sync privatee channels in the workspace.
-      4. Check the **Exclude archived channels** box if you don't want to sync data from archived channels.
+      5. Check the **Join public channels** box if you'd like to replicate all public channels in the workspace you're replicating, and not just the channels you've personally joined.
+      6. Check the **Include private channels** box if you'd like to replicate private channels in the workspace.
+      7. Check the **Exclude archived channels** box if you don't want to replicate data from archived channels.
 
   - title: "historical sync"
   - title: "replication frequency"
@@ -150,8 +150,29 @@ replication-sections:
 - title: "Workspace replication"
   anchor: "workspace-replication"
   content: |
-      Stitch can only replicate data from one {{ integration.display_name }} workspace at a time. In order to replicate multiple workspaces, you will need to create integrations for each workspace.
+    Stitch can only replicate data from one {{ integration.display_name }} workspace at a time. In order to replicate multiple workspaces, you will need to create integrations for each workspace.
 
+- title: "Lookback windows and data extraction"
+  anchor: "lookback-windows-extraction"
+  content: |
+    {% include note.html type="single-line" content="The info in this section only applies to tables using Key-based Incremental Replication. Tables using Full Table Replication replicate fully during each replication job and don't use lookback windows." %}
+
+    When Stitch runs a replication job for {{ integration.display_name }}, it will use a 14-day lookback period to query for and extract data for your `files` and `remote_files` tables. A lookback window is a period of time for attributing shared files and the lookback period after those actions occur.
+
+    While Stitch replicates data in this way to account for updates to records made during the lookback window, it can have a [substantial impact on your overall row usage](#lookback-window-row-count-impact).
+
+    In the sections below are examples of how lookback windows impact how Stitch extracts data during historical and ongoing replication jobs.
+
+    {% include integrations/saas/ads-append-only-replication.html %}
+    {% include integrations/saas/attribution-window-examples.html %}
+
+  subsections:
+    - title: "Lookback windows and row count impact"
+      anchor: "lookback-window-row-count-impact"
+      content: |
+        Due to the Lookback Window, a high Replication Frequency may not be necessary. Because Stitch will replicate data from the past `14` days during every replication job, recent data will be re-replicated and count towards your row quota.
+        
+        To reduce your row usage and replicating redundant data, consider setting the integration to replicate less frequently. For example: every 12 or 24 hours.
 
 # -------------------------- #
 #     Integration Tables     #

@@ -53,7 +53,7 @@ object-attributes:
     type: "string"
     required: false
     description: |
-      The number of historical days worth of data to replicate from the start date, for each replication. Lookback windows can only be applied to the `files` and `remote_files` tables in your {{ form-property.display-name }} integration.
+      The number of historical days worth of data to replicate from the `start_date` value , for each replication. Lookback windows can only be applied to the `files` and `remote_files` tables in your {{ form-property.display-name }} integration.
     value: "7"
 
   - name: "token"
@@ -67,20 +67,20 @@ object-attributes:
     type: "string"
     required: false
     description: |
-      This allows you to join all public channels in your {{ form-property.display-name }} workspace so that you can replicate data from them, and not just the ones that you have personally joined.
-    value: "true/false"
+      If `true`, then the integration will have your {{ form-property.display-name }} app join all public channels in your {{ form-property.display-name }} workspace, so that you can sync data from them, and not just the ones that you have personally joined. The default is true.
+    value: "`true` or `false`"
 
   - name: "private_channels"
     type: "string"
     required: false
     description: |
-      This allows you to include data from private channels in your {{ form-property.display-name }} workspace.
-    value: "true/false"
+      If `true`, then the integration will sync private channels in your {{ form-property.display-name }} workspace. The default is true.
+    value: "`true` or `false`"
 
   - name: "exclude_archived"
     type: "string"
     required: false
     description: |
-      This allows you to exclude data from archived channels in your {{ form-property.display-name }} workspace.
-    value: "true/false"  
+      If `false`, then the integration will sync archived channels in your {{ form-property.display-name }} workspace. The default is false.
+    value: "`true` or `false`"  
 ---

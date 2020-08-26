@@ -1,16 +1,26 @@
 ---
 tap: "slack"
-version: "1.x"
+version: "1"
 key: ""
+
 name: "teams"
-doc-link: ""
+doc-link: "https://api.slack.com/methods/team.info"
 singer-schema: "https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/teams.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains teams in your {{ integration.display_name }} workspace.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "team.info"
+    doc-link: "https://api.slack.com/methods/team.info"
+
 attributes:
+  - name: "id"
+    type: "string"
+    description: "The team ID."
+    foreign-key-id: "team-id"
+
   - name: "archived"
     type: "boolean"
     description: ""
@@ -75,9 +85,7 @@ attributes:
       - name: "image_default"
         type: "boolean"
         description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+
   - name: "is_assigned"
     type: "boolean"
     description: ""
