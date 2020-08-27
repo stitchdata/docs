@@ -1,7 +1,7 @@
 ---
 tap: "zoom"
 version: "1"
-key: ""
+key: "webinar-poll"
 
 name: "webinar_polls"
 doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarpolls"
@@ -12,15 +12,15 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "getWebinarPolls"
-    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarpolls"
+  name: "Get webinar polls"
+  doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarpolls"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The webinar poll ID."
-    foreign-key-id: "webinar-poll-id"
+    # foreign-key-id: "webinar-poll-id"
 
   - name: "webinar_id"
     type: "string"
@@ -39,17 +39,20 @@ attributes:
           - name: "value"
             type: "string"
             description: ""
+
       - name: "name"
         type: "string"
         description: ""
+
       - name: "type"
         type: "string"
         description: ""
+
   - name: "status"
     type: "string"
     description: ""
+
   - name: "title"
     type: "string"
     description: ""
-  
 ---

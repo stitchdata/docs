@@ -1,7 +1,7 @@
 ---
 tap: "zoom"
 version: "1"
-key: ""
+key: "user"
 
 name: "users"
 doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/users/users"
@@ -12,28 +12,32 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "getUsers"
-    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/users/users"
+  name: "Get users"
+  doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/users/users"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: "A user ID."
+    description: "The user ID."
     foreign-key-id: "user-id"
     
   - name: "created_at"
     type: "date-time"
     description: ""
+
   - name: "dept"
     type: "string"
     description: ""
+
   - name: "email"
     type: "string"
     description: ""
+
   - name: "first_name"
     type: "string"
     description: ""
+
   - name: "group_ids"
     type: "array"
     description: ""
@@ -49,27 +53,35 @@ attributes:
       - name: "value"
         type: "string"
         description: ""
+
   - name: "last_client_version"
     type: "string"
     description: ""
+
   - name: "last_login_time"
     type: "date-time"
     description: ""
+
   - name: "last_name"
     type: "string"
     description: ""
+
   - name: "pmi"
     type: "integer"
     description: ""
+
   - name: "status"
     type: "string"
     description: ""
+
   - name: "timezone"
     type: "string"
     description: ""
+
   - name: "type"
     type: "integer"
     description: ""
+
   - name: "verified"
     type: "integer"
     description: ""

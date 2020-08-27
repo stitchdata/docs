@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-zoom
 this-version: "1"
 
 api: |
-  [Zoom REST API v2](https://marketplace.zoom.us/docs/api-reference/introduction){:target="new"}
+  [{{ integration.display_name }} REST API v2](https://marketplace.zoom.us/docs/api-reference/introduction){:target="new"}
 
 
 # -------------------------- #
@@ -48,7 +48,7 @@ certified: false
 
 api-type: "platform.zoom"
 
-#historical: ""
+# historical: ""
 frequency: "1 hour"
 tier: "Free"
 
@@ -61,11 +61,6 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-# attribution-window: "# days"
-# attribution-is-configurable: 
-
-# setup-name: ""
-
 
 # -------------------------- #
 #      Feature Summary       #
@@ -74,17 +69,6 @@ column-selection: true
 feature-summary: |
   Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
-
-# -------------------------- #
-#      Incompatibilities     #
-# -------------------------- #
-
-## uncomment section below if integration is compatible with any Stitch destinations
-## if incompatible with multiple destinations, create a section for each destination
-
-## incompatible:
-  ## [redshift]: "always,sometimes,never"
-  ## reason: "copy" 
 
 # -------------------------- #
 #      Setup Instructions    #

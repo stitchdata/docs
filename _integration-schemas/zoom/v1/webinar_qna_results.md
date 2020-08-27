@@ -1,7 +1,7 @@
 ---
 tap: "zoom"
 version: "1"
-key: ""
+key: "webinar-qna-results"
 
 name: "webinar_qna_results"
 doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/listpastwebinarqa"
@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "getWebinarQA"
-    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/listpastwebinarqa"
+  name: "Get webinar Q&A"
+  doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/listpastwebinarqa"
 
 attributes:
   - name: "webinar_uuid"
@@ -21,15 +21,16 @@ attributes:
     primary-key: true
     description: "The webinar UUID."
     foreign-key-id: "webinar-uuid"
+
   - name: "email"
     type: "string"
     primary-key: true
     description: "The email used for the webinar Q & A session."
-    foreign-key-id: "webinar-email"
     
   - name: "name"
     type: "string"
     description: ""
+
   - name: "question_details"
     type: "array"
     description: ""

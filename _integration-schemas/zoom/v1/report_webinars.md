@@ -1,7 +1,7 @@
 ---
 tap: "zoom"
 version: "1"
-key: ""
+key: "report-webinar"
 
 name: "report_webinars"
 doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportwebinardetails"
@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "getWebinarReport"
-    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportwebinardetails"
+  name: "Get webinar report"
+  doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportwebinardetails"
 
 attributes:
   - name: "uuid"
@@ -25,27 +25,35 @@ attributes:
   - name: "dept"
     type: "integer"
     description: ""
+
   - name: "duration"
     type: "integer"
     description: ""
+
   - name: "end_time"
     type: "date-time"
     description: ""
+
   - name: "id"
     type: "integer"
     description: ""
+
   - name: "participants_count"
     type: "integer"
     description: ""
+
   - name: "start_time"
     type: "date-time"
     description: ""
+
   - name: "topic"
     type: "string"
     description: ""
+
   - name: "total_minutes"
     type: "integer"
     description: ""
+
   - name: "tracking_fields"
     type: "array"
     description: ""
@@ -53,15 +61,19 @@ attributes:
       - name: "field"
         type: "string"
         description: ""
+
       - name: "value"
         type: "string"
         description: ""
+
   - name: "type"
     type: "integer"
     description: ""
+
   - name: "user_email"
     type: "string"
     description: ""
+
   - name: "user_name"
     type: "string"
     description: ""
@@ -69,4 +81,5 @@ attributes:
   - name: "webinar_id"
     type: "string"
     description: ""
+    foreign-key-id: "webinar-id"
 ---

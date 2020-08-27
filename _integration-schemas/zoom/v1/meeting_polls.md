@@ -1,7 +1,7 @@
 ---
 tap: "zoom"
 version: "1"
-key: ""
+key: "meeting-poll"
 
 name: "meeting_polls"
 doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingpolls"
@@ -12,15 +12,15 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "getMeetingPolls"
-    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingpolls"
+  name: "Get meeting polls"
+  doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingpolls"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The poll ID."
-    foreign-key-id: "poll-id"
+    # foreign-key-id: "poll-id"
 
   - name: "meeting_id"
     type: "string"
@@ -39,15 +39,19 @@ attributes:
           - name: "value"
             type: "string"
             description: ""
+
       - name: "name"
         type: "string"
         description: ""
+
       - name: "type"
         type: "string"
         description: ""
+
   - name: "status"
     type: "string"
     description: ""
+
   - name: "title"
     type: "string"
     description: ""

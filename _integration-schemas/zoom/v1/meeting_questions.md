@@ -1,7 +1,7 @@
 ---
 tap: "zoom"
 version: "1"
-key: ""
+key: "meeting-question"
 
 name: "meeting_questions"
 doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingregistrantsquestionsget"
@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "getMeetingQuestions"
-    doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingregistrantsquestionsget"
+  name: "Get meeting questions"
+  doc-link: "https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingregistrantsquestionsget"
 
 attributes:
   - name: "meeting_id"
@@ -33,12 +33,15 @@ attributes:
           - name: "value"
             type: "string"
             description: ""
+
       - name: "required"
         type: "boolean"
         description: ""
+
       - name: "title"
         type: "string"
         description: ""
+
       - name: "type"
         type: "string"
         description: ""
@@ -50,6 +53,7 @@ attributes:
       - name: "field_name"
         type: "string"
         description: ""
+
       - name: "required"
         type: "boolean"
         description: ""
