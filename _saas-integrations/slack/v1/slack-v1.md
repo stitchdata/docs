@@ -31,7 +31,7 @@ display_name: "Slack"
 singer: true
 status-url: "https://status.slack.com/"
 
-tap-name: "Slack" ## Ex: Intercom, not intercom
+tap-name: "Slack"
 repo-url: https://github.com/singer-io/tap-slack
 
 this-version: "1"
@@ -72,74 +72,105 @@ attribution-is-configurable: false
 # -------------------------- #
 
 feature-summary: |
-  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication. For this integration, you will need to create a new integration for each individual {{ integration.display_name }} workspace you want to replicate data from.
+  Stitch's {{ integration.display_name }} integration replicates data from a single {{ integration.display_name }} workspace using the {{ integration.api | flatify | strip }}. To replicate data from multiple workspaces, create an additional {{ integration.display_name }} integration for each workspace.
 
+  Refer to the [Schema](#schema) section for a list of objects available for replication.
 
-# -------------------------- #
-#      Incompatibilities     #
-# -------------------------- #
-
-## uncomment section below if integration is compatible with any Stitch destinations
-## if incompatible with multiple destinations, create a section for each destination
-
-## incompatible:
-  ## [redshift]: "always,sometimes,never"
-  ## reason: "copy" 
 
 # -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
 
 setup-steps:
-  - title: "Create a Slack App"
-    anchor: "slack-app"
+  - title: "Create a {{ integration.display_name }} app and retrieve a verification token"
+    anchor: "create-slack-app"
     content: |
-      1. Go to the [{{ integration.display_name }} App site](https://api.slack.com/apps){:target="new"}.
-      2. Click **Create an App**.
-      3. Enter a name for your App and select the workspace you want to replicate data from, then click **Create App**.
-      4. In the left-side menu panel, click **Install App**.
-      5. Click **Request to Install** to install your app. The app must be installed to be allowed to connect to Stitch.
-  
-  - title: "Assign relevant scopes"
-    anchor: "assign-scopes"
-    content: |
-      1. Log into your {{ integration.display_name }} app.
-      2. In the left-side menu panel, click **OAuth & Permissions**.
-       3. Scroll down to the **Scopes** section.
-      4. For this integration to work, there are a minimum amount of required scopes that need to be added in the **Bot Token Scopes** catecory. They are:
-          - `channels:history`
-          - `channels:join`
-          - `channels:read`
-          - `files:read`
-          - `groups:read`
-          - `links:read`
-          - `reactions:read`
-          - `remote_files:read`
-          - `remote_files:write`
-          - `team:read`
-          - `useergroups:read`
-          - `users.profile:read`
-          - `users:read`
+      {% capture multiple-workspaces %}
+      **Connecting multiple workspaces?** You'll need to create a new {{ integration.display_name }} app and Stitch {{ integration.display_name }} integration for each workspace. Follow this guide in its entirety for each workspace you want to replicate data from.
+      {% endcapture %}
 
-  - title: "Retrieve verification token"
-    anchor: "verification-token"
-    content: |
-      1. Log into your {{ integration.display_name }} app.
-      2. In the left-side menu panel, click **Basic Information**.
-      3. Scroll down to the **App Credentials** section and copy the **Verification Token**. Keep the token readily available for the next step.
+      {% include note.html type="single-line" content=multiple-workspaces %}
+
+      {% for substep in step.substeps %}
+      - [Step 1.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
+
+    substeps:
+      - title: "Create the app"
+        anchor: "create-the-app"
+        content: |
+          1. Navigate to the [{{ integration.display_name }} App site](https://api.slack.com/apps){:target="new"}.
+          2. Click **Create an App**.
+          3. Enter a name for the app and select the workspace you want to replicate data from.
+          4. Click **Create App**.
+  
+      - title: "Assign the relevant scopes to the app"
+        anchor: "assign-scopes"
+        content: |
+          Next, you'll grant the required permissions to the app you created in [the previous step](#create-the-app).
+
+          {% include layout/inline_image.html type="right" alt="The add permission by scope or API method menu, expanded, in the Bot Token Scopes section of the Slack App Scopes page" file="integrations/slack-bot-token-scopes.png" max-width="450px" %}
+
+          1. The app you created should be selected in the drop-down menu near the top-left corner of the page. If it isn't, select it.
+          2. Click **Features > OAuth & Permissions** in the left side menu.
+          3. Scroll to the **Scopes** section.
+          4. In the **Bot Token Scopes** section, click the **Add an OAuth Scope** button.
+          5. In the field that appears, search for the following scopes:
+              - `channels:history`
+              - `channels:join`
+              - `channels:read`
+              - `files:read`
+              - `groups:read`
+              - `links:read`
+              - `reactions:read`
+              - `remote_files:read`
+              - `remote_files:write`
+              - `team:read`
+              - `useergroups:read`
+              - `users.profile:read`
+              - `users:read`
+
+              {{ integration.display_name }} will automatically save the changes each time a scope is added.
+          6. Repeat steps 4 and 5 until all the scopes have been added.
+
+      - title: "Install the app to your workspace"
+        anchor: "install-app-workspace"
+        content: |
+          {% capture install-approval %}
+          **If app approval is enabled for your workspace** and you don't have the required permissions to install apps, you may need to contact a  Workspace Owner or App Manager in your workspace to complete this step. Refer to [{{ integration.display_name }}'s documentation](https://slack.com/help/articles/222386767-Manage-app-installation-settings-for-your-workspace){:target="new"} for more info.
+          {% endcapture %}
+
+          {% include note.html type="single-line" content=install-approval %}
+
+          After the [required scopes](#assign-scopes) are added to the app, you'll need to install it to your {{ integration.display_name }} workspace. This is required to successfully connect to Stitch.
+
+          1. Click **Settings > Install App** in the left side menu.
+          2. Click **Request to Install** to install the app.
+          3. Complete the steps that follow to install the app or submit a request to your Workspace Owner(s) for approval.
+
+      - title: "Retrieve your verification token"
+        anchor: "verification-token"
+        content: |
+          To complete the app setup, you'll need to retrieve your app's verification token. Stitch uses this secure token to authenticate to {{ integration.display_name }}.
+
+          1. Click **Settings > Basic Information** in the left side menu.
+          2. Scroll to the **App Credentials** section.
+          3. Locate and copy the **Verification Token**:
+
+             ![Highlighted Verification Token field in the App Credentials section of the Slack App Basic Information page]({{ site.baseurl }}/images/integrations/slack-verification-token.png){:style="max-width: 450px;"}
+
+          Keep the token readily available for the next step.
   
   - title: "add integration"
-    anchor: "add-integration"
     content: |
-      4. In the **Token** field, paste the verification token you copied from [step 3](#verification-token).
-      5. Check the **Join public channels** box if you'd like to replicate all public channels in the workspace you're replicating, and not just the channels you've personally joined.
-      6. Check the **Include private channels** box if you'd like to replicate private channels in the workspace.
+      4. In the **Token** field, paste the verification token you copied from [Step 1.4](#verification-token).
+      5. Check the **Join public channels** box if you'd like to replicate data for all public channels in the workspace you're connecting. Otherwise, only data for channels you've personally joined will be replicated.
+      6. Check the **Include private channels** box if you'd like to replicate data for private channels in the workspace.
       7. Check the **Exclude archived channels** box if you don't want to replicate data from archived channels.
 
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
-
+  - title: "track data"
 
 
 # -------------------------- #
@@ -179,14 +210,7 @@ replication-sections:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/slack
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
+# Each table has a its own .md file in /_integration-schemas/slack/v1
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
