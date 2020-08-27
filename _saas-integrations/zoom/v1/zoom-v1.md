@@ -91,23 +91,19 @@ feature-summary: |
 # -------------------------- #
 
 requirements-list:
-
-To set up in {{ integration.display_name }} in Stitch, you'll need:
   - item: |
-      **A {{integration.display_name }} authentication app**. You'll need one or the other to connect your {{integration.display_name }} account to Stitch:
-        - **OAuth app**. [(Click here)](https://marketplace.zoom.us/docs/guides/build/oauth-app) for more information on OAuth apps. If using a {{ integration.display_name }} OAuth App to connect to Stitch, make sure that the following scopes are included in the app:
+      **A {{integration.display_name }} authentication app**. You'll need one of the following apps to connect your {{integration.display_name }} account to Stitch:
+        - **An OAuth app**. [Click here](https://marketplace.zoom.us/docs/guides/build/oauth-app){:target="new"} for more information on OAuth apps. If using a {{ integration.display_name }} OAuth App to connect to Stitch, make sure that the following scopes are included in the app:
           - `account:read:admin`
           - `meeting:read:admin`
           - `report:read:admin`
           - `user:read:admin`
           - `webinar:read:admin`
 
-        - **JSON Web Tokens (JWT) app**. [Click here](https://marketplace.zoom.us/docs/guides/build/jwt-app) for more information on JWT apps. 
-}
-}
+        - **A JSON Web Tokens (JWT) app**. [Click here](https://marketplace.zoom.us/docs/guides/build/jwt-app){:target="new"} for more information on JWT apps. 
   
 setup-steps:
-  - title: "Obtain your authentication app tokens"
+  - title: "Obtain your {{ integration.display_name }} authentication app tokens"
     anchor: "obtain-tokens"
     content: |
       1. Login to your {{ integration.display_name }} account on the [{{ integration.display_name }} App Marketplace](https://marketplace.zoom.us/){:target="new"}.
@@ -115,12 +111,13 @@ setup-steps:
       3. Click on the OAuth or JWT app you'd like to use to connect to Stitch.
       4. If using a JWT app, copy the **JWT**. If using an OAuth app, copy the **Client ID**, **Client Secret**, and **Refresh Token**.
       5. Keep your token(s) readily available for the next step.
+      
   - title: "add integration"
     content: |
-      4. If connecting to Stitch with a {{ integration.display_name }} OAuth app, paste the **Client ID**, **Client Secret**, and **Refresh Token** you obtained in [step 1](#obtain-tokens) into their respective fields.
-      5. If connecting to Stitch with a {{ integration.display_name }} JWT app, paste the **JWT** you obtained in [step 1](#obtain-tokens) into its respective field.
+      4. If connecting to Stitch with a {{ integration.display_name }} OAuth app, paste the **Client ID**, **Client Secret**, and **Refresh Token** you obtained in [Step 1](#obtain-tokens) into their respective fields.
+      5. If connecting to Stitch with a {{ integration.display_name }} JWT app, paste the **JWT** you obtained in [Step 1](#obtain-tokens) into the **JWT** field.
   - title: "replication frequency"
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
+  - title: "track data"
 
 
 # -------------------------- #
@@ -128,14 +125,7 @@ setup-steps:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/zoom
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
+# Each table has a its own .md file in /_integration-schemas/zoom/v1
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
