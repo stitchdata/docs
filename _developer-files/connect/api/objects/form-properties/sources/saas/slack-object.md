@@ -46,41 +46,51 @@ object-attributes:
     type: "string"
     required: false
     description: |
-      The number of days of {{ form-property.display-name }} data to replicate during each replication. The default number of days to replicate is seven.
+      The number of days to replicate for each request made for applicable streams during a replication job. The default is `7`.
+
+      This property applies to the following streams: 
+
+      - `files`
+      - `messages`
+      - `remote_files`
+
+      For example: If this value is `7`, Stitch will replicate 7 days' worth of data for each request made for the `files` stream.
+
+      **Note:** This doesn't mean only seven days' worth of data is replicated for each replication job, as Stitch can make several API requests for the same stream over the course of a job. This is implemented to more efficiently replicate data and prevent issues with {{ form-property.display-name }}'s API.
     value: "7"
 
   - name: "lookback_window"
     type: "string"
     required: false
     description: |
-      The number of historical days worth of data to replicate from the `start_date` value , for each replication. Lookback windows can only be applied to the `files` and `remote_files` tables in your {{ form-property.display-name }} integration.
+      The number of historical days' worth of data to replicate from the `start_date` value for each replication job for the `files` and `remote_files` streams. The default is `14`.
     value: "7"
 
   - name: "token"
     type: "string"
     required: true
     description: |
-      The verification token to connect your {{ form-property.display-name }} workspace to Stitch. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#verification-token" }}) for instructions on retrieving this information.
-    value: "<YOUR_VERIFICATION_TOKEN>"
+      A {{ form-property.display-name }} app bot user OAuth access token, generated after you create a {{ form-property.display-name }} app, assign the required scopes, and install the app in your {{ integration.display_name }} workspace. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#verification-token" }}) for instructions on retrieving this information.
+    value: "<YOUR_APP_BOT_USER_OAUTH_ACCESS_TOKEN>"
 
   - name: "join_public_channels"
     type: "string"
     required: false
     description: |
-      If `true`, then the integration will have your {{ form-property.display-name }} app join all public channels in your {{ form-property.display-name }} workspace, so that you can sync data from them, and not just the ones that you have personally joined. The default is true.
-    value: "`true` or `false`"
+      If `true`, then the integration will have your {{ form-property.display-name }} app join all public channels in your {{ form-property.display-name }} workspace and not just the ones you have personally joined. The default is `true`.
+    value: "true"
 
   - name: "private_channels"
     type: "string"
     required: false
     description: |
-      If `true`, then the integration will sync private channels in your {{ form-property.display-name }} workspace. The default is true.
-    value: "`true` or `false`"
+      If `true`, then the integration will replicate data for private channels in your {{ form-property.display-name }} workspace. The default is `true`.
+    value: "true"
 
   - name: "exclude_archived"
     type: "string"
     required: false
     description: |
-      If `false`, then the integration will sync archived channels in your {{ form-property.display-name }} workspace. The default is false.
-    value: "`true` or `false`"  
+      If `false`, then the integration will replicate data for archived channels in your {{ form-property.display-name }} workspace. The default is `false`.
+    value: "false"  
 ---
