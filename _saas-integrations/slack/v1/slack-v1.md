@@ -104,7 +104,7 @@ setup-steps:
           3. Enter a name for the app and select the workspace you want to replicate data from.
           4. Click **Create App**.
   
-      - title: "Assign the relevant scopes to the app"
+      - title: "Grant relevant scopes to the app"
         anchor: "assign-scopes"
         content: |
           Next, you'll grant the required permissions to the app you created in [the previous step](#create-the-app).
@@ -144,26 +144,22 @@ setup-steps:
 
           After the [required scopes](#assign-scopes) are added to the app, you'll need to install it to your {{ integration.display_name }} workspace. This is required to successfully connect to Stitch.
 
-          1. Click **Settings > Install App** in the left side menu.
-          2. Click **Request to Install** to install the app.
+          1. Scroll up to the **OAuth Tokens & Redirect URLs** section of the **OAuth & Permissions** page.
+          2. In this section, click the **Install App to Workspace** button.
           3. Complete the steps that follow to install the app or submit a request to your Workspace Owner(s) for approval.
 
-      - title: "Retrieve your verification token"
-        anchor: "verification-token"
+      - title: "Retrieve the app's bot user OAuth access token"
+        anchor: "bot-user-oauth-access-token"
         content: |
-          To complete the app setup, you'll need to retrieve your app's verification token. Stitch uses this secure token to authenticate to {{ integration.display_name }}.
+          After the app is successfully installed to your {{ integration.display_name }} workspace, a **Tokens for Your Workspace** section containing a **Bot User OAuth Access Token** field will display on the page:
 
-          1. Click **Settings > Basic Information** in the left side menu.
-          2. Scroll to the **App Credentials** section.
-          3. Locate and copy the **Verification Token**:
-
-             ![Highlighted Verification Token field in the App Credentials section of the Slack App Basic Information page]({{ site.baseurl }}/images/integrations/slack-verification-token.png){:style="max-width: 450px;"}
+          ![The Bot User OAuth Access Token in the Tokens for Your Workspace section of the OAuth Tokens & Redirect URLs App page in Slack]({{ site.baseurl }}/images/integrations/slack-bot-oauth-access-token.png)
 
           Keep the token readily available for the next step.
   
   - title: "add integration"
     content: |
-      4. In the **Token** field, paste the verification token you copied from [Step 1.4](#verification-token).
+      4. In the **Token** field, paste the bot user OAuth access token you copied from [Step 1.4](#bot-user-oauth-access-token).
       5. Check the **Join public channels** box if you'd like to replicate data for all public channels in the workspace you're connecting. Otherwise, only data for channels you've personally joined will be replicated.
       6. Check the **Include private channels** box if you'd like to replicate data for private channels in the workspace.
       7. Check the **Exclude archived channels** box if you don't want to replicate data from archived channels.
@@ -183,27 +179,27 @@ replication-sections:
   content: |
     Stitch can only replicate data from one {{ integration.display_name }} workspace at a time. In order to replicate multiple workspaces, you will need to create integrations for each workspace.
 
-- title: "Lookback windows and data extraction"
-  anchor: "lookback-windows-extraction"
-  content: |
-    {% include note.html type="single-line" content="The info in this section only applies to tables using Key-based Incremental Replication. Tables using Full Table Replication replicate fully during each replication job and don't use lookback windows." %}
+# - title: "Lookback windows and data extraction"
+#   anchor: "lookback-windows-extraction"
+#   content: |
+#     {% include note.html type="single-line" content="The info in this section only applies to tables using Key-based Incremental Replication. Tables using Full Table Replication replicate fully during each replication job and don't use lookback windows." %}
 
-    When Stitch runs a replication job for {{ integration.display_name }}, it will use a 14-day lookback period to query for and extract data for your `files` and `remote_files` tables. A lookback window is a period of time for attributing shared files and the lookback period after those actions occur.
+#     When Stitch runs a replication job for {{ integration.display_name }}, it will use a 14-day lookback period to query for and extract data for your `files` and `remote_files` tables. A lookback window is a period of time for attributing shared files and the lookback period after those actions occur.
 
-    While Stitch replicates data in this way to account for updates to records made during the lookback window, it can have a [substantial impact on your overall row usage](#lookback-window-row-count-impact).
+#     While Stitch replicates data in this way to account for updates to records made during the lookback window, it can have a [substantial impact on your overall row usage](#lookback-window-row-count-impact).
 
-    In the sections below are examples of how lookback windows impact how Stitch extracts data during historical and ongoing replication jobs.
+#     In the sections below are examples of how lookback windows impact how Stitch extracts data during historical and ongoing replication jobs.
 
-    {% include integrations/saas/ads-append-only-replication.html %}
-    {% include integrations/saas/attribution-window-examples.html %}
+#     {% include integrations/saas/ads-append-only-replication.html %}
+#     {% include integrations/saas/attribution-window-examples.html %}
 
-  subsections:
-    - title: "Lookback windows and row count impact"
-      anchor: "lookback-window-row-count-impact"
-      content: |
-        Due to the Lookback Window, a high Replication Frequency may not be necessary. Because Stitch will replicate data from the past `14` days during every replication job, recent data will be re-replicated and count towards your row quota.
+#   subsections:
+#     - title: "Lookback windows and row count impact"
+#       anchor: "lookback-window-row-count-impact"
+#       content: |
+#         Due to the Lookback Window, a high Replication Frequency may not be necessary. Because Stitch will replicate data from the past **14 days** during every replication job, recent data will be re-replicated and count towards your row quota.
         
-        To reduce your row usage and replicating redundant data, consider setting the integration to replicate less frequently. For example: every 12 or 24 hours.
+#         To reduce your row usage and replicating redundant data, consider setting the integration to replicate less frequently. For example: every 12 or 24 hours.
 
 # -------------------------- #
 #     Integration Tables     #
