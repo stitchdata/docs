@@ -73,8 +73,7 @@ Stitch’s Incoming Webhooks integration provides a simple and flexible method t
 
 To use Stitch Incoming Webhooks:
 
-1. You must have a Stitch account. The Incoming Webhooks integration is available to all Stitch users, whether you're on a Free or Paid tier.
-
+1. You must have a Stitch account.
 2. **The Webhook API you're integrating with meets the following requirements**:
    - The data sent by the webhook API must come to Stitch in **JSON format**. This is currently the only format Stitch supports.
    - The payload (or delivery) of the data must come via a `POST` request.
