@@ -55,7 +55,7 @@ related:
 
 requirements:
   - item: |
-      **An active Stitch account.** To create an account, [sign up for a free one here]({{ site.home }}){:target="new"}.
+      **An active Stitch account.** To create an account, [sign up for a free trial here]({{ site.home }}){:target="new"}.
 
 
 # -------------------------- #
