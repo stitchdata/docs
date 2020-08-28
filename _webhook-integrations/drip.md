@@ -28,7 +28,7 @@ frequency: "Continuous"
 primary-key:
   defined: false
   field: 
-tier: "Free"
+tier: "Standard"
 status-url: "https://drip.statuspage.io/"
 icon: /images/integrations/icons/drip.svg
 

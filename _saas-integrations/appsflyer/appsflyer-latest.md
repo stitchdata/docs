@@ -32,7 +32,7 @@ certified: false
 
 historical: "60 days"
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 status-url: http://status.appsflyer.com/
 
 api-type: "platform.appsflyer"

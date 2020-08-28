@@ -37,7 +37,7 @@ certified: true
 
 historical: "1 year"
 frequency: "24 hours"
-tier: "Free"
+tier: "Standard"
 auth: "oauth"
 status-url: https://status.bingads.com/
 

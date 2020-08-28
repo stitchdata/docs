@@ -31,7 +31,7 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 
 anchor-scheduling: true
 cron-scheduling: false

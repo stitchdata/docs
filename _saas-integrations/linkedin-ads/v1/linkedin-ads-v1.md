@@ -40,7 +40,7 @@ api-type: "platform.linkedin-ads"
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 status-url: ""
 
 anchor-scheduling: true

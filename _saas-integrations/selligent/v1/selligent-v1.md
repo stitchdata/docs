@@ -40,7 +40,7 @@ certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 status-url: ""
 
 api-type: "platform.selligent"

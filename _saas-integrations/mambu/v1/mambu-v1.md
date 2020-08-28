@@ -42,7 +42,7 @@ certified: true
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 status-url: "https://status.mambu.com/"
 
 anchor-scheduling: true

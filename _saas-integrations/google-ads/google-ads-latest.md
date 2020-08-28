@@ -41,7 +41,7 @@ certified: true
 
 historical: "30 days"
 frequency: "24 hours"
-tier: "Free"
+tier: "Standard"
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 
 api-type: "platform.adwords"

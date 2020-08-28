@@ -29,7 +29,7 @@ frequency: "Continuous"
 primary-key:
   defined: false
   field: 
-tier: "Free"
+tier: "Standard"
 status-url: "http://status.stitchdata.com/"
 icon:  /images/integrations/icons/incoming-webhooks.svg
 

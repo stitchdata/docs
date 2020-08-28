@@ -29,7 +29,7 @@ frequency: "Continuous"
 primary-key:
   defined: true
   field: "event_id"
-tier: "Free"
+tier: "Standard"
 status-url: "http://status.customer.io/"
 icon: /images/integrations/icons/customerio.svg
 

@@ -34,7 +34,7 @@ singer: true
 repo-url: https://github.com/singer-io/tap-mysql
 
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 port: 3306
 db-type: "mysql"
 
