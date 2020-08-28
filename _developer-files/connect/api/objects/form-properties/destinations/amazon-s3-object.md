@@ -48,10 +48,15 @@ object-attributes:
 
   - name: "sentinel_key"
     type: "string"
-    required: false
-    read-only: true
+    required: true
+    read-only: false
     description: |
-      The sentinel key is the name the challenge file in the bucket must have. The challenge file is a blank file that Stitch uses to test the permissions for the bucket. This file must remain in the bucket even after the inital setup is complete.
+      The sentinel key is the name the challenge file in the bucket must have. The challenge file is a blank file that Stitch uses to test the permissions for the bucket. **Note**: The API treats this property as a credential, which means it won't be returned in responses.
+
+      This file:
+
+      - Must have a name that begins with `stitch-challenge-file-`. For example: `stitch-challenge-file-af295ad1-7a4b-4881-89dc-c9be27de13a5` 
+      - Must remain in the bucket even after the inital setup is complete
 
       Refer to our [Amazon S3 documentation]({{ link.destinations.setup.amazon-s3 | prepend: site.baseurl | append: "#verify-bucket-access" }}) for additional details.
     value: |
@@ -76,7 +81,7 @@ object-attributes:
     required: false
     read-only: false
     description: |
-      Defines the delimiter used if `output_file_format` is `csv`.  Possible values are:
+      Defines the delimiter used if `output_file_format` is `csv`. Accepted values are:
 
       - `,` (comma)
       - `|` (pipe)
