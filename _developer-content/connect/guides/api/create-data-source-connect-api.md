@@ -229,7 +229,7 @@ steps:
           }
         ],
         "details": {
-          "pricing_tier": "premium",
+          "pricing_tier": "standard",
           "pipeline_state": "released",
           "default_start_date": "-1 year",
           "default_scheduling_interval": 60,
