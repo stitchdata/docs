@@ -25,6 +25,9 @@ related:
   - title: "Understand your Stitch row usage"
     link: "{{ link.getting-started.row-usage | prepend: site.baseurl }}"
 
+  - title: "Connecting outside integrations"
+    link: "{{ link.integrations.other-data-sources | prepend: site.baseurl }}"
+
   # - title: "Stitch feature overview"
   #   link: "{{ link.getting-started.feature-overview | prepend: site.baseurl }}"
 
@@ -100,10 +103,16 @@ steps:
 
           For setup requirements and instructions, refer to our destination setup guides:
 
-          {% assign destinations = site.destinations | where:"destination",true | sort:"title" %}
+          {% assign destinations = site.destinations | where:"destination",true | sort_natural:"title" %}
+          {% assign destination-data = site.data.destinations %}
 
           {% for destination in destinations %}
+
+          {% assign destination-version = destination-data[destination.type]versions.released-versions | where:"number",destination.this-version | first %}
+
+          {% unless destination-version.status == "deprecated" or destination-version.status == "sunset" %}
           - [{{ destination.title | remove:" Destination" }}]({{ destination.url | prepend: site.baseurl | append:"#stitch-details-setup-info" }})
+          {% endunless %}
           {% endfor %}
 
   - title: "Connect an integration"
@@ -141,7 +150,6 @@ steps:
           - integration: "salesforce"
             anchor: "setup-requirements"
             requirements:
-              - item: "A paid Stitch account (after free trial ends)"
               - item: "Web Service API access in Salesforce"
               - item: |
                   [Whitelisting Stitch's IP addresses]({{ integration.url | prepend: site.baseurl | append: "#whitelist-stitch-ips" }}), depending on the account's setup
@@ -150,7 +158,6 @@ steps:
           - integration: "netsuite"
             anchor: "setup-requirements"
             requirements:
-              - item: "A paid Stitch account (after free trial ends)"
               - item: "Administrator permissions in NetSuite"
               - item: |
                   [Whitelisting Stitch's IP addresses]({{ integration.url | prepend: site.baseurl | append: "#whitelist-stitch-ips" }}), depending on the account's setup

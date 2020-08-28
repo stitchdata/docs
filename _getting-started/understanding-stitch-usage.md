@@ -29,6 +29,9 @@ related:
   - title: "Set up your Stitch data pipeline"
     link: "{{ link.getting-started.onboarding | prepend: site.baseurl }}"
 
+  - title: "Connecting outside integrations"
+    link: "{{ link.integrations.other-data-sources | prepend: site.baseurl }}"
+
   # - title: "Stitch feature overview"
   #   link: "{{ link.getting-started.feature-overview | prepend: site.baseurl }}"
 
