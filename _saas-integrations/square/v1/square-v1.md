@@ -90,24 +90,18 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
-requirements-list:
-  - item: ""
-  - item: ""
-
-requirements-info:
-
 setup-steps:
   - title: "add integration"
     content: |
       4. Check the **Connect to a sandbox environment** if choosing to connect to your {{ integration.display_name }} sandbox.
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "Authorizing Stitch to Access Square"
+  - title: "Authorizing Stitch to Access {{ integration.display_name }}"
     anchor: "authorize-stitch"
     content: |
-      Lastly, you'll be directed to Square's website to complete the setup.
+      Lastly, you'll be directed to {{ integration.display_name }}'s website to complete the setup.
 
-      1. Enter your Square credentials and click **Login**.
+      1. Enter your {{ integration.display_name }} credentials and click **Login**.
       2. After the authorization process successfully completes, you'll be redirected back to Stitch.
       3. Click {{ app.buttons.finish-int-setup }}.
   - title: "track data" ## remove this if the integration doesn't support at least table selection

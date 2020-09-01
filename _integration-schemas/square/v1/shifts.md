@@ -1,16 +1,31 @@
 ---
 tap: "square"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "shifts"
-doc-link: ""
+doc-link: "https://developer.squareup.com/reference/square/labor-api"
 singer-schema: "https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/shifts.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about employee's shifts in {{ integration.display_name }}.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "Search shifts"
+    doc-link: "https://developer.squareup.com/reference/square/labor-api/search-shifts"
+
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The shift ID."
+
+  - name: "updated_at"
+    type: "date-time"
+    description: "The time the shift was last updated."
+    replication-key: true
+      
   - name: "breaks"
     type: "array"
     description: ""
@@ -41,16 +56,17 @@ attributes:
     description: ""
   - name: "employee_id"
     type: "string"
-    description: ""
+    description: "The employee ID that the shift belongs to."
+    foreign-key-id: "employee-id"
+
   - name: "end_at"
     type: "date-time"
     description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+  
   - name: "location_id"
     type: "string"
-    description: ""
+    description: "The location ID of the shift."
+    foreign-key-id: "location-id"
   - name: "start_at"
     type: "date-time"
     description: ""
@@ -60,9 +76,7 @@ attributes:
   - name: "timezone"
     type: "string"
     description: ""
-  - name: "updated_at"
-    type: "date-time"
-    description: ""
+  
   - name: "version"
     type: "integer"
     description: ""

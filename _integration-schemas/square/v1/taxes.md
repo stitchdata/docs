@@ -1,26 +1,41 @@
 ---
 tap: "square"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "taxes"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/taxes.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about taxes on your items in {{ integration.display_name }}.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
+    name: "Update item taxes"
     doc-link: ""
+
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The tax ID."
+    foreign-key-id: "tax-id"
+
+  - name: "updated_at"
+    type: "date-time"
+    description: "The time the tax was last updated."
+    replication-key: true  
+
   - name: "absent_at_location_ids"
     type: "array"
     description: ""
     subattributes:
       - name: "value"
         type: "string"
-        description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+        description: "The locations where taxes are not applicable."
+        foreign-key-id: "location-id"
+  
   - name: "is_deleted"
     type: "boolean"
     description: ""
@@ -58,9 +73,7 @@ attributes:
   - name: "type"
     type: "string"
     description: ""
-  - name: "updated_at"
-    type: "date-time"
-    description: ""
+  
   - name: "version"
     type: "integer"
     description: ""

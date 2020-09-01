@@ -1,23 +1,39 @@
 ---
 tap: "square"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "discounts"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/discounts.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about discounts for a given location in {{ integration.display_name }}. This table has been deprecated in {{ integration.display_name }}, effective November 20, 2019.
+
+replication-method: "Key-based Incremental"
+
 api-method:
     name: ""
     doc-link: ""
+
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The discount ID."
+    foreign-key-id: 
+
+  - name: "updated_at"
+    type: "date-time"
+    description: "The time the location was last updated."
+      
   - name: "absent_at_location_ids"
     type: "array"
     description: ""
     subattributes:
       - name: "value"
         type: "string"
-        description: ""
+        description: "The location IDs were discounts don't apply."
+        foreign-key-id: "location-id"
   - name: "discount_data"
     type: "object"
     description: ""
@@ -53,9 +69,7 @@ attributes:
       - name: "pin_required"
         type: "boolean"
         description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+  
   - name: "is_deleted"
     type: "boolean"
     description: ""
@@ -65,9 +79,7 @@ attributes:
   - name: "type"
     type: "string"
     description: ""
-  - name: "updated_at"
-    type: "date-time"
-    description: ""
+  
   - name: "version"
     type: "integer"
     description: ""

@@ -1,19 +1,31 @@
 ---
 tap: "square"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "settlements"
-doc-link: ""
+doc-link: "https://developer.squareup.com/reference/square/settlements-api"
 singer-schema: "https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/settlements.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about deposits and withdrawals issued by {{ integration.display_name }. This table cannot be replicated with a sandbox account due to restrictions from {{ integration.display_name }}.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List settlements"
+    doc-link: "https://developer.squareup.com/reference/square/settlements-api/v1-list-settlements"
+
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The settlement ID."
+
   - name: "bank_account_id"
     type: "string"
-    description: ""
+    description: "The bank account ID."
+    foreign-key-id: "bank-id"
+
   - name: "entries"
     type: "array"
     description: ""
@@ -21,9 +33,7 @@ attributes:
       - name: "value"
         type: "null"
         description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+  
   - name: "initiated_at"
     type: "date-time"
     description: ""

@@ -1,26 +1,41 @@
 ---
 tap: "square"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "items"
-doc-link: ""
+doc-link: "https://developer.squareup.com/reference/square/catalog-api"
 singer-schema: "https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/items.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about items for a given location in {{ integration.display_name }}. This table has been deprecated in {{ integration.display_name }}, effective November 20, 2019.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List items"
+    doc-link: "https://developer.squareup.com/reference/square/catalog-api/v1-list-items"
+
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The item ID."
+    foreign-key-id: "item-id"
+
+  - name: "updated_at"
+    type: "date-time"
+    description: "The time the item was last updated."
+    replication-key: true  
+
   - name: "absent_at_location_ids"
     type: "array"
     description: ""
     subattributes:
       - name: "value"
         type: "string"
-        description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+        description: "The location IDs where items are not available."
+        foreign-key-id: "location-id"
+  
   - name: "is_deleted"
     type: "boolean"
     description: ""
@@ -78,7 +93,7 @@ attributes:
         subattributes:
           - name: "value"
             type: "string"
-            description: ""
+            description: "The tax IDs of the items"
       - name: "variations"
         type: "array"
         description: ""
@@ -98,7 +113,8 @@ attributes:
                 description: ""
               - name: "item_id"
                 type: "string"
-                description: ""
+                description: "The item ID."
+                foreign-key-id: "item-id"
               - name: "location_overrides"
                 type: "array"
                 description: ""
@@ -111,7 +127,8 @@ attributes:
                     description: ""
                   - name: "location_id"
                     type: "string"
-                    description: ""
+                    description: "The location ID."
+                    foreign-key-id: "location-id"
                   - name: "track_inventory"
                     type: "boolean"
                     description: ""
@@ -152,7 +169,7 @@ attributes:
             subattributes:
               - name: "value"
                 type: "string"
-                description: ""
+                description: "The location IDs where the items are present."
           - name: "type"
             type: "string"
             description: ""
@@ -174,13 +191,11 @@ attributes:
     subattributes:
       - name: "value"
         type: "string"
-        description: ""
+        description: "The location IDs where the items are present"
   - name: "type"
     type: "string"
     description: ""
-  - name: "updated_at"
-    type: "date-time"
-    description: ""
+  
   - name: "version"
     type: "integer"
     description: ""

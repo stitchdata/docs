@@ -1,16 +1,27 @@
 ---
 tap: "square"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "bank_accounts"
-doc-link: ""
+doc-link: "https://developer.squareup.com/reference/square/bank-accounts-api"
 singer-schema: "https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/bank_accounts.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` contains information about a merchant's bank account in {{ integration.display_name }}. This table cannot be replicated with a sandbox account due to restrictions from {{ integration.display_name }}.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List bank accounts"
+    doc-link: "https://developer.squareup.com/reference/square/bank-accounts-api/get-bank-account"
+
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The bank account ID."
+    foreign-key-id: "bank-id"
+
   - name: "account_number_suffix"
     type: "string"
     description: ""
@@ -35,12 +46,10 @@ attributes:
   - name: "holder_name"
     type: "string"
     description: ""
-  - name: "id"
-    type: "string"
-    description: ""
   - name: "location_id"
     type: "string"
-    description: ""
+    description: "The location ID of the bank account."
+    foreign-key-id: "location-id"
   - name: "primary_bank_identification_number"
     type: "string"
     description: ""

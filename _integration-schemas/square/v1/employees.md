@@ -1,16 +1,27 @@
 ---
 tap: "square"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "employees"
-doc-link: ""
+doc-link: "https://developer.squareup.com/reference/square/employees-api"
 singer-schema: "https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/employees.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about your employees in {{ integration.display_name }}.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List employees"
+    doc-link: "https://developer.squareup.com/reference/square/employees-api/v1-list-employees"
+
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The employee ID."
+    foreign-key-id: "employee-id"
+
   - name: "created_at"
     type: "date-time"
     description: ""
@@ -20,9 +31,7 @@ attributes:
   - name: "first_name"
     type: "string"
     description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+  
   - name: "is_owner"
     type: "boolean"
     description: ""
@@ -35,7 +44,8 @@ attributes:
     subattributes:
       - name: "value"
         type: "string"
-        description: ""
+        description: "The location IDs of the employee."
+        foreign-key-id: "location-id"
   - name: "status"
     type: "string"
     description: ""

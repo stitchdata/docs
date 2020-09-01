@@ -1,16 +1,27 @@
 ---
 tap: "square"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "payments"
-doc-link: ""
+doc-link: "https://developer.squareup.com/reference/square/payments-api"
 singer-schema: "https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/payments.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about all payments taken in {{ integration.display_name }}.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List payments"
+    doc-link: "https://developer.squareup.com/reference/square/payments-api/list-payments"
+
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The payment ID."
+    foreign-key-id: "payment-id"
+
   - name: "amount_money"
     type: "object"
     description: ""
@@ -93,18 +104,18 @@ attributes:
   - name: "delayed_until"
     type: "date-time"
     description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+  
   - name: "location_id"
     type: "string"
-    description: ""
+    description: "The location ID of the payment."
+    foreign-key-id: "location-id"
   - name: "note"
     type: "string"
     description: ""
   - name: "order_id"
     type: "string"
-    description: ""
+    description: "The order ID of the payment."
+    foreign-key-id: "order-id"
   - name: "processing_fee"
     type: "array"
     description: ""
@@ -140,7 +151,8 @@ attributes:
     subattributes:
       - name: "value"
         type: "string"
-        description: ""
+        description: "The refund ID."
+        foreign-key-id: "refund-id"
   - name: "refunded_money"
     type: "object"
     description: ""

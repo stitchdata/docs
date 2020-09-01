@@ -1,26 +1,41 @@
 ---
 tap: "square"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "modifier_lists"
-doc-link: ""
+doc-link: "https://developer.squareup.com/reference/square/catalog-api/v1-list-modifier-lists"
 singer-schema: "https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/modifier_lists.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about modifier lists for a given location in {{ integration.display_name }}. This table has been deprecated in {{ integration.display_name }}, effective November 20, 2019.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List modifier lists"
+    doc-link: "https://developer.squareup.com/reference/square/catalog-api/v1-list-modifier-lists"
+
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The modifier list ID."
+    foreign-key-id: "modifier-list-id"
+
+  - name: "updated_at"
+    type: "date-time"
+    description: "The time the modifier list was last updated."
+    replication-key: true  
+
   - name: "absent_at_location_ids"
     type: "array"
     description: ""
     subattributes:
       - name: "value"
         type: "string"
-        description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+        description: "The location IDs where modifier lists are not available."
+        foreign-key-id: "location-id"
+  
   - name: "is_deleted"
     type: "boolean"
     description: ""
@@ -44,7 +59,8 @@ attributes:
             subattributes:
               - name: "modifier_list_id"
                 type: "string"
-                description: ""
+                description: "The modifier list ID."
+                foreign-key-id: "modifier-list-id"
               - name: "name"
                 type: "string"
                 description: ""
@@ -91,9 +107,7 @@ attributes:
   - name: "type"
     type: "string"
     description: ""
-  - name: "updated_at"
-    type: "date-time"
-    description: ""
+  
   - name: "version"
     type: "integer"
     description: ""

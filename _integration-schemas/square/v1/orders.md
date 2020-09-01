@@ -1,16 +1,32 @@
 ---
 tap: "square"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "orders"
-doc-link: ""
+doc-link: "https://developer.squareup.com/reference/square/orders-api"
 singer-schema: "https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/orders.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about order updates in {{ integration.display_name }}.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "Update order"
+    doc-link: "https://developer.squareup.com/reference/square/orders-api/update-order"
+
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The order ID."
+    foreign-key-id: "order-id"
+
+  - name: "updated_at"
+    type: "date-time"
+    description: ""
+    replication-key: true
+
   - name: "amount_money"
     type: "object"
     description: ""
@@ -152,9 +168,7 @@ attributes:
       - name: "uid"
         type: "string"
         description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+  
   - name: "is_deleted"
     type: "boolean"
     description: ""
@@ -187,14 +201,16 @@ attributes:
             subattributes:
               - name: "item_id"
                 type: "string"
-                description: ""
+                description: "The item ID."
+                foreign-key-id: "item-id"
               - name: "location_overrides"
                 type: "array"
                 description: ""
                 subattributes:
                   - name: "location_id"
                     type: "string"
-                    description: ""
+                    description: "The location ID."
+                    foreign-key-id: "location-id"
                   - name: "track_inventory"
                     type: "boolean"
                     description: ""
@@ -316,7 +332,8 @@ attributes:
             description: ""
   - name: "location_id"
     type: "string"
-    description: ""
+    description: "The order location ID."
+    foreign-key-id: "location-id"
   - name: "net_amounts"
     type: "object"
     description: ""
@@ -376,10 +393,12 @@ attributes:
     description: ""
   - name: "order_id"
     type: "string"
-    description: ""
+    description: "The order ID."
+    foreign-key-id: "order-id"
   - name: "payment_id"
     type: "string"
-    description: ""
+    description: "The order payment ID."
+    foreign-key-id: "payment-id"
   - name: "present_at_all_locations"
     type: "boolean"
     description: ""
@@ -418,7 +437,8 @@ attributes:
     subattributes:
       - name: "value"
         type: "string"
-        description: ""
+        description: "The refund IDs."
+        foreign-key-id: "refund-id"
   - name: "refunded_money"
     type: "object"
     description: ""
@@ -448,10 +468,12 @@ attributes:
         description: ""
       - name: "id"
         type: "string"
-        description: ""
+        description: "The refund ID."
+        foreign-key-id: "refund-id"
       - name: "location_id"
         type: "string"
-        description: ""
+        description: "The location ID."
+        foreign-key-id: "location-id"
       - name: "reason"
         type: "string"
         description: ""
@@ -747,9 +769,7 @@ attributes:
   - name: "type"
     type: "string"
     description: ""
-  - name: "updated_at"
-    type: "date-time"
-    description: ""
+  
   - name: "version"
     type: "integer"
     description: ""

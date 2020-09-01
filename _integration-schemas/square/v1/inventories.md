@@ -1,15 +1,20 @@
 ---
 tap: "square"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "inventories"
-doc-link: ""
+doc-link: "https://developer.squareup.com/reference/square/inventory-api"
 singer-schema: "https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/inventories.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about your inventory changes in {{ integration.display_name }}.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "Retrieve inventory changes"
+    doc-link: "https://developer.squareup.com/reference/square/inventory-api/retrieve-inventory-changes"
+
 attributes:
   - name: "calculated_at"
     type: "date-time"
@@ -22,7 +27,8 @@ attributes:
     description: ""
   - name: "location_id"
     type: "string"
-    description: ""
+    description: "The location ID of the inventory."
+    foreign-key-id: "location-id"
   - name: "quantity"
     type: "string"
     description: ""

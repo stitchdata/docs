@@ -1,16 +1,27 @@
 ---
 tap: "square"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "locations"
-doc-link: ""
+doc-link: "https://developer.squareup.com/reference/square/locations-api"
 singer-schema: "https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/locations.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about all of your business locations in {{ integration.display_name }}.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List locations"
+    doc-link: "https://developer.squareup.com/reference/square/locations-api/list-locations"
+
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The location ID."
+    foreign-key-id: "location-id"
+
   - name: "address"
     type: "object"
     description: ""
@@ -115,9 +126,7 @@ attributes:
   - name: "facebook_url"
     type: "string"
     description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+  
   - name: "instagram_username"
     type: "string"
     description: ""
