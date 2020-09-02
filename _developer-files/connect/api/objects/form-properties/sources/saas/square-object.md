@@ -45,7 +45,7 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      If `false`, then Stitch will not connect to your {{ form-property.display-name }} sandbox environment. The default is false.
+      If `true`, Stitch will connect to your {{ form-property.display-name }} sandbox environment. The default is `false`.
     value: "`true` or `false`"
 
 
