@@ -59,7 +59,17 @@
     {% assign table = "revenue" %}
     {% assign replication-key = "date" %}
     {% assign replication-key-historical = "2017-06-28 00:00:00" %}
-    {% assign replication-key-ongoing = "2017-09-26 00:00:00" %}        
+    {% assign replication-key-ongoing = "2017-09-26 00:00:00" %}    
+
+<!-- For Slack -->
+  {% when "slack" %}
+    {% assign window = "Lookback Window" %}
+    {% assign table = "files" %}
+    {% assign replication-key = "updated" %}
+    {% assign start-date = "July 15, 2017" %}
+    {% assign start-date-value = "2017-07-15 00:00:00" %}
+    {% assign replication-key-historical = "2017-07-01 00:00:00" %}
+    {% assign replication-key-ongoing = "2017-09-15 00:00:00" %}        
 
   {% endcase %}
 
