@@ -1,7 +1,7 @@
 ---
 tap: "square"
 version: "1"
-key: ""
+key: "employee"
 
 name: "employees"
 doc-link: "https://developer.squareup.com/reference/square/employees-api"
@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "List employees"
-    doc-link: "https://developer.squareup.com/reference/square/employees-api/v1-list-employees"
+  name: "List employees (V1)"
+  doc-link: "https://developer.squareup.com/reference/square/employees-api/v1-list-employees"
 
 attributes:
   - name: "id"
@@ -25,30 +25,36 @@ attributes:
   - name: "created_at"
     type: "date-time"
     description: ""
+
   - name: "email"
     type: "string"
     description: ""
+
   - name: "first_name"
     type: "string"
     description: ""
-  
+
   - name: "is_owner"
     type: "boolean"
     description: ""
+
   - name: "last_name"
     type: "string"
     description: ""
+
   - name: "location_ids"
     type: "array"
-    description: ""
+    description: "A list of locations associated with the employee."
     subattributes:
       - name: "value"
         type: "string"
-        description: "The location IDs of the employee."
+        description: "The ID of the location associated with the employee."
         foreign-key-id: "location-id"
+
   - name: "status"
     type: "string"
     description: ""
+
   - name: "updated_at"
     type: "date-time"
     description: ""

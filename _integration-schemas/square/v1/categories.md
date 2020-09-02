@@ -1,19 +1,20 @@
 ---
 tap: "square"
 version: "1"
-key: ""
+key: "category"
 
 name: "categories"
 doc-link: "https://developer.squareup.com/reference/square/catalog-api/v1-list-categories"
 singer-schema: "https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/categories.json"
 description: |
-  The `{{ table.name }}` table contains information about item categories for a given location in {{ integration.display_name }}. This table has been deprecated in {{ integration.display_name }}, effective November 20, 2019.
+  The `{{ table.name }}` table contains information about item categories for a given location in {{ integration.display_name }}.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List categories"
-    doc-link: "https://developer.squareup.com/reference/square/catalog-api/v1-list-categories"
+  name: "List catalog (`type: category`) (V2)"
+  doc-link: "https://developer.squareup.com/reference/square/catalog-api/list-catalog"
+
 attributes:
   - name: "id"
     type: "string"
@@ -33,6 +34,8 @@ attributes:
       - name: "value"
         type: "string"
         description: ""
+        foreign-key-id: "location-id"
+
   - name: "category_data"
     type: "object"
     description: ""
@@ -40,13 +43,15 @@ attributes:
       - name: "name"
         type: "string"
         description: ""
-  
+
   - name: "is_deleted"
     type: "boolean"
     description: ""
+
   - name: "present_at_all_locations"
     type: "boolean"
     description: ""
+
   - name: "type"
     type: "string"
     description: ""

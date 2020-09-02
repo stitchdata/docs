@@ -1,19 +1,19 @@
 ---
 tap: "square"
 version: "1"
-key: ""
+key: "tax"
 
 name: "taxes"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/taxes.json"
 description: |
-  The `{{ table.name }}` table contains information about taxes on your items in {{ integration.display_name }}.
+  The `{{ table.name }}` table contains information about taxes enabled on your items in {{ integration.display_name }}.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Update item taxes"
-    doc-link: ""
+  name: "List catalog (`type: tax`) (V2)"
+  doc-link: "https://developer.squareup.com/reference/square/catalog-api/list-catalog"
 
 attributes:
   - name: "id"
@@ -29,19 +29,21 @@ attributes:
 
   - name: "absent_at_location_ids"
     type: "array"
-    description: ""
+    description: "A list of locations where the tax is not applicable."
     subattributes:
       - name: "value"
         type: "string"
-        description: "The locations where taxes are not applicable."
+        description: "The ID of the location where the tax is not applicable."
         foreign-key-id: "location-id"
   
   - name: "is_deleted"
     type: "boolean"
     description: ""
+
   - name: "present_at_all_locations"
     type: "boolean"
     description: ""
+
   - name: "tax_data"
     type: "object"
     description: ""
@@ -49,27 +51,35 @@ attributes:
       - name: "applies_to_custom_amounts"
         type: "boolean"
         description: ""
+
       - name: "calculation_phase"
         type: "string"
         description: ""
+
       - name: "enabled"
         type: "boolean"
         description: ""
+
       - name: "inclusion_type"
         type: "string"
         description: ""
+
       - name: "name"
         type: "string"
         description: ""
+
       - name: "percentage"
         type: "string"
         description: ""
+
       - name: "tax_type_id"
         type: "string"
         description: ""
+
       - name: "tax_type_name"
         type: "string"
         description: ""
+
   - name: "type"
     type: "string"
     description: ""
