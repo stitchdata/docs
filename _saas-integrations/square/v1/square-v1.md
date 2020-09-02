@@ -13,7 +13,7 @@
 # -------------------------- #
 
 title: Square (v1)
-permalink: /integrations/saas/square ## Add if there are multiple versions: /vVERSION
+permalink: /integrations/saas/square
 keywords: square, integration, schema, etl square, square etl, square schema
 layout: singer
 # input: false
@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-square
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} REST API v2](https://developer.squareup.com/reference/square){:target="new"}
+  [{{ integration.display_name }} V2 and Connect V1 APIs](https://developer.squareup.com/reference/square){:target="new"}
 
 
 # -------------------------- #
@@ -60,11 +60,6 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
-
-# attribution-window: "# days"
-# attribution-is-configurable: 
-
-# setup-name: ""
 
 
 # -------------------------- #
@@ -104,7 +99,7 @@ setup-steps:
       1. Enter your {{ integration.display_name }} credentials and click **Login**.
       2. After the authorization process successfully completes, you'll be redirected back to Stitch.
       3. Click {{ app.buttons.finish-int-setup }}.
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
+  - title: "track data"
 
 
 # -------------------------- #
@@ -112,14 +107,7 @@ setup-steps:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/square
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
+# Each table has a its own .md file in /_integration-schemas/square/v1
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
