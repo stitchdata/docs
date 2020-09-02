@@ -7,7 +7,7 @@ name: "settlements"
 doc-link: "https://developer.squareup.com/reference/square/settlements-api"
 singer-schema: "https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/settlements.json"
 description: |
-  The `{{ table.name }}` table contains information about deposits and withdrawals issued by {{ integration.display_name }. This table cannot be replicated with a sandbox account due to restrictions from {{ integration.display_name }}.
+  The `{{ table.name }}` table contains information about deposits and withdrawals issued by {{ integration.display_name }}. This table cannot be replicated with a sandbox account due to restrictions from {{ integration.display_name }}.
 
 replication-method: "Full Table"
 

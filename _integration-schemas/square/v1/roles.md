@@ -7,7 +7,7 @@ name: "roles"
 doc-link: "https://developer.squareup.com/reference/square/employees-api"
 singer-schema: "https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/roles.json"
 description: |
-  This table cannot be replicated with a sandbox account due to restrictions from {{ integration.display_name }}.
+  The `{{ table.name }}` table contains information about employees' roles in {{ integration.display_name }}. This table cannot be replicated with a sandbox account due to restrictions from {{ integration.display_name }}.
 
 replication-method: "Full Table"
 
