@@ -2,10 +2,12 @@
 title: Replication Scheduling
 permalink: /replication/replication-scheduling
 keywords: replicate, replication, replication frequency, frequency, anchor time, scheduling, schedule, interval, change replication time
-layout: general
+summary: "Create a replication schedule for your integrations."
 
 key: "rep-scheduling"
 content-type: "replication-scheduling"
+
+layout: general
 toc: true
 weight: 1
 
@@ -16,7 +18,10 @@ comparison-tooltips:
   select-days: "Indicates if the scheduling method supports selecting specific days for starting extraction jobs."
   select-hours: "Indicates if the scheduling method supports selecting specific hours for starting extraction jobs."
 
-summary: "Create a replication schedule for your integration's using Stitch's Replication Frequency and Anchor Time features."
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
 
 intro: |
   An integration's replication schedule affects the time that replication jobs begin and how often they occur. Specifically, replication scheduling controls the frequency and start time of the Extraction phase of the replication process, which is when Stitch extracts data from the data source.
@@ -26,6 +31,11 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
   {% endfor %}
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "How replication scheduling works"

@@ -1,14 +1,18 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Advanced Replication Scheduling Using Cron Expressions
 permalink: /replication/replication-scheduling/advanced-scheduling
 keywords: replicate, replication, replication frequency, frequency, anchor time, scheduling, schedule, interval, change replication time
-layout: general
-
 summary: "The Advanced Scheduler feature allows you to specify granular start times for data extraction. Using cron expressions, you can specify the exact times, days of the week, or even days of the month data extraction should begin."
 
 key: "advanced-scheduling"
-method: true
 content-type: "replication-scheduling"
+method: true ## Used in the scheduling overview page
+
+layout: general
 toc: true
 weight: 4
 
@@ -18,6 +22,11 @@ enterprise-cta:
   url: "?utm_medium=docs&utm_campaign=cron-scheduling"
   copy: |
     **Advanced replication scheduling is only available on an Enterprise plan**. Cron scheduling allows you to fine-tune an integration's replication schedule, ensuring you have the data you need when you need it. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}){:target="new"}.
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
 
 intro: |
   {{ page.summary }}
@@ -29,6 +38,10 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
   {% endfor %}
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "Uses for Advanced Scheduling"

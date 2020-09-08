@@ -1,18 +1,26 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Replication Scheduling for Tables
 permalink: /replication/replication-scheduling/scheduling-for-tables
 keywords: replicate, replication, replication frequency, frequency, anchor time, scheduling, schedule, interval, change replication time, schedule tables
+summary: "A workaround for replicating sets of tables on different schedules."
+
+key: "table-scheduling"
+content-type: "replication-scheduling"
+method: false
 
 layout: tutorial
 use-tutorial-sidebar: false
-
-summary: "A workaround for replicating sets of tables on different schedules."
-
-method: false
-key: "table-scheduling"
-content-type: "replication-scheduling"
 toc: true
 weight: 5
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
 
 intro: |
   Replication scheduling is currently supported only at the integration level. This means that when Stitch runs a replication job, all selected tables will be replicated.
@@ -29,6 +37,11 @@ intro: |
   - Reducing re-replication of tables using [Full Table Replication]({{ link.replication.full-table | prepend: site.baseurl }})
   - Replicating different data sets at different intervals
 
+
+# -------------------------- #
+#       REQUIREMENTS         #
+# -------------------------- #
+
 requirements:
   - item: |
       **An integration that supports table selection.** This tutorial is applicable only to [database]({{ site.baseurl }}/integrations/databases) and [SaaS]({{ site.baseurl }}/integrations/saas) integrations that support table selection.
@@ -40,6 +53,11 @@ requirements:
       {% include important.html first-line="**PostgreSQL and Log-based Incremental Replication**" content=important-callout %}
   - item: |
       **An integration that supports multiple connections.** Some integrations may only allow one connection at a time. For example: [NetSuite]({{ site.baseurl }}/integrations/saas/netsuite-suitetalk) only allows a user to have a single API session open at any given time.
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 steps:
   - title: "Create the first integration"

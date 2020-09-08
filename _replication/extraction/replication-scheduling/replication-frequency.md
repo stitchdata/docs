@@ -1,17 +1,25 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Replication Frequency
 permalink: /replication/replication-scheduling/replication-frequency
 redirect_from: /replication/replication-frequency
 keywords: replicate, replication, replication frequency, frequency, scheduling, schedule, interval, change replication time
-layout: general
+summary: "Replication Frequency is a type of replication scheduling that runs replication jobs based on a time interval you specify."
 
 key: "rep-frequency"
-method: true
 content-type: "replication-scheduling"
+method: true
+
+layout: general
 toc: true
 weight: 2
 
-summary: "Replication Frequency is a type of replication scheduling that runs replication jobs based on a time interval you specify."
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
 
 intro: |
   {{ page.summary }}
@@ -53,6 +61,11 @@ example-formatting: |
   {% endfor %}
   </table>
   {% endfor %}
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "Replication Frequency availability"
