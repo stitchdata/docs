@@ -230,7 +230,6 @@ replication:
   data-typing: &data-typing /replication/extractions/understanding-data-typing
   supported-data-types: *data-typing
 
-
 ## Replication Scheduling
   rep-scheduling: /replication/replication-scheduling
   rep-frequency: "/replication/replication-scheduling/replication-frequency"
@@ -254,7 +253,8 @@ replication:
   reset-rep-keys: /replication/extractions/replication-keys/resetting-replication-keys
 
 ## Historical Data & Progress
-  saas-historical: /replication/syncing-historical-saas-data-resetting-replication-keys
+  saas-historical: &start-date /replication/extractions/replication-keys/understanding-integration-start-dates
+  integration-start-date: *start-date
   rep-progress: /replication/monitoring-replication-progress
   loading-reports: /replication/integration-loading-reports
 

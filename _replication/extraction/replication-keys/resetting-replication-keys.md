@@ -10,7 +10,7 @@ summary: "Replication Key resets clear saved Replication Key values for incremen
 layout: general
 
 key: "reset-replication-keys"
-content-type: "replication-keys"
+content-type: "replication-keys, incremental-replication"
 toc: true
 weight: 7
 
@@ -108,7 +108,7 @@ sections:
       2. **Your row usage will increase.** The full re-replication triggered by a Replication Key reset will count towards your overall row usage.
       3. **Recent data may be re-replicated, which will count towards your row usage.** 
       4. **Data may be stale until the re-replication completes.** When a full re-replication is queued, replication begins with the oldest data and progresses towards the most recent. 
-      5. **Data volume and the configuration of the source can impact how long the Extraction takes to complete.** Stitch is only able to extract data as fast as the source - whether database or API - allows. Contributing factors include, but aren't limited to the following:
+      5. **Data volume and the configuration of the source can impact how long the Extraction takes to complete.** Stitch is only able to extract data as fast as the source - whether database or API (SaaS) - allows. Contributing factors include, but aren't limited to the following:
 
          - **Overall volume of data to be replicated**, including the total number of records and columns set to replicate. In general, wider tables - that is, tables with many columns set to replicate - take longer to fully replicate.
          - **For database integrations**: 

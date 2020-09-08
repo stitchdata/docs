@@ -13,7 +13,7 @@ summary: "Replication Keys are columns that Stitch uses to identify new and upda
 layout: general
 
 key: "replication-keys"
-content-type: "replication-keys"
+content-type: "replication-keys, incremental-replication"
 toc: true
 weight: 5
 
@@ -51,13 +51,13 @@ sections:
       {% endfor %}
 
     subsections:
-      - title: "How Replication Keys are used during replication"
+      - title: "How Replication Keys are used during Extraction"
         anchor: "replication-key-usage"
-        summary: "How Replication Keys are used during replication"
+        summary: "How Replication Keys are used during Extraction"
         content: |
-          When a table uses [Key-based Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#key-based-incremental-replication" }}), a column called a Replication Key is used to identify new and updated data for replication. This column exists in the source table and, depending on the integration type, [is either defined by you or Stitch](#replication-keys-defined).
+          When a table uses [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}), a column called a Replication Key is used to identify new and updated data during extraction. This column exists in the source table and, depending on the integration type, [is either defined by you or Stitch](#replication-keys-defined).
 
-          When Stitch replicates a table using {{ page.title }}, a few things will happen:
+          When Stitch replicates a table using Key-based Incremental Replication, a few things will happen:
 
           1. During a replication job, Stitch stores the **maximum value** of a table's Replication Key column.
           2. During the **next** replication job, Stitch compares the saved value from the previous job to Replication Key column values in the source.
@@ -254,7 +254,7 @@ sections:
         content: |
           {% assign mongo-data-type-guide = site.troubleshooting | where:"key","mongo-multiple-data-types" | first %}
 
-          Fields in MongoDB (even `_id`) can contain more than one data type. These data types also have a hierarchy. In addition, [MongoDB "ranks" data types](https://docs.mongodb.com/manual/reference/bson-types/#bson-types){:target="new"}, meaning that some are considered greater than others. This can lead to problems detecting new data.
+          Fields in MongoDB (even `_id`) can contain more than one data type. In addition, [MongoDB "ranks" data types](https://docs.mongodb.com/manual/reference/bson-types/#bson-types){:target="new"}, meaning that some are considered greater than others. This can lead to problems detecting new data.
 
           Because Stitch may be unable to correctly identify new and updated data due to how data types are sorted, it’s best to keep Replication Key fields to a single data type. Refer to the [Missing Mongo Data Due to Fields with Multiple Data Types guide]({{ mongo-data-type-guide.url | prepend: site.baseurl }}) for more info and examples.
 
@@ -262,6 +262,8 @@ sections:
     anchor: "define-a-table-replication-key"
     summary: "How to define a table's Replication Key"
     content: |
+      {% include note.html type="single-line" content="**Note**: This section applies only to integrations that support [user-defined Replication Keys](#replication-keys-defined)." %}
+
       1. [Set a table to replicate]({{ link.replication.syncing | prepend: site.baseurl }}).
       2. In the **Table Settings** page, select [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) as the Replication Method.
       3. In the **Replication Key** dropdown, select a column to use as a Replication Key:
