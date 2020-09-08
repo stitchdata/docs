@@ -1,15 +1,19 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Full Table Replication
 permalink: /replication/replication-methods/full-table
 keywords: replicate, replication, replication method, stitch replicates data
-tags: [replication]
-layout: general
+summary: "Full Table Replication is a replication method in which all rows in a table - including new, updated, and existing - are replicated during every replication job. This guide contains an overview of how Full Table Replication works, when it should be used, its limitations, and how to enable it for an integration."
 
+key: "full-table-replication"
 content-type: "replication-methods"
+
+layout: general
 toc: true
 weight: 2
-
-summary: "Full Table Replication is a replication method in which all rows in a table - including new, updated, and existing - are replicated during every replication job. his guide contains an overview of how Full Table Replication works, when it should be used, its limitations, and how to enable it for an integration."
 
 
 # --------------------------- #
@@ -18,7 +22,6 @@ summary: "Full Table Replication is a replication method in which all rows in a 
 
 ## For info about this Replication Method, see:
 ## _data/taps/extraction/replication-methods/full-table-replication.yml
-
 
 row-usage-example:
   - name: "Job 1"
@@ -47,18 +50,26 @@ row-usage-example:
     running-total: "50,000"
 
 
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
+
+intro: |
+  {{ page.title }} is a replication method in which all rows in a table - including new, updated, and existing - are replicated during every replication job.
+
+  In this guide, we'll cover:
+
+  {% for section in page.sections %}
+  - [{{ section.title | flatify }}](#{{ section.anchor }})
+  {% endfor %}
+
+
 # --------------------------- #
 #       CONTENT SECTIONS      #
 # --------------------------- #
 
 sections:
-  - content: |
-      {{ site.data.tooltips.full-table-rep }} In this guide, we'll cover:
-
-      1. [How it works (with examples)](#hhow-full-table-replication-works),
-      2. [When it should be used](#when-full-table-replication), and
-      3. [Limitations of this Replication Method](#limitations)
-
   - title: "How {{ page.title }} works"
     anchor: "how-full-table-replication-works"
     content: |

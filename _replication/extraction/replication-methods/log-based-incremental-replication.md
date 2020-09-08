@@ -1,14 +1,19 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Log-based Incremental Replication
 permalink: /replication/replication-methods/log-based-incremental
 keywords: replicate, replication, replication method, stitch replicates data, change data capture, logical replication, log replication, binary replication, binary database replication
-layout: general
+summary: "Available for select database integrations, Log-based Incremental Replication is a replication method in which Stitch identifies modifications to records - including inserts, updates, and deletes - using a database’s binary log files. This guide contains an overview of how Log-based Incremental Replication works, when it should be used, its limitations, and how to enable it for a supporting database integration."
 
+key: "log-based-incremental-replication"
 content-type: "replication-methods"
+
+layout: general
 toc: true
 weight: 3
-
-summary: "Available for select database integrations, Log-based Incremental Replication is a replication method in which Stitch identifies modifications to records - including inserts, updates, and deletes - using a database’s binary log files. This guide contains an overview of how Log-based Incremental Replication works, when it should be used, its limitations, and how to enable it for a supporting database integration."
 
 
 # --------------------------- #
@@ -33,11 +38,6 @@ example-table:
     name: "Bubblegum"
     age: "19"
     type: "princess"
-
-
-# --------------------------- #
-#       CONTENT SECTIONS      #
-# --------------------------- #
 
 feature-details:
   - database: "Amazon DynamoDB"
@@ -76,26 +76,35 @@ supported-database-list: |
   {% else %}{{ feature.database | append: ", " }}{% endif %}
   {%- endfor -%}
 
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
+
+intro: |
+  {% capture notice %}
+  **Note**: Log-based Incremental Replication is available only for {{ page.supported-database-list | flatify | strip }} databases that support log-based replication.
+  {% endcapture %}
+
+  {% include note.html type="single-line" content=notice %}
+
+  Sometimes called Change Data Capture (CDC), {{ site.data.tooltips.log-based-incremental-rep }} A log file is a record of events that occur within a database.
+
+  In this guide, we'll cover:
+
+  {% for section in page.sections %}
+  - [{{ section.summary | flatify }}](#{{ section.anchor }})
+  {% endfor %}
+
+
+# --------------------------- #
+#       CONTENT SECTIONS      #
+# --------------------------- #
+
 sections:
-  - content: |
-      {% capture notice %}
-      **Note**: Log-based Incremental Replication is available only for {{ page.supported-database-list | flatify | strip }} databases that support log-based replication.
-      {% endcapture %}
-
-      {% include note.html type="single-line" content=notice %}
-
-      {{ site.data.tooltips.log-based-incremental-rep }} A log file is a record of events that occur within a database.
-
-      In this guide, we'll cover:
-
-      1. [Some useful terminology](#log-based-incremental-replication-terminology), 
-      2. [How it works (with examples)](#how-log-based-incremental-replication-works),
-      3. [When it should be used](#when-log-based-incremental-replication),
-      4. [Limitations of this Replication Method](#limitations), and
-      5. [How to enable it for your database integration](#enabling-log-based-replication)
-
   - title: "{{ page.title }} terminology"
     anchor: "log-based-incremental-replication-terminology"
+    summary: "Some useful terminology"
     content: |
       - **Log file** - A file in a database containing a list of changes made to the database. Log files are made up of log messages.
       - **Log message** - A single change made to a database. For example: An `UPDATE` to a record.
@@ -115,8 +124,9 @@ sections:
       - **{{ feature.database }}**: [{{ feature.name }}]({{ feature.link }}){:target="new"}
       {% endfor %}
 
-  - title: "How {{ page.title }} works"
+  - title: &how-works "How {{ page.title }} works"
     anchor: "how-log-based-incremental-replication-works"
+    summary: *how-works
     content: |
       There are two types of log replication: Statement and row-based. Stitch uses a row-based approach, which means that when rows are modified via [a supported event type](#limitation-2--database-event-types), the entire row is written to the log file as a log message.
 
@@ -156,8 +166,9 @@ sections:
           4. At the end of the replication job, Stitch bookmarks its place in the log file again.
           5. Repeat.
 
-  - title: "When {{ page.title }} should be used"
+  - title: &when "When {{ page.title }} should be used"
     anchor: "when-log-based-incremental-replication"
+    summary: *when
     content: |
       {{ page.title }} may be a good fit if:
 
@@ -172,6 +183,7 @@ sections:
 
   - title: "Limitations of {{ page.title }}"
     anchor: "limitations"
+    summary: "The limitations of {{ page.title }}"
     back-to-list: "[Back to Limitations list](#limitations)"
     content: |
       Before you select {{ page.title }} as the Replication Method for a table, you should be aware of the limitations this method can have. Being aware of these limitations can help prevent data discrepancies, replication issues, and ensure your data is replicated in the most efficient manner possible.
@@ -522,6 +534,7 @@ sections:
 
   - title: "Enable {{ page.title }}"
     anchor: "enabling-log-based-replication"
+    summary: "How to enable {{ page.title }}"
     content: |
       Using {{ page.title }} requires a specific database configuration. Instructions for configuring the required settings varies from database to database.
 

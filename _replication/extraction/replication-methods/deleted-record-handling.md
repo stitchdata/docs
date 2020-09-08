@@ -1,15 +1,33 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Deleted Record Handling
 permalink: /replication/deleted-record-handling
 keywords: deletes, delete, hard delete, soft delete, deletion
-tags: [replication]
-layout: general
+summary: "Stitch's detection of deleted records depends on how records are deleted in the source and the Replication Method being used. In this guide, we explain the different deletion methods and how each one works with each of Stitch's supported Replication Methods."
 
+key: "deleted-record-handling"
 content-type: "replication-methods"
+
+layout: general
 toc: true
 weight: 7
 
-summary: "Stitch's detection of deleted records depends on how records are deleted in the source and the Replication Method being used. In this guide, we explain the different deletion methods and how each one works with each of Stitch's supported Replication Methods."
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
+
+intro: |
+  Depending on the [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}) being used and how records are deleted in the source, deletes may not be captured during the replication process.
+
+  In this guide, we'll cover:
+
+  {% for section in page.sections %}
+  - [{{ section.summary | flatify }}](#{{ section.anchor }})
+  {% endfor %}
 
 
 # --------------------------- #
@@ -17,11 +35,9 @@ summary: "Stitch's detection of deleted records depends on how records are delet
 # --------------------------- #
 
 sections:
-  - content: |
-      Depending on the [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}) being used and how records are deleted in the source, deletes may not be captured during the replication process.
-
   - title: "Deletion methods"
     anchor: "deletion-methods"
+    summary: "The types of deletion methods"
     content: |
       There are two methods that can be used to delete a source record:
 
@@ -77,16 +93,19 @@ sections:
 
   - title: "Full Table Replication"
     anchor: "full-table"
+    summary: &examples "Examples of deleted records with {{ section.title }}"
     content: |
       {% include replication/deleted-record-examples.html replication-method="full-table" display-name="Full Table" %}
 
   - title: "Key-based Incremental Replication"
     anchor: "key-based-incremental"
+    summary: *examples
     content: |
       {% include replication/deleted-record-examples.html replication-method="key-based-incremental" display-name="Key-based Incremental" %}
 
   - title: "Log-based Incremental Replication"
     anchor: "log-based-incremental"
+    summary: *examples
     content: |
       {% include replication/deleted-record-examples.html replication-method="log-based-incremental" display-name="Log-based Incremental" %}
 ---

@@ -1,28 +1,45 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Replication Methods
 permalink: /replication/replication-methods/
 keywords: replicate, replication, replication method, stitch replicates data
-tags: [replication]
-layout: general
+summary: "Replication Methods define the approach Stitch takes when extracting data from a source during a replication job. Additionally, Replication Methods can also impact how data is loaded into your destination and your overall row usage. This guide contains an overview of each method, how it compares to Stitch's other methods, and links to detailed documentation about the method."
 
+key: "replication-methods"
 content-type: "replication-methods"
+
+layout: general
 toc: true
 weight: 1
 
-summary: "Replication Methods define the approach Stitch takes when extracting data from a source during a replication job. Additionally, Replication Methods can also impact how data is loaded into your destination and your overall row usage. This guide contains an overview of each method, how it compares to Stitch's other methods, and links to detailed documentation about the method."
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
+
+intro: |
+  {% include important.html type="single-line" content="**Replication Methods are one of the most important settings in Stitch.** Incorrectly defining a table's Replication Method can cause data discrepancies and latency. Before configuring the replication settings for an integration, Stitch recommends reading through the Replication Methods guides so you understand how Stitch will replicate your data." %}
+
+  {{ page.title }} define the approach Stitch takes when extracting data from a source during a replication job. Additionally, {{ page.title }} can also impact how data is loaded into your destination and your overall row usage.
+
+  In this guide, we'll cover:
+
+  {% for section in page.sections %}
+  - [{{ section.summary }}](#{{ section.anchor }})
+  {% endfor %}
+
 
 # --------------------------- #
-#       CONTENT SECTIONS      #
+#           CONTENT           #
 # --------------------------- #
 
 sections:
-  - content: |
-      {{ page.title }} define the approach Stitch takes when extracting data from a source during a replication job. Additionally, {{ page.title }} can also impact how data is loaded into your destination and your overall row usage.
-
-      {% include important.html type="single-line" content="**Replication Methods are one of the most important settings in Stitch.** Incorrectly defining a table's Replication Method can cause data discrepancies and latency. Before configuring the replication settings for an integration, Stitch recommends reading through the Replication Methods guides so you understand how Stitch will replicate your data." %}
-
   - title: "Replication Method types"
     anchor: "replication-method-types"
+    summary: "The Replication Methods Stitch supports"
     content: |
       For any table you set to replicate, Stitch will use one of three methods to replicate your data:
 
@@ -55,6 +72,7 @@ sections:
 
   - title: "Compare Replication Methods"
     anchor: "compare-replication-methods"
+    summary: "A comparison of each Replication Method"
     content: |
       The table below contains a high-level look at each of Stitch's Replication Methods and how they compare to each other.
 
@@ -103,6 +121,7 @@ sections:
 
   - title: "Define a table's Replication Method"
     anchor: "define-replication-method-table"
+    summary: "How to define a table's Replication Method"
     content: |
       How Replication Methods are defined depends on the type of integration being used:
 

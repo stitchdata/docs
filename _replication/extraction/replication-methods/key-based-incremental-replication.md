@@ -1,15 +1,19 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Key-based Incremental Replication
 permalink: /replication/replication-methods/key-based-incremental
 keywords: replicate, replication, replication method, stitch replicates data
-layout: general
+summary: "Key-based Incremental Replication is a replication method in which Stitch identifies new and updated data using a column called a Replication Key. This guide contains an overview of how Key-based Incremental Replication works, when it should be used, its limitations, and how to enable it for an integration."
 
 key: "key-based-incremental-replication"
 content-type: "replication-methods"
+
+layout: general
 toc: true
 weight: 4
-
-summary: "Key-based Incremental Replication is a replication method in which Stitch identifies new and updated data using a column called a Replication Key. This guide contains an overview of how Key-based Incremental Replication works, when it should be used, its limitations, and how to enable it for an integration."
 
 
 # --------------------------- #
