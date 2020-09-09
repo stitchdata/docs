@@ -4,8 +4,10 @@
 # -------------------------- #
 
 title: Replication Frequency
-permalink: /replication/replication-scheduling/replication-frequency
-redirect_from: /replication/replication-frequency
+permalink: /replication/extractions/replication-scheduling/replication-frequency
+redirect_from: 
+  - /replication/replication-frequency
+  - /replication/replication-scheduling/replication-frequency
 keywords: replicate, replication, replication frequency, frequency, scheduling, schedule, interval, change replication time
 summary: "Replication Frequency is a type of replication scheduling that runs replication jobs based on a time interval you specify."
 

@@ -4,7 +4,7 @@
 # -------------------------- #
 
 title: Replicating Database Views
-permalink: /replication/extractions/replicating-database-views
+permalink: /replication/extractions/data-selection/replicating-database-views
 redirect_from: /replication/replicating-database-views
 keywords: replicate, replication, replicate views, view, database view, replicate database view
 summary: "Replicating a database view is almost the same as replicating a database table. In this guide, we'll cover the database integrations that support views and the additional steps required to replicate a database view."

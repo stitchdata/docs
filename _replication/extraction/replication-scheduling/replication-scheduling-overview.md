@@ -1,6 +1,7 @@
 ---
 title: Replication Scheduling
-permalink: /replication/replication-scheduling
+permalink: /replication/extractions/replication-scheduling
+redirect_from: /replication/replication-scheduling
 keywords: replicate, replication, replication frequency, frequency, anchor time, scheduling, schedule, interval, change replication time
 summary: "Create a replication schedule for your integrations."
 

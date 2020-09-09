@@ -4,7 +4,8 @@
 # -------------------------- #
 
 title: Anchor Scheduling
-permalink: /replication/replication-scheduling/anchor-scheduling
+permalink: /replication/extractions/replication-scheduling/anchor-scheduling
+redirect_from: /replication/replication-scheduling/anchor-scheduling
 keywords: replicate, replication, replication frequency, frequency, scheduling, schedule, interval, change replication time, anchor scheduling, anchor
 summary: "Anchor Scheduling is a type of replication scheduling that 'anchors' the start time of extraction jobs to a time you select. This allows you to establish predictable replication and ensure that your downstream processes run as scheduled with the most up-to-date data."
 

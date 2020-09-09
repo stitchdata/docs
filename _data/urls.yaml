@@ -215,7 +215,7 @@ integrations:
   dynamodb-projection-expressions: /integrations/databases/amazon-dynamodb/field-selection-using-projection-expressions
 
 # -------------------------- #
-#         Replication        #
+#         REPLICATION        #
 # -------------------------- #
 ## used as link.replication.[id]
 replication:
@@ -223,33 +223,38 @@ replication:
   extraction: /replication/extractions
   overview: /replication/stitch-replication-process
 
+# -------------------------- #
+#         EXTRACTIONS        #
+# -------------------------- #
+
 ## Syncing Data
-  syncing: /replication/extractions/setting-data-to-replicate
-  syncing-new-columns: /replication/syncing-new-additional-columns
-  db-views: /replication/extractions/replicating-database-views
-  data-typing: &data-typing /replication/extractions/understanding-data-typing
+  data-selection: /replication/extractions/data-selection
+  syncing: /replication/extractions/data-selection/setting-data-to-replicate
+  syncing-new-columns: /replication/data-selection/syncing-new-additional-columns
+  db-views: /replication/extractions/data-selection/replicating-database-views
+  data-typing: &data-typing /replication/understanding-data-typing
   supported-data-types: *data-typing
 
 ## Replication Scheduling
-  rep-scheduling: /replication/replication-scheduling
-  rep-frequency: "/replication/replication-scheduling/replication-frequency"
-  anchor-scheduling: "/replication/replication-scheduling/anchor-scheduling"
-  advanced-scheduling: /replication/replication-scheduling/advanced-scheduling
-  table-scheduling: /replication/replication-scheduling/scheduling-for-tables
+  rep-scheduling: /replication/extractions/replication-scheduling
+  rep-frequency: /replication/extractions/replication-scheduling/replication-frequency
+  anchor-scheduling: /replication/extractions/replication-scheduling/anchor-scheduling
+  advanced-scheduling: /replication/extractions/replication-scheduling/advanced-scheduling
+  table-scheduling: /replication/extractions/replication-scheduling/scheduling-for-tables
 
 ## Replication Methods
-  rep-methods: /replication/replication-methods
-  append-only: "/replication/replication-methods#append-only-incremental-replication"
-  log-based-incremental: /replication/replication-methods/log-based-incremental
-  key-based-incremental: /replication/replication-methods/key-based-incremental
-  full-table: /replication/replication-methods/full-table
+  rep-methods: /replication/extractions/replication-methods
+  append-only: "/replication/extractions/replication-methods#append-only-incremental-replication"
+  log-based-incremental: /replication/extractions/replication-methods/log-based-incremental
+  key-based-incremental: /replication/extractions/replication-methods/key-based-incremental
+  full-table: /replication/extractions/replication-methods/full-table
 
   append-only-querying: /replication/loading/querying-append-only-tables
-  deleted-records: "/replication/deleted-record-handling"
+  deleted-records: /replication/extractions/deleted-record-handling
 
 ## Replication Keys
-  rep-keys: /replication/extractions/replication-keys
-  mongo-rep-keys: /replication/extractions/replication-keys
+  rep-keys: &rep-keys /replication/extractions/replication-keys
+  mongo-rep-keys: *rep-keys
   reset-rep-keys: /replication/extractions/replication-keys/resetting-replication-keys
 
 ## Historical Data & Progress

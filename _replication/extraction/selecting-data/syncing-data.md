@@ -4,18 +4,17 @@
 # -------------------------- #
 
 title: Setting Tables and Columns to Replicate
-permalink: /replication/extractions/setting-tables-and-columns-to-replicate
+permalink: /replication/extractions/data-selection/setting-tables-and-columns-to-replicate
 redirect_from: /replication/syncing-data
 keywords: syncing, sync, replicate, replication, select data, sync data, sync table, sync column
+summary: "After you connect an integration and Stitch performs a structure sync, the next thing you'll do is select tables and columns to replicate."
 
 key: "select-data"
+content-type: "select-data"
 
 layout: general
-content-type: "select-data"
 toc: true
 weight: 1
-
-summary: "After you connect an integration and Stitch performs a structure sync, the next thing you'll do is select tables and columns to replicate."
 
 
 # -------------------------- #

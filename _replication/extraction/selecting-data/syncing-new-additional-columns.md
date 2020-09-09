@@ -4,7 +4,7 @@
 # -------------------------- #
 
 title: Setting New and Additional Columns to Replicate
-permalink: /replication/extractions/setting-new-additional-columns-to-replicate
+permalink: /replication/extractions/data-selection/setting-new-additional-columns-to-replicate
 redirect_from: /replication/syncing-new-additional-columns
 keywords: syncing, sync, replicate, replication, select data, sync data, sync table, sync column, add new columns, sync new column, add additional columns, backfill data
 summary: "Learn about setting new and additional columns to replicate in already replicating tables in Stitch."

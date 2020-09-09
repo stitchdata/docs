@@ -4,7 +4,8 @@
 # -------------------------- #
 
 title: Advanced Replication Scheduling Using Cron Expressions
-permalink: /replication/replication-scheduling/advanced-scheduling
+permalink: /replication/extractions/replication-scheduling/advanced-scheduling
+redirect_from: /replication/replication-scheduling/advanced-scheduling
 keywords: replicate, replication, replication frequency, frequency, anchor time, scheduling, schedule, interval, change replication time
 summary: "The Advanced Scheduler feature allows you to specify granular start times for data extraction. Using cron expressions, you can specify the exact times, days of the week, or even days of the month data extraction should begin."
 

@@ -4,7 +4,8 @@
 # -------------------------- #
 
 title: Replication Scheduling for Tables
-permalink: /replication/replication-scheduling/scheduling-for-tables
+permalink: /replication/extractions/replication-scheduling/scheduling-for-tables
+redirect_from: /replication/replication-scheduling/scheduling-for-tables
 keywords: replicate, replication, replication frequency, frequency, anchor time, scheduling, schedule, interval, change replication time, schedule tables
 summary: "A workaround for replicating sets of tables on different schedules."
 
