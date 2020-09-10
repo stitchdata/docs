@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Replication Scheduling
 permalink: /replication/extractions/replication-scheduling
 redirect_from: /replication/replication-scheduling

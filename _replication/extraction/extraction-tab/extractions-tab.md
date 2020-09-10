@@ -1,28 +1,43 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Extraction Tab Features
 permalink: /replication/extractions/extraction-tab-features
 keywords: extractions, extraction job, replication job, start job, force start, tab
 summary: "An integration's Extractions tab provides detail about the extraction portion of the replication process for a the integration. This includes detailed logs and on-demand job controls."
 
 key: "extractions-tab"
+content-type: "basics"
 
 layout: general
-content-type: ""
 toc: true
 weight: 1
 
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
+
+intro: |
+  The {{ app.tabs.extractions }} tab — accessed by clicking into the integration from the {{ app.page-names.dashboard }} — provides detail about the Extraction portion of the replication process for a given integration.
+
+  In this guide, we'll cover:
+
+  {% for section in page.sections %}
+  - [{{ section.summary }}](#{{ section.anchor }})
+  {% endfor %}
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
+
 sections:
-  - content: |
-      The first phase of every Stitch replication job is called **Extraction**. During Extraction, Stitch completes the following: 
-
-      1. Check for changes to the structure of your data, including the addition of new tables and columns.
-      2. Query for data according to the integration's replication settings. This includes the [tables and fields you set to replicate]({{ link.replication.syncing | prepend: site.baseurl }}) and the [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}) used by those tables.
-      3. Extract the appropriate data, if any.
-
-      The {{ app.tabs.extractions }} tab — accessed by clicking into the integration from the {{ app.page-names.dashboard }} — provides detail about the extraction portion of the replication process for a given integration.
-
   - title: "Extraction tab availability"
     anchor: "extraction-tab-availability"
+    summary: "Availability of the Extraction tab"
     content: |
       The features in the {{ app.tabs.extractions }} tab may not be available for some integrations.
 
@@ -32,11 +47,23 @@ sections:
 
   - title: "Extraction tab features"
     anchor: "extraction-tab-features"
+    summary: "The features in the Extraction tab"
     content: |
       The {{ app.tabs.extractions }} tab contains the following features:
 
-      - **Start/stop an extraction** - All integrations run on a [schedule]({{ link.replication.rep-scheduling | prepend: site.baseurl }}) but you can also start and stop extractions on demand. This is useful for testing configuration changes or recovering from an error. Refer to the [Start and stop extraction jobs documentation]({{ link.replication.start-stop-extraction | prepend: site.baseurl }}) for more info.
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
 
-      - **Extraction logs** - Extraction logs provide detail about the extraction portion of the replication process for an integration. Refer to the [Extraction logs documentation]({{ link.replication.extraction-logs | prepend: site.baseurl }}) for more info.
+    subsections:
+      - title: "On-demand extraction"
+        anchor: "features--starting-stopping-extractions"
+        content: |
+          All integrations run on a [schedule]({{ link.replication.rep-scheduling | prepend: site.baseurl }}) but you can also start and stop extractions on demand. This is useful for testing configuration changes or recovering from an error. Refer to the [Start and stop extraction jobs documentation]({{ link.replication.start-stop-extraction | prepend: site.baseurl }}) for more info.
+
+      - title: "Extraction logs"
+        anchor: "features--extraction-logs"
+        content: |
+          Extraction logs provide detail about the extraction portion of the replication process for an integration. Refer to the [Extraction logs documentation]({{ link.replication.extraction-logs | prepend: site.baseurl }}) for more info.
 ---
 {% include misc/data-files.html %}

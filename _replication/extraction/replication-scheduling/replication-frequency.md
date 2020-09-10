@@ -13,11 +13,12 @@ summary: "Replication Frequency is a type of replication scheduling that runs re
 
 key: "rep-frequency"
 content-type: "replication-scheduling"
-method: true
+method: true ## Used in the scheduling overview page
 
 layout: general
 toc: true
 weight: 2
+
 
 # -------------------------- #
 #           INTRO            #

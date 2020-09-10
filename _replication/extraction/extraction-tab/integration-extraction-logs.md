@@ -8,16 +8,17 @@ permalink: /replication/extractions/integration-extraction-logs
 redirect_from: /replication/integration-extraction-logs
 keywords: replication, extract, extraction, logs, report
 summary: "Extraction logs provide detail about the extraction portion of the replication process for a given integration."
-layout: general
 
 key: "extraction-logs"
-content-type: "replication-progress"
-toc: true
+content-type: "basics"
+
+layout: general
+toc: false
 weight: 2
 
 enterprise: true
 enterprise-cta:
-  title: "Get 60 days of Extraction Logs with Stitch Enterprise"
+  title: "Get 60 days of Extraction logs with Stitch Enterprise"
   utm: "?utm_medium=docs&utm_campaign=extraction-log-retention"
   copy: "Enterprise plans come with 60 days of Extraction Logs, allowing you to view an integration's extraction behavior over time, identify patterns, and quickly resolve errors when they arise."
 
@@ -27,7 +28,7 @@ enterprise-cta:
 # -------------------------- #
 
 intro: |
-  {{ page.summary }} In this guide, we'll cover:
+  Located in the [{{ app.tabs.extractions }} tab]({{ link.replication.extractions-tab | prepend: site.baseurl }}), Extraction logs provide detail about the extraction portion of the replication process for a given integration. In this guide, we'll cover:
 
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
@@ -47,7 +48,7 @@ sections:
 
       Extraction logs are available only for database and SaaS integrations powered by Singer taps. Logs aren't available for webhook integrations due to the real-time nature of webhook data.
 
-      As integrations are converted to Singer taps, extraction logs will be made available.
+      As integrations are converted to Singer taps, Extraction logs will be made available.
 
   - title: "Log retention"
     anchor: "log-retention"
@@ -100,7 +101,7 @@ sections:
         content: |
           The graph at the top of the Extractions tab displays every time Stitch connected to the integration by day, based on the integration's [replication schedule]({{ link.replication.rep-scheduling | prepend: site.baseurl }}).
 
-          {% include layout/inline_image.html type="normal" file="replication/extraction-graph-rep-frequency.gif" alt="Extraction graph with intervals of 30 minutes" %}
+          {% include layout/inline_image.html type="normal" file="replication/extraction-graph-rep-frequency.gif" alt="Extraction graph with intervals of 1 hour" %}
 
           In addition to displaying the time an extraction began, the tooltips also include how long the extraction ran for and if any errors arose.
 

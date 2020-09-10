@@ -11,11 +11,12 @@ summary: "Anchor Scheduling is a type of replication scheduling that 'anchors' t
 
 key: "anchor-scheduling"
 content-type: "replication-scheduling"
-method: true
+method: true ## Used in the scheduling overview page
 
 layout: general
 toc: true
 weight: 3
+
 
 # -------------------------- #
 #           INTRO            #
@@ -79,6 +80,7 @@ sections:
       Anchor Scheduling is currently supported only for Singer-backed database and SaaS integrations.
 
       As integrations are converted to Singer taps, this feature will be made available.
+
   - title: "How Anchor Scheduling works"
     anchor: "how-anchor-scheduling-works"
     summary: "How Anchor Scheduling works"
