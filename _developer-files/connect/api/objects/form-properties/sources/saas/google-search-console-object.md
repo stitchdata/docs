@@ -46,8 +46,8 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      The domains and websites that belong to your organization. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#set-up-console" }}) for instructions on how to set these URLs up in your {{ form-property.display-name }} account."
-    value: "<YOUR_SITE_URL>"
+      The domains and websites that belong to your organization. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#set-up-console" }}) for instructions on how to set these URLs up in your {{ form-property.display-name }} account.
+    value: "https://yoursite.com, http://yourothersite.com"
 
 
 # -------------------------- #

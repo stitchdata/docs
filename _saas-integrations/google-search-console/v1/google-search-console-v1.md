@@ -92,14 +92,17 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      **An admin account**. Admin access is required in your {{ integration.display_name }} account to change certain settings.
+      **Admin access in {{ integration.display_name }}**. Admin access is required in your {{ integration.display_name }} account to change settings required to connect Stitch.
 
 setup-steps:
   - title: "Set up your {{ integration.display_name }}"
     anchor: "set-up-console"
     content: |
+      {% capture skip-urls %}
       If you don't have any URLs set up in your {{ integration.display_name }} account, use the following instructions. If you do, you can skip to [step 2](#create-project).
-      1. Login to your Google account and navigate to [{{ integration.display_name }}](https://search.google.com/search-console).
+      {% endcapture %}
+      {% include note.html type="single-line" content=skip-urls %}
+      1. Login to your Google account and navigate to [{{ integration.display_name }}](https://search.google.com/search-console){:target="new"}.
       2. Add the domains or websites for your organization. If adding a domain, it will cover all URLs across all of its subdomains. If adding a website, only the entered websites will be counted for.
       3. Verify your site ownership by clicking **CONTINUE**. Depending on your verification method, this can take up to a day.
       4. Once your link(s) are verified, add them to the `sitemap.xml` files in the **Sitemaps** section of your {{ integration.display_name }} account. Click **Submit**.
@@ -107,7 +110,10 @@ setup-steps:
   - title: "Create a {{ integration.display_name }} project"
     anchor: "create-project"
     content: |
+      {% capture skip-project %}
       You can skip to [step 3](#enable-apis) if you already have a project in your {{ integration.display_name }} account. If not, use the following instructions.
+      {% endcapture %}
+      {% include note.html type="single-line" content=skip-project %}
       1. Login to your [**Google Cloud Console**](https://console.cloud.google.com).
       2. Click **Create New Project**.
       3. Enter a **Project name** and select a project **Location**.
@@ -132,17 +138,17 @@ setup-steps:
   - title: "API OAuth consent"
     anchor: "oauth-consent"
     content: |
-      1. Staying in the **APIs & Services** section, click on **OAuth consent screen** in the left-hand menu panel.
+      1. Staying in the **APIs & Services** section, click on the **OAuth consent screen** in the left-hand menu panel.
       2. Select your project.
       3. Make the **Application type** `Public`.
       4. Make the **Application name** `tap-google-search-console`.
-      5. Add an image for a logo to help you identify your app.
+      5. Optionally, you can add an image for a logo to help you identify your app.
       6. In the **Support email** field, enter your email that you will use for this app.
       7. In the **Scope** section, click **Add scope**.
       8. Add the following scope: `Google Search Console API ../auth/webmasters.readonly`.
-      9. In the **Authorized domains** section, add your domains that you added from [step 1](#set-up-console).
+      9. In the **Authorized domains** section, add the domains that you added to {{ integration.display_name}} in [step 1](#set-up-console).
       10. Click **SAVE**.
-      11. You will be taken to a screen that says **OAuth grant limits**. The default raise limit is one hour. You may increase the raise limit up to 30 days.
+      11. You will be taken to a screen that says **OAuth grant limits**. The default limit is 100 grants per minute, per day. You can request to raise the grant limit for your project by clicking **Raise limit**. You can also change the time interval grant resets. The options for time intervals are: `1h`, `6h`, `1d,`, `7d`, and `30d`.
 
   - title: "Create OAuth credentials"
     anchor: "create-credentials"
@@ -152,12 +158,12 @@ setup-steps:
       3. Select **OAuth client ID**.
       4. In the **Create OAuth client ID** page, select **Web application** for the Application type.
       5. In the **Name** field, enter `tap-google-search-console`.
-      6. In the **Authorized redirect URIs** section, add your domains that you added from [step 1](#set-up-console).
+      6. In the **Authorized redirect URIs** section, add the domains that you added in [step 1](#set-up-console).
       7. Click **CREATE**.
 
   - title: "add integration"
     content: |
-      4. In the **Site Urls** field, enter the URLs you added to your sitemap file in [step 1](#set-up-console).
+      4. In the **Site Urls** field, enter the URLs you added to your sitemap file in [step 1](#set-up-console). Make sure your URLs begin with `https://` or `http://`.
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data" ## remove this if the integration doesn't support at least table selection
