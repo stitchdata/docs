@@ -7,7 +7,7 @@ name: "issue_transitions"
 doc-link: "https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-transitions-get"
 singer-schema: "https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/issue_transitions.json"
 description: |
-  The `{{ table.name }}` table contains info about issue transitions.
+  The `{{ table.name }}` table contains info about issue transitions. This table is append only.
 
   #### Replication requirements {#replication-requirements-issue-transitions}
 
