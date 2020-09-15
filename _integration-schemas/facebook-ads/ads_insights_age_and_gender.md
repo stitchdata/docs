@@ -35,7 +35,7 @@ attributes:
     foreign-key-id: "campaign-id"
 
   - name: "date_start"
-    type: "date-time"
+    type: "string"
     primary-key: true
     replication-key: true
     description: "The start date."
