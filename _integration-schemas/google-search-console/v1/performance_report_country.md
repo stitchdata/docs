@@ -1,7 +1,7 @@
 ---
 tap: "google-search-console"
 version: "1"
-key: ""
+key: "performance-report-country"
 
 name: "performance_report_country"
 doc-link: "https://support.google.com/webmasters/answer/7576553?hl=en"
@@ -12,8 +12,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "postPerformanceReport"
-    doc-link: "https://developers.google.com/webmaster-tools/search-console-api-original/v3/searchanalytics/query"
+  name: "postPerformanceReport"
+  doc-link: "https://developers.google.com/webmaster-tools/search-console-api-original/v3/searchanalytics/query"
 
 attributes:
   - name: "site_url"
@@ -36,21 +36,22 @@ attributes:
   - name: "date"
     type: "date-time"
     primary-key: true
-    description: "The date and time your site appeared in a Google search."
     replication-key: true  
+    description: "The date and time your site appeared in a Google search."
 
   - name: "clicks"
     type: "integer"
     description: "The amount of clicks from a Google search that lead that landed a user on your site."
+    
   - name: "ctr"
     type: "number"
     description: "The click-through rate."
+    
   - name: "impressions"
     type: "integer"
     description: "The amount of links to your sites that exist in a google search."
+    
   - name: "position"
     type: "number"
     description: "The average position of your site in the search result."
-  
-  
 ---
