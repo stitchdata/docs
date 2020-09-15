@@ -13,7 +13,7 @@
 # -------------------------- #
 
 title: Google Search Console (v1)
-permalink: /integrations/saas/google-search-console ## Add if there are multiple versions: /v1
+permalink: /integrations/saas/google-search-console
 keywords: google-search-console, integration, schema, etl google-search-console, google-search-console etl, google-search-console schema
 layout: singer
 # input: false
@@ -31,7 +31,7 @@ display_name: "Google Search Console"
 singer: true
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 
-tap-name: "Google Search Console" ## Ex: Intercom, not intercom
+tap-name: "Google Search Console"
 repo-url: https://github.com/singer-io/tap-google-search-console
 
 this-version: "1"
@@ -99,7 +99,7 @@ setup-steps:
     anchor: "set-up-console"
     content: |
       {% capture skip-urls %}
-      If you don't have any URLs set up in your {{ integration.display_name }} account, use the following instructions. If you do, you can skip to [step 2](#create-project).
+      **If you don't have any URLs set up in your {{ integration.display_name }} account**, use the following instructions. Otherwise skip to [step 2](#create-project).
       {% endcapture %}
       {% include note.html type="single-line" content=skip-urls %}
       1. Login to your Google account and navigate to [{{ integration.display_name }}](https://search.google.com/search-console){:target="new"}.
@@ -111,7 +111,7 @@ setup-steps:
     anchor: "create-project"
     content: |
       {% capture skip-project %}
-      You can skip to [step 3](#enable-apis) if you already have a project in your {{ integration.display_name }} account. If not, use the following instructions.
+      **If you don't have a project set up in {{ integration.display_name }}** use the following instructions. Otherwise skip to [step 3](#enable-apis).
       {% endcapture %}
       {% include note.html type="single-line" content=skip-project %}
       1. Login to your [**Google Cloud Console**](https://console.cloud.google.com).
@@ -122,7 +122,7 @@ setup-steps:
   - title: "Enable {{ integration.display_name }} API"
     anchor: "enable-apis"
     content: |
-      1. Login to your **Google Cloud Platform**. Make sure you are inside the project that you will use for your {{ integration.display_name }} integration.
+      1. Login to your **Google Cloud Platform** account. Make sure you're in the project that you want to use for your {{ integration.display_name }} integration.
       2. Select **APIs & Services** from the left-hand menu panel. This will take you to the **APIs & Services** dashboard.
       3. In the dashboard, click **ENABLE APIS AND SERVICES**. You will be redirected to the **API Library**.
       4. Search for {{ integration.display_name }} and select `{{ integration.display_name }} API`.
@@ -166,7 +166,7 @@ setup-steps:
       4. In the **Site Urls** field, enter the URLs you added to your sitemap file in [step 1](#set-up-console). Make sure your URLs begin with `https://` or `http://`.
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
+  - title: "track data"
 
 
 # -------------------------- #
@@ -174,14 +174,7 @@ setup-steps:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/google-search-console
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
+# Each table has a its own .md file in /_integration-schemas/google-search-console/v1
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
