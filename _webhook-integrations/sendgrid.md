@@ -27,7 +27,7 @@ frequency: "Continuous"
 primary-key:
   defined: false
   field: 
-tier: "Free"
+tier: "Standard"
 status-url: "http://status.sendgrid.com/"
 icon: /images/integrations/icons/sendgrid.svg
 doc-link: "https://sendgrid.com/docs/API_Reference/Webhooks/event.html"

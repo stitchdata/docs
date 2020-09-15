@@ -55,7 +55,7 @@ feature-summary: |
 certified: true
 
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 db-type: "dynamodb"
 
 api-type: "platform.dynamodb"

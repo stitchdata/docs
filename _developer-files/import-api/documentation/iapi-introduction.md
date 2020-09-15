@@ -26,7 +26,7 @@ sections:
   - title: "Accessing the API"
     anchor: "access-the-api"
     content: |
-      Anyone with a Stitch account can use the Import API. If you don't currently have an account, [sign up for a free one here]({{ site.home }}){:target="new"}.
+      Anyone with a Stitch account can use the Import API. If you don't currently have an account, [sign up for a free trial here]({{ site.home }}){:target="new"}.
 
       After you create a Stitch account, refer to the [Managing Import API access tokens in Stitch]({{ link.import-api.guides.manage-access-tokens-stitch | prepend: site.baseurl }}) guide for instructions on generating an Import API access token in the Stitch app.
 

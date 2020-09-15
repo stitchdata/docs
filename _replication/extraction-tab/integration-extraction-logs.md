@@ -13,9 +13,9 @@ weight: 2
 
 enterprise: true
 enterprise-cta:
-  title: "Get 60 days of Extraction Logs with Stitch Enterprise"
+  title: "Get {{ site.data.stitch.subscription-plans.enterprise.logs }} of Extraction Logs with Stitch Enterprise"
   utm: "?utm_medium=docs&utm_campaign=extraction-log-retention"
-  copy: "Enterprise plans come with 60 days of Extraction Logs, allowing you to view an integration's extraction behavior over time, identify patterns, and quickly resolve errors when they arise."
+  copy: "Enterprise plans come with {{ site.data.stitch.subscription-plans.enterprise.logs }} of Extraction Logs, allowing you to view an integration's extraction behavior over time, identify patterns, and quickly resolve errors when they arise."
 
 intro: |
   {% include note.html first-line="**Extraction log availability**" content="Extraction logs are available only for integrations powered by Singer taps. As integrations are converted to the Singer system, extraction logs will be made available." %}
@@ -35,14 +35,16 @@ sections:
 
       Extraction logs are grouped by day. The number of days' worth of logs available to you depends on your Stitch plan:
 
-      {% assign no-legacy-plans = site.data.stitch.subscription-plans.all-plans | where:"legacy",false %}
+      {% assign all-plans = site.data.stitch.subscription-plans.all-plans %}
 
-      {% for plan in no-legacy-plans %}
-      {% unless plan.name == "free-trial" %}
+      {% for plan in all-plans %}
+      {% if plan.key %}
+      {% assign this-plan = site.data.stitch.subscription-plans[plan.key] %}
+      {% else %}
       {% assign this-plan = site.data.stitch.subscription-plans[plan.name] %}
+      {% endif %}
 
-      - **{{ this-plan.name }}**: {{ this-plan.logs }}
-      {% endunless %}
+      - **{{ plan.name | capitalize | replace:"-"," " }}**: {{ this-plan.logs }}
       {% endfor %}
 
     subsections:
@@ -51,19 +53,25 @@ sections:
         content: |
           Changing your plan can impact logs currently available to you.
 
-          #### Plan downgrades
+          {% assign enterprise-logs = site.data.stitch.subscription-plans.enterprise.logs | remove: " days" %}
+          {% assign standard-logs = site.data.stitch.subscription-plans.standard.logs | remove: " days" %}
 
-          If you downgrade to a plan that offers fewer days' logs, you'll **lose** access to the difference between your current plan and your new plan.
+        sub-subsections:
+          - title: "Plan downgrades"
+            anchor: "plan-downgrades"
+            content: |
+              If you downgrade to a plan that offers fewer days' logs, you'll **lose** access to the difference between your current plan and your new plan.
 
-          For example: If you downgrade to Free from the Standard plan, you'll lose access to six days' worth of logs.
+              For example: If you downgrade to Standard from the Enterprise plan, you'll lose access to {{ enterprise-logs | minus: standard-logs }} days' worth of logs.
 
-          #### Plan upgrades
+          - title: "Plan upgrades"
+            anchor: "plan-upgrades"
+            content: |
+              Likewise, if you upgrade to a plan that offers more days' logs, you'll immediately **gain** access to the difference.
 
-          Likewise, if you upgrade to a plan that offers more days' logs, you'll immediately **gain** access to the difference.
+              For example: If you upgrade to Enterprise from the Standard plan, you'll gain access to an additional {{ enterprise-logs | minus: standard-logs }} days' worth of logs.
 
-          For example: If you upgrade to Standard from the Free plan, you'll gain access to an additional six days' worth of logs.
-
-          {% include enterprise-cta.html %}
+              {% include enterprise-cta.html %}
 
   - title: "Log composition"
     anchor: "log-composition"
@@ -197,6 +205,6 @@ sections:
 
       {% include layout/inline_image.html type="normal" file="replication/extraction-log-error.png" alt="Error message from error that occurred during extraction" %}
 
-      If an error arises, check out our [troubleshooting guides]({{ link.troubleshooting.main | prepend: site.baseurl }}) for help.
+      If an error arises, check out the [extraction error references]({{ link.troubleshooting.main | prepend: site.baseurl | append: "/error-notifications#integration-extraction-errors" }}) for help.
 ---
 {% include misc/data-files.html %}

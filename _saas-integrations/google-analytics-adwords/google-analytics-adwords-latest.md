@@ -29,7 +29,7 @@ certified: true
 
 historical: "30 days"
 frequency: "6 hours"
-tier: "Free"
+tier: "Standard"
 
 table-selection: false
 column-selection: false

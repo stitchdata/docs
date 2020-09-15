@@ -41,7 +41,7 @@ setup-name: "Amazon S3"
 
 frequency: "1 hour"
 historical: "1 year"
-tier: "Free"
+tier: "Standard"
 
 ## Stitch features
 api-type: "platform.s3-csv"

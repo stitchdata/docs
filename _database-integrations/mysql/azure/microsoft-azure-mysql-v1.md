@@ -33,7 +33,7 @@ certified: true
 tap-name: "MySQL"
 
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 port: 3306
 db-type: "mysql"
 

@@ -34,7 +34,7 @@ certified: false
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 
 api-type: "platform.bronto"
 

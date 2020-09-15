@@ -28,7 +28,7 @@ driver: "6.2.2.jre7"
 certified: true
 
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 port: 1433
 db-type: "mssql"
 

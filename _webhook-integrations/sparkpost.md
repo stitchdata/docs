@@ -27,7 +27,7 @@ frequency: "Continuous"
 primary-key:
   defined: false
   field: 
-tier: "Free"
+tier: "Standard"
 status-url: "https://status.sparkpost.com/"
 icon: /images/integrations/icons/sparkpost.svg
 

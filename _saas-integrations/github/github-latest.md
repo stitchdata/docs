@@ -34,7 +34,7 @@ certified: false
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 status-url: https://status.github.com/messages
 
 api-type: "platform.github"

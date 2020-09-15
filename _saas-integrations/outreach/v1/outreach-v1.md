@@ -50,7 +50,7 @@ api-type: "platform.outreach"
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 
 anchor-scheduling: true
 cron-scheduling: true

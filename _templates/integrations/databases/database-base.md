@@ -54,7 +54,7 @@ feature-summary: |
 certified: true/false
 
 frequency: "30 minutes"
-tier: "Free/Standard/Enterprise"
+tier: "Standard/Enterprise"
 port: ## Database's default port - ex: 3306
 db-type: ""
 

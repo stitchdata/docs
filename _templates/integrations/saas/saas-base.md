@@ -48,7 +48,7 @@ certified: true
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free/Standard/Enterprise"
+tier: "Standard/Enterprise"
 
 api-type: ""
 

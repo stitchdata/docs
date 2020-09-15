@@ -14,9 +14,9 @@ weight: 3
 enterprise: true
 
 enterprise-cta:
-  title: "Get 60 days of Loading Reports with Stitch Enterprise"
+  title: "Get {{ site.data.stitch.subscription-plans.enterprise.reports }} of Loading Reports with Stitch Enterprise"
   utm: "?utm_medium=docs&utm_campaign=loading-report-retention"
-  copy: "Enterprise plans come with 60 days of Loading Reports, allowing you to view an integration's loading behavior over time, identify high volume tables, and quickly resolve errors if they arise."
+  copy: "Enterprise plans come with {{ site.data.stitch.subscription-plans.enterprise.reports }} of Loading Reports, allowing you to view an integration's loading behavior over time, identify high volume tables, and quickly resolve errors if they arise."
 
 intro: |
   {% include misc/data-files.html %}
@@ -40,14 +40,16 @@ sections:
 
       Loading reports are grouped by day. The number of days' worth of reports available to you depends on your Stitch plan:
 
-      {% assign no-legacy-plans = site.data.stitch.subscription-plans.all-plans | where:"legacy",false %}
+      {% assign all-plans = site.data.stitch.subscription-plans.all-plans %}
 
-      {% for plan in no-legacy-plans %}
-      {% unless plan.name == "free-trial" %}
+      {% for plan in all-plans %}
+      {% if plan.key %}
+      {% assign this-plan = site.data.stitch.subscription-plans[plan.key] %}
+      {% else %}
       {% assign this-plan = site.data.stitch.subscription-plans[plan.name] %}
+      {% endif %}
 
-      - **{{ this-plan.name }}**: {{ this-plan.reports }}
-      {% endunless %}
+      - **{{ plan.name | capitalize | replace:"-"," " }}**: {{ this-plan.reports }}
       {% endfor %}
 
     subsections:
@@ -56,17 +58,25 @@ sections:
         content: |
           Changing your plan can impact reports currently available to you.
 
-          #### Plan downgrades
+          {% assign enterprise-reports = site.data.stitch.subscription-plans.enterprise.reports | remove: " days" %}
+          {% assign standard-reports = site.data.stitch.subscription-plans.standard.reports | remove: " days" %}
 
-          If you downgrade to a plan that offers fewer days' reports, you'll **lose** access to the difference between your current plan and your new plan.
+        sub-subsections:
+          - title: "Plan downgrades"
+            anchor: "plan-downgrades"
+            content: |
+              If you downgrade to a plan that offers fewer days' reports, you'll **lose** access to the difference between your current plan and your new plan.
 
-          For example: If you downgrade to Free from the Standard plan, you'll lose access to six days' worth of reports.
+              For example: If you downgrade to Standard from the Enterprise plan, you'll lose access to {{ enterprise-reports | minus: standard-reports }} days' worth of reports.
 
-          #### Plan upgrades
+          - title: "Plan upgrades"
+            anchor: "plan-upgrades"
+            content: |
+              Likewise, if you upgrade to a plan that offers more days' reports, you'll immediately **gain** access to the difference.
 
-          Likewise, if you upgrade to a plan that offers more days' reports, you'll immediately **gain** access to the difference.
+              For example: If you upgrade to Enterprise from the Standard plan, you'll gain access to an additional {{ enterprise-reports | minus: standard-reports }} days' worth of reports.
 
-          For example: If you upgrade to Standard from the Free plan, you'll gain access to an additional six days' worth of reports.
+              {% include enterprise-cta.html %}
 
   - title: "Loading Report composition"
     anchor: "all-loading-reports"
@@ -171,5 +181,5 @@ sections:
 
       {% include layout/inline_image.html type="normal" file="replication/table-loading-error-message.png" alt="Expanded error message on Loading Reports by Table page" %}
 
-      If an error arises, check out our [troubleshooting guides]({{ link.troubleshooting.main | prepend: site.baseurl }}) for help.
+      If an error arises, check out the [Destination Loading Error Reference]({{ link.troubleshooting.dw-loading-errors | prepend: site.baseurl }}) for help.
 ---

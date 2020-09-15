@@ -30,7 +30,7 @@ certified: true
 setup-name: "Microsoft SQL Server"
 
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 port: 1433
 db-type: "mssql"
 

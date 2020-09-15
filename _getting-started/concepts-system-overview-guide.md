@@ -26,6 +26,9 @@ related:
   - title: "Set up your Stitch data pipeline"
     link: "{{ link.getting-started.onboarding | prepend: site.baseurl }}"
 
+  - title: "Connecting outside integrations"
+    link: "{{ link.integrations.other-data-sources | prepend: site.baseurl }}"
+
   - title: "Understand your Stitch row usage"
     link: "{{ link.getting-started.row-usage | prepend: site.baseurl }}"
 
@@ -113,7 +116,7 @@ sections:
             content: |
               An integration is a data source. This can be a database, API, file, or other data application that Stitch replicates data from, such as MySQL, Google Analytics, or Amazon S3.
 
-              During your free trial, all of Stitch's integrations are accessible. After the trial ends, some integrations - such as MongoDB or Salesforce - are only available if you select a paid plan.
+              During your free trial, all of Stitch's integrations are accessible. After the trial ends, some integrations - such as Oracle or Google Analytics 360 - are only available if you enter into an [Enterprise plan]({{ link.account.enterprise-features | prepend: site.baseurl }}).
 
               Refer to the [Integration]({{ site.baseurl }}/integrations) documentation for more info on each of Stitch's integrations, such as what data is available or what features are supported.
 

@@ -36,7 +36,7 @@ setup-name: "Import API"
 
 historical: "n/a"
 frequency: "Continuous"
-tier: "Free"
+tier: "Standard"
 status-url: "http://status.doorbell.io/"
 icon: /images/integrations/icons/doorbell-io.svg
 

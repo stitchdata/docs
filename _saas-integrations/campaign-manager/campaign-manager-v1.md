@@ -39,7 +39,7 @@ certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 status-url: "https://ads.google.com/status#hl=en&v=status"
 
 api-type: "platform.doubleclick-campaign-manager"

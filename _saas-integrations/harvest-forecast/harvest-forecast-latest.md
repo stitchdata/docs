@@ -33,7 +33,7 @@ certified: false
 
 historical: "1 year"
 frequency: "60 minutes"
-tier: "Free"
+tier: "Standard"
 status-url: https://www.harveststatus.com/
 
 api-type: "platform.harvest-forecast"

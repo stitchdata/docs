@@ -34,7 +34,7 @@ certified: true
 setup-name: "PostgreSQL"
 
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 port: 5432
 db-type: "postgres"
 
