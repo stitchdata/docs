@@ -7,7 +7,7 @@ name: "issue_transitions"
 doc-link: "https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-transitions-get"
 singer-schema: "https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/issue_transitions.json"
 description: |
-  The `{{ table.name }}` table contains info about issue transitions. This table is append only.
+  The `{{ table.name }}` table contains info about issue transitions.
 
   #### Replication requirements {#replication-requirements-issue-transitions}
 
@@ -17,6 +17,8 @@ description: |
    2. The `Browse Projects` [project {{ integration.display_name }} permission]({{ integration.project-permissions-doc }}){:target="new"} is required. Refer to [{{ integration.display_name }}'s API documentation]({{ table.doc-link }}){:target="new"} for more info.
 
 replication-method: "Key-based Incremental"
+
+loading-behavior: "Append-Only"
 
 replication-key:
   name: "issues.updated"
