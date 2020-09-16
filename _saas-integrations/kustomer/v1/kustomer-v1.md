@@ -44,7 +44,7 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-certified: false 
+certified: false
 
 historical: "1 year"
 frequency: "1 hour"
@@ -124,3 +124,4 @@ setup-steps:
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
+
