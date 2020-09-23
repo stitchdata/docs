@@ -37,6 +37,10 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "Hidden"
+    type: "boolean"
+    description: ""
+
   - name: "MetaData"
     type: "object"
     description: ""
@@ -53,10 +57,10 @@ attributes:
     type: "string"
     description: ""
 
-  - name: "SalesTaxRateList"
+  - name: "PurchaseTaxRateList"
     type: "object"
     description: ""
-    subattributes:
+    subattributes: &tax-rate-detail
       - name: "TaxRateDetail"
         type: "array"
         description: ""
@@ -81,6 +85,11 @@ attributes:
           - name: "TaxTypeApplicable"
             type: "string"
             description: ""
+
+  - name: "SalesTaxRateList"
+    type: "object"
+    description: ""
+    subattributes: *tax-rate-detail
 
   - name: "SyncToken"
     type: "string"

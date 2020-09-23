@@ -33,6 +33,14 @@ attributes:
     type: "boolean"
     description: ""
 
+  - name: "AlternatePhone"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "FreeFormNumber"
+        type: "string"
+        description: ""
+
   - name: "Balance"
     type: "decimal"
     description: ""
@@ -72,6 +80,10 @@ attributes:
       - name: "PostalCode"
         type: "string"
         description: ""
+
+  - name: "BillRate"
+    type: "number"
+    description: ""
 
   - name: "CompanyName"
     type: "string"
@@ -135,6 +147,18 @@ attributes:
     description: ""
     subattributes:
       - name: "FreeFormNumber"
+        type: "string"
+        description: ""
+
+  - name: "OthercontactInfo"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "Type"
+        type: "string"
+        description: ""
+
+      - name: "Telephone"
         type: "string"
         description: ""
 

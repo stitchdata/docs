@@ -36,7 +36,7 @@ attributes:
   - name: "BillAddr"
     type: "object"
     description: ""
-    subattributes:
+    subattributes: &address-attributes
       - name: "Id"
         type: "string"
         description: ""
@@ -72,6 +72,103 @@ attributes:
       - name: "Address"
         type: "string"
         description: ""
+
+  - name: "CheckPayment"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "CheckNum"
+        type: "string"
+        description: ""
+
+      - name: "Status"
+        type: "string"
+        description: ""
+
+      - name: "NameOnAcct"
+        type: "string"
+        description: ""
+
+      - name: "AcctNum"
+        type: "string"
+        description: ""
+
+      - name: "BankName"
+        type: "string"
+        description: ""
+
+  - name: "ClassRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+        foreign-key-id: "class-id"
+
+  - name: "CreditCardPayment"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "CreditChargeResponse"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "Status"
+            type: "string"
+            description: ""
+
+          - name: "AuthCode"
+            type: "string"
+            description: ""
+
+          - name: "TxnAuthorizationTime"
+            type: "date-time"
+            description: ""
+
+          - name: "CCTransId"
+            type: "string"
+            description: ""
+
+      - name: "CreditChargeInfo"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "CcExpiryMonth"
+            type: "integer"
+            description: ""
+
+          - name: "ProcessPayment"
+            type: "boolean"
+            description: ""
+
+          - name: "PostalCode"
+            type: "string"
+            description: ""
+
+          - name: "Amount"
+            type: "number"
+            description: ""
+
+          - name: "NameOnAcct"
+            type: "string"
+            description: ""
+
+          - name: "CcExpiryYear"
+            type: "integer"
+            description: ""
+
+          - name: "Type"
+            type: "string"
+            description: ""
+
+          - name: "BillAddrStreet"
+            type: "string"
+            description: ""
 
   - name: "CurrencyRef"
     type: "object"
@@ -122,6 +219,19 @@ attributes:
         type: "string"
         description: ""
         foreign-key-id: "customer-id"
+
+  - name: "DepartmentRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+        foreign-key-id: "department-id"
 
   - name: "DepositToAccountRef"
     type: "object"
@@ -235,9 +345,22 @@ attributes:
         description: "The payment method ID."
         foreign-key-id: "payment-method-id"
 
+  - name: "PaymentType"
+    type: "string"
+    description: ""
+
   - name: "PrintStatus"
     type: "string"
     description: ""
+
+  - name: "PrivateNote"
+    type: "string"
+    description: ""
+
+  - name: "ShipAddr"
+    type: "object"
+    description: ""
+    subattributes: &address-attributes
 
   - name: "SyncToken"
     type: "string"

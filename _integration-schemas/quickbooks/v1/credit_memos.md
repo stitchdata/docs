@@ -73,6 +73,19 @@ attributes:
         type: "string"
         description: ""
 
+  - name: "ClassRef"
+    type: "object"
+    description: "Details about the class associated with the credit memo."
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The class ID."
+        foreign-key-id: "class-id"
+
   - name: "CurrencyRef"
     type: "object"
     description: "Details about the currency used in the credit memo."
@@ -216,6 +229,19 @@ attributes:
   - name: "RemainingCredit"
     type: "integer"
     description: ""
+
+  - name: "SalesTermRef"
+    type: "object"
+    description: "Details about the term associated with the credit memo."
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The term ID."
+        foreign-key-id: "term-id"
 
   - name: "ShipAddr"
     type: "object"

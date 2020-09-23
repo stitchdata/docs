@@ -155,6 +155,19 @@ attributes:
         description: "The customer ID."
         foreign-key-id: "customer-id"
 
+  - name: "ClassRef"
+    type: "object"
+    description: "Details about the class associated with the invoice."
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The class ID."
+        foreign-key-id: "class-id"
+
   - name: "DeliveryInfo"
     type: "object"
     description: ""
@@ -162,6 +175,32 @@ attributes:
       - name: "DeliveryType"
         type: "string"
         description: ""
+
+  - name: "DepartmentRef"
+    type: "object"
+    description: "Details about the department the invoice is in."
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The department ID."
+        foreign-key-id: "department-id"
+
+  - name: "DepositToAccountRef"
+    type: "object"
+    description: "Details about the deposit account associated with the invoice."
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The account ID."
+        foreign-key-id: "account-id"
 
   - name: "domain"
     type: "string"
@@ -387,6 +426,22 @@ attributes:
         type: "string"
         description: ""
 
+  - name: "ShipDate"
+    type: "date-time"
+    description: ""
+
+  - name: "ShipMethodRef"
+    type: "object"
+    description: "Details about the shipping method associated with the invoice."
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The shipping method ID."
+
   - name: "SyncToken"
     type: "string"
     description: ""
@@ -395,8 +450,16 @@ attributes:
     type: "decimal"
     description: ""
 
+  - name: "TrackingNum"
+    type: "string"
+    description: ""
+
   - name: "TxnDate"
     type: "date-time"
+    description: ""
+
+  - name: "TxnSource"
+    type: "string"
     description: ""
 
   - name: "TxnTaxDetail"
@@ -423,8 +486,16 @@ attributes:
                 type: "decimal"
                 description: ""
 
+              - name: "OverrideDeltaAmount"
+                type: "number"
+                description: ""
+
               - name: "PercentBased"
                 type: "boolean"
+                description: ""
+
+              - name: "TaxInclusiveAmount"
+                type: "number"
                 description: ""
 
               - name: "TaxPercent"

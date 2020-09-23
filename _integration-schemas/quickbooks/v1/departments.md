@@ -53,6 +53,19 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "ParentRef"
+    type: "object"
+    description: "If the department is a sub-department, this will contain details about the parent department."
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The department ID."
+        foreign-key-id: "department-id"
+
   - name: "SubDepartment"
     type: "boolean"
     description: ""

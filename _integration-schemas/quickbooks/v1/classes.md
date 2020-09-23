@@ -49,6 +49,19 @@ attributes:
         type: "date-time"
         description: ""
 
+  - name: "ParentRef"
+    type: "object"
+    description: "Details about the parent class associated with the class."
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The parent class ID."
+        foreign-key-id: "class-id"
+
   - name: "Name"
     type: "string"
     description: ""

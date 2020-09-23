@@ -94,6 +94,19 @@ attributes:
         description: "The currency ID."
         foreign-key-id: "currency-id"
 
+  - name: "DefaultTaxCodeRef"
+    type: "object"
+    description: "Details about the default tax code used for the customer."
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The tax code ID."
+        foreign-key-id: "tax-code-id"
+
   - name: "DisplayName"
     type: "string"
     description: ""
@@ -163,6 +176,19 @@ attributes:
         description: "The customer ID."
         foreign-key-id: "customer-id"
 
+  - name: "PaymentMethodRef"
+    type: "object"
+    description: "Details about the payment method used for the customer."
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The payment method ID."
+        foreign-key-id: "payment-method-id"
+
   - name: "PreferredDeliveryMethod"
     type: "string"
     description: ""
@@ -186,6 +212,23 @@ attributes:
   - name: "PrintOnCheckName"
     type: "string"
     description: ""
+
+  - name: "ResaleNum"
+    type: "string"
+    description: ""
+
+  - name: "SalesTermRef"
+    type: "object"
+    description: "Details about the sales term associated with the customer."
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The term ID."
+        foreign-key-id: "term-id"
 
   - name: "ShipAddr"
     type: "object"

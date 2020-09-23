@@ -63,6 +63,19 @@ attributes:
         description: "The currency ID."
         foreign-key-id: "currency-id"
 
+  - name: "DepartmentRef"
+    type: "object"
+    description: "Details about the department associated with the deposit."
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The department ID."
+        foreign-key-id: "department-id"
+
   - name: "DepositToAccountRef"
     type: "object"
     description: "Details about the account to which the deposit was made."

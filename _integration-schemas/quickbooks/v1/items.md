@@ -43,6 +43,19 @@ attributes:
         description: "The account ID."
         foreign-key-id: "account-id"
 
+  - name: "ClassRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+        foreign-key-id: "class-id"
+
   - name: "Description"
     type: "string"
     description: ""
@@ -69,6 +82,10 @@ attributes:
     type: "date-time"
     description: ""
 
+  - name: "Level"
+    type: "integer"
+    description: ""
+
   - name: "MetaData"
     type: "object"
     description: ""
@@ -85,6 +102,32 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "ParentRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+        foreign-key-id: "item-id"
+
+  - name: "PrefVendorRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+        foreign-key-id: "vendor-id"
+
   - name: "PurchaseCost"
     type: "integer, decimal"
     description: ""
@@ -93,9 +136,39 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "PurchaseTaxCodeRef"
+    type: "object"
+    description: ""
+    subattributes: &tax-code-attributes
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+        foreign-key-id: "tax-code-id"
+
+  - name: "PurchaseTaxIncluded"
+    type: "boolean"
+    description: ""
+
   - name: "QtyOnHand"
     type: "integer"
     description: ""
+
+  - name: "ReorderPoint"
+    type: "number"
+    description: ""
+
+  - name: "SalesTaxIncluded"
+    type: "boolean"
+    description: ""
+
+  - name: "SalesTaxCodeRef"
+    type: "object"
+    description: ""
+    subattributes: *tax-code-attributes
 
   - name: "SyncToken"
     type: "string"

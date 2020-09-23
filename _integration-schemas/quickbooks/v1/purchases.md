@@ -63,6 +63,19 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "DepartmentRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+        foreign-key-id: "department-id"
+
   - name: "EntityRef"
     type: "object"
     description: "Details about the entity with whom the purchase is associated."
@@ -113,10 +126,25 @@ attributes:
             type: "string"
             description: ""
 
-          - name: "CustomerRef"
+          - &class-attributes
+            name: "ClassRef"
+            type: "object"
+            description: ""
+            subattributes:
+              - name: "name"
+                type: "string"
+                description: ""
+
+              - name: "value"
+                type: "string"
+                description: ""
+                foreign-key-id: "class-id"
+
+          - &customer-attributes
+            name: "CustomerRef"
             type: "object"
             description: "Details about the customer associated with the line item."
-            subattributes:
+            subattributes: 
               - name: "name"
                 type: "string"
                 description: ""
@@ -125,6 +153,10 @@ attributes:
                 type: "string"
                 description: "The customer ID."
                 foreign-key-id: "customer-id"
+
+          - name: "TaxAmount"
+            type: "number"
+            description: ""
 
           - name: "TaxCodeRef"
             type: "object"
@@ -159,6 +191,10 @@ attributes:
           - name: "BillableStatus"
             type: "string"
             description: ""
+
+          - *class-attributes
+
+          - *customer-attributes
 
           - name: "ItemRef"
             type: "object"
@@ -198,6 +234,19 @@ attributes:
       - name: "LastUpdatedTime"
         type: "date-time"
         description: ""
+
+  - name: "PaymentMethodRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+        foreign-key-id: "payment-method-id"
 
   - name: "PaymentType"
     type: "string"
@@ -297,5 +346,9 @@ attributes:
 
   - name: "TxnDate"
     type: "date-time"
+    description: ""
+
+  - name: "TxnSource"
+    type: "string"
     description: ""
 ---

@@ -29,8 +29,20 @@ attributes:
     type: "boolean"
     description: ""
 
+  - name: "DayOfMonthDue"
+    type: "integer"
+    description: ""
+
   - name: "DiscountDays"
     type: "integer"
+    description: ""
+
+  - name: "DiscountDayOfMonth"
+    type: "integer"
+    description: ""
+
+  - name: "DiscountPercent"
+    type: "number"
     description: ""
 
   - name: "domain"
@@ -38,6 +50,10 @@ attributes:
     description: ""
 
   - name: "DueDays"
+    type: "integer"
+    description: ""
+
+  - name: "DueNextMonthDays"
     type: "integer"
     description: ""
 

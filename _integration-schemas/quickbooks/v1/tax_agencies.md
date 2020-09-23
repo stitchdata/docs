@@ -49,6 +49,10 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "TaxRegistrationNumber"
+    type: "string"
+    description: ""
+
   - name: "TaxTrackedOnPurchases"
     type: "boolean"
     description: ""

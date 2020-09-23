@@ -25,6 +25,19 @@ attributes:
     description: "The payment ID."
     foreign-key-id: "payment-id"
 
+  - name: "ARAccountRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+        foreign-key-id: "account-id"
+
   - name: "CurrencyRef"
     type: "object"
     description: "Details about the currency the payment is in."
@@ -202,6 +215,10 @@ attributes:
 
   - name: "TxnDate"
     type: "date-time"
+    description: ""
+
+  - name: "TxnSource"
+    type: "string"
     description: ""
 
   - name: "UnappliedAmt"

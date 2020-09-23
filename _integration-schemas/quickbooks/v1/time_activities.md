@@ -29,6 +29,19 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "ClassRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+        foreign-key-id: "class-id"
+
   - name: "CustomerRef"
     type: "object"
     description: "Details about the customer associated with the time activity."
@@ -41,6 +54,19 @@ attributes:
         type: "string"
         description: "The customer ID."
         foreign-key-id: "customer-id"
+
+  - name: "DepartmentRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+        foreign-key-id: "department-id"
 
   - name: "Description"
     type: "string"
@@ -62,6 +88,10 @@ attributes:
         type: "string"
         description: "The employee ID."
         foreign-key-id: "employee-id"
+
+  - name: "EndTime"
+    type: "date-time"
+    description: ""
 
   - name: "HourlyRate"
     type: "integer"
@@ -104,6 +134,10 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "StartTime"
+    type: "date-time"
+    description: ""
+
   - name: "SyncToken"
     type: "string"
     description: ""
@@ -115,4 +149,17 @@ attributes:
   - name: "TxnDate"
     type: "date-time"
     description: ""
+
+  - name: "VendorRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+        foreign-key-id: "vendor-id"
 ---

@@ -46,12 +46,20 @@ attributes:
         description: "The currency ID."
         foreign-key-id: "currency-id"
 
+  - name: "DocNumber"
+    type: "string"
+    description: ""
+
   - name: "domain"
     type: "string"
     description: ""
 
   - name: "ExchangeRate"
     type: "decimal"
+    description: ""
+
+  - name: "HomeTotalAmt"
+    type: "number"
     description: ""
 
   - name: "Line"
@@ -115,7 +123,86 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "TaxRateRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+        foreign-key-id: "tax-rate-id"
+
+  - name: "TotalAmt"
+    type: "number"
+    description: ""
+
   - name: "TxnDate"
     type: "date-time"
     description: ""
+
+  - name: "TxnTaxDetail"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "TaxLine"
+        type: "array"
+        description: ""
+        subattributes:
+          - name: "Amount"
+            type: "decimal"
+            description: ""
+
+          - name: "DetailType"
+            type: "string"
+            description: ""
+
+          - name: "TaxLineDetail"
+            type: "object"
+            description: ""
+            subattributes:
+              - name: "NetAmountTaxable"
+                type: "decimal"
+                description: ""
+
+              - name: "OverrideDeltaAmount"
+                type: "number"
+                description: ""
+
+              - name: "PercentBased"
+                type: "boolean"
+                description: ""
+
+              - name: "TaxInclusiveAmount"
+                type: "number"
+                description: ""
+
+              - name: "TaxPercent"
+                type: "decimal"
+                description: ""
+
+              - name: "TaxRateRef"
+                type: "object"
+                description: "Details about the tax rate associated with the tax line."
+                subattributes:
+                  - name: "value"
+                    type: "string"
+                    description: "The tax rate ID."
+                    foreign-key-id: "tax-rate-id"
+
+      - name: "TotalTax"
+        type: "decimal"
+        description: ""
+
+      - name: "TxnTaxCodeRef"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: "The tax code ID."
+            foreign-key-id: "tax-code-id"
 ---

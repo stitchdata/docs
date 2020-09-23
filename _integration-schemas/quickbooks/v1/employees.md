@@ -33,6 +33,10 @@ attributes:
     type: "boolean"
     description: ""
 
+  - name: "BillRate"
+    type: "number"
+    description: ""
+
   - name: "BirthDate"
     type: "date-time"
     description: ""
@@ -41,7 +45,15 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "EmployeeNumber"
+    type: "string"
+    description: ""
+
   - name: "FamilyName"
+    type: "string"
+    description: ""
+
+  - name: "Gender"
     type: "string"
     description: ""
 
@@ -65,6 +77,82 @@ attributes:
         type: "date-time"
         description: ""
 
+  - name: "MiddleName"
+    type: "string"
+    description: ""
+
+  - name: "Mobile"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "FreeFormNumber"
+        type: "string"
+        description: ""
+
+  - name: "Organization"
+    type: "boolean"
+    description: ""
+
+  - name: "PrimaryAddr"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "City"
+        type: "string"
+        description: ""
+
+      - name: "Country"
+        type: "string"
+        description: ""
+
+      - name: "CountrySubDivisionCode"
+        type: "string"
+        description: ""
+
+      - name: "Id"
+        type: "string"
+        description: ""
+
+      - name: "Lat"
+        type: "string"
+        description: ""
+
+      - name: "Line1"
+        type: "string"
+        description: ""
+
+      - name: "Line2"
+        type: "string"
+        description: ""
+
+      - name: "Line3"
+        type: "string"
+        description: ""
+
+      - name: "Line4"
+        type: "string"
+        description: ""
+
+      - name: "Line5"
+        type: "string"
+        description: ""
+
+      - name: "Long"
+        type: "string"
+        description: ""
+
+      - name: "PostalCode"
+        type: "string"
+        description: ""
+
+  - name: "PrimaryEmailAddr"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "Address"
+        type: "string"
+        description: ""
+
   - name: "PrimaryPhone"
     type: "object"
     description: ""
@@ -77,7 +165,19 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "ReleasedDate"
+    type: "date-time"
+    description: ""
+
+  - name: "Suffix"
+    type: "string"
+    description: ""
+
   - name: "SyncToken"
+    type: "string"
+    description: ""
+
+  - name: "Title"
     type: "string"
     description: ""
 ---

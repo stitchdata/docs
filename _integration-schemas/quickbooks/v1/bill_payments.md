@@ -25,6 +25,19 @@ attributes:
     description: "The bill payment ID."
     foreign-key-id: "bill-payment-id"
 
+  - name: "APAccountRef"
+    type: "object"
+    description: "Details about the AP account associated with the bill payment."
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The account ID."
+        foreign-key-id: "account-id"
+
   - name: "CheckPayment"
     type: "object"
     description: ""
@@ -75,6 +88,19 @@ attributes:
         type: "string"
         description: "The currency ID."
         foreign-key-id: "currency-id"
+
+  - name: "DepartmentRef"
+    type: "object"
+    description: "Details about the department associated with the bill payment."
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The account ID."
+        foreign-key-id: "department-id"
 
   - name: "DocNumber"
     type: "string"

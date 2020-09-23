@@ -73,6 +73,19 @@ attributes:
         type: "string"
         description: ""
 
+  - name: "ClassRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+        foreign-key-id: "class-id"
+
   - name: "CurrencyRef"
     type: "object"
     description: "Details about the currency the sales receipt is in."
@@ -122,6 +135,19 @@ attributes:
         type: "string"
         description: ""
         foreign-key-id: "customer-id"
+
+  - name: "DepartmentRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+        foreign-key-id: "department-id"
 
   - name: "DepositToAccountRef"
     type: "object"
@@ -276,6 +302,10 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "PrivateNote"
+    type: "string"
+    description: ""
+
   - name: "ShipAddr"
     type: "object"
     description: ""
@@ -312,12 +342,20 @@ attributes:
         type: "string"
         description: ""
 
+  - name: "ShipDate"
+    type: "date-time"
+    description: ""
+
   - name: "SyncToken"
     type: "string"
     description: ""
 
   - name: "TotalAmt"
     type: "decimal"
+    description: ""
+
+  - name: "TrackingNum"
+    type: "string"
     description: ""
 
   - name: "TxnDate"

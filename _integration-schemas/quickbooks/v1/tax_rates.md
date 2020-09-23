@@ -50,6 +50,22 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "EffectiveTaxRate"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "RateValue"
+        type: "number"
+        description: ""
+
+      - name: "EndDate"
+        type: "string"
+        description: ""
+
+      - name: "EffectiveDate"
+        type: "string"
+        description: ""
+
   - name: "MetaData"
     type: "object"
     description: ""

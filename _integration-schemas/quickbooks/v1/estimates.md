@@ -25,6 +25,14 @@ attributes:
     description: "The estimate ID."
     foreign-key-id: "estimate-id"
 
+  - name: "AcceptedBy"
+    type: "string"
+    description: ""
+
+  - name: "AcceptedDate"
+    type: "date-time"
+    description: ""
+
   - name: "ApplyTaxAfterDiscount"
     type: "boolean"
     description: ""
@@ -68,6 +76,19 @@ attributes:
       - name: "Address"
         type: "string"
         description: ""
+
+  - name: "ClassRef"
+    type: "object"
+    description: "Details about the class associated with the estimate."
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The class ID."
+        foreign-key-id: "class-id"
 
   - name: "CurrencyRef"
     type: "object"
@@ -127,6 +148,19 @@ attributes:
         type: "string"
         description: ""
 
+  - name: "DepartmentRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type:  "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The department ID."
+        foreign-key-id: "department-id"
+
   - name: "DocNumber"
     type: "string"
     description: ""
@@ -135,12 +169,20 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "DueDate"
+    type: "date-time"
+    description: ""
+
   - name: "EmailStatus"
     type: "string"
     description: ""
 
   - name: "ExchangeRate"
     type: "decimal"
+    description: ""
+
+  - name: "ExpirationDate"
+    type: "date-time"
     description: ""
 
   - name: "HomeTotalAmt"
@@ -234,6 +276,23 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "PrivateNote"
+    type: "string"
+    description: ""
+
+  - name: "SalesTermRef"
+    type: "object"
+    description: "Details about the sales term associated with the estimate."
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The sales term ID."
+        foreign-key-id: "term-id"
+
   - name: "ShipAddr"
     type: "object"
     description: ""
@@ -265,6 +324,55 @@ attributes:
       - name: "PostalCode"
         type: "string"
         description: ""
+
+  - name: "ShipDate"
+    type: "date-time"
+    description: ""
+
+  - name: "ShipFromAddr"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "Id"
+        type: "string"
+        description: ""
+
+      - name: "Lat"
+        type: "string"
+        description: ""
+
+      - name: "Line1"
+        type: "string"
+        description: ""
+
+      - name: "Line2"
+        type: "string"
+        description: ""
+
+      - name: "Line3"
+        type: "string"
+        description: ""
+
+      - name: "Line4"
+        type: "string"
+        description: ""
+
+      - name: "Long"
+        type: "string"
+        description: ""
+
+  - name: "ShipMethodRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type:  "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: "The ship method ID."
+        # foreign-key-id: "ship-method-id"
 
   - name: "SyncToken"
     type: "string"
@@ -306,8 +414,16 @@ attributes:
                 type: "decimal"
                 description: ""
 
+              - name: "OverrideDeltaAmount"
+                type: "number"
+                description: ""
+
               - name: "PercentBased"
                 type: "boolean"
+                description: ""
+
+              - name: "TaxInclusiveAmount"
+                type: "number"
                 description: ""
 
               - name: "TaxPercent"

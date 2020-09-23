@@ -209,6 +209,10 @@ attributes:
           - `BillPaymentCheck`
           - `PurchaseOrder`
 
+      - name: "TxnLineId"
+        type: "string"
+        description: ""
+
   - name: "MetaData"
     type: "object"
     description: ""
@@ -229,6 +233,10 @@ attributes:
     type: "object"
     description: "Details about the sales term associated with the bill."
     subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
       - name: "value"
         type: "string"
         description: "The sales term ID."

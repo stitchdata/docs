@@ -46,6 +46,45 @@ attributes:
             description: "The account ID."
             foreign-key-id: "account-id"
 
+      - name: "ClassRef"
+        type: "object"
+        description: "Details about the class associated with the budget."
+        subattributes:
+          - name: "name"
+            type: "string"
+            description: ""
+
+          - name: "value"
+            type: "string"
+            description: "The class ID."
+            foreign-key-id: "class-id"
+
+      - name: "CustomerRef"
+        type: "object"
+        description: "Details about the customer associated with the budget."
+        subattributes:
+          - name: "name"
+            type: "string"
+            description: ""
+
+          - name: "value"
+            type: "string"
+            description: "The customer ID."
+            foreign-key-id: "customer-id"
+
+      - name: "DepartmentRef"
+        type: "object"
+        description: "Details about the department associated with the budget."
+        subattributes:
+          - name: "name"
+            type: "string"
+            description: ""
+
+          - name: "value"
+            type: "string"
+            description: "The department ID."
+            foreign-key-id: "department-id"
+
       - name: "Amount"
         type: "decimal"
         description: ""

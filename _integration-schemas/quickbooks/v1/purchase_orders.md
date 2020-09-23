@@ -38,6 +38,19 @@ attributes:
         description: "The account ID."
         foreign-key-id: "account-id"
 
+  - name: "ClassRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+        foreign-key-id: "class-id"
+
   - name: "CurrencyRef"
     type: "object"
     description: "Details about the currency the purchase order is in."
@@ -85,6 +98,14 @@ attributes:
     description: ""
 
   - name: "domain"
+    type: "string"
+    description: ""
+
+  - name: "DueDate"
+    type: "date-time"
+    description: ""
+
+  - name: "EmailStatus"
     type: "string"
     description: ""
 
@@ -193,6 +214,10 @@ attributes:
         type: "string"
         description: "This will be `Bill`."
 
+  - name: "Memo"
+    type: "string"
+    description: ""
+
   - name: "MetaData"
     type: "object"
     description: ""
@@ -208,6 +233,23 @@ attributes:
   - name: "POStatus"
     type: "string"
     description: ""
+
+  - name: "PrivateNote"
+    type: "string"
+    description: ""
+
+  - name: "SalesTermRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+        foreign-key-id: "term-id"
 
   - name: "ShipAddr"
     type: "object"
@@ -234,6 +276,18 @@ attributes:
         description: ""
 
       - name: "Long"
+        type: "string"
+        description: ""
+
+  - name: "ShipTo"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
         type: "string"
         description: ""
 
