@@ -83,7 +83,7 @@ attributes:
 
   - name: "redeem_by"
     type: "date-time"
-    description: "The date afer which the coupon can no longer be redeemed."
+    description: "The date after which the coupon can no longer be redeemed."
 
   - name: "times_redeemed"
     type: "integer"

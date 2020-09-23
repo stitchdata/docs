@@ -1,12 +1,13 @@
 ---
-title: QuickBooks
-permalink: /integrations/saas/quickbooks
+title: QuickBooks (v21-12-2015)
+permalink: /integrations/saas/quickbooks/v21-12-2015
 redirect_from: /saas-integrations/quickbooks/quickbooks-latest.html
 
 keywords: quickbooks, integration, schema, etl quickbooks, quickbooks etl, quickbooks schema, intuit
 summary: "Connection instructions and schema details for Stitch's QuickBooks integration."
 layout: singer
 old-schema-template: true
+input: false
 
 key: "quickbooks-setup"
 
