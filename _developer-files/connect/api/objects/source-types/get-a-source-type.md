@@ -263,7 +263,7 @@ examples:
           }
         ],
         "details": {
-          "pricing_tier": "premium",
+          "pricing_tier": "standard",
           "pipeline_state": "released",
           "default_start_date": "-30 days",
           "default_scheduling_interval": 30,

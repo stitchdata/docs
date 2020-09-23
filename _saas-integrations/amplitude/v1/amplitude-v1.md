@@ -33,7 +33,7 @@ certified: false
 
 historical: "n/a"
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 status-url: "https://status.amplitude.com/"
 
 api-type: "platform.amplitude"

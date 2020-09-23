@@ -15,7 +15,7 @@ word-format: |
 #      General Tooltips      #
 # -------------------------- #
 
-analysis-integration: "Analysis integrations are third-party tools you can layer on top of your data warehouse to query, visualize, and otherwise explore your data."
+analysis-integration: "Analysis integrations are third-party tools you can layer on top of your destination to query, visualize, and otherwise explore your data."
 
 anchor-scheduling: "A type of replication scheduling where an integration's Replication Frequency is anchored to a time you select."
 
@@ -51,7 +51,7 @@ historical-sync: "Historical syncs are how far back from the Stitch connection d
 
 loading-reports: "Reports detailing the Loading phase of the replication process for a given integration. Includes the number of rows loaded for each table and error info, should an error occur."
 
-primary-key: "Primary Keys are used to identify unique rows within a table and ensure that only the most recently updated version of that record appears in your data warehouse."
+primary-key: "Primary Keys are used to identify unique rows within a table and ensure that only the most recently updated version of that record appears in your destination."
 
 replication-job: "The three-step process by which Stitch replicates data. A replication job includes three distinct steps: Extraction, preparation, and loading."
 
@@ -115,7 +115,7 @@ load: "During this phase, the prepared data is transformed to be compatible with
 
 available-in-connect: "Indicates if the integration is available as a source in Stitch Connect."
 
-case: "Indicates if the data warehouse is case sensitive or case insensitive."
+case: "Indicates if the destination is case sensitive or case insensitive."
 
 column-limit: "The maximum number of columns a table can have."
 
@@ -123,11 +123,11 @@ column-name-limit: "The maximum number of allowed characters a column name can h
 
 decimal-range: "The maximum number of places decimal data types can have. 'Not Applicable' means the destination doesn't have decimal support."
 
-destination-connection-methods: "The methods Stitch supports to connect your data warehouse. Stitch attempts SSL connections by default with no configuration required on your part."
+destination-connection-methods: "The methods Stitch supports to connect your destination. Stitch attempts SSL connections by default with no configuration required on your part."
 
 destination-incompatibilities: "Indicates if there are any possible incompatibilities between this integration and any of Stitch's destination offerings."
 
-destination-rep-methods: "The Replication Methods supported by the data warehouse."
+destination-rep-methods: "The Replication Methods supported by the destination."
 
 db-type: "The type of database. Analytic excels at analyzing huge volumes of data; Transactional excels at processing."
 
@@ -135,15 +135,15 @@ db-views: "Indicates if Stitch supports replicating views from this database int
 
 fully-managed: "This indicates if the destination provider includes routine maintenance and upgrades in their plan. If No, you'll be responsible for performing maintenance tasks."
 
-integration-availability: "The type of Stitch plan required to use the integration. If Free, all plans have access to the integration."
+integration-availability: "The type of Stitch plan required to use the integration."
 
 integration-incompatibilities: "Indicates if there are any possible incompatibilities between this destination and any of Stitch's integration offerings."
 
 nested-structure-support: "Indicates if the destination natively supports nested structures."
 
-nested-structures: "If your data warehouse doesn't natively support nested structures, Stitch will de-nest them and create subtables. See Table Info for details." ## used in Schema section of SaaS integration docs
+nested-structures: "If your destination doesn't natively support nested structures, Stitch will de-nest them and create subtables. See Table Info for details." ## used in Schema section of SaaS integration docs
 
-reserved-words: "Words reserved by Stitch and/or the data warehouse for use in schema, table, and column names. Conflicting objects will not be replicated into the data warehouse."
+reserved-words: "Words reserved by Stitch and/or the destination for use in schema, table, and column names. Conflicting objects will not be replicated into the destination."
 
 ssh: "Indicates if SSH tunnels are supported for connecting this database to Stitch."
 
@@ -157,6 +157,6 @@ supported-versions: "The database (or destination) versions supported by Stitch.
 
 table-name-limit: "The maximum number of allowed characters a table name can have."
 
-varchar-limit: "The maximum VARCHAR width the data warehouse supports."
+varchar-limit: "The maximum VARCHAR width the destination supports."
 
 whitelisting: "Indicates whether individual tables and/or columns can be selected for replication."

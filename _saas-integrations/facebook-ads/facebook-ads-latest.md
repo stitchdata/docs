@@ -29,7 +29,7 @@ certified: true # Stitch-supported integration
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 auth: "oauth"
 status-url: "https://developers.facebook.com/status/"
 

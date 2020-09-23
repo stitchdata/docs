@@ -38,7 +38,7 @@ certified: true
 setup-name: "Amazon Aurora"
 
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 port: 3306
 db-type: "mysql"
 

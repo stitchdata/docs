@@ -44,7 +44,7 @@ certified: false
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 status-url: "https://community.oracle.com/community/topliners/eloqua-system-status"
 
 api-type: "platform.eloqua"

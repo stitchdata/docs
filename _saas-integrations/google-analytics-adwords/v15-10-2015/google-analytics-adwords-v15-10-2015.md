@@ -36,7 +36,7 @@ certified: true
 
 historical: "15 days"
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 
 table-selection: false
 column-selection: false

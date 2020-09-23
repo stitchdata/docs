@@ -30,7 +30,7 @@ certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 status-url: https://twitter.com/getSaasquatch
 
 api-type: "platform.referral-saasquatch"

@@ -27,7 +27,7 @@ certified: true
 
 historical: "Webhook"
 frequency: "Continuous"
-tier: "Free"
+tier: "Standard"
 status-url: "https://twitter.com/segmentstatus"
 icon: /images/integrations/icons/segment.svg
 

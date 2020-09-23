@@ -28,7 +28,7 @@ frequency: "Continuous"
 primary-key:
   defined: false
   field: 
-tier: "Free"
+tier: "Standard"
 status-url: "https://twitter.com/formkeep"
 icon: /images/integrations/icons/formkeep.svg
 

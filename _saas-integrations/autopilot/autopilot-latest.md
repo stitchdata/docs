@@ -30,7 +30,7 @@ certified: false
 
 historical: "1 year"
 frequency: "60 minutes"
-tier: "Free"
+tier: "Standard"
 status-url: "http://status.autopilothq.com/"
 
 api-type: "platform.autopilot"

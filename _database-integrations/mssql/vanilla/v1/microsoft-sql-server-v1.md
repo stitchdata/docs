@@ -30,7 +30,7 @@ repo-url: https://github.com/singer-io/tap-mssql
 certified: true
 
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 port: 1433
 db-type: "mssql"
 

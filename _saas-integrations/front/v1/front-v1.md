@@ -45,7 +45,7 @@ certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 status-url: "https://www.frontstatus.com/"
 
 api-type: "platform.frontapp"
