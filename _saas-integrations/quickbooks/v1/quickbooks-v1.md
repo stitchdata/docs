@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Quickbooks (v1)
+title: QuickBooks (v1)
 permalink: /integrations/saas/quickbooks
 keywords: quickbooks, integration, schema, etl quickbooks, quickbooks etl, quickbooks schema
 layout: singer
@@ -26,12 +26,12 @@ key: "quickbooks-setup"
 # -------------------------- #
 
 name: "quickbooks"
-display_name: "Quickbooks"
+display_name: "QuickBooks"
 
 singer: true
 status-url: "http://status.developer.intuit.com/"
 
-tap-name: "Quickbooks" ## Ex: Intercom, not intercom
+tap-name: "QuickBooks" ## Ex: Intercom, not intercom
 repo-url: https://github.com/singer-io/tap-quickbooks
 
 this-version: "1"
@@ -69,7 +69,7 @@ column-selection: true
 feature-summary: |
   Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
   
-  **Note**: Currently, replicating data from {{ integration.display_name }} Desktop apps isn't supported.
+  **Note**: Currently, replicating data from {{ integration.display_name }} desktop apps isn't supported.
 
 # -------------------------- #
 #      Incompatibilities     #
@@ -87,7 +87,7 @@ feature-summary: |
 # -------------------------- #
 
 requirements-list:
-  - item: "**An online {{ integration.display_name }} instance.** Support for replicating data from desktop {{ integration.display_name }} instances isn't currently supported."
+  - item: "**An online {{ integration.display_name }} instance.** Desktop instances aren't currently supported."
 
 setup-steps:
   - title: "add integration"
@@ -99,11 +99,11 @@ setup-steps:
       Lastly, you'll be directed to {{ integration.display_name }}' website to complete the setup.
 
       1. If you're not already signed into your {{ integration.display_name }} account, enter your credentials and click **Login**.
-      2. A screen asking for authorization to {{ integration.display_name }} will display. **Note that Stitch will only ever read your data.**
+      2. A screen asking for authorization to {{ integration.display_name }} will display.
       3. Click **Authorize.**
       4. After the authorization process successfully completes, you'll be redirected back to Stitch.
       5. Click {{ app.buttons.finish-int-setup }}.
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
+  - title: "track data"
 
 
 # -------------------------- #
