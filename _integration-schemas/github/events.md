@@ -9,7 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/s
 description: |
   The `{{ table.name }}` table contains information about events in your {{ integration.display_name }} repositories.
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
 
 api-method:
     name: "List events"
@@ -21,6 +21,11 @@ attributes:
     primary-key: true
     description: "The event ID."
     foreign-key-id: "event-id"
+
+  - name: "created_at"
+    type: "string"
+    description: "The date the event was created."
+    replication-key: true  
 
   - name: "actor"
     type: "object"
@@ -44,9 +49,7 @@ attributes:
       - name: "url"
         type: "string"
         description: ""
-  - name: "created_at"
-    type: "string"
-    description: "The date the event was created."
+  
   - name: "distinct_size"
     type: "number"
     description: "The number of distinct commits in a push."
