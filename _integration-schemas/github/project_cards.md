@@ -1,7 +1,7 @@
 ---
 tap: "github"
 version: "1"
-key: ""
+key: "project-card"
 
 name: "project_cards"
 doc-link: "https://docs.github.com/en/rest/reference/projects#cards"
@@ -59,7 +59,7 @@ attributes:
     description: "The name of the card."
   - name: "node_id"
     type: "string"
-    description: "The cards node ID."
+    description: "The card's node ID."
   - name: "note"
     type: "string"
     description: "Notes in the card."
