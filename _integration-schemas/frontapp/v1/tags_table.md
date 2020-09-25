@@ -25,15 +25,16 @@ attributes:
     primary-key: true
     description: "The tag ID."
 
-  - name: "analytics_date"
-    type: "date"
-    primary-key: true
-    description: "The date the analytics pertain to."
-
   - name: "analytics_range"
     type: "string"
     primary-key: true
     description: "The range the analytics pertain to."
+
+  - name: "analytics_date"
+    type: "date"
+    primary-key: true
+    replication-key: true
+    description: "The date the analytics pertain to."  
 
   - name: "avg_message_conversations_p"
     type: "number"
