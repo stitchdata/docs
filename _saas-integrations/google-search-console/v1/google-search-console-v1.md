@@ -163,7 +163,7 @@ setup-steps:
 
   - title: "add integration"
     content: |
-      4. In the **Site Urls** field, enter the URLs you added to your sitemap file in [step 1](#set-up-console). Make sure your URLs begin with `https://` or `http://`.
+      4. In the **Site Urls** field, enter the URLs you added to your sitemap file in [step 1](#set-up-console). The URLs should be comma delimited and begin with `https://` or `http://`. Example: `https://yoursite.com, http://yourothersite.com`.
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data"

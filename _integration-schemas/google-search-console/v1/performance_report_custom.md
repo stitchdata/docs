@@ -29,6 +29,7 @@ attributes:
 
   - name: "dimensions_hash_key"
     type: "string"
+    primary-key: true
     description: "The MD5 hash key of your selected dimension values."  
 
   - name: "date"

@@ -1,13 +1,22 @@
 <!-- This file includes the content for setting up S3-based integrations
 					that use IAM access to connect. -->
 
-{% if integration.name == "amazon-s3-csv" %}
-{% assign page-name = "Grant Access to Your Bucket" %}
+{% case integration.name %}
 
-{% else %}
-{% assign page-name = "Configure Your DynamoDB Integration" %}
+<!-- Amazon S3 CSV -->
+  {% when "amazon-s3-csv" %}
+    {% assign page-name = "Grant Access to Your Bucket" %}
 
-{% endif %}
+<!-- Amazon DynamoDB -->
+  {% when "amazon-dynamodb" %}
+    {% assign page-name = "Configure Your DynamoDB Integration" %}
+
+<!-- Intacct -->
+  {% when "intacct" %}
+    {% assign page-name = "Configure Your Intacct Integration" %}
+
+{% endcase %}         
+
 {% case include.type %}
 
 <!-- RETRIEVING AWS ACCOUNT ID -->

@@ -7,7 +7,7 @@ name: "performance_report_query"
 doc-link: "https://support.google.com/webmasters/answer/7576553?hl=en"
 singer-schema: "https://github.com/singer-io/tap-google-search-console/blob/master/tap_google_search_console/schemas/performance_report_query.json"
 description: |
-  The `{{ table.name }}` table contains information about the performance of your sites in Google searches. This particular table is filtered and grouped by the users search queries that resulted in your sites appearing in the search results.
+  The `{{ table.name }}` table contains information about the performance of your sites in Google searches. This particular table is filtered and grouped by the users' search queries that resulted in your sites appearing in the search results.
 
 replication-method: "Key-based Incremental"
 
