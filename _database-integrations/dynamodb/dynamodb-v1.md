@@ -45,7 +45,7 @@ driver: |
 # -------------------------- #
 
 feature-summary: |
-  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.driver | flatify | strip }}. [TODO]
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.driver | flatify | strip }} driver.
 
 
 # -------------------------- #
