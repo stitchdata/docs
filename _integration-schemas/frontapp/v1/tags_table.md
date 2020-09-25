@@ -11,7 +11,7 @@ description: |
 
   This table will include tags in your {{ integration.display_name }} account.
 
-  **Note**: During the historical replication job, all increments since the **Start Date** will be replicated. This will result in the first record for this table being an aggregated record across all tags.
+  **Note**: During the historical replication job, all increments (defined using the **Incremental Range** setting) since the **Start Date** will be replicated. This will result in the first record for this table being an aggregated record across all tags.
 
 replication-method: "Key-based Incremental"
 
