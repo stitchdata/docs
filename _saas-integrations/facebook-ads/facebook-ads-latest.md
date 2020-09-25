@@ -19,7 +19,7 @@ repo-url: https://github.com/singer-io/tap-facebook
 this-version: "1"
 
 api: |
-  [Facebook Marketing API 6.0](https://developers.facebook.com/docs/marketing-apis){:target="new"}
+  [Facebook Marketing API 8.0](https://developers.facebook.com/docs/marketing-apis){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
