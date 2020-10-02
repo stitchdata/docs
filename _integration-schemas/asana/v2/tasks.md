@@ -229,6 +229,10 @@ attributes:
         type: "string"
         description: "This will be `project`."
 
+  - name: "start_on"
+    type: "string"
+    description: "The day that work begins for the task."      
+
   - name: "workspace"
     type: "object"
     description: "Details about the workspace or organization the task is associated with."
