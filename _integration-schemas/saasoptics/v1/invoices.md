@@ -160,9 +160,103 @@ attributes:
     description: ""
 
   - name: "line_items"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "deleted_in_qb"
+        type: "boolean"
+        description: ""
 
+      - name: "exported_date"
+        type: "date-time"
+        description: ""
+
+      - name: "external_id"
+        type: "string"
+        description: ""
+
+      - name: "home_amount"
+        type: "number"
+        description: ""
+
+      - name: "id"
+        type: "integer"
+        description: ""
+
+      - name: "invoice"
+        type: "integer"
+        description: ""
+        foreign-key-id: "invoice-id"
+
+      - name: "item"
+        type: "integer"
+        description: ""
+        foreign-key-id: "item-id"
+
+      - name: "local_amount"
+        type: "number"
+        description: ""
+
+      - name: "modified"
+        type: "date-time"
+        description: ""
+
+      - name: "no_transaction_permitted"
+        type: "boolean"
+        description: ""
+
+      - name: "notes"
+        type: "string"
+        description: ""
+
+      - name: "number"
+        type: "string"
+        description: ""
+
+      - name: "qb_class"
+        type: "integer"
+        description: ""
+
+      - name: "qb_time_modified"
+        type: "date-time"
+        description: ""
+
+      - name: "qb_txn_line_id"
+        type: "string"
+        description: ""
+
+      - name: "quantity"
+        type: "number"
+        description: ""
+
+      - name: "recurly_id"
+        type: "string"
+        description: ""
+
+      - name: "refund_of"
+        type: "integer"
+        description: ""
+
+      - name: "refund_of_stripe_id"
+        type: "string"
+        description: ""
+
+      - name: "sf_id"
+        type: "string"
+        description: ""
+
+      - name: "stripe_id"
+        type: "string"
+        description: ""
+
+      - name: "sync_date"
+        type: "date-time"
+        description: ""
+
+      - name: "transaction"
+        type: "integer"
+        description: ""
+        foreign-key-id: "transaction-id"
   - name: "memo"
     type: "string"
     description: ""
