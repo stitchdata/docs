@@ -1,7 +1,7 @@
 ---
 tap: "saasoptics"
 version: "1"
-key: ""
+key: "deleted-contract"
 
 name: "deleted_contracts"
 doc-link: ""
@@ -11,15 +11,12 @@ description: |
 
 replication-method: "Key-based Incremental"
 
-api-method:
-    name: "deleteContracts"
-    doc-link: ""
-
 attributes:
   - name: "id"
     type: "integer"
     primary-key: true
-    description: "The deleted record ID."
+    description: "The ID of the deleted contract."
+    foreign-key-id: "contract-id"
 
   - name: "deleted"
     type: "date-time"
