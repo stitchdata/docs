@@ -277,7 +277,7 @@ sections:
       - {{ not-supported | replace:"TOOLTIP","Not supported" }} indicates that the feature isn't currently supported. Hover over the icon to view a tooltip with additional details.
           
       {% capture table %}
-      {% assign saas-database-integrations = site.saas-integrations | concat: site.database-integrations | where_exp:"integration","integration.content-type == nil and integration.type != 'import-api'" | sort:"display_name" %}
+      {% assign saas-database-integrations = site.saas-integrations | concat: site.database-integrations | where:"content-type",nil | sort:"display_name" %}
 
       {% assign feature-list = "table-selection|column-selection|select-all" | split:"|" %}
 
@@ -306,6 +306,8 @@ sections:
 
       <tbody id="filter-body">
       {% for integration in saas-database-integrations %}
+      {% if integration.type != "import-api" %}
+
       {% include shared/versioning/integration-version-logic.html item-name="integration" %}
 
       {% unless this-version.status == "sunset" %}
@@ -350,6 +352,7 @@ sections:
       {% endfor %}
       </tr>
       {% endunless %}
+      {% endif %}
       {% endfor %}
 
       <tr id="noConnectionYet" style="display: none">
