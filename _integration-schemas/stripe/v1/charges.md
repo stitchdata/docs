@@ -384,8 +384,6 @@ attributes:
       - name: "alipay"
         type: "object"
         description: ""
-        subattributes: &id001 [
-            ]
       - name: "bancontact"
         type: "object"
         description: ""
@@ -603,14 +601,12 @@ attributes:
           - name: "klarna"
             type: "object"
             description: ""
-            subattributes: FIXME
           - name: "last4"
             type: "string"
             description: ""
           - name: "metadata"
             type: "object"
             description: ""
-            subattributes: FIXME
           - name: "multibanco"
             type: "object"
             description: ""
@@ -714,18 +710,15 @@ attributes:
               - name: "amex_express_checkout"
                 type: "object"
                 description: ""
-                subattributes: FIXME
               - name: "apple_pay"
                 type: "object"
                 description: ""
-                subattributes: FIXME
               - name: "dynamic_last4"
                 type: "string"
                 description: ""
               - name: "google_pay"
                 type: "object"
                 description: ""
-                subattributes: FIXME
               - name: "masterpass"
                 type: "object"
                 description: ""
@@ -783,7 +776,6 @@ attributes:
               - name: "samsung_pay"
                 type: "object"
                 description: ""
-                subattributes: FIXME
               - name: "type"
                 type: "string"
                 description: ""
@@ -844,7 +836,6 @@ attributes:
           - name: "wechat"
             type: "object"
             description: ""
-            subattributes: FIXME
       - name: "type"
         type: "string"
         description: ""

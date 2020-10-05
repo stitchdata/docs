@@ -113,7 +113,7 @@ replication-sections:
   - title: "Events table replication"
     anchor: "event-table-replication"
     content: |
-      {{ integration.display_name }} will only be providing 30 days of historical event data for the `events` table. Stitch will still get historical data from each entity endpoint, but then it will switch to the `events` stream for incremental updates. Refer the the [{{ integration.display_name }}](https://stripe.com/docs/api/events){:target="new"} docs for more information about the `events` table.
+      {{ integration.display_name }} will only provide 30 days of historical event data for the `events` table. Refer the the [{{ integration.display_name }} docs](https://stripe.com/docs/api/events){:target="new"} for more information about the `events` table.
   
   - title: "Objects and events"
     anchor: "objects-events"
