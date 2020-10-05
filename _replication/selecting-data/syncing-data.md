@@ -93,7 +93,7 @@ sections:
              - For SaaS integrations, the integration supports the API endpoint associated with the table. Refer to the [integration's schema documentation]({{ site.baseurl }}/integrations/saas) for a list of available objects and endpoints associated with them.
           - **For columns**, there are additional requirements:
              - The column contains data typed using a [supported data type]({{ link.replication.supported-data-types | prepend: site.baseurl }}). Columns containing unsupported data types will display as [Not supported](#not-supported-table-column-message) in Stitch.
-             - For SaaS integrations backed by Singer taps, the JSON schema used to create the table containing the column contains the column. Refer to the [integration's schema documentation]({{ site.baseurl }}/integrations/saas) for more info.
+             - For SaaS integrations backed by Singer taps, the tap must either dynamically include the field or the JSON schema used to create the given table must contain the column. Refer to the [integration's schema documentation]({{ site.baseurl }}/integrations/saas) for more info.
 
       - title: "Requirements to successfully replicate an object"
         anchor: "replication-requirements"
@@ -111,7 +111,7 @@ sections:
              - The table and at least one column are set to replicate
              - The table has a defined [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}) and [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}), if applicable
              - For integrations that replicate files, the file meets the integration's requirements. For example: A [Google Sheet]({{ site.baseurl }}/integrations/saas/google-sheets) must contain a header row and a second row of data.
-             - The table doesn't exceed the columns per table maximum allowed by your destination type, if applicable
+             - The table doesn't exceed the maximum columns per table allowed by your destination type, if applicable
           - **For columns**, there are additional requirements:
              - The column contains at least [one non-`NULL` value]({{ link.troubleshooting.column-nulls | prepend: site.baseurl }})
 
@@ -175,27 +175,31 @@ sections:
           {% endfor %}
 
         sub-subsections:
-          - title: "How the Select All feature works"
+          - title: "How the Select all feature works"
             anchor: "select-all--functionality"
             content: |
-              The **Select All** feature, located in an integration's {{ app.buttons.tables }} tab, allows you to select all of an integration's tables and columns with just a few clicks.
+              The **Select all** feature, located in an integration's {{ app.buttons.tables }} tab, allows you to select all of an integration's tables and columns with just a few clicks.
 
               When used to select all tables, the following occurs:
 
-              - All tables and [supported columns](#selection-requirements) are set to replicate
+              - All tables and [supported columns](#selection-requirements) are set to replicate. **Note**: Database views are not supported with this feature and won't be selected.
               - Previous column selections are erased. **Note**: Selections aren't final until **Finalize Your Selections** is clicked. Clicking **Cancel** will restore your previous selections.
 
-          - title: "Limitations of the Select All feature"
-            anchor: "select-all--limitations"
+          - title: "Requirements to use the Select all feature"
+            anchor: "select-all--requirements"
             content: |
-              While the **Select All** feature is available for the majority of Stitch's integrations, there are some limitations:
+              To use the **Select all** feature, all of the following must be true for an integration:
 
-              - **For database integrations**:
-                 - **Available only for databases that support Log-based Incremental Replication in Stitch.** Some database cloud providers may not support the features Stitch requires to perform Log-based Incremental Replication, even if the source database supports those features. For example: Heroku doesn't currently support logical replication for PostgreSQL.
-                 - **Can't be used to select database views**, as Stitch requires you to define the Replication Method the view uses.
+              - The integration is backed by a Singer tap
+              - The integration supports table selection. If the integration doesn't support table selection, all available tables and columns will be set to replicate by default.
+              - **For database integrations**, there are additional requirements:
+                 - **Stitch supports Log-based Incremental Replication for the database.** Some database cloud providers may not support the features Stitch requires to perform Log-based Incremental Replication, even if the source database supports those features. For example: Heroku doesn't currently support logical replication for PostgreSQL.
+                 - **The Default Replication Method setting is available and enabled for the integration**. In addition to having Log-based Incremental Replication support in Stitch, the **Default Replication Method** setting must be available and enabled.
 
-              - **For SaaS integrations**:
-                 - **Available only for sources whose APIs allow the selection of all fields.** Some sources - like Google Ads and Microsoft Advertising - have compatibility rules that determine the combinations of fields that can be selected together. Selecting all columns for these integrations would result in incompatible combinations and unsuccessful replication.
+              - **For SaaS integrations**, there is an additional requirement:
+                 - **The API the integration uses must allow the selection of all fields.** Some sources - like Google Ads and Microsoft Advertising - have compatibility rules that determine the combinations of fields that can be selected together. Selecting all columns for these integrations would result in incompatible combinations and unsuccessful replication.
+
+              Refer to the [Object selection support reference](#table-column-selection-support) for a list of integrations that support this feature.
 
           - title: "Selecting all tables and columns"
             anchor: "select-all--usage"
@@ -258,39 +262,108 @@ sections:
     anchor: "table-column-selection-support"
     summary: "What's supported for each integration"
     content: |
-      Below is the level of support each integration has for table and column selection:
+      {% include note.html type="single-line" content="**Note**: This section doesn't include webhook integrations, [as they aren't applicable to this guide](#applicable-integrations)." %}
 
-      - {{ supported | replace:"TOOLTIP","Supported" }} indicates that table/column selection is supported for the integration. **Note**: Only the data you select will be replicated. If nothing is selected, the integration will have a status of `Not Configured`.
+      This section details the level of support each of Stitch's database and SaaS integrations have for the features outlined in this guide:
 
-      - {{ not-supported | replace:"TOOLTIP","Not supported" }} indicates that table and/or column selection isn't supported for the integration:
+      - **Table selection**: Support for setting [individual tables](#individual-objects--tables-columns) to replicate
+      - **Column selection**: Support for setting [individual columns](#individual-objects--tables-columns) in a table to replicate
+      - **Select all**: Support for the [Select all](#set-all-data-to-replicate) feature
 
-          - **For table selection**, all available tables and columns will be automatically set to replicate. For detailed info on the data Stitch replicates from [SaaS integrations]({{ site.baseurl }}/integrations/saas), check out the **Schema** section of any integration's guide.
-          - **For column selection**, all available columns in the tables you select will be automatically set to replicate.
+      Icons in the table represent the following:
+
+      - {{ supported | replace:"TOOLTIP","Supported" }} indicates that the feature is supported
+      - {{ sometimes-supported | replace:"TOOLTIP","Supported if requirements are met" }} indicates that the feature is supported, but has specific configuration requirements. Hover over the icon to view a tooltip with additional details.
+      - {{ not-supported | replace:"TOOLTIP","Not supported" }} indicates that the feature isn't currently supported. Hover over the icon to view a tooltip with additional details.
           
       {% capture table %}
+      {% assign saas-database-integrations = site.saas-integrations | concat: site.database-integrations | where_exp:"integration","integration.content-type == nil and integration.type != 'import-api'" | sort:"display_name" %}
+
+      {% assign feature-list = "table-selection|column-selection|select-all" | split:"|" %}
+
       <table class="attribute-list" id="filter-table">
+      <thead>
       <tr>
-      <th align="right" width="35%; fixed">
-      <strong>Integration</strong>
+      <th style="text-align: right;" width="35%; fixed">
+      Integration
       </th>
       <th>
-      <strong>Version</strong>
+      Version
       </th>
       <th>
-      <strong>Table selection</strong>
+      Table<br>
+      selection
       </th>
       <th>
-      <strong>Column selection</strong>
+      Column<br>
+      selection
       </th>
       <th>
-      <strong>Select all</strong>
+      Select all
       </th>
       </tr>
+      </thead>
+
       <tbody id="filter-body">
+      {% for integration in saas-database-integrations %}
+      {% include shared/versioning/integration-version-logic.html item-name="integration" %}
+
+      {% unless this-version.status == "sunset" %}
+      <tr>
+      <td align="right" width="35%; fixed">
+      <a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.display_name }}</a>
+      </td>
+      <td>
+      {% if non-sunset-versions.size > 1 and integration.this-version == latest-version %}
+      {{ integration.this-version | prepend: "v" }} (latest)
+      {% else %}
+      {{ integration.this-version | prepend: "v" }}
+      {% endif %}
+      </td>
+      {% for feature in feature-list %}
+      {% assign feature-reason = feature | append: "-reason" %}
+      <td>
+      {% case integration[feature] %}
+      {% when false %}
+      {% if integration[feature-reason] %}
+      {% assign reason = integration[feature-reason] | flatify %}
+      {% else %}
+      {% assign reason = "Not supported" %}
+      {% endif %}
+
+      {{ not-supported | replace:"TOOLTIP",reason | flatify }}
+
+      {% when 'sometimes' %}
+      {% if integration[feature-reason] %}
+      {% assign reason = integration[feature-reason] | flatify %}
+      {% else %}
+      {% assign reason = "Not supported" %}
+      {% endif %}
+
+      {{ sometimes-supported | replace:"TOOLTIP",reason | flatify }}
+
+      {% else %}
+
+      {{ supported | replace:"TOOLTIP","Supported" }}
+      {% endcase %}
+      </td>
+      {% endfor %}
+      </tr>
+      {% endunless %}
+      {% endfor %}
+
+      <tr id="noConnectionYet" style="display: none">
+      <td id="noConnectionYetName" colspan="5" align="center">
+        <strong>Don't see the source you want?</strong> <a href="mailto:{{site.support}}">Let us know</a>!
+      </td>
+      </tr>
+
       </tbody>
       </table>
       {% endcapture %}
 
       {% include layout/on-page-search/table-search.html placeholder-copy="Find an integration" table=table %}
+
+      [Back to Object selection support reference](#table-column-selection-support)
 ---
 {% include misc/data-files.html %}
