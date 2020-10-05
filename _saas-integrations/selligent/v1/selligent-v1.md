@@ -53,6 +53,9 @@ loading-reports: true
 
 table-selection: false
 column-selection: false
+select-all: false
+select-all-reason: |
+  As this integration doesn't support table or column selection, all available tables and columns are automatically replicated.
 
 # attribution-window: "# days"
 # attribution-is-configurable: 

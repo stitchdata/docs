@@ -51,6 +51,9 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+select-all: "sometimes"
+select-all-reason: "Log-based Incremental Replication must be enabled and set as the default Replication Method to use the Select All feature."
+
 table-level-reset: true
 
 ## Replication methods

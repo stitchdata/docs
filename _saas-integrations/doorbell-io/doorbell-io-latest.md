@@ -42,6 +42,9 @@ icon: /images/integrations/icons/doorbell-io.svg
 
 table-selection: false
 column-selection: false
+select-all: false
+select-all-reason: |
+  As this integration doesn't support table or column selection, all available tables and columns are automatically replicated.
 
 anchor-scheduling: false
 cron-scheduling: false

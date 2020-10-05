@@ -76,6 +76,10 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+select-all: false
+select-all-reason: |
+  {{ integration.display_name }} integrations don't currently support a default Replication Method, which is required to use the Select All feature.
+
 table-level-reset: true
 
 ## Replication methods

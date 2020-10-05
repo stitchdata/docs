@@ -28,8 +28,9 @@ repo-url: https://github.com/singer-io/tap-adwords
 
 this-version: "1"
 
+api-name: "Google AdWords API (v201809)"
 api: |
-  [Google AdWords API (v201809)](https://developers.google.com/adwords/api/docs/guides/start){:target="new"}
+  [Google AdWords API (v201809)](https://developers.google.com/adwords/api/docs/guides/start){:target='new'}
 
 # -------------------------- #
 #     Integration Details    #
@@ -51,6 +52,9 @@ cron-scheduling: true
 
 table-selection: true
 column-selection: true
+select-all: false
+select-all-reason: |
+  The API used by this integration ({{ integration.api-name }}) doesn't support selecting all fields due to compatibility rules.
 
 extraction-logs: true
 loading-reports: true

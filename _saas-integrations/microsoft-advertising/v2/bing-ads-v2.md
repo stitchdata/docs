@@ -26,8 +26,9 @@ tap-name: "Bing Ads"
 
 this-version: "2"
 
+api-name: "Bing Ads v.13 API"
 api: |
-  [{{ integration.display_name }} v.13 API](https://docs.microsoft.com/en-us/advertising/guides/?view=bingads-13){:target="new"}
+  [Bing Ads v.13 API](https://docs.microsoft.com/en-us/advertising/guides/?view=bingads-13){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -43,11 +44,14 @@ status-url: https://status.bingads.com/
 
 api-type: "platform.bing-ads"
 
-table-selection: true
-column-selection: true
-
 anchor-scheduling: true
 cron-scheduling: false
+
+table-selection: true
+column-selection: true
+select-all: false
+select-all-reason: |
+  The API used by this integration ({{ integration.api-name }}) doesn't support selecting all fields due to compatibility rules.
 
 extraction-logs: true
 loading-reports: true

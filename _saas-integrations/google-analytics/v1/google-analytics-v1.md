@@ -36,8 +36,9 @@ repo-url: https://github.com/singer-io/tap-google-analytics
 
 this-version: "1"
 
+api-name: "Reporting API v4 and Metadata API"
 api: |
-  [](){:target="new"}
+  [Reporting API v4](https://developers.google.com/analytics/devguides/reporting/core/v4){:target="new"} [Metadata API](https://developers.google.com/analytics/devguides/reporting/metadata/v3){:target="new"}
 
 
 # -------------------------- #
@@ -57,6 +58,10 @@ cron-scheduling: true
 
 table-selection: true
 column-selection: true
+select-all: false
+select-all-reason: |
+  The APIs used by this integration ({{ integration.api-name }}) don't support selecting all fields due to compatibility rules.
+
 table-level-reset: true
 
 extraction-logs: true
