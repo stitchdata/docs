@@ -106,11 +106,18 @@ setup-steps:
 
 
 # -------------------------- #
-#     Replication Details     #
+#     Replication Details    #
 # -------------------------- #
 
 replication-sections:
-  - content: |
+  - title: "Events table replication"
+    anchor: "event-table-replication"
+    content: |
+      {{ integration.display_name }} will only provide 30 days of historical event data for the `events` table. Refer the the [{{ integration.display_name }} docs](https://stripe.com/docs/api/events){:target="new"} for more information about the `events` table.
+  
+  - title: "Objects and events"
+    anchor: "objects-events"
+    content: |
       In the {{ integration.display_name }} API, there are two concepts:
 
       - **Objects**, which are items like charges, invoices, customers, etc.
