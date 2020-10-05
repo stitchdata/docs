@@ -8,6 +8,7 @@ input: false
 layout: general
 toc: false
 key: "dynamodb-projection-queries"
+content-type: "guide"
 
 display_name: "DynamoDB"
 name: "dynamodb"

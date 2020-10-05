@@ -14,6 +14,7 @@ input: false
 feedback: true
 
 key: "identify-integration-version"
+content-type: "guide"
 
 
 # -------------------------- #
