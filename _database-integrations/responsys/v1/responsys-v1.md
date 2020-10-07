@@ -305,10 +305,10 @@ replication-sections:
       <strong>{{ comparison.item | flatify }}</strong>
       </td>
       <td>
-      {{ comparison.this-integration | markdownify }}
+      {{ comparison.this-integration | flatify | markdownify }}
       </td>
       <td>
-      {{ comparison.other-integrations | markdownify }}
+      {{ comparison.other-integrations | flatify | markdownify }}
       </td>
       </tr>
       {% endfor %}
