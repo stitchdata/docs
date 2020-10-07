@@ -61,9 +61,9 @@ table-level-reset: true
 ## Replication methods
 
 define-replication-methods: true
+set-default-replication-method: false
 
 log-based-replication-minimum-version: "n/a"
-
 log-based-replication-master-instance: false
 log-based-replication-master-instance-reason: "Google CloudSQL doesn't currently support logical replication."
 log-based-replication-master-instance-doc-link: "https://groups.google.com/forum/#!topic/google-cloud-sql-discuss/md_7Rq3LgB0"

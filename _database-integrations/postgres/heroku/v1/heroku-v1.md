@@ -61,6 +61,7 @@ table-level-reset: true
 ## Replication methods
 
 define-replication-methods: true
+set-default-replication-method: false
 
 log-based-replication-minimum-version: "n/a"
 log-based-replication-master-instance: false
