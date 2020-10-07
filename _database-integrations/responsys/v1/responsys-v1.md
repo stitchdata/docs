@@ -32,6 +32,8 @@ display_name: "Responsys"
 
 singer: true 
 tap-name: "Responsys"
+file-system: true
+
 repo-url: https://github.com/singer-io/tap-responsys
 status-url: "https://community.oracle.com/docs/DOC-1011262"
 
