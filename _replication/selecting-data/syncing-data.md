@@ -184,6 +184,7 @@ sections:
 
               - All tables and [supported columns](#selection-requirements) are set to replicate. **Note**: Database views are not supported with this feature and won't be selected.
               - Previous column selections are overwritten. **Note**: Selections aren't final until **Finalize Your Selections** is clicked. Clicking **Cancel** will restore your previous selections.
+              - Tables with defined Replication Methods will continue to use that Replication Method.
 
           - title: "Requirements to use the Select all feature"
             anchor: "select-all--requirements"
