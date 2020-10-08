@@ -91,7 +91,10 @@ requirements-list:
       **Pause all ad-blocking software currently in use.** Because Facebook authentication uses pop ups, you may encounter issues if ad blockers aren't disabled during the setup.
 
 setup-steps:
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
+    content: |
+      {% include integrations/shared-setup/connection-setup.html %}
     substeps:
       - title: "Select an attribution window"
         anchor: "select-attribution-window"
@@ -119,8 +122,16 @@ setup-steps:
 
           **Note**: Data for deleted campaigns, ads, and adsets will be included only in [**Core Object**](#schema) tables.
 
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
   - title: "Authorize Stitch to access Facebook Ads"
     anchor: "grant-stitch-authorization"
     content: |
@@ -134,7 +145,11 @@ setup-steps:
       3. Click the **Save Connections** button.
 
       After your credentials are validated, you'll be directed back to Stitch (click the {{ app.buttons.finish-int-setup }} button to wrap things up) and the {{ app.page-names.int-details }} page will display.
-  - title: "track data"
+      
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #      Replication Info      #

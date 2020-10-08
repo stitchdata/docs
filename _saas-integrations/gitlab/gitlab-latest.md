@@ -40,6 +40,9 @@ cron-scheduling: true
 
 table-selection: false
 column-selection: false
+select-all: false
+select-all-reason: |
+  As this integration doesn't support table or column selection, all available tables and columns are automatically replicated.
 
 extraction-logs: true
 loading-reports: true
@@ -71,8 +74,10 @@ setup-steps:
       5. In the **Scopes** section, check the **api** box. This will allow Stitch to access your API and replicate your GitLab data.
       6. Click **Create Personal Access Token**.
       7. The new Access Token will display at the top of the page. **Copy the token before navigating away from the page** - GitLab won't display it again.
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API URL** field, enter `https://gitlab.com/api/v3`
       5. In the **Private Token** field, paste the **Personal Access Token** you created in the previous section.
       6. In the **Projects** and **Groups to Track** fields, you'll enter the projects and/or groups you want to track as a **space-separated** list.
@@ -85,8 +90,16 @@ setup-steps:
          - If **groups** and **projects** are provided, the selected projects of the listed groups will be replicated.
          - If **projects** are provided but **groups** aren't, all listed projects will be replicated.
 
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
 # -------------------------- #
 #        Table Schemas       #

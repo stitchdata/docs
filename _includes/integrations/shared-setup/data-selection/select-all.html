@@ -1,0 +1,55 @@
+{% case integration.collection %}
+	{% when 'saas-integrations' %}
+		{% assign object = "table" %}
+		{% assign track-menu = "Track all Tables and Fields" %}
+
+	{% when 'database-integrations' %}
+		{% case integration.db-type %}
+			{% when 'mongo' %}
+				{% assign object = "collection" %}
+				{% assign fields = "" %}
+			{% else %}
+				{% assign object = "table" %}
+				{% assign fields = " and Fields" %}
+		{% endcase %}
+
+	{% assign object-up = object | append: "s" | capitalize %}
+	{% assign track-menu = "Track All" | append: object-up | append: fields | append: " (Except Views)" %}
+{% endcase %}
+
+<!-- Display a notice if there are requirements to use the feature -->
+{% capture select-all-note %}
+{% capture previous-selections %}
+Using the **Select All** feature will overwrite any previous selections. However, selections aren't final until **Finalize Your Selections** is clicked. Clicking **Cancel** will restore your previous selections.
+{% endcapture %}
+
+{% if integration.select-all == "sometimes" %}
+1. {{ previous-selections }}
+2. {{ integration.select-all-reason | flatify }}
+
+{% else %}
+{{ previous-selections }}
+
+{% endif %}
+Refer to the [Select All guide]({{ link.replication.syncing | prepend: site.baseurl | append: "#set-all-data-to-replicate" }}) for more info about this feature.
+{% endcapture %}
+
+{% if integration.select-all == "sometimes" %}
+{% include important.html first-line="Before using this feature, note that:" content=select-all-note %}
+
+{% else %}
+{% include important.html type="single-line" content=select-all-note %}
+
+{% endif %}
+
+1. Click into the integration from the {{ app.page-names.dashboard }} page.
+2. Click the {{ app.buttons.tables }} tab.
+{% if integration.collection == "database-integrations" %}
+3. Navigate to the {{ object }} level, selecting any databases and/or schemas that contain {{ object | append: "s" }} you want to replicate.
+{% endif %}
+3. In the list of {{ object | append: "s" }}, click the box next to the **{{ object | capitalize }} Names** column.
+4. In the menu that displays, click **{{ track-menu | flatify }}**:
+
+   ![The {{ track-menu }} menu in the {{ object | append: "s" | capitalize }} to Replicate tab]({{ site.baseurl }}/images/replication/select-all-tables-menu.png)
+
+5. {{ app.menu-paths.finalize-selections | flatify }}

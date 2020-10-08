@@ -135,6 +135,10 @@ setup-steps:
     anchor: "configure-web-services-and-authentication-settings"
     content: |
       To use Stitch's {{ integration.display_name }} integration, you'll need to enable Web Services and token-based authentication in your {{ integration.display_name }} account.
+
+      {% for substep in step.substeps %}
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
     substeps:
       - title: "Enable Web Services"
         anchor: "enable-web-services"
@@ -178,13 +182,13 @@ setup-steps:
   - title: "Create a Stitch {{ integration.display_name }} role and configure permissions"
     anchor: "create-configure-stitch-role"
     content: |
-      To connect {{ integration.display_name }} to Stitch, we recommend that you create a Stitch-specific role and user for us. We suggest this to ensure that:
+      To connect {{ integration.display_name }} to Stitch, we recommend that you create a Stitch-specific role and user for us. We suggest this to ensure that Stitch doesn't encounter issues with replication due to {{ integration.display_name }}'s API limitations. 
 
-      1. Stitch is easily distinguishable in any logs or audits.
+      Currently, a single {{ integration.display_name }} user is allowed to only have a single open API session at a time. If the user connected to Stitch has another connection elsewhere, replication problems will arise.
 
-      2. Stitch doesn't encounter issues with replication due to {{ integration.display_name }}'s API limitations. Currently, a single {{ integration.display_name }} user is allowed to only have a single open API session at a time. If the user connected to Stitch has another connection elsewhere, replication problems will arise.
-
-      3. Stitch can successfully authenticate to {{ integration.display_name }}.
+      {% for substep in step.substeps %}
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
     substeps:
       - title: "Create a Stitch {{ integration.display_name }} role"
         anchor: "create-stitch-netsuite-role"
@@ -193,7 +197,7 @@ setup-steps:
           2. On the Role page, enter a name for the role in the **Name** field. For example: `Stitch`
           3. In the **Authentication** section, check the **Web Services Only Role** box.
           
-      - title: "Configure permissions and save the Stitch role"
+      - title: "Configure role permissions"
         anchor: "configure-permissions-save-stitch-role"
         content: |
           Next, you'll grant permissions to the role. In the tabs below, you'll find the following:
@@ -248,16 +252,29 @@ setup-steps:
       
       **Note**: If your Account ID contains a suffix - `1234567_SB2`, for example - it should be included when entering the ID into Stitch.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Account** field, enter the {{ integration.display_name }} account ID you retrieved in [Step 7](#locate-netsuite-account-id).
       5. In the **Consumer Key** field, paste the Consumer Key you generated when you [created Stitch's integration record](#create-stitch-integration-record).
       6. In the **Token ID** field, paste the Token ID you generated when you [created Stitch's access tokens](#create-access-tokens).
       7. In the **Consumer Secret** field, paste the Consumer Secret you generated when you [created Stitch's integration record](#create-stitch-integration-record).
       8. In the **Token Secret** field, paste the Token Secret you generated when you [created Stitch's access tokens](#create-access-tokens).
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

@@ -93,14 +93,27 @@ setup-steps:
 
       Leave this page open for now - you'll need it to complete the setup in Stitch.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API Key** field, paste the {{ integration.display_name }} API key you created in [Step 1](#generate-api-key).
       5. In the **{{ integration.display_name }} Subdomain** field, enter your {{ integration.display_name }} subdomain. For example: If the full URL of the subdomain were `stitchdata.recurly.com`, you'd only enter `stitchdata` into this field.
       6. In the **Quota Limit** field, enter the percentage of the API rate limit you want to allocate to the integration. For example: A value of `30` would be `30%` of the rate limit. Refer to [{{ integration.display_name }}'s documentation](https://dev.recurly.com/docs/rate-limits){:target="new"} for more info.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Integration Tables     #

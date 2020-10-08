@@ -80,12 +80,22 @@ requirements-list:
       All other tables, with the exception of `sla_policies` and `ticket_forms` will be available for replication even if you aren't on either of these {{ integration.display_name }} plans.
 
 setup-steps:
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Zendesk Subdomain** field, enter your {{ integration.display_name }} site prefix. For example: For `stitchdata.zendesk.com`, only `stitchdata` would be entered into this field.
 
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
   - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
     content: |
@@ -97,7 +107,10 @@ setup-steps:
       1. Next, you'll be prompted to sign into your {{ integration.display_name }} account.
       2. After the authorization process is successfully completed, you'll be directed back to Stitch.
       3. Click {{ app.buttons.finish-int-setup }}.
-  - title: "track data"
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #        Replication         #

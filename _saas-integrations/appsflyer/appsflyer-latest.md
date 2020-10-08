@@ -42,6 +42,12 @@ cron-scheduling: true
 
 table-selection: false
 column-selection: false
+select-all: false
+select-all-reason: |
+  As this integration doesn't support table or column selection, all available tables and columns are automatically replicated.
+select-all: false
+select-all-reason: |
+  As this integration doesn't support table or column selection, all available tables and columns are automatically replicated.
 
 extraction-logs: true
 loading-reports: true
@@ -91,14 +97,27 @@ setup-steps:
       2. Under the **Integration** section, click **API Access.**
       3. Copy the key from the **Your API Key** field.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **App ID** field, enter the ID of the app you want to replicate data from.
       5. In the **API Token** field, paste the API key from [Step 2](#retrieve-your-api-key).
-  - title: "historical sync"
+
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
     content: |
+      {% capture historical-note %}
       **Note**: {{ integration.display_name }} imposes limits on date ranges for replicating historical data. If the **Start Date** is more than 90 days from the current date, replication will be unsuccessful. Refer to the [Historical AppsFlyer data limitations](#historical-appsflyer-data-limitations) section for more info.
-  - title: "replication frequency"
+      {% endcapture %}
+
+      {% include integrations/saas/setup/historical-sync.html step-content=historical-note %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
 # -------------------------- #
 #     Integration Tables     #

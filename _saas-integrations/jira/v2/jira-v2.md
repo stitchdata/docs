@@ -75,6 +75,10 @@ setup-steps:
     anchor: "verify-self-managed-configuration"
     content: |
       {% include note.html type="single-line" content="**Note**: This step is only required if your JIRA instance is self-managed (hosted). Otherwise, skip this step." %}
+
+      {% for substep in step.substeps %}
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
     substeps:
       - title: "Verify your protocol support"
         anchor: "verify-protocol-support"
@@ -116,8 +120,10 @@ setup-steps:
       9. Click **Create**.
       10. A new window containing the API token will display. **Copy the token before closing the window**, as {{ integration.display_name }} will only display it once.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Base URL** field, enter the base URL for your JIRA site. For example: `stitchdata.atlassian.net` or `stitchdata.atlassian.com`
 
          **Note**: If you're connecting a self-managed instance, your server must use the `HTTPs` protocol or Stitch will be unable to successfully connect.
@@ -126,9 +132,21 @@ setup-steps:
       6. In the **Password or Token** field:
          - **If connecting a self-managed {{ integration.display_name }} instance**, enter the password associated with the user in the **Username** field.
          - **If connecting a cloud-hosted {{ integration.display_name }} instance**, paste the API token you generated in [Step 2](#generate-jira-api-token).
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

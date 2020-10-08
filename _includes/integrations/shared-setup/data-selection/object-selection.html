@@ -1,0 +1,36 @@
+{% if integration.db-type == "mongo" %}
+    {% assign object = "collection" %}
+    {% assign button = "Collections" %}
+    {% assign col = "field" %}
+    {% assign rep-key = link.replication.mongo-rep-keys %}
+
+{% else %}
+    {% assign object = "table" %}
+    {% assign button = "Tables" %}
+    {% assign col = "column" %}
+    {% assign rep-key = link.replication.rep-keys %}
+{% endif %}
+
+<!-- Display a note about object selection and replication requirements -->
+{% capture object-note %}
+**Is an object missing or not replicating?** Verify that the object meets the requirements for [selection]({{ link.replication.syncing | prepend: site.baseurl | append: "#selection-requirements" }}) and [replication]({{ link.replication.syncing | prepend: site.baseurl | append: "#replication-requirements" }}).
+{% endcapture %}
+{% include note.html type="single-line" content=object-note %}
+
+
+{% case integration.name %}
+	{% when 'amazon-s3-csv' %}
+		{% assign available-data = "Learn how data is structured after being loaded." %}
+	{% else %}
+		{% if integration.collection == "saas-integrations" %}
+			{% assign available-data = "Learn about the available tables for this integration." %}
+		{% else %}
+			{% assign available-data = "" %}
+		{% endif %}
+{% endcase %}
+
+The last step is to select the {{ object }}s {% unless integration.column-selection == false %}and {{ col }}s{% endunless %} you want to replicate. [{{ available-data }}](#schema)
+
+**Note**: If a replication job is currently in progress, new selections won't be used until the next job starts.
+
+{% include integrations/shared-setup/data-selection/data-selection-tabs.html %}

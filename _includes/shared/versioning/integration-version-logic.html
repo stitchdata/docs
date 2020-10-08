@@ -34,6 +34,8 @@ If the include has a specific version parameter, only get the version being requ
 <!-- Otherwise, get the full list of released versions. -->
 {% else %}
     {% assign released-versions = site.data.taps.versions[page_name]released-versions %}
+
+    {% assign non-sunset-versions = released-versions | where_exp:"version", "version.status != 'sunset'" %}
 {% endif %}
 
 

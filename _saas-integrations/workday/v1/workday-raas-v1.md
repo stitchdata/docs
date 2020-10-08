@@ -92,8 +92,10 @@ setup-steps:
 
       To replicate multiple reports, repeat steps 3 and 4 as needed.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Username** field, enter the username for your {{ integration.display_name }} account.
       5. In the **Password** field, enter the password for your {{ integration.display_name }} account.
       6. In the **Report Name** field, enter a name for the report. **Note**: This will be used to create the name of the corresponding destination table.
@@ -101,9 +103,20 @@ setup-steps:
 
       To replicate additional reports, click **Configure another report** and repeat steps 6 and 7.
 
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

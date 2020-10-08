@@ -76,9 +76,20 @@ requirements-list:
       **Access to all the data you want to replicate in {{ integration.display_name }}.** This includes projects, tasks, tags, users, and workspaces. If the user authorizing the integration in Stitch doesn't have access to something in {{ integration.display_name }}, Stitch will be unable to replicate it.
 
 setup-steps:
-  - title: "add integration"
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
+    content: |
+      {% include integrations/shared-setup/connection-setup.html %}
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
   - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
     content: |
@@ -86,7 +97,10 @@ setup-steps:
       2. Enter your {{ integration.display_name }} credentials and sign into your account.
       3. After the authorization process is successfully completed, you'll be directed back to Stitch.
       4. Click {{ app.buttons.finish-int-setup }}.
-  - title: "track data"
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Integration Tables     #
