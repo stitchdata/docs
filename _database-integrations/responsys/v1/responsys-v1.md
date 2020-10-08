@@ -277,7 +277,7 @@ setup-steps:
   - title: "Select data to replicate"
     anchor: "setting-data-to-replicate"
     content: |
-      {% include integrations/databases/setup/syncing.html %}
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

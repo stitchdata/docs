@@ -5,17 +5,19 @@ layout: page
 {% include misc/data-files.html %}
 
 <!-- SUPPORT, BETA, AND SINGER NOTICE -->
-{% include notifications/support-beta-singer-notice.html %}
+	{% include notifications/status-support/connection-notices.html %}
 
 
 <!-- INTEGRATION-SPECIFIC NOTICES -->
-{% if integration.notice-copy %}
-    {% capture notice-copy %}
-        {{ integration.notice-copy | flatify }}
-    {% endcapture %}
+{% unless this-version.status == "sunset" %}
+	{% if integration.notice-copy %}
+	    {% capture notice-copy %}
+	        {{ integration.notice-copy | flatify }}
+	    {% endcapture %}
 
-    {% include important.html first-line=integration.notice-first-line content=notice-copy %}
-{% endif %}
+	    {% include important.html first-line=integration.notice-first-line content=notice-copy %}
+	{% endif %}
+{% endunless %}
 
 
 <!-- INTEGRATION SNAPSHOT -->
@@ -23,7 +25,10 @@ layout: page
 
 
 <!-- SETUP REQUIREMENTS & INSTRUCTIONS -->
+
+{% unless this-version.status == "sunset" %}
     {% include integrations/shared-setup/setup-requirements-steps.html %}
+{% endunless %}
 
 <!-- REPLICATION DETAILS -->
 {% if integration.replication-sections %}
