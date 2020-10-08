@@ -157,16 +157,29 @@ setup-steps:
 
           Keep the token readily available for the next step.
   
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Token** field, paste the bot user OAuth access token you copied from [Step 1.4](#bot-user-oauth-access-token).
       5. Check the **Join public channels** box if you'd like to replicate data for all public channels in the workspace you're connecting. Otherwise, only data for channels you've personally joined will be replicated.
       6. Check the **Include private channels** box if you'd like to replicate data for private channels in the workspace.
       7. Check the **Exclude archived channels** box if you don't want to replicate data from archived channels.
 
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

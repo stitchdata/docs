@@ -134,16 +134,29 @@ setup-steps:
 
              For example: If the API path were `https://api.bigcommerce.com/stores/123456/v3/`, the store hash would be `123456`.
       
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Client ID** field, paste the client ID from the `.txt` file you opened in [Step 1.2](#retrieve-api-credentials).
       5. In the **Access Token** field, paste the access token from the `.txt` file you opened in [Step 1.2](#retrieve-api-credentials).
       6. In the **Store Hash** field, paste the store hash from the `.txt` file you opened in [Step 1.2](#retrieve-api-credentials).
 
          To find your store hash, locate the **API Path** in the `.txt` file. The value between `stores/` and `/v3/` in the API path is your store hash. For example: If the API path were `https://api.bigcommerce.com/stores/123456/v3/`, the store hash would be `123456`.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

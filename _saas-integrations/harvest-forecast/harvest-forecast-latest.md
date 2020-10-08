@@ -67,11 +67,21 @@ requirements-list:
       **A Harvest account with access to Harvest Forecast**. Your Harvest ID will be used to authorize the integration using OAuth.
 
 setup-steps:
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. Enter your Harvest Forecast account ID in the **Harvest Forecast Account ID** field. For example: If your Harvest Forecast account shows the URL as `forecastapp.com/123456/schedule/projects`, you'd enter `123456` in this field.
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
   - title: "Authorize Stitch to Access Harvest Forecast"
     anchor: "grant-stitch-authorization"
     content: |

@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: NetSuite Suite Analytics
+title: NetSuite Suite Analytics (v1)
 permalink: /integrations/saas/netsuite-suite-analytics
 keywords: netsuite suite analytics, integration, schema, etl netsuite suite analytics, netsuite suite analytics etl, netsuite suite analytics schema
 layout: singer
@@ -132,17 +132,30 @@ setup-steps:
 
       Keep this page open - you'll need it in the next step.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       1. In the **Host** field, paste the host value from [Step 4](#retrieve-suite-analytics-connect).
       2. In the **Port** field, paste the port value from [Step 4](#retrieve-suite-analytics-connect).
       3. In the **Account ID** field, paste the account ID field from [Step 4](#retrieve-suite-analytics-connect).
       4. In the **Role ID** field, enter the role's internal ID from [Step 2](#get-role-internal-id).
       5. In the **Username** and **Password** fields, enter the Stitch user's username and password from [Step 1](#create-configure-stitch-role).
       
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

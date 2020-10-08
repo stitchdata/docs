@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Codat
+title: Codat (v1)
 permalink: /integrations/saas/codat
 keywords: codat, integration, schema, etl codat, codat etl, codat schema
 layout: singer
@@ -96,8 +96,10 @@ setup-steps:
 
       Paste the API key somewhere handy - you'll need it in the next step.
       
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API Key** field, paste the {{ integration.display_name }} API key you generated in [Step 1](#generate-codat-api-key).
       5. Check the **Use Codat UAT environment** box if you're connecting to your UAT (sandbox) environment in {{ integration.display_name }}.
 
@@ -109,9 +111,20 @@ setup-steps:
 # 2019-05-30 13:53:49,183Z   main - INFO Tap exited abnormally with status 1
 # 2019-05-30 13:53:49,184Z   main - INFO Exit status is: Discovery failed with code 1 and error message: "401 Client Error: Bad Credentials for url: https://api.codat.io/companies".
 
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Integration Tables     #

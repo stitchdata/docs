@@ -86,9 +86,20 @@ requirements-list:
       To verify a user's status, click **Manage > Users** in {{ integration.display_name }}.
 
 setup-steps:
-  - title: "add integration"
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
+    content: |
+      {% include integrations/shared-setup/connection-setup.html %}
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
     content: |
       When finished, click the **Authorize** button to continue.
   - title: "Authorize Stitch to access {{ integration.display_name }}"
@@ -99,7 +110,10 @@ setup-steps:
       3. On the next page, click the **Authorize** button to continue.
       4. After the authorization process is successfully completed, you'll be directed back to Stitch.
       5. Click {{ app.buttons.finish-int-setup }}.
-  - title: "track data"
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

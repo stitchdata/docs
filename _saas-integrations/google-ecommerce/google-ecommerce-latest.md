@@ -93,7 +93,10 @@ requirements-list:
 
 
 setup-steps:
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
+    content: |
+      {% include integrations/shared-setup/connection-setup.html %}
   - title: "Authorize Stitch and select a Google Analytics profile"
     anchor: "auth-select-ga-profile"
     content: |
@@ -105,7 +108,12 @@ setup-steps:
 
          **Remember:** Profiles need to have Read & Analyze permissions to be detected by Stitch. If you don’t see the profile you want in this list, we recommend that you double-check the permission settings.
       4. When finished, click **Continue** to save the integration and complete the setup.
-  - title: "replication frequency"
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
 
 # -------------------------- #

@@ -86,11 +86,21 @@ feature-summary: |
 # -------------------------- #
 
 setup-steps:
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. Check the **Connect to a sandbox environment** if choosing to connect to your {{ integration.display_name }} sandbox.
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
   - title: "Authorizing Stitch to Access {{ integration.display_name }}"
     anchor: "authorize-stitch"
     content: |
@@ -99,7 +109,10 @@ setup-steps:
       1. Enter your {{ integration.display_name }} credentials and click **Login**.
       2. After the authorization process successfully completes, you'll be redirected back to Stitch.
       3. Click {{ app.buttons.finish-int-setup }}.
-  - title: "track data"
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

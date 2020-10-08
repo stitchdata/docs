@@ -87,14 +87,27 @@ setup-steps:
       Contact your {{ integration.display_name }} account manager to obtain the API key for your organization.
       
       After you receive your API key, you can proceed with the setup in Stitch.
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Base URL** field, enter the base URL for your {{ integration.display_name }} installation. It will be similar to `https://organization.some-host.com:443`
       5. In the **API Key** field, paste the API key you obtained in [Step 1](#obtain-api-key).
 
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Integration Tables     #

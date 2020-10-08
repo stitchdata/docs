@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Pardot
+title: Pardot (v1)
 permalink: /integrations/saas/pardot
 keywords: pardot, integration, schema, etl pardot, pardot etl, pardot schema
 layout: singer
@@ -99,13 +99,26 @@ setup-steps:
       3. From the dropdown menu, click **Settings**. Your user account information should be displayed.
       4. Your user key will be in the **API User Key** row. Keep your user key available to complete your setup in Stitch.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Email** and **Password** fields, enter the email and password you use to access your {{ integration.display_name }} account.
       5. In the **User Key** field, enter the **API User Key** you retrieved in [step 1](#retrieve-user-key).
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

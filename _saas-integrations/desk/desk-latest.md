@@ -215,12 +215,22 @@ setup-steps:
       1. Click the **Your Access Token** link on the right side of the **API Application** page. A window containing your Token and Token Secret will display.
       2. Copy the **Token and Token Secret** into the text file that contains your Key and Secret. Be careful not to mix up the Secret and Token Secret or you'll encounter errors when saving the integration in Stitch.  
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Site URL** field, enter your {{ integration.display_name }}.com website address. For example: `https://stitch.desk.com`
       5. Enter your **Key, Secret, Token, and Token Secret** into their respective fields.
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

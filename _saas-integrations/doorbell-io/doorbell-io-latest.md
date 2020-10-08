@@ -74,8 +74,10 @@ setup-steps:
 
       Your client ID is the number between `client/` and `/pipeline`. In this example, the client ID is `100608`.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       After you save the integration, Stitch will generate and display an API token. This will be used in the next step to authenticate with {{ integration.display_name }}.
 
       **Note**: Stitch will only display this token once, so be sure to copy it before closing the page. Otherwise, you'll need to generate a new token.

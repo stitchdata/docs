@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: UJET
+title: UJET (v1)
 permalink: /integrations/saas/ujet
 keywords: ujet, integration, schema, etl ujet, ujet etl, ujet schema
 layout: singer
@@ -87,15 +87,28 @@ setup-steps:
       4. Your **Company Key** and **Company Secret Code** will display. Keep these available to complete your setup in Stitch.
          ![Your UJET Company and Company Secret Key.]({{ site.baseurl }}/images/integrations/ujet-company-keys.png){:style="max-width: 550px;"}
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Company Key** field, enter the Company Key that you retrieved in [Step 1](#retrieve-keys).
       5. In the **Company Secret** field, enter the Company Secret Code that you retrieved in [Step 1](#retrieve-keys).
       6. In the **Domain Field** field, your {{ integration.display_name }} domain. This will usually be `ujet`, but if you are unsure, check your welcome email from {{ integration.display_name }}.
       7. In the **Subdomain** field, enter the subdomain of your {{ integration.display_name }} account's URL. For example: The subdomain for `stitch.ujet.com` would be `stitch`.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

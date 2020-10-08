@@ -71,15 +71,25 @@ requirements-list:
 requirements-info: "Reach out to your {{ integration.display_name }} Account Manager for assistance. Once you receive this information, you can continue with the setup."
 
 setup-steps:
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Username** field, enter your {{ integration.display_name }} username. This user must have access to the {{ integration.display_name }} API.
       5. In the **Password** field, enter your {{ integration.display_name }} password.
       6. In the **Account ID** field, enter your {{ integration.display_name }} account ID.
       7. In the **Client ID** field, enter your {{ integration.display_name }} client ID.
       8. In the **Client Secret** field, enter your {{ integration.display_name }} client secret.
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

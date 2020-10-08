@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Microsoft Advertising (Bing Ads) (v2)
+title: Microsoft Advertising (v2)
 permalink: /integrations/saas/microsoft-advertising
 redirect_from: /integrations/saas/bing-ads
 
@@ -95,15 +95,27 @@ requirements-list:
       **To have Viewer permissions to the profiles you want to connect.** These read-only permissions will ensure Stitch can read data from the profiles you select for replication. [Read more about {{ integration.display_name }} user permissions here](https://help.bingads.microsoft.com/#apex/3/en/52037/3/en-US/#ext:none){:target="new"}.
 
 setup-steps:
-  - title: "add integration"
-  - title: "historical sync"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
+    content: |
+      {% include integrations/shared-setup/connection-setup.html %}
+  
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
     content: |
       {% capture retention-period-notice %}
       {{ integration.display_name }} retains reporting data for specified periods of time, which can impact the amount of historical data Stitch can replicate. Refer to the [Report retention periods and historical data](#retention-period-historical-data) section below for more info.
       {% endcapture %}
 
       {% include note.html first-line="**Note: Retention windows and historical data**" content=retention-period-notice %}
-  - title: "replication frequency"
+
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
   - title: "Authorize Stitch and select {{ integration.display_name }} accounts"
     anchor: "auth-select-profiles"
     content: |
@@ -121,7 +133,11 @@ setup-steps:
          - **If multiple subaccounts are selected, data for all the selected subaccounts will map to the same table in your destination.** For example: If two subaccounts are selected and the `accounts` table is tracked, account data for both accounts will be replicated into the `accounts` table. This is applicable to every table selected in the next step.
 
        5. When finished selecting accounts, click **Check and Save**.
-  - title: "track data"
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #      Replication Info      #

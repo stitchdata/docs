@@ -120,8 +120,10 @@ setup-steps:
       2. In the dropdown menu in the upper left corner of the page, select the project you want to replicate data from.
       3. Hover over the **Settings** icon in the upper right corner. In the **PROJECT SETTINGS** portion of the dropdown menu, click on the link with the name of your project.
       4. Copy the **Project Timezone** and **API Secret**, and paste those values someplace safe to use for the next step.
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API Secret** field, paste the **API Secret** you retrieved from [Step 1](#retrieve-timezone-api-secret).
       5. In the **Attribution Window** field, enter the number of days you want your tables' attribution window to be. For more information on attribution windows, refer to the [Replication section](#attribution-windows-extraction).
       6. In the **Date Window Size** field, enter the number of days desired for a date looping window for the `exports`, `funnels`, and `revenues` tables.
@@ -146,8 +148,16 @@ setup-steps:
       {% endcapture %}
 
       {% include integrations/saas/setup/historical-sync.html step-content=step-content %}
-  - title: "replication frequency"
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

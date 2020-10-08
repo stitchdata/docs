@@ -71,11 +71,21 @@ setup-steps:
          ![Shippo API token.]({{ site.baseurl }}/images/integrations/shippo-api-credentials.png)
 
          Leave this page open for now - you'll need it to complete the setup.
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **{{ integration.display_name }} Token** field, paste your {{ integration.display_name }} API Live token.
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
 # -------------------------- #
 #        Table Schemas       #

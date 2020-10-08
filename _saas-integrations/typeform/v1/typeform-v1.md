@@ -103,8 +103,10 @@ setup-steps:
       4. Copy the form ID somewhere handy.
       5. Repeat steps 2-4 for every form you want to include in Stitch.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API Token** field, paste the {{ integration.display_name }} API token you generated in [Step 1](#generate-{{ integration.name }}-api-token).
       5. In the **Forms** field, enter a comma-separated list of the form IDs you retrieved in [Step 2](#retrieve-{{ integration.name }}-form-ids). For example:
          - **Single form**: `FrZ6iD`
@@ -113,9 +115,20 @@ setup-steps:
 
          - **Daily**: Data will be aggregated by day.
          - **Hourly**: Data will be aggregated by hour.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Integration Tables     #

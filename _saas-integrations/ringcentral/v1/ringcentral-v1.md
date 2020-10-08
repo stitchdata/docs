@@ -121,16 +121,29 @@ setup-steps:
 
           Keep this page handy for now - you'll need it to complete the setup in Stitch.
   
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Client ID** field, enter the **Client ID** from [Step 1.2](#retrieve-application-credentials).
       5. In the **Client Secret** field, enter the **Client Secret** from [Step 1.2](#retrieve-application-credentials).
       6. In the **Username** field, enter the username for the {{ integration.display_name }} developer app. This is typically the phone number used to create the app.
       7. In the **Password** field, enter the password for the {{ integration.display_name }} developer app.
       8. In the **API URL** field, enter the **API Server URL** from [Step 1.2](#retrieve-application-credentials).
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Integration Tables     #

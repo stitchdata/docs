@@ -82,13 +82,23 @@ requirements-list:
       **A {{ integration.display_name }} API token and secret**. To obtain these credentials, reach out to your {{ integration.display_name }} sales representative or account manager.
 
 setup-steps:
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Username** field, enter your {{ integration.display_name }} username.
       5. In the **API Key** field, paste your {{ integration.display_name }} API key. Your {{ integration.display_name }} API token must be obtained through [your {{ integration.display_name }} sales representative or account manager](#setup-requirements).
       6. In the **API Secret** field, paste your {{ integration.display_name }} API secret. Your {{ integration.display_name }} API secret must be obtained through [your {{ integration.display_name }} sales representative or account manager](#setup-requirements).
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
 # -------------------------- #
 #      Replication Info      #
