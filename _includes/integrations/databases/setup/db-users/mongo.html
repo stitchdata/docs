@@ -1,5 +1,5 @@
 
-#### Step {{ step-number | strip }}.1: Connect to your database {#connect-to-database}
+#### Step {{ section-step-number | strip }}.1: Connect to your database {#connect-to-database}
 
 1. Connect to your {{ integration.display_name }} server.
 2. Navigate to the authentication database. In this example, we're using `admin`:
@@ -12,7 +12,7 @@
 
    **Note**: If you're connecting an Atlas-based instance, the authentication database will always be `admin`.
 
-#### Step {{ step-number | strip }}.2: Create the Stitch user
+#### Step {{ section-step-number | strip }}.2: Create the Stitch user
 
 Next, you'll create the Stitch user, set a password, and assign roles. This guide uses the built-in [`readAnyDatabase` role](https://docs.mongodb.com/v4.0/reference/built-in-roles/#readAnyDatabase){:target="new"}, but you can use or create another role as long as it assigns the same privileges.
 
