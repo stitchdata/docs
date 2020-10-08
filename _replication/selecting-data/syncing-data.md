@@ -283,7 +283,7 @@ sections:
       - {{ not-supported | replace:"TOOLTIP","Not supported" }} indicates that the feature isn't currently supported. Hover over the icon to view a tooltip with additional details.
           
       {% capture table %}
-      {% assign saas-database-integrations = site.saas-integrations | concat: site.database-integrations | where:"content-type",nil | sort:"display_name" %}
+      {% assign saas-database-integrations = site.saas-integrations | concat: site.database-integrations | where:"content-type","integration" | sort:"display_name" %}
 
       {% assign feature-list = "table-selection|column-selection|select-all" | split:"|" %}
 
