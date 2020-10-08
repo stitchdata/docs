@@ -183,7 +183,7 @@ sections:
               When used to select all tables, the following occurs:
 
               - All tables and [supported columns](#selection-requirements) are set to replicate. **Note**: Database views are not supported with this feature and won't be selected.
-              - Previous column selections are erased. **Note**: Selections aren't final until **Finalize Your Selections** is clicked. Clicking **Cancel** will restore your previous selections.
+              - Previous column selections are overwritten. **Note**: Selections aren't final until **Finalize Your Selections** is clicked. Clicking **Cancel** will restore your previous selections.
 
           - title: "Requirements to use the Select all feature"
             anchor: "select-all--requirements"
@@ -204,7 +204,12 @@ sections:
           - title: "Selecting all tables and columns"
             anchor: "select-all--usage"
             content: |
-              {% include note.html type="single-line" content="**Note**: While the majority of integrations support this feature, there are some that don't. Refer to the [Object selection support reference](#table-column-selection-support) for more info." %}
+              {% capture note %}
+              - **Previous column selections will be overwritten**, but new selections aren't final until **Finalize Your Selections** is clicked. Clicking **Cancel** will restore your previous selections.
+              - **Not all integrations support this feature.** While the majority of do, there are some that don't. Refer to the [Object selection support reference](#table-column-selection-support) for more info.
+              {% endcapture %}
+
+              {% include note.html first-line="**Before using this feature**, note that:" content=note %}
 
               1. Click into the integration from the {{ app.page-names.dashboard }} page.
               2. Click the {{ app.buttons.tables }} tab.
