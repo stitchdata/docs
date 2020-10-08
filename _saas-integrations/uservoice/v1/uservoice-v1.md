@@ -66,6 +66,10 @@ requirements-list:
 setup-steps:
   - title: "Generate {{ integration.display_name }} API credentials"
     anchor: "generate-uservoice-api-credentials"
+    content: |
+      {% for substep in step.substeps %}
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
     substeps:
       - title: "Create a Stitch {{ integration.display_name }} API client"
         anchor: "create-stitch-api-client"

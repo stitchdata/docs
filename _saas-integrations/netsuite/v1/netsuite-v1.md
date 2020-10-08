@@ -135,6 +135,10 @@ setup-steps:
     anchor: "configure-web-services-and-authentication-settings"
     content: |
       To use Stitch's {{ integration.display_name }} integration, you'll need to enable Web Services and token-based authentication in your {{ integration.display_name }} account.
+
+      {% for substep in step.substeps %}
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
     substeps:
       - title: "Enable Web Services"
         anchor: "enable-web-services"
@@ -178,13 +182,13 @@ setup-steps:
   - title: "Create a Stitch {{ integration.display_name }} role and configure permissions"
     anchor: "create-configure-stitch-role"
     content: |
-      To connect {{ integration.display_name }} to Stitch, we recommend that you create a Stitch-specific role and user for us. We suggest this to ensure that:
+      To connect {{ integration.display_name }} to Stitch, we recommend that you create a Stitch-specific role and user for us. We suggest this to ensure that Stitch doesn't encounter issues with replication due to {{ integration.display_name }}'s API limitations. 
 
-      1. Stitch is easily distinguishable in any logs or audits.
+      Currently, a single {{ integration.display_name }} user is allowed to only have a single open API session at a time. If the user connected to Stitch has another connection elsewhere, replication problems will arise.
 
-      2. Stitch doesn't encounter issues with replication due to {{ integration.display_name }}'s API limitations. Currently, a single {{ integration.display_name }} user is allowed to only have a single open API session at a time. If the user connected to Stitch has another connection elsewhere, replication problems will arise.
-
-      3. Stitch can successfully authenticate to {{ integration.display_name }}.
+      {% for substep in step.substeps %}
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
     substeps:
       - title: "Create a Stitch {{ integration.display_name }} role"
         anchor: "create-stitch-netsuite-role"
@@ -193,7 +197,7 @@ setup-steps:
           2. On the Role page, enter a name for the role in the **Name** field. For example: `Stitch`
           3. In the **Authentication** section, check the **Web Services Only Role** box.
           
-      - title: "Configure permissions and save the Stitch role"
+      - title: "Configure role permissions"
         anchor: "configure-permissions-save-stitch-role"
         content: |
           Next, you'll grant permissions to the role. In the tabs below, you'll find the following:

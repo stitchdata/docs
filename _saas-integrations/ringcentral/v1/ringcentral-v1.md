@@ -76,7 +76,7 @@ setup-steps:
     anchor: "generate-credentials"
     content: |
       {% for substep in step.substeps %}
-      - [Step 1.{{ forloop.index}}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
       {% endfor %}
 
     substeps:

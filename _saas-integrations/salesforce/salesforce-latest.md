@@ -99,6 +99,10 @@ setup-steps:
       2. The amount of standard API quota your account has. {{ site.data.tooltips.api-quota }}
 
       Stitch's {{ integration.display_name }} integration allows you to control both of these settings so you can replicate data as you see fit.
+
+      {% for substep in step.substeps %}
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
       
     substeps:
       - title: "Select extraction API"

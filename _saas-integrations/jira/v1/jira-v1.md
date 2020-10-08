@@ -76,6 +76,10 @@ setup-steps:
     anchor: "verify-self-managed-configuration"
     content: |
       {% include note.html type="single-line" content="**Note**: This step is only required if your JIRA instance is self-managed (hosted). Otherwise, skip this step." %}
+
+      {% for substep in step.substeps %}
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
     substeps:
       - title: "Verify your protocol support"
         anchor: "verify-protocol-support"

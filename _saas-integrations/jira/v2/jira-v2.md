@@ -75,6 +75,10 @@ setup-steps:
     anchor: "verify-self-managed-configuration"
     content: |
       {% include note.html type="single-line" content="**Note**: This step is only required if your JIRA instance is self-managed (hosted). Otherwise, skip this step." %}
+
+      {% for substep in step.substeps %}
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
     substeps:
       - title: "Verify your protocol support"
         anchor: "verify-protocol-support"
@@ -128,6 +132,7 @@ setup-steps:
       6. In the **Password or Token** field:
          - **If connecting a self-managed {{ integration.display_name }} instance**, enter the password associated with the user in the **Username** field.
          - **If connecting a cloud-hosted {{ integration.display_name }} instance**, paste the API token you generated in [Step 2](#generate-jira-api-token).
+
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |

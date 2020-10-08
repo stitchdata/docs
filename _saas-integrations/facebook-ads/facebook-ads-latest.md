@@ -145,6 +145,7 @@ setup-steps:
       3. Click the **Save Connections** button.
 
       After your credentials are validated, you'll be directed back to Stitch (click the {{ app.buttons.finish-int-setup }} button to wrap things up) and the {{ app.page-names.int-details }} page will display.
+      
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |

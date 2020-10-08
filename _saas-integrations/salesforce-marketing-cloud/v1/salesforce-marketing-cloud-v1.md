@@ -146,7 +146,7 @@ setup-steps:
       To use {{ integration.display_name }}'s API, you need a client ID and secret. These credentials are generated when you create an installed package in Marketing Cloud and add an API Integration component.
 
       {% for substep in step.substeps %}
-      - [Step 2.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
       {% endfor %}
 
     substeps:

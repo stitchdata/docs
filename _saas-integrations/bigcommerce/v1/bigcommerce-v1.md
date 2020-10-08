@@ -81,6 +81,10 @@ setup-steps:
     anchor: "generate-bigcommerce-api-credentials"
     content: |
       In this step, you'll create an API account and generate read-only API credentials for the {{ integration.display_name }} store you want to connect to Stitch.
+
+      {% for substep in step.substeps %}
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
     substeps:
       - title: "Create an API account for the store"
         anchor: "create-store-api-account"

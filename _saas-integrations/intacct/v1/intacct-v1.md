@@ -91,7 +91,7 @@ setup-steps:
       In this step, you'll set up a Cloud Storage Target and automatic data delivery in {{ integration.display_name }}.
 
       {% for substep in step.substeps %}
-      - [Step 1.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
       {% endfor %}
     substeps:
       - title: "Configure Amazon S3 access for {{ integration.display_name }}"
