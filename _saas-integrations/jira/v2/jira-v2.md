@@ -42,6 +42,7 @@ cron-scheduling: true
 
 table-selection: true
 column-selection: true
+table-level-reset: true
 
 extraction-logs: true
 loading-reports: true
