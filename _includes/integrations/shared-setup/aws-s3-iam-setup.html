@@ -18,6 +18,10 @@
     {% assign page-name = "Configure Your Intacct Integration" %}
     {% assign database-name = "amazon-s3-csv" %}
 
+  {% when "heap" %}
+    {% assign page-name = "Configure Your Heap Integration" %}
+    {% assign database-name = "amazon-s3-csv" %}
+
 {% endcase %}         
 
 {% case include.type %}
