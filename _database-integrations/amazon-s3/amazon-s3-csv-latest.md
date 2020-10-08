@@ -59,7 +59,7 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
-table-level-reset: false
+table-level-reset: true
 
 append-only-tables: true
 append-only-tables-description: "Unless Primary Keys are defined for the table, Append-Only loading will be used."
