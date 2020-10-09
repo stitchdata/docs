@@ -8,6 +8,7 @@ input: false
 layout: general
 toc: false
 key: "mongodb-projection-queries"
+content-type: "guide"
 
 display_name: "MongoDB"
 name: "mongodb"

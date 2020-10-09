@@ -8,6 +8,7 @@ layout: general
 input: false
 
 key: "postgresql-rds-integration"
+content-type: "database-category"
 
 show-in-menus: true
 has-versions: true

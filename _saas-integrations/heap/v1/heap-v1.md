@@ -81,19 +81,33 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/aws-s3-iam-setup.html type="retrieve-account-id" %}
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **S3 Bucket** field, enter the name of the bucket. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `heap-rs3-stitch-bucket`
       5. In the **AWS Account ID** field, paste the account ID you retrieve in [Step 1](#retrieve-aws-account-id).
 
-  - title: "historical sync"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
 
-  - title: "replication frequency"
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
   - title: "Grant access to your bucket using AWS IAM"
     anchor: "grant-access-bucket-iam"
     content: |
       {% include integrations/shared-setup/aws-s3-iam-setup.html type="aws-iam-access-intro" %}
+
+      {% for substep in step.substeps %}
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
 
     substeps:
       - title: "Create an IAM policy"
@@ -111,7 +125,10 @@ setup-steps:
         content: |
           {% include integrations/shared-setup/aws-s3-iam-setup.html type="check-and-save" %}
 
-  - title: "track data"
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Replication Details    #

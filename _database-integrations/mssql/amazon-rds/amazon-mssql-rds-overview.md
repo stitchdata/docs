@@ -7,6 +7,7 @@ layout: general
 input: false
 
 key: "amazon-mssql-rds-integration"
+content-type: "database-category"
 
 show-in-menus: true
 has-versions: true

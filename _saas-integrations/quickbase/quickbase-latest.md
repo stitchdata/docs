@@ -118,7 +118,7 @@ setup-steps:
     anchor: "retrieve-url-app-id"
     content: |
       {% for substep in step.substeps %}
-      - [Step 1.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
       {% endfor %}
 
     substeps:
@@ -166,13 +166,23 @@ setup-steps:
       6. Click **Save**.
 
       The token will display in the **Token** field of the **My User Tokens** page. Keep this page open for now - you'll need it to complete the next step.
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **{{ integration.display_name }} API URL** field, enter the {{ integration.display_name }} URL you retrieved in Step 1. For example: `https://stitchdata.quickbase.com/db/`
       5. In the **{{ integration.display_name }} APP ID** field, enter the {{ integration.display_name }} app ID you retrieved in Step 1. For example: `bngf9ix7e`
       6. In the **{{ integration.display_name }} User Token** field, paste the user token you created in Step 2.
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
 # -------------------------- #
 #     Integration Tables     #

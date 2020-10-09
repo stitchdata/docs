@@ -14,6 +14,7 @@ input: false
 feedback: false
 
 level: "category"
+content-type: "category"
 
 key: "integrations"
 

@@ -42,12 +42,13 @@ foreign-keys:
       - table: "transactions"
 
   - id: "contract-id"
-    attribute: ""
+    attribute: "id"
     table: "contracts"
     all-foreign-keys:
       - table: "contracts"
-        join-on: "id"
+      - table: "deleted_contracts"
       - table: "transactions"
+        join-on: "contract"
 
   - id: "country-code-id"
     attribute: ""
@@ -72,13 +73,14 @@ foreign-keys:
         join-on: "id"
 
   - id: "invoice-id"
-    attribute: "invoice"
+    attribute: "id"
     table: "invoices"
     all-foreign-keys:
+      - table: "deleted_invoices"
       - table: "invoices"
-        join-on: "id"
       - table: "invoices"
         subattribute: "line_items"
+        join-on: "invoice"
 
   - id: "item-id"
     attribute: "item"
@@ -110,11 +112,11 @@ foreign-keys:
         join-on: "id"
 
   - id: "revenue-entry-id"
-    attribute: "revenue_entry"
+    attribute: "id"
     table: "revenue_entries"
     all-foreign-keys:
+      - table: "deleted_revenue_entries"
       - table: "revenue_entries"   
-        join-on: "id"
 
   - id: "revenue-recognition-method-id"
     attribute: "revenue_recognition_method"
@@ -132,9 +134,11 @@ foreign-keys:
         join-on: "id"
 
   - id: "transaction-id"
-    attribute: ""
+    attribute: "transaction"
     table: "transactions"
     all-foreign-keys:
+      - table: "deleted_transactions"
+        join-on: "id"
       - table: "transaction"
         join-on: "id"
       - table: "invoices"

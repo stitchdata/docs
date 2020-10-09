@@ -118,6 +118,10 @@ attributes:
         type: "string"
         description: ""
 
+  - name: "cardholder_name"
+    type: "string"
+    description: ""
+    
   - name: "created_at"
     type: "date-time"
     description: ""

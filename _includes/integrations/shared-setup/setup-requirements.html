@@ -1,0 +1,27 @@
+<!-- This formats and displays any setup requirements for integrations. -->
+
+{% if integration.requirements-list or integration.tier != "Standard" %}
+<h3 id="setup-requirements">{{ integration.display_name }} setup requirements</h3>
+
+    <p>To set up {{ integration.display_name }} in Stitch, you need:</p>
+
+    <ul>
+    {% if integration.tier == "Enterprise" %}
+        <li>
+            <strong>An Enterprise Stitch plan</strong>. {{ integration.display_name }} integrations can be added on as part of an Enterprise plan. Reach out to <a href="mailto: {{ site.support }}">Stitch support</a> for more info.
+        </li>
+    {% endif %}
+    {% for requirement in integration.requirements-list %}
+        <li>
+            {{ requirement.item | flatify | markdownify }}{% if requirement.reason %}{{ requirement.reason | flatify | markdownify }}{% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+
+<!-- If there's any additional info about the requirements, display them here. -->
+{% if integration.requirements-info %}
+    {{ integration.requirements-info | flatify | markdownify }}
+{% endif %}
+
+<hr>
+{% endif %}

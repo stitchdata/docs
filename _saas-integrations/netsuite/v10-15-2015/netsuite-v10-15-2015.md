@@ -167,15 +167,28 @@ setup-steps:
       
       **Note**: If your Account ID contains a suffix - `1234567_SB2`, for example - it should be included when entering the ID into Stitch.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. Enter the email address and password associated with the Stitch {{ integration.display_name }} user.
       5. Enter the **Role ID** you retrieved in [Step 3.3](#save-role-retrieve-id). **Note**: This must be the numerical ID, not the name of the role. See [Step 3.3](#save-role-retrieve-id) if you need help locating the user's Role ID.
       6. In the **Account ID** field, enter the Account ID you retrieved in [Step 5](#locate-netsuite-account-id).
       6. Select the **Account Type** - Production or Sandbox.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Integration Tables     #

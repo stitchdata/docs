@@ -161,12 +161,25 @@ setup-steps:
       6. In the **Authorized redirect URIs** section, add the domains that you added in [step 1](#set-up-console).
       7. Click **CREATE**.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Site Urls** field, enter the URLs you added to your sitemap file in [step 1](#set-up-console). The URLs should be comma delimited and begin with `https://` or `http://`. Example: `https://yoursite.com, http://yourothersite.com`.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #
