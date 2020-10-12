@@ -41,7 +41,7 @@ object-attributes:
     type: "string"
     required: false
     description: |
-      The number of historical days' worth of data to replicate from the `start_date` value for each replication job for event-based streams. The default is `10`.
+      The number of historical days' worth of data to replicate from the `start_date` value for each replication job for event streams. The default is `10`.
 
       Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#event-replication" }}) for more info.
     value: "10"
@@ -50,17 +50,18 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      TODO:
-
-      Accepted values are:
+      The time period by which data is aggregated for event streams. Accepted values are:
 
       - `dayRange`
       - `hourRange`
+
+      Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#event-replication" }}) for more info.
     value: "dayRange"
 
   - name: "x_pendo_integration_key"
     type: "string"
     required: true
-    description: "[todo]"
-    value: "<{{ form-property.display-name | upcase }}_INTEGRATION_KEY"
+    description: |
+      A {{ form-property.display-name }} integration key. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#create-integration-key" }}) for instructions on creating this credential.
+    value: "<{{ form-property.display-name | upcase }}_INTEGRATION_KEY>"
 ---
