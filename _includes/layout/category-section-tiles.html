@@ -4,7 +4,13 @@
 <ul class="tiles two-columns">
   {% for guide in guides %}
       <li class="category-page">
+    <!-- this can be used to pull another page's sections and use those as tiles. 
+        this ensures that the right URL is used to create the link. -->
+        {% if include.subsection == true %}
+          <a href="{{ parent-category.url | flatify |  prepend: site.baseurl | append: "#" | append: guide.anchor }}">
+        {% else %}
           <a href="{{ guide.url | flatify |  prepend: site.baseurl }}">
+        {% endif %}
           	{% if guide.display-title %}
           		{{ guide.display-title | flatify }}
           	{% else %}
@@ -13,4 +19,16 @@
           </a>
       </li>
   {% endfor %}
+
+  {% if include.subsection == true %}
+    <li class="category-page">
+      <a href="{{ parent-category.url | flatify |  prepend: site.baseurl }}">
+        {% if parent-category.display-title %}
+          {{ parent-category.display-title | flatify }}
+        {% else %}
+            {{ parent-category.title | flatify }}
+        {% endif %}
+      </a>
+    </li>
+  {% endif %}
 </ul>
