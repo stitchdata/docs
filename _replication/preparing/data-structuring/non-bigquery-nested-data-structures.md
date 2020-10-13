@@ -12,7 +12,8 @@ keywords: denesting arrays, denesting objects, subtables, nested data
 summary: "Depending on the type of destination you're using, Stitch may deconstruct nested data structures into relational tables."
 
 key: "de-nesting-json"
-type: "loading-basics"
+category: "preparing, loading"
+content-type: "data-structuring"
 
 layout: general
 toc: true
