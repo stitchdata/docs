@@ -4,7 +4,7 @@
 # -------------------------- #
 
 title: Understanding Data Typing in Stitch
-permalink: /replication/understanding-data-typing
+permalink: /replication/preparing/understanding-data-typing
 redirect_from: 
   - /replication/data-typing
   - /replication/supported-data-types
@@ -12,11 +12,12 @@ keywords: supported data types, data typing, data types, unsupported data types
 summary: "Learn about the data typing process Stitch performs during replication, including the types Stitch supports and how data will be loaded into your destination."
 
 key: "data-typing"
+category: "preparing, loading"
+content-type: "select-data, data-typing"
 
 layout: general
-content-type: "select-data, preparing"
 toc: true
-weight: 4
+weight: 1
 
 
 # -------------------------- #
