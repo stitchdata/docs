@@ -10,22 +10,12 @@ keywords: data structure, schema, data load, loading data
 summary: "Resources for learning about how Stitch loads and organizes data into your destination."
 
 key: "loading-data-category"
+content-type: "category-page"
+display-title: "All Loading guides"
 
 layout: general
 toc: false
 feedback: false
-
-
-# -------------------------- #
-#       HOME PAGE DATA       #
-# -------------------------- #
-
-level: "category"
-
-icon: "database"
-display-title: "Loading data"
-display-summary: "Learn how Stitch will load and structure data in your destination."
-weight: 6
 
 
 # -------------------------- #
