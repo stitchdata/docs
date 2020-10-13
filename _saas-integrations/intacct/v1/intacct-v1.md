@@ -44,7 +44,7 @@ certified: false
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 status-url: "https://www.sageintacct.com/system-status"
 
 api-type: "platform.intacct"
@@ -91,7 +91,7 @@ setup-steps:
       In this step, you'll set up a Cloud Storage Target and automatic data delivery in {{ integration.display_name }}.
 
       {% for substep in step.substeps %}
-      - [Step 1.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
       {% endfor %}
     substeps:
       - title: "Configure Amazon S3 access for {{ integration.display_name }}"
@@ -133,16 +133,26 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/aws-s3-iam-setup.html type="retrieve-account-id" %}
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Company ID** field, enter the company ID you use to sign into {{ integration.display_name }}.
       5. In the **S3 Bucket** field, enter the name of the bucket where the {{ integration.display_name }} Data Delivery Service (DDS) outputs data. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `intacct-stitch-bucket`
       6. In the **AWS Account ID** field, paste the AWS Account ID you retrieved in [Step 2](#retrieve-aws-account-id).
       7. **Optional**: In the **Path** field, enter the path configured in {{ integration.display_name }} for use in the S3 bucket.
 
-  - title: "historical sync"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
 
-  - title: "replication frequency"
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
   - title: "Grant access to your bucket using AWS IAM"
     anchor: "grant-access-bucket-iam"
@@ -169,7 +179,10 @@ setup-steps:
         content: |
           {% include integrations/shared-setup/aws-s3-iam-setup.html type="check-and-save" %}
 
-  - title: "track data"
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Replication Details    #

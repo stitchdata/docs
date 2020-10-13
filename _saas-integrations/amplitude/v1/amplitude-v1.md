@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Amplitude (v1.0)
+title: Amplitude (v1)
 permalink: /integrations/saas/amplitude
 keywords: amplitude, integration, schema, etl amplitude, amplitude etl, amplitude schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Amplitude integration."
@@ -33,7 +33,7 @@ certified: false
 
 historical: "n/a"
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 status-url: "https://status.amplitude.com/"
 
 api-type: "platform.amplitude"
@@ -77,14 +77,21 @@ setup-steps:
 
       When you receive your credentials, you can move onto the next step.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **{{ integration.display_name }} Snowflake Username** field, enter your Snowflake username.
       5. In the **{{ integration.display_name }} Snowflake Password** field, enter the Snowflake user's password.
       6. In the **{{ integration.display_name }} Snowflake Account** field, enter the Snowflake account.
       7. In the **{{ integration.display_name }} Snowflake Warehouse** field, enter the name of the Snowflake warehouse.
       8. In the **{{ integration.display_name }} Snowflake Database** field, enter the name of the Snowflake database.
-  - title: "replication frequency"
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
 # -------------------------- #
 #     Integration Tables     #

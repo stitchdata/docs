@@ -1,0 +1,58 @@
+
+<!-- Instructions for selecting objects for database integrations
+    Note: File systems are a bit different. See this file for those instructions:
+    _includes/integrations/shared-setup/data-selection/file-system-object-selection.html -->
+
+{% capture define-rep-method-with-default %}
+Define the {{ object }}'s **Replication Method**{% if integration.set-default-replication-method == true %}, or skip this step if you want to use the [integration's default method](#define-log-based-replication-setting){% endif %}.
+{% endcapture %}
+
+{% capture define-rep-key %}
+If using [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}), select a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}).
+{% endcapture %}
+
+
+1. In the {{ app.page-names.int-details }} page, click the {{ app.buttons.tables | replace:"Tables",button }} tab.
+1. Locate a {{ object }} you want to replicate.
+1. {{ app.menu-paths.sync | replace: "object",object }}
+
+{% if integration.db-type == "mongo" or integration.db-type == "dynamodb" %}
+{% case integration.db-type %}
+{% when 'mongo' %}
+{% assign database = "MongoDB" %}
+{% assign type = "query" %}
+{% assign guide-link = link.integrations.mongodb-projection-queries %}
+
+{% when 'dynamodb' %}
+{% assign database = "DynamoDB" %}
+{% assign type = "expression" %}
+{% assign guide-link = link.integrations.dynamodb-projection-expressions %}
+
+{% endcase %}
+1. On the page that displays, click the **{{ object | capitalize }} Settings** button.
+1. In the **{{ object | capitalize }} Settings** page:
+   1. {{ define-rep-method-with-default }}
+   {% if integration.key-based-incremental-replication == true %}
+   1. {{ define-rep-key }}
+   {% endif %}
+   1. **Optional**: Select or exclude fields by entering a projection {{ type }} in the **Fields to Replicate** section. Refer to the [Selecting {{ database }} Fields Using Projection {{ type | capitalize }} guide]({{ guide-link | prepend: site.baseurl }}) for instructions and examples.
+   1. When finished, click {{ app.buttons.save-table-settings }}.
+
+{% else %}
+1. After you set a {{ object }} to replicate, a page with the {{ object }}'s {{ col }}s will display. De-select {{ col }}s if needed.
+
+{% if integration.define-replication-methods == true %}
+1. Next, you'll define the {{ object }}'s Replication Method. Click the **{{ object | capitalize }} Settings** button.
+1. In the **{{ object | capitalize }} Settings** page:
+   1. {{ define-rep-method-with-default }}
+   {% if integration.key-based-incremental-replication == true %}
+   1. {{ define-rep-key }}
+   {% endif %}
+   1. When finished, click {{ app.buttons.save-table-settings }}.
+{% endif %}
+{% endif %}
+
+1. Repeat this process for every {{ object }} you want to replicate.
+{% if integration.singer == true %}
+1. {{ app.menu-paths.finalize-selections | flatify }}
+{% endif %}

@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Pepperjam
+title: Pepperjam (v1)
 permalink: /integrations/saas/pepperjam
 keywords: pepperjam, integration, schema, etl pepperjam, pepperjam etl, pepperjam schema
 layout: singer
@@ -50,7 +50,7 @@ api-type: "platform.pepperjam"
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 
 anchor-scheduling: true
 cron-scheduling: true
@@ -121,12 +121,25 @@ setup-steps:
       4. Your API key will display.
 
       Keep this page open - you'll need it to complete the next step.
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API Key** field, paste the API key you obtained in [step 1](#obtain-api-key).
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

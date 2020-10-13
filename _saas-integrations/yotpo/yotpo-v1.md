@@ -36,7 +36,7 @@ certified: false
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 status-url: "http://status.yotpo.com/"
 
 api-type: "platform.yotpo"
@@ -86,13 +86,26 @@ setup-steps:
 
       Leave this page open for now - you'll need it to complete the next step.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **{{ integration.display_name }} API Key** field, paste the value from the **App Key** field in your {{ integration.display_name }} account.
       5. In the **{{ integration.display_name }} API Secret** field, paste the value from the **Secret Key** field in your {{ integration.display_name }} account.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #      Replication Info      #

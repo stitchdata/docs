@@ -18,6 +18,8 @@ description: |
 
 replication-method: "Key-based Incremental"
 
+loading-behavior: "Append-Only"
+
 replication-key:
   name: "issues.updated"
 

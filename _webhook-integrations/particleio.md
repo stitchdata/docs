@@ -28,7 +28,7 @@ frequency: "Continuous"
 primary-key:
   defined: false
   field: 
-tier: "Free"
+tier: "Standard"
 status-url: "http://status.particle.io/"
 icon:  /images/integrations/icons/particle.svg
 

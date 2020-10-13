@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: ReCharge
+title: ReCharge (v1)
 permalink: /integrations/saas/recharge
 keywords: recharge, integration, schema, etl recharge, recharge etl, recharge schema
 layout: singer
@@ -50,7 +50,7 @@ api-type: "platform.recharge"
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 
 anchor-scheduling: true
 cron-scheduling: true
@@ -111,12 +111,25 @@ setup-steps:
           - In the **Permission** section, select the `Read Access` scope for each permission.
       6. Click **Save** to create the Access Token.    
          {% include layout/image.html file="/integrations/recharge-access-token.png" alt="The API key creation page." enlarge=true max-width="550" %}
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Access Token** field, enter the access token you obtained in the [previous step](#obtain-access-token).
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

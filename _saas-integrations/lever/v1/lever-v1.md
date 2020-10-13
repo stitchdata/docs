@@ -50,7 +50,7 @@ api-type: "platform.lever"
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 
 anchor-scheduling: true
 cron-scheduling: true
@@ -93,12 +93,25 @@ setup-steps:
 
       {% include note.html type="single-line" content="**Note**: Once you save your API key, you cannot change its access settings. You'll need to generate a new API key to change access settings." %}
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Token** field, paste the API Key you obtained in [Step 1](#obtain-api-token).
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

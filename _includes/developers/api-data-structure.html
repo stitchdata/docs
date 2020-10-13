@@ -25,24 +25,7 @@
         <p>{{ structure.description | flatify | markdownify }}</p>
 
     {% if structure.object-attributes %}
-        <table class="attribute-list">
-            {% for attribute in structure.object-attributes %}
-                <tr>
-                    <td class="attribute-name">
-                        <strong>
-                            {{ attribute.name }}
-                        </strong><br>
-                            {{ attribute.type | upcase }}
-                                {% if attribute.sub-type %}
-                                    (<a href="{{ attribute.url | flatify }}">{{ attribute.sub-type | upcase | strip }}</a>)
-                                {% endif %}
-                    </td>
-                    <td>
-                        {{ attribute.description | flatify | markdownify }}
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
+        {% include developers/attribute-table.html object=structure.object-attributes td-width="25" multiple-versions=false %}
     {% endif %}
 
 
@@ -76,27 +59,7 @@
 
                     {{ sub-structure.description | flatify | markdownify }}
 
-                    <table class="attribute-list">
-                        {% for attribute in sub-structure.object-attributes %}
-                            <tr>
-                                 <td class="attribute-name">
-                                    <strong>
-                                        {{ attribute.name }}
-                                    </strong><br>
-                                    {% if attribute.url %}
-                                        <a href="{{ attribute.url | flatify }}">
-                                            {{ attribute.type | upcase }}
-                                        </a>
-                                    {% else %}
-                                        {{ attribute.type | upcase }}
-                                    {% endif %}
-                                </td>
-                                <td>
-                                    {{ attribute.description | flatify | markdownify }}
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </table>
+                    {% include developers/attribute-table.html object=sub-structure.object-attributes td-width="25" multiple-versions=false %}
 
                     {% if sub-structure.examples %}
                         <h4 id="{{ sub-structure.key | append: "-example-usage" }}">

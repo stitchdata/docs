@@ -59,6 +59,89 @@ attributes:
     type: "string"
     description: "The most recently created status update for the project."
 
+  - name: "custom_fields"
+    type: "array"
+    description: "Details about the custom fields for the project, and the values applied to them."
+    subattributes:
+      - name: "description"
+        type: "string"
+        description: "The description of the custom field."
+      - name: "enabled"
+        type: "boolean"
+        description: "Indicates if the custom field is enabled or not."
+      - name: "enum_options"
+        type: "array"
+        description: |
+          **Applicable only when `resource_subtype: enum`.** The possible values that the `enum` field can adopt.
+
+          {% assign type =  "option" %}
+        subattributes: &enum-attributes
+          - name: "color"
+            type: "string"
+            description: "The color of the enum {{ type }}. Defaults to `none`."
+          - name: "enabled"
+            type: "boolean"
+            description: "Indicates if the enum {{ type }} is enabled."
+          - name: "gid"
+            type: "string"
+            description: "The globally unique identifier for the enum {{ type }}."
+          - name: "name"
+            type: "string"
+            description: "The name of the enum {{ type }}."
+          - name: "resource_type"
+            type: "string"
+            description: "The base type of the resource."
+      - name: "enum_value"
+        type: "object"
+        description: |
+          **Applicable only when `resource_subtype: enum`.** Details about the chosen value for the `enum` field.
+
+          {% assign type =  "value" %}
+        subattributes: *enum-attributes
+
+      - name: "gid"
+        type: "string"
+        description: "The globally unique identifier for the resource."
+      - name: "has_notifications_enabled"
+        type: "boolean"
+        description: "Indicates whether a follower of a project with this custom field should receive inbox notifications when the field's value changes."
+      - name: "is_global_to_workspace"
+        type: "boolean"
+        description: "Indicates whether the custom field is available to every container in the work space."
+      - name: "name"
+        type: "string"
+        description: "The name of the custom field."
+      - name: "number_value"
+        type: "number"
+        description: "**Applicable only when `resource_subtype: number`.** The value of a custom number field."
+      - name: "precision"
+        type: "integer"
+        description: |
+          **Applicable only when `resource_subtype: number`.** The number of places after the decimal to round to for custom number fields.
+
+          From {{ integration.display_name }}'s documentation:
+
+          > 0 is integer values, 1 rounds to the nearest tenth, and so on. Must be between 0 and 6, inclusive. For percentage format, this may be unintuitive, as a value of 0.25 has a precision of 0, while a value of 0.251 has a precision of 1. This is due to 0.25 being displayed as 25%. The identifier format will always have a precision of 0.
+
+      - name: "resource_subtype"
+        type: "string"
+        description: |
+          The type of the custom field. Possible values are:
+
+          - `text`
+          - `enum`
+          - `number`
+          
+      - name: "resource_type"
+        type: "string"
+        description: "The base type of the resource."
+      - name: "text_value"
+        type: "string"
+        description: "**Applicable only when `resource_subtype: text`.** The value of a custom text field."
+      - name: "type"
+        type: "string"
+        description: "**Deprecated by {{ integration.display_name }}.** Use `resource_subtype` instead."  
+
   - name: "due_date"
     type: "date-time"
     description: "The day on which the project is due."

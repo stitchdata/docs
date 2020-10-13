@@ -5,110 +5,32 @@ layout: page
 {% include misc/data-files.html %}
 
 <!-- SUPPORT, BETA, AND SINGER NOTICE -->
-{% include notifications/support-beta-singer-notice.html %}
+	{% include notifications/status-support/connection-notices.html %}
 
 
 <!-- INTEGRATION-SPECIFIC NOTICES -->
-{% if integration.notice-copy %}
-    {% capture notice-copy %}
-        {{ integration.notice-copy | flatify }}
-    {% endcapture %}
+{% unless this-version.status == "sunset" %}
+	{% if integration.notice-copy %}
+	    {% capture notice-copy %}
+	        {{ integration.notice-copy | flatify }}
+	    {% endcapture %}
 
-    {% include important.html first-line=integration.notice-first-line content=notice-copy %}
-{% endif %}
+	    {% include important.html first-line=integration.notice-first-line content=notice-copy %}
+	{% endif %}
+{% endunless %}
 
 
 <!-- INTEGRATION SNAPSHOT -->
     {% include shared/versioning/integration-supported-features.html type="integration-snapshot" feature-type="databases" %}
 
 
-<!-- CONNECTION INSTRUCTIONS -->
-    <h2 id="setup">Connecting {{ integration.display_name }}</h2>
+<!-- SETUP REQUIREMENTS & INSTRUCTIONS -->
 
-<!-- If there are any requirements for setting up the destination, display them here. -->
-{% if integration.requirements-list %}
-    <h3 id="setup-requirements">{{ integration.display_name }} setup requirements</h3>
-        <p>To set up {{ integration.display_name }} in Stitch, you need:</p>
-        <ul>
-        {% case integration.tier %}
-            {% when 'Standard' %}
-                <li>
-                    <strong>A Standard or higher Stitch plan.</strong> While those currently in the Free Trial will also be able to set up {{ integration.display_name }}, replication will be paused until a Standard plan or higher is selected after the trial ends.
-                </li>
-            {% when 'Enterprise' %}
-                <li>
-                    <strong>An Enterprise Stitch plan</strong>. {{ integration.display_name }} integrations can be added on as part of an Enterprise plan. Reach out to <a href="mailto: {{ site.support }}">Stitch support</a> for more info.
-                </li>
-        {% endcase %}
-        {% for requirement in integration.requirements-list %}
-            <li>
-                {{ requirement.item | flatify | markdownify }}{% if requirement.reason %}{{ requirement.reason | flatify | markdownify }}{% endif %}
-            </li>
-        {% endfor %}
-        </ul>
+{% unless this-version.status == "sunset" %}
+    {% include integrations/shared-setup/setup-requirements-steps.html %}
+{% endunless %}
 
-    <!-- If there's any additional info about the requirements, display them here. -->
-    {% if integration.requirements-info %}
-        {{ integration.requirements-info | flatify | markdownify }}
-    {% endif %}
-
-    <hr>
-{% endif %}
-
-
-{% for step in integration.setup-steps %}
-    {% capture step-number %}
-            {{ forloop.index }}
-        {% endcapture %}
-
-        {% if step.title %}
-            <h3 id="{{ step.anchor }}">Step {{ step-number | strip }}: {{ step.title | flatify }}</h3>
-        {% endif %}
-
-            {{ step.content | flatify | markdownify }}
-
-    <!-- If a step has substeps -->
-        {% if step.substeps %}
-            {% for substep in step.substeps %}
-                {% capture substep-number %}
-                    {{ forloop.index }}
-                {% endcapture %}
-
-                {% if substep.title %}
-                    <h4 id="{{ substep.anchor | flatify }}">Step {{ step-number | strip }}.{{ substep-number | strip }}: {{ substep.title | flatify }}</h4>
-                {% endif %}
-
-                {{ substep.content | flatify | markdownify }}
-
-            <!-- If a substep has its own substeps -->
-                {% if substep.sub-substeps %}
-                    {% for sub-substep in substep.sub-substeps %}
-                        {% capture sub-substep-number %}
-                            {{ forloop.index }}
-                        {% endcapture %}
-
-
-                        {% if sub-substep.title %}
-                            <h5 id="{{ sub-substep.anchor | flatify }}">Step {{ step-number | strip }}.{{ substep-number | strip }}.{{ sub-substep-number | strip }}: {{ sub-substep.title | flatify }}</h5>
-                        {% endif %}
-
-                        {{ sub-substep.content | flatify | markdownify }}
-
-                    {% endfor %}
-                {% endif %}
-            {% endfor %}
-        {% endif %}
-{% endfor %}
-
-{% capture post-setup %}
-{% include integrations/shared-setup/initial-syncs.html %}
-{% endcapture %}
-
-{{ post-setup | markdownify }}
-
-<hr>
-
-
+<!-- REPLICATION DETAILS -->
 {% if integration.replication-sections %}
     {% include layout/additional-sections.html section-type="replication" %}
 {% endif %}

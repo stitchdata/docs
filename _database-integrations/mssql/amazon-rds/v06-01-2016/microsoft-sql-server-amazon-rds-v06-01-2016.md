@@ -29,7 +29,7 @@ certified: true
 setup-name: "Microsoft SQL Server"
 
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 port: 1433
 db-type: "mssql"
 
@@ -140,7 +140,7 @@ setup-steps:
   - title: "Select data to replicate"
     anchor: "sync-data"
     content: |
-      {% include integrations/databases/setup/syncing.html %}
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

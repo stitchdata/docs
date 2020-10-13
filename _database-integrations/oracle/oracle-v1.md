@@ -57,7 +57,7 @@ db-type: "oracle"
 
 ## Stitch features
 api-type: "platform.oracle"
-versions: "n/a"
+versions: "8.0 - 18c"
 ssh: true
 ssl: false
 
@@ -71,6 +71,9 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+select-all: "sometimes"
+select-all-reason: "Log-based Incremental Replication must be enabled and set as the default Replication Method to use the Select All feature."
+
 table-level-reset: true
 
 ## Replication methods
@@ -90,7 +93,7 @@ log-based-replication-read-replica: false
 key-based-incremental-replication: true
 full-table-replication: true
 
-view-replication: false
+view-replication: true
 
 
 # -------------------------- #
@@ -144,9 +147,11 @@ setup-steps:
         content: |
           To check the database's current mode, run:
 
-          ```sql
+          {% capture code %}
           {{ site.data.taps.extraction.database-setup.server-settings.oracle.log-mode.command | strip }}
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           {{ site.data.taps.extraction.database-setup.server-settings.oracle.log-mode.result.archivelog }} Skip to [Step 3.3 to configure RMAN backups](#configure-rman-backups).
 
@@ -165,23 +170,41 @@ setup-steps:
 
           1. Shut down the database instance. The database and any associated instances must be shut down before the database's archiving mode can be changed.
 
-             ```sql
+             {% capture code %}
              SHUTDOWN IMMEDIATE
+             {% endcapture %}
+
+             {% include layout/code-snippet.html use-code-block=false code=code language="sql" %}
+
+             ```sql
+          {{ code | lstrip | rstrip }}
              ```
 
           2. **If desired, back up the database.** [Oracle recommends backing up databases before any major changes]({{ site.data.taps.links[integration.name]change-archive-mode }}){:target="new"}. Refer to [Oracle's documentation]({{ site.data.taps.links[integration.name]recovery-manager-backups }}){:target="new"} for more info.
 
           3. Start a new instance and mount (but not open) the database:
 
-             ```sql
+             {% capture code %}
              STARTUP MOUNT
+             {% endcapture %}
+
+             {% include layout/code-snippet.html use-code-block=false code=code language="sql" %}
+
+             ```sql
+          {{ code | lstrip | rstrip }}
              ```
 
           4. Change the database's archiving mode and re-open it:
 
-             ```sql
+             {% capture code %}
              ALTER DATABASE ARCHIVELOG
              ALTER DATABASE OPEN
+             {% endcapture %}
+
+             {% include layout/code-snippet.html use-code-block=false code=code language="sql" %}
+
+             ```sql
+          {{ code | lstrip | rstrip }}
              ```
 
       - title: "Configure RMAN backups"
@@ -197,9 +220,11 @@ setup-steps:
 
           Stitch recommends a retention period of at least 3 days, but strongly recommends 7. To specify the RMAN retention policy, run the following:
 
-          ```sql
+          {% capture code %}
           {{ site.data.taps.extraction.database-setup.server-settings.oracle.rman-retention-policy | strip }}
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           {% capture disk-storage-notice %}
           To ensure that archive log files don't consume all of your available disk space, you should also set the `DB_RECOVERY_FILE_DEST_SIZE` parameter to a value that agrees with your available disk quota. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.name]reference-docs.db-recovery-file-dest-size }}){:target="new"} for more info about this parameter.
@@ -223,23 +248,37 @@ setup-steps:
 
             To enable supplemental logging **at the database level**, run:
 
-            ```sql
+            {% capture code %}
             ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS
+            {% endcapture %}
+
+            {% include layout/code-snippet.html use-code-block=false code=code language="sql" %}
+
+            ```sql
+          {{ code | lstrip | rstrip }}
             ```
 
           - **At the table level**, this means that only changes made to the specified table will be logged in the redo log files. By only applying logging to the tables you want to replicate through Stitch, this may reduce the overall disk space used by redo log files.
 
             To enable supplemental logging **at the table level**, run the following for **every table you want to replicate through Stitch**:
 
-            ```sql
+            {% capture code %}
             ALTER TABLE <SCHEMA_NAME>.<TABLE_NAME> ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS
+            {% endcapture %}
+
+            {% include layout/code-snippet.html use-code-block=false code=code language="sql" %}
+
+            ```sql
+          {{ code | lstrip | rstrip }}
             ```
 
           Next, verify that supplemental logging was successfully enabled by running the following query:
 
-          ```sql
+          {% capture code %}
           {{ site.data.taps.extraction.database-setup.server-settings.oracle.supplemental-logging.command | strip }}
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           If the returned value is `YES` or `IMPLICIT`, supplemental logging is enabled.
 
@@ -295,7 +334,7 @@ setup-steps:
   - title: "Select data to replicate"
     anchor: "sync-data"
     content: |
-      {% include integrations/databases/setup/syncing.html %}
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #
@@ -322,7 +361,7 @@ replication-sections:
   - title: "Data types"
     anchor: "data-types"
     content: |
-      {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true version="1.0" version-column-headers=false %}
+      {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true version="1" version-column-headers=false %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

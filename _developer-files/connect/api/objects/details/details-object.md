@@ -44,7 +44,6 @@ object-attributes:
       Indicates the type of Stitch plan required to use the connection. Possible values are:
 
       - `standard` - Any Stitch plan can use the connection.
-      - `premium` - A Standard Stitch plan is required to use the connection.
       - `enterprise` - An Enterprise Stitch plan is required to use the connection.
     value: |
       "standard"
@@ -98,5 +97,4 @@ examples:
             "access":false
          }
       }
-
 ---

@@ -51,7 +51,10 @@
 		{% endif %}
 
 	<!-- Check for SSH support -->
-		{% if destination-connection-support.ssh == true %}
+		<!-- The second part is a check to see if the form-property needs to override the standard
+				SSH fields. A new structure was introduced recently (Aug 2020) to SSH configuration,
+				and not all destinations use it. Ex: Databricks Delta. -->
+		{% if destination-connection-support.ssh == true and form-property.uses-ssh-fields != false %}
 			{% assign ssh-fields = connect-destination-attributes.ssh %}
 		{% else %}
 			{% assign ssh-fields = null | compact %}

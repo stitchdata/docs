@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Campaign Manager
+title: Campaign Manager (v1)
 permalink: /integrations/saas/campaign-manager
 
 redirect_from: /integrations/saas/doubleclick-campaign-manager
@@ -39,7 +39,7 @@ certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 status-url: "https://ads.google.com/status#hl=en&v=status"
 
 api-type: "platform.doubleclick-campaign-manager"
@@ -114,10 +114,17 @@ setup-steps:
 
       Keep this handy - you'll need it in the next step.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Profile ID** field, paste the ID of the {{ integration.display_name }} profile from [Step 2](#locate-your-profile-id). This value should be a seven digit number such as `9999999`.
-  - title: "replication frequency"
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
   - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
     content: |
@@ -126,7 +133,10 @@ setup-steps:
          - **View and manage DoubleClick for Advertisers reports** - This is required to allow Stitch to view and run reports. **Note**: Stitch will not alter report settings, and will only ever read data. Refer to the [Replication section](#replication) below for more info.
       3. To grant access, click the **Allow** button.
       4. After you've granted access, you'll be redirected back to Stitch to finish setting up the integration.
-  - title: "track data"
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #      Replication Info      #

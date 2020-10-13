@@ -1,0 +1,21 @@
+# ----------------------------- #
+#         LOAD CORE OBJECT      #
+# ----------------------------- #
+
+title: "Loads"
+section: "#load--section"
+object: "#load--object"
+base: "/v4/{stitch_client_id}/loads"
+description: |
+  An object representing a load job for a stream. Loading is the last step in a replication job.
+
+list:
+  name: "/v4/{stitch_client_id}/loads"
+  title: "List last loads for an account"
+  method: "get"
+  anchor: "#list-last-loads-for-account"
+  short: "Lists the most recent load attempt for each stream (table) in a given account."
+  description: |
+    {{ site.data.connect.core-objects.loads.list.short | flatify }}
+
+    **Note**: This includes streams that have had an attempted load attempt in the past 60 days.

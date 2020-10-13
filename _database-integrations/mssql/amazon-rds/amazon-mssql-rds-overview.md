@@ -7,6 +7,7 @@ layout: general
 input: false
 
 key: "amazon-mssql-rds-integration"
+content-type: "database-category"
 
 show-in-menus: true
 has-versions: true
@@ -46,6 +47,6 @@ sections:
         anchor: "data-types"
         summary: "Data types"
         content: |
-          {% include replication/templates/data-types/integration-specific-data-types.html version="1.0" specific-types=true display-intro=true %}
+          {% include replication/templates/data-types/integration-specific-data-types.html version="1" specific-types=true display-intro=true %}
 ---
 {% include misc/data-files.html %}

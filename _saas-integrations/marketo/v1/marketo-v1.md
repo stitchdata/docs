@@ -129,14 +129,24 @@ setup-steps:
       2. In this section, find the **Endpoint** and **Identity** fields.
       3. Copy these URLs into the text file where you have your Client ID and Client Secret.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Endpoint Base URL** field, paste your **{{ integration.display_name }} REST API Endpoint URL**.
       5. In the **Identity Base URL** field, paste your **{{ integration.display_name }} REST API Identity URL**.
       6. In the **Client ID** field, paste your **Market{{ integration.display_name }}o API Client ID**.
       7. In the **OAuth Client Secret** field, paste your **{{ integration.display_name }} API Client Secret**.
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
 
 replication-sections:

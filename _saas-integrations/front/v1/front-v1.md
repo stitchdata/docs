@@ -45,7 +45,7 @@ certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 status-url: "https://www.frontstatus.com/"
 
 api-type: "platform.frontapp"
@@ -101,15 +101,28 @@ setup-steps:
 # If you use the shared namespace, you will get analytics for all shared inboxes across all teams. If you use the private namespace, you will get analytics for private inboxes that users have marked accessible to the public API (is an individual user setting).
 # I'm not sure how this works with the Get Analtyics endpoint, since this metric seems to be team-focused.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API Token** field, paste the {{ integration.display_name }} API token you generated in [Step 1](#generate-front-api-token).
       5. From the **Incremental Range** dropdown, select one of the following options:
          - **Daily** - Data will be aggregated on a daily basis.
          - **Hourly** - Data will be aggregated on an hourly basis.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Integration Tables     #

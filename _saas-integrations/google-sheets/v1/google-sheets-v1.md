@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Google Sheets
+title: Google Sheets (v1)
 permalink: /integrations/saas/google-sheets
 keywords: google-sheeets, integration, schema, etl google-sheeets, google-sheeets etl, google-sheeets schema
 layout: singer
@@ -51,7 +51,7 @@ api-type: "platform.google-sheets"
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 
 anchor-scheduling: true
 cron-scheduling: true
@@ -81,7 +81,7 @@ feature-summary: |
 
   - Currently, the {{ integration.display_name }} integration replicates one spreadsheet at a time. To replicate another spreadsheet, you will need to create another {{ integration.display_name }} integration in Stitch.
   - The `IMPORTRANGE()` function in {{ integration.display_name }} isn't currently supported. This integration identifies new and updated data using a spreadsheet's last `updated_at` value, which the `IMPORTRANGE()` doesn't update when used.
-  - Spreadsheets from shared **Team Drives** aren't currently supported. Permission errors will surface during extraction if you connect a spreadsheet from a Team Drive.
+  - Spreadsheets from shared **Team Drives** aren't currently supported. Permission and/or `File Not Found` errors will surface during extraction if you connect a spreadsheet from a shared Team Drive.
 
 
 # -------------------------- #
@@ -89,6 +89,8 @@ feature-summary: |
 # -------------------------- #
 
 requirements-list:
+  - item: |
+      **A spreadsheet in your Google Drive (My Drive)**. Stitch's {{ integration.display_name }} integration doesn't currently support replicating spreadsheets from shared Team Drives.
   - item: |
       **A header row with unique column values in the first row of every sheet you want to replicate.** If there are multiple headers not in the first row, your worksheet data may not be replicated correctly. Headers that aren't in the first row may be extracted as column data.
   - item: |
@@ -100,14 +102,27 @@ setup-steps:
     content: |
       1. Go to [{{ integration.display_name }}](http://sheets.google.com){:target="new"} and log into the Google account associated with the spreadsheet you are looking to integrate.
       2. Open the spreadsheet that you want to use in the integration.
-      3. Your Spreadsheet ID is within the URL to the webpage. In the image below, the portion of the URL within the blue box is the Spreadsheet ID. Keep this readily available to continue with the integration.
-      {% include layout/image.html file="/integrations/google-sheets-spreadsheet-id.png" alt="Google Sheets URL containing the Spreadsheet ID." enlarge=true max-width="850" %}
-  - title: "add integration"
+      3. The Spreadsheet ID is within the URL to the webpage. In the image below, the portion of the URL within the blue box is the Spreadsheet ID. Keep this readily available to continue with the integration. **Note**: The file should be stored in **My Drive** and not a shared drive or you'll receive a [File Not Found error](https://github.com/singer-io/tap-google-sheets/issues/7){:target="new"}.
+        {% include layout/image.html file="/integrations/google-sheets-spreadsheet-id.png" alt="Google Sheets URL containing the Spreadsheet ID." enlarge=true max-width="850" %}
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Spreadsheet ID** field, enter your Spreadsheet ID you obtained from the [previous step](#obtain-spreadsheet-id). **Note**: To integrate another spreadsheet, you'll need to repeat these steps over again with another {{ integration.display_name }} integration.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

@@ -39,7 +39,7 @@ setup-name: "SFTP"
 
 frequency: "1 hour"
 historical: "1 year"
-tier: "Free"
+tier: "Standard"
 
 ## Stitch features
 api-type: "platform.sftp"
@@ -193,7 +193,7 @@ setup-steps:
   - title: "Select data to replicate"
     anchor: "setting-data-to-replicate"
     content: |
-      {% include integrations/databases/setup/syncing.html %}
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

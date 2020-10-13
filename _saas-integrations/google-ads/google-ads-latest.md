@@ -1,5 +1,5 @@
 ---
-title: Google Ads
+title: Google Ads (v1)
 permalink: /integrations/saas/google-ads
 redirect_from: 
   - /integrations/saas/google-adwords-v1
@@ -28,8 +28,9 @@ repo-url: https://github.com/singer-io/tap-adwords
 
 this-version: "1"
 
+api-name: "Google AdWords API (v201809)"
 api: |
-  [Google AdWords API (v201809)](https://developers.google.com/adwords/api/docs/guides/start){:target="new"}
+  [Google AdWords API (v201809)](https://developers.google.com/adwords/api/docs/guides/start){:target='new'}
 
 # -------------------------- #
 #     Integration Details    #
@@ -41,7 +42,7 @@ certified: true
 
 historical: "30 days"
 frequency: "24 hours"
-tier: "Free"
+tier: "Standard"
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 
 api-type: "platform.adwords"
@@ -51,6 +52,9 @@ cron-scheduling: true
 
 table-selection: true
 column-selection: true
+select-all: false
+select-all-reason: |
+  The API used by this integration ({{ integration.api-name }}) doesn't support selecting all fields due to compatibility rules.
 
 extraction-logs: true
 loading-reports: true
@@ -105,9 +109,20 @@ requirements-list:
       By default, regular advertiser accounts - that is, individual Ads accounts - don't have access to the AdWords API. To gain access, they must be linked to an MCC account. If you don't have an MCC account, [create one using these instructions](https://support.google.com/adwords/answer/7459399){:target="new"} and then link it to your Ads account [by following these steps](https://support.google.com/adwords/answer/7459601).
 
 setup-steps:
-  - title: "add integration"
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
+    content: |
+      {% include integrations/shared-setup/connection-setup.html %}
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
   - title: "Authorize Stitch & Select {{ integration.display_name }} Profiles"
     anchor: "auth-select-ga-profiles"
     content: |
@@ -125,7 +140,10 @@ setup-steps:
          - **If multiple profiles are selected, data for all the selected profiles will map to the same table in your destination.** For example: If two profiles are selected and the `accounts` table is tracked, account data for both profiles will be replicated into the `accounts` table. This is applicable to every table selected in the next step.
 
        5. When finished selecting profiles, click **Continue**.
-  - title: "track data"
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
     content: |
       {% capture column-compatibility %}
       Because of Google's compatibility rules, some columns (metrics and segments) can't be tracked together. As you select columns to track, incompatible fields will automatically be greyed out.

@@ -58,12 +58,12 @@
         <tr>
             {% case include.type %}
                 {% when 'endpoint' %}
-                    <td class="{{ item.method }}" align="center">
+                    <td class="{{ item.method | flatify }}" align="center">
                         {{ item.method | flatify | upcase }}
                     </td>
                     <td align="center">
                         <strong>
-                            <a href="#{{ item.id }}">{{ item.title }}</a>
+                            <a href="#{{ item.id | flatify }}">{{ item.title | flatify }}</a>
                         </strong>
                     </td>
                     <td>
@@ -76,7 +76,7 @@
                     </td>
                     <td align="center" width="25%; fixed">
                         <strong>
-                            <a href="#{{ item.key }}">{{ item.title }}</a>
+                            <a href="#{{ item.key | flatify }}">{{ item.title | flatify }}</a>
                         </strong>
                     </td>
                     <td>

@@ -20,7 +20,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: ""
-    # foreign-key-id: "revenue-entry-id"
+    foreign-key-id: "revenue-entry-id"
 
   - name: "modified"
     type: "date-time"

@@ -44,7 +44,7 @@ certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 status-url: "http://status.pipedrive.com/"
 
 api-type: "platform.pipedrive"
@@ -107,12 +107,25 @@ setup-steps:
 
       Our {{ integration.display_name }} integration uses an API Token to authenticate. **{{ integration.display_name }} API tokens are unique not only at the user level, but the company level as well**. This means that a user’s API Token will vary from company to company, even if everything is housed in the same {{ integration.display_name }} account.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API Token** field, paste the API token you retrieved in [Step 2](#retrieve-pipedrive-api-token).
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Integration Tables     #

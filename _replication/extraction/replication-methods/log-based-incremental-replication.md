@@ -377,44 +377,79 @@ sections:
 
           {{ section.back-to-list | flatify }}
 
-## MYSQL/ORACLE RETENTION PERIOD
-      - title: "Limitation {{ forloop.index }}: Logs can age out and stop replication (Microsoft SQL Server, MySQL, and Oracle)"
+## LOG AGE OUT
+      - title: "Limitation {{ forloop.index }}: Logs can age out and impact replication (Microsoft SQL Server, MongoDB, MySQL, and Oracle)"
         anchor: "limitation--log-retention"
-        databases: "mssql, mysql, oracle"
+        databases: "mongo, mssql, mysql, oracle"
         content: |
-          {% include note.html type="single-line" content="**Note**: This section is applicable only to **Microsoft SQL Server, MySQL,** and **Oracle**-backed database integrations." %}
+          {% include note.html type="single-line" content="**Note**: This section is applicable only to **Microsoft SQL Server, MongoDB, MySQL,** and **Oracle**-backed database integrations." %}
 
-          Log files, by default, are not stored indefinitely on a database server. The amount of time a log file is stored depends on the database's log retention settings.
+          Log files, by default, aren't stored indefinitely on a database server. The amount of time a log file is stored depends on the database's log retention settings.
 
-          Log retention settings specify the amount of time before a log file is automatically removed from the database server. When a log file is removed from the server before Stitch can read from it, replication will be unable to proceed. 
+          Log retention settings when a log file is automatically removed from the database server. This can either be a set amount of time, or the maximum size of all the database's log files. When a log file is removed from the server before Stitch can read from it, one of two things will happen depending on the database type:
 
-          When this occurs, an extraction error similar to the following will surface in the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
+          {% for sub-subsection in subsection.sub-subsections %}
+          - [{{ sub-subsection.summary }}](#{{ sub-subsection.anchor }})
+          {% endfor %}
 
-          - **For MySQL databases**:
-            ```
-            {{ site.data.errors.extraction.databases.mysql.raw-error.log-retention-purge | strip }}
-            ```
-
-          - **For Oracle databases**:
-            ```
-            {{ site.data.errors.extraction.databases.oracle.raw-error.missing-logfile | strip }}
-            ```
-
-          To resolve the error, you'll need to [reset the integration from the {{ app.page-names.int-settings }} page]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}). **Note**: This is different than resetting an individual table.
-
-          This error can be caused by a few things:
+          This can be caused by a few things:
 
           1. **The log file is purged before historical replication completes**. This is because the maximum [log position ID](#log-based-incremental-replication-terminology) is saved at the start of [historical replication jobs](#log-based-incremental-replication-terminology), so Stitch knows where to begin reading from the database logs after historical data is replicated.
-          2. **The log retention settings are set to too short of a time period**. Stitch recommends a minimum of **3 days**, but **7 days** is preferred to account for resolving potential issues without losing logs.
+          2. **For log retention settings that define a time period, the time period is too short.** Stitch recommends a minimum of **3 days**, but **7 days** is preferred to account for resolving potential issues without losing logs.
 
              - **For Microsoft SQL Server databases**, this is the `CHANGE_RETENTION` setting.
              - **For MysQL databases**, these are the `expire_logs_days` or `binlog_expire_logs_seconds` settings.
              - **For Oracle databases**:
                 - **For self-hosted Oracle databases**, this is the [RMAN retention policy setting]({{ site.baseurl }}/integrations/databases/oracle#configure-rman-backups).
                 - **For Oracle-RDS databases**, these are the [AWS automated backup]({{ site.baseurl }}/integrations/databases/amazon-oracle-rds#enable-aws-automated-backups) and [`archivelog retention hours`]({{ site.baseurl }}/integrations/databases/amazon-oracle-rds#define-archivelog-retention-hours) settings.
-          3. **Any critical error that prevents Stitch from replicating data**, such as a connection issue that prevents Stitch from connecting to the database or a [schema violation](#limitation-3--structural-changes). If the error persists past the log retention period, the log will be purged before Stitch can read it.
+          3. **For log retention settings that define a maximum size, the size is insufficient.** This is applicable to MongoDB integrations. When creating a replica set, this is defined using the replication `oplogSizeMB` configuration option. It can also be defined for an existing replica set using the [replSetResizeOplog](https://docs.mongodb.com/v4.0/reference/command/replSetResizeOplog/#dbcmd.replSetResizeOplog){:target="new"} command.
 
-          {{ section.back-to-list | flatify }}
+          4. **Any critical error that prevents Stitch from replicating data**, such as a connection issue that prevents Stitch from connecting to the database or a [schema violation](#limitation-3--structural-changes). If the error persists past the log retention period, the log will be purged before Stitch can read it.
+
+        sub-subsections:
+          - title: "MongoDB: Affected tables will be re-replicated in full"
+            anchor: "limitation--log-retention--full-re-replication"
+            summary: "**Affected collections will be re-replicated in full**. This is applicable to MongoDB database integrations."
+            content: |
+              When logs age out for a MongoDB database integration, the affected collections will be re-replicated in full and the following will surface in the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
+
+              {% capture code %}{{ site.data.errors.extraction.databases.mongo.raw-error.oplog-age-out | strip }}
+              {% endcapture %}
+
+              {% include layout/code-snippet.html code=code language="shell"%}
+
+              To prevent collection re-replication, increase the maximum size of the OpLog with the [replSetResizeOplog](https://docs.mongodb.com/v4.0/reference/command/replSetResizeOplog/#dbcmd.replSetResizeOplog){:target="new"} command. **Note**: As the maximum size you need depends on your database, it may take some experimentation to identify the best setting. Mongo doesn't currently recommend an OpLog size.
+
+          - title: "MySQL and Oracle: Replication will stop"
+            anchor: "limitation--log-retention--stop-replication"
+            summary: "**Replication will stop**. This is applicable to MySQL and Oracle database integrations."
+            content: |
+              When logs age out for MySQL and Oracle database integrations, an extraction error similar to the following will surface in the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
+
+              - **For MySQL databases**:
+                {% capture code %}{{ site.data.errors.extraction.databases.mysql.raw-error.log-retention-purge | strip }}
+                {% endcapture %}
+
+                {% include layout/code-snippet.html use-code-block=false code=code %}
+
+                ```shell
+              {{ code | lstrip | rstrip }}
+                ```
+
+              - **For Oracle databases**:
+                {% capture code %}{{ site.data.errors.extraction.databases.oracle.raw-error.missing-logfile | strip }}
+                {% endcapture %}
+
+                {% include layout/code-snippet.html use-code-block=false code=code %}
+
+                ```shell
+              {{ code | lstrip | rstrip }}
+                ```
+
+              To resolve the error, you'll need to [reset the integration from the {{ app.page-names.int-settings }} page]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}). **Note**: This is different than resetting an individual table.
+
+              {{ section.back-to-list | flatify }}
+
 
 ## POSTGRES INCREASE DISK SPACE
       - title: "Limitation {{ forloop.index }}: Will increase source disk space usage (PostgreSQL)"

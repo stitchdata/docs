@@ -12,7 +12,7 @@ tap: "heap"
 version: "1" 
 
 name: "sessions"
-doc-link: https://docs.heapanalytics.com/docs/heap-sql-retroactive-s3-specification
+doc-link: https://help.heap.io/heap-connect/heap-connect-guide/data-schema/#sessions-table
 description: |
   The `{{ table.name }}` table contains info about sessions. In {{ integration.display_name }}, a web session ends after 30 minutes of user inactivity, while in iOS, a session ends after the app has entered the background.
 

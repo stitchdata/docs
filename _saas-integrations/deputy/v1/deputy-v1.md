@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Deputy
+title: Deputy (v1)
 permalink: /integrations/saas/deputy
 keywords: deputy, integration, schema, etl deputy, deputy etl, deputy schema
 layout: singer
@@ -44,7 +44,7 @@ certified: false
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 status-url: "https://status.deputy.com/"
 
 api-type: "platform.deputy"
@@ -72,7 +72,10 @@ feature-summary: |
 # -------------------------- #
 
 setup-steps:
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
+    content: |
+      {% include integrations/shared-setup/connection-setup.html %}
   - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
     content: |
@@ -84,9 +87,20 @@ setup-steps:
       2. After you log into {{ integration.display_name }}, a screen with a list of your {{ integration.display_name }} organizations will display. Select the organization you want to connect to Stitch and click **Authorize**.
       3. After the authorization process is successfully completed, you'll be directed back to Stitch.
       4. Click {{ app.buttons.finish-int-setup }}.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

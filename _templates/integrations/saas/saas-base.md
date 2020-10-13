@@ -12,8 +12,8 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: SAAS-INTEGRATION
-permalink: /integrations/saas/saas-integration
+title: SAAS-INTEGRATION (vVERSION)
+permalink: /integrations/saas/saas-integration ## Add if there are multiple versions: /vVERSION
 keywords: saas-integration, integration, schema, etl saas-integration, saas-integration etl, saas-integration schema
 layout: singer
 # input: false
@@ -31,7 +31,7 @@ display_name: "SAAS-INTEGRATION"
 singer: true
 status-url: ""
 
-tap-name: ""
+tap-name: "" ## Ex: Intercom, not intercom
 repo-url: https://github.com/singer-io/tap-saas-integration
 
 this-version: ""
@@ -48,7 +48,9 @@ certified: true
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free/Standard/Enterprise"
+tier: "Standard/Enterprise"
+
+api-type: ""
 
 anchor-scheduling: true
 cron-scheduling: true
@@ -99,13 +101,29 @@ setup-steps:
     anchor: ""
     content: |
       [Add content]
-  - title: "add integration"
-    # content: |
-      # starting with 4., add instructions for additional fields in UI. EX:
-      # 4. In the [FIELD_NAME] field, [instructions]
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
+
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
+    content: |
+      {% include integrations/shared-setup/connection-setup.html %}
+# starting with 4., add instructions for additional fields in UI. EX:
+# 4. In the [FIELD_NAME] field, [instructions]
+
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+## remove this if the integration doesn't support at least table selection
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %} 
 
 
 # -------------------------- #

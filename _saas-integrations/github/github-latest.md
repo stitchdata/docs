@@ -34,7 +34,7 @@ certified: false
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 status-url: https://status.github.com/messages
 
 api-type: "platform.github"
@@ -81,15 +81,25 @@ setup-steps:
          **Note**: While these are full permissions, Stitch will only ever read your data. The **repo** scope is required due to how {{ integration.display_name }} structures permissions.
       9. Click the **Generate token** button.
       10. The new access token will display on the next page. **Copy the token before navigating away from the page** - {{ integration.display_name }} won't display it again.
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **GitHub Access Token** field, paste the access token you created in [Step 1](#create-access-token).
       5. In the **GitHub Repository Name** field, enter the paths of the repositories you want to track. The path is relative to `https://github.com`. For example: The path for the Stitch Docs repository is `stitchdata/docs`
 
          To track multiple repositories, enter a space delimited list of the repository paths. For example: `stitchdata/docs stitchdata/docs-about-docs`
 
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
 # -------------------------- #
 #     Integration Tables     #

@@ -4,7 +4,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: COVID-19 Public Data
+title: COVID-19 Public Data (v1)
 permalink: /integrations/saas/covid-19
 keywords: public health, coronavirus, covid, github schema
 layout: singer
@@ -17,7 +17,7 @@ key: "covid-19-setup"
 # -------------------------- #
 
 name: "covid-19"
-display_name: "COVID-19 public data"
+display_name: "COVID-19 Public Data"
 
 singer: true
 status-url: https://status.github.com/messages
@@ -39,7 +39,7 @@ certified: false
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 
 api-type: "platform.covid-19"
 
@@ -90,13 +90,26 @@ setup-steps:
       9. Click the **Generate token** button.
       10. The new access token will display on the next page. **Copy the token before navigating away from the page** - GitHub won't display it again.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **GitHub Access Token** field, paste the access token you created in [Step 1](#create-access-token).
 
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # ------------------------------ #

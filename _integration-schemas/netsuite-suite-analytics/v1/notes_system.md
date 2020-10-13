@@ -11,6 +11,7 @@ description: |
   > As of NetSuite 2017.1, the `notes_system` table is obsolete. Use the [`system_notes` table](#system-notes) instead.
 
 replication-method: "Key-based Incremental"
+loading-behavior: "Append-Only"
 
 attributes:
   - name: "date_last_modified"

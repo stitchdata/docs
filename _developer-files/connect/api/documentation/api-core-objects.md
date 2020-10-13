@@ -2,7 +2,7 @@
 title: Core objects
 product-type: "connect"
 content-type: "api-doc"
-order: 6
+order: 8
 
 include: developers/api-object.html
 ---

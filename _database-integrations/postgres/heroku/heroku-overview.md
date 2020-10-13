@@ -8,6 +8,7 @@ layout: general
 input: false
 
 key: "heroku-integration"
+content-type: "database-category"
 
 microsites:
   - title: "{{ page.display_name }} to Postgres"

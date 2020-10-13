@@ -36,8 +36,9 @@ repo-url: https://github.com/singer-io/tap-google-analytics
 
 this-version: "1"
 
+api-name: "Reporting API v4 and Metadata API"
 api: |
-  [](){:target="new"}
+  [Reporting API v4](https://developers.google.com/analytics/devguides/reporting/core/v4){:target="new"} [Metadata API](https://developers.google.com/analytics/devguides/reporting/metadata/v3){:target="new"}
 
 
 # -------------------------- #
@@ -48,7 +49,7 @@ certified: true
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 
 api-type: "platform.google-analytics"
 
@@ -60,6 +61,10 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+select-all: false
+select-all-reason: |
+  The APIs used by this integration ({{ integration.api-name }}) don't support selecting all fields due to compatibility rules.
+
 table-level-reset: true
 
 
@@ -91,7 +96,10 @@ requirements-list:
   - item: "**To pause all ad-blocking software**. Because Google authentication uses pop ups, you may encounter issues if ad blockers aren't disabled during the setup."
 
 setup-steps:
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
+    content: |
+      {% include integrations/shared-setup/connection-setup.html %}
   - title: "Configure your custom reports"
     anchor: "configure-reports"
     content: |
@@ -105,9 +113,17 @@ setup-steps:
 
       {% include note.html type="single-line" content="**Renaming and deleting reports**: After the integration is created, renaming and deleting reports will have implications how data from this integration is loaded into your destination. Refer to the [Renamed](#renamed-reports) and [Deleted reports](#deleted-reports) sections for more info." %}
 
-  - title: "historical sync"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
 
-  - title: "replication frequency"
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
   - title: "Authorize Stitch and select a Google Analytics profile"
     anchor: "auth-select-ga-profile"

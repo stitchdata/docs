@@ -68,4 +68,20 @@ object-attributes:
   - name: "partner_secret"
     type: "string"
     description: "The secret for your API client, obtained when you registered to use the API."
+
+
+# -------------------------- #
+#           EXAMPLES         #
+# -------------------------- #
+
+examples:
+  - code: |
+      {
+        "partner_id": "<PARTNER_ID>",
+        "partner_secret": "<PARTNER_SECRET>",
+        "first_name": "Stitch",
+        "last_name": "Product Team",
+        "company": "Stitch Product Team",
+        "email": "stitch-api-test@stitchdata.com"
+      }
 ---

@@ -50,7 +50,7 @@ api-type: "platform.impact"
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 
 anchor-scheduling: true
 cron-scheduling: true
@@ -90,17 +90,30 @@ setup-steps:
       4. On the settings page, locate the **Technical** section and click **API**.
       5. Copy the read-only versions of your **Account SID** and **Auth Token**, and save it in a safe place.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Account SID** field, paste the read-only Account SID you retrieved in [Step 1](#retrieve-sid-auth).
       5. In the **API Catalog** field, select `Advertisers`.
       6. In the **Auth Token** field, paste the read-only Auth Token that you retrieved in [Step 1](#retrieve-sid-auth).
       7. **Optional**: In the **Model ID** field, enter your model ID. This is used in the `conversion_paths` table to extract data about conversions from clicks to conversion purchases.
 
          To access your model ID, contact [{{ integration.display_name }} Radius Support](mailto:support@impactradius.com) or [open an {{ form-property.display-name }} help desk request](https://help.impactradius.com/hc/en-us/requests){:target="new"} with {{ integration.display_name }}.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

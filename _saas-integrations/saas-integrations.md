@@ -9,6 +9,8 @@ toc: false
 input: false
 feedback: false
 
+content-type: "category"
+
 sections:
   - content: |
       With Stitch, you can consolidate data from a variety of SaaS apps and services into a [single destination]({{ site.baseurl }}/destinations).

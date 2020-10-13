@@ -44,7 +44,7 @@ certified: false
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 status-url: "http://status.chargebee.com/"
 
 api-type: "platform.chargebee"
@@ -98,13 +98,26 @@ setup-steps:
 
       Copy the API key somwhere handy - you'll need it to complete the setup in Stitch.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API Key** field, paste the API key you generated in [Step 1](#generate-api-key).
       5. In the **Site** field, enter the name of your {{ integration.display_name }} site. This can be found in the URL of your {{ integration.display_name }} site. For example: If the URL was `https://stitch.chargebee.com`, only `stitch` would be entered into this field.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Integration Tables     #

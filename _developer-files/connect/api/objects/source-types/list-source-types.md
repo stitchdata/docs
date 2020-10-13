@@ -143,7 +143,7 @@ examples:
             }
           ],
           "details": {
-            "pricing_tier": "premium",
+            "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_start_date": "-1 year",
             "default_scheduling_interval": 30,
@@ -288,7 +288,7 @@ examples:
             }
           ],
           "details": {
-            "pricing_tier": "premium",
+            "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 30,
             "default_start_date": "-30 days",
@@ -434,7 +434,7 @@ examples:
             }
           ],
           "details": {
-            "pricing_tier": "premium",
+            "pricing_tier": "standard",
             "pipeline_state": "deprecated",
             "default_scheduling_interval": 30,
             "default_start_date": "-1 year",
@@ -931,7 +931,7 @@ examples:
             }
           ],
           "details": {
-            "pricing_tier": "premium",
+            "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 30,
             "default_start_date": "-1 year",
@@ -2436,7 +2436,7 @@ examples:
             }
           ],
           "details": {
-            "pricing_tier": "premium",
+            "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
             "default_start_date": "-1 year",
@@ -2563,7 +2563,7 @@ examples:
             }
           ],
           "details": {
-            "pricing_tier": "premium",
+            "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
             "default_start_date": "-1 year",
@@ -2785,7 +2785,7 @@ examples:
             }
           ],
           "details": {
-            "pricing_tier": "premium",
+            "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
             "default_start_date": "-1 year",
@@ -3025,7 +3025,7 @@ examples:
             }
           ],
           "details": {
-            "pricing_tier": "premium",
+            "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 720,
             "default_start_date": "-1 year",
@@ -4572,7 +4572,7 @@ examples:
             }
           ],
           "details": {
-            "pricing_tier": "premium",
+            "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
             "default_start_date": "-1 year",
@@ -6465,7 +6465,7 @@ examples:
             }
           ],
           "details": {
-            "pricing_tier": "premium",
+            "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
             "default_start_date": "-1 year",
@@ -7608,7 +7608,7 @@ examples:
             }
           ],
           "details": {
-            "pricing_tier": "premium",
+            "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
             "default_start_date": "-1 year",

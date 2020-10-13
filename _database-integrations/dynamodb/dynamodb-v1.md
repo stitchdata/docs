@@ -45,7 +45,7 @@ driver: |
 # -------------------------- #
 
 feature-summary: |
-  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.driver | flatify | strip }}. [TODO]
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.driver | flatify | strip }} driver.
 
 
 # -------------------------- #
@@ -55,7 +55,7 @@ feature-summary: |
 certified: true
 
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 db-type: "dynamodb"
 
 api-type: "platform.dynamodb"
@@ -76,6 +76,10 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+select-all: false
+select-all-reason: |
+  {{ integration.display_name }} integrations don't currently support a default Replication Method, which is required to use the Select All feature.
+
 table-level-reset: true
 
 ## Replication methods
@@ -168,7 +172,7 @@ setup-steps:
   - title: "Select data to replicate"
     anchor: "setting-data-to-replicate"
     content: |
-      {% include integrations/databases/setup/syncing.html %}
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

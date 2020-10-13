@@ -25,15 +25,15 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 intro: |
-  {% include important.html type="single-line" content="The process we outline in this tutorial - which includes dropping tables - can lead to data corruption and other issues if done incorrectly. **Please proceed with caution or reach out to Stitch support if you have questions.**" %}
+  {% include important.html type="single-line" content="The process we outline in this tutorial - which includes dropping tables - can lead to data corruption and other issues if done incorrectly. **Proceed with caution or reach out to Stitch support if you have questions.**" %}
 
-  Want to improve your query performance? In this article, we’ll walk you through how to use encoding, Sort, and Distribution keys to streamline query processing.
+  Want to improve your query performance? In this guide, we’ll walk you through how to use encoding, SORT, and DIST (distribution) keys to streamline query processing.
 
   Before we dive into their application, here's a quick overview of each of these performance enhancing tools.
 
   - **Encodings**, or [compression types](http://docs.aws.amazon.com/redshift/latest/dg/t_Compressing_data_on_disk.html), are used to reduce the amount of required storage space and the size of data that’s read from storage. This in turn can lead to a reduction in processing time for queries.
 
-  - **[Sort keys](http://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html)** determine the order in which rows in a table are stored. When properly applied, Sort Keys allow large chunks of data to be skipped during query processing. Less data to scan means a shorter processing time, thus improving the query’s performance.
+  - **[SORT keys](http://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html)** determine the order in which rows in a table are stored. When properly applied, SORT Keys allow large chunks of data to be skipped during query processing. Less data to scan means a shorter processing time, thus improving the query’s performance.
 
   - **[Distribution, or DIST keys](http://docs.aws.amazon.com/redshift/latest/dg/t_Distributing_data.html)** determine where data is stored in Redshift. When data is replicated into your data warehouse, it’s stored across the compute nodes that make up the cluster. If data is heavily skewed - meaning a large amount is placed on a single node - query performance will suffer. Even distribution prevents these bottlenecks by ensuring that nodes equally share the processing load.
 
@@ -57,18 +57,18 @@ steps:
 
       We’ll use a table called `orders`, which is contained in the `rep_sales` schema.
 
-      Log into your Redshift database using your SQL client to get started.
+      To get started, log into your Redshift database using [psql](https://docs.aws.amazon.com/redshift/latest/mgmt/connecting-from-psql.html){:target="new"}.
 
-      Use this command to retrieve the table schema, replacing `rep_sales` and `orders` with the names of your schema and table, respectively: 
+      Use this command to retrieve the table schema, replacing `rep_sales` and `orders` with the names of your schema and table, respectively:
 
-      ```sql
-      \d+ rep_sales.orders
-      ```
+      {% capture code %}\d+ rep_sales.orders
+      {% endcapture %}
+
+      {% include layout/code-snippet.html code=code language="sql" %}
 
       For the `rep_sales.orders` table, the result looks like this:
 
-      ```
-      | Column              | Data Type                  |
+      {% capture code %}| Column              | Data Type                  |
       | --------------------+----------------------------|
       | id [pk]             | BIGINT                     |
       | rep_name            | VARCHAR(128)               |
@@ -80,7 +80,9 @@ steps:
       | _sdc_batched_at     | TIMESTAMP WITHOUT TIMEZONE |
       | _sdc_table_version  | BIGINT                     |
       | _sdc_replication_id | VARCHAR(128)               |
-      ```
+      {% endcapture %}
+
+      {% include layout/code-snippet.html code=code language="sql" %}
 
       In this example, we'll perform the following:
 
@@ -101,17 +103,19 @@ steps:
 
           Retrieve the table's Primary Key using the following query:
 
-          ```sql
-          SELECT description
+          {% capture code %}SELECT description
             FROM pg_catalog.pg_description
            WHERE objoid = 'old_orders'::regclass;
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           The result will look like the following, where `primary_keys` is an array of strings referencing the columns used as the table's Primary Key:
 
-          ```sql
-          {"primary_keys":["id"]}
-          ```
+          {% capture code %}{"primary_keys":["id"]}
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           {% include important.html first-line="**Primary Key comments**" content="Redshift doesn’t enforce the use of Primary Keys, but Stitch requires them to replicate data. In the following example, you'll see `COMMENT` being used to note the table's Primary Key. **Make sure you include the Primary Key comment in the next step, as missing or incorrectly defined Primary Key comments will cause issues with data replication.**" %}
 
@@ -128,8 +132,7 @@ steps:
 
           For the `rep_sales.orders` example table, this is the transaction that will perform the actions listed above:
 
-          ```sql
-          SET search_path to rep_sales;
+          {% capture code %}SET search_path to rep_sales;
           BEGIN;
           ALTER TABLE orders RENAME TO old_orders;
           CREATE TABLE new_orders (
@@ -154,7 +157,9 @@ steps:
           ALTER TABLE orders OWNER TO <stitch_user>;      /* Grants table ownership to Stitch */
           DROP TABLE old_orders;                        /* Drops the "old" table */
           END;
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
   - title: "Verify the table owner"
     anchor: "verify-table-owner"
@@ -163,34 +168,36 @@ steps:
 
       To verify the table's owner, run the following query and replace `rep_sales` and `orders` with the names of the schema and table, respectively:
 
-      ```sql
-      SELECT schemaname,
+      {% capture code %}SELECT schemaname,
              tablename,
              tableowner
         FROM pg_catalog.pg_tables
        WHERE schemaname = 'rep_sales'
          AND tablename = 'order'
-      ```
+      {% endcapture %}
+
+      {% include layout/code-snippet.html code=code language="sql" %}
 
       If Stitch is not the owner of the table, run the following command:
 
-      ```sql
-      ALTER TABLE <schema_name>.<table_name> OWNER TO <stitch_user>;
-      ```
+      {% capture code %}ALTER TABLE <schema_name>.<table_name> OWNER TO <stitch_user>;
+      {% endcapture %}
+
+      {% include layout/code-snippet.html code=code language="sql" %}
 
   - title: "Verify the encoding and key application"
     anchor: "verify-application"
     content: |
-      To verify that the changes were applied correctly, retrieve the table’s schema again using this command, replacing `rep_sales` and `orders` with the names of your schema and table, respectively: 
+      To verify that the changes were applied correctly, retrieve the table’s schema again using this command, replacing `rep_sales` and `orders` with the names of your schema and table, respectively:
 
-      ```sql
-      \d+ rep_sales.orders
-      ```
+      {% capture code %}\d+ rep_sales.orders
+      {% endcapture %}
+
+      {% include layout/code-snippet.html code=code language="sql" %}
 
       In this example, if the Keys and encodings were applied correctly, the response would look something like this:
 
-      ```sql
-      | Column              | Data type                  | Encoding | Distkey | Sortkey |
+      {% capture code %}| Column              | Data type                  | Encoding | Distkey | Sortkey |
       |---------------------+----------------------------+----------+---------+---------|
       | id                  | BIGINT                     | none     | true    | true    |  
       | rep_name            | VARCHAR(128)               | bytedict | false   | false   |  
@@ -202,7 +209,9 @@ steps:
       | _sdc_batched_at     | TIMESTAMP WITHOUT TIMEZONE | none     | false   | false   |
       | _sdc_table_version  | BIGINT                     | none     | false   | false   |
       | _sdc_replication_id | VARCHAR(128)               | none     | false   | false   |
-      ```
+      {% endcapture %}
+
+      {% include layout/code-snippet.html code=code language="sql" %}
 
       For the `id` column, the `Distkey` and `Sortkey` is set to `true`, meaning that the keys were properly applied.
 

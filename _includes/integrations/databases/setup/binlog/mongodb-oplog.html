@@ -12,33 +12,52 @@ In this step, you'll edit the `/etc/mongod.conf` file to add a [replica set]({{ 
 
 1. Start the {{ integration.display_name }} instance:
 
-   ```shell
+   {% capture code %}
    mongod --port 27017
+   {% endcapture %}
+
+   {% include layout/code-snippet.html use-code-block=false code=code %}
+
+   ```shell
+{{ code | lstrip | rstrip }}
    ```
 
 2. Connect to the Mongo shell as a `root` user:
 
+   {% capture code %}
+   mongo --port 27017 -u <root_username> -p <password> --authenticationDatabase admin
+   {% endcapture %}
+
+   {% include layout/code-snippet.html use-code-block=false code=code %}
+
    ```shell
-   mongo --port 27017
+{{ code | lstrip | rstrip }}
    ```
 
 3. Navigate to the `/etc/mongod.conf` file.
 
-4. In `/etc/mongod.conf`, uncomment `replication` and specify a name for the replica set (`replSetName`). 
+4. In `/etc/mongod.conf`, uncomment `replication` and define the following configuration options. **Note**: As `/etc/mongod.conf` is a protected file, you may need to assume `sudo` to edit it.
 
-   In this example, we're using `rs0` as the replica set name:
-
-   ```shell
+   {% capture code %}
    replication:
       replSetName: "rs0"
-	 ```
+      oplogSizeMB: <integer>
+   {% endcapture %}
 
-    Use the `rs.status()` command to return this replica set's name going forward.
+   {% include layout/code-snippet.html use-code-block=false code=code %}
 
-	 **Note**: As `/etc/mongod.conf` is a protected file, you may need to assume `sudo` to edit it.
+   ```shell
+{{ code | lstrip | rstrip }}
+   ```
+
+   - **replSetName**: The name for the replica set. In this example, we used `rs0`. Use the `rs.status()` command to return this replica set's name going forward.
+   - **oplogSizeMB**: The maximum size, in megabytes, for the oplog. If undefined, MongoDB will use the default size - refer to [MongoDB's docs for more info](https://docs.mongodb.com/v4.0/core/replica-set-oplog/#oplog-size){:target="new"}.
+
+      When the oplog reaches this size, MongoDB will automatically remove log entries to maintain the maximum oplog size. If Stitch is unable to replicate all of a table's log entries before they age out, Stitch will re-replicate the table in full to ensure records aren't missing. Refer to the [Log-based Incremental guide]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation--log-retention" }}) for more info and examples.
+
+      **Note**: If you're using an existing replica set and want to change its maximum size, use the [replSetResizeOplog](https://docs.mongodb.com/v4.0/reference/command/replSetResizeOplog/#dbcmd.replSetResizeOplog){:target="new"} command.
 
 5. Save the changes.
-
 
 
 <!-- INITIATE THE REPLICA SET -->
@@ -48,27 +67,51 @@ Next, you'll restart the instance and initiate the replica set.
 
 1. Restart `mongod` with the configuration file:
 
-   ```shell
+   {% capture code %}
    sudo mongod --auth --config /etc/mongod.conf
+   {% endcapture %}
+
+   {% include layout/code-snippet.html use-code-block=false code=code %}
+
+   ```shell
+{{ code | lstrip | rstrip }}
    ```
 
 2. Connect to the Mongo shell as a `root` user, replacing `<root_username>` and `<password>` with the `root` user's username and password:
 
-   ```shell
+   {% capture code %}
    mongo --port 27017 -u <root_username> -p <password> --authenticationDatabase admin
+   {% endcapture %}
+
+   {% include layout/code-snippet.html use-code-block=false code=code %}
+
+   ```shell
+{{ code | lstrip | rstrip }}
    ```
 
 3. Initiate the replica set, replacing `<host_address>` with the IP address or endpoint used by the `mongod` instance:
 
-   ```shell
+   {% capture code %}
    rs.initiate({_id: "rs0", members: [{_id: 0, host: "<host_address>:27017"}]})
+   {% endcapture %}
+
+   {% include layout/code-snippet.html use-code-block=false code=code %}
+
+   ```shell
+{{ code | lstrip | rstrip }}
    ```
 
-If successful, you'll receive a response similar to the following:
+   If successful, you'll receive a response similar to the following:
 
-```json
-{ "ok" : 1 }
-```
+   {% capture code %}
+   { "ok" : 1 }
+   {% endcapture %}
+
+   {% include layout/code-snippet.html use-code-block=false code=code %}
+
+   ```json
+{{ code | lstrip | rstrip }}
+   ```
 
 
 <!-- VERIFY OPLOG ACCESS -->
@@ -80,27 +123,51 @@ Lastly, you'll verify that the Stitch user can read from the OpLog.
 
 2. Reconnect as the Stitch database user you created in [Step 2](##create-a-database-user). Replace `<stitch_username>` and `<password>` with the Stitch user's username and password, respectively:
 
-   ```shell
+   {% capture code %}
    mongo --port 27017 -u <stitch_username> -p <password> --authenticationDatabase admin
+   {% endcapture %}
+
+   {% include layout/code-snippet.html use-code-block=false code=code %}
+
+   ```shell
+{{ code | lstrip | rstrip }}
    ```
 
 3. Switch to the `local` database:
 
-   ```shell
+   {% capture code %}
    use local
-   ```
+   {% endcapture %}
 
-4. View OpLog rows:
+   {% include layout/code-snippet.html use-code-block=false code=code %}
 
    ```shell
-   db.oplog.rs.find()
+{{ code | lstrip | rstrip }}
    ```
 
-If successful, records from the OpLog similar to the following will be returned:
+4. View oplog rows:
 
-```json
-{ "ts" : Timestamp(1524038245, 63), "t" : NumberLong(1), "h" : NumberLong("-596019791399272412"), "v" : 2, "op" : "i", "ns" : "stitchTest.customers", "ui"
+   {% capture code %}
+   db.oplog.rs.find()
+   {% endcapture %}
+
+   {% include layout/code-snippet.html use-code-block=false code=code %}
+
+   ```shell
+{{ code | lstrip | rstrip }}
+   ```
+
+   If successful, records from the oplog similar to the following will be returned:
+
+   {% capture code %}
+   { "ts" : Timestamp(1524038245, 63), "t" : NumberLong(1), "h" : NumberLong("-596019791399272412"), "v" : 2, "op" : "i", "ns" : "stitchTest.customers", "ui"
 : UUID("0e623d9c-722c-41d5-a5e6-83947cc2466e"), "wall" : ISODate("2018-04-18T07:57:25.065Z"), "o" : { "_id" : 100, "name" : "Finn" } }
-```
+   {% endcapture %}
+
+   {% include layout/code-snippet.html use-code-block=false code=code %}
+
+   ```json
+{{ code | lstrip | rstrip }}
+   ```
 
 {% endcase %}

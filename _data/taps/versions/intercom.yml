@@ -1,13 +1,29 @@
 # -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/integration-templates/integration-versions/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+
+# -------------------------- #
 #      INTERCOM VERSIONS     #
 # -------------------------- #
 
-latest-version: "02-02-2016"
+latest-version: "1"
 
 released-versions:
-  - number: "02-02-2016" # not a singer tap
+  - number: "1"
     status: "released"
-    date-released: "February 2, 2016"
+    date-released: "August 14, 2020"
     # date-last-connection:
+    deprecation-date: ""
+    sunset-date: ""
+
+  - number: "02-02-2016" # not a singer tap
+    status: "deprecated"
+    date-released: "February 2, 2016"
+    date-last-connection: "October 1, 2020"
     deprecation-date: ""
     sunset-date: ""

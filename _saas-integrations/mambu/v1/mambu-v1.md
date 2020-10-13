@@ -42,7 +42,7 @@ certified: true
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 status-url: "https://status.mambu.com/"
 
 anchor-scheduling: true
@@ -83,13 +83,26 @@ requirements-list:
   - item: "**A {{ integration.display_name }} account with API access**. The {{ integration.display_name }} integration requires an account login with API access. In {{ integration.display_name }}'s app, API access can be granted to any existing user."
 
 setup-steps:
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       5. In the **Subdomain** field, enter your {{ integration.display_name }} subdomain. For example: If the subdomain were `stitch.{{ integration.name }}.com`, only `stitch` would be entered into this field.
       6. In the **Username** and **Password** fields, enter the username and password of the {{ integration.display_name }} user with {{ integration.display_name }} API access.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Integration Tables     #

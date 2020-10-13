@@ -58,7 +58,7 @@ db-type: "oracle"
 
 ## Stitch features
 api-type: "platform.oracle"
-versions: "n/a"
+versions: "8.0 - 18c"
 ssh: true
 ssl: false
 
@@ -72,6 +72,9 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+select-all: "sometimes"
+select-all-reason: "Log-based Incremental Replication must be enabled and set as the default Replication Method to use the Select All feature."
+
 table-level-reset: true
 
 ## Replication methods
@@ -91,7 +94,7 @@ log-based-replication-read-replica: false
 key-based-incremental-replication: true
 full-table-replication: true
 
-view-replication: false
+view-replication: true
 
 
 # -------------------------- #
@@ -165,9 +168,11 @@ setup-steps:
 
           In this example, archive logs will be retained for seven days (`24 hours x 7 days = 168 hours`):
 
-          ```sql
+          {% capture code %}
           {{ site.data.taps.extraction.database-setup.server-settings.oracle.log-mode.rds | strip }}
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           Stitch recommends a minimum of three days for the retention period, but strongly recommends seven.
 
@@ -178,17 +183,21 @@ setup-steps:
 
           To enable supplemental logging, run:
 
-          ```sql
+          {% capture code %}
           {{ site.data.taps.extraction.database-setup.server-settings.oracle.supplemental-logging.rds | strip }}
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           The result should be `PL/SQL procedure successfully completed`.
 
           Next, verify that supplemental logging was successfully enabled by running the following query:
 
-          ```sql
+          {% capture code %}
           {{ site.data.taps.extraction.database-setup.server-settings.oracle.supplemental-logging.command | strip }}
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html code=code language="sql" %}
 
           If the result is `YES`, supplemental logging was successfully enabled.
 
@@ -248,7 +257,7 @@ setup-steps:
   - title: "Select data to replicate"
     anchor: "sync-data"
     content: |
-      {% include integrations/databases/setup/syncing.html %}
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #
@@ -275,7 +284,7 @@ replication-sections:
   - title: "Data types"
     anchor: "data-types"
     content: |
-      {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true version="1.0" version-column-headers=false %}
+      {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true version="1" version-column-headers=false %}
 
 ---
 {% assign integration = page %}

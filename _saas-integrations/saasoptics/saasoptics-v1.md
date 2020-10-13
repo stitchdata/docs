@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: SaaSOptics
+title: SaaSOptics (v1)
 permalink: /integrations/saas/saasoptics
 keywords: saasoptics, integration, schema, etl saasoptics, saasoptics etl, saasoptics schema
 layout: singer
@@ -47,7 +47,7 @@ certified: false
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 
 api-type: "platform.saasoptics"
 
@@ -100,16 +100,29 @@ setup-steps:
          {:start="4"}
       4. If you are an admin, generate an API token. If you are a user without admin privileges, you can either use the API token that already exists or regenerate the token. Keep note of it - you'll need it to complete the next step.
          ![Your SaaSOptics API token.]({{ site.baseurl }}/images/integrations/saasoptics-api-token.png){:style="max-width: 550px;"}
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Account Name** field, enter the account name you identified in [step 1](#account-subdomian).
       5. In the **Server Subdomain** field, enter the subdomain you identified in [step 1](#account-subdomain).
       6. In the **Token** field, enter the API token you obtained in [step 2](#obtain-token).
 
       {% include note.html type=single-line content="**Note**: The **Date Window Field** is an internal field for Stitch use. The default value is `60`; it is optional to change it." %}
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

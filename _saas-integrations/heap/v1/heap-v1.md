@@ -42,7 +42,7 @@ certified: true
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 status-url: "https://status.heapanalytics.com/"
 
 api-type: "platform.heap"
@@ -81,19 +81,33 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/aws-s3-iam-setup.html type="retrieve-account-id" %}
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **S3 Bucket** field, enter the name of the bucket. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `heap-rs3-stitch-bucket`
       5. In the **AWS Account ID** field, paste the account ID you retrieve in [Step 1](#retrieve-aws-account-id).
 
-  - title: "historical sync"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
 
-  - title: "replication frequency"
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
   - title: "Grant access to your bucket using AWS IAM"
     anchor: "grant-access-bucket-iam"
     content: |
       {% include integrations/shared-setup/aws-s3-iam-setup.html type="aws-iam-access-intro" %}
+
+      {% for substep in step.substeps %}
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
 
     substeps:
       - title: "Create an IAM policy"
@@ -111,7 +125,10 @@ setup-steps:
         content: |
           {% include integrations/shared-setup/aws-s3-iam-setup.html type="check-and-save" %}
 
-  - title: "track data"
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Replication Details    #
@@ -129,7 +146,7 @@ replication-sections:
       - title: "{{ integration.display_name }} data syncs to Amazon S3"
         anchor: "heap-data-syncs-to-amazon-s3"
         content: |
-          {{ integration.display_name }} dumps data into Amazon S3 periodically. [By default, this is on a nightly basis](https://docs.heapanalytics.com/docs/heap-sql-retroactive-s3-specification#section-process-overview){:target="new"}.
+          {{ integration.display_name }} dumps data into Amazon S3 periodically. [By default, this is on a nightly basis](https://help.heap.io/integrations/data-warehouses/s3/#process-overview){:target="new"}.
 
           According to {{ integration.display_name }}'s documentation:
 
@@ -137,7 +154,7 @@ replication-sections:
 
           This means that while files will only include new and updated data pertinent to that specific object (table), a full resync may be included.
 
-      - title: "Incremental Replication using file modification timestamps"
+      - title: "Key-based Incremental Replication using file modification timestamps"
         anchor: "incremental-replication-for-heap"
         content: |
           To identify new and updated data for replication, Stitch will use file modification timestamps as [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}) and store them on a per-table basis. This means that only files dumped from a new {{ integration.display_name }} data sync will be selected for replication.

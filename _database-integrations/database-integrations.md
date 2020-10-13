@@ -6,6 +6,7 @@ permalink: /integrations/databases/
 summary: "With Stitch, you can consolidate data from a variety of databases into a single data warehouse. Learn more about setting up a database integration and how Stitch will replicate data from that specific database type."
 
 key: "database-integrations"
+content-type: "category"
 
 toc: false
 input: false
@@ -44,7 +45,7 @@ sections:
 
           {% for integration in database-integrations %}
           {% if integration.ssl == true %}
-          - [{{ integration.title | remove: "(v1.0)" }}]({{ integration.url | prepend: site.baseurl }})
+          - [{{ integration.title | remove: "(v1)" }}]({{ integration.url | prepend: site.baseurl }})
           {% endif %}
           {% endfor %}
 

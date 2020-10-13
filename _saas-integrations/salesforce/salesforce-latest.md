@@ -86,8 +86,10 @@ setup-steps:
 
       Complete this step before proceeding with the rest of the setup, or you may encounter connection issues.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. If the instance you want to connect to Stitch is a **sandbox**, check the **Connect to a Sandbox Environment** box.
 
   - title: "Configure Stitch's {{ integration.display_name }} API Usage"
@@ -99,6 +101,10 @@ setup-steps:
       2. The amount of standard API quota your account has. {{ site.data.tooltips.api-quota }}
 
       Stitch's {{ integration.display_name }} integration allows you to control both of these settings so you can replicate data as you see fit.
+
+      {% for substep in step.substeps %}
+      - [Step {{ section-step-number | strip }}.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
       
     substeps:
       - title: "Select extraction API"
@@ -209,9 +215,17 @@ setup-steps:
 
       {% include note.html first-line="**Data for new fields in already-replicating tables**" content=new-fields-replicating-tables %}
 
-  - title: "historical sync"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
 
-  - title: "replication frequency"
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
   - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
@@ -222,7 +236,10 @@ setup-steps:
       4. After the authorization process successfully completes, you'll be redirected back to Stitch.
       5. Click {{ app.buttons.finish-int-setup }}.
 
-  - title: "track data"
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Integration Tables     #

@@ -31,7 +31,7 @@ certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 status-url: https://status.goshippo.com/
 
 api-type: "platform.shippo"
@@ -41,6 +41,9 @@ cron-scheduling: true
 
 table-selection: false
 column-selection: false
+select-all: false
+select-all-reason: |
+  As this integration doesn't support table or column selection, all available tables and columns are automatically replicated.
 
 extraction-logs: true
 loading-reports: true
@@ -68,11 +71,21 @@ setup-steps:
          ![Shippo API token.]({{ site.baseurl }}/images/integrations/shippo-api-credentials.png)
 
          Leave this page open for now - you'll need it to complete the setup.
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **{{ integration.display_name }} Token** field, paste your {{ integration.display_name }} API Live token.
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
 # -------------------------- #
 #        Table Schemas       #

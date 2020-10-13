@@ -34,7 +34,7 @@ certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 status-url: http://status.sendgrid.com/
 
 api-type: "platform.sendgrid"
@@ -88,11 +88,21 @@ setup-steps:
       7. Click **Create & View**.
       8. The API key will display. **Copy the key before closing the page**, as SendGrid won't display it again.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **SendGrid API Key** field, paste your SendGrid API key.
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
 # -------------------------- #
 #     Integration Tables     #

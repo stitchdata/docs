@@ -9,11 +9,14 @@ singer-schema: "https://github.com/singer-io/tap-codat/blob/master/tap_codat/sch
 description: |
   The `{{ table.name }}` table contains info about bank statement report data for a company over a time period.
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
+
+replication-key:
+  name: "modifiedDate"
 
 api-method:
-    name: "List bank statements for a company"
-    doc-link: "https://docs.codat.io/reference/bankstatements#bankstatements_listpaged"
+  name: "List bank statements for a company"
+  doc-link: "https://docs.codat.io/reference/bankstatements#bankstatements_listpaged"
 
 attributes:
   - name: "id"
@@ -26,6 +29,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the company associated with the account."
+    foreign-key-id: "company-id"
 
   - name: "accountName"
     type: "string"
@@ -47,33 +51,33 @@ attributes:
     type: "string"
     description: "The currency of the bank account."
 
-  - name: "details"
-    type: "array"
-    description: "Details about the transactions contained in the bank statement."
-    subattributes:
-      - name: "amount"
-        type: "number"
-        description: "The amount of the line item."
+  # - name: "details"
+  #   type: "array"
+  #   description: "Details about the transactions contained in the bank statement."
+  #   subattributes:
+  #     - name: "amount"
+  #       type: "number"
+  #       description: "The amount of the line item."
 
-      - name: "balance"
-        type: "number"
-        description: "The current balance of the bank account, with the line item accounted for."
+  #     - name: "balance"
+  #       type: "number"
+  #       description: "The current balance of the bank account, with the line item accounted for."
 
-      - name: "date"
-        type: "date-time"
-        description: "The date of the transaction."
+  #     - name: "date"
+  #       type: "date-time"
+  #       description: "The date of the transaction."
 
-      - name: "description"
-        type: "string"
-        description: "A description of the transaction."
+  #     - name: "description"
+  #       type: "string"
+  #       description: "A description of the transaction."
 
-      - name: "id"
-        type: "string"
-        description: "The ID for the bank transaction."
+  #     - name: "id"
+  #       type: "string"
+  #       description: "The ID for the bank transaction."
 
-      - name: "reconciled"
-        type: "boolean"
-        description: "Indicates if the bank account has been reconciled with the accounting platform or not."
+  #     - name: "reconciled"
+  #       type: "boolean"
+  #       description: "Indicates if the bank account has been reconciled with the accounting platform or not."
 
   - name: "fromDate"
     type: "date-time"

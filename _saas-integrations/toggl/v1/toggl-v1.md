@@ -45,7 +45,7 @@ certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 
 api-type: "platform.toggl"
 
@@ -98,16 +98,29 @@ setup-steps:
 
       Keep this handy - you'll need it to complete the next step.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API Token** field, paste the API token you retrieve in [Step 1](#retrieve-toggl-api-token).
       5. In the **Trailing Days** field, enter the number of days Stitch should use as an attribution window when replicating time entry data. **Note**: This is only applicable to the `time_entries` table.
 
          For example: If this value is `5`, Stitch will replicate the past five days' worth of data for the `time_entries` table during every replication job.
 
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

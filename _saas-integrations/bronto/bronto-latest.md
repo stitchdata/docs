@@ -34,7 +34,7 @@ certified: false
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 
 api-type: "platform.bronto"
 
@@ -43,6 +43,9 @@ cron-scheduling: true
 
 table-selection: false
 column-selection: false
+select-all: false
+select-all-reason: |
+  As this integration doesn't support table or column selection, all available tables and columns are automatically replicated.
 
 extraction-logs: true
 loading-reports: true
@@ -77,11 +80,21 @@ setup-steps:
       6. Click the checkbox next to **Read** to allow read access for this token.
       7. Ensure that the checkbox next to **Token is active?** is checked, and click **Save**.
       8. The access token will appear on the page under the name `Stitch` once the modal closes. Copy this to be used in setting up the connection from within the Stitch application.
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Bronto API Token** field, paste the access token you created in Step 1.
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
 # -------------------------- #
 #     Integration Tables     #

@@ -8,6 +8,7 @@ doc-link: "https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_
 description: ""
 
 replication-method: "Key-based Incremental"
+loading-behavior: "Append-Only"
 
 attributes:
   - name: "date_last_modified"

@@ -56,124 +56,17 @@ frequently-asked-questions:
   - topic: "Integrations"
     anchor: "integrations"
     items:
-      - question: "What integrations are available on the Free Plan?"
-        anchor: "integrations-free-plan"
-        answer: |
-          {{ site.data.stitch.subscription-plans.enterprise.trial-description }}
-
-          {% assign all-integrations = site.documents | where:"input", true %}
-
-          {% assign free-integrations = all-integrations | where:"tier","Free" | sort:"title" %}
-
-          After the Free Trial has ended, the integrations in the table below will be available to any plan.
-
-          <table class="attribute-list">
-          {% for integration in free-integrations %}
-
-          {% assign index = forloop.index | modulo: 2 %}
-
-          {% if index == 1 %}
-          <tr>
-          {% endif %}
-            <td width="33%; fixed">
-              <a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.title | remove: "(v1)" | remove: "(v2)" | remove: "(v1.0)" | remove: "(v2.0)" }}</a>
-            </td>
-          {% case index %}
-            {% when 0 %}
-              </tr>
-            {% else %}
-              {% if forloop.last == true %}
-                {% case index %}
-                  {% when 1 %}
-                    <td>
-                    </td>
-                    </tr>
-                {% endcase %}
-              {% endif %}
-            {% endcase %}
-          {% endfor %}
-          </table>
-
-      - question: "What integrations are available on a Standard Plan?"
-        anchor: "integrations-paid-plan"
-        answer: |
-          {% assign standard-integrations = all-integrations | where:"tier","Standard" | sort:"title" %}
-
-          After the Free Trial has ended, the integrations in the table below will only be available to Standard and Enterprise Plans. Refer to the [pricing page]({{ site.pricing }}){:target="new"} for a list of current Stitch plans.
-
-          <table class="attribute-list">
-          {% for integration in standard-integrations %}
-
-          {% assign index = forloop.index | modulo: 2 %}
-
-          {% if index == 1 %}
-          <tr>
-          {% endif %}
-            <td width="33%; fixed">
-              <a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.title | remove: "(v1)" | remove: "(v2)" | remove: "(v1.0)" | remove: "(v2.0)" }}</a>
-            </td>
-          {% case index %}
-            {% when 0 %}
-              </tr>
-            {% else %}
-              {% if forloop.last == true %}
-                {% case index %}
-                  {% when 1 %}
-                    <td>
-                    </td>
-                    </tr>
-                {% endcase %}
-              {% endif %}
-            {% endcase %}
-          {% endfor %}
-          </table>
-
-      - question: "What integrations are available on an Enterprise Plan?"
-        anchor: "integrations-enterprise-plan"
-        answer: |
-          {% assign enterprise-integrations = all-integrations | where:"tier","Enterprise" | sort:"title" %}
-
-          The integrations in the table below are available only to Enterprise Plans. [Reach out to sales]({{ site.sales }}){:target="new"} for more info.
-
-          <table class="attribute-list">
-          {% for integration in enterprise-integrations %}
-
-          {% assign index = forloop.index | modulo: 2 %}
-
-          {% if index == 1 %}
-          <tr>
-          {% endif %}
-            <td width="33%; fixed">
-              <a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.title | remove: "(v1)" | remove: "(v2)" | remove: "(v1.0)" | remove: "(v2.0)" }}</a>
-            </td>
-          {% case index %}
-            {% when 0 %}
-              </tr>
-            {% else %}
-              {% if forloop.last == true %}
-                {% case index %}
-                  {% when 1 %}
-                    <td>
-                    </td>
-                    </tr>
-                {% endcase %}
-              {% endif %}
-            {% endcase %}
-          {% endfor %}
-          </table>
-
-      - question: "Can I use Standard Plan integrations if I'm on the Free plan?"
-        anchor: "paid-integrations-free-plan"
-        answer: |
-          No. To use any of Stitch's Standard Plan integrations, you'll need to [upgrade to a Standard plan]({{ site.pricing }}){:target="new"}.
-
-      - question: "How many integrations can I add?"
+      - question: "How many integrations can I add in my Stitch account?"
         anchor: "how-many-integrations-can-i-add"
         answer: |
           {% include misc/icons.html %}
           The total number of integrations refers to the number of distinct integration types each account may add, dependent upon the selected plan type.
 
-          For example: Accounts using the Free Plan may add up to five different types of integrations. If an account has five Google Analytics integrations connected, this will only count as one towards the integration type quota. Up to four additional types of integrations may still be added.
+          {% assign standard-plan = site.data.stitch.subscription-plans.standard %}
+
+          For example: Accounts using the Standard Plan may add up to **{{ standard-plan.total-integrations | downcase }}** different types of integrations.
+
+          If an account has **five** Google Analytics integrations connected, this wonly counts as **one** towards the integration type quota. Up to **nine** additional types of integrations may still be added.
 
           <table class="attribute-list">
           <tr>
@@ -206,9 +99,53 @@ frequently-asked-questions:
           </table>
           <br>
 
-          **Note**: The types of integrations available are also dependent on plan type. Users of the Free Plan will only have access to Free integrations, while Standard Plan users will have access to Free and Standard Plan integrations.
+          **Note**: The types of integrations available are also dependent on plan type. Users of the Enterprise plan will have access to all integrations, while Standard Plan users will have access only to Standard integrations.
 
           For more info, refer to the [pricing page]({{ site.pricing }}){:target="new"}.
+
+      - question: "What integrations are available on a Standard Plan?"
+        anchor: "integrations-paid-plan"
+        answer: |
+          After the Free Trial has ended, only Standard integrations will be available to users who select a Standard plan. This includes the majority of Stitch's available integrations with the exception of those offered as part of an [Enterprise plan]({{ link.account.enterprise-features | prepend: site.baseurl }}).
+
+          Refer to the [pricing page]({{ site.pricing }}){:target="new"} for a list of current Stitch plans.
+
+      - question: "What integrations are available on an Enterprise Plan?"
+        anchor: "integrations-enterprise-plan"
+        answer: |
+          {% assign all-integrations = site.documents | where:"input", true %}
+          {% assign enterprise-integrations = all-integrations | where:"tier","Enterprise" %}
+
+          The integrations in the table below are available only to Enterprise Plans. [Reach out to sales]({{ site.sales }}){:target="new"} for more info.
+
+          <table class="attribute-list">
+          {% for integration in enterprise-integrations %}
+
+          {% assign index = forloop.index | modulo: 2 %}
+
+          {% if index == 1 %}
+          <tr>
+          {% endif %}
+            <td width="33%; fixed">
+              <a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.title | remove: "(v1)" | remove: "(v2)" }}</a>
+            </td>
+          {% case index %}
+            {% when 0 %}
+              </tr>
+            {% else %}
+              {% if forloop.last == true %}
+                {% case index %}
+                  {% when 1 %}
+                    <td>
+                    </td>
+                    </tr>
+                {% endcase %}
+              {% endif %}
+            {% endcase %}
+          {% endfor %}
+          </table>
+
+
 
 # -------------------------- #
 #   HISTORICAL DATA LOADS    #
@@ -220,13 +157,11 @@ frequently-asked-questions:
       - question: "What is a free historical data load?"
         anchor: "free-historical-data-load"
         answer: |
-          During the first seven days after a new integration begins to replicate data, replication is free. This is a free historical data load, and means that rows replicated from the new integration during this time won't count towards your quota.
+          During the first seven days after a new integration begins to replicate data, replication is free. This is a free historical data load, and means that rows replicated from the new integration during this time won't count towards your quota. This is applicable to all integrations, regardless of plan type.
 
           After the seven days are over, Stitch will continue to replicate data from the integration. Be sure to **pause** or **delete** the integration if you are no longer interested in replicating its data.
 
           Free historical data loads are only allowed once per integration namespace. For example: If an integration named `stitch_hubspot` is created and receives a free historical data load, subsequent integrations with the same name (created by deleting and creating a new integration) will not receive free historical replication.
-
-          **Note**: While free historical loads apply to all of Stitch's integrations, you need to be on a Standard plan to use our Standard integrations.
 
       - question: "Do free historical data loads apply to integration or table resets?"
         anchor: "free-historical-loads-resets"
@@ -278,11 +213,6 @@ frequently-asked-questions:
         answer: |
           We recommend [following the simple tips in this guide]({{ link.getting-started.row-usage | prepend: site.baseurl | append: "#reducing-your-usage" }}) to reduce your row usage.
 
-      - question: "Do rows from Free Plan integrations count towards my usage?"
-        anchor: "free-integrations-usage"
-        answer: |
-          Yes. Rows replicated from [free integrations](#integrations-each-plan) will count towards your usage. The "free" in "free plan integration" only indicates that the integration is available on any plan, not that the rows replicated don't count towards your usage.
-
       - question: "What happens if I use more than the rows allotted in my plan?"
         anchor: "exceed-row-allotment"
         answer: |
@@ -296,12 +226,10 @@ frequently-asked-questions:
   - topic: "Choose and change plans"
     anchor: "manage-plans"
     items: 
-      - question: "Do I have to select a plan after my free trial ends?"
+      - question: "Do I have to select a plan after my Free Trial ends?"
         anchor: "select-plan-after-free-trial"
         answer: |
           Yes. When your trial ends, Stitch will automatically pause your integrations. Replication will resume after you select a plan and enter a valid credit card.
-
-          **Note**: Some integrations require a Standard Plan after the free trial ends. To continue replicating data from these sources - for example, Salesforce - you'll need to select a Standard Plan after your trial concludes.
 
       - question: "How can I change my plan?"
         anchor: "change-plan"
@@ -319,13 +247,14 @@ frequently-asked-questions:
 
           If you're upgrading or downgrading a monthly plan, meaning the new plan has a greater or lower row limit than the current plan, the change will be effective immediately and you will be charged or refunded the difference between the current plan and the new plan.
 
-          In addition, if you're upgrading from the Free Plan to any Standard Plan, you will also have immediate access to Standard integrations.
+          In addition, if you're upgrading from the Standard plan to an Enterprise plan, you'll also have immediate access to Enterprise integrations.
              
           **For annual plans**:
 
           - **If you're upgrading**, meaning the new plan has a greater row limit than the current plan, the change will be effective immediately and you will be charged the difference between the current plan and the new plan.
 
-          - **If you're downgrading**, meaning the new plan has a lower row limit than the current plan, the change will take effect at the end of the billing cycle. This ensures that you can take full advantage of the higher row allotment and access to Standard integrations for the remainder of the billing cycle.
+          - **If you're downgrading**, meaning the new plan has a lower row limit than the current plan, the change will take effect at the end of the billing cycle. This ensures that you can take full advantage of the higher row allotment for the remainder of the billing cycle.
+
 
 # -------------------------- #
 # PAYMENT DETAILS & INVOICES #

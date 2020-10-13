@@ -32,7 +32,7 @@ driver: |
 certified: true
 
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 port: 5432
 db-type: "postgres"
 
@@ -156,7 +156,7 @@ setup-steps:
   - title: "Select data to replicate"
     anchor: "sync-data"
     content: |
-      {% include integrations/databases/setup/syncing.html %}
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

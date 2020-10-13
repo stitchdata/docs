@@ -54,4 +54,15 @@ object-attributes:
   - name: "job_name"
     type: "string"
     description: "A unique identifier for the replication job."
+
+
+# -------------------------- #
+#           EXAMPLES         #
+# -------------------------- #
+
+examples:
+  - code: |
+      {
+      "job_name": "116078.120643.sync.c12fb0a7-7e4a-11e9-abdc-0edc2c318fba"
+      }
 ---

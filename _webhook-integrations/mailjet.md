@@ -28,7 +28,7 @@ frequency: "Continuous"
 primary-key:
   defined: false
   field: 
-tier: "Free"
+tier: "Standard"
 status-url: "https://mailjet.statuspage.io/"
 icon: /images/integrations/icons/mailjet.svg
 

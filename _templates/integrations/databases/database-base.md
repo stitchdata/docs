@@ -54,12 +54,13 @@ feature-summary: |
 certified: true/false
 
 frequency: "30 minutes"
-tier: "Free/Standard/Enterprise"
+tier: "Standard/Enterprise"
 port: ## Database's default port - ex: 3306
 db-type: ""
 
 ## Stitch features
 
+api-type: ""
 versions: "n/a"
 ssh: true/false
 ssl: true/false
@@ -110,11 +111,20 @@ setup-steps:
 	  anchor: ""
 	  content: ""
 
-  - title: "connect stitch"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
+    content: |
+      {% include integrations/shared-setup/connection-setup.html %}
 
-  - title: "replication frequency"
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

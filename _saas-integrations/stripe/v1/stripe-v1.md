@@ -40,7 +40,7 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free"
+tier: "Standard"
 status-url: "https://status.stripe.com/"
 
 api-type: "platform.stripe"
@@ -90,9 +90,20 @@ requirements-list:
       **Administrator permissions in {{ integration.display_name }}.** This is required to grant Stitch access to {{ integration.display_name }}.
 
 setup-steps:
-  - title: "add integration"
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
+    content: |
+      {% include integrations/shared-setup/connection-setup.html %}
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
   - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
     content: |
@@ -102,15 +113,25 @@ setup-steps:
       4. Sign into your {{ integration.display_name }} account.
       5. After the authorization process is successfully completed, you'll be directed back to Stitch.
       6. Click {{ app.buttons.finish-int-setup }}.
-  - title: "track data"
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #
-#     Replication Details     #
+#     Replication Details    #
 # -------------------------- #
 
 replication-sections:
-  - content: |
+  - title: "Events table replication"
+    anchor: "event-table-replication"
+    content: |
+      {{ integration.display_name }} will only provide 30 days of historical event data for the `events` table. Refer the the [{{ integration.display_name }} docs](https://stripe.com/docs/api/events){:target="new"} for more information about the `events` table.
+  
+  - title: "Objects and events"
+    anchor: "objects-events"
+    content: |
       In the {{ integration.display_name }} API, there are two concepts:
 
       - **Objects**, which are items like charges, invoices, customers, etc.

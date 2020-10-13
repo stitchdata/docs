@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: SurveyMonkey
+title: SurveyMonkey (v1)
 permalink: /integrations/saas/surveymonkey
 keywords: surveymonkey, integration, schema, etl surveymonkey, surveymonkey etl, surveymonkey schema
 layout: singer
@@ -50,7 +50,7 @@ api-type: "platform.surveymonkey"
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Standard"
 
 anchor-scheduling: true
 cron-scheduling: true
@@ -114,13 +114,26 @@ setup-steps:
 
       Leave this page open - you'll need it in the next step. **Note**: You may come back at any time to retrieve your access token or identify a new survey ID.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Access Token** field, add your access token that you obtained in [Step 1](#retrieve-access-token-and-survey-id).
       5. In the **Survey Id** field, add your survey ID that you retrieved in [Step 1](#retrieve-access-token-and-survey-id).
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

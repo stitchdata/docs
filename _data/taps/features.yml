@@ -232,6 +232,28 @@ column-selection: &column-selection
     webhooks: *column-selection-unsupported
   field-value: *unsupported-tooltip-logic
 
+select-all: &select-all
+  display-name: "Select all"
+  name: "select-all"
+  tooltip: "{{ site.data.tooltips.select-all-objects }}"
+  field-value: |
+    {% if integration.select-all-reason %}
+    {% assign reason = integration.select-all-reason | flatify %}
+    {% else %}
+    {% assign reason = "Supported" %}
+    {% endif %}
+
+    {% case integration[attribute.name] %}
+    {% when false %}
+    {{ not-supported | replace:"TOOLTIP",reason }} Unsupported
+
+    {% when 'sometimes' %}
+    {{ sometimes-supported | replace:"TOOLTIP",reason }} Supported, with prerequisites
+
+    {% else %}
+    {{ supported |  replace:"TOOLTIP","Supported" }} Supported
+    {% endcase %}
+
 view-replication: &view-replication
   display-name: "View replication"
   name: "view-replication"
@@ -312,6 +334,7 @@ databases:
       - *table-selection
       - *column-selection
       - *view-replication
+      - *select-all
   - name: "Transparency"
     attributes: &transparency-category-attributes
       - *extraction-logs
@@ -322,7 +345,30 @@ databases:
 #    SAAS INTEGRATION FEATURES   #
 # ------------------------------ #
 
-saas: &saas-integration-categories
+saas:
+  - name: "Stitch"
+    attributes:
+      - *release-status
+      - *support-level
+      - *stitch-plan
+      - *api-availability
+      - *singer
+  - name: "Replication settings"
+    attributes: *replication-setting-category-attributes
+  - name: "Data selection"
+    attributes:
+      - *table-selection
+      - *column-selection
+      - *select-all
+  - name: "Transparency"
+    attributes: *transparency-category-attributes
+
+
+# ------------------------------ #
+#  WEBHOOK INTEGRATION FEATURES  #
+# ------------------------------ #
+
+webhooks:
   - name: "Stitch"
     attributes:
       - *release-status
@@ -338,10 +384,3 @@ saas: &saas-integration-categories
       - *column-selection
   - name: "Transparency"
     attributes: *transparency-category-attributes
-
-
-# ------------------------------ #
-#  WEBHOOK INTEGRATION FEATURES  #
-# ------------------------------ #
-
-webhooks: *saas-integration-categories

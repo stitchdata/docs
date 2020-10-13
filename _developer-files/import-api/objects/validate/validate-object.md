@@ -76,4 +76,25 @@ object-attributes:
   - name: "data"
     type: "object"
     description: "{{ general.attributes.data | flatify }}"
+
+
+# -------------------------- #
+#           EXAMPLES         #
+# -------------------------- #
+
+examples:
+  - code: |
+      {
+        "client_id":7723,
+        "table_name":"customers",
+        "sequence":1565880017,
+        "data":{
+           "id":1,
+           "name":"Finn"
+        },
+        "key_names":[
+           "id"
+        ],
+        "action":"upsert"
+      }
 ---

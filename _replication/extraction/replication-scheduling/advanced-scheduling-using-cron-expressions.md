@@ -247,7 +247,7 @@ sections:
       1. To access this page, click the integration from the {{ app.page-names.dashboard }} and then click the {{ app.buttons.update-int-settings }} tab.
       2. In the **Replication Frequency** section, check the **Advanced** box located under the **Anchor time** menu. This will open the **Advanced Scheduler**.
 
-         **Note**: This feature is only availble [during the Free Trial or on an Enterprise plan](#access-advanced-scheduling).
+         **Note**: This feature is only available [during the Free Trial or on an Enterprise plan](#access-advanced-scheduling).
       3. Enter the values you want into each of the fields. Stitch will validate the schedule after each change. If the schedule is valid, a sample schedule will display under the fields.
 
       4. When finished, click the {{ app.buttons.save-int-settings }} button.
