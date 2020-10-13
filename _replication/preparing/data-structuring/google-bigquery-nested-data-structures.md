@@ -11,7 +11,8 @@ keywords: google bigquery, bigquery, destination, nested data structures, repeat
 summary: "Understand how Stitch loads nested data structures in version 2 of the Google BigQuery destination."
 
 key: "bigquery-nested-data"
-type: "loading-basics"
+category: "preparing, loading"
+content-type: "data-structuring"
 
 layout: general
 toc: true
