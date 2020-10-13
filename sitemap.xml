@@ -11,7 +11,7 @@ search: exclude
     {% for doc in collection.docs %}
       {% unless doc.search == "exclude" %}
         <url>
-          <loc>{{ doc.url | prepend: site.url }}</loc>
+          <loc>{{ site.home }}{{ doc.url | prepend: site.baseurl }}</loc>
         </url>
       {% endunless %}
     {% endfor %}
