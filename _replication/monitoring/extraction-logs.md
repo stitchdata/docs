@@ -10,7 +10,8 @@ keywords: replication, extract, extraction, logs, report
 summary: "Extraction logs provide detail about the extraction portion of the replication process for a given integration."
 
 key: "extraction-logs"
-content-type: "basics"
+category: "extraction"
+content-type: "basics, monitoring"
 
 layout: general
 toc: false

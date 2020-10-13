@@ -1,22 +1,30 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Loading Reports
 permalink: /replication/integration-loading-reports
 keywords: replication, load, loading, report
-tags: [replication]
 summary: "Loading reports provide detail about the loading portion of the replication process for a given integration." 
-layout: general
 
 key: "loading-reports"
-content-type: "replication-progress"
+content-type: "monitoring"
+
+layout: general
 toc: true
 weight: 3
 
 enterprise: true
-
 enterprise-cta:
   title: "Get 60 days of Loading Reports with Stitch Enterprise"
   utm: "?utm_medium=docs&utm_campaign=loading-report-retention"
   copy: "Enterprise plans come with 60 days of Loading Reports, allowing you to view an integration's loading behavior over time, identify high volume tables, and quickly resolve errors if they arise."
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
 
 intro: |
   {% include misc/data-files.html %}
@@ -30,6 +38,11 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
   {% endfor %}
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "Report retention"
