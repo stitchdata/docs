@@ -10,6 +10,7 @@ keywords: syncing, sync, replicate, replication, select data, sync data, sync ta
 summary: "After you connect an integration and Stitch performs a structure sync, the next thing you'll do is select tables and columns to replicate."
 
 key: "select-data"
+category: "extraction"
 content-type: "select-data"
 
 layout: general

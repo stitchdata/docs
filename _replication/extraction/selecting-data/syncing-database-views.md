@@ -10,9 +10,10 @@ keywords: replicate, replication, replicate views, view, database view, replicat
 summary: "Replicating a database view is almost the same as replicating a database table. In this guide, we'll cover the database integrations that support views and the additional steps required to replicate a database view."
 
 key: "replicate-database-views"
+category: "extraction"
+content-type: "select-data"
 
 layout: general
-content-type: "select-data"
 toc: true
 weight: 2
 

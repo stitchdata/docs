@@ -10,6 +10,7 @@ keywords: replicate, replication, replication frequency, frequency, scheduling, 
 summary: "Anchor Scheduling is a type of replication scheduling that 'anchors' the start time of extraction jobs to a time you select. This allows you to establish predictable replication and ensure that your downstream processes run as scheduled with the most up-to-date data."
 
 key: "anchor-scheduling"
+category: "extraction"
 content-type: "replication-scheduling"
 method: true ## Used in the scheduling overview page
 

@@ -10,6 +10,7 @@ keywords: replicate, replication, replication frequency, frequency, anchor time,
 summary: "The Advanced Scheduler feature allows you to specify granular start times for data extraction. Using cron expressions, you can specify the exact times, days of the week, or even days of the month data extraction should begin."
 
 key: "advanced-scheduling"
+category: "extraction"
 content-type: "replication-scheduling"
 method: true ## Used in the scheduling overview page
 

@@ -10,6 +10,7 @@ keywords: replicate, replication, replication frequency, frequency, anchor time,
 summary: "A workaround for replicating sets of tables on different schedules."
 
 key: "table-scheduling"
+category: "extraction"
 content-type: "replication-scheduling"
 method: false
 

@@ -9,10 +9,11 @@ redirect_from: /replication/syncing-historical-saas-data-resetting-replication-k
 keywords: replicate, replication, replication key, keys, stitch replicates data, rp, saas, historical data, reset bookmark, reset replication key
 summary: "An integration's Start Date defines how far back Stitch should query for historical data. Learn how Start Dates work, how to define a custom Start Date, and how to change an existing integration's Start Date." 
 
-layout: general
-
 key: "define-integration-start-date"
+category: "extraction"
 content-type: "replication-keys, incremental-replication"
+
+layout: general
 toc: true
 weight: 6
 

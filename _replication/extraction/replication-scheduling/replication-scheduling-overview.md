@@ -10,6 +10,7 @@ keywords: replicate, replication, replication frequency, frequency, anchor time,
 summary: "Create a replication schedule for your integrations."
 
 key: "rep-scheduling"
+category: "extraction"
 content-type: "replication-scheduling"
 
 layout: general

@@ -10,9 +10,10 @@ keywords: syncing, sync, replicate, replication, select data, sync data, sync ta
 summary: "Learn about setting new and additional columns to replicate in already replicating tables in Stitch."
 
 # key: "new-additional-columns"
+category: "extraction"
+content-type: "select-data"
 
 layout: general
-content-type: "select-data"
 toc: true
 weight: 3
 

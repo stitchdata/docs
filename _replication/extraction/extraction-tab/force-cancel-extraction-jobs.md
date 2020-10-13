@@ -9,6 +9,7 @@ keywords: start job, force job, stop job, stop replication, start extraction, ex
 summary: "All integrations run on a schedule, but you can also start and stop extractions on demand. This is useful for testing configuration changes or recovering from an error."
 
 key: "start-stop-extraction"
+category: "extraction"
 content-type: "replication-scheduling, basics"
 
 layout: general

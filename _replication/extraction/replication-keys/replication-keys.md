@@ -10,10 +10,12 @@ redirect_from:
   - /replication/mongo-replication-keys
 keywords: replicate, replication, replication key, keys, stitch replicates data, rp
 summary: "Replication Keys are columns that Stitch uses to identify new and updated data for replication when performing Key-based Incremental Replication. Learn about how they work, what to consider when selecting one, and how to define them for your tables."
-layout: general
 
 key: "replication-keys"
+category: "extraction"
 content-type: "replication-keys, incremental-replication"
+
+layout: general
 toc: true
 weight: 5
 

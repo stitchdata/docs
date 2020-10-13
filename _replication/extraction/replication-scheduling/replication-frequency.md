@@ -12,6 +12,7 @@ keywords: replicate, replication, replication frequency, frequency, scheduling, 
 summary: "Replication Frequency is a type of replication scheduling that runs replication jobs based on a time interval you specify."
 
 key: "rep-frequency"
+category: "extraction"
 content-type: "replication-scheduling"
 method: true ## Used in the scheduling overview page
 

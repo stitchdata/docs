@@ -9,6 +9,7 @@ keywords: extractions, extraction job, replication job, start job, force start, 
 summary: "An integration's Extractions tab provides detail about the extraction portion of the replication process for a the integration. This includes detailed logs and on-demand job controls."
 
 key: "extractions-tab"
+category: "extraction"
 content-type: "basics"
 
 layout: general

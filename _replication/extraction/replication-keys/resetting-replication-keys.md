@@ -7,10 +7,12 @@ title: Resetting Replication Keys
 permalink: /replication/extractions/replication-keys/resetting-replication-keys
 keywords: replicate, replication, replication key, keys, stitch replicates data, rp
 summary: "Replication Key resets clear saved Replication Key values for incremental tables and queue a full re-replication of data. Learn how resets work, what you should consider beforehand, and how to perform them."
-layout: general
 
 key: "reset-replication-keys"
+category: "extraction"
 content-type: "replication-keys, incremental-replication"
+
+layout: general
 toc: true
 weight: 7
 

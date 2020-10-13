@@ -10,6 +10,7 @@ keywords: replicate, replication, replication method, stitch replicates data
 summary: "Full Table Replication is a replication method in which all rows in a table - including new, updated, and existing - are replicated during every replication job. This guide contains an overview of how Full Table Replication works, when it should be used, its limitations, and how to enable it for an integration."
 
 key: "full-table-replication"
+category: "extraction"
 content-type: "replication-methods"
 
 layout: general
