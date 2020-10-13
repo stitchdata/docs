@@ -21,7 +21,8 @@ enterprise: true
 enterprise-cta:
   title: "Get 60 days of Extraction logs with Stitch Enterprise"
   utm: "?utm_medium=docs&utm_campaign=extraction-log-retention"
-  copy: "Enterprise plans come with 60 days of Extraction Logs, allowing you to view an integration's extraction behavior over time, identify patterns, and quickly resolve errors when they arise."
+  copy: "Enterprise plans come with {{ site.data.stitch.subscription-plans.enterprise.logs }} of Extraction Logs, allowing you to view an integration's extraction behavior over time, identify patterns, and quickly resolve errors when they arise."
+
 
 
 # -------------------------- #
@@ -73,20 +74,25 @@ sections:
         content: |
           Changing your plan can impact logs currently available to you.
 
+          {% assign enterprise-logs = site.data.stitch.subscription-plans.enterprise.logs | remove: " days" %}
+          {% assign standard-logs = site.data.stitch.subscription-plans.standard.logs | remove: " days" %}
+
         sub-subsections:
           - title: "Plan downgrades"
             anchor: "plan-downgrades"
             content: |
               If you downgrade to a plan that offers fewer days' logs, you'll **lose** access to the difference between your current plan and your new plan.
 
-              For example: If you downgrade to Free from the Standard plan, you'll lose access to six days' worth of logs.
+              For example: If you downgrade to Standard from the Enterprise plan, you'll lose access to {{ enterprise-logs | minus: standard-logs }} days' worth of logs.
 
           - title: "Plan upgrades"
             anchor: "plan-upgrades"
             content: |
               Likewise, if you upgrade to a plan that offers more days' logs, you'll immediately **gain** access to the difference.
 
-              For example: If you upgrade to Standard from the Free plan, you'll gain access to an additional six days' worth of logs.
+              For example: If you upgrade to Enterprise from the Standard plan, you'll gain access to an additional {{ enterprise-logs | minus: standard-logs }} days' worth of logs.
+
+              {% include enterprise-cta.html %}
 
   - title: "Log composition"
     anchor: "log-composition"
@@ -208,7 +214,7 @@ sections:
           - title: "Updated Replication Key values"
             anchor: "updated-replication-key-values"
             content: |
-              During the extraction process, Stitch will update the Replication Key values for the tables set to replicate.
+              During Extraction, Stitch will update the Replication Key values for the tables set to replicate.
 
               Generally, the log line containing the saved Replication Key value for a table will be similar to this:
 
@@ -240,14 +246,6 @@ sections:
 
       {% include layout/inline_image.html type="normal" file="replication/extraction-log-error.png" alt="Error message from error that occurred during extraction" %}
 
-      If an error arises, check out the [Extraction error references]({{ link.troubleshooting.errors | prepend: site.baseurl | append: "#integration-extraction-errors" }}) for help.
-
-  - title: "Resources"
-    anchor: "extraction-resources"
-    summary: "Some additional resources"
-    content: |
-      - [Starting and stopping replication jobs]({{ link.replication.start-stop-extraction | prepend: site.baseurl }})
-      - [Monitoring replication progress]({{ link.replication.rep-progress | prepend: site.baseurl }})
-      - [Extraction error references]({{ link.troubleshooting.errors | prepend: site.baseurl | append: "#integration-extraction-errors" }})
+      If an error arises, check out the [extraction error references]({{ link.troubleshooting.main | prepend: site.baseurl | append: "/error-notifications#integration-extraction-errors" }}) for help.
 ---
 {% include misc/data-files.html %}
