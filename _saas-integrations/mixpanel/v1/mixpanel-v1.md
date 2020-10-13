@@ -126,8 +126,13 @@ setup-steps:
       {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API Secret** field, paste the **API Secret** you retrieved from [Step 1](#retrieve-timezone-api-secret).
       5. In the **Attribution Window** field, enter the number of days you want your tables' attribution window to be. For more information on attribution windows, refer to the [Replication section](#attribution-windows-extraction).
-      6. In the **Project Timezone** field, paste the **Project Timezone** you retrieved from [Step 1](#retrieve-timezone-api-secret).
-      7. **Optional**: In the **Select Properties By Default**, enter `true` to capture new properties in the `events` and `engage` tables' records. If set to `false` or left blank, new properties will be ignored.
+      6. In the **Date Window Size** field, enter the number of days desired for a date looping window for the `exports`, `funnels`, and `revenues` tables.
+
+         Date looping will return records whose `from_date` and `to_date` fall between the number of days in the defined window size.
+
+         **Note**: If your project has large volumes of events, you may want to set the number of days to `14`, `7`, or even to `1` or `2` days.
+      7. In the **Project Timezone** field, paste the **Project Timezone** you retrieved from [Step 1](#retrieve-timezone-api-secret).
+      8. **Optional**: In the **Select Properties By Default**, enter `true` to capture new properties in the `events` and `engage` tables' records. If set to `false` or left blank, new properties will be ignored.
 
 ## Max start date: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/sync.py#L151
   - anchor: "define-historical-sync"
