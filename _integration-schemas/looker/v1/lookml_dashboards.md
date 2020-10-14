@@ -1,148 +1,196 @@
 ---
 tap: "looker"
-version: "0.x"
-key: ""
+version: "1"
+key: "lookml-dashboard"
+
 name: "lookml_dashboards"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/lookml_dashboards.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains info about
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+  name: ""
+  doc-link: ""
+
 attributes:
   - name: "content_favorite_id"
     type: "string"
     description: ""
+
   - name: "content_metadata_id"
     type: "string"
     description: ""
+
   - name: "description"
     type: "string"
     description: ""
+
   - name: "folder"
     type: "object"
     description: ""
+
     subattributes:
       - name: "child_count"
         type: "integer"
         description: ""
+
       - name: "content_metadata_id"
         type: "string"
         description: ""
+
       - name: "creator_id"
         type: "string"
         description: ""
+
       - name: "external_id"
         type: "string"
         description: ""
+
       - name: "id"
         type: "string"
         description: ""
+
       - name: "is_embed"
         type: "boolean"
         description: ""
+
       - name: "is_embed_shared_root"
         type: "boolean"
         description: ""
+
       - name: "is_embed_users_root"
         type: "boolean"
         description: ""
+
       - name: "is_personal"
         type: "boolean"
         description: ""
+
       - name: "is_personal_descendant"
         type: "boolean"
         description: ""
+
       - name: "is_shared_root"
         type: "boolean"
         description: ""
+
       - name: "is_users_root"
         type: "boolean"
         description: ""
+
       - name: "name"
         type: "string"
         description: ""
+
       - name: "parent_id"
         type: "string"
         description: ""
+
   - name: "hidden"
     type: "boolean"
     description: ""
+
   - name: "id"
     type: "string"
     description: ""
+
   - name: "model"
     type: "object"
     description: ""
+
     subattributes:
       - name: "id"
         type: "string"
         description: ""
+
       - name: "label"
         type: "string"
         description: ""
+
   - name: "query_timezone"
     type: "string"
     description: ""
+
   - name: "readonly"
     type: "boolean"
     description: ""
+
   - name: "refresh_interval"
     type: "string"
     description: ""
+
   - name: "refresh_interval_to_i"
     type: "integer"
     description: ""
+
   - name: "space"
     type: "object"
     description: ""
+
     subattributes:
       - name: "child_count"
         type: "integer"
         description: ""
+
       - name: "content_metadata_id"
         type: "string"
         description: ""
+
       - name: "creator_id"
         type: "string"
         description: ""
+
       - name: "external_id"
         type: "string"
         description: ""
+
       - name: "id"
         type: "string"
         description: ""
+
       - name: "is_embed"
         type: "boolean"
         description: ""
+
       - name: "is_embed_shared_root"
         type: "boolean"
         description: ""
+
       - name: "is_embed_users_root"
         type: "boolean"
         description: ""
+
       - name: "is_personal"
         type: "boolean"
         description: ""
+
       - name: "is_personal_descendant"
         type: "boolean"
         description: ""
+
       - name: "is_shared_root"
         type: "boolean"
         description: ""
+
       - name: "is_users_root"
         type: "boolean"
         description: ""
+
       - name: "name"
         type: "string"
         description: ""
+
       - name: "parent_id"
         type: "string"
         description: ""
+
   - name: "title"
     type: "string"
     description: ""
+
   - name: "user_id"
     type: "string"
     description: ""

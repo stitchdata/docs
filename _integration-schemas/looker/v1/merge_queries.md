@@ -1,25 +1,35 @@
 ---
 tap: "looker"
-version: "0.x"
-key: ""
+version: "1"
+key: "merge-query"
+
 name: "merge_queries"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/merge_queries.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains info about the merge queries in your {{ integration.display_name }} account.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+  name: "Get merge query"
+  doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/query#get_merge_query"
+
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: ""
+    foreign-key-id: "merge-query-id"
+
   - name: "column_limit"
     type: "string"
     description: ""
+
   - name: "dynamic_fields"
     type: "string"
     description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+
   - name: "pivots"
     type: "array"
     description: ""
@@ -27,16 +37,19 @@ attributes:
       - name: "value"
         type: "string"
         description: ""
+
   - name: "result_maker_id"
     type: "string"
     description: ""
+
   - name: "sorts"
     type: "array"
     description: ""
     subattributes:
       - name: "value"
-        type: "anything"
+        type: "string"
         description: ""
+
   - name: "source_queries"
     type: "array"
     description: ""
@@ -48,21 +61,24 @@ attributes:
           - name: "field_name"
             type: "string"
             description: ""
+
           - name: "source_field_name"
             type: "string"
             description: ""
+
       - name: "name"
         type: "string"
         description: ""
+
       - name: "query_id"
         type: "string"
         description: ""
+        foreign-key-id: "query-id"
+
   - name: "total"
     type: "boolean"
     description: ""
+
   - name: "vis_config"
     type: "object"
     description: ""
-    subattributes: [
-        ]
----

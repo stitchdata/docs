@@ -1,16 +1,26 @@
 ---
 tap: "looker"
-version: "0.x"
-key: ""
+version: "1"
+key: "version"
+
 name: "versions"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/versions.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains info about the API versions supported by your {{ integration.display_name }} instance.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+  name: "Get API versions"
+  doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/config#get_apiversion"
+
 attributes:
+  - name: "looker_release_version"
+    type: "string"
+    primary-key: true
+    description: ""
+
   - name: "current_version"
     type: "object"
     description: ""
@@ -18,18 +28,19 @@ attributes:
       - name: "full_version"
         type: "string"
         description: ""
+
       - name: "status"
         type: "string"
         description: ""
+
       - name: "swagger_url"
         type: "string"
         description: ""
+
       - name: "version"
         type: "string"
         description: ""
-  - name: "looker_release_version"
-    type: "string"
-    description: ""
+
   - name: "supported_versions"
     type: "array"
     description: ""
@@ -37,12 +48,15 @@ attributes:
       - name: "full_version"
         type: "string"
         description: ""
+
       - name: "status"
         type: "string"
         description: ""
+
       - name: "swagger_url"
         type: "string"
         description: ""
+
       - name: "version"
         type: "string"
         description: ""
