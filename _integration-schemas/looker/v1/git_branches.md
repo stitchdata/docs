@@ -16,10 +16,11 @@ api-method:
   doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/project#get_all_git_branches"
 
 attributes:
-   name: "name"
+  - name: "name"
     type: "string"
     primary-key: true
     description: ""
+    foreign-key-id: "git-branch-name"
 
   - name: "project_id"
     type: "string"
