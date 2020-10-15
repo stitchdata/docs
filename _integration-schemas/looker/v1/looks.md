@@ -7,7 +7,7 @@ name: "looks"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/looks.json"
 description: |
-  The `{{ table.name }}` table contains info about the looks in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains information about all active looks in your {{ integration.display_name }} account. Looks that have been soft deleted in {{ integration.display_name }} are not included in this table.
 
 replication-method: "Full Table"
 
@@ -15,11 +15,12 @@ api-method:
   name: "Get all looks"
   doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/look#get_all_looks"
 
+
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The look ID."
     foreign-key-id: "look-id"
 
   - name: "content_favorite_id"
@@ -78,6 +79,7 @@ attributes:
       - name: "creator_id"
         type: "string"
         description: ""
+        foreign-key-id: "user-id"
 
       - name: "external_id"
         type: "string"

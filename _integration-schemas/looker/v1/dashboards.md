@@ -7,7 +7,7 @@ name: "dashboards"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/dashboards.json"
 description: |
-  The `{{ table.name }}` table contains info about the dashboards in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains information about all active dashboards in your {{ integration.display_name }} account.
 
 replication-method: "Full Table"
 
@@ -19,7 +19,7 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The dashboard ID."
     foreign-key-id: "dashboard-id"
 
   - name: "content_favorite_id"
@@ -97,7 +97,7 @@ attributes:
   - name: "hidden"
     type: "boolean"
     description: ""
-
+  
   - name: "model"
     type: "object"
     description: ""

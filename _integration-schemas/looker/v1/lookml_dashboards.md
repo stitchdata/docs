@@ -4,18 +4,24 @@ version: "1"
 key: "lookml-dashboard"
 
 name: "lookml_dashboards"
-doc-link: ""
+doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/dashboard#get_all_dashboards"
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/lookml_dashboards.json"
 description: |
-  The `{{ table.name }}` table contains info about
-
+  The `{{ table.name }}` table contains information about LookML dashboards in your {{ integration.display_name }} account.
+  
 replication-method: "Full Table"
 
 api-method:
-  name: ""
-  doc-link: ""
+  name: "Get all dashboards"
+  doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/dashboard#get_all_dashboards"
 
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The LookML dashboard ID."
+    # foreign-key-id: "lookml-dashboard-id"
+
   - name: "content_favorite_id"
     type: "string"
     description: ""
@@ -27,11 +33,10 @@ attributes:
   - name: "description"
     type: "string"
     description: ""
-
+    
   - name: "folder"
     type: "object"
     description: ""
-
     subattributes:
       - name: "child_count"
         type: "integer"
@@ -44,6 +49,7 @@ attributes:
       - name: "creator_id"
         type: "string"
         description: ""
+        foreign-key-id: "user-id"
 
       - name: "external_id"
         type: "string"
@@ -93,18 +99,14 @@ attributes:
     type: "boolean"
     description: ""
 
-  - name: "id"
-    type: "string"
-    description: ""
-
   - name: "model"
     type: "object"
     description: ""
-
     subattributes:
       - name: "id"
         type: "string"
         description: ""
+        foreign-key-id: "model-id"
 
       - name: "label"
         type: "string"
@@ -129,7 +131,6 @@ attributes:
   - name: "space"
     type: "object"
     description: ""
-
     subattributes:
       - name: "child_count"
         type: "integer"
@@ -142,6 +143,7 @@ attributes:
       - name: "creator_id"
         type: "string"
         description: ""
+        foreign-key-id: "user-id"
 
       - name: "external_id"
         type: "string"
@@ -150,6 +152,7 @@ attributes:
       - name: "id"
         type: "string"
         description: ""
+        foreign-key-id: "space-id"
 
       - name: "is_embed"
         type: "boolean"
@@ -186,6 +189,7 @@ attributes:
       - name: "parent_id"
         type: "string"
         description: ""
+        foreign-key-id: "space-id"
 
   - name: "title"
     type: "string"
@@ -194,4 +198,5 @@ attributes:
   - name: "user_id"
     type: "string"
     description: ""
+    foreign-key-id: "user-id"
 ---
