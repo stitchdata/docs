@@ -1,28 +1,39 @@
 ---
 tap: "looker"
-version: "0.x"
-key: ""
+version: "1"
+key: "permission-set"
+
 name: "permission_sets"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/permission_sets.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains info about the role permission sets in your {{ integration.display_name }} account.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+  name: "Get all permission sets"
+  doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/role#get_all_permission_sets"
+
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: ""
+    foreign-key-id: "permission-set-id"
+
   - name: "all_access"
     type: "boolean"
     description: ""
+
   - name: "built_in"
     type: "boolean"
     description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+
   - name: "name"
     type: "string"
     description: ""
+
   - name: "permissions"
     type: "array"
     description: ""
@@ -30,6 +41,8 @@ attributes:
       - name: "value"
         type: "string"
         description: ""
+        foreign-key-id: "permission-id"
+
   - name: "url"
     type: "string"
     description: ""

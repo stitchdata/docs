@@ -1,7 +1,7 @@
 ---
 tap: "looker"
 version: "1"
-key: ""
+key: "lookml-dashboard"
 
 name: "lookml_dashboards"
 doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/dashboard#get_all_dashboards"
@@ -12,24 +12,28 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "Get All Dashboards"
-    doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/dashboard#get_all_dashboards"
+  name: "Get all dashboards"
+  doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/dashboard#get_all_dashboards"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The LookML dashboard ID."
+    # foreign-key-id: "lookml-dashboard-id"
 
   - name: "content_favorite_id"
     type: "string"
     description: ""
+
   - name: "content_metadata_id"
     type: "string"
     description: ""
+
   - name: "description"
     type: "string"
     description: ""
+    
   - name: "folder"
     type: "object"
     description: ""
@@ -37,49 +41,64 @@ attributes:
       - name: "child_count"
         type: "integer"
         description: ""
+
       - name: "content_metadata_id"
         type: "string"
         description: ""
+
       - name: "creator_id"
         type: "string"
         description: ""
+        foreign-key-id: "user-id"
+
       - name: "external_id"
         type: "string"
         description: ""
+
       - name: "id"
         type: "string"
         description: ""
+
       - name: "is_embed"
         type: "boolean"
         description: ""
+
       - name: "is_embed_shared_root"
         type: "boolean"
         description: ""
+
       - name: "is_embed_users_root"
         type: "boolean"
         description: ""
+
       - name: "is_personal"
         type: "boolean"
         description: ""
+
       - name: "is_personal_descendant"
         type: "boolean"
         description: ""
+
       - name: "is_shared_root"
         type: "boolean"
         description: ""
+
       - name: "is_users_root"
         type: "boolean"
         description: ""
+
       - name: "name"
         type: "string"
         description: ""
+
       - name: "parent_id"
         type: "string"
         description: ""
+
   - name: "hidden"
     type: "boolean"
     description: ""
-  
+
   - name: "model"
     type: "object"
     description: ""
@@ -87,21 +106,28 @@ attributes:
       - name: "id"
         type: "string"
         description: ""
+        foreign-key-id: "model-id"
+
       - name: "label"
         type: "string"
         description: ""
+
   - name: "query_timezone"
     type: "string"
     description: ""
+
   - name: "readonly"
     type: "boolean"
     description: ""
+
   - name: "refresh_interval"
     type: "string"
     description: ""
+
   - name: "refresh_interval_to_i"
     type: "integer"
     description: ""
+
   - name: "space"
     type: "object"
     description: ""
@@ -109,49 +135,68 @@ attributes:
       - name: "child_count"
         type: "integer"
         description: ""
+
       - name: "content_metadata_id"
         type: "string"
         description: ""
+
       - name: "creator_id"
         type: "string"
         description: ""
+        foreign-key-id: "user-id"
+
       - name: "external_id"
         type: "string"
         description: ""
+
       - name: "id"
         type: "string"
         description: ""
+        foreign-key-id: "space-id"
+
       - name: "is_embed"
         type: "boolean"
         description: ""
+
       - name: "is_embed_shared_root"
         type: "boolean"
         description: ""
+
       - name: "is_embed_users_root"
         type: "boolean"
         description: ""
+
       - name: "is_personal"
         type: "boolean"
         description: ""
+
       - name: "is_personal_descendant"
         type: "boolean"
         description: ""
+
       - name: "is_shared_root"
         type: "boolean"
         description: ""
+
       - name: "is_users_root"
         type: "boolean"
         description: ""
+
       - name: "name"
         type: "string"
         description: ""
+
       - name: "parent_id"
         type: "string"
         description: ""
+        foreign-key-id: "space-id"
+
   - name: "title"
     type: "string"
     description: ""
+
   - name: "user_id"
     type: "string"
     description: ""
+    foreign-key-id: "user-id"
 ---
