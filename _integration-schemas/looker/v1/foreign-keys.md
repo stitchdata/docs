@@ -425,7 +425,7 @@ foreign-keys:
       - table: "project_files"
       - table: "projects"
         join-on: "id"
-      - tables: "workspaces"
+      - table: "workspaces"
         subattribute: "projects"
         join-on: "id"
 
@@ -437,6 +437,7 @@ foreign-keys:
         subattribute: "look"
       - table: "dashboard_elements"
         subattribute: "look"
+        join-on: "query_id"
       - table: "dashboard_elements"
       - table: "dashboard_elements"
         join-on: "query_id"

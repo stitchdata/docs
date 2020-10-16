@@ -20,7 +20,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The workspace ID."
-    foreign-key-id: "workspace-id"
+    # foreign-key-id: "workspace-id"
 
   - name: "projects"
     type: "array"
