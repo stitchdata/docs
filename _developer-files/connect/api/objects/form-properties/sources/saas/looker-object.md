@@ -27,11 +27,7 @@ api-type: "platform.looker"
 display-name: "Looker"
 
 source-type: "saas"
-docs-name: "looker" # This should be whatever integration.name is. Ex: LinkedIn Ads is linkedin-ads
-
-property-description: ""
-## Used to create a description for the object that doesn't adhere to the standard in _developers/connect/api/documentation/api-form-properties.html
-## See the Heap object for an example
+docs-name: "looker" 
 
 
 # -------------------------- #
@@ -61,14 +57,16 @@ object-attributes:
   - name: "client_id"
     type: "string"
     required: true
-    description: "The client ID portion of your {{ form-property.display-name }} API3 Key. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#api3-keys" }}) for instructions on obtaining this information."
-    value: "YOUR_CLIENT_ID"
+    description: |
+      The client ID portion of your {{ form-property.display-name }} API3 Key. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#generate-looker-api-keys" }}) for instructions on obtaining this information.
+    value: "<YOUR_{{ form-property.display-name | upcase }}_CLIENT_ID>"
 
   - name: "client_secret"
     type: "string"
     required: true
-    description: "The client secret portion of your {{ form-property.display-name }} API3 Key. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#api3-keys" }}) for instructions on obtaining this information."
-    value: "YOUR_CLIENT_SECRET"
+    description: |
+      The client secret portion of your {{ form-property.display-name }} API3 Key. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#generate-looker-api-keys" }}) for instructions on obtaining this information.
+    value: "<YOUR_{{ form-property.display-name | upcase }}_CLIENT_SECRET>"
 
   - name: "domain"
     type: "string"
@@ -79,6 +77,9 @@ object-attributes:
   - name: "subdomain"
     type: "string"
     required: true
-    description: "The subdomain of your {{ form-property.display-name }} URL. Your subdomain is the leading part of your {{ form-property.display-name }} URL. Example: https://`stitch`.looker.com"
-    value: "YOUR_SUBDOMAIN"          
+    description: |
+      The subdomain of your {{ form-property.display-name }} URL. This is the leading part of your {{ form-property.display-name }} URL.
+
+      For example: If the URL is `https://stitch.looker.com`, the value for this property would be `stitch`.
+    value: "<YOUR_{{ form-property.display-name | upcase }}_SUBDOMAIN>"       
 ---
