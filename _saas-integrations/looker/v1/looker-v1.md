@@ -13,7 +13,7 @@
 # -------------------------- #
 
 title: Looker (v1)
-permalink: /integrations/saas/looker ## Add if there are multiple versions: /vVERSION
+permalink: /integrations/saas/looker
 keywords: looker, integration, schema, etl looker, looker etl, looker schema
 layout: singer
 # input: false
@@ -31,13 +31,13 @@ display_name: "Looker"
 singer: true
 status-url: ""
 
-tap-name: "Looker" ## Ex: Intercom, not intercom
+tap-name: "Looker"
 repo-url: https://github.com/singer-io/tap-looker
 
 this-version: "1"
 
 api: |
-  [Looker v3.1 API](https://docs.looker.com/reference/api-and-integration/api-reference/v3.1){:target="new"}
+  [{{ integration.display_name }} v3.1 API](https://docs.looker.com/reference/api-and-integration/api-reference/v3.1){:target="new"}
 
 
 # -------------------------- #
@@ -91,29 +91,33 @@ feature-summary: |
 # -------------------------- #
 
 requirements-list:
-  - item: "**{{ integration.display_name }} Admin Privileges.** You will need admin privileges to generate your API3 keys - **Client ID** and **Client Secret**."
+  - item: "**{{ integration.display_name }} Admin privileges.** Admin privileges in {{ integration.display_name }} are required to generate credentials for Stitch."
 
 setup-steps:
-  - title: "Generate API3 keys."
-    anchor: "api3-keys"
+  - title: "Generate {{ integration.display_name }} API credentials for Stitch"
+    anchor: "generate-looker-api-keys"
     content: |
-      1. Login to your {{ integration.display_name }} account.
-      2. Go to the **Edit Users** page.
-      3. On that page, click the **Edit Keys** button. This will take you to the **Edit User API3 Keys** page.
-      4. Click the **New API3 key** button to generate a new key.
-      5. Copy your Client ID and Client Secret and have it readily available for the next steps.
+      {% capture admin-note %}
+      **Note**: This step requires Admin privileges in {{ integration.display_name }}.
+      {% endcapture %}
 
+      {% include note.html type="single-line" content=admin-note %}
+
+      1. Sign into your {{ integration.display_name }} account.
+      2. Navigate to the **Edit Users** page.
+      3. Click the **Edit Keys** button. This will take you to the **Edit User API3 Keys** page.
+      4. Click the **New API3 key** button to generate a new key.
+      5. Copy your Client ID and Client Secret. Keep it readily available for the next step.
 
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      4. In the **API Port** field, enter your API Port number. This value is usually `19999` unless you host {{ integration.display_name }} internally. If hosting internally, use your internal API Port value.
-      5. In the **API Version** field, enter `3.1`.
-      6. In the **Client ID** field, paste your Client ID that you copied in [step 1](#api3-keys).
-      7. In the **Client Secret** field, paste your Client Secret that you copied in [step 1](#api3-keys).
-      8. In the **Domain** field, enter your {{ integration.display_name }} account domain. It is typically `looker.com`, unless you use a white-labeled URL.
-      9. In the **Subdomain** field, paste your {{ integration.display_name }} account subdomain. Your subdomain is the leading part of your {{ integration.display_name }} URL. For example: https://`stitch`.looker.com.
+      4. In the **API Port** field, enter your API Port number. **Note**: This value is usually `19999` unless you host {{ integration.display_name }} internally. If hosting internally, use your internal API Port value.
+      5. In the **Client ID** field, paste the Client ID that you copied in [Step 1](#api3-keys).
+      6. In the **Client Secret** field, paste the Client Secret that you copied in [Step 1](#api3-keys).
+      7. In the **Domain** field, enter your {{ integration.display_name }} account domain. It's typically `looker.com`, unless you use a white-labeled URL.
+      8. In the **Subdomain** field, enter your {{ integration.display_name }} account subdomain. Your subdomain is the leading part of your {{ integration.display_name }} URL. For example: If the URL is `https://stitch.looker.com`, the value for this field would be `stitch`.
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
@@ -125,7 +129,6 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
 
-## remove this if the integration doesn't support at least table selection
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |
@@ -137,14 +140,7 @@ setup-steps:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/looker
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
+# Each table has a its own .md file in /_integration-schemas/looker/v1
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
