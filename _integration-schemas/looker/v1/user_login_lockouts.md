@@ -7,7 +7,7 @@ name: "user_login_lockouts"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/user_login_lockouts.json"
 description: |
-  The `{{ table.name }}` table contains info about lockouts for user logins associated with your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains info about lockouts for user logins associated with your {{ integration.display_name }} instance.
 
 replication-method: "Full Table"
 
@@ -19,8 +19,8 @@ attributes:
   - name: "key"
     type: "string"
     primary-key: true
-    description: ""
-    foreign-key-id: "user-login-lockout-key"
+    description: "The user login lockout key."
+    # foreign-key-id: "user-login-lockout-key"
 
   - name: "auth_type"
     type: "string"

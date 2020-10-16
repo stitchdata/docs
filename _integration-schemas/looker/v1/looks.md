@@ -7,14 +7,13 @@ name: "looks"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/looks.json"
 description: |
-  The `{{ table.name }}` table contains information about all active looks in your {{ integration.display_name }} account. Looks that have been soft deleted in {{ integration.display_name }} are not included in this table.
+  The `{{ table.name }}` table contains information about all active looks in your {{ integration.display_name }} account. **Note**: Based on [{{ integration.display_name }}'s documentation]({{ table.api-method.doc-link }}){:target="new"}, this table doesn't include soft-deleted looks.
 
 replication-method: "Full Table"
 
 api-method:
   name: "Get all looks"
   doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/look#get_all_looks"
-
 
 attributes:
   - name: "id"
@@ -26,10 +25,13 @@ attributes:
   - name: "content_favorite_id"
     type: "string"
     description: ""
+    foreign-key-id: "content-favorite-id"
 
-  - name: "content_metadata_id"
+  - &content-metadata-id
+    name: "content_metadata_id"
     type: "string"
     description: ""
+    foreign-key-id: "content-metadata-id"
 
   - name: "created_at"
     type: "date-time"
@@ -72,11 +74,10 @@ attributes:
         type: "integer"
         description: ""
 
-      - name: "content_metadata_id"
-        type: "string"
-        description: ""
+      - *content-metadata-id
 
-      - name: "creator_id"
+      - &creator-id
+        name: "creator_id"
         type: "string"
         description: ""
         foreign-key-id: "user-id"
@@ -88,6 +89,7 @@ attributes:
       - name: "id"
         type: "string"
         description: ""
+        foreign-key-id: "folder-id"
 
       - name: "is_embed"
         type: "boolean"
@@ -124,10 +126,12 @@ attributes:
       - name: "parent_id"
         type: "string"
         description: ""
+        foreign-key-id: "folder-id"
 
   - name: "folder_id"
     type: "string"
     description: ""
+    foreign-key-id: "folder-id"
 
   - name: "google_spreadsheet_formula"
     type: "string"
@@ -196,14 +200,9 @@ attributes:
         type: "integer"
         description: ""
 
-      - name: "content_metadata_id"
-        type: "string"
-        description: ""
+      - *content-metadata-id
 
-      - name: "creator_id"
-        type: "string"
-        description: ""
-        foreign-key-id: "user-id"
+      - *creator-id
 
       - name: "external_id"
         type: "string"

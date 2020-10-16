@@ -7,19 +7,19 @@ name: "scheduled_plans"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/scheduled_plans.json"
 description: |
-  The `{{ table.name }}` table contains info about
+  The `{{ table.name }}` table contains info about all scheduled plans in your {{ integration.display_name }} instance.
 
 replication-method: "Full Table"
 
 api-method:
-  name: "Get all scheduled plan s"
+  name: "Get all scheduled plans"
   doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/scheduled-plan#get_all_scheduled_plans"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The scheduled plan ID."
     foreign-key-id: "scheduled-plan-id"
 
   - name: "color_theme"
@@ -79,6 +79,7 @@ attributes:
   - name: "lookml_dashboard_id"
     type: "string"
     description: ""
+    foreign-key-id: "lookml-dashboard-id"
 
   - name: "name"
     type: "string"
@@ -160,6 +161,7 @@ attributes:
       - name: "scheduled_plan_id"
         type: "string"
         description: ""
+        foreign-key-id: "scheduled-plan-id"
 
       - name: "secret_parameters"
         type: "string"

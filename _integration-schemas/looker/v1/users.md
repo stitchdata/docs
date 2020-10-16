@@ -19,7 +19,7 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The user ID."
     foreign-key-id: "user-id"
 
   - name: "avatar_url"
@@ -358,10 +358,12 @@ attributes:
   - name: "home_folder_id"
     type: "string"
     description: ""
+    foreign-key-id: "folder-id"
 
   - name: "home_space_id"
     type: "string"
     description: ""
+    foreign-key-id: "space-id"
 
   - name: "is_disabled"
     type: "boolean"
@@ -382,6 +384,7 @@ attributes:
       - name: "value"
         type: "string"
         description: ""
+        foreign-key-id: "looker-version-id"
 
   - name: "models_dir_validated"
     type: "boolean"
@@ -390,6 +393,7 @@ attributes:
   - name: "personal_folder_id"
     type: "string"
     description: ""
+    foreign-key-id: "folder-id"
 
   - name: "personal_space_id"
     type: "string"

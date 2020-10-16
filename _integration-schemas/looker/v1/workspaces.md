@@ -7,7 +7,7 @@ name: "workspaces"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/workspaces.json"
 description: |
-  The `{{ table.name }}` table contains info about the workspaces available to the user who authorized the {{ integration.display_name }} integration in Stitch. (todo: verify this)
+  The `{{ table.name }}` table contains info about the workspaces available to the user who authorized the {{ integration.display_name }} integration in Stitch.
 
 replication-method: "Full Table"
 
@@ -19,7 +19,7 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The workspace ID."
     foreign-key-id: "workspace-id"
 
   - name: "projects"

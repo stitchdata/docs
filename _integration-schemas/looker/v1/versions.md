@@ -19,7 +19,8 @@ attributes:
   - name: "looker_release_version"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The {{ integration.display_name }} release version."
+    foreign-key-id: "looker-version-id"
 
   - name: "current_version"
     type: "object"
@@ -28,6 +29,7 @@ attributes:
       - name: "full_version"
         type: "string"
         description: ""
+        foreign-key-id: "looker-version-id"
 
       - name: "status"
         type: "string"
@@ -48,6 +50,7 @@ attributes:
       - name: "full_version"
         type: "string"
         description: ""
+        foreign-key-id: "looker-version-id"
 
       - name: "status"
         type: "string"

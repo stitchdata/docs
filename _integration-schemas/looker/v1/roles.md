@@ -7,7 +7,7 @@ name: "roles"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/roles.json"
 description: |
-  The `{{ table.name }}` table contains info about the user roles in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains info about the user roles in your {{ integration.display_name }} instance.
 
 replication-method: "Full Table"
 
@@ -19,7 +19,7 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The role ID."
     foreign-key-id: "role-id"
 
   - name: "model_set"

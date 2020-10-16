@@ -7,7 +7,7 @@ name: "user_attribute_group_values"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/user_attribute_group_values.json"
 description: |
-  The `{{ table.name }}` table contains info about the values of user attributes defined by user groups in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains info about the values of user attributes defined by user groups in your {{ integration.display_name }} instance.
 
 replication-method: "Full Table"
 
@@ -19,12 +19,13 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The user attribute group value ID."
     foreign-key-id: "user-attribute-group-value-id"
 
   - name: "group_id"
     type: "string"
     description: ""
+    foreign-key-id: "group-id"
 
   - name: "rank"
     type: "integer"

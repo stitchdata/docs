@@ -7,7 +7,7 @@ name: "user_sessions"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/user_sessions.json"
 description: |
-  The `{{ table.name }}` table contains info about user web login sessions associated with your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains info about user web login sessions associated with your {{ integration.display_name }} instance.
 
 replication-method: "Full Table"
 
@@ -19,7 +19,7 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The user session ID."
     foreign-key-id: "user-session-id"
 
   - name: "browser"

@@ -7,7 +7,7 @@ name: "project_files"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/project_files.json"
 description: |
-  The `{{ table.name }}` table contains info about the files associated with projects in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains info about the files associated with projects in your {{ integration.display_name }} instance.
 
 replication-method: "Full Table"
 
@@ -19,8 +19,8 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
-    foreign-key-id: "project-file-id"
+    description: "The project file ID."
+    # foreign-key-id: "project-file-id"
 
   - name: "editable"
     type: "boolean"

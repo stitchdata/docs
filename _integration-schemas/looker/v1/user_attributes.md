@@ -7,7 +7,7 @@ name: "user_attributes"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/user_attributes.json"
 description: |
-  The `{{ table.name }}` table contains info about user attributes in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains info about user attributes in your {{ integration.display_name }} instance.
 
 replication-method: "Full Table"
 
@@ -19,7 +19,7 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The user attribute ID."
     foreign-key-id: "user-attribute-id"
 
   - name: "default_value"

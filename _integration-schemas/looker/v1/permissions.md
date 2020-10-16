@@ -19,7 +19,7 @@ attributes:
   - name: "permission"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The permission ID."
     foreign-key-id: "permission-id"
 
   - name: "description"

@@ -25,10 +25,13 @@ attributes:
   - name: "content_favorite_id"
     type: "string"
     description: ""
+    foreign-key-id: "content-favorite-id"
 
-  - name: "content_metadata_id"
+  - &content-metadata-id
+    name: "content_metadata_id"
     type: "string"
     description: ""
+    foreign-key-id: "content-metadata-id"
 
   - name: "description"
     type: "string"
@@ -42,13 +45,12 @@ attributes:
         type: "integer"
         description: ""
 
-      - name: "content_metadata_id"
-        type: "string"
-        description: ""
+      - *content-metadata-id
 
       - name: "creator_id"
         type: "string"
         description: ""
+        foreign-key-id: "user-id"
 
       - name: "external_id"
         type: "string"
@@ -57,6 +59,7 @@ attributes:
       - name: "id"
         type: "string"
         description: ""
+        foreign-key-id: "folder-id"
 
       - name: "is_embed"
         type: "boolean"
@@ -93,6 +96,7 @@ attributes:
       - name: "parent_id"
         type: "string"
         description: ""
+        foreign-key-id: "folder-id"
 
   - name: "hidden"
     type: "boolean"
@@ -135,13 +139,12 @@ attributes:
         type: "integer"
         description: ""
 
-      - name: "content_metadata_id"
-        type: "string"
-        description: ""
+      - *content-metadata-id
 
       - name: "creator_id"
         type: "string"
         description: ""
+        foreign-key-id: "user-id"
 
       - name: "external_id"
         type: "string"

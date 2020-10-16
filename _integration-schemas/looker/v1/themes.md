@@ -7,7 +7,7 @@ name: "themes"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/themes.json"
 description: |
-  The `{{ table.name }}` table contains info about the themes in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains info about the themes in your {{ integration.display_name }} instance.
 
 replication-method: "Full Table"
 
@@ -19,8 +19,8 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
-    foreign-key-id: "theme-id"
+    description: "The theme ID."
+    # foreign-key-id: "theme-id"
 
   - name: "begin_at"
     type: "date-time"
@@ -49,6 +49,7 @@ attributes:
       - name: "color_collection_id"
         type: "string"
         description: ""
+        foreign-key-id: "color-collection-id"
 
       - name: "font_color"
         type: "string"

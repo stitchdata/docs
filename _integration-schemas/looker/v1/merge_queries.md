@@ -7,7 +7,7 @@ name: "merge_queries"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/merge_queries.json"
 description: |
-  The `{{ table.name }}` table contains info about the merge queries in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains info about the merge queries in your {{ integration.display_name }} instance.
 
 replication-method: "Full Table"
 
@@ -19,8 +19,8 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
-    foreign-key-id: "merge-query-id"
+    description: "The merge query ID."
+    # foreign-key-id: "merge-query-id"
 
   - name: "column_limit"
     type: "string"
@@ -82,3 +82,4 @@ attributes:
   - name: "vis_config"
     type: "object"
     description: ""
+---

@@ -7,7 +7,7 @@ name: "permission_sets"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/permission_sets.json"
 description: |
-  The `{{ table.name }}` table contains info about the role permission sets in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains info about the role permission sets in your {{ integration.display_name }} instance.
 
 replication-method: "Full Table"
 
@@ -19,7 +19,7 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The permission set ID."
     foreign-key-id: "permission-set-id"
 
   - name: "all_access"

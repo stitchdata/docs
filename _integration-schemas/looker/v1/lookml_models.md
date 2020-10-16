@@ -1,19 +1,19 @@
 ---
 tap: "looker"
 version: "1"
-key: ""
+key: "lookml-model"
 
 name: "lookml_models"
 doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/lookml-model#get_all_lookml_models"
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/lookml_models.json"
 description: |
-  The `{{ table.name }}` table contains information about all LookML models in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains information about all LookML models in your {{ integration.display_name }} instance.
   
 replication-method: "Full Table"
 
 api-method:
-    name: "Get All LookML Models"
-    doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/lookml-model#get_all_lookml_models"
+  name: "Get all LookML models"
+  doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/lookml-model#get_all_lookml_models"
 
 attributes:
   - name: "name"
@@ -33,6 +33,7 @@ attributes:
       - name: "value"
         type: "string"
         description: ""
+
   - name: "explores"
     type: "array"
     description: ""
@@ -40,25 +41,31 @@ attributes:
       - name: "description"
         type: "string"
         description: ""
+
       - name: "group_label"
         type: "string"
         description: ""
+
       - name: "hidden"
         type: "boolean"
         description: ""
+
       - name: "label"
         type: "string"
         description: ""
+
       - name: "name"
         type: "string"
         description: ""
+
   - name: "has_content"
     type: "boolean"
     description: ""
+
   - name: "label"
     type: "string"
     description: ""
-  
+
   - name: "unlimited_db_connections"
     type: "boolean"
     description: ""

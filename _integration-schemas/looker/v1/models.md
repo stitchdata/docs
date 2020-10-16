@@ -1,7 +1,7 @@
 ---
 tap: "looker"
 version: "1"
-key: ""
+key: "model"
 
 name: "models"
 doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/lookml-model#get_lookml_model"
@@ -12,14 +12,14 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "Get LookML Model"
-    doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/lookml-model#get_lookml_model"
+  name: "Get all LookML models"
+  doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/lookml-model#get_lookml_model"
 
 attributes:
   - name: "name"
     type: "string"
     primary-key: true
-    description: "The LookML model name."
+    description: "The model name."
 
   - name: "project_name"
     type: "string"
@@ -33,6 +33,7 @@ attributes:
       - name: "value"
         type: "string"
         description: ""
+
   - name: "explores"
     type: "array"
     description: ""
@@ -40,21 +41,27 @@ attributes:
       - name: "description"
         type: "string"
         description: ""
+
       - name: "group_label"
         type: "string"
         description: ""
+
       - name: "hidden"
         type: "boolean"
         description: ""
+
       - name: "label"
         type: "string"
         description: ""
+
       - name: "name"
         type: "string"
         description: ""
+
   - name: "has_content"
     type: "boolean"
     description: ""
+
   - name: "label"
     type: "string"
     description: ""

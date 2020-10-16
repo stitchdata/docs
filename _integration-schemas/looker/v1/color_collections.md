@@ -1,7 +1,7 @@
 ---
 tap: "looker"
 version: "1"
-key: ""
+key: "color-collection"
 
 name: "color_collections"
 doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/color-collection#get_all_color_collections"
@@ -12,14 +12,15 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "Get all Color Collections"
-    doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/color-collection#get_all_color_collections"
+  name: "Get all color collections"
+  doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/color-collection#get_all_color_collections"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The color collection ID."
+    foreign-key-id: "color-collection-id"
 
   - name: "categoricalPalettes"
     type: "array"
@@ -32,15 +33,19 @@ attributes:
           - name: "value"
             type: "string"
             description: ""
+
       - name: "id"
         type: "string"
         description: ""
+
       - name: "label"
         type: "string"
         description: ""
+
       - name: "type"
         type: "string"
         description: ""
+
   - name: "divergingPalettes"
     type: "array"
     description: ""
@@ -48,9 +53,11 @@ attributes:
       - name: "id"
         type: "string"
         description: ""
+
       - name: "label"
         type: "string"
         description: ""
+
       - name: "stops"
         type: "array"
         description: ""
@@ -58,16 +65,19 @@ attributes:
           - name: "color"
             type: "string"
             description: ""
+
           - name: "offset"
             type: "number"
             description: ""
+
       - name: "type"
         type: "string"
         description: ""
-  
+
   - name: "label"
     type: "string"
     description: ""
+
   - name: "sequentialPalettes"
     type: "array"
     description: ""
@@ -75,9 +85,11 @@ attributes:
       - name: "id"
         type: "string"
         description: ""
+
       - name: "label"
         type: "string"
         description: ""
+
       - name: "stops"
         type: "array"
         description: ""
@@ -85,9 +97,11 @@ attributes:
           - name: "color"
             type: "string"
             description: ""
+
           - name: "offset"
             type: "number"
             description: ""
+
       - name: "type"
         type: "string"
         description: ""

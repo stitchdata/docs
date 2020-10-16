@@ -7,7 +7,7 @@ name: "lookml_dashboards"
 doc-link: "https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/dashboard#get_all_dashboards"
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/lookml_dashboards.json"
 description: |
-  The `{{ table.name }}` table contains information about LookML dashboards in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains information about LookML dashboards in your {{ integration.display_name }} instance.
   
 replication-method: "Full Table"
 
@@ -20,15 +20,18 @@ attributes:
     type: "string"
     primary-key: true
     description: "The LookML dashboard ID."
-    # foreign-key-id: "lookml-dashboard-id"
+    foreign-key-id: "lookml-dashboard-id"
 
   - name: "content_favorite_id"
     type: "string"
     description: ""
+    foreign-key-id: "content-favorite-id"
 
-  - name: "content_metadata_id"
+  - &content-metadata-id
+    name: "content_metadata_id"
     type: "string"
     description: ""
+    foreign-key-id: "content-metadata-id"
 
   - name: "description"
     type: "string"
@@ -42,11 +45,10 @@ attributes:
         type: "integer"
         description: ""
 
-      - name: "content_metadata_id"
-        type: "string"
-        description: ""
+      - *content-metadata-id
 
-      - name: "creator_id"
+      - &creator-id
+        name: "creator_id"
         type: "string"
         description: ""
         foreign-key-id: "user-id"
@@ -58,6 +60,7 @@ attributes:
       - name: "id"
         type: "string"
         description: ""
+        foreign-key-id: "folder-id"
 
       - name: "is_embed"
         type: "boolean"
@@ -94,6 +97,7 @@ attributes:
       - name: "parent_id"
         type: "string"
         description: ""
+        foreign-key-id: "folder-id"
 
   - name: "hidden"
     type: "boolean"
@@ -136,14 +140,9 @@ attributes:
         type: "integer"
         description: ""
 
-      - name: "content_metadata_id"
-        type: "string"
-        description: ""
+      - *content-metadata-id
 
-      - name: "creator_id"
-        type: "string"
-        description: ""
-        foreign-key-id: "user-id"
+      - *creator-id
 
       - name: "external_id"
         type: "string"

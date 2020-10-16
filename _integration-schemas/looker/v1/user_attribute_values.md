@@ -7,7 +7,7 @@ name: "user_attribute_values"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/user_attribute_values.json"
 description: |
-  The `{{ table.name }}` table contains info about the values for user attributes defined in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains info about the values for user attributes defined in your {{ integration.display_name }} instance.
 
 replication-method: "Full Table"
 
@@ -19,13 +19,13 @@ attributes:
   - name: "user_attribute_id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The user attribute ID."
     foreign-key-id: "user-attribute-id"
 
   - name: "user_id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The user ID."
     foreign-key-id: "user-id"
 
   - name: "hidden_value_domain_whitelist"

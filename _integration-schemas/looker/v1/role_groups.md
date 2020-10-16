@@ -7,7 +7,7 @@ name: "role_groups"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/role_groups.json"
 description: |
-  The `{{ table.name }}` table contains info about the role groups in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains info about the role groups in your {{ integration.display_name }} instance.
 
 replication-method: "Full Table"
 
@@ -19,7 +19,7 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The role group ID."
     foreign-key-id: "role-group-id"
 
   - name: "can_add_to_content_metadata"
