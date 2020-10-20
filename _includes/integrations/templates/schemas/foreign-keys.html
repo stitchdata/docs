@@ -5,18 +5,8 @@
 <!-- Get the foreign key file in the integration's schema folder -->
     {% assign integration-references = site.integration-schemas | where:"tap-reference",integration.name %}
 
-<!-- If the integration is versioned, do this -->
-    {% if integration.this-version %}
-    
-    <!-- If the integration has multiple versions, locate the reference file for this version -->
+<!-- Locate the reference file for this version -->
         {% assign references = integration-references | where:"version",integration.this-version %}
-    
-    {% else %}
-    
-    <!-- Otherwise, just re-assign the variable -->
-        {% assign references = integration-references %}
-    
-    {% endif %}
 
 <!-- Because the object names of attributes vary from level to level,
     we need to capture each one and assign it to a common variable 
@@ -45,10 +35,8 @@
                     <i class="fa fa-table fa-lg" aria-hidden="true" style="color: #E96065" data-toggle="tooltip" data-original-title="This column can be used to join the {{ table.name }} table to other tables."></i>
                     <strong>Reference</strong>:
                 </p>
-
                     <ul>
                         {% for foreign-key in key.all-foreign-keys %}
-                            {% unless foreign-key.table == table.name %}
                             <li>
                                 <a href="#{{ foreign-key.table | slugify }}">
                                     {% if foreign-key.subattribute %}
@@ -76,7 +64,6 @@
                                     {%- endif -%}
                                 </a>
                             </li>
-                            {% endunless %}
                         {% endfor %}
                     </ul>
 
