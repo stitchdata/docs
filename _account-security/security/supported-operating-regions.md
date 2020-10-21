@@ -57,6 +57,8 @@ sections:
 
           For example: If `{{ north-america-region.name }}` is selected as the region in Stitch, Stitch's data centers in AWS' `{{ north-america-region.aws-name }} ({{ north-america-region.region }})` region will be used to process data.
 
+## Some of this content is also used in the Security FAQ
+
       - title: "Understanding the processes impacted by data pipeline region selection"
         anchor: "basics--process-impact"
         content: |
