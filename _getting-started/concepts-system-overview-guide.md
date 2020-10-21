@@ -266,7 +266,15 @@ sections:
     content: |
       Now that you understand the basics of Stitch and how data replication works, let's take a look at the internal workings of the Stitch system.
 
+      Stitch's replication process consists of three phases:
+
+      {% for subsection in section.subsections %}
+      1. [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %} 
+
       {% include layout/image.html type="inline" file="/system-architecture.png" enlarge=true %}
+
+      **Note**: This process is the same regardless of your account's [data pipeline region]({{ link.security.supported-operating-regions | prepend: site.baseurl }}).
 
     subsections:
       - title: "Extract"
