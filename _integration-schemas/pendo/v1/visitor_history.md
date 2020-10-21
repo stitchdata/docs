@@ -1,6 +1,8 @@
 ---
-tap: "pendo"
-version: "1"
+# 10/21/20: Commenting out as per Brian due to a bug. Team will address before initial beta.
+
+# tap: "pendo"
+# version: "1"
 key: "visitor-history"
 
 name: "visitor_history"
