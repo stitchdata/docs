@@ -95,11 +95,11 @@ mongodb-atlas:
   - name: "{{ defaults.field-names.host }}"
     version: "all"
     copy: |
-      Paste the **Host (Endpoint)** you retrieved in the previous step ([3.1](#locate-database-connection-details)). This should be similar to `<some-address>.mongodb.net`.
+      Paste the **Host (Endpoint)** you retrieved in the previous step ([4.1](#locate-database-connection-details)). This should be similar to `<some-address>.mongodb.net`.
   - name: "{{ defaults.field-names.port }}"
     version: "all"
     copy: |
-      Paste the **Port** you retrieved in the previous step ([3.1](#locate-database-connection-details)). The default is `{{ integration.port }}`.
+      Paste the **Port** you retrieved in the previous step ([4.1](#locate-database-connection-details)). The default is `{{ integration.port }}`.
   - *username
   - *password
   - *database
@@ -110,5 +110,5 @@ mongodb-atlas:
   - name: "Replica Set"
     version: "1,2"
     copy: |
-      **Optional.** The name of the replica set you retrieved in the previous step ([3.1](#locate-database-connection-details)) to be used for Log-based Incremental Replication.
+      **Optional.** The name of the replica set you retrieved in the previous step ([4.1](#locate-database-connection-details)) to be used for Log-based Incremental Replication.
   - *schema-name
