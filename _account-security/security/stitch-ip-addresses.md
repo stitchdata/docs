@@ -45,6 +45,17 @@ sections:
       - {{ ip.ip }}
       {% endfor %}
 
+      **Need a comma-delimited list of these IP addresses?** Click **Copy** to copy the list to your clipboard:
+
+      {% capture ip-list %}
+      {% for ip in ip-addresses[region.id] %}{{ ip.ip }}{% unless forloop.last == true %},{% endunless %}{% endfor %}
+      {% endcapture %}
+
+      {% capture code %}{{ ip-list | strip }}
+      {% endcapture %}
+
+      {% include layout/code-snippet.html code=code language="markdown" %}
+
       {% unless forloop.last == true %}
       <hr>
       {% endunless %}
