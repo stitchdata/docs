@@ -178,6 +178,10 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/aws-s3-iam-setup.html type="aws-iam-access-intro" %}
 
+      {% for substep in step.substeps %}
+      - [Step 6.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %} 
+
     substeps:
       - title: "Create an IAM policy"
         anchor: "create-iam-policy"
