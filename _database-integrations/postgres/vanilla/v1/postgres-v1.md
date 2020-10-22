@@ -164,24 +164,30 @@ setup-steps:
       - title: "Edit the client authentication file"
         anchor: "edit-client-authentication-file"
         content: |
-          {% capture record-lines %}
-          {% for ip-address in ip-addresses %}host replication [stitch_username] {{ ip-address.ip | strip }} md5
-          {% endfor %}
-          {% endcapture %}
-
-          {% assign all-record-lines = record-lines | strip %}
-
           Usually named `pg_hba.conf`, [this file controls how clients authenticate to the {{ integration.display_name }} database](https://www.postgresql.org/docs/9.4/static/auth-pg-hba-conf.html){:target="new"}. To ensure Stitch can read the output from the wal2json plugin, you'll need to add replication connection rules to this file. These rules translate to _"Allow the Stitch user from this IP address to perform replication on all the databases it has access to."_
+
+          This step uses the [Stitch IP addresses for your data pipeline region]({{ link.security.ip-addresses | prepend: site.baseurl }}).
 
           1. Log into your {{ integration.display_name }} server as a superuser.
           2. Locate the `pg_hba.conf` file, usually stored in the database cluster's data directory. You can also locate this file by checking the value of the `hba_file` server parameter.
-          3. Add the following lines to `pg_hba.conf`:
+          3. For each Stitch IP address, add the following line to `pg_hba.conf`.
+
+             Replace the following:
+
+             - `<stitch_username>` with the name of the [Stitch database user](#create-a-database-user)
+             - `<stitch_ip_address>` with one of the Stitch IP addresses for your data pipeline region
+
+             {% capture code %}
+             host replication <stitch_username> <stitch_ip_address> md5
+             {% endcapture %}
+
+             {% include layout/code-snippet.html code=code use-code-block=false %}
 
              ```conf
-             {{ all-record-lines }}
+          {{ code | lstrip | rstrip }}
              ```
 
-             A rule for each of Stitch's IP addresses must be added to `pg_hba.conf`. As Stitch can use any one of these IP addresses to connect during the extraction process, each of them must have their own replication connection rule.
+             A rule for each IP addresses for your [Stitch data pipeline region]({{ link.security.ip-addresses | prepend: site.baseurl }}) must be added to `pg_hba.conf`. As Stitch can use any one of these IP addresses to connect during the extraction process, each of them must have their own replication connection rule.
 
       - title: "Edit the database configuration file"
         anchor: "configure-database-parameters"
@@ -202,6 +208,10 @@ setup-steps:
     anchor: "connect-stitch"
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
+
+      {% for substep in step.substeps %}
+      - [Step 4.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
 
     substeps:
       - title: "Define the database connection details"
