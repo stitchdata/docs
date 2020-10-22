@@ -93,13 +93,9 @@ sections:
       - title: "IP whitelisting"
         anchor: "ip-whitelisting"
         content: |
-          Post-load notification webhook requests will originate from one of the following of Stitch's IP addresses:
+          Post-load notification webhook requests will originate from one of the [IP addresses]({{ link.security.ip-addresses | prepend: site.baseurl }}) for your Stitch account's [data pipeline region]({{ link.security.supported-operating-regions | prepend: site.baseurl }}).
 
-          {% for ip-address in ip-addresses %}
-          - {{ ip-address.ip }}
-          {% endfor %}
-
-          To add an additional layer of security, or if the service you're using requires it, you can whitelist Stitch's IP addresses. This ensures that only requests sent from Stitch will be accepted and processed by the webhook service you're using.
+          To add an additional layer of security, or if the service you're using requires it, you can whitelist the Stitch IP addresses for your account's data pipeline region. This ensures that only requests sent from Stitch will be accepted and processed by the webhook service you're using.
 
   - title: "Retries"
     anchor: "retries"

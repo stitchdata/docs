@@ -85,10 +85,6 @@ steps:
       - title: "Configure the virtual machine's networking settings"
         anchor: "configure-virtual-machine-inbound-access"
         content: |
-          {% capture ip-list %}
-          {% for ip-address in ip-addresses %}{{ ip-address.ip }}{% unless forloop.last == true %},{% endunless %}{% endfor %}
-          {% endcapture %}
-          
           Next, you'll create a network security group that will allow inbound traffic from Stitch's IP addresses.
 
           1. In the **Virtual network** field, select the virtual network you want to associate with the virtual machine.

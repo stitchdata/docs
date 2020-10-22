@@ -111,25 +111,32 @@ setup-steps:
     content: |
       {% include note.html type="single-line" content="**Note**: This step is required only if IP address rules (**Setup > Company > Enable Features > Company > Access**) are enabled for your NetSuite account. Otherwise, skip to [Step 2](#configure-web-services-and-authentication-settings). " %}
 
-      1. Sign into your {{ integration.display_name }} account as an administrator.
-      2. In your {{ integration.display_name }} account, click **Setup > Company > Company Information**.
-      3. In the **Allowed IP addresses** field, add the following comma-separated list of Stitch's IP addresses:
+      {% for substep in step.substeps %}
+      - [Step 1.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
 
-         {% capture code %}{% for ip-address in ip-addresses %}{{ ip-address.ip }}{% unless forloop.last == true %}, {% endunless %}{% endfor %}{% endcapture %}
+    substeps:
+      - title: "Verify your Stitch account's data pipeline region"
+        anchor: "verify-stitch-account-region"
+        content: |
+          {% include shared/whitelisting-ips/locate-region-ip-addresses.html %}
 
-         {% include layout/code-snippet.html use-code-block=false code=code language="shell" %}
-         
-         ```shell
-      {{ code | lstrip | rstrip | strip_newlines }}
-         ```
+          Keep this list handy - you'll need it in the next step.
 
-         **Note**: Make sure you don't overwrite or change any existing IP addresses in this field - doing so could cause access issues for you and other {{ integration.display_name }} users in your account.
+      - title: "Add Stitch's IP addresses to your {{ integration.display_name }} company information"
+        anchor: "add-ip-addresses-to-company-information"
+        content: |
+          1. Sign into your {{ integration.display_name }} account as an administrator.
+          2. In your {{ integration.display_name }} account, click **Setup > Company > Company Information**.
+          3. In the **Allowed IP addresses** field, add a **comma-delimited** list of the Stitch IP addresses you retrieved in the [previous step](#verify-stitch-account-region).
 
-         The screen should look like this:
+             **Note**: Make sure you don't overwrite or change any existing IP addresses in this field - doing so could cause access issues for you and other {{ integration.display_name }} users in your account.
 
-         ![The Company Information screen in NetSuite with the Allowed IP Addresses field populated with Stitch's IP addresses]({{ site.baseurl }}/images/integrations/netsuite-ip-addresses.png)
+             This is an example of what the screen should look like, using Stitch's North America IP addresses:
 
-      4. Click **Save**.
+             ![The Company Information screen in NetSuite with the Allowed IP Addresses field populated with Stitch's North America IP addresses]({{ site.baseurl }}/images/integrations/netsuite-ip-addresses.png)
+
+          4. Click **Save**.
 
   - title: "Configure Web Services and authentication settings"
     anchor: "configure-web-services-and-authentication-settings"
@@ -261,6 +268,7 @@ setup-steps:
       6. In the **Token ID** field, paste the Token ID you generated when you [created Stitch's access tokens](#create-access-tokens).
       7. In the **Consumer Secret** field, paste the Consumer Secret you generated when you [created Stitch's integration record](#create-stitch-integration-record).
       8. In the **Token Secret** field, paste the Token Secret you generated when you [created Stitch's access tokens](#create-access-tokens).
+      
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
