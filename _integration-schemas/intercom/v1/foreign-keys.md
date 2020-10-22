@@ -33,6 +33,9 @@ foreign-keys:
       - table: "teams"
         subattribute: "admin_ids"
         join-on: "id"
+      - table: "conversations"
+        subattribute: "teammates.admins"
+        join-on: "id"  
 
   - id: "company-id"
     table: "companies"
@@ -70,6 +73,9 @@ foreign-keys:
         subattribute: "conversation_rating.customer"
       - table: "conversations"
         subattribute: "customers"
+      - table: "conversations"
+        subattribute: "contacts"
+        join-on: "id"  
 
   - id: "segment-id"
     table: "segment"
