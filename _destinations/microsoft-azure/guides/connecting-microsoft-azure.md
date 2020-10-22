@@ -76,6 +76,11 @@ requirements:
 # -------------------------- #
 
 steps:
+  - title: "Verify your Stitch account's data pipeline region"
+    anchor: "verify-stitch-account-region"
+    content: |
+      {% include shared/whitelisting-ips/locate-region-ip-addresses.html first-step=true %}
+
   - title: "Configure database connection settings"
     anchor: "connect-settings"
     content: |
@@ -85,6 +90,10 @@ steps:
     anchor: "generate-storage-credentials"
     content: |
       {% include destinations/microsoft-azure/azure-storage-credentials.html type="intro" %}
+
+      {% for substep in step.substeps %}
+      - [Step 2.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
 
     substeps:
       - title: "Generate a shared access signature URL"
@@ -108,6 +117,10 @@ steps:
     anchor: "connect-stitch"
     content: |
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
+
+      {% for substep in step.substeps %}
+      - [Step 5.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
 
     substeps:
       - title: "Locate {{ destination.display_name }} connection details"

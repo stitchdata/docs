@@ -69,6 +69,11 @@ requirements:
 # -------------------------- #
 
 steps:
+  - title: "Verify your Stitch account's data pipeline region"
+    anchor: "verify-stitch-account-region"
+    content: |
+      {% include shared/whitelisting-ips/locate-region-ip-addresses.html first-step=true %}
+      
   - title: "Configure database connection settings"
     anchor: "connect-settings"
     content: |
@@ -87,6 +92,10 @@ steps:
     anchor: "connect-stitch"
     content: |
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
+
+      {% for substep in step.substeps %}
+      - [Step 4.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
 
     substeps:
       - title: "Locate the {{ destination.display_name }} connection details"
