@@ -13,7 +13,7 @@ feedback: true
 
 key: "ip-addresses"
 type: "security"
-weight: TODO
+weight: 5
 
 
 # -------------------------- #

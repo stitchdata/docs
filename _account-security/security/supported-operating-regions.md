@@ -13,7 +13,7 @@ feedback: true
 
 key: "supported-operating-regions"
 type: "security"
-weight: TODO
+weight: 4
 
 
 # -------------------------- #
