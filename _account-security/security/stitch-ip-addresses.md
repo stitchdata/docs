@@ -21,6 +21,11 @@ weight: TODO
 # -------------------------- #
 
 intro: |
+  {% capture region-note %}
+  **Not sure which data pipeline region your account uses?** [Click here for help]({{ link.security.supported-operating-regions | prepend: site.baseurl | append: "#identify-data-pipeline-region" }}).
+  {% endcapture %}
+  {% include note.html type="single-line" content=region-note %}
+
   To connect to some integrations and destinations, you'll need to grant Stitch access by whitelisting our IP addresses. The IP addresses you use depend on the [data pipeline region]({{ link.security.supported-operating-regions | prepend: site.baseurl }}) your account is in.
 
   In this guide:
