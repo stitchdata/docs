@@ -67,7 +67,7 @@ foreign-keys:
   - id: "contact-id"
     table: "contacts"
     attribute: "id"
-    subattributes:
+    all-foreign-keys:
       - table: "contacts"
       - table: "conversations"
         subattribute: "conversation_rating.customer"
