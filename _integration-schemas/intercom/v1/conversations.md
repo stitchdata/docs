@@ -34,27 +34,31 @@ attributes:
       - name: "email"
         type: "string"
         description: ""
+
       - name: "id"
         type: "string"
         description: |
           The ID of the admin or team assigned to the conversation message.
 
-          This will be a foreign key to either the [`admins`](#admins) or [`teams`](#teams) table.
+          Depending on the `type`, this will be a foreign key to either the [`admins`](#admins) or [`teams`](#teams) table.
+
       - name: "name"
         type: "string"
         description: ""
+
       - name: "type"
         type: "string"
         description: ""
 
   - name: "contacts"
     type: "array"
-    description: "Information about the contacts."
+    description: "Information about the contacts associated with the conversation."
     subattributes:
       - name: "id"
         type: "string"
         description: "The contact ID."
         foreign-key-id: "contact-id"
+
       - name: "type"
         type: "string"
         description: ""
@@ -235,9 +239,11 @@ attributes:
       - name: "created_at"
         type: "date-time"
         description: ""
+
       - name: "type"
         type: "string"
         description: ""
+
       - name: "url"
         type: "string"
         description: ""
@@ -265,6 +271,7 @@ attributes:
       - name: "sla_name"
         type: "string"
         description: ""
+
       - name: "sla_status"
         type: "string"
         description: ""
@@ -280,40 +287,51 @@ attributes:
       - name: "attachments"
         type: "array"
         description: ""
+
       - name: "author"
         type: "object"
         description: ""
+        anchor-id: 2
         subattributes:
           - name: "email"
             type: "string"
             description: ""
+
           - name: "id"
             type: "string"
             description: |
               The ID of the user who created the source.
 
               Depending on the author's `type`, this will be a foreign key to either the [`admins`](#admins) or [`contacts`](#contacts) table.
+
           - name: "name"
             type: "string"
             description: ""
+
           - name: "type"
             type: "string"
             description: ""
+
       - name: "body"
         type: "string"
         description: ""
+
       - name: "delivered_as"
         type: "string"
         description: ""
+
       - name: "id"
         type: "string"
         description: ""
+
       - name: "subject"
         type: "string"
         description: ""
+
       - name: "type"
         type: "string"
         description: ""
+
       - name: "url"
         type: "string"
         description: ""  
@@ -334,57 +352,75 @@ attributes:
       - name: "count_assignments"
         type: "integer"
         description: ""
+
       - name: "count_conversation_parts"
         type: "integer"
         description: ""
+
       - name: "count_reopens"
         type: "integer"
         description: ""
+
       - name: "first_admin_reply_at"
         type: "date-time"
         description: ""
+
       - name: "first_assignment_at"
         type: "date-time"
         description: ""
+
       - name: "first_close_at"
         type: "date-time"
         description: ""
+
       - name: "first_contact_reply_at"
         type: "date-time"
         description: ""
+
       - name: "last_admin_reply_at"
         type: "date-time"
         description: ""
+
       - name: "last_assignment_admin_reply_at"
         type: "date-time"
         description: ""
+
       - name: "last_assignment_at"
         type: "date-time"
         description: ""
+
       - name: "last_close_at"
         type: "date-time"
         description: ""
+
       - name: "last_closed_by_id"
         type: "integer"
         description: ""
+
       - name: "last_contact_reply_at"
         type: "date-time"
         description: ""
+
       - name: "median_time_to_reply"
         type: "integer"
         description: ""
+
       - name: "time_to_admin_reply"
         type: "integer"
         description: ""
+
       - name: "time_to_assignment"
         type: "integer"
         description: ""
+
       - name: "time_to_first_close"
         type: "integer"
         description: ""
+
       - name: "time_to_last_close"
         type: "integer"
         description: ""
+
       - name: "type"
         type: "string"
         description: ""
@@ -429,15 +465,17 @@ attributes:
     subattributes:
       - name: "admins"
         type: "array"
-        description: ""
+        description: "The admin IDs of the team members associated with the conversation."
         subattributes:
           - name: "id"
             type: "string"
-            description: "The admin IDs of the team members."
+            description: "The admin ID."
             foreign-key-id: "admin-id"
+
           - name: "type"
             type: "string"
             description: ""
+
       - name: "type"
         type: "string"
         description: ""
