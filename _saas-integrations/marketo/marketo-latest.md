@@ -165,40 +165,43 @@ setup-steps:
 
 
 replication-sections:
-  - title: "Stitch & Marketo Daily REST API Call Limits"
+  - content: |
+      {% for section in page.replication-sections %}
+      {% if section.title %}
+      - [{{ section.title }}](#{{ section.anchor }})
+      {% endif %}
+      {% endfor %}
+
+  - title: "Marketo Daily REST API call limits"
     anchor: "marketo-daily-api-call-limits"
     content: |
-      By default, all Marketo accounts have a maximum number of 50,000 daily account calls.
+      By default, all {{ integration.display_name }} accounts have a maximum number of 50,000 daily account calls.
        
-      The integration's **Max Daily API Calls** field dictates the quantity of your total API quota Stitch is allowed to use per 24 hour period. **Note**: This includes API usage from other apps. By default, Stitch's Marketo integration will use up to 40,000 of these calls per day, which can be increased or reduced by setting a **Max Daily API Calls** value.
+      The integration's **Max Daily API Calls** field dictates the quantity of your total API quota Stitch is allowed to use per 24 hour period. **Note**: This includes API usage from other apps. By default, Stitch's {{ integration.display_name }} integration will use up to 40,000 of these calls per day, which can be increased or reduced by setting a **Max Daily API Calls** value.
        
-      When the integration detects that the source account's quota usage has exceeded the specified **Max Daily API Calls** limit, Stitch will be unable to replicate any Marketo data until more API quota is available. If you find that the 50,000 total call limit isn't enough, contact Marketo support to inquire about raising your limit.
+      When the integration detects that the source account's quota usage has exceeded the specified **Max Daily API Calls** limit, Stitch will be unable to replicate any {{ integration.display_name }} data until more API quota is available. If you find that the 50,000 total call limit isn't enough, contact {{ integration.display_name }} support to inquire about raising your limit.
 
-  - title: "Activities and Leads Replication"
+  - title: "Activities and Leads replication"
     anchor: "activities-leads-replication"
     content: |
+      To efficiently replicate activity and lead data, Stitch's {{ integration.display_name }} integration uses the Bulk API to extract data. While this approach is more efficient than the REST API, it may also impact your overall row count and frequency with which data is replicated.
 
-      To efficiently replicate activity and lead data, Stitch's Marketo integration uses the Bulk API to extract data. While this approach is more efficient than the REST API, it may also impact your overall row count and frequency with which data is replicated.
+    subsections:
+      - title: "Leads replication"
+        anchor: "leads-replication"
+        content: |
+          To incrementally replicate `leads` data, Marketo requires the authorizing account to have the ability to filter using the `updatedAt` field. This allows Stitch to use an `updatedAt` query parameter to extract only new and updated data from the `leads` endpoint.
 
-      #### Leads Replication and Marketo Corona {#corona-replication}
+          If your account doesn't have this filter enabled, Stitch will use the `createdAt` field to incrementally replicate `leads` data. **Note**: This will result in data for this table using [Append-Only loading]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}).
 
-      To incrementally replicate `leads` data, Marketo requires the authorizing account to have a feature called Corona. Corona allows Stitch to use an `updatedAt` query parameter to extract only new and updated data from the `leads` endpoint.
+      - title: "Bulk API limits"
+        anchor: "bulk-api-limits"
+        content: |
+          {% include note.html type="single-line" content="**Note**: This section applies to the `activity_[activity_types]` and `leads` tables. Bulk API call limits are a separate quota from REST API call limits." %}
 
-      If your account doesn't have Corona enabled, the `leads` table will use Full Table Replication. 
+          Part of the extraction process using the Bulk API involves writing and downloading a file of the extracted data. Stitch then pushes the data from this file into your destination.
 
-      Additionally, the following message will surface in the extraction logs:
-
-      ```
-      Your account does not have Corona support enabled. Without Corona, each sync of the Leads table requires a full export which can lead to lower data freshness. Please contact Marketo to request Corona support be added to your account.
-      ```
-
-      #### Bulk API Limits
-
-      Part of the extraction process using the Bulk API involves writing and downloading a file of the extracted data. Stitch then pushes the data from this file into your destination.
-
-      Marketo currently [limits the amount of data pulled on a daily basis to 500MB](http://developers.marketo.com/rest-api/bulk-extract/#limits). Exceeding the limit will pause replication until midnight CT, when it will be possible to resume.
-
-      **Note**: This applies to the `activity_[activity_types]` and `leads` tables and is a separate quota from the REST API call limits mentioned previously.
+          {{ integration.display_name }} currently [limits the amount of data pulled on a daily basis to 500MB](http://developers.marketo.com/rest-api/bulk-extract/#limits){:target="new"}. Exceeding the limit will pause replication until midnight CT, when it will be possible to resume.
 
 
 # -------------------------- #
