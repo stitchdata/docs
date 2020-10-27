@@ -1,0 +1,42 @@
+# -------------------------- #
+#    Pardot Errors    #
+# -------------------------- #
+
+## This file contains extraction errors and how to (potentially)
+## fix them for the Pardot integration.
+
+## An object containing raw error messages
+raw-error:
+  
+
+all:
+## OUT OF ORDER DATA
+  - message: "Detected out of order data. Current bookmark value [VALUE] is less than last bookmark value [VALUE]"
+    id: "out-of-order-data"
+    applicable-to: "Pardot v1 integrations"
+    level: "critical"
+    category: "Replication Keys"
+    version: "1" 
+    summary: "Replication Key values are out of order"
+    cause: |
+      The most current Replication Key value returned by the Pardot API is less than the value Stitch has saved.
+
+      Some of the fields Stitch uses as Replication Keys are reported in Pardot using the preferred timezone of the user who authorized the integration in Stitch. For example: If the authorizing user has their preferred timezone set to `EST`, affected fields will contain time data reported in that timezone.
+
+      During Daylight Savings Time, the authorizing user's preferred timezone can impact how time data is reported in Pardot and extracted by Stitch. 
+
+      For example:
+
+      ```
+      '2019-10-27 01:48:55',
+      '2019-10-27 01:54:08',
+      '2019-10-27 01:59:03',
+      '2019-10-27 01:00:17',  # Time reset back an hour for DST
+      '2019-10-27 01:03:53',
+      '2019-10-27 01:13:12'
+      ```
+
+      To prevent data discrepancies from occurring, Stitch's Pardot integration specifically checks for out of order data. When out of order data is detected, the Extraction will fail and result in this error in Stitch.
+      
+    fix-it: |
+      Re-authorize the integration in Stitch with a Pardot user who has their preferred timezone set to UTC. If possible, consider creating a dedicated API user with a UTC timezone for use in Stitch.
