@@ -44,7 +44,10 @@ requirements:
   - item: |
       **An Amazon Web Services (AWS) account with a {{ destination.display_name }} deployment.** Instructions for configuring a {{ destination.display_name }} deployment are outside the scope of this tutorial; our instructions assume that you have {{ destination.display_name }} up and running. Refer to [Databricks' documentation]({{ site.data.destinations.databricks-delta.resource-links.configure-aws-account }}){:target="new"} for help configuring your AWS account with Databricks.
   - item: |
-      **An existing Amazon S3 bucket.** This bucket must be in the same AWS account as the Databricks deployment or have a cross-account bucket policy that allows access to the bucket from the AWS account with the Databricks deployment.
+      **An existing Amazon S3 bucket that must be:** 
+
+      - In the `us-east-1` region. Other regions aren't currently supported.
+      - In the same AWS account as the Databricks deployment or have a cross-account bucket policy that allows access to the bucket from the AWS account with the Databricks deployment.
   - item: |
       **Permissions to manage S3 buckets in AWS**. Your AWS user must be able to add and modify bucket policies in the AWS account or accounts where the S3 bucket and Databricks deployment reside.
   
@@ -57,6 +60,12 @@ steps:
   - title: "Configure S3 bucket access in AWS"
     anchor: "configure-s3-bucket-access-in-aws"
     content: |
+      {% capture s3-region-note %}
+      The S3 bucket you use must be in the `us-east-1` region in AWS. Using a bucket in another region isn't currently supported and will result [in errors in Stitch]({{ link.troubleshooting.dw-loading-errors | prepend: site.baseurl | append: "#s3-bucket-region-mismatch" }}).
+      {% endcapture %}
+
+      {% include important.html type="single-line" content=s3-region-note %}
+
       {% for substep in step.substeps %}
       - [Step 1.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
       {% endfor %}
