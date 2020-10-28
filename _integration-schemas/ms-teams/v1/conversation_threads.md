@@ -13,7 +13,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "List threads"
-    doc-link: "https://docs.microsoft.com/en-us/graph/api/conversation-list-threads?view=graph-rest-beta&tabs=http"
+    doc-link: "https://docs.microsoft.com/en-us/graph/api/group-list-threads?view=graph-rest-1.0&tabs=http"
     
 attributes:
   - name: "id"
