@@ -90,8 +90,12 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
+requirements-list:
+  - item: |
+      **A user with a preferred timezone of UTC.** This is required to ensure you don't encounter Extraction errors during Daylight Savings Time, as some Replication Key fields used by Stitch are reported in {{ integration.display_name }} using the user's preferred timezone. By using UTC, this ensures that time data is accurately reported during extraction. Otherwise, you might encounter [Extraction errors during Daylight Savings Time]({{ link.troubleshooting.pardot-extraction-errors | prepend: site.baseurl | append: "#out-of-order-data" }}).
+
 setup-steps:
-  - title: "Retrieve your {{ integration.display_name }} user key."
+  - title: "Retrieve your {{ integration.display_name }} user key"
     anchor: "retrieve-user-key"
     content: |
       1. Sign into your {{ integration.display_name }} account.
@@ -105,6 +109,7 @@ setup-steps:
       {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Email** and **Password** fields, enter the email and password you use to access your {{ integration.display_name }} account.
       5. In the **User Key** field, enter the **API User Key** you retrieved in [step 1](#retrieve-user-key).
+
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |

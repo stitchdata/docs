@@ -14,7 +14,7 @@ description: |
 
 replication-method: "Key-based Incremental"
 api-method:
-  name: "getLeadActivities"
+  name: "Get lead activities"
   doc-link: "http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Activities/getLeadActivitiesUsingGET"
 
 attributes:
