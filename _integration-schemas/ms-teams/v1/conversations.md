@@ -13,7 +13,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "List conversations"
-    doc-link: "https://docs.microsoft.com/en-us/graph/api/group-list-conversations?view=graph-rest-beta&tabs=http"
+    doc-link: "https://docs.microsoft.com/en-us/graph/api/group-list-conversations?view=graph-rest-1.0&tabs=http"
     
 attributes:
   - name: "id"
