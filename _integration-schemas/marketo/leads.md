@@ -8,21 +8,19 @@ singer-schema:
 description: |
   The `{{ table.name }}` table contains info about your {{ integration.display_name }} leads.
 
-  #### {{ integration.display_name }} Corona and Replication Method for Leads
+  Stitch replicates leads from {{ integration.display_name }} using the Bulk API. The Replication Key for this table varies depending on your {{ integration.display_name }} account setup:
 
-  Stitch replicates leads from {{ integration.display_name }} using the Bulk API. The replication method for this table will vary depending on your {{ integration.display_name }} account setup:
+  - **If updatedAt filtering is enabled**, this table will use `updatedAt` as the Replication Key
+  - **If updatedAt filtering isn't enabled,** this table will use `createdAt` as the Replication Key. Additionally, data will be loaded using [Append-Only loading]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}).
 
-  - **If Corona is enabled**, this table will use Incremental Replication based on an `updatedAt` timestamp included in the API query. 
-  - **If Corona isn't enabled**, this table will use Full Table Replication.
-
-  [Read more about Corona](#corona-replication).
+  [Read more about replicating this table](#leads-replication).
 
 replication-method: "Key-based Incremental"
 replication-key:
-  name: "updatedAt"
+  name: "updatedAt or createdAt"
 
 api-method:
-  name: "getLeads"
+  name: "Get leads"
   doc-link: "http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/getLeadsByFilterUsingGET"
 
 attributes:

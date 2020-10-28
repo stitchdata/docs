@@ -50,6 +50,13 @@ sections:
 
       {% include troubleshooting/error-messages.html top-anchor="amazon-redshift-error-reference" display-name="Amazon Redshift" %}
 
+  - title: "Databricks Delta Lake loading errors"
+    anchor: "databricks-delta-lake-error-reference"
+    content: |
+      {% assign errors = site.data.destinations.databricks-delta.loading-errors.all | sort_natural:"message" %}
+
+      {% include troubleshooting/error-messages.html top-anchor="databricks-delta-lake-error-reference" display-name="Databricks Delta Lake" %}
+
   - title: "Google BigQuery loading errors"
     anchor: "google-bigquery-error-reference"
     content: |

@@ -10,7 +10,7 @@ description: |
 
 replication-method: "Key-based Incremental"
 api-method:
-  name: "getCampaigns"
+  name: "Get campaigns"
   doc-link: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Campaigns/getCampaignsUsingGET
 
 attributes:

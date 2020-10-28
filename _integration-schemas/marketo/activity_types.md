@@ -18,7 +18,7 @@ description: |
 
 replication-method: "Full Table"
 api-method:
-  name: "getAllActivityTypes"
+  name: "Get all activity types"
   doc-link: "http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Activities/getAllActivityTypesUsingGET"
 
 attributes:
