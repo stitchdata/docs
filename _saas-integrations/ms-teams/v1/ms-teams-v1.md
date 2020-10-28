@@ -13,8 +13,8 @@
 # -------------------------- #
 
 title: Microsoft Teams (v1)
-permalink: /integrations/saas/ms-teams ## Add if there are multiple versions: /vVERSION
-keywords: ms-teams, integration, schema, etl ms-teams, ms-teams etl, ms-teams schema
+permalink: /integrations/saas/microsoft-teams ## Add if there are multiple versions: /vVERSION
+keywords: ms-teams, integration, schema, etl ms-teams, ms-teams etl, ms-teams schema, microsoft teams, etl microsoft teams, microsoft teams etl, microsoft teams schema
 layout: singer
 # input: false
 
@@ -92,15 +92,8 @@ feature-summary: |
 
 requirements-list:
   - item: "**A Microsoft Azure account**."
-  - item: |
-      **A Microsoft Azure application**. Stitch's {{ integration.display_name }} integration uses OAuth to authenticate. For instructions on how to set up an Azure application, refer to the [**App and Authentication** section in Singer](https://github.com/singer-io/tap-ms-teams#app-and-authentication){:target="new"}.
 
 setup-steps:
-  - title: ""
-    anchor: ""
-    content: |
-      [Add content]
-
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
@@ -122,7 +115,11 @@ setup-steps:
       1. Next, you'll be redirected to {{ integration.display_name }}.
       2. Log into your {{ integration.display_name }} account and complete the authorization process.  When finished, you'll be redirected back to Stitch.
       3. Click {{ app.buttons.finish-int-setup }}.
-
+  
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Integration Tables     #

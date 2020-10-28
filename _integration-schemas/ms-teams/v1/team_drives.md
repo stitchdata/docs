@@ -7,9 +7,9 @@ name: "team_drives"
 doc-link: "https://docs.microsoft.com/en-us/graph/api/drive-get?view=graph-rest-beta&tabs=http#get-the-document-library-associated-with-a-group"
 singer-schema: "https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/team_drives.json"
 description: |
-  The `{{ table.name }}` table contains information about FILL IN THE BLANK in your Microsoft account.
+  The `{{ table.name }}` table contains information about the drive that your team is on in your Microsoft account.
   
-replication-method: ""
+replication-method: "Key-based Incremental"
 
 api-method:
     name: "Get the document library associated with a group"

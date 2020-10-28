@@ -130,12 +130,19 @@ foreign-keys:
       - table: "conversation_posts"
         join-on: "id"
 
-  - id: "device-id"
+  - id: "upn-id"
     table: "team_device_usage_report"
-    attribute: "id"
+    attribute: "user_principal_name"
     all-foreign-keys:
       - table: "team_device_usage_report"
-        join-on: "id"
+        join-on: "user_principal_name"
+
+  - id: "refresh-date"
+    table: "team_device_usage_report"
+    attribute: "report_refresh_date"
+    all-foreign-keys:
+      - table: "team_device_usage_report"
+        join-on: "report_refresh_date"      
 
   - id: "drive-id"
     table: "team_drives"

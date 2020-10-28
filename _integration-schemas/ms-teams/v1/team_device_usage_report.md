@@ -17,17 +17,22 @@ api-method:
     doc-link: "https://docs.microsoft.com/en-us/graph/api/reportroot-getteamsdeviceusageuserdetail?view=graph-rest-beta"
     
 attributes:
-  - name: "id"
+  - name: "user_principal_name"
     type: "string"
     primary-key: true
-    description: "The device ID."
-    #foreign-key-id: "device-id"
+    description: "The user's internal identifier in the company's directory."
+    #foreign-key-id: "upn-id"
 
   - name: "report_refresh_date"
     type: "string"
+    primary-key: true
     description: "The date the report was last refreshed."
-    replication-key: true
+    #foreign-key-id: "refresh-date"
+    replication-key: true  
 
+  - name: "id"
+    type: "string"
+    description: ""
   - name: "deleted_date"
     type: "string"
     description: ""
@@ -59,7 +64,5 @@ attributes:
   - name: "used_windows_phone"
     type: "string"
     description: ""
-  - name: "user_principal_name"
-    type: "string"
-    description: ""
+  
 ---
