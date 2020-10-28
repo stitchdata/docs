@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-ms-teams
 this-version: "1"
 
 api: |
-  [Microstoft Graph API](https://docs.microsoft.com/en-us/graph/){:target="new"}
+  [Microsoft Graph API](https://docs.microsoft.com/en-us/graph/){:target="new"}
 
 
 # -------------------------- #
