@@ -13,7 +13,7 @@ replication-method: "Full Table"
 
 api-method:
     name: "List tabs in channel"
-    doc-link: "https://docs.microsoft.com/en-us/graph/api/teamstab-list?view=graph-rest-beta"
+    doc-link: "https://docs.microsoft.com/en-us/graph/api/teamstab-list?view=graph-rest-1.0"
 
 attributes:
   - name: "id"
