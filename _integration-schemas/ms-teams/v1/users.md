@@ -13,7 +13,7 @@ replication-method: "Full Table"
 
 api-method:
     name: "List users"
-    doc-link: "https://docs.microsoft.com/en-us/graph/api/user-list?view=graph-rest-beta&tabs=http"
+    doc-link: "https://docs.microsoft.com/en-us/graph/api/user-list?view=graph-rest-1.0&tabs=http"
 
 attributes:
   - name: "id"
