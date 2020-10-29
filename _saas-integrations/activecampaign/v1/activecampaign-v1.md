@@ -13,7 +13,7 @@
 # -------------------------- #
 
 title: ActiveCampaign (v1)
-permalink: /activecampaigns/saas/activecampaign ## Add if there are multiple versions: /vVERSION
+permalink: /integrations/saas/activecampaign ## Add if there are multiple versions: /vVERSION
 keywords: activecampaign, activecampaign, schema, etl activecampaign, activecampaign etl, activecampaign schema
 layout: singer
 # input: false

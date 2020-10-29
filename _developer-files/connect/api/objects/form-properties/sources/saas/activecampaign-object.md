@@ -15,24 +15,19 @@
 product-type: "connect"
 content-type: "api-form"
 form-type: "source"
-key: "source-form-properties-[integration]-object"
+key: "source-form-properties-activecampaign-object"
 
 
 # -------------------------- #
 #        OBJECT INFO         #
 # -------------------------- #
 
-title: "[INTEGRATION] Source Form Property"
-api-type: "platform.[integration]"
-display-name: "[INTEGRATION]"
+title: "ActiveCampaign Source Form Property"
+api-type: "platform.activecampaign"
+display-name: "ActiveCampaign"
 
 source-type: "saas"
-docs-name: "" # This should be whatever integration.name is. Ex: LinkedIn Ads is linkedin-ads
-
-property-description: ""
-## Used to create a description for the object that doesn't adhere to the standard in _developers/connect/api/documentation/api-form-properties.html
-## See the Heap object for an example
-
+docs-name: "activecampaign" # This should be whatever integration.name is. Ex: LinkedIn Ads is linkedin-ads
 
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
@@ -45,10 +40,18 @@ uses-start-date: true
 # and therefore don't need to be listed:
 # anchor_time, cron_expression, frequency_in_minutes, image_version, start_date 
 
-# object-attributes:
-#   - name: ""
-#     type: ""
-#     required: true/false
-#     description: ""
-#     value: ""
+object-attributes:
+  - name: "api_token"
+    type: "string"
+    required: true
+    description: |
+      Your {{ form-property.display-name }} API token. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-api" }}) for instructions on retrieving this info.
+    value: "<YOUR_API_TOKEN>"
+
+  - name: "api_url"
+    type: "string"
+    required: true
+    description: |
+      Your {{ form-property.display-name }} API URL. Your URL should begin with `https://`. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-api" }}) for instructions on retrieving this info.
+    value: "<YOUR_API_URL>"
 ---
