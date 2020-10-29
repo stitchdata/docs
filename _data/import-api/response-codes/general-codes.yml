@@ -33,7 +33,11 @@ all-codes:
   - code: "401"
     text: "Unauthorized"
     error: true
-    description: "The request doesn't have a valid API access token. Verify your token is correct and re-try the request, or generate a new token and then re-try."
+    description: |
+      Potential causes:
+
+      - Invalid API access token
+      - Incorrect [base URL](#base-urls) for your account's data pipeline region
 
   - code: "403"
     text: "Forbidden"
