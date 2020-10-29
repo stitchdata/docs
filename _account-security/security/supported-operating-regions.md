@@ -66,7 +66,7 @@ sections:
 
           Data pipeline regions only affect the replication of data in your Stitch account, specifically extracting, preparing, and loading data into your destination.
 
-          All other processes and data, such as billing, reporting, and other metadata, are not affected by your account's data pipeline region. Data and metadata related to these processes will be processed using Stitch's `{{ north-america-region.name }}` region.
+          All other processes and data, such as billing, reporting, and other metadata, are not affected by your account's data pipeline region. Metadata related to these processes will be processed using Stitch's `{{ north-america-region.name }}` region.
 
       - title: "Selecting a data pipeline region"
         anchor: "basics--selecting-a-region"
@@ -77,7 +77,7 @@ sections:
 
           - **The distance between your location and the data pipeline region.** We recommend, whenever possible, using the region closest to your location.
           - **The destination you want to use.** Some destinations aren't available in all regions, though we hope to expand data pipeline region support in the future. Refer to the [Data pipeline region support by destination type](#region-support-by-destination) section for more info.
-          - **Any data processing regulations that your country and/or company might have in place.** Keeping your data within your own region may make it easiser to comply with these requirements.
+          - **Any data processing regulations that your country and/or company might have in place.** Keeping your data within your own region may make it easier to comply with these requirements.
 
       - title: "Supported data pipeline regions"
         anchor: "basics--supported-regions"
