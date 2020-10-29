@@ -1,7 +1,7 @@
 ---
 tap: "ms-teams"
 version: "1"
-key: ""
+key: "conversation-post"
 
 name: "conversation_posts"
 doc-link: "https://docs.microsoft.com/en-us/graph/api/conversationthread-list-posts?view=graph-rest-beta&tabs=http"
@@ -12,8 +12,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List posts"
-    doc-link: "https://docs.microsoft.com/en-us/graph/api/conversationthread-list-posts?view=graph-rest-1.0&tabs=http"
+  name: "List posts"
+  doc-link: "https://docs.microsoft.com/en-us/graph/api/conversationthread-list-posts?view=graph-rest-1.0&tabs=http"
     
 attributes:
   - name: "id"
@@ -34,22 +34,28 @@ attributes:
       - name: "content"
         type: "string"
         description: ""
+
       - name: "content_type"
         type: "string"
         description: ""
+
   - name: "categories"
-    type: "null"
+    type: "object"
     description: ""
+
   - name: "change_key"
     type: "string"
     description: ""
+
   - name: "conversation_id"
     type: "string"
     description: "The conversation ID."
     foreign-key-id: "conversation-id"
+
   - name: "created_date_time"
     type: "date-time"
     description: ""
+
   - name: "from"
     type: "object"
     description: ""
@@ -61,9 +67,11 @@ attributes:
           - name: "address"
             type: "string"
             description: ""
+
           - name: "name"
             type: "string"
             description: ""
+
   - name: "has_attachments"
     type: "boolean"
     description: ""
@@ -71,6 +79,7 @@ attributes:
   - name: "received_date_time"
     type: "date-time"
     description: ""
+
   - name: "sender"
     type: "object"
     description: ""
@@ -82,11 +91,13 @@ attributes:
           - name: "address"
             type: "string"
             description: ""
+
           - name: "name"
             type: "string"
             description: ""
+
   - name: "thread_id"
     type: "string"
-    description: "The thread ID."
+    description: "The ID of the conversation thread associated with the post."
     foreign-key-id: "thread-id"
 ---

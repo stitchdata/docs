@@ -1,7 +1,7 @@
 ---
 tap: "ms-teams"
 version: "1"
-key: ""
+key: "user"
 
 name: "users"
 doc-link: "hhttps://docs.microsoft.com/en-us/graph/api/resources/user?view=graph-rest-beta"
@@ -23,33 +23,45 @@ attributes:
     foreign-key-id: "user-id"
 
   - name: "business_phones"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
+
   - name: "display_name"
     type: "string"
     description: ""
+
   - name: "given_name"
     type: "string"
     description: ""
-  
+
   - name: "job_title"
     type: "string"
     description: ""
+
   - name: "mail"
     type: "string"
     description: ""
+
   - name: "mobile_phone"
     type: "string"
     description: ""
+
   - name: "office_location"
     type: "string"
     description: ""
+
   - name: "preferred_language"
     type: "string"
     description: ""
+
   - name: "surname"
     type: "string"
     description: ""
+
   - name: "user_principal_name"
     type: "string"
     description: ""

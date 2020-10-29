@@ -1,7 +1,7 @@
 ---
 tap: "ms-teams"
 version: "1"
-key: ""
+key: "team-device-usage-report"
 
 name: "team_device_usage_report"
 doc-link: "https://docs.microsoft.com/en-us/graph/api/reportroot-getteamsdeviceusageuserdetail?view=graph-rest-beta"
@@ -12,9 +12,9 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: |
-      reportRoot: getTeamsDeviceUsageUserDetail
-    doc-link: "https://docs.microsoft.com/en-us/graph/api/reportroot-getteamsdeviceusageuserdetail?view=graph-rest-beta"
+  name: |
+    reportRoot: getTeamsDeviceUsageUserDetail
+  doc-link: "https://docs.microsoft.com/en-us/graph/api/reportroot-getteamsdeviceusageuserdetail?view=graph-rest-beta"
     
 attributes:
   - name: "user_principal_name"
@@ -26,43 +26,50 @@ attributes:
   - name: "report_refresh_date"
     type: "string"
     primary-key: true
+    replication-key: true
     description: "The date the report was last refreshed."
-    #foreign-key-id: "refresh-date"
-    replication-key: true  
 
   - name: "id"
     type: "string"
     description: ""
+
   - name: "deleted_date"
     type: "string"
     description: ""
+
   - name: "is_deleted"
     type: "string"
     description: ""
+
   - name: "last_activity_date"
     type: "string"
     description: ""
+
   - name: "report_period"
     type: "string"
     description: ""
-  
+
   - name: "used_android_phone"
     type: "string"
     description: ""
+
   - name: "used_i_os"
     type: "string"
     description: ""
+
   - name: "used_mac"
     type: "string"
     description: ""
+
   - name: "used_web"
     type: "string"
     description: ""
+
   - name: "used_windows"
     type: "string"
     description: ""
+
   - name: "used_windows_phone"
     type: "string"
     description: ""
-  
 ---

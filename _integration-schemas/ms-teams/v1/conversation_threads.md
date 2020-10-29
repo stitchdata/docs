@@ -1,7 +1,7 @@
 ---
 tap: "ms-teams"
 version: "1"
-key: ""
+key: "conversation-thread"
 
 name: "conversation_threads"
 doc-link: "https://docs.microsoft.com/en-us/graph/api/conversation-list-threads?view=graph-rest-beta&tabs=http"
@@ -12,8 +12,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List threads"
-    doc-link: "https://docs.microsoft.com/en-us/graph/api/group-list-threads?view=graph-rest-1.0&tabs=http"
+  name: "List threads"
+  doc-link: "https://docs.microsoft.com/en-us/graph/api/group-list-threads?view=graph-rest-1.0&tabs=http"
     
 attributes:
   - name: "id"
@@ -24,17 +24,19 @@ attributes:
 
   - name: "last_delivered_date_time"
     type: "date-time"
-    description: "The time the last message was delivered in the thread."
     replication-key: true
+    description: "The time the last message was delivered in the thread."
 
   - name: "conversation_id"
     type: "string"
-    description: "The conversation ID."
+    description: "The ID of the conversation associated with the thread."
     foreign-key-id: "conversation-id"
+
   - name: "group_id"
     type: "string"
-    description: "The group ID."
+    description: "The ID of the group associated with the thread."
     foreign-key-id: "group-id"
+
   - name: "has_attachments"
     type: "boolean"
     description: ""
@@ -46,9 +48,11 @@ attributes:
   - name: "preview"
     type: "string"
     description: ""
+
   - name: "topic"
     type: "string"
     description: ""
+
   - name: "unique_senders"
     type: "string"
     description: ""

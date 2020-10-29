@@ -1,7 +1,7 @@
 ---
 tap: "ms-teams"
 version: "1"
-key: ""
+key: "team-drive"
 
 name: "team_drives"
 doc-link: "https://docs.microsoft.com/en-us/graph/api/drive-get?view=graph-rest-beta&tabs=http#get-the-document-library-associated-with-a-group"
@@ -12,8 +12,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Get the document library associated with a group"
-    doc-link: "https://docs.microsoft.com/en-us/graph/api/drive-get?view=graph-rest-beta&tabs=http#get-the-document-library-associated-with-a-group"
+  name: "Get the document library associated with a group"
+  doc-link: "https://docs.microsoft.com/en-us/graph/api/drive-get?view=graph-rest-beta&tabs=http#get-the-document-library-associated-with-a-group"
 
 attributes:
   - name: "id"
@@ -38,31 +38,36 @@ attributes:
           - name: "display_name"
             type: "string"
             description: ""
+
   - name: "drive_type"
     type: "string"
     description: ""
-  
+
   - name: "name"
     type: "string"
     description: ""
+
   - name: "owner"
     type: "object"
-    description: ""
+    description: "Details about the owner of the team drive."
     subattributes:
       - name: "group"
         type: "object"
-        description: ""
+        description: "Details about the group that owns the team drive."
         subattributes:
           - name: "display_name"
             type: "string"
             description: ""
+
           - name: "email"
             type: "string"
             description: ""
+
           - name: "id"
             type: "string"
             description: "The group ID."
             foreign-key-id: "group-id"
+
   - name: "quota"
     type: "object"
     description: ""
@@ -70,18 +75,23 @@ attributes:
       - name: "deleted"
         type: "integer"
         description: ""
+
       - name: "remaining"
         type: "number"
         description: ""
+
       - name: "state"
         type: "string"
         description: ""
+
       - name: "total"
         type: "number"
         description: ""
+
       - name: "used"
         type: "integer"
         description: ""
+
   - name: "web_url"
     type: "string"
     description: ""

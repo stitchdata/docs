@@ -1,7 +1,7 @@
 ---
 tap: "ms-teams"
 version: "1"
-key: ""
+key: "channel-member"
 
 name: "channel_members"
 doc-link: "https://docs.microsoft.com/en-us/graph/api/conversationmember-list?view=graph-rest-beta&tabs=http"
@@ -12,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "List conversationMembers"
-    doc-link: "https://docs.microsoft.com/en-us/graph/api/conversationmember-list?view=graph-rest-beta&tabs=http"
+  name: "List conversation members"
+  doc-link: "https://docs.microsoft.com/en-us/graph/api/conversationmember-list?view=graph-rest-beta&tabs=http"
 
 attributes:
   - name: "id"
@@ -26,16 +26,23 @@ attributes:
     type: "string"
     description: "The channel ID."
     foreign-key-id: "channel-id"
+
   - name: "display_name"
     type: "string"
     description: ""
+
   - name: "email"
     type: "string"
     description: ""
 
   - name: "roles"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
+
   - name: "user_id"
     type: "string"
     description: "The user ID."
