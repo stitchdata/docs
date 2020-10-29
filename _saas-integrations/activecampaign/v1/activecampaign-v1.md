@@ -14,7 +14,7 @@
 
 title: ActiveCampaign (v1)
 permalink: /integrations/saas/activecampaign ## Add if there are multiple versions: /vVERSION
-keywords: activecampaign, activecampaign, schema, etl activecampaign, activecampaign etl, activecampaign schema
+keywords: activecampaign, integration, schema, etl activecampaign, activecampaign etl, activecampaign schema
 layout: singer
 # input: false
 
