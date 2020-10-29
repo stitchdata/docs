@@ -47,7 +47,7 @@ oauth-attributes:
     required: true
     credential: false
     description: |
-      Your OAuth application's client ID, obtained when you create an app with Azure. Refer to the [{{ form-property.display-name }} documentation in Singer](https://github.com/singer-io/tap-ms-teams#app-and-authentication){:target="new"} on how to obtain this attribute.
+      Your OAuth application's client ID, obtained when you create an app with Azure. Refer to the [{{ form-property.display-name }} documentation in Singer](https://github.com/singer-io/tap-ms-teams#app-and-authentication){:target="new"} for instructions on obtaining this credential.
     value: "<YOUR_CLIENT_ID>"
 
   - name: "client_secret"
@@ -55,7 +55,7 @@ oauth-attributes:
     required: true
     credential: true
     description: |
-      Your OAuth application's client secret, obtained when you create an app with Azure. Refer to the [{{ form-property.display-name }} documentation in Singer](https://github.com/singer-io/tap-ms-teams#app-and-authentication){:target="new"} on how to obtain this attribute.
+      Your OAuth application's client secret, obtained when you create an app with Azure. Refer to the [{{ form-property.display-name }} documentation in Singer](https://github.com/singer-io/tap-ms-teams#app-and-authentication){:target="new"} for instructions on obtaining this credential.
     value: "<YOUR_CLIENT_SECRET>"
 
   - name: "tenant_id"
@@ -63,6 +63,6 @@ oauth-attributes:
     required: true
     credential: false
     description: |
-      Your Office 365 tenant ID. This is ID is located on the **Properites** page in your Azure Active Directory.
+      Your Office 365 tenant ID. This is ID is located on the **Properties** page in your Azure Active Directory.
     value: "<YOUR_TENANT_ID>"
 ---
