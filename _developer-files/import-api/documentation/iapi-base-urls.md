@@ -40,5 +40,7 @@ sections:
       {% endfor %}
       </table>
 
+      Your base URL is currently set to: <code class='apiUrl'></code>
+
       **Note**: If your requests uses the incorrect base URL, the API will respond with a `401 - Unauthorzied` code and an error.
 ---

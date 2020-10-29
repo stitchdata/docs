@@ -3,9 +3,16 @@
 
 list:
   - id: "request-method"
-    name: "Request Method"
+    name: "Request method"
     description: |
       {{ endpoint.method | upcase }}
+
+  - id: "base-url"
+    name: "Base URL"
+    description: |
+      The correct [base URL](#base-urls) for your Stitch data pipeline region.
+
+      Your base URL is currently set to: <code class='apiUrl'></code>
 
   - id: "resource-url"
     name: "Resource URL"
@@ -24,7 +31,7 @@ list:
       {% endif %}
 
   - id: "request-header"
-    name: "Request Header"
+    name: "Request header"
     description: |
       {% if endpoint.request-header-required == false %}
       Not required.
@@ -47,7 +54,7 @@ list:
       See the **Request** tab below for example requests.
 
   - id: "request-body"
-    name: "Request Body"
+    name: "Request body"
     description: |
       The request body must be valid JSON {% unless endpoint.accepts-transit == false %}or Transit {% endunless%}and contain the [required arguments]({{ page.permalink | prepend: site.baseurl }}{{ endpoint.key | append: "--arguments" | prepend: "#" }}).
 
@@ -56,7 +63,7 @@ list:
       {% endif %}
 
   - id: "response-format"
-    name: "Response Format"
+    name: "Response format"
     description: "Whether the request succeeds or fails, the API will return JSON."
 
   - id: "errors"
