@@ -26,8 +26,6 @@ description: |
   > Mixpanel’s client-side tracking libraries automatically assign a distinct_id to a user when they first visit a website or an application that has Mixpanel installed. Distinct_id should not contain any special characters such as forward slashes, as it will break the URL.
   > Distinct_ids can and often should be sent in server-side implementations as well.
 
-  As server-side implementations must also send `distinct_id` with events, 
-
   In order for Stitch to replicate records' `distinct_id` attributes, your server-side {{ integration.display_name }} implementation must send them with tracked events. If the server-side implementation doesn't do this, this attribute will be `null`.
 
   Previous versions of Stitch's {{ integration.display_name }} integration used `distinct_id` as part of a composite Primary Key for this table. However, due to the possibility of this attribute being `null`, Stitch no longer uses a Primary Key for this table, as `null` values in Primary Key columns will prevent successful Extraction. 
