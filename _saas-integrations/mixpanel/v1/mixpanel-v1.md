@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-mixpanel
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} Event Export API & Mixpanel Query API.](https://developer.mixpanel.com/docs/mixpanel-apis){:target="new"}
+  [{{ integration.display_name }} Event Export API and Mixpanel Query API](https://developer.mixpanel.com/docs/mixpanel-apis){:target="new"}
 
 
 # -------------------------- #
