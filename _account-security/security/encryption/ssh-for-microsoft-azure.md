@@ -57,13 +57,18 @@ requirements:
 # -------------------------- #
 
 steps:
+  - title: "Verify your Stitch account's data pipeline region"
+    anchor: "verify-stitch-account-region"
+    content: |
+      {% include shared/whitelisting-ips/locate-region-ip-addresses.html first-step=true %}
+
   - title: "Create and configure a virtual machine"
     anchor: "create-launch-virtual-machine"
     content: |
-      First, you'll create a virtual machine to serve as the SSH server. This publicly accessible instance will act as an intermediary, forwarding the traffic from Stitch through an encrypted tunnel to your private {{ destination.display_name }} instance.
+      Next, you'll create a virtual machine to serve as the SSH server. This publicly accessible instance will act as an intermediary, forwarding the traffic from Stitch through an encrypted tunnel to your private {{ destination.display_name }} instance.
 
       {% for substep in step.substeps %}
-      - [Step 1.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      - [Step 2.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
       {% endfor %}
 
     substeps:
@@ -80,10 +85,6 @@ steps:
       - title: "Configure the virtual machine's networking settings"
         anchor: "configure-virtual-machine-inbound-access"
         content: |
-          {% capture ip-list %}
-          {% for ip-address in ip-addresses %}{{ ip-address.ip }}{% unless forloop.last == true %},{% endunless %}{% endfor %}
-          {% endcapture %}
-          
           Next, you'll create a network security group that will allow inbound traffic from Stitch's IP addresses.
 
           1. In the **Virtual network** field, select the virtual network you want to associate with the virtual machine.
@@ -95,11 +96,7 @@ steps:
           7. Fill in the fields as follows. If a field isn't in this list, **use the default value**:
 
              - **Source**: Select **IP Addresses**.
-             - **Source IP addresses/CIDR ranges**: Paste this comma-delimited list of Stitch's IP addresses:
-
-               ```markdown
-               {{ ip-list | strip }}
-               ```
+             - **Source IP addresses/CIDR ranges**: Paste a comma-delimited list of the Stitch IP addresses **for your Stitch data pipeline region** that you retrieved in [Step 1](#verify-stitch-account-region).
 
                **Note**: You may also want to add your own IP address(es) to this list. This ensures that you'll also be able to connect to the database via the virtual machine as needed.
 
@@ -108,7 +105,7 @@ steps:
              - **Action**: Select **Allow**.
              - **Name**: Enter a name. For example: `stitch-inbound`.
 
-             Here's a look at our setup:
+             Here's a look at our setup using Stitch's North America IP address list:
 
              ![The Add inbound security rule panel in Azure, highlighted]({{ site.baseurl }}/images/shared/ssh/azure-inbound-security-rule.png)
           6. When finished, click **Add** to create the inbound rule.
@@ -128,7 +125,7 @@ steps:
       Next, you'll configure the database to allow traffic forwarded from the virtual machine to access the database server. This is accomplished by whitelisting the virtual machine's private IP address in the server's firewall settings.
 
       {% for substep in step.substeps %}
-      - [Step 2.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      - [Step 3.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
       {% endfor %}
 
     substeps:
@@ -140,7 +137,7 @@ steps:
           1. In the sidenav, click **Virtual machines**.
           2. In the search bar at the top of the page, type `virtual machines`.
           3. Click the **Virtual machines** result.
-          4. In the list of available virtual machines, click the one you created in [Step 1](#create-launch-virtual-machine). This will open the instance's details page.
+          4. In the list of available virtual machines, click the one you created in [Step 2](#create-launch-virtual-machine). This will open the instance's details page.
           5. Locate the **Public IP address** and **Private IP address** fields, which are highlighted in the image below:
 
              ![The virtual machine details page with the Public and Private IP address fields highlighted]({{ site.baseurl }}/images/shared/ssh/azure-ssh-connection-details.png)

@@ -44,6 +44,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             {% include shared/versioning/version-menu.html item-name="page" connection-type=page.connection-type %}
                         </div>
                     {% endif %}
+
+                    {% if page.region-selector %}
+                      <div class="version-menu menu-right fouc">
+                        {% include shared/regions/region-selection-menu.html %}
+                      </div>
+                    {% endif %}
                 </div>
             </div>
           {% endunless %}
@@ -68,6 +74,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script type="text/javascript">
     $(".fouc").removeClass("fouc");
 </script>
+
+{% if page.region-selector %}
+  {% include shared/regions/region-selection-javascript.html %}
+{% endif %}
 
 <!-- Intercom bubble -->
 <script>

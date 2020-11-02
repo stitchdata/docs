@@ -26,10 +26,10 @@ microsoft-azure:
     copy: "{{ common.field-copy.destination-database | flatify }}"
 
   - name: "Shared Access Signature URL"
-    copy: "Paste the **Blob service SAS URL** you generated in [Step 2.1](#generate-shared-access-signature-url)."
+    copy: "Paste the **Blob service SAS URL** you generated in [Step 3.1](#generate-shared-access-signature-url)."
 
   - name: "Access Key for Azure Storage"
-    copy: "Paste the **Key** associated with the signing key you selected in [Step 2.1](#generate-shared-access-signature-url)."
+    copy: "Paste the **Key** associated with the signing key you selected in [Step 3.1](#generate-shared-access-signature-url)."
 
 
 

@@ -9,12 +9,9 @@
 {% include layout/image.html type="right" file="/shared/whitelisting-ips/mongodb-atlas-whitelist-entry.png" alt="Add Whitelist Entry window for whitelisting IP addresses in MongoDB Atlas" max-width="400" %}
 {:start="4"}
 4. Fill in the fields in the **Add Whitelist Entry** window as follows:
-   - **Whitelist Entry**: Paste one of the following IP addresses:
-      {% for ip-address in ip-addresses %}
-      - {{ ip-address.ip }}
-      {% endfor %}
+   - **Whitelist Entry**: Paste one of the IP addresses you retrieved in [Step 1](#verify-stitch-account-region) for your Stitch data pipeline region.
    - **Comment**: Enter `Stitch`.
 5. Click **Confirm**.
-6. Repeat steps 3-5 until all of Stitch's IP addresses have been added:
+6. Repeat steps 3-5 until all the IP addresses for your Stitch data pipeline region have been added. This is what the list might look like for Stitch's North America IP addresses:
 
-![List of whitelisted IP addresses in the Network Access page of MongoDB Atlas]({{ site.baseurl }}/images/shared/whitelisting-ips/mongodb-atlas-network-access.png)
+![List of whitelisted Stitch's North America IP addresses in the Network Access page of MongoDB Atlas]({{ site.baseurl }}/images/shared/whitelisting-ips/mongodb-atlas-network-access.png)

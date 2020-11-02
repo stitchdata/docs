@@ -73,7 +73,7 @@ cloudsql-postgres:
   - name: "{{ defaults.field-names.host }}"
     version: "all"
     copy: |
-      {{ defaults.field-copy.host-cloudsql | flatify | replace:"[STEP]","[Step 3.1](#locate-database-connection-details)" }}
+      {{ defaults.field-copy.host-cloudsql | flatify | replace:"[STEP]","the [previous step](#locate-database-connection-details)" }}
   - *port
   - *username
   - *password

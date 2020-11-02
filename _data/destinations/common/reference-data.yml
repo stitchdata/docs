@@ -16,14 +16,19 @@ feature-comparisons:
         {% assign clean-version = version | remove:"v" %}
         {% assign this-version = released-versions | where:"number",clean-version | first %}
         {{ this-version.status | capitalize }}
+    
     - id: "release-date"
       default: |
         {% assign clean-version = version | remove:"v" %}
         {% assign this-version = released-versions | where:"number",clean-version | first %}
         {{ this-version.date-released }}
+    
     - id: "stitch-plan-availability"
       file: "stitch-details"
       default: "All Stitch plans"
+    
+    - id: "stitch-supported-region-list"
+    
     - id: "available-in-connect"
       file: "stitch-details"
 
@@ -64,6 +69,7 @@ feature-comparisons:
 stitch-details:
   - "release-status"
   - "stitch-plan-availability"
+  - "stitch-supported-region-list"
   - "supported-versions"
   - "available-in-connect"
   - "ssh"
@@ -95,6 +101,20 @@ pricing-tier:
     {% when 'Enterprise' %}
     Stitch Enterprise plans
     {% endcase %}
+
+stitch-supported-region-list:
+  title: "Stitch supported regions"
+  tooltip: "The Stitch operating regions the destination supports."
+  default: |
+    <ul>
+    {% for region in destination-data.stitch-supported-regions %}
+    {% assign stitch-region = site.data.stitch.regions | where:"id",region.id | first %}
+
+    <li style="margin-top: 0px;">{{ stitch-region.name }} (AWS {{ stitch-region.region }})</li>
+    {% endfor %}
+    </ul>
+
+    Operating regions determine the location of the resources Stitch uses to process your data. [Learn more]({{ link.security.supported-operating-regions | prepend: site.baseurl }}).
 
 supported-versions:
   tooltip: "The database versions supported for use with Stitch."

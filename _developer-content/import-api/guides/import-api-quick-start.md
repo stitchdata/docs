@@ -15,6 +15,8 @@ content-id: "stitch-import-api-quick-start"
 
 key: "import-api-quick-start"
 
+region-selector: true
+
 layout: tutorial
 
 
@@ -81,6 +83,21 @@ steps:
       We're using the Stitch app to generate the access token, but you can also use the [Connect API if your Stitch account has access]({{ link.connect.guides.create-import-api-source | prepend: site.baseurl }}).
 
       {% include developers/import-api/obtaining-credentials.html type="generate-new-access-token" %}
+
+  - title: "Retrieve the correct Import API base URL for your region"
+    anchor: "verify-your-data-pipeline-region"
+    content: |
+      Next, you'll identify the [data pipeline region]({{ link.security.supported-operating-regions | prepend: site.baseurl }}) your Stitch account is in. You'll use this to retrieve the correct Import API base URL for your account's region.
+
+      The base URL is used in requests submitted to the Import API and is similar to `{{ site.data.import-api.api.base-url }}`.
+
+      To identify your region and get your base URL:
+
+      1. Use [these instructions]({{ link.security.supported-operating-regions | prepend: site.baseurl | append: "#identify-data-pipeline-region" }}) to locate your account's data pipeline region.
+      2. Refer to the [Import API base URL reference]({{ link.import-api.api | prepend: site.baseurl | append: "#base-urls" }}) to locate the base URL for your region.
+      3. Use the **Select your region** menu at the top right corner of this page to select your data pipeline region. This will display all API requests in this guide with the correct base URL for your region.
+
+      Your base URL is currently set to: <code class='apiUrl'></code>
 
   - title: "Check the status of the Import API"
     anchor: "check-import-api-status"

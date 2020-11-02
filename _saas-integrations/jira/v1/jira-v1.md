@@ -95,11 +95,8 @@ setup-steps:
         content: |
           If your self-managed {{ integration.display_name }} instance is behind a firewall, you'll also need to whitelist Stitch's IP addresses before proceeding. This ensures that Stitch will be allowed to access the instance. If you're unsure how to do this, contact a member of your technical team for assistance.
 
-          Whitelist the following IP addresses:
-
-          {% for ip-address in ip-addresses %}
-          - {{ ip-address.ip }}
-          {% endfor %}
+          {% include shared/whitelisting-ips/locate-region-ip-addresses.html %}
+          4. Whitelist the appropriate IP addresses for your Stitch data pipeline region.
 
   - title: "Generate a {{ integration.display_name }} API token"
     anchor: "generate-jira-api-token"

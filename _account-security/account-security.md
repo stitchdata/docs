@@ -3,10 +3,10 @@
 #          PAGE INFO         #
 # -------------------------- #
 
-title: Account & Security
+title: Account Management
 permalink: /account-security/
 keywords: billing, plan, change plan, cancel, cancel account, delete, remove
-summary: "Resources for everything account-related: Managing billing details, inviting team members, security info, and more."
+summary: "Resources for everything account-related: Managing billing details, inviting team members, and more."
 feedback: false
 
 key: "account-security"

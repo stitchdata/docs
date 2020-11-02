@@ -73,16 +73,16 @@ setup-steps:
     anchor: "create-stitch-listrak-user"
     content: |
       {% capture user-limit %}
-      While we recommend doing creating a user for Stitch to ensure we're visible in any logs or audits, it may not be feasible as Listrak limits each account to five users.
+      While we recommend doing creating a user for Stitch to ensure we're visible in any logs or audits, it may not be feasible as {{ integration.display_name }} limits each account to five users.
 
       **Should you choose not to create a user for us**, you should verify that the user who creates the integration in Stitch has:
 
-      1. Access to the Listrak lists you want to replicate, and
+      1. Access to the {{ integration.display_name }} lists you want to replicate, and
       2. The permissions listed in **Step 8** of this section.
       {% endcapture %}
-      {% include note.html first-line="**Listrak user limits**" content=user-limit %}
+      {% include note.html first-line="**Note: Listrak user limits**" content=user-limit %}
 
-      1. Sign into your Listrak account.
+      1. Sign into your {{ integration.display_name }} account.
       2. From the home page, click **Manage**.
       3. Click **Accounts > User Manager**.
       4. Scroll to the bottom of the page and click **Create New User**.
@@ -94,14 +94,28 @@ setup-steps:
          - **API Access** - This allows the Stitch user to replicate data from your {{ integration.display_name }} using the {{ integration.display_name }} API.
       9. Click **Add User** when finished.
 
-  - title: "Add Stitch IP Addresses to SOAP API Whitelist."
+  - title: "Add Stitch IP Addresses to {{ integration.display_name }}'s SOAP API whitelist"
     anchor: "ip-addresses-whitelist"  
     content: |
-      1. In your {{ integration.display_name }} account, navigate to **Manage > Accounts > SOAP API IP Authorization**.
-      2. Add the following IP addresses:
-           {% for ip in ip-addresses %}
-           - {{ ip.ip }}
-           {% endfor %}
+      To ensure Stitch can access your {{ integration.display_name }} instance, you'll need to whitelist Stitch's IP addresses.
+
+      {% for substep in step.substeps %}
+      - [Step 2.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
+
+    substeps:
+      - title: "Verify your Stitch account's data pipeline region"
+        anchor: "verify-stitch-account-region"
+        content: |
+          {% include shared/whitelisting-ips/locate-region-ip-addresses.html %}
+
+          Keep this list handy - you'll need it in the next step.
+      
+      - title: "Add the IP addresses to the SOAP API whitelist"
+        anchor: "add-ip-addresses-to-whitelist"
+        content: |
+          1. In your {{ integration.display_name }} account, navigate to **Manage > Accounts > SOAP API IP Authorization**.
+          2. Add the Stitch IP addresses that you retrieved in the [previous step](#verify-stitch-account-region).
   
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
@@ -109,6 +123,7 @@ setup-steps:
       {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Username** field, enter the Stitch {{ integration.display_name }} user's username.
       5. In the **Password** field, enter the Stitch {{ integration.display_name }} user's password.
+
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
@@ -125,14 +140,7 @@ setup-steps:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/listrak
-
-# replication-sections:
-#   - name: ""
-#     anchor: ""
-#     content: |
-
+# Each table has a its own .md file in /_integration-schemas/listrak/v1
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-

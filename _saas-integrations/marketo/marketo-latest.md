@@ -57,20 +57,20 @@ feature-summary: |
 # -------------------------- #
 
 requirements-list:
-  - item: "**Admin permissions in Marketo.** Marketo Admin permissions are required to complete portions of the setup process."
+  - item: "**Admin permissions in {{ integration.display_name }}.** {{ integration.display_name }} Admin permissions are required to complete portions of the setup process."
 
 requirements-info: |
-  Prior to set up, we recommend that you monitor your **Marketo API call usage** if other applications are also connected to your Marketo account. While Stitch is designed to use only a portion of your allotted API calls, replication may be impacted if numerous applications are using the API.
+  Prior to set up, we recommend that you monitor your **{{ integration.display_name }} API call usage** if other applications are also connected to your {{ integration.display_name }} account. While Stitch is designed to use only a portion of your allotted API calls, replication may be impacted if numerous applications are using the API.
 
   See the [Replication section](#replication) for more details.
 
 setup-steps:
-  - title: "Create an API-Only User Role in Marketo"
+  - title: "Create an API-only user role in {{ integration.display_name }}"
     anchor: "create-api-only-user-role"
     content: |
       {% include note.html type="single-line" content="If you have an [API-Only User Role](http://docs.marketo.com/display/public/DOCS/Create+an+API+Only+User+Role) in your Marketo account, [skip to the next section](#create-stitch-marketo-api-user)." %}
 
-      1. Sign into your Marketo account.
+      1. Sign into your {{ integration.display_name }} account.
       2. Click the **Admin** option.
       3. Under Admin, open the **Security** menu.
       4. Click **Users & Roles**.
@@ -82,7 +82,7 @@ setup-steps:
          - **Permissions** - Click the checkbox next to the **Access API** option.
       8. Click **Create**.
 
-  - title: "Create a Stitch Marketo API User"
+  - title: "Create a Stitch {{ integration.display_name }} API user"
     anchor: "create-stitch-marketo-api-user"
     content: |
       Next, [you’ll create an API User](http://docs.marketo.com/display/public/DOCS/Create+an+API+Only+User) for Stitch. Creating a Stitch-specific user ensures that Stitch is easily distinguishable in any logs or audits.
@@ -97,10 +97,10 @@ setup-steps:
       8. Click **Next**.
       9. In the **MESSAGE** section, click the **Send** button to create the user.
 
-  - title: "Create an API Custom Service in Marketo"
+  - title: "Create an API Custom Service in {{ integration.display_name }}"
     anchor: "create-api-custom-service"
     content: |
-      To generate the API credentials you need to connect Stitch to Marketo, you need to [create an API Custom Service](http://docs.marketo.com/display/public/DOCS/Create+a+Custom+Service+for+Use+with+ReST+API) and associate it with the Stitch API user.
+      To generate the API credentials you need to connect Stitch to {{ integration.display_name }}, you need to [create an API Custom Service](http://docs.marketo.com/display/public/DOCS/Create+a+Custom+Service+for+Use+with+ReST+API) and associate it with the Stitch API user.
 
       1. In **Admin**, open the **Integration** menu.
       2. Click **LaunchPoint**.
@@ -114,25 +114,35 @@ setup-steps:
       6. After the service is created, it’ll display in the Installed Services grid. Click the **View Details** link to display your API credentials.
       7. Copy the **Client ID** and **Secret** into a text file.
 
-  - title: "Whitelist Stitch's IP Addresses in Marketo"
+  - title: "Whitelist Stitch's IP addresses in {{ integration.display_name }}"
     anchor: "whitelist-stitch-ips"
     content: |
-      {% include note.html content="**Completing this step is required only if you have IP Restriction enabled in Marketo.** You can check if this setting is enabled by clicking **Admin > Web Services** and looking in the **IP Restrictions** section. If this setting isn't enabled, skip ahead to the next step." %}
+      {% include note.html type="single-line" content="**Completing this step is required only if you have IP Restriction enabled in Marketo.** You can check if this setting is enabled by clicking **Admin > Web Services** and looking in the **IP Restrictions** section. If this setting isn't enabled, skip ahead to the next step." %}
 
-      1. In the **Integration** menu, click **Web Services**.
-      2. In the **IP Restrictions section**, click the **Edit** button.
-      3. In the **Allowed Addresses** field, paste one of the IP addresses listed below and then click **Add**.
+      {% for substep in step.substeps %}
+      - [Step 4.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
 
-         {% for ip-address in ip-addresses %}
-         - {{ ip-address.ip }}
-         {% endfor %}
+    substeps:
+      - title: "Verify your Stitch account's data pipeline region"
+        anchor: "verify-stitch-account-region"
+        content: |
+          {% include shared/whitelisting-ips/locate-region-ip-addresses.html %}
 
-      4. Repeat step 4 until all the Stitch IP addresses are added.
-      5. Click the **Save** button.
+          Keep this list handy - you'll need it in the next step.
 
-      Leave the Web Services page open - you’ll need it in the next step.
+      - title: "Add Stitch's IP addresses to {{ integration.display_name }}'s Web Services whitelist"
+        anchor: "add-ip-addresses-to-web-services"
+        content: |
+          1. In the **Integration** menu, click **Web Services**.
+          2. In the **IP Restrictions section**, click the **Edit** button.
+          3. In the **Allowed Addresses** field, paste one of the IP addresses you retrieved in the [previous step](#verify-stitch-account-region).
+          4. Repeat step 4 until all the Stitch IP addresses for your data pipeline region are added.
+          5. Click the **Save** button.
 
-  - title: "Retrieve Your Marketo REST API Base URLs"
+          Leave the Web Services page open - you’ll need it in the next step.
+
+  - title: "Retrieve your {{ integration.display_name }} REST API Base URLs"
     anchor: "retrieve-marketo-base-urls"
     content: |
       1. On the Web Services page, scroll down to the **REST API** section.
@@ -143,11 +153,12 @@ setup-steps:
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      4. In the **Endpoint Base URL** field, paste your **Marketo REST API Endpoint URL**.
-      5. In the **Identity Base URL** field, paste your **Marketo REST API Identity URL**.
-      6. In the **Client ID** field, paste your **Marketo API Client ID**.
-      7. In the **OAuth Client Secret** field, paste your **Marketo API Client Secret**.
-      8. In the **Max Daily API Calls** field, either keep the default 40,000 value or use a larger number based on your **Marketo API Quota**
+      4. In the **Endpoint Base URL** field, paste your **{{ integration.display_name }} REST API Endpoint URL**.
+      5. In the **Identity Base URL** field, paste your **{{ integration.display_name }} REST API Identity URL**.
+      6. In the **Client ID** field, paste your **{{ integration.display_name }} API Client ID**.
+      7. In the **OAuth Client Secret** field, paste your **{{ integration.display_name }} API Client Secret**.
+      8. In the **Max Daily API Calls** field, either keep the default 40,000 value or use a larger number based on your **{{ integration.display_name }} API Quota**.
+
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |

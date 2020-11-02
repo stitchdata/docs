@@ -82,7 +82,10 @@ steps:
 
   - title: "Define the bucket settings in Stitch"
     anchor: "configure-stitch-settings"
-    content: ""
+    content: |
+      {% for substep in step.substeps %}
+      - [Step 2.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %}
     substeps:
       - title: "Define the bucket name and data storage format"
         anchor: "define-bucket-name-and-data-storage-format"

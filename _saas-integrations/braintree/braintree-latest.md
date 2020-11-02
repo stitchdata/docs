@@ -68,32 +68,40 @@ requirements-info: |
   Additionally, Stitch's Braintree integration will only replicate transactions for the **default merchant account** in your Braintree instance. You can verify the merchant account set as the default by going to **Settings > Processing > Merchant Accounts** when signed into Braintree.
 
 setup-steps:
-  - title: "Whitelist Stitch's IP addresses in Braintree"
+  - title: "Whitelist Stitch's IP addresses in {{ integration.display_name }}"
     anchor: "whitelist-stitch-ips"
     content: |
       {% capture ip-restriction %}
-      This step is only required if you [restrict IP access to your Braintree account](https://articles.braintreepayments.com/reference/security/control-panel-whitelisting).
+      This step is only required if you [restrict IP access to your {{ integration.display_name }} account](https://articles.braintreepayments.com/reference/security/control-panel-whitelisting).
 
       If you don't use this feature, [skip to the next section](#retrieve-api-credentials).
       {% endcapture %}
 
       {% include note.html first-line="This step may not be required." content=ip-restriction %}
 
-      1. Sign into your Braintree account.
-      2. Click **Settings > Security**.
-      3. In the **Security Options** page, click **Edit** in the **IP and Hostname Restrictions** section.
-      4. In the **IP Address or Hostname** field, paste one of the IP addresses from the following list:
+      {% for substep in step.substeps %}
+      - [Step 1.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %} 
 
-         {% for ip-address in ip-addresses %}
-         - {{ ip-address.ip }}
-         {% endfor %}
+    substeps:
+      - title: "Verify your Stitch account's data pipeline region"
+        anchor: "verify-stitch-account-region"
+        content: |
+          {% include shared/whitelisting-ips/locate-region-ip-addresses.html %}
 
-      5. Check the **Allow API Access** box.
-      6. Click **Add Allowed Host**.
-      7. Repeat steps 4-6 **for each Stitch IP address in the list above**.
-      8. After all of Stitch's IP addresses have been added, click **Enable Restrictions**.
+      - title: "Whitelist Stitch's IP addresses"
+        anchor: "whitelist-stitch-ips-braintree"
+        content: |
+          1. Sign into your {{ integration.display_name }} account.
+          2. Click **Settings > Security**.
+          3. In the **Security Options** page, click **Edit** in the **IP and Hostname Restrictions** section.
+          4. In the **IP Address or Hostname** field, paste one of the data pipeline region IP addresses you retrieved in the [previous step](#verify-stitch-account-region).
+          5. Check the **Allow API Access** box.
+          6. Click **Add Allowed Host**.
+          7. Repeat steps 4-6 **for each Stitch IP address for your data pipeline region**.
+          8. After all of Stitch's IP addresses have been added, click **Enable Restrictions**.
 
-  - title: "Retrieve your Braintree API credentials"
+  - title: "Retrieve your {{ integration.display_name }} API credentials"
     anchor: "retrieve-api-credentials"
     content: |
       1. If you haven't already, sign into your Braintree account.

@@ -102,6 +102,10 @@ steps:
     anchor: "create-database-and-user"
     content: |
       Next, you'll create a database and database user for Stitch.
+
+      {% for substep in step.substeps %}
+      - [Step 2.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
     substeps:
       - title: "Create the database"
         anchor: "create-snowflake-database"
@@ -120,37 +124,69 @@ steps:
   - title: "Configure network access settings"
     anchor: "whitelist-stitch-ips"
     content: |
-      {% capture ip-addresses %}
-      {% for ip-address in ip-addresses %}
-      {{ ip-address.ip | prepend: "'"| append: "'," }}
+      In {{ destination.display_name }}, access is configured and managed through [Network Security Policies](https://docs.snowflake.net/manuals/user-guide/network-policies.html){:target="new"}. Stitch's IP addresses must be added to a network policy's **Allowed IP List** for the connection to be successful.
+
+      {% for substep in step.substeps %}
+      - [Step 3.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
       {% endfor %}
-      {% endcapture %}
 
-      In {{ destination.display_name }}, access is configured and managed through [Network Security Policies](https://docs.snowflake.net/manuals/user-guide/network-policies.html){:target="new"}. 
+    substeps:
+      - title: "Verify your Stitch account's data pipeline region"
+        anchor: "verify-stitch-account-region"
+        content: |
+          First, you'll log into Stitch and verify the data pipeline region your account is using.
+          {% include shared/whitelisting-ips/locate-region-ip-addresses.html %}
 
-      Stitch's IP addresses must be added to a network policy's **Allowed IP List** for the connection to be successful.
+          Keep this list handy - you'll need it in the next step.
 
-      1. Create the network policy and add Stitch's IP addresses to the list of allowed IP addresses.
+      - title: "Create and apply the network policy"
+        anchor: "create-apply-network-policy"
+        content: |
+          In this step, you'll create the network policy, add Stitch's IP addresses, and apply it to the account.
 
-         Replace `<stitch_policy>` with a name for the policy, and `<your-current-ip-address>` with the current IP address of the computer you're working on - this is required for the next step:
+          1. Run the following command to create the policy and add Stitch's IP addresses.
 
-         ```sql
-         CREATE NETWORK POLICY <stitch_policy>
-         ALLOWED_IP_LIST = ({{ ip-addresses | strip_newlines | append:"'<your-current-ip-address>'" }});
-         ```
+             In the command, replace:
 
-      2. Apply the network policy to the account. **Note** Your current IP address must be included in the Allowed IP List to run this command successfully:
+             - `<stitch_policy>` with a name for the policy
+             - `<your-current-ip-address>` with the IP address your current computer
+             - `<comma-delimited-stitch-ip-addresses>` with a comma-delimited list of the IP addresses you retrieved in the [previous step](#verify-stitch-account-region)
 
-         ```sql
-         ALTER ACCOUNT SET NETWORK_POLICY = <stitch_policy>;
-         ```
+             {% capture code %}
+             CREATE NETWORK POLICY <stitch_policy>
+             ALLOWED_IP_LIST = ('<your-current-ip-address>','<comma-delimited-stitch-ip-addresses>');
+             {% endcapture %}
 
-      If you encounter an error, ensure that your current IP address is in the Allowed IP List and try again. [Contact Snowflake support]({{ destination.contact-support }}) if errors persist.
+             {% include layout/code-snippet.html use-code-block=false code=code language="sql" %}
+
+             ```sql
+          {{ code | lstrip | rstrip }}
+             ```
+
+          2. Run the following command to apply the network policy to the account, replacing `<stitch_policy>` with the name of the policy from the previous step.
+
+             **Note** Your current IP address must be included in the Allowed IP List to run this command successfully:
+
+             {% capture code %}
+             ALTER ACCOUNT SET NETWORK_POLICY = <stitch_policy>;
+             {% endcapture %}
+
+             {% include layout/code-snippet.html use-code-block=false code=code language="sql" %}
+
+             ```sql
+          {{ code | lstrip | rstrip }}
+             ```
+
+          If you encounter an error, ensure that your current IP address is in the Allowed IP List and try again. [Contact Snowflake support]({{ destination.contact-support }}) if errors persist.
 
   - title: "Connect Stitch"
     anchor: "connect-stitch"
     content: |
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
+
+      {% for substep in step.substeps %}
+      - [Step 4.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
 
     substeps:
       - title: "Enter connection details into Stitch"

@@ -153,6 +153,7 @@
 
         <ul>
             <li>General Stitch details</li>
+            <li>Support for <a href="{{ link.security.supported-operating-regions | prepend: site.baseurl }}">operating regions</a></li>
             <li>Support for connection methods</li>
         </ul>
         
@@ -222,6 +223,65 @@
                 </tr>
             {% endfor %}
         </table>
+
+    <!-- OPERATING REGION SUPPORT -->
+    {% assign region-size = site.data.stitch.regions | size %}
+    {% assign total-columns = region-size | plus: 2 %}
+
+    <table class="attribute-list table-hover">
+        <tr>
+            <td colspan="{{ total-columns }}">
+                <strong>OPERATING REGION SUPPORT</strong>
+            </td>
+        </tr>
+        <tr>
+            <td class="attribute-name">
+            </td>
+            <td width="15%; fixed">
+                <strong>Version</strong>
+            </td>
+            {% for region in site.data.stitch.regions %}
+              <td>
+                <strong>{{ region.name }}</strong>
+              </td>
+            {% endfor %}
+        </tr>
+        {% for destination in destinations %}
+          <tr>
+              <td class="attribute-name">
+                <strong>
+                <a href="{{ destination.url | prepend: site.baseurl }}">
+                    {{ destination.display_name }}
+                </a>
+                </strong>
+              </td>
+              <td>
+                {% assign destination-version = destination.this-version | prepend:"v" %}
+                {{ destination-version }}
+              </td>
+              {% for region in site.data.stitch.regions %}
+                {% if site.data.destinations[destination.type][destination-version]stitch-details %}
+                  {% assign region-support = site.data.destinations[destination.type][destination-version]stitch-details.stitch-supported-regions | where:"id",region.id | first %}
+                {% else %}
+                  {% assign region-support = site.data.destinations[destination.type]stitch-details.stitch-supported-regions | where:"id",region.id | first %}
+                {% endif %}
+
+                <td>
+                  {% if region-support %}
+                    {% capture tooltip %}{{ destination.display_name }} ({{ destination-version }}) destinations support this region.{% endcapture %}
+                    
+                    {{ supported | replace:"TOOLTIP",tooltip }}
+                  {% else %}
+                    {% capture tooltip %}{{ destination.display_name }} ({{ destination-version }}) destinations don't currently support this region.{% endcapture %}
+                    
+                    {{ not-supported | replace:"TOOLTIP",tooltip }}
+                  {% endif %}
+                </td>
+              {% endfor %}
+          </tr>
+        {% endfor %}
+    </table>
+
 
     <!-- CONNECTION METHOD SUPPORT -->
         <table class="attribute-list table-hover">

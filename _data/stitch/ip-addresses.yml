@@ -5,10 +5,19 @@
 ## replicate or write data
 
 stitch-app:
-  - ip: "52.23.137.21/32"
-  - ip: "52.204.223.208/32"
-  - ip: "52.204.228.32/32"
-  - ip: "52.204.230.227/32"
+##North America
+  north-america:
+    - ip: "52.23.137.21/32"
+    - ip: "52.204.223.208/32"
+    - ip: "52.204.228.32/32"
+    - ip: "52.204.230.227/32"
+
+## Europe/EU
+  europe:
+    - ip: "3.126.102.29/32"
+    - ip: "18.158.16.164/32"
+    - ip: "18.158.251.55/32"
+    - ip: "52.57.235.168/32"
 
 ## Singer Taps that have whitelist restriction features
 ## must have these IP addresses whitelisted to replicate

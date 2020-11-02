@@ -62,6 +62,27 @@ frequently-asked-questions:
 
           For more information on Privacy Shield, check out the link above or [this FAQ on the program](https://www.privacyshield.gov/Program-Overview){:target="new"}.
 
+  - topic: "Data processing"
+    anchor: "stitch-data-processing"
+    items:
+      - question: "Can Stitch process data outside of the United States?"
+        anchor: "data-processing-outside-us"
+        answer: |
+          Yes. The **Data pipeline region** setting, defined when you create a Stitch account, controls the region where Stitch-hosted data centers process replicated data.
+
+          Refer to the [Supported Data Pipeline Regions documentation]({{ link.security.supported-operating-regions | prepend: site.baseurl }}) for more info.
+
+      - question: "What types of data are affected by the data pipeline region setting?"
+        anchor: "data-types-data-pipeline-region"
+        answer: |
+          {% assign north-america-region = site.data.stitch.regions | where:"id","north-america" | first %}
+
+          The **Data pipeline region** setting only affects the replication of data in your Stitch account, specifically extracting, preparing, and loading data into your destination.
+
+          All other processes and data, such as billing, reporting, and other metadata, are not affected by your account's data pipeline region. Data and metadata related to these processes will be processed using Stitch's `{{ north-america-region.name }}` region.
+
+          Refer to the [Supported Data Pipeline Regions documentation]({{ link.security.supported-operating-regions | prepend: site.baseurl }}) for more info.
+
   - topic: "Encryption"
     anchor: "stitch-encryption"
     items:
@@ -73,35 +94,17 @@ frequently-asked-questions:
       - question: "Is my data encrypted in transit? Is it encrypted at rest?"
         anchor: "is-data-encrypted-transit"
         answer: |
-          Your data is always encrypted in transit and at rest within the Stitch environment. We offer several ways to get data into Stitch using encryption:
-
-          - **For data pulled from an HTTP API or submitted directly to Stitch's Import API,** we'll use SSL/TLS-based encryption.
-          
-          - **For data replicated from a database**, we can use the encryption functionality built into the database or an SSH tunnel.
-
-          - **For data at rest**, Stitch uses [AES-256](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard){:target="new"} to encrypt data.
-
-          Refer to the [Data encryption guide]({{ link.security.encryption | prepend: site.baseurl }}) for more info.
+          Your data is always encrypted in transit and at rest within the Stitch environment. We offer several ways to get data into Stitch using encryption. Refer to the [Data encryption guide]({{ link.security.encryption | prepend: site.baseurl }}) for more info.
 
       - question: "Are SSL connections supported?"
         anchor: "ssl-connection-support"
         answer: |
-          {% assign ssl-databases = site.database-integrations | where: "ssl",true | sort:"display_name" %}
+          SSL connections are available on all plans for the majority of integrations and destinations. Refer to the [Data encryption guide]({{ link.security.encryption | prepend: site.baseurl | append: "#ssl-connections" }}) for more info. 
 
-          Yes. SSL connections are currently supported for:
-
-          - **Database (input) integrations**
-            {% for database in ssl-databases %}
-             - [{{ database.display_name }}]({{ database.url | prepend: site.baseurl }})
-            {% endfor %}
-          - **Destinations (data warehouses)**
-            - Heroku-Postgres
-
-          Any database connected to Stitch using SSL must have SSL support turned on. To use SSL, just click the **Connect using SSL checkbox** underneath the **Encryption Type** menu in any of the credential pages of the databases listed above.
-
-          For Heroku-specific instructions regarding SSL, we recommend [checking out their documentation](https://devcenter.heroku.com/articles/connecting-to-relational-databases-on-heroku-with-java#connecting-to-a-database-remotely"){:target="new"}.
-
-          You can also dive into the [PostgreSQL SSL docs](https://jdbc.postgresql.org/documentation/head/ssl.html){:target="new"} to learn more.
+      - question: "Are SSH tunnel connections supported?"
+        anchor: "ssh-connection-support"
+        answer: |
+          SSH connections are available on all plans for the majority of database integrations and some destinations. Refer to the [Data encryption guide]({{ link.security.encryption | prepend: site.baseurl | append: "#ssh-tunnel-connections" }}) for more info.
 
       - question: "Are VPN or reverse SSH tunnel connections supported?"
         anchor: "vpn-connection-support"
@@ -110,7 +113,7 @@ frequently-asked-questions:
 
           Refer to the [Advanced connectivity section]({{ link.security.encryption | prepend: site.baseurl | append: "#advanced-connectivity" }}) in the Data encryption guide for more info.
 
-  - topic: "Data Access"
+  - topic: "Data access"
     anchor: "stitch-access"
     items:
       - question: "What are Stitch's policies regarding access to my data?"
@@ -129,7 +132,7 @@ frequently-asked-questions:
 
           Regardless of the level of permissions we need for an integration, we will only ever read your data.
 
-  - topic: "Protocols & Recommendations"
+  - topic: "Protocols and recommendations"
     anchor: "stitch-protocols-recommendations"
     items:
       - question: "What security protocols does Stitch have in place?"
@@ -152,7 +155,7 @@ frequently-asked-questions:
           For your database data, we recommend using our SSH and SSL features to ensure your data stays secure and encrypted in transit. Additionally, we encourage you to require strong passwords for database users.
 
           For your SaaS data, we recommend that you keep your API keys private and don’t share your login credentials - for Stitch or any other service - with anyone.
-  - topic: "Security Issues"
+  - topic: "Security issues"
     anchor: "security-issues"
     items:
       - question: "What's Stitch's policy on informing customers about security breaches?"
