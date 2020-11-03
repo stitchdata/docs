@@ -72,7 +72,7 @@ column-selection: true
 # -------------------------- #
 
 feature-summary: |
-  Stitch's {{ activecampaign.display_name }} activecampaign replicates data using the {{ activecampaign.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+  Stitch's {{ integration.display_name }} activecampaign replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
 
 # -------------------------- #
@@ -99,28 +99,28 @@ setup-steps:
       3. Click on the **Developer** tab.
       4. Copy your API URL and API token and keep it readily available for the next step.
 
-  - title: "Add {{ activecampaign.display_name }} as a Stitch data source"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
-      {% include activecampaigns/shared-setup/connection-setup.html %}
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API Token** field, paste the token you copied from [step 1](#retrieve-api).
       5. In the **API Url** field, paste the URL you copied from [step 1](#retrieve-api).
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
-      {% include activecampaigns/saas/setup/historical-sync.html %}
+      {% include integrations/saas/setup/historical-sync.html %}
 
   - title: "Create a replication schedule"
     anchor: "define-rep-frequency"
     content: |
-      {% include activecampaigns/shared-setup/replication-frequency.html %}
+      {% include integrations/shared-setup/replication-frequency.html %}
 
 ## remove this if the activecampaign doesn't support at least table selection
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |
-      {% include activecampaigns/shared-setup/data-selection/object-selection.html %} 
+      {% include integrations/shared-setup/data-selection/object-selection.html %} 
 
 
 # -------------------------- #
