@@ -97,7 +97,7 @@ setup-steps:
       1. Login to your {{ integration.display_name }} account.
       2. Go to the **My Settings** page.
       3. Click on the **Developer** tab.
-      4. Copy your API URL and API token and keep it readily available for the next step.
+      4. Copy your API URL and API token and keep them readily available for the next step.
 
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
