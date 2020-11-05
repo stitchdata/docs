@@ -116,7 +116,6 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
 
-## remove this if the activecampaign doesn't support at least table selection
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |
