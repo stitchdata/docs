@@ -91,7 +91,7 @@ feature-summary: |
 # -------------------------- #
 
 setup-steps:
-  - title: "Retrieve your API URL and token"
+  - title: "Retrieve your {{ integration.display_name }} API URL and token"
     anchor: "retrieve-api"
     content: |
       1. Login to your {{ integration.display_name }} account.
