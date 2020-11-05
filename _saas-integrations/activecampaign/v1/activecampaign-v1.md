@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-activecampaign
 this-version: "1"
 
 api: |
-  [ActiveCampaign v3 API](https://developers.activecampaign.com/reference#overview){:target="new"}
+  [{{ integration.display_name }} v3 API](https://developers.activecampaign.com/reference#overview){:target="new"}
 
 
 # -------------------------- #
