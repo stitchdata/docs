@@ -72,7 +72,7 @@ column-selection: true
 # -------------------------- #
 
 feature-summary: |
-  Stitch's {{ integration.display_name }} activecampaign replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
 
 # -------------------------- #
