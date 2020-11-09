@@ -211,170 +211,87 @@ all-docs:
       - title: "Connect other data sources"
         url: "{{ link.integrations.other-data-sources }}"
 
-  - title: Extracting data
+  - title: Replication
     sections:
-    - title: Replicate data
-      subsections:
-        - title: Select data to replicate 
-          url: "{{ link.replication.syncing }}"
+      - title: "Understanding Stitch's replication process"
+        url: "{{ link.getting-started.basic-concepts }}#replication"
 
-        - title: Replicate new & additional columns
-          url: "{{ link.replication.syncing-new-columns }}"
-
-        - title: Database views
-          url: "{{ link.replication.db-views }}"
-
-        - title: Historical SaaS data
-          url: "{{ link.replication.saas-historical }}"
-
-    - title: Replication Keys
-      subsections:
-        - title: Database Replication Keys
-          url: "{{ link.replication.rep-keys }}"
-
-        - title: MongoDB Replication Keys
-          url: "{{ link.replication.mongo-rep-keys }}"
-
-        - title: Reset Replication Keys
-          url: "{{ link.replication.reset-rep-keys }}"
-
-    - title: Replication Methods
-      subsections:
-        - title: Overview
-          url: "{{ link.replication.rep-methods }}"
-
-        - title: "Log-based Incremental"
-          url: "{{ link.replication.log-based-incremental }}"
-
-        - title: "Key-based Incremental"
-          url: "{{ link.replication.key-based-incremental }}"
-
-        - title: Full Table
-          url: "{{ link.replication.full-table }}"
-
-    - title: Replication scheduling
-      subsections:
-        - title: "Overview"
-          url: "{{ link.replication.rep-scheduling }}"
-
-        - title: "Replication Frequency"
-          url: "{{ link.replication.rep-frequency }}"
-
-        - title: "Anchor Scheduling"
-          url: "{{ link.replication.anchor-scheduling }}"
-
-        - title: "Advanced Scheduling using Cron"
-          url: "{{ link.replication.advanced-scheduling }}"
-
-    - title: Supported data types
-      url: "{{ link.replication.supported-data-types }}"
-
-    - title: Deleted record handling
-      subsections:
-        - title: "Deletion methods"
-          url: "{{ link.replication.deleted-records }}"
-
-        - title: "Log-based Incremental"
-          url: "{{ link.replication.deleted-records }}#log-based-incremental"
-
-        - title: "Key-based Incremental"
-          url: "{{ link.replication.deleted-records }}#key-based-incremental"
-
-        - title: "Full Table"
-          url: "{{ link.replication.deleted-records }}#full-table"
-
-    - title: Monitoring progress
-      subsections:
-        - title: Progress summary
-          url: "{{ link.replication.rep-progress }}"
-
-        - title: Extraction Logs
-          url: "{{ link.replication.extraction-logs }}"
-
-        - title: Loading Reports
-          url: "{{ link.replication.loading-reports }}"
-
-  - title: Loading data
-    sections:
-      - title: "Understanding loading behavior"
-        url: "{{ link.destinations.storage.loading-behavior }}"
-
-      - title: Understanding schema structure
+      - title: "Extracting data"
         subsections:
-          - title: "Overview"
-            url: "{{ link.destinations.storage.stitch-schema }}"
+          - title: "Understanding Extraction"
+            url: "{{ link.getting-started.basic-concepts }}#system-architecture--extraction"
 
-          - title: "Terminology"
-            url: "{{ link.destinations.storage.stitch-schema }}#schema-terminology"
+          - title: "Selecting data"
+            url: "{{ link.replication.extraction }}#selecting-data-category"
 
-          - title: "Schema names"
-            url: "{{ link.destinations.storage.stitch-schema }}#integration-schema-names"
+          - title: "Understanding Replication Methods"
+            url: "{{ link.replication.rep-methods }}"
 
-          - title: "Schema composition"
-            url: "{{ link.destinations.storage.stitch-schema }}#integration-schema-composition"
+          - title: "Understanding incremental replication"
+            url: "{{ link.replication.extraction }}#understanding-incremental-replication"
 
-          - title: "Table schemas"
-            url: "{{ link.destinations.storage.stitch-schema }}#integration-table-schemas"
+          - title: "Handling deleted records"
+            url: "{{ link.replication.deleted-records }}"
 
-          - title: "System tables and columns"
-            url: "{{ link.destinations.storage.system-tables-and-columns }}"
+          - title: "Scheduling replication"
+            url: "{{ link.replication.rep-scheduling }}"
 
-      - title: "Handling nested data structures"
+          - &extraction-logs
+            title: Extraction Logs
+            url: "{{ link.replication.extraction-logs }}"
+
+          - title: "All Extraction documentation"
+            url: "{{ link.replication.extraction }}"
+
+      - title: "Preparing data"
         subsections:
-          - title: "Google BigQuery destinations"
-            url: "{{ link.destinations.storage.bigquery-nested-structures }}"
+          - title: "Understanding Preparing"
+            url: "{{ link.getting-started.basic-concepts }}#system-architecture--preparing"
 
-          - title: "Non-BigQuery destinations"
-            url: "{{ link.destinations.storage.nested-structures }}"
+          - title: "Typing data"
+            url: "{{ link.replication.preparing }}#data-typing-category"
 
-      - title: Loading behavior references
+          - title: "Structuring data"
+            url: "{{ link.replication.preparing }}#data-structuring-category"
+
+          - title: "All Preparing documentation"
+            url: "{{ link.replication.preparing }}"
+
+      - title: "Loading data"
         subsections:
-          - title: "Amazon Redshift"
-            url: "{{ link.destinations.loading.redshift }}"
+          - title: "Understanding Loading"
+            url: "{{ link.getting-started.basic-concepts }}#system-architecture--loading"
 
-          - title: "Google BigQuery"
-            url: "{{ link.destinations.loading.bigquery-v1 }}"
-
-          - title: "Google BigQuery v2"
-            url: "{{ link.destinations.loading.bigquery-v2 }}"
-
-          - title: "Panoply"
-            url: "{{ link.destinations.loading.panoply }}"
-
-          - title: "PostgreSQL"
-            url: "{{ link.destinations.loading.postgres }}"
-
-          - title: "Snowflake"
-            url: "{{ link.destinations.loading.snowflake }}"
-
-          - title: "All guides"
-            url: "{{ link.destinations.loading.overview }}"
-
-      - title: Monitoring loading
-        url: "{{ link.replication.loading-reports }}"
-
-      - title: "Guides"
-        anchor: "guides--loading"
-        subsections:
           - title: "Understanding loading behavior"
-            url: "{{ link.destinations.storage.loading-behavior }}"
-      
-          - title: Querying append-only tables
-            url: "{{ link.replication.append-only-querying }}"
+            url: "{{ link.replication.loading }}#understand-loading-behavior-category"
 
-          - title: Resolving record rejections
-            url: "{{ link.destinations.storage.rejected-records }}"
+          - title: "Interacting with your data"
+            url: "{{ link.replication.loading }}#interacting-with-your-data-category"
 
-      - title: "References"
+          - title: "Stitch system tables and columns"
+            url: "{{ link.replication.loading }}#stitch-system-columns-tables-category"
+
+          - title: "Loading by destination type"
+            url: "{{ link.replication.loading }}#destination-loading-references-category"
+
+          - &loading-reports
+            title: Loading Reports
+            url: "{{ link.replication.loading-reports }}"
+
+          - title: "All Loading documentation"
+            url: "{{ link.replication.loading }}"
+
+      - title: Monitoring progress
         subsections:
-          - title: "Loading behavior types"
-            url: "{{ link.destinations.storage.loading-behavior }}"
+          - title: Progress summary
+            url: "{{ link.replication.rep-progress }}"
 
-          - title: "Reserved keywords"
-            url: "{{ link.destinations.storage.reserved-keywords.overview }}"
+          - *extraction-logs
 
-          - title: "System tables and columns"
-            url: "{{ link.destinations.storage.system-tables-and-columns }}"    
+          - *loading-reports
+
+      - title: "All Replication documentation"
+        url: "{{ link.replication.main }}"
 
   - title: Analysis tools
     sections:
