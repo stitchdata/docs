@@ -41,7 +41,7 @@ sections:
     anchor: "understand-loading-behavior-category"
     additional-guides:
       - title: "Monitoring Loading Progress"
-        url: "{{ link.replication.loading-reports | prepend: site.baseurl }}"
+        url: "{{ link.replication.loading-reports }}"
         weight: 1
     content: |
       Understand the basics of how Stitch loads data in these starter guides.
@@ -54,19 +54,19 @@ sections:
     anchor: "interacting-with-your-data-category"
     additional-guides:
       - title: "Exploring Analysis Tools"
-        url: "{{ link.analysis-tools.main | prepend: site.baseurl }}"
+        url: "{{ link.analysis-tools.main }}"
         weight: 1
 
       - title: "Identifying and Resolving Record Rejections"
-        url: "{{ link.destinations.storage.rejected-records | prepend: site.baseurl }}"
+        url: "{{ link.destinations.storage.rejected-records }}"
         weight: 2
 
       - title: "Understanding the Primary Keys Table"
-        url: "{{ link.destinations.storage.rejected-records | prepend: site.baseurl }}"
+        url: "{{ link.destinations.storage.rejected-records }}"
         weight: 3
 
       - title: "Querying Append-Only Tables"
-        url: "{{ link.replication.append-only-querying | prepend: site.baseurl }}"
+        url: "{{ link.replication.append-only-querying }}"
         weight: 4
     content: |
       Resources and tutorials for interacting with data loaded by Stitch into your destination.
