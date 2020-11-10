@@ -60,7 +60,7 @@ sections:
       - [{{ subsection.title }}](#{{ subsection.anchor }})
       {% endfor %}
     subsections:
-      - title: "Create the schema name"
+      - title: "Creating schema names"
         anchor: "create-schema-name"
         content: |
           When you create an integration, you're asked to provide a name for the integration. This name is used to create the integration's schema in your destination.
@@ -80,14 +80,14 @@ sections:
           3. Complete the integration setup.
           4. Save and create the integration.
 
-      - title: "Change a schema name"
+      - title: "Changing schema names"
         anchor: "changing-schema-names"
         content: |
           After an integration is initially saved and created, its schema name can't be changed.
 
           Changing an integration's schema name requires you to create a new integration and re-replicate all historical data.
 
-      - title: "Re-use a schema name"
+      - title: "Re-using schema names"
         anchor: "re-using-schema-names"
         content: |
           Schema names from deleted integrations can be re-used. However, if a naming collision occurs (two schema names canonicalize to the same name) the destination [may reject the data](#rejected-records-log). This is because deleting an integration in Stitch won't delete that integration's schema or data from your destination.
@@ -111,7 +111,7 @@ sections:
       - title: "Integration tables"
         anchor: "integration-tables"
         content: |
-          The tables that Stitch creates in an integration schema depends on whether the integration supports [data selection]({{ link.replication.syncing | prepend: site.baseurl | append: "#integrations-that-support-whitelisting" }}).
+          The tables that Stitch creates in an integration schema depends on whether the integration supports [data selection]({{ link.replication.syncing | prepend: site.baseurl | append: "#table-column-selection-support" }}).
 
           If the integration supports data selection, the integration schema will contain only the tables (and columns, if column selection is supported) that you set to replicate.
 
@@ -124,9 +124,9 @@ sections:
         content: |
           In addition to the integration tables, Stitch will create additional tables in the integration schema. These tables are prepended with `{{ system-column.prefix }}`.
 
-          Every integration schema will contain an `{{ stitch.system-tables.sdc-rejected.name }}` table, which serves as the integration's log for data loading issues. Refer to the [{{ rejected-records.name }} guide]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}) for more info.
+          Every integration schema will contain an `{{ stitch.system-tables.sdc-rejected.name }}` table, which serves as the integration's log for data loading issues. Refer to the [Rejected records system table documentation]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}) for more info.
 
-          If using a [Google BigQuery]({{ link.destinations.overviews.bigquery | prepend: site.baseurl }}) or [Microsoft Azure Synapse Analytics destination]({{ link.destinations.overviews.azure | prepend: site.baseurl }}), every integration schema will also contain a table named `{{ stitch.system-tables.sdc-primary-keys.name }}`. This table contains the Primary Keys for the tables in the integration schema. Refer to the [Primary Keys system table documentation]({{ link.destinations.storage.primary-key-system-table | prepend: site.baseurl }}) for more info.
+          If using a [Google BigQuery (v2)]({{ link.destinations.overviews.bigquery | prepend: site.baseurl }}) or [Microsoft Azure Synapse Analytics destination]({{ link.destinations.overviews.azure | prepend: site.baseurl }}), every integration schema will also contain a table named `{{ stitch.system-tables.sdc-primary-keys.name }}`. This table contains the Primary Keys for the tables in the integration schema. Refer to the [Primary Keys system table documentation]({{ link.destinations.storage.primary-key-system-table | prepend: site.baseurl }}) for more info.
 
   - title: "Integration table schemas"
     anchor: "integration-table-schemas"
@@ -145,8 +145,8 @@ sections:
           How your data is stored in the schemas, tables, and columns created by Stitch depends on a few things:
 
           - How data is structured in that particular data source (For example: Use of nested data structures),
-          - Any changes you might make to the data source (For example: adding/removing a column),
-          - Stitch-specific data handling rules (For example: entirely `NULL` columns), and
+          - Any changes you make to the data source (For example: adding/removing a column),
+          - Stitch-specific data handling rules (For example: Entirely `NULL` columns), and
           - How your destination handles data (For example: Columns with mixed data types, nested data structures)
 
           Stitch will encounter dozens of scenarios when replicating and loading your data. Familiarizing yourself with these scenarios and the nuances of your destination will enable you to better understand your data's structure and efficiently troubleshoot if issues arise.
