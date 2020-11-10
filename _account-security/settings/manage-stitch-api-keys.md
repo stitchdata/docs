@@ -18,9 +18,9 @@ weight: 4
 
 enterprise: true
 enterprise-cta:
-  feature: "API access"
-  title: "{{ site.data.strings.enterprise.title.is-an }}"
-  copy: "{{ site.data.strings.enterprise.copy.is-an | flatify }}"
+  feature: "API access "
+  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.enterprise-cta.feature }}"
+  copy: "{{ site.data.strings.enterprise.copy.is-an |  prepend: page.enterprise-cta.feature | flatify }}"
 
 
 # -------------------------- #

@@ -76,6 +76,20 @@ arguments:
     example-value: |
       "<PARTNER_SECRET>"
 
+  - name: "region"
+    required: true
+    type: "string"
+    description: |
+      The account's [data pipeline region]({{ link.security.supported-operating-regions | prepend: site.baseurl }}), which determines where defines the region where Stitch-hosted data centers will process your account's replicated data.
+
+      **Note**: This can't be changed after the account is created.
+
+      Accepted values are:
+
+      {% for region in site.data.stitch.regions %}
+      - `{{ region.region }}`
+      {% endfor %}
+
 
 # -------------------------- #
 #           RETURNS          #
@@ -102,6 +116,7 @@ examples:
           "first_name": "Stitch",
           "last_name": "Product Team",
           "company": "Stitch Product Team",
+          "region": "us-east-1",
           "email": "stitch-api-test@stitchdata.com"
         }'
   

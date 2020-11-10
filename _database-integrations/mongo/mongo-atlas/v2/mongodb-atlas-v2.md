@@ -116,6 +116,11 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
+  - title: "Verify your Stitch account's data pipeline region"
+    anchor: "verify-stitch-account-region"
+    content: |
+      {% include shared/whitelisting-ips/locate-region-ip-addresses.html first-step=true %}
+
   - title: "Configure database connection settings"
     anchor: "connect-settings"
     content: |
@@ -133,10 +138,8 @@ setup-steps:
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
-      In this section:
-
       {% for substep in step.substeps %}
-      - [Step 3.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      - [Step 4.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
       {% endfor %}
 
     substeps:

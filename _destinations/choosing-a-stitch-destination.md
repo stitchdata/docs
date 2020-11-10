@@ -14,42 +14,37 @@ layout: general
 type: "all"
 destination: false
 
+intro: |
+  {% capture data-strategy%}
+  If you're feeling overwhelmed or you're unsure of what to look for, don't worry. For a primer on data warehouses and setting the data strategy for your organization, check out our [Data Strategy Guide]({{ site.data-strategy }}).
+  {% endcapture %}
+
+  {% include note.html first-line="**Not sure where to start?**" content=data-strategy %}
+
+  When Stitch replicates your data, we'll load it into the destination of your choosing.
+
+  **As Stitch currently only allows you to connect one destination to your account**, we recommend asking yourself the questions below before making your selection. By fully assessing each choice first, you'll decrease the likelihood of needing to switch destinations or re-replicate all of your data at a later date.
+
+  In this guide, we'll cover:
+
+  {% for section in page.sections %}
+  - [{{ section.summary }}](#{{ section.anchor }})
+  {% endfor %}
+
 sections:
-  - content: |
-      {% capture data-strategy%}
-      If you're feeling overwhelmed or you're unsure of what to look for, don't worry. For a primer on data warehouses and setting the data strategy for your organization, check out our [Data Strategy Guide]({{ site.data-strategy }}).
-      {% endcapture %}
-
-      {% include note.html first-line="**Not sure where to start?**" content=data-strategy %}
-
-      When Stitch replicates your data, we'll load it into the destination of your choosing.
-
-      **As Stitch currently only allows you to connect one destination to your account**, we recommend asking yourself the questions below before making your selection. By fully assessing each choice first, you'll decrease the likelihood of needing to switch destinations or re-replicate all of your data at a later date.
-
-       - [Does it support all (or most of) your data sources](#integration--destination-compatibility)?
-       - [Will the structure of the data replicated by Stitch work with how you plan to use it](#data-structure)?
-       - [Do you need a fully-managed solution, or can you perform maintenance tasks on your own](#setup--maintenance)?
-       - [Is the destination's pricing structure suitable](#pricing)?
-
   - title: "Side-by-side comparison"
     anchor: "compare-destinations"
+    summary: "A high-level look at each of Stitch's destinations"
     content: |
-      In the tabs below is a quick look at each of Stitch's destinations and how they compare to each other.
+      The following tabs contain a high-level look at each of Stitch's destinations and how they compare to each other.
 
       The remaining sections of this guide expand on the information in these tabs.
 
       {% include destinations/overviews/choosing-a-destination-rollup.html %}
 
-  - title: "Getting started, now"
-    anchor: "getting-started-now"
-    content: |
-      If you simply want to try Stitch and Redshift, or if you don't have the ability to spin up a Redshift cluster of your own in AWS, we recommend trying [Panoply]({{ link.destinations.overviews.panoply | prepend: site.baseurl | append: "#setup" }}). With just a few clicks, you create your own fully-managed Redshift data warehouse and start replicating data in minutes.
-
-      **Note**: If you decide to [switch destinations]({{ link.destinations.overviews.switch-destination | prepend: site.baseurl }}) later, you'll need to queue a full re-replication of your data to ensure historical data is present in the new destination.
-
   - title: "Destination and data source compatibility"
     anchor: "integration--destination-compatibility"
-    summary: "Are your data sources compatible with your destination?"
+    summary: "Compatibility for each of Stitch's integrations and destinations"
     content: |
       Some integrations may be partially or fully incompatible with some of the destinations offered by Stitch. For example: Some destinations don't support storing multiple data types in the same column. If a SaaS integration sends over a column with mixed data types, some destinations may "reject" the data.
 
@@ -59,7 +54,7 @@ sections:
 
   - title: "Destination and analysis tool compatibility"
     anchor: "destination--tool-compatibility"
-    summary: "Is your prefered analysis tool compatible with your destination?"
+    summary: "Support for analysis tools with each of Stitch's destinations"
     content: |
       You may want to investigate whether your prefered analysis tool supports a native connection to your Stitch destination. We've investigated some popular options for you. See the [Analysis tools reference]({{ site.baseurl }}/analysis-tools/#analytics) for more about using popular analysis tools with Stitch.
 
@@ -67,7 +62,7 @@ sections:
 
   - title: "Replication, transformations, and data structure"
     anchor: "replication-transformations"
-    summary: "Will the structure of the data suit your needs?"
+    summary: "How data is replicated and structured for each destination"
     content: |
       While the majority of your data will look the same across our destinations, there are some key differences you should be aware of:
 
@@ -187,7 +182,7 @@ sections:
 
   - title: "Maintenance and support"
     anchor: "setup--maintenance"
-    summary: "What type of maintenance do you need?"
+    summary: "A high-level look at each destination provider's maintenance and support offerings"
     content: |
       With the exception of a self-hosted PostgreSQL instance, all the destinations offered by Stitch are cloud-hosted databases, meaning you won't have to factor in server maintenance when making a decision.
 
@@ -231,7 +226,7 @@ sections:
 
   - title: "Destination pricing models"
     anchor: "pricing"
-    summary: "What's the destination's pricing structure?"
+    summary: "Pricing for each destination type"
     content: |
       Every destination offered by Stitch has its own pricing structure. Some providers charge by overall usage, others by an hourly rate or the amount of stored data. Depending on your needs, some pricing structures may fit better into your budget.
 
@@ -273,8 +268,17 @@ sections:
       {% endfor %}
       </table>
 
+  - title: "Getting started, now"
+    anchor: "getting-started-now"
+    summary: "How to get started without any technical know-how"
+    content: |
+      If you simply want to try Stitch and Redshift, or if you don't have the ability to spin up a Redshift cluster of your own in AWS, we recommend trying [Panoply]({{ link.destinations.overviews.panoply | prepend: site.baseurl | append: "#setup" }}). With just a few clicks, you create your own fully-managed Redshift data warehouse and start replicating data in minutes.
+
+      **Note**: If you decide to [switch destinations]({{ link.destinations.overviews.switch-destination | prepend: site.baseurl }}) later, you'll need to queue a full re-replication of your data to ensure historical data is present in the new destination.
+
   - title: "Additional resources and setup tutorials"
     anchor: "additional-resources"
+    summary: "Some additional resources and setup tutorials"
     content: |
       Ready to pick a destination and get started? Use the links below to check out a more in-depth look at each destination or move on to the setup and connection process.
 

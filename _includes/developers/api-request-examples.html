@@ -19,13 +19,13 @@
 {{ code | flatify | json }}
 {% endcapture %}
 
+{% assign remove-class = "<code class='apiUrl'>" %}
+{% assign end-class = "</code>" %}
 
-<div class="code-header">{% if include.code-description %}<div class="code-description-container"><strong>{{ include.code-description | flatify }}</strong></div>{% endif %}<div class="copy-code-container"><div class="copy-code-button" data-code="{{ api-request | flatify | escape | lstrip | rstrip }}" title="Copy to clipboard" tabindex="0"></div></div></div>
+{% assign clean-api-request = api-request | flatify | remove: remove-class | remove: end-class | escape | lstrip | rstrip %}
 
-{% capture code-example %}
-```curl
-{{ api-request | flatify | rstrip }}
-```
-{% endcapture %}
+<div class="code-header">{% if include.code-description %}<div class="code-description-container"><strong>{{ include.code-description | flatify }}</strong></div>{% endif %}<div class="copy-code-container"><div class="copy-code-button" data-code="{{ clean-api-request }}" title="Copy to clipboard" tabindex="0"></div></div></div>
 
-{{ code-example | flatify | markdownify }}
+<pre>
+<code class="language-curl">{{ api-request | flatify | rstrip }}</code>
+</pre>

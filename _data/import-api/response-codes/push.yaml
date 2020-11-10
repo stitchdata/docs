@@ -32,6 +32,16 @@ all:
   - code: "401"
     responses:
       - method: "post"
+        condition: "Base URL doesn't match account region"
+        version: "all"
+        response-body: |
+          ```json
+          {  
+             "message": "Invalid region."
+          }
+          ```
+          
+      - method: "post"
         condition: "`client_id` missing from request body"
         version: "all"
         response-body: |

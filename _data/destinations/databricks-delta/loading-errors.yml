@@ -17,3 +17,15 @@ float-out-of-range: "float ([float]) out of range for column [column_name]"
 decimal-out-of-range: "decimal ([decimal]) out of range for column [column_name]"
 
 long-out-of-range: "long ([long]) out of range for column [column_name]"
+
+all:
+  - message: |
+      The authorization header is malformed; the region '[STITCH_ACCOUNT_REGION]' is wrong; expecting '[S3_BUCKET_REGION]'
+    id: "s3-bucket-region-mismatch"
+    applicable-to: "Databricks Delta Lake destinations"
+    level: "critical"
+    category: "Amazon S3 bucket configuration"
+    summary: "Mismatched Amazon S3 and Stitch account regions"
+    cause: "The Amazon S3 bucket isn't in the same AWS region as your Stitch account."
+    fix-it: |
+      Use an Amazon S3 bucket that's in the same AWS region as your Stitch account. Currently, all Stitch accounts are in the `us-east-1` region. Your S3 bucket must be created in this region to use Databricks Delta Lake as your destination.

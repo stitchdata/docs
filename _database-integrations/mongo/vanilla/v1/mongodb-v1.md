@@ -137,8 +137,6 @@ setup-steps:
       
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
 
-      In this section:
-
       {% for substep in step.substeps %}
       - [Step 3.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
       {% endfor %}
@@ -175,6 +173,10 @@ setup-steps:
       {% include note.html first-line="**Stitch and MongoDB connections**" content=mongo-conn %}
 
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
+
+      {% for substep in step.substeps %}
+      - [Step 4.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
 
     substeps:
       - title: "Define the database connection details"

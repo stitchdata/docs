@@ -1,20 +1,17 @@
 For Stitch to successfully connect with your CloudSQL instance, you'll need to add our IP addresses to the database's [authorized networks list](https://cloud.google.com/sql/docs/postgres/configure-ip){:target="new"}.
 
-{% include layout/image.html type="right" file="/integrations/cloudsql-ip-whitelisting.png" alt="Authorized networks with Stitch IP addresses highlighted in the Google Cloud SQL database connections tab" max-width="450" enlarge=true %}
+{% include layout/image.html type="right" file="/integrations/cloudsql-ip-whitelisting.png" alt="Authorized networks with Stitch IP North America addresses highlighted in the Google Cloud SQL database connections tab" max-width="450" enlarge=true %}
 1. Sign into your Google Cloud Platform account.
 2. Navigate to the [Cloud SQL Instances page](https://console.cloud.google.com/sql/instances?_ga=2.87743768.-1255434742.1523541209){:target="new"}.
 3. Click the instance name to open its details page.
 4. Click the **Connections** tab.
 5. Locate the **Public IP section**.
-6. For each of the following IP addresses, complete the following:
+6. For each of the Stitch data pipeline region IP addresses you retrieved in [Step 1](#verify-stitch-account-region), complete the following:
 
    1. Click **+ Add network**.
    2. In the **Name** field, enter a name for the IP address. For example: `Stitch 1` for the first IP address, `Stitch 2` for the second, and so on.
-   3. In the **Network** field, paste **one** of the following IP addresses:
-      {% for ip-address in ip-addresses %}
-      - {{ ip-address.ip }}
-      {% endfor %}
+   3. In the **Network** field, paste **one** of the IP addresses **for your Stitch data pipeline region** that you retrieved in [Step 1](#verify-stitch-account-region).
    4. Click **Done**.
-   5. Repeat these steps until all of Stitch's IP addresses have been added.
+   5. Repeat these steps until all of Stitch's IP addresses for your data pipeline region have been added.
 
 6. When finished, click **Save** to update the instance.

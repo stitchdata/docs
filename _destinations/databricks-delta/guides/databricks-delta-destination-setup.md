@@ -44,7 +44,12 @@ requirements:
   - item: |
       **An Amazon Web Services (AWS) account with a {{ destination.display_name }} deployment.** Instructions for configuring a {{ destination.display_name }} deployment are outside the scope of this tutorial; our instructions assume that you have {{ destination.display_name }} up and running. Refer to [Databricks' documentation]({{ site.data.destinations.databricks-delta.resource-links.configure-aws-account }}){:target="new"} for help configuring your AWS account with Databricks.
   - item: |
-      **An existing Amazon S3 bucket.** This bucket must be in the same AWS account as the Databricks deployment or have a cross-account bucket policy that allows access to the bucket from the AWS account with the Databricks deployment.
+      {% assign north-america-region = site.data.stitch.regions | where:"id","north-america" | first %}
+
+      **An existing Amazon S3 bucket that must be:** 
+
+      - In the **same region as your Stitch account**. For example: If your Stitch account uses the {{ north-america-region.name }} (`{{ north-america-region.region }}`) data pipeline region, your S3 bucket must also be in `{{ north-america-region.region }}`. [Here's how to verify your Stitch account's data pipeline region]({{ link.security.supported-operating-regions | prepend: site.baseurl | append: "#identify-data-pipeline-region" }}).
+      - In the same AWS account as the Databricks deployment or have a cross-account bucket policy that allows access to the bucket from the AWS account with the Databricks deployment.
   - item: |
       **Permissions to manage S3 buckets in AWS**. Your AWS user must be able to add and modify bucket policies in the AWS account or accounts where the S3 bucket and Databricks deployment reside.
   
@@ -57,6 +62,12 @@ steps:
   - title: "Configure S3 bucket access in AWS"
     anchor: "configure-s3-bucket-access-in-aws"
     content: |
+      {% capture s3-region-note %}
+      The S3 bucket you use [must be in the same region as your Stitch account](#prerequisites). Using a bucket in another region will result [in errors in Stitch]({{ link.troubleshooting.dw-loading-errors | prepend: site.baseurl | append: "#s3-bucket-region-mismatch" }}).
+      {% endcapture %}
+
+      {% include important.html type="single-line" content=s3-region-note %}
+
       {% for substep in step.substeps %}
       - [Step 1.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
       {% endfor %}
@@ -65,7 +76,6 @@ steps:
         anchor: "grant-stitch-access-to-s3"
         content: |
           {% include destinations/amazon-s3/add-verify-bucket-policy.html type="add-bucket-policy" %}
-
       - title: "Grant Databricks access to your Amazon S3 bucket"
         anchor: "grant-databricks-access-to-s3"
         content: |

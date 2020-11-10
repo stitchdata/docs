@@ -222,11 +222,30 @@ steps:
       {% include developers/api-tutorial-step-table.html item=step item-list=step.substeps %}
 
     substeps:
+      - title: "Retrieve the correct Import API base URL for your region"
+        anchor: "verify-your-data-pipeline-region"
+        endpoint: ""
+        content: |
+          Next, you'll identify the [data pipeline region]({{ link.security.supported-operating-regions | prepend: site.baseurl }}) your Stitch account is in. You'll use this to retrieve the correct Import API base URL for your account's region.
+
+          The base URL is used in requests submitted to the Import API and is similar to `{{ site.data.import-api.api.base-url }}`.
+
+          To identify your region and get your base URL:
+
+          1. Use [these instructions]({{ link.security.supported-operating-regions | prepend: site.baseurl | append: "#identify-data-pipeline-region" }}) to locate your account's data pipeline region.
+          2. Refer to the [Import API base URL reference]({{ link.import-api.api | prepend: site.baseurl | append: "#base-urls" }}) to locate the base URL for your region.
+
       - title: "Build the request header"
         anchor: "build-import-api-request-header"
         endpoint: ""
         content: |
-          Pushing data to the Import API is accomplished by making a request to [POST {{ site.data.import-api.core-objects.batch.url }}]({{ link.import-api.api | prepend: site.baseurl | append: site.data.import-api.core-objects.batch.anchor }}). The request header must include the Import API access token and a supported media type of `Content-Type: application/json`:
+          Pushing data to the Import API is accomplished by making a request to [POST {{ site.data.import-api.core-objects.batch.url }}]({{ link.import-api.api | prepend: site.baseurl | append: site.data.import-api.core-objects.batch.anchor }}). The request header must include:
+
+          - The correct [base URL](#verify-your-data-pipeline-region) for your Stitch data pipeline region
+          - Your the Import API access token
+          - A supported media type of `Content-Type: application/json`
+
+          For example:
 
           {% assign request-url = site.data.import-api.core-objects.batch.url %}
 

@@ -12,7 +12,7 @@
 {% if include.this-version %}
     {% assign released-versions = site.data.destinations[page_name]versions.released-versions | where:"number",include.this-version %}
 
-    {% assign only-this-version = released-versions | where:"number",[page_name]this-version | first %}
+    {% assign only-this-version = released-versions | where:"number",include.this-version | first %}
 
 <!-- Otherwise, get the full list of released versions. -->
 {% else %}

@@ -43,11 +43,13 @@ port: 5439
 # -------------------------- #
 
 intro: |
-  {% capture account-creation %}
-  Stitch is in no way involved with the management of Panoply data warehouses. If you have billing questions or need help regarding your Panoply destination, [reach out to Panoply]({{ site.data.destinations[destination.type]resource-links.main-site }}){:target="new"}.
+  {% capture region-note %}
+  {% assign north-america-region = site.data.stitch.regions | where:"id","north-america" | first %}
+
+  **Data regions and {{ destination.display_name }}:** Use this process if you want your {{ destination.display_name }} destination to use a different region than `{{ north-america-region.region }}`. Reach out to [{{ destination.display_name }} support](https://panoply.io/docs/manage-data/custom-data-center-regions/){:target="new"} if you want to change your existing {{ destination.display_name }} destination's region.
   {% endcapture %}
 
-  {% include note.html first-line="**Panoply account management**" content=account-creation %}
+  {% include note.html type="single-line" content=region-note %}
 
 
 # -------------------------- #
@@ -55,17 +57,17 @@ intro: |
 # -------------------------- #
 
 requirements:
-  - item: "**Admin permissions in Panoply.**"
+  - item: "**Admin permissions in {{ destination.display_name }}.**"
 
 # -------------------------- #
 #         Instructions       #
 # -------------------------- #
 
 steps:
-  - title: "Locate the connection details in Panoply"
+  - title: "Locate the connection details in {{ destination.display_name }}"
     anchor: "locate-connection-info"
     content: |
-      1. Sign into your Panoply account.
+      1. Sign into your {{ destination.display_name }} account.
       2. In the left panel menu, click **Connect**.
       3. The database connection info - the **host, port, database name**, and **username** - will display.
 
@@ -75,6 +77,10 @@ steps:
     anchor: "connect-stitch"
     content: |
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
+
+      {% for substep in step.substeps %}
+      - [Step 2.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %}
 
     substeps:
       - title: "Enter connection details into Stitch"
