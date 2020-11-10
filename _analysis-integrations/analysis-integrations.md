@@ -246,6 +246,9 @@ compatibility-list:
     google-bigquery:
       link-copy: "Supported"
       link-url: "https://documentation.sisense.com/latest/managing-data/connectors/bigquerylive.htm"
+    microsoft-azure:
+      link-copy: "Supported"
+      link-url: "https://www.sisense.com/data-connectors/azure-synapse/"
     postgresql:
       link-copy: "Supported"
       link-url: "https://documentation.sisense.com/latest/managing-data/connectors/postgresql-live.htm"
