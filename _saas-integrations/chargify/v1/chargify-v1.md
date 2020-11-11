@@ -13,7 +13,7 @@
 # -------------------------- #
 
 title: Chargify (v1)
-permalink: /integrations/saas/chargify ## Add if there are multiple versions: /vVERSION
+permalink: /integrations/saas/chargify
 keywords: chargify, integration, schema, etl chargify, chargify etl, chargify schema
 layout: singer
 # input: false
