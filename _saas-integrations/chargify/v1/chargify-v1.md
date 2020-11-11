@@ -29,15 +29,15 @@ name: "chargify"
 display_name: "Chargify"
 
 singer: true
-status-url: ""
+status-url: "http://status.chargify.io/"
 
-tap-name: "Chargify" ## Ex: Intercom, not intercom
+tap-name: "Chargify"
 repo-url: https://github.com/singer-io/tap-chargify
 
 this-version: "1"
 
 api: |
-  [](){:target="new"}
+  [{{ integration.display_name }} API](https://reference.chargify.com/v1/basics/introduction){:target="new"}
 
 
 # -------------------------- #
@@ -60,11 +60,6 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
-
-# attribution-window: "# days"
-# attribution-is-configurable: 
-
-# setup-name: ""
 
 
 # -------------------------- #
@@ -91,23 +86,26 @@ feature-summary: |
 # -------------------------- #
 
 requirements-list:
-  - item: ""
-  - item: ""
-
-requirements-info:
+  - item: |
+      **Owner or Admin access in {{ integration.display_name }}**. A user with either [level of access](https://help.chargify.com/my-account/users.html#access-levels){:target="new"} is required to create an API key for Stitch.
 
 setup-steps:
-  - title: ""
-    anchor: ""
+  - title: "Create a {{ integration.display_name }} API key"
+    anchor: "create-api-key"
     content: |
-      [Add content]
+      {% include note.html type="single-line" content="**Note**: Completing this step requires Owner or Admin access in Chargify." %}
+
+      1. Sign into your {{ integration.display_name }} account as a user with either Owner or Admin access.
+      2. Navigate to **Config > Integrations**.
+      3. Click **New API Key**.
+      4. Copy your API key somewhere secure.
 
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-# starting with 4., add instructions for additional fields in UI. EX:
-# 4. In the [FIELD_NAME] field, [instructions]
+      4. In the **API Key** field, paste the API key you created in [Step 1](#create--key).
+      5. In the **Subdomain** field, enter your {{ integration.display_name }} subdomain.
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
@@ -119,7 +117,6 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
 
-## remove this if the integration doesn't support at least table selection
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |
@@ -132,13 +129,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/chargify
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
