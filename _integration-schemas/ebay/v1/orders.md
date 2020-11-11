@@ -1,16 +1,26 @@
 ---
 tap: "ebay"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "orders"
-doc-link: ""
+doc-link: "https://developer.ebay.com/api-docs/sell/fulfillment/resources/order/methods/getOrders"
 singer-schema: "https://github.com/singer-io/tap-ebay/blob/master/tap_ebay/schemas/orders.json"
-description: ""
-replication-method: ""
+description: |
+  The {{ integration.display_name }} table contains details about all orders in your {{ integration.display_name }} seller account.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "getOrders"
+    doc-link: "https://developer.ebay.com/api-docs/sell/fulfillment/resources/order/methods/getOrders"
+
 attributes:
+  - name: "orderId"
+    type: "string"
+    primary-key: true
+    description: "The order ID."
+
   - name: "buyer"
     type: "object"
     description: ""
@@ -480,9 +490,7 @@ attributes:
   - name: "orderFulfillmentStatus"
     type: "string"
     description: ""
-  - name: "orderId"
-    type: "string"
-    description: ""
+  
   - name: "orderPaymentStatus"
     type: "string"
     description: ""
