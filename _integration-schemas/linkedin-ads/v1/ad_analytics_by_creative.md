@@ -18,6 +18,7 @@ api-method:
 attributes:
   - name: "creative_id"
     type: "integer"
+    primary-key: true
     foreign-key: true
     description: "The creative ID."
     foreign-key-id: "creative-id"
