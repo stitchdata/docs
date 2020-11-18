@@ -4,19 +4,20 @@
 # -------------------------- #
 
 title: Security FAQ
-permalink: /account-security/security-faq
-redirect_from: /account-security/stitch-security
+permalink: /security/frequently-asked-questions
+redirect_from: 
+  - /account-security/stitch-security
+  - /account-security/security-faq
+summary: "We take securing your data seriously. Here's what we do to ensure that your private data stays private and our recommended best practices for protecting your data."
 keywords: security, secure, data access, credentials, security protocol, breach, encryption, encrypted, store data, retain data, vpn, ssl, hipaa, pci
 
 key: "security-faq"
-
-summary: "We take securing your data seriously. Here's what we do to ensure that your private data stays private and our recommended best practices for protecting your data."
-
-layout: faq
-toc: true
-
 type: "security"
+content-type: "basics"
 weight: 1
+
+layout: general
+toc: true
 
 enterprise: true
 enterprise-cta:
@@ -33,47 +34,110 @@ enterprise-utm:
 #          CONTENT           #
 # -------------------------- #
 
-frequently-asked-questions:
-  - topic: "Compliance"
+sections:
+  - title: "Stitch's environment"
+    anchor: "environment"
+    content: |
+      - Stitch’s servers are hosted in Amazon Web Services (AWS), which provides assurances for their physical and virtualized computing environments including SOC 1, 2, and 3, and ISO/IEC 27001. The servers used to process replicated data for your account will be located in the AWS region associated with your [Stitch data pipeline region]({{ link.security.supported-operating-regions | prepend: site.baseurl }}).
+      - Stitch operates within an Amazon Virtual Private Cloud (VPC), with subnets segregated by security level, and firewalls configured to restrict network access.
+      - Stitch regularly performs automated vulnerability scans and installs security updates and patches.
+      - Stitch’s application and environment is regularly audited by third-party security professionals conducting specialized penetration tests.
+
+  - title: "Data access policies"
+    anchor: "stitch-access"
+    content: |
+      - Stitch strictly controls access to data and credentials and requires them to be encrypted using industry-standard methods both at rest and in transit within our [environment](#environment).
+      - Stitch's secure infrastructure is a closed network protected by multi-factor authentication and accessible only to qualified members of our engineering team. On the rare occassion that a Stitch engineer needs to read or move data in our infrastrucutre to investigate an issue, your data will never leave our infrastructure.
+
+         Additionally, all members of the Stitch team - not just engineers - have signed non-disclosure agreements.
+      - Stitch monitors application, system, and data access logs within its production environment for anomalous behavior.
+      - Stitch will never access data in your destination without your explicit permission. We'll ask every time this is required and notify you when it's happening.
+
+  - title: "Permissions for integrations and destinations"
+    anchor: "permissions"
+    content: |
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
+
+    subsections:
+      - title: "Integration permissions"
+        anchor: "permissions--integrations"
+        content: |
+          Stitch’s integrations use the minimum permissions that allow read access to necessary data and can be configured by users to replicate only a subset of available data.
+
+          However, the permissions Stitch requires to successfully pull your data will depend on the database or SaaS application's permission structure. In some cases, we only need read-only permissions to pull all the data required - in others, we need what amounts to full access.
+
+          Regardless of the level of permissions we request for an integration, **we will only ever read your data.** Any permissions beyond the scope of read-only will not be used.
+
+          To ensure Stitch remains visible in logs and audits, we recommend creating a dedicated Stitch user as a best practice.
+
+      - title: "Destination permissions"
+        anchor: "permissions--destinations"
+        content: |
+          Stitch's destinations use the minimum permissions that allow Stitch to successfully load data into your destination. In most cases, Stitch requires the ability to create schemas, tables, columns, and to read and insert data.
+
+          The specific permissions Stitch requires are different for each destination. Refer to the documentation [for your destination]({{ link.destinations.main | prepend: site.baseurl }}) for more info.
+
+  - title: "Compliance"
     anchor: "stitch-compliance"
-    items:
-      - question: "Is Stitch SOC 2 compliant?"
-        anchor: "soc2-compliant"
-        answer: |
-          {% include misc/data-files.html %}
+    content: |
+      {% include misc/icons.html %}
 
-          Stitch has been certified compliant with the SOC 2 security, availability, and confidentiality principles by an independent auditor. The audit report can be requested by contacting [Stitch Sales]({{ site.sales | append: page.enterprise-utm.soc2-url }}).
+      The following table contains info about Stitch's level of compliance or certification with various security regulations and programs:
 
-      - question: "Is Stitch PCI compliant?"
-        anchor: "pci-compliant"
-        answer: |
-          All payment information submitted through Stitch's billing interface to pay for your subscription is handled in a PCI-compliant manner.
+      - {{ supported | replace:"TOOLTIP","Fully certified/compliant" | strip }} - Indicates Stitch is fully compliant/certified
+      - {{ sometimes-supported | replace:"TOOLTIP","May be compliant/certified, with caveats" | strip }} - Indicates Stitch may be compliant/certified, but with caveats
+      - {{ not-supported | replace:"TOOLTIP","Not currently compliant/certified" | strip }} - Indicates Stitch isn't currently compliant/certified
 
-          To inquire about replicating data subject to PCI requirements, reach out to our [support team](mailto: {{ site.support }}).
+      <table>
+        <tr>
+          <td align="right" width="15%; fixed">
+            <strong>Type</strong>
+          </td>
+          <td width="14%; fixed">
+            <strong>Compliant/<br>Certified</strong>
+          </td>
+          <td width="20%; fixed">
+            <strong>Stitch plan</strong>
+          </td>
+          <td>
+            <strong>Notes</strong>
+          </td>
+        </tr>
+      {% for compliance in site.data.stitch.compliance %}
+        <tr>
+          <td align="right">
+            <strong>{{ compliance.name }}</strong>
+          </td>
+          <td>
+            {% case compliance.level %}
+              {% when 'none' %}
+                {% assign full-tooltip = "Not currently " | append: compliance.name | append: " compliant/certified" %}
+                {{ not-supported | replace:"TOOLTIP",full-tooltip | strip }}
+              {% when 'some' %}
+                {% assign full-tooltip = "May be " | append: compliance.name | append: " compliant/certified, with caveats" %}
+                {{ sometimes-supported | replace:"TOOLTIP",full-tooltip | strip }}
+              {% when 'full' %}
+                {% assign full-tooltip = "Fully " | append: compliance.name | append: " compliant/certified" %}
+                {{ supported | replace:"TOOLTIP",full-tooltip | strip }}
+            {% endcase %}
+          </td>
+          <td>
+            {% if compliance.level == "none" %}
+              Not applicable
+            {% else %}
+              {{ compliance.tier | capitalize | append: " plans" }}
+            {% endif %}
+          </td>
+          <td>
+            {{ compliance.description | flatify | markdownify }}
+          </td>
+        </tr>
+      {% endfor %}
+      </table>
 
-      - question: "Is Stitch HIPAA compliant?"
-        anchor: "hipaa-compliant"
-        answer: |
-          {% include misc/data-files.html %}
-
-          Stitch can replicate data in a HIPAA-compliant manner as part of an Enterprise plan.
-
-          To learn more replicating data subject to HIPAA compliance with Stitch, refer to the [Operating Stitch in Compliance with HIPAA]({{ link.account.hipaa-compliance | prepend: site.baseurl }}) doc or contact the Stitch Sales team by using the [contact form on the Stitch website]({{ site.sales | append: page.enterprise-utm.url }}).
-
-          **Note**: There are requirements outside of Stitch configuration that must be completed to ensure compliance. Reach out to [Stitch Sales]({{ site.sales | append: page.enterprise-utm.hipaa-url }}) before replicating any sensitive data.
-
-      - question: "Does Stitch comply with GDPR and EU privacy laws?"
-        anchor: "eu-privacy-compliance"
-        answer: |
-          Stitch is in full compliance with the European Union's Global Data Protection Regulation (GDPR).
-          
-          The [Stitch Terms of Use](https://www.stitchdata.com/terms/){:target="new"} includes a Data Processing Addendum (DPA) that enacts standard contractual clauses set forth by the European Commission to establish a legal basis for cross-border data transfers from the EU. The [Stitch Privacy Policy](https://www.stitchdata.com/privacy){:target="new"} also includes specific GDPR requirements.
-          
-          Stitch is certified under the [US-EU and US-SWISS Privacy Shield Programs](https://www.privacyshield.gov/participant?id=a2zt0000000GnxUAAS&status=Active){:target="new"}, meaning any EU or Swiss data transfer will be handled in accordance with the principles laid out in the Privacy Shield Framework.
-
-          For more information on Privacy Shield, check out the link above or [this FAQ on the program](https://www.privacyshield.gov/Program-Overview){:target="new"}.
-
-  - topic: "Data processing"
+  - title: "Data processing"
     anchor: "stitch-data-processing"
     items:
       - question: "Can Stitch process data outside of the United States?"
@@ -94,7 +158,7 @@ frequently-asked-questions:
 
           Refer to the [Supported Data Pipeline Regions documentation]({{ link.security.supported-operating-regions | prepend: site.baseurl }}) for more info.
 
-  - topic: "Encryption"
+  - title: "Data encryption"
     anchor: "stitch-encryption"
     items:
       - question: "How are credentials handled after they're entered into Stitch?"
@@ -124,26 +188,7 @@ frequently-asked-questions:
 
           Refer to the [Advanced connectivity section]({{ link.security.encryption | prepend: site.baseurl | append: "#advanced-connectivity" }}) in the Data encryption guide for more info.
 
-  - topic: "Data access"
-    anchor: "stitch-access"
-    items:
-      - question: "What are Stitch's policies regarding access to my data?"
-        anchor: "stitch-policies-data-access"
-        answer: |
-          Before your data is loaded into your data warehouse, it passes through Stitch's secure infrastructure. This is a closed network protected by multi-factor authentication and accessible only to qualified members of our engineering team. On rare occasions, our engineers may need to read or move the data while it is in our infrastructure to debug or resolve an operational issue.
-
-          When this happens, your data will never leave our infrastructure. All members of our team - not just our engineers - have signed non-disclosure agreements. We're committed to ensuring your data remains private.
-
-          **As for your data warehouse, we will never access it without your explicit permission.** We’ll ask every time it’s required to troubleshoot an issue and we’ll be sure to notify you when we’re doing it. No one likes surprises, least of all when it comes to their private data.
-
-      - question: "Why is full access required for some SaaS integrations?"
-        anchor: "full-access-saas-integrations"
-        answer: |
-          The access we need to successfully pull your data from a SaaS integration depends entirely on the vendor's API and permission structure. In some cases, we only need read-only access to pull all the data required - in others, we need what amounts to full access.
-
-          Regardless of the level of permissions we need for an integration, we will only ever read your data.
-
-  - topic: "Protocols and recommendations"
+  - title: "Protocols and recommendations"
     anchor: "stitch-protocols-recommendations"
     items:
       - question: "What security protocols does Stitch have in place?"
@@ -166,7 +211,8 @@ frequently-asked-questions:
           For your database data, we recommend using our SSH and SSL features to ensure your data stays secure and encrypted in transit. Additionally, we encourage you to require strong passwords for database users.
 
           For your SaaS data, we recommend that you keep your API keys private and don’t share your login credentials - for Stitch or any other service - with anyone.
-  - topic: "Security issues"
+
+  - title: "Issue reporting and handling"
     anchor: "security-issues"
     items:
       - question: "What's Stitch's policy on informing customers about security breaches?"
@@ -191,6 +237,13 @@ frequently-asked-questions:
             3. Update the credentials for the appropriate integration(s) in Stitch.
 
           Our team can help you remediate any data issues that might have occurred as a result of the breach.
+
+
+
+frequently-asked-questions:
+  
+  
+  
 ---
 {% include misc/data-files.html %}
 
