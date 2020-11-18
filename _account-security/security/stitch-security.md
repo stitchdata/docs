@@ -3,13 +3,14 @@
 #          PAGE INFO         #
 # -------------------------- #
 
-title: Security FAQ
-permalink: /security/frequently-asked-questions
+title: Security Overview
+permalink: /security/overview
 redirect_from: 
+  - /security/frequently-asked-questions
   - /account-security/stitch-security
   - /account-security/security-faq
-summary: "We take securing your data seriously. Here's what we do to ensure that your private data stays private and our recommended best practices for protecting your data."
-keywords: security, secure, data access, credentials, security protocol, breach, encryption, encrypted, store data, retain data, vpn, ssl, hipaa, pci
+summary: "Stitch gives you the power to secure, analyze, and govern your data by centralizing it into your data infrastructure. Our most important job is to keep your data safe along the way."
+keywords: security, secure, data access, credentials, security protocol, breach, encryption, encrypted, store data, retain data, vpn, ssl, hipaa, pci, connectivity, retain, retention
 
 key: "security-faq"
 type: "security"
@@ -18,16 +19,25 @@ weight: 1
 
 layout: general
 toc: true
-
-enterprise: true
-enterprise-cta:
-  feature: "HIPAA and SOC2 compliance "
-  title: "{{ site.data.strings.enterprise.title.multiple | prepend: page.enterprise-cta.feature }}"
+feedback: false
 
 enterprise-utm:
   hipaa-url: "?utm_medium=docs&utm_campaign=hipaa-compliance"
   reverse-ssh-url: "?utm_medium=docs&utm_campaign=reverse-ssh"
   soc2-url: "?utm_medium=docs&utm_campaign=soc2-compliance"
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
+
+intro: |
+  {{ page.summary }}
+
+  In this guide, we'll cover:
+
+  {% for section in page.sections %}
+  - [{{ section.title }}](#{{ section.anchor }})
+  {% endfor %}
 
 
 # -------------------------- #
@@ -41,7 +51,7 @@ sections:
       - Stitch’s servers are hosted in Amazon Web Services (AWS), which provides assurances for their physical and virtualized computing environments including SOC 1, 2, and 3, and ISO/IEC 27001. The servers used to process replicated data for your account will be located in the AWS region associated with your [Stitch data pipeline region]({{ link.security.supported-operating-regions | prepend: site.baseurl }}).
       - Stitch operates within an Amazon Virtual Private Cloud (VPC), with subnets segregated by security level, and firewalls configured to restrict network access.
       - Stitch regularly performs automated vulnerability scans and installs security updates and patches.
-      - Stitch’s application and environment is regularly audited by third-party security professionals conducting specialized penetration tests.
+      - Stitch’s application and environment are protected by dedicated firewall services to prevent unauthorized access and regularly audited by third-party security professionals conducting specialized penetration tests.
 
   - title: "Data access policies"
     anchor: "stitch-access"
@@ -50,6 +60,7 @@ sections:
       - Stitch's secure infrastructure is a closed network protected by multi-factor authentication and accessible only to qualified members of our engineering team. On the rare occassion that a Stitch engineer needs to read or move data in our infrastrucutre to investigate an issue, your data will never leave our infrastructure.
 
          Additionally, all members of the Stitch team - not just engineers - have signed non-disclosure agreements.
+      - Stitch's data centers are protected by electronic security, intrusion detection systems, and a 24/7/365 human staff. 
       - Stitch monitors application, system, and data access logs within its production environment for anomalous behavior.
       - Stitch will never access data in your destination without your explicit permission. We'll ask every time this is required and notify you when it's happening.
 
@@ -137,114 +148,98 @@ sections:
       {% endfor %}
       </table>
 
-  - title: "Data processing"
-    anchor: "stitch-data-processing"
-    items:
-      - question: "Can Stitch process data outside of the United States?"
-        anchor: "data-processing-outside-us"
-        answer: |
-          Yes. The **Data pipeline region** setting, defined when you create a Stitch account, controls the region where Stitch-hosted data centers process replicated data.
-
-          Refer to the [Supported Data Pipeline Regions documentation]({{ link.security.supported-operating-regions | prepend: site.baseurl }}) for more info.
-
-      - question: "What types of data are affected by the data pipeline region setting?"
-        anchor: "data-types-data-pipeline-region"
-        answer: |
-          {% assign north-america-region = site.data.stitch.regions | where:"id","north-america" | first %}
-
-          The **Data pipeline region** setting only affects the replication of data in your Stitch account, specifically extracting, preparing, and loading data into your destination.
-
-          All other processes and data, such as billing, reporting, and other metadata, are not affected by your account's data pipeline region. Data and metadata related to these processes will be processed using Stitch's `{{ north-america-region.name }}` region.
-
-          Refer to the [Supported Data Pipeline Regions documentation]({{ link.security.supported-operating-regions | prepend: site.baseurl }}) for more info.
-
   - title: "Data encryption"
     anchor: "stitch-encryption"
-    items:
-      - question: "How are credentials handled after they're entered into Stitch?"
-        anchor: "credential-handling"
-        answer: |
-          All credentials used to access other systems (i.e., your database or a SaaS integration) are encrypted before we store them.
+    content: |
+      - Stitch's web application enforces SSL to ensure communication remains secure.
+      - All credentials used to access other systems (i.e., your database or a SaaS integration) are encrypted before Stitch stores them.
+      - Data is always encrypted [in transit]({{ link.security.encryption | prepend: site.baseurl | append: "#in-transit-encryption" }}) and at rest within the Stitch environment. At rest, Stitch uses [AES-256](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard){:target="new"} to encrypt data.
+      - Stitch offers several secure options for creating connections to integrations and destinations, including [SSL/TLS]({{ link.security.encryption | prepend: site.baseurl | append: "#ssl-connections" }}), [SSH tunnels]({{ link.security.encryption | prepend: site.baseurl | append: "#ssh-tunnel-connections" }}), and [IP whitelisting]({{ link.security.ip-addresses | prepend: site.baseurl }}). Additional [advanced connectivity options]({{ link.security.encryption | prepend: site.baseurl | append: "#advanced-connectivity" }}) are also available as part of an Enterprise plan.
+      
+      Refer to the [Data encryption guide]({{ link.security.encryption | prepend: site.baseurl }}) for more info.
 
-      - question: "Is my data encrypted in transit? Is it encrypted at rest?"
-        anchor: "is-data-encrypted-transit"
-        answer: |
-          Your data is always encrypted in transit and at rest within the Stitch environment. We offer several ways to get data into Stitch using encryption. Refer to the [Data encryption guide]({{ link.security.encryption | prepend: site.baseurl }}) for more info.
+  - title: "Data processing and retention"
+    anchor: "stitch-data-processing-retention"
+    content: |
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
+    subsections:
+      - title: "Data processing"
+        anchor: "data-processing"
+        content: |
+          The **Data pipeline region** setting, defined when you create a Stitch account, controls the region where Stitch-hosted data centers process replicated data.
 
-      - question: "Are SSL connections supported?"
-        anchor: "ssl-connection-support"
-        answer: |
-          SSL connections are available on all plans for the majority of integrations and destinations. Refer to the [Data encryption guide]({{ link.security.encryption | prepend: site.baseurl | append: "#ssl-connections" }}) for more info. 
+          **Note**: The **Data pipeline region** setting only affects the replication of data in your Stitch account, specifically extracting, preparing, and loading data into your destination. All other processes and data, such as billing, reporting, and other metadata, are not affected by your account's data pipeline region. Data and metadata related to these processes will be processed using Stitch's `north-america` region.
 
-      - question: "Are SSH tunnel connections supported?"
-        anchor: "ssh-connection-support"
-        answer: |
-          SSH connections are available on all plans for the majority of database integrations and some destinations. Refer to the [Data encryption guide]({{ link.security.encryption | prepend: site.baseurl | append: "#ssh-tunnel-connections" }}) for more info.
+          Refer to the [Supported Data Pipeline Regions documentation]({{ link.security.supported-operating-regions | prepend: site.baseurl }}) for more info.
 
-      - question: "Are VPN or reverse SSH tunnel connections supported?"
-        anchor: "vpn-connection-support"
-        answer: |
-          Additional connection options such as VPNs or reverse SSH tunnels may be implemented as part of an Enterprise plan. Contact [Stitch Sales]({{ site.sales | append: page.enterprise-utm.reverse-ssh-url }}) for more info.
+      - title: "Data retention"
+        anchor: "data-retention"
+        content: |
+          To ensure we meet our most important service-level target - don't lose data - replicated data may be retained in Stitch's system for a short period of time. Stitch automatically deletes data when it is no longer needed for replication.
 
-          Refer to the [Advanced connectivity section]({{ link.security.encryption | prepend: site.baseurl | append: "#advanced-connectivity" }}) in the Data encryption guide for more info.
+          During the [**Preparing** phase of the replication process]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#system-architecture--preparing" }}), Stitch buffers extracted data in its internal data pipeline and readies it for loading. This phase consists of the following steps:
+
+          <table>
+            <tr>
+              <td align="right" width="20%; fixed">
+                <strong>Step</strong>
+              </td>
+              <td width="25%; fixed">
+                <strong>Maximum retention period</strong>
+              </td>
+              <td>
+                <strong>Step description</strong>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+                <strong>The Pipeline</strong>
+              </td>
+              <td>
+                7 days
+              </td>
+              <td>
+                Stitch uses Apache Kafka and Amazon S3 systems spanning multiple data centers to durably buffer the data received by the Import API. Data is always encrypted at rest, and automatically deleted from the buffer before the maximum retention period for this step.
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+                <strong>The Streamery</strong>
+              </td>
+              <td>
+                30 days
+              </td>
+              <td>
+               The Streamery reads data from the Pipeline and separates, batches, and prepares it for loading. Prepared data is encrypted, separated by tenant (Stitch account) and data set, and written to Amazon S3 to be loaded.<br><br>
+
+                Most data is loaded within minutes, but if a destination is unavailable, it can stay in S3 for up to 30 days before being automatically deleted.
+              </td>
+            </tr>
+          </table>
 
   - title: "Protocols and recommendations"
     anchor: "stitch-protocols-recommendations"
-    items:
-      - question: "What security protocols does Stitch have in place?"
-        anchor: "stitch-security-protocols"
-        answer: |
-          - Our data centers are protected by electronic security, intrusion detection systems, and a 24/7/365 human staff. 
-          - Our operating systems and other software are kept up to date with the latest security patches. 
-          - Our network is protected by dedicated firewall services to prevent unauthorized access, and our systems regularly undergo automated vulnerability scans.
+    content: |
+      - **Create a dedicated user for Stitch whenever possible.** This applies to any integration or destination. Refer to the [Permissions for integrations and destinations section](#permissions) for more info.
+      - **For database connections**, utilize Stitch's built-in support for SSH and SSL/TLS connections to encrypt data in transit. Refer to the [Data encryption guide]({{ link.security.encryption | prepend: site.baseurl }}) for more info.
+      - **For SaaS data**, keep any credentials or sensitive information such as passwords, API keys or tokens, etc. secure.
+      - **If your database(s) or SaaS account(s) have been hacked**, we recommend that you:
 
-          Those are just our internal measures. We also take great care to ensure your data is secure as it makes its way through Stitch and into your data warehouse.
+        1. Immediately recycle any credentials used to access your system or service,
+        2. Generate new credentials, and
+        3. Update the credentials for the appropriate integration(s) in Stitch.
 
-      - question: "Does Stitch undergo any security audits?"
-        anchor: "stitch-security-audits"
-        answer: |
-          New features undergo a security review by our team before release. In addition, security professionals conduct regular audits and penetration tests on our existing systems.
-
-      - question: "What are Stitch's recommendations for keeping my data secure?"
-        anchor: "stitch-recommendations-data-secure"
-        answer: |
-          For your database data, we recommend using our SSH and SSL features to ensure your data stays secure and encrypted in transit. Additionally, we encourage you to require strong passwords for database users.
-
-          For your SaaS data, we recommend that you keep your API keys private and don’t share your login credentials - for Stitch or any other service - with anyone.
+        Our team can help you remediate any data issues that might have occurred as a result of the breach.
 
   - title: "Issue reporting and handling"
     anchor: "security-issues"
-    items:
-      - question: "What's Stitch's policy on informing customers about security breaches?"
-        anchor: "stitch-policy-inform-customers"
-        answer: |
-          If our team verifies a security vulnerability in our system, our first priority is to prevent its exploitation. After it’s contained, we do a thorough analysis to determine the scope of impact and notify affected users within 24 hours.
+    content: |
+      If our team verifies a security vulnerability in our system, our first priority is to prevent its exploitation. After it’s contained, we do a thorough analysis to determine the scope of impact and notify affected users within 24 hours.
 
-      - question: "How do I report a security issue?"
-        anchor: "report-security-issue"
-        answer: |
-          If you believe you’ve found a security vulnerability in Stitch, we encourage you to let us know right away by emailing [security@stitchdata.com](mailto: security@stitchdata.com). We request that you do not publicly disclose the issue until we have a chance to address it. We won’t pursue legal action as long as you make a good-faith effort to avoid privacy violations and destructive exploitation of the vulnerability.
+      If you believe you’ve found a security vulnerability in Stitch, we encourage you to let us know right away by emailing [security@stitchdata.com](mailto: security@stitchdata.com). We request that you do not publicly disclose the issue until we have a chance to address it. We won’t pursue legal action as long as you make a good-faith effort to avoid privacy violations and destructive exploitation of the vulnerability.
 
-          We will respond as quickly as we can and reward the confidential and non-destructive disclosure of any design or implementation issue that could be used to compromise the confidentiality or integrity of our users' data (such as bypassing our login process, injecting code into another user's session, or acting on another user's behalf) with some swag. Other issues may be rewarded at our discretion.
-
-      - question: "What should I do if one of my data sources is hacked?"
-        anchor: "help-i-was-hacked"
-        answer: |
-          If your database(s) or SaaS account(s) have been hacked, we recommend that you:
-
-            1. Immediately recycle any credentials used to access your system or service,
-            2. Generate new credentials, and
-            3. Update the credentials for the appropriate integration(s) in Stitch.
-
-          Our team can help you remediate any data issues that might have occurred as a result of the breach.
-
-
-
-frequently-asked-questions:
-  
-  
-  
+      We will respond as quickly as we can and reward the confidential and non-destructive disclosure of any design or implementation issue that could be used to compromise the confidentiality or integrity of our users' data (such as bypassing our login process, injecting code into another user's session, or acting on another user's behalf) with some swag. Other issues may be rewarded at our discretion.
 ---
 {% include misc/data-files.html %}
-
-{{ page.summary }}
