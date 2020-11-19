@@ -30,7 +30,7 @@ key: "de-nesting-json"
   - Microsoft Azure Synapse Analytics
   - Panoply
   - PostgreSQL
-- **PostgreSQL `ARRAY` & `JSON` datatypes:** The info in this article is not applicable to PostgreSQL `ARRAY` and `JSON` data types. These data types will be stored as strings in your data warehouse, whether it's PostgreSQL, Panoply, or Redshift.{% endcapture %}
+- **PostgreSQL `JSON` & `JSONB` datatypes:** The info in this article is not applicable to PostgreSQL `JSON` and `JSONB` data types. These data types will be stored as strings in your data warehouse, whether it's PostgreSQL, Panoply, or Redshift.{% endcapture %}
 
 {% include important.html first-line="**Not applicable to all destinations and data types**" content=callout %}
 
