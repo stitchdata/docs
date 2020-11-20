@@ -32,6 +32,7 @@ layout: general
 # -------------------------- #
 
 display_name: "PostgreSQL"
+name: "postgresql"
 type: "postgres"
 
 this-version: "1"

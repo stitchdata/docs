@@ -1,14 +1,25 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Changing Your Email Address and Password
 permalink: /account-security/change-your-email-address-and-password
 keywords: email address, password, change password, change email
 summary: "Manage your user profile, email address, and update your password on the Your Profile page."
 
+key: "change-email-password"
+
 layout: general
 toc: true
 
-type: "account-settings"
+type: "manage-your-account"
 weight: 1
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
 
 intro: |
   Manage your user profile, email address, and update your password on the **Your Profile** page.
@@ -18,6 +29,11 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
   {% endfor %}
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "Update your email address"

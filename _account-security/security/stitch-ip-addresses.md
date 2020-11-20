@@ -4,16 +4,18 @@
 # -------------------------- #
 
 title: Stitch IP Address Reference
-permalink: /account-security/stitch-ip-addresses
+permalink: /security/stitch-ip-addresses
+redirect_from: /account-security/stitch-ip-addresses
 summary: "The IP addresses Stitch uses for each supported data pipeline region."
+
+key: "ip-addresses"
+type: "security"
+content-type: "data-processing"
+weight: 5
 
 input: false
 layout: general
 feedback: true
-
-key: "ip-addresses"
-type: "security"
-weight: 5
 
 
 # -------------------------- #

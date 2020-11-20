@@ -40,6 +40,7 @@ related:
 
 display_name: "Microsoft Azure Synapse Analytics"
 type: "microsoft-azure"
+name: "microsoft-azure"
 db-type: "mssql"
 
 this-version: "1"

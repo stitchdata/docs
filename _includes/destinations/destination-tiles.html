@@ -21,7 +21,7 @@
 
 		<a href="{{ destination.url | prepend: site.baseurl | append: "#getting-started" }}">Setup</a><br>
 
-		{% assign all-data-loading-guides = site.data-structure | where:"content-type","loading-reference" %}
+		{% assign all-data-loading-guides = site.replication | where:"content-type","loading-reference" %}
 			{% assign all-destination-loading-guides = all-data-loading-guides | where:"display_name",destination.display_name %}
 				{% assign destination-loading-guide = all-destination-loading-guides | where:"this-version",destination.this-version | first %}
 					{% if destination-loading-guide.this-version == destination.this-version %}

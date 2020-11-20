@@ -3,13 +3,17 @@
 # -------------------------------------- #
 
 - name: "byte"
-  doc-link: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBMapper.DataTypes.html"
+  doc-link: &data-type-link "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBMapper.DataTypes.html"
+  category: "numeric"
 
 - name: "calendar"
-  doc-link: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBMapper.DataTypes.html"
+  doc-link: *data-type-link
+  category: "date and time"
 
 - name: "long"
-  doc-link: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBMapper.DataTypes.html"
+  doc-link: *data-type-link
+  category: "numeric"
 
 - name: "bigdecimal"
-  doc-link: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBMapper.DataTypes.html"
+  doc-link: *data-type-link
+  category: "numeric"

@@ -1,0 +1,57 @@
+# -------------------------- #
+#        COMPLIANCE          #
+# -------------------------- #
+
+- id: "fedramp"
+  name: "FedRAMP"
+  level: "none"
+  tier: ""
+  description: |
+    Stitch isn't currently certified with the Federal Risk and Authorization Management Program (FedRAMP).
+
+- id: "gdpr"
+  name: "GDPR"
+  level: "full"
+  tier: "all"
+  description: |
+    **Stitch is fully compliant with the European Union's Global Data Protection Regulation, or GDPR.**
+
+    The [Stitch Terms of Use](https://www.stitchdata.com/terms/){:target="new"} includes a Data Processing Addendum (DPA) that enacts standard contractual clauses set forth by the European Commission to establish a legal basis for cross-border data transfers from the EU. The [Stitch Privacy Policy](https://www.stitchdata.com/privacy){:target="new"} also includes specific GDPR requirements. Learn more about Stitch's efforts [in this blog post](https://www.stitchdata.com/blog/stitch-is-now-gdpr-compliant/){:target="new"}.
+
+    Additionally, Stitch supports selecting the region in which you'd like your account's replicated data to be processed. Refer to the [Data processing section](#data-processing) for more info.
+
+- id: "hipaa"
+  name: "HIPAA"
+  level: "full"
+  tier: "enterprise"
+  description: |
+    **Stitch can replicate data in a HIPAA-compliant manner as part of an Enterprise plan**. To learn more replicating data subject to Health Insurance Portability and Accountability Act (HIPAA) regulations with Stitch, refer to the [Operating Stitch in Compliance with HIPAA]({{ link.account.hipaa-compliance | prepend: site.baseurl }}) doc or contact the [Stitch Sales team]({{ site.sales | append: page.enterprise-utm.url }}).
+
+    **Note**: There are requirements outside of Stitch configuration that must be completed to ensure compliance. Reach out to [Stitch Sales]({{ site.sales | append: page.enterprise-utm.hipaa-url }}) before replicating any sensitive data.
+  
+- id: "pci"
+  name: "PCI"
+  level: "some"
+  tier: "all"
+  description: |
+    **Stitch doesn't currently support replicating data in a PCI-compliant manner.** To inquire about replicating data subject to PCI requirements, reach out to our [support team](mailto: {{ site.support }}).
+
+    However, all payment information submitted through Stitch's billing interface to pay for your subscription is handled in a PCI-compliant manner.
+
+- id: "privacy-shield"
+  name: "Privacy Shield"
+  level: "full"
+  tier: "all"
+  description: |
+    **Stitch is certified under the [US-EU and US-SWISS Privacy Shield Programs](https://www.privacyshield.gov/participant?id=a2zt0000000GnxUAAS&status=Active){:target="new"}**, meaning any EU or Swiss data transfer will be handled in accordance with the principles laid out in the Privacy Shield Framework.
+
+    For more information on Privacy Shield, check out the previous link or [this FAQ on the program](https://www.privacyshield.gov/Program-Overview){:target="new"}.
+
+- id: "soc-2"
+  name: "SOC 2"
+  level: "full"
+  tier: "all"
+  description: |
+    **Stitch has been certified compliant with the SOC 2 security, availability, and confidentiality principles by an independent auditor.**
+
+    The audit report can be requested by contacting [Stitch Sales]({{ site.sales | append: page.enterprise-utm.soc2-url }}).

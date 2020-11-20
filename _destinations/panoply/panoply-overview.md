@@ -39,6 +39,7 @@ related:
 # -------------------------- #
 
 display_name: "Panoply"
+name: "panoply"
 type: "panoply"
 
 this-version: "2"

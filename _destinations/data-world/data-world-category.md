@@ -32,6 +32,7 @@ layout: general
 # -------------------------- #
 
 display_name: "data.world"
+name: "data-world"
 type: "data-world"
 
 this-version: "1"

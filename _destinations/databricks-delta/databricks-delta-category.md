@@ -32,6 +32,7 @@ layout: general
 # -------------------------- #
 
 display_name: "Databricks Delta"
+name: "databricks-delta"
 type: "databricks-delta"
 
 this-version: "1"

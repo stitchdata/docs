@@ -64,18 +64,18 @@ billing:
 security:
   main: /security
 
-  faq: /account-security/security-faq
+  faq: /security/overview
 
-  compliance: /account-security/compliance
+  compliance: /security/overview#stitch-compliance
 
-  ip-addresses: /account-security/stitch-ip-addresses
-  supported-operating-regions: /account-security/supported-data-pipeline-regions
+  ip-addresses: /security/stitch-ip-addresses
+  supported-operating-regions: /security/supported-data-pipeline-regions
 
-  encryption: /account-security/data-encryption
-  reverse-ssh: /account-security/data-encryption/setting-up-reverse-ssh-tunnel
-  ssh-generic: /account-security/data-encryption/setting-up-ssh-tunnel-for-database-connection
-  ssh-amazon: /account-security/data-encryption/setting-up-ssh-tunnel-for-amazon-web-services
-  ssh-microsoft-azure: /account-security/data-encryption/setting-up-ssh-tunnel-for-microsoft-azure
+  encryption: /security/data-encryption
+  reverse-ssh: /security/data-encryption/setting-up-reverse-ssh-tunnel
+  ssh-generic: /security/data-encryption/setting-up-ssh-tunnel-for-database-connection
+  ssh-amazon: /security/data-encryption/setting-up-ssh-tunnel-for-amazon-web-services
+  ssh-microsoft-azure: /security/data-encryption/setting-up-ssh-tunnel-for-microsoft-azure
 
 
 # -------------------------- #
@@ -142,38 +142,44 @@ destinations:
 # -------------------------- #
 ## used as link.destinations.loading.[id]
   loading:
-    overview: /replication/reference
-    bigquery: /replication/reference/google-bigquery
-    bigquery-v1: /replication/reference/google-bigquery/v1
-    bigquery-v2: /replication/reference/google-bigquery
-    databricks-delta: /replication/reference/databricks-delta
-    panoply: /replication/reference/panoply
-    postgres: /replication/reference/postgresql
-    redshift: /replication/reference/amazon-redshift
-    snowflake: /replication/reference/snowflake
+    overview: /replication/reference/loading
+    bigquery: /replication/reference/loading/google-bigquery
+    bigquery-v1: /replication/reference/loading/google-bigquery/v1
+    bigquery-v2: /replication/reference/loading/google-bigquery
+    databricks-delta: /replication/reference/loading/databricks-delta
+    panoply: /replication/reference/loading/panoply
+    postgres: /replication/reference/loading/postgresql
+    redshift: /replication/reference/loading/amazon-redshift
+    snowflake: /replication/reference/loading/snowflake
 
 # -------------------------- #
 #        Data Storage        #
 # -------------------------- #
 ## used as link.destinations.storage.[id]
   storage:
-    system-tables-and-columns: &system-data /data-structure/system-tables-and-columns
-    stitch-schema: /data-structure/integration-schemas
-    sdc-columns: *system-data
-    loading-data: /data-structure/loading-stitch-data-into-destinations
-    structure-changes: /data-structure/table-structural-changes
-    column-splitting: "/data-structure/table-structural-changes#columns-mixed-data-types"
-    varchar-widening: "/data-structure/table-structural-changes#widening-varchar-columns"
-    nested-structures: /data-structure/nested-data-structures-row-count-impact
-    rejected-records: /data-structure/identifying-rejected-records
-    redshift-encodings: /destinations/amazon-redshift/apply-encodings-sort-dist-keys-redshift
-    bigquery-partitioning: /destinations/google-bigquery/apply-table-partitioning-clustering
-    primary-key-system-table: /replication/loading/primary-keys-system-table
-
+    ## GENERAL
+    loading-data: /replication/loading/reference
     loading-behavior: /replication/loading/understanding-loading-behavior
 
-    bigquery-nested-structures: /replication/loading/google-bigquery-storing-nested-data-structures
+    ## SYSTEM COLUMNS AND TABLES
+    system-tables-and-columns: &system-data /replication/reference/system-tables-columns
+    primary-key-system-table: /replication/reference/system-tables-columns/primary-keys
+    rejected-records: /replication/reference/system-tables-columns/rejected-records
+    sdc-columns: *system-data
 
+    ## SCHEMAS AND STRUCTURE
+    stitch-schema: /replication/loading/understanding-destination-schemas
+    structure-changes: /replication/loading/understanding-table-structural-changes
+    column-splitting: "/replication/loading/understanding-table-structural-changes#columns-mixed-data-types"
+    varchar-widening: "/replication/loading/understanding-table-structural-changes#widening-varchar-columns"
+    nested-structures: /replication/loading/understanding-loading-row-usage-for-nested-data-structures
+    bigquery-nested-structures: /replication/loading/google-bigquery-storing-nested-data-structures
+    
+    ## PERFORMANCE ENHANCEMENT
+    redshift-encodings: /destinations/amazon-redshift/apply-encodings-sort-dist-keys-redshift
+    bigquery-partitioning: /destinations/google-bigquery/apply-table-partitioning-clustering
+    
+    ## RESERVED KEYWORDS
     reserved-keywords:
       overview: /replication/loading/reserved-keywords
       redshift-v2: /replication/loading/reserved-keywords#redshift-v2-reserved-keywords
@@ -212,47 +218,57 @@ integrations:
   dynamodb-projection-expressions: /integrations/databases/amazon-dynamodb/field-selection-using-projection-expressions
 
 # -------------------------- #
-#         Replication        #
+#         REPLICATION        #
 # -------------------------- #
 ## used as link.replication.[id]
 replication:
   main: /replication
+  extraction: /replication/extractions
+  preparing: /replication/preparing
+  loading: /replication/loading
   overview: /replication/stitch-replication-process
 
+# -------------------------- #
+#         EXTRACTIONS        #
+# -------------------------- #
+
 ## Syncing Data
+  data-selection: /replication/extractions/data-selection
   syncing: /replication/extractions/data-selection/setting-tables-and-columns-to-replicate
-  syncing-new-columns: /replication/syncing-new-additional-columns
-  db-views: /replication/replicating-database-views
-  supported-data-types: /replication/supported-data-types
+  syncing-new-columns: /replication/data-selection/syncing-new-additional-columns
+  db-views: /replication/extractions/data-selection/replicating-database-views
+  data-typing: &data-typing /replication/preparing/understanding-data-typing
+  supported-data-types: *data-typing
 
 ## Replication Scheduling
-  rep-scheduling: /replication/replication-scheduling
-  rep-frequency: "/replication/replication-scheduling/replication-frequency"
-  anchor-scheduling: "/replication/replication-scheduling/anchor-scheduling"
-  advanced-scheduling: /replication/replication-scheduling/advanced-scheduling
-  table-scheduling: /replication/replication-scheduling/scheduling-for-tables
+  rep-scheduling: /replication/extractions/replication-scheduling
+  rep-frequency: /replication/extractions/replication-scheduling/replication-frequency
+  anchor-scheduling: /replication/extractions/replication-scheduling/anchor-scheduling
+  advanced-scheduling: /replication/extractions/replication-scheduling/advanced-scheduling
+  table-scheduling: /replication/extractions/replication-scheduling/scheduling-for-tables
 
 ## Replication Methods
-  rep-methods: /replication/replication-methods
-  append-only: "/replication/replication-methods#append-only-incremental-replication"
-  log-based-incremental: /replication/replication-methods/log-based-incremental
-  key-based-incremental: /replication/replication-methods/key-based-incremental
-  full-table: /replication/replication-methods/full-table
+  rep-methods: /replication/extractions/replication-methods
+  append-only: "/replication/extractions/replication-methods#append-only-incremental-replication"
+  log-based-incremental: /replication/extractions/replication-methods/log-based-incremental
+  key-based-incremental: /replication/extractions/replication-methods/key-based-incremental
+  full-table: /replication/extractions/replication-methods/full-table
 
-  append-only-querying: /data-structure/querying-append-only-tables
-  deleted-records: "/replication/deleted-record-handling"
+  append-only-querying: /replication/loading/querying-append-only-tables
+  deleted-records: /replication/extractions/deleted-record-handling
 
 ## Replication Keys
-  rep-keys: /replication/replication-keys
-  mongo-rep-keys: /replication/mongo-replication-keys
-  reset-rep-keys: "/replication/replication-keys#resetting-replication-keys"
+  rep-keys: &rep-keys /replication/extractions/replication-keys
+  mongo-rep-keys: *rep-keys
+  reset-rep-keys: /replication/extractions/replication-keys/resetting-replication-keys
 
 ## Historical Data & Progress
-  saas-historical: /replication/syncing-historical-saas-data-resetting-replication-keys
+  saas-historical: &start-date /replication/extractions/replication-keys/understanding-integration-start-dates
+  integration-start-date: *start-date
   rep-progress: /replication/monitoring-replication-progress
   loading-reports: /replication/integration-loading-reports
 
-  extractions-tab: /replication/extractions
+  extractions-tab: /replication/extractions/extraction-tab-features
   extraction-logs: /replication/extractions/integration-extraction-logs
   start-stop-extraction: /replication/extractions/start-stop-extraction-jobs
 
@@ -299,6 +315,16 @@ import-api:
 webhooks:
   post-load: /developers/webhooks/post-load-webhooks
 
+
+# -------------------------- #
+#       Analysis Tools       #
+# -------------------------- #
+## used as link.analysis-tools.[id]
+
+analysis-tools: 
+  main: /analysis-tools/
+
+
 # -------------------------- #
 #       Troubleshooting      #
 # -------------------------- #
@@ -308,8 +334,9 @@ troubleshooting:
 
   known-issues: /troubleshooting/known-third-party-issues
   billing-issues: /troubleshooting/account
+  troubleshoot-account-lockout: /troubleshooting/account/account-lockout
+  troubleshoot-payment-processing-errors: /troubleshooting/account/payment-processing-errors
   third-party-downtime: /troubleshooting/third-party-integration-downtime
-  team-member-invites: /troubleshooting/account/team-member-invites
 
 ## Data Discrepancies 
   discrepancy-guide: /troubleshooting/data-discrepancy-troubleshooting-guide

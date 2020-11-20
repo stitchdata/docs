@@ -3,14 +3,15 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Integrating Stitch Notifications with Slack
+title: Integrating Slack with Stitch Notifications
 permalink: /account-security/notifications/integrate-notifications-with-slack
 summary: "Integrate Stitch notifications with Slack using Stitch's Custom email notification list feature."
+
+key: "slack-email-notifications"
 
 input: false
 layout: general
 
-key: "slack-email-notifications"
 type: "notifications"
 weight: 6
 

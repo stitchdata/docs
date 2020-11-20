@@ -13,7 +13,7 @@ type: "discrepancy, database-integration, replication"
 
 ---
 
-{% include replication/rep-key-requirements.html %}
+
 
 There are also some other considerations around Mongo Replication Keys, which you can read about in the [Selecting & Changing Mongo Replication Keys guide]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}).
 

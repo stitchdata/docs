@@ -29,15 +29,7 @@ structural-changes: |
   Detected and automatically handled by Stitch
 
 configuration-requirements: |
-  {% include misc/icons.html %}
-
-  A column with one of the following data types that's suitable as a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}):
-
-  {% for data in site.data.taps.extraction.replication-methods.key-based-incremental.allowed-data-types %}
-  - {{ data.type | upcase }}{% if data.integration != "All" %}{% capture tooltip %}Supported for {{ data.integration }} integrations only {% endcapture %}{{ info-icon | replace:"TOOLTIP",tooltip }}{% endif %}
-  {% endfor %}
-
-  **Note**: Refer to the [MongoDB Replication Keys]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) guide for considerations specific to MongoDB.
+  A table with a suitable [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}) column
 
 other: ""
 

@@ -56,6 +56,9 @@ api-type: "platform.google-analytics"
 anchor-scheduling: true
 cron-scheduling: true
 
+extraction-logs: true
+loading-reports: true
+
 table-selection: true
 column-selection: true
 select-all: false
@@ -63,9 +66,6 @@ select-all-reason: |
   The APIs used by this integration ({{ integration.api-name }}) don't support selecting all fields due to compatibility rules.
 
 table-level-reset: true
-
-extraction-logs: true
-loading-reports: true
 
 
 # -------------------------- #

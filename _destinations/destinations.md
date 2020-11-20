@@ -30,7 +30,7 @@ destination: false
 icon: "destination"
 display-title: "Destinations"
 display-summary: "Deliver your data to popular data lakes, warehouses, and storage platforms."
-weight: 3
+weight: 4
 
 
 # -------------------------- #

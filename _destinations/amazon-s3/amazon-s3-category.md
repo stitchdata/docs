@@ -32,6 +32,7 @@ layout: general
 # -------------------------- #
 
 display_name: "Amazon S3"
+name: "amazon-s3"
 type: "amazon-s3"
 
 this-version: "1"
