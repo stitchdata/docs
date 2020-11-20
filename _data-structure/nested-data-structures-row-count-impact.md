@@ -30,7 +30,7 @@ key: "de-nesting-json"
   - Microsoft Azure Synapse Analytics
   - Panoply
   - PostgreSQL
-- **PostgreSQL `ARRAY` & `JSON` datatypes:** The info in this article is not applicable to PostgreSQL `ARRAY` and `JSON` data types. These data types will be stored as strings in your data warehouse, whether it's PostgreSQL, Panoply, or Redshift.{% endcapture %}
+- **PostgreSQL `JSON` & `JSONB` datatypes:** The info in this article is not applicable to PostgreSQL `JSON` and `JSONB` data types. These data types will be stored as strings in your destination, whether it's PostgreSQL, Panoply, or Redshift.{% endcapture %}
 
 {% include important.html first-line="**Not applicable to all destinations and data types**" content=callout %}
 
@@ -158,7 +158,7 @@ In addition to the attributes in the nested record - in this case, product ID, p
 - `{{ system-column.source-key | replace: "y_", "y" }}` - This contains the top level record's Primary Key. In this example, the column would be `{{ system-column.source-key | append: "order_id" }}`.
 - `{{ system-column.level-id | replace: '#', '0' }}` - This forms part of a composite primary key for this row and can be used to associate further down the line nested rows to this parent. This will auto-increment for each unique record in the table, beginning with 0. When used with the `{{ system-column.source-key | replace: "y_", "y" }} column, it creates a unique identifier for the row.
 
-   For the Shopify example, the value for the first line item record would be 0, the second 1, the third 2, and so on.
+   For the Shopify example, the value for the first line item record would be `0`, the second `1`, the third `2`, and so on.
 
    **We recommend always joining the top level table to the nested table** - this will allow you to avoid queries that may have outdated data.
 
@@ -185,7 +185,7 @@ In addition to the attributes in the nested record - in this case, price, rate, 
 - `{{ system-column.level-id | replace: '#', '0' }}` - This is the foreign key for the second level (`orders__line_items`) table. Combined with the source key (`{{ system-column.source-key | append: "order_id" }}`), it can be used to find the parent.
 - `{{ system-column.level-id | replace: '#', '1' }}` - This forms part of a composite primary key for this row and can be used to associate further down the line nested rows to this parent.
 
-   For the Shopify example, the first tax line record would be 0, the second 1, the third 2, and so on.
+   For the Shopify example, the first tax line record would be `0`, the second `1`, the third `2`, and so on.
 
 Here's what the `orders__line_items__tax_lines` table would look like if we added another tax line were added to the order record:
 
@@ -209,11 +209,11 @@ INNER JOIN orders__line_items__tax_lines tl
 
 ## Impact on total row count {#impact-on-total-row-count}
 
-Because Stitch is built to denest nested arrays into separate tables, **you can expect to see more rows in Stitch and in your data warehouse than what's in the source itself**. 
+Because Stitch is built to denest nested arrays into separate tables, **you can expect to see more rows in Stitch and in your destination than what's in the source itself**. 
 
-To sum it up: row count in original data source ≠ the row count reflected in the Stitch app or your data warehouse.
+To sum it up: row count in original data source ≠ the row count reflected in the Stitch app or your destination.
 
-Consider the Shopify example. Order 1234 isn't just a just a single row in the data warehouse. Because Stitch had to denest subrecords and create tables to accommodate these records, you can expect to see more than just one row for order 1234 moving through Stitch.
+Consider the Shopify example. Order 1234 isn't just a just a single row in the destination. Because Stitch had to denest subrecords and create tables to accommodate these records, you can expect to see more than just one row for order `1234` moving through Stitch.
 
 From the top level record, there's the row in the `orders` table: 
 
@@ -235,13 +235,13 @@ From the third level record, we have the rows in the `orders__line_items__tax_li
 | 1234 | 0 | 0 | 5.99 | .06 | State Tax |
 | 1234 | 1 | 0 | 10.99 | .06 | State Tax |
 
-In total, Stitch will count each of these rows (a total of 5) towards your row count. So while there is only one record in the Shopify data source, inside of Stitch you'll see 5 replicated rows and there'll be 5 rows in your data warehouse.
+In total, Stitch will count each of these rows (a total of 5) towards your row count. So while there is only one record in the Shopify data source, inside of Stitch you'll see 5 replicated rows and there'll be 5 rows in your destination.
 
 ---
 
 ## Reducing your row count {#reduce-your-row-count}
 
-Understanding how Stitch handles nested data structures will in turn give you a deeper understanding of how your data is structured once it gets to your data warehouse. While this knowledge will help comprehending the data's structure, what about applying it to how many rows you're using? How can you plan ahead?
+Understanding how Stitch handles nested data structures will in turn give you a deeper understanding of how your data is structured once it gets to your destination. While this knowledge will help comprehending the data's structure, what about applying it to how many rows you're using? How can you plan ahead?
 
 - **For starters**, check out the [Reducing Your Row Count]({{ link.getting-started.row-usage | prepend: site.baseurl | append: "#reducing-your-usage" }}) guide for detailed tips and gotchas on how to keep your row count in line.
 - **Take some time to learn about how the data for your integrations is structured and how it's replicated.**
