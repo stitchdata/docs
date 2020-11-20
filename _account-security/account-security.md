@@ -10,6 +10,7 @@ summary: "Resources for everything account-related: Managing billing details, in
 feedback: false
 
 key: "account-security"
+content-type: "category-page"
 
 layout: general
 
@@ -24,7 +25,7 @@ level: "category"
 
 icon: "user-profile"
 display-title: "Your Stitch account"
-display-summary: "Manage your account and learn about Stitch's security practices."
+display-summary: "Set up and manage your Stitch account."
 weight: 2
 
 
