@@ -4,17 +4,18 @@
 # -------------------------- #
 
 title: Setting up an SSH Tunnel for a self-hosted database
-permalink: /account-security/data-encryption/setting-up-ssh-tunnel-for-database-connection
+permalink: /security/data-encryption/setting-up-ssh-tunnel-for-database-connection
+redirect_from: /account-security/data-encryption/setting-up-ssh-tunnel-for-database-connection
 summary: "If a database is privately accessible, you can use an SSH tunnel to connect Stitch. This tutorial will walk you through setting up an SSH server and configuring access for a self-hosted database connection to Stitch."
 
 key: "ssh-setup-self-hosted"
+type: "security"
+content-type: "encryption"
 
 input: false
 layout: tutorial
 use-tutorial-sidebar: false
 weight: 3
-
-type: "security"
 
 hosting-type: "generic"
 

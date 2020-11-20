@@ -4,18 +4,19 @@
 # -------------------------- #
 
 title: Setting up an SSH Tunnel for a database in Amazon Web Services
-permalink: /account-security/data-encryption/setting-up-ssh-tunnel-for-amazon-web-services
+permalink: /security/data-encryption/setting-up-ssh-tunnel-for-amazon-web-services
+redirect_from: /account-security/data-encryption/setting-up-ssh-tunnel-for-amazon-web-services
 summary: "If a database is in private subnet in your Amazon Web Services account, you can use an SSH tunnel to connect Stitch. This tutorial will walk you through setting up an SSH server and configuring access for an Amazon RDS or Amazon Redshift connection to Stitch."
 
 key: "ssh-setup-amazon-web-services"
+type: "security"
+content-type: "encryption"
 
 input: false
 layout: tutorial
 weight: 3
 
 use-tutorial-sidebar: false
-
-type: "security"
 
 hosting-type: "amazon"
 

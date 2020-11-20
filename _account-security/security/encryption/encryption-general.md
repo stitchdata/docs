@@ -4,17 +4,18 @@
 # -------------------------- #
 
 title: Data Encryption
-permalink: /account-security/data-encryption
+permalink: /security/data-encryption
+redirect_from: /account-security/data-encryption
 summary: "Stitch offers secure options for making connections to all data sources and destinations, giving you the power to secure your data as you see fit."
 
 key: "data-encryption-overview"
+type: "security"
+content-type: "encryption"
+weight: 2
 
 input: false
 layout: general
 feedback: false
-weight: 2
-
-type: "security"
 
 enterprise: true
 enterprise-cta:
@@ -23,13 +24,14 @@ enterprise-cta:
   copy: |
     [Additional connection options](#advanced-connectivity) are available as part of a Stitch Enterprise plan.
 
+
 # -------------------------- #
 #        Introduction        #
 # -------------------------- #
 
 intro: |
   {% capture security-faq %}
-  **Looking for general security info?** Check out the [Security FAQ]({{ link.security.faq | prepend: site.baseurl }}).
+  **Looking for general security info?** Check out the [Security overview]({{ link.security.faq | prepend: site.baseurl }}).
   {% endcapture %}
 
   {% include note.html type="single-line" content=security-faq %}
