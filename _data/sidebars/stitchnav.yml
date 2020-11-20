@@ -126,60 +126,40 @@ all-docs:
 
   - title: "Security"
     sections:
-      - title: "Stitch IP addresses"
-        url: "{{ link.security.ip-addresses }}"
-
-      - title: "Compliance"
-        url: "{{ link.security.faq }}#stitch-compliance"
-
-      - title: "Data pipeline regions"
-        subsections:
-          - title: "Overview"
-            url: "{{ link.security.supported-operating-regions }}"
-
-          - title: "Select a region"
-            url: "{{ link.security.supported-operating-regions }}#define-change-data-pipeline-regions"
-
-          - title: "Identify your region"
-            url: "{{ link.security.supported-operating-regions }}#identify-data-pipeline-region"
-
-          - title: "Supported regions"
-            url: "{{ link.security.supported-operating-regions }}#all-supported-regions"
-
-          - title: "Region support by destination type"
-            url: "{{ link.security.supported-operating-regions }}#region-support-by-destination"
-
-      - title: "Data encryption"
-        subsections:
-          - title: "Overview"
-            url: "{{ link.security.encryption }}"
-
-          - title: "In transit"
-            url: "{{ link.security.encryption }}#in-transit-encryption"
-
-          - title: "SSL connections"
-            url: "{{ link.security.encryption }}#ssl-connections"
-
-          - title: "SSH connections"
-            url: "{{ link.security.encryption }}#ssh-tunnel-connections"
-
-          - title: "Reverse SSH connections"
-            url: "{{ link.security.reverse-ssh }}"
-
-          - title: "Advanced connectivity"
-            url: "{{ link.security.encryption }}#advanced-connectivity"
-
-          - title: "At rest"
-            url: "{{ link.security.encryption }}#data-at-rest"
+      - title: "Environment"
+        url: "{{ link.security.faq }}#environment"
 
       - title: "Data access policies"
         url: "{{ link.security.faq }}#stitch-access"
 
+      - title: "Access control"
+        url: "{{ link.security.faq }}#access-control"
+
+      - title: "Compliance"
+        url: "{{ link.security.faq }}#stitch-compliance"
+
+      - title: "Encryption"
+        url: "{{ link.security.faq }}#stitch-encryption"
+
+      - title: "Processing and retention"
+        subsections:
+          - title: "Processing"
+            url: "{{ link.security.faq }}#data-processing"
+
+          - title: "Data pipeline regions"
+            url: "{{ link.security.supported-operating-regions }}"
+
+          - title: "Retention"
+            url: "{{ link.security.faq }}#data-retention"
+
       - title: "Protocols and recommendations"
         url: "{{ link.security.faq }}#stitch-protocols-recommendations"
 
-      - title: "Reporting issues"
+      - title: "Issue reporting and handling"
         url: "{{ link.security.faq }}#security-issues"
+
+      - title: "All Security"
+        url: "/security"
 
   - title: Destinations
     sections:

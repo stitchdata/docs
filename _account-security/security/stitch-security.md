@@ -17,6 +17,8 @@ type: "security"
 content-type: "basics"
 weight: 1
 
+display-title: "All Security basics"
+
 layout: general
 toc: true
 feedback: false
@@ -32,12 +34,6 @@ enterprise-utm:
 
 intro: |
   {{ page.summary }}
-
-  In this guide, we'll cover:
-
-  {% for section in page.sections %}
-  - [{{ section.title }}](#{{ section.anchor }})
-  {% endfor %}
 
 
 # -------------------------- #
@@ -57,38 +53,52 @@ sections:
     anchor: "stitch-access"
     content: |
       - Stitch strictly controls access to data and credentials and requires them to be encrypted using industry-standard methods both at rest and in transit within our [environment](#environment).
-      - Stitch's secure infrastructure is a closed network protected by multi-factor authentication and accessible only to qualified members of our engineering team. On the rare occassion that a Stitch engineer needs to read or move data in our infrastrucutre to investigate an issue, your data will never leave our infrastructure.
+      - Stitch's secure infrastructure is a closed network protected by multi-factor authentication and accessible only to qualified members of our engineering team. On the rare occassion that a Stitch engineer needs to read or move data to investigate an issue, your data will never leave our infrastructure.
 
          Additionally, all members of the Stitch team - not just engineers - have signed non-disclosure agreements.
       - Stitch's data centers are protected by electronic security, intrusion detection systems, and a 24/7/365 human staff. 
       - Stitch monitors application, system, and data access logs within its production environment for anomalous behavior.
       - Stitch will never access data in your destination without your explicit permission. We'll ask every time this is required and notify you when it's happening.
 
-  - title: "Permissions for integrations and destinations"
-    anchor: "permissions"
+  - title: "Access control"
+    anchor: "access-control"
     content: |
       {% for subsection in section.subsections %}
       - [{{ subsection.title }}](#{{ subsection.anchor }})
       {% endfor %}
-
+      
     subsections:
-      - title: "Integration permissions"
-        anchor: "permissions--integrations"
+      - title: "Connectivity"
+        anchor: "connectivity"
         content: |
-          Stitch’s integrations use the minimum permissions that allow read access to necessary data and can be configured by users to replicate only a subset of available data.
+          - **All plans** include [SSH tunnels]({{ link.security.encryption | prepend: site.baseurl | append: "#ssh-tunnel-connections" }}) and [IP whitelisting]({{ link.security.ip-addresses | prepend: site.baseurl }}) for integrations and destinations that support these features.
+          - **For Enterprise plans**, additional [advanced connectivity options]({{ link.security.encryption | prepend: site.baseurl | append: "#advanced-connectivity" }}) - such as VPNs, reverse SSH tunneling, and Amazon Web Services Private Link - may be available.
 
-          However, the permissions Stitch requires to successfully pull your data will depend on the database or SaaS application's permission structure. In some cases, we only need read-only permissions to pull all the data required - in others, we need what amounts to full access.
-
-          Regardless of the level of permissions we request for an integration, **we will only ever read your data.** Any permissions beyond the scope of read-only will not be used.
-
-          To ensure Stitch remains visible in logs and audits, we recommend creating a dedicated Stitch user as a best practice.
-
-      - title: "Destination permissions"
-        anchor: "permissions--destinations"
+      - title: "Permissions for integrations and destinations"
+        anchor: "permissions"
         content: |
-          Stitch's destinations use the minimum permissions that allow Stitch to successfully load data into your destination. In most cases, Stitch requires the ability to create schemas, tables, columns, and to read and insert data.
+          {% for sub-subsection in subsection.sub-subsections %}
+          - [{{ sub-subsection.title }}](#{{ sub-subsection.anchor }})
+          {% endfor %}
 
-          The specific permissions Stitch requires are different for each destination. Refer to the documentation [for your destination]({{ link.destinations.main | prepend: site.baseurl }}) for more info.
+        sub-subsections:
+          - title: "Integration permissions"
+            anchor: "permissions--integrations"
+            content: |
+              Stitch’s integrations use the minimum permissions that allow read access to necessary data and can be configured by users to replicate only a subset of available data.
+
+              However, the permissions Stitch requires to successfully pull your data will depend on the database or SaaS application's permission structure. In some cases, we only need read-only permissions to pull all the data required - in others, we need what amounts to full access.
+
+              Regardless of the level of permissions we request for an integration, **we will only ever read your data.** Any permissions beyond the scope of read-only will not be used.
+
+              To ensure Stitch remains visible in logs and audits, we recommend creating a dedicated Stitch user as a best practice.
+
+          - title: "Destination permissions"
+            anchor: "permissions--destinations"
+            content: |
+              Stitch's destinations use the minimum permissions that allow Stitch to successfully load data into your destination. In most cases, Stitch requires the ability to create schemas, tables, columns, and to read and insert data.
+
+              The specific permissions Stitch requires are different for each destination. Refer to the documentation [for your destination]({{ link.destinations.main | prepend: site.baseurl }}) for more info.
 
   - title: "Compliance"
     anchor: "stitch-compliance"
@@ -154,7 +164,10 @@ sections:
       - Stitch's web application enforces SSL to ensure communication remains secure.
       - All credentials used to access other systems (i.e., your database or a SaaS integration) are encrypted before Stitch stores them.
       - Data is always encrypted [in transit]({{ link.security.encryption | prepend: site.baseurl | append: "#in-transit-encryption" }}) and at rest within the Stitch environment. At rest, Stitch uses [AES-256](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard){:target="new"} to encrypt data.
-      - Stitch offers several secure options for creating connections to integrations and destinations, including [SSL/TLS]({{ link.security.encryption | prepend: site.baseurl | append: "#ssl-connections" }}), [SSH tunnels]({{ link.security.encryption | prepend: site.baseurl | append: "#ssh-tunnel-connections" }}), and [IP whitelisting]({{ link.security.ip-addresses | prepend: site.baseurl }}). Additional [advanced connectivity options]({{ link.security.encryption | prepend: site.baseurl | append: "#advanced-connectivity" }}) are also available as part of an Enterprise plan.
+      - Stitch offers several secure options for creating connections to integrations and destinations:
+
+         - **All plans** include [SSL/TLS]({{ link.security.encryption | prepend: site.baseurl | append: "#ssl-connections" }}), [SSH tunnels]({{ link.security.encryption | prepend: site.baseurl | append: "#ssh-tunnel-connections" }}), and [IP whitelisting]({{ link.security.ip-addresses | prepend: site.baseurl }}) for integrations and destinations that support these features.
+         - **For Enterprise plans**, additional [advanced connectivity options]({{ link.security.encryption | prepend: site.baseurl | append: "#advanced-connectivity" }}) - such as VPNs, reverse SSH tunneling, and Amazon Web Services Private Link - may be available.
       
       Refer to the [Data encryption guide]({{ link.security.encryption | prepend: site.baseurl }}) for more info.
 
