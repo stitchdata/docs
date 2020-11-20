@@ -71,14 +71,10 @@ integer:
   stitch-type: "integer"
 
 json:
-  stitch-type: "array"
-  tooltip: |
-    JSON is supported, but may be denested depending on the destination you're using. <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}'>Learn more.</a>
+  stitch-type: "string"
 
 jsonb:
-  stitch-type: "array"
-  tooltip: |
-    JSONB is supported, but may be denested depending on the destination you're using. <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}'>Learn more.</a>
+  stitch-type: "string"
 
 longvarchar:
   stitch-type: "string"
