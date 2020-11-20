@@ -32,7 +32,7 @@ intro: |
     - Microsoft Azure Synapse Analytics
     - Panoply
     - PostgreSQL
-  - **PostgreSQL `ARRAY` & `JSON` datatypes:** The info in this article is not applicable to PostgreSQL `ARRAY` and `JSON` data types. These data types will be stored as strings in your destination, whether it's PostgreSQL, Panoply, or Redshift.{% endcapture %}
+  - **PostgreSQL `JSON` & `JSONB` datatypes:** The info in this article is not applicable to PostgreSQL `JSON` and `JSONB` data types. These data types will be stored as strings in your destination.{% endcapture %}
 
   {% include important.html first-line="**Not applicable to all destinations and data types**" content=callout %}
 
@@ -45,6 +45,49 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.title }}](#{{ section.anchor }})
   {% endfor %}
+
+
+example-table: |
+  <table style="font-size: 13px;">
+    <tr>
+      {% for attribute in example-record %}
+        <td>
+          <strong>{{ attribute.name | flatify }}</strong>
+        </td>
+      {% endfor %}
+    </tr>
+    {% for record in records %}
+      <tr>
+        {% for attribute in example-record %}
+          <td>
+            {{ attribute[record] }}
+          </td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </table>
+
+schema-table: |
+  <table>
+    <tr>
+      <td align="right" width="30%; fixed">
+        <strong>Column name</strong>
+      </td>
+      <td>
+        <strong>Description</strong>
+      </td>
+    </tr>
+    {% for attribute in attributes %}
+      <tr>
+        <td align="right">
+          <strong>{{ attribute.name | flatify }}</strong>
+        </td>
+        <td>
+          {{ attribute.description | flatify | markdownify }}
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
 
 
 # -------------------------- #
@@ -61,6 +104,21 @@ sections:
     subsections:
       - title: "Objects"
         anchor: "json-objects"
+        example-record:
+          - name: "product_id"
+            value: "5008798"
+          - name: "name"
+            value: "Awesome Dino Shirt"
+          - name: "price"
+            value: "5.99"
+          - name: "attributes__color"
+            value: "blue"
+          - name: "attributes__size"
+            value: "large"
+          - name: "attributes__type"
+            value: "clothing"
+          - name: "attributes__ounces"
+            value: "5"
         content: |
           An object is an unordered set of name and value pairs; each set is called a property. Objects begin with a left curly bracket ( `{` ) and end with a right curly bracket ( `}` ).
 
@@ -84,9 +142,10 @@ sections:
 
           If a table were created for the object in the example above, the schema would look like this:
 
-          | product_id | name               | price | attributes__color | attributes__size | attributes__type | attributes__ounces |
-          |------------|--------------------|-------|-------------------|------------------|------------------|--------------------|
-          | 5008798    | Awesome Dino Shirt | 5.99  | blue              | large            | clothing         | 5                  |
+          {% assign example-record = subsection.example-record %}
+          {% assign records = "value|" | split: "|" %}
+
+          {{ page.example-table | flatify }}
 
       - title: "Arrays"
         anchor: "json-arrays"
@@ -148,11 +207,44 @@ sections:
 
       {% include layout/code-snippet.html code=code %}
 
-      This record contains three levels of data due to the nested arrays. Stitch will denest the arrays from the top level record - in this case, the core order info - and create subtables. **From this one order record, three tables will be created:**
+      This record contains three levels of data due to the nested arrays. Stitch will denest the arrays from the top level record - in this case, the core order info - and create subtables.
 
-      - `orders` - This table contains the core order data: order ID, created timestamp, and customer ID.
-      - `orders__line_items` - This table contains the line item info: product ID, price, and quantity.
-      - `orders__line_items__tax_lines` - This table contains the tax line info: price, rate, and title.
+      From this one order record, three tables will be created:
+
+      <table>
+        <tr>
+          <td width="30%; fixed">
+            <strong>Table name</strong>
+          </td>
+          <td>
+            <strong>Description</strong>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>orders</strong>
+          </td>
+          <td>
+            This table contains the core order data: order ID, created timestamp, and customer ID.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>orders__line_items</strong>
+          </td>
+          <td>
+            This table contains the line item info: product ID, price, and quantity.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>orders__line_items__tax_lines</strong>
+          </td>
+          <td>
+            This table contains the tax line info: price, rate, and title.
+          </td>
+        </tr>
+      </table> 
 
   - title: "Connecting subtables to top level records"
     anchor: "connecting-subtables-to-top-level-records"
@@ -160,34 +252,78 @@ sections:
     content: |
       When subtables are created, Stitch will append a few columns to be used as composite keys that enable you to connect subrecords back to their parent. Let's take a look at the schemas for each of the Shopify tables to get a better idea of how this works.
 
+      In this section:
+
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
+
     subsections:
       - title: "Top level: Core order data"
         anchor: "top-level"
+        example-record:
+          - name: "order_id [pk]"
+            value: "1234"
+          - name: "created_at"
+            value: "2015-01-01 00:00:00"
+          - name: "customer"
+            value: "100"
         content: |
           This table contains the order record's Primary Key, `order_id`.
 
-          | order_id [pk] | created_at | customer |
-          |------|---------------------|-----|
-          | 1234 | 2015-01-01 00:00:00 | 100 |
+          {% assign example-record = subsection.example-record %}
+          {% assign records = "value|" | split:"|" %}
+
+          {{ page.example-table | flatify }}
 
       - title: "Second level: Line items"
         anchor: "second-level"
+        attributes:
+          - &top-level-pk
+            name: |
+              {{ system-column.source-key | replace: "y_", "y_[pk_column_name]" }}
+            description: |
+              This contains the top level record's Primary Key.
+
+              In your destination, `[pk_column_name]` will be replaced with the name of the Primary Key column for the top level record. In this example, the column would be `{{ system-column.source-key | append: "order_id" }}`.
+          - name: |
+              {{ system-column.level-id | replace: '#', '0' }}
+            description: |
+              This forms part of a composite primary key for this row and can be used to associate further down the line nested rows to this parent. This will auto-increment for each unique record in the table, beginning with 0. When used with the `{{ system-column.source-key | replace: "y_", "y" }}` column, it creates a unique identifier for the row.
+
+               For the Shopify example, the value for the first line item record would be 0, the second 1, the third 2, and so on.
+
+               **We recommend always joining the top level table to the nested table** - this will allow you to avoid queries that may have outdated data.
+        example-record:
+          - name: |
+              {{ system-column.source-key | append: "order_id" }}
+            value-1: "1234"
+            value-2: "1234"
+          - name: |
+              {{ system-column.level-id | replace: '#', '0' }} 
+            value-1: "0"
+            value-2: "1"
+          - name: "product_id"
+            value-1: "5008798"
+            value-2: "3445689"
+          - name: "price"
+            value-1: "5.99"
+            value-2: "10.99"
+          - name: "quantity"
+            value-1: "1"
+            value-2: "1"
         content: |
           In addition to the attributes in the nested record - in this case, product ID, price, and quantity for line items - Stitch will add these columns to second level tables:
 
-          - `{{ system-column.source-key | replace: "y_", "y" }}` - This contains the top level record's Primary Key. In this example, the column would be `{{ system-column.source-key | append: "order_id" }}`.
-          - `{{ system-column.level-id | replace: '#', '0' }}` - This forms part of a composite primary key for this row and can be used to associate further down the line nested rows to this parent. This will auto-increment for each unique record in the table, beginning with 0. When used with the `{{ system-column.source-key | replace: "y_", "y" }} column, it creates a unique identifier for the row.
-
-             For the Shopify example, the value for the first line item record would be 0, the second 1, the third 2, and so on.
-
-             **We recommend always joining the top level table to the nested table** - this will allow you to avoid queries that may have outdated data.
+          {% assign attributes = subsection.attributes %}
+          {{ page.schema-table | flatify }}
 
           Here's what the `orders__line_items` table would look like if another line item were added to the order record:
 
-          | {{ system-column.source-key | append: "order_id" }} | {{ system-column.level-id | replace: '#', '0' }} | product_id | price | quantity |
-          |------|---|---------|-------|---|
-          | 1234 | 0 | 5008798 |  5.99 | 1 |
-          | 1234 | 1 | 3445689 | 10.99 | 1 |
+          {% assign example-record = subsection.example-record %}
+          {% assign records = "value-1|value-2" | split:"|" %}
+
+          {{ page.example-table | flatify }}
 
           If you wanted to return all line items for order number `1234`, you’d run the following query:
 
@@ -200,23 +336,54 @@ sections:
 
       - title: "Third level: Tax lines"
         anchor: "third-level"
+        attributes:
+          - *top-level-pk
+          - name: |
+              {{ system-column.level-id | replace: '#', '0' }}
+            description: |
+              This is the foreign key for the second level (`orders__line_items`) table. Combined with the source key (`{{ system-column.source-key | append: "order_id" }}`), it can be used to find the parent.
+          - name: |
+              {{ system-column.level-id | replace: '#', '1' }}
+            description: |
+              This forms part of a composite primary key for this row and can be used to associate further down the line nested rows to this parent.
+
+              For the Shopify example, the first tax line record would be 0, the second 1, the third 2, and so on.
+        example-record:
+          - name: |
+              {{ system-column.source-key | append: "order_id" }}
+            value-1: "1234"
+            value-2: "1234"
+          - name: |
+              {{ system-column.level-id | replace: '#', '0' }} 
+            value-1: "0"
+            value-2: "1"
+          - name: |
+              {{ system-column.level-id | replace: '#', '1' }} 
+            value-1: "0"
+            value-2: "0"
+          - name: "price"
+            value-1: "5.99"
+            value-2: "10.99"
+          - name: "rate"
+            value-1: ".06"
+            value-2: ".06"
+          - name: "title"
+            value-1: "State Tax"
+            value-2: "State Tax"
         content: |
           In addition to the attributes in the nested record - in this case, price, rate, and title for tax lines - Stitch will add these columns to third level tables:
 
-          - `{{ system-column.source-key | replace: "y_", "y" }}` - This contains the top level record's Primary Key. In this example, the column would be `{{ system-column.source-key | append: "order_id" }}`.
-          - `{{ system-column.level-id | replace: '#', '0' }}` - This is the foreign key for the second level (`orders__line_items`) table. Combined with the source key (`{{ system-column.source-key | append: "order_id" }}`), it can be used to find the parent.
-          - `{{ system-column.level-id | replace: '#', '1' }}` - This forms part of a composite primary key for this row and can be used to associate further down the line nested rows to this parent.
+          {% assign attributes = subsection.attributes %}
+          {{ page.schema-table | flatify }}
 
-             For the Shopify example, the first tax line record would be 0, the second 1, the third 2, and so on.
+          Here's what the `orders__line_items__tax_lines` table would look like if another tax line were added to the order record:
 
-          Here's what the `orders__line_items__tax_lines` table would look like if we added another tax line were added to the order record:
+          {% assign example-record = subsection.example-record %}
+          {% assign records = "value-1|value-2" | split:"|" %}
 
-          | {{ system-column.source-key | append: "order_id" }} | {{ system-column.level-id | replace: '#', '0' }} | {{ system-column.level-id | replace: '#', '1' }} | price | rate | title |
-          |------|---|---|------|-----|-----------|
-          | 1234 | 0 | 0 | 5.99 | .06 | State Tax |
-          | 1234 | 1 | 0 | 10.99 | .06 | State Tax |
+          {{ page.example-table | flatify }}
 
-          If we wanted to return all line items and tax lines for order number `1234`, we’d run the following query:
+          If you wanted to return all line items and tax lines for order number `1234`, you’d run the following query:
 
           {% capture code %}SELECT *
                 FROM orders__line_items li
@@ -236,27 +403,34 @@ sections:
 
       To sum it up: row count in original data source ≠ the row count reflected in the Stitch app or your destination.
 
-      Consider the Shopify example. Order 1234 isn't just a just a single row in the destination. Because Stitch had to denest subrecords and create tables to accommodate these records, you can expect to see more than just one row for order 1234 moving through Stitch.
+      Consider the Shopify example. Order 1234 isn't just a single row in the destination. Because Stitch had to denest subrecords and create tables to accommodate these records, you can expect to see more than just one row for order 1234 moving through Stitch.
 
-      From the top level record, there's the row in the `orders` table: 
+      From the top level record, there's the row in the `orders` table:
 
-      | order_id [pk] | created_at | customer |
-      |------|---------------------|-----|
-      | 1234 | 2015-01-01 00:00:00 | 100 |
+      {% assign connect-subtables-section = page.sections | where:"anchor","connecting-subtables-to-top-level-records" | first %}
+      {% assign top-level = connect-subtables-section.subsections | where:"anchor","top-level" | first %}
+
+      {% assign example-record = top-level.example-record %}
+      {% assign records = "value|" | split:"|" %}
+
+      {{ page.example-table | flatify }}
 
       From the second level record, we have the rows in the `orders__line_items` table:
 
-      | {{ system-column.source-key | append: "order_id" }} | {{ level-id | replace: '#', '0' }} | product_id | price | quantity |
-      |------|---|---------|-------|---|
-      | 1234 | 0 | 5008798 |  5.99 | 1 |
-      | 1234 | 1 | 3445689 | 10.99 | 1 |
+      {% assign second-level = connect-subtables-section.subsections | where:"anchor","second-level" | first %}
+      {% assign example-record = second-level.example-record %}
+      {% assign records = "value-1|value-2" | split:"|" %}
+
+      {{ page.example-table | flatify }}
 
       From the third level record, we have the rows in the `orders__line_items__tax_lines` table:
 
-      | {{ system-column.source-key | append: "order_id" }} | {{ system-column.level-id | replace: '#', '0' }} | {{ system-column.level-id | replace: '#', '1' }} | price | rate | title |
-      |------|---|---|------|-----|-----------|
-      | 1234 | 0 | 0 | 5.99 | .06 | State Tax |
-      | 1234 | 1 | 0 | 10.99 | .06 | State Tax |
+      {% assign third-level = connect-subtables-section.subsections | where:"anchor","third-level" | first %}
+
+      {% assign example-record = third-level.example-record %}
+      {% assign records = "value-1|value-2" | split:"|" %}
+
+      {{ page.example-table | flatify }}
 
       In total, Stitch will count each of these rows (a total of 5) towards your row count. So while there is only one record in the Shopify data source, inside of Stitch you'll see 5 replicated rows and there'll be 5 rows in your destination.
 
