@@ -92,38 +92,12 @@ feature-summary: |
 
 requirements-list:
   - item: "**An {{ integration.display_name }} seller account**. This account owns the sales data."
-  - item: "**An {{ integration.display_name }} developer account** to allow Stitch to access the sales data."
-
-requirements-info:
 
 setup-steps:
-  - title: "Obtain your App and Cert IDs"
-    anchor: "obtain-ids"
-    content: |
-      1. Login to your {{ integration.display_name }} developer account.
-      2. Click on the dropdown menu at the top of the page titled with your username.
-      3. Select **Application Access Keys**.
-      4. Locate the app you want to use for the integration. If you don't have an app, click **Create a keyset** to make one.
-      5. Copy your **App ID** and **Cert ID**. You will need these to setup the Stitch integration.
-
-  - title: "Grant your {{ integration.display_name }} developer account access to your {{ integration.display_name }} seller account and obtain your refresh token"
-    anchor: "grant-access"
-    content: |
-      1. Next to your **App ID** you obtained in [step 1](#obtain-ids), click **User Tokens**.
-      2. In the **User Tokens ({{ integration.display_name }} Sign-in)** section, make sure **Auth'n'Auth** is selected, and then click **Sign in to Production**.
-      3. Sign in using your {{ integration.display_name }} seller account.
-      4. A page will open asking you to grant your {{ integration.display_name }} application access to your {{ integration.display_name }} seller data. Click **Agree**.
-      4. You will be redirected back to the **User Tokens ({{ integration.display_name }} Sign-in)** section. Underneath the **Sign in to Production** button is your refresh token. Copy the token and also keep note of the expiration date. You will need to update the refresh token in the Stitch integration setup anytime it expires.
-
-
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      4. In the **Client ID** field, paste the App ID you obtained in [step 1](#obtain-ids).
-      5. In the **Client Secret** field, paste the Cert ID you obtained in [step 1](#obtain-ids).
-      6. In the **Refresh Token** field, paste the token you obtained in [step 2](#grant-access).
-      7. In the **Scope** field, enter `sell.fulfillment.readonly`.
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"

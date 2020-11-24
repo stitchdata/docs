@@ -29,48 +29,46 @@ display-name: "eBay"
 source-type: "saas"
 docs-name: "ebay" # This should be whatever integration.name is. Ex: LinkedIn Ads is linkedin-ads
 
-property-description: ""
-## Used to create a description for the object that doesn't adhere to the standard in _developers/connect/api/documentation/api-form-properties.html
-## See the Heap object for an example
-
 
 # -------------------------- #
-#      OBJECT ATTRIBUTES     #
+#       OAUTH PROPERTIES     #
 # -------------------------- #
 
-uses-start-date: true
+oauth-link: "https://developer.ebay.com/api-docs/static/oauth-trad-apis.html"
 
-# Only source-specific attributes need to be listed here.
-# The following attributes are considered common,
-# and therefore don't need to be listed:
-# anchor_time, cron_expression, frequency_in_minutes, image_version, start_date 
+oauth-description: ""
 
-object-attributes:
+oauth-attributes:
   - name: "client_id"
     type: "string"
     required: true
+    credential: true
     description: |
-      This is your App ID in your {{ form-property.display-name }} developer account. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#obtain-ids" }}) for instructions on retrieving this credential.
-    value: "YOUR_APP_ID"
+      This is your App ID in your {{ form-property.display-name }} seller account.
+    value: "<CLIENT_ID>"
 
   - name: "client_secret"
     type: "string"
     required: true
+    credential: true
     description: |
-      This is your Cert ID in your {{ form-property.display-name }} developer account. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#obtain-ids" }}) for instructions on retrieving this credential.
-    value: "YOUR_CERT_ID"
+      This is your Cert ID in your {{ form-property.display-name }} seller account.
+    value: "<CLIENT_SECRET>"
 
   - name: "refresh_token"
     type: "string"
     required: true
+    credential: true
     description: |
-      The refresh token for your {{ form-property.display-name }} app. This token has an expiration date, so keep note of it so that you can enter a new token into the Stitch integration when the time comes. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#grant-access" }}) for instructions on retrieving this credential.
-    value: "YOUR_REFRESH_TOKEN"
-    
+      A long-lived token, used to generate new {{ form-property.display-name }} access tokens when old ones expire.
+    value: "<REFRESH_TOKEN>"
+
   - name: "scope"
     type: "string"
     required: true
+    credential: true
     description: |
-      This determines which access privileges Stitch will have to your {{ form-property.display-name }}. For this integration, the scope is `sell.fulfillment.readonly`.
-    value: "sell.fulfullment.readonly"      
+      This allows Stitch to have certain access privileges to your {{ form-property.display-name }} sales data.
+    value: "<SCOPE>"
+---     
 ---
