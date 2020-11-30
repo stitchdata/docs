@@ -104,7 +104,7 @@ setup-steps:
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      4. In the **API Key** field, paste the API key you created in [Step 1](#create--key).
+      4. In the **API Key** field, paste the API key you created in [Step 1](#create-api-key).
       5. In the **Subdomain** field, enter your {{ integration.display_name }} subdomain.
 
   - title: "Define the historical replication start date"
