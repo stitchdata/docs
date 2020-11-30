@@ -13,7 +13,7 @@
 # -------------------------- #
 
 title: eBay (v1)
-permalink: /integrations/saas/ebay ## Add if there are multiple versions: /vVERSION
+permalink: /integrations/saas/ebay
 keywords: ebay, integration, schema, etl ebay, ebay etl, ebay schema
 layout: singer
 # input: false
@@ -31,7 +31,7 @@ display_name: "eBay"
 singer: true
 status-url: "https://www.ebay.com/sts"
 
-tap-name: "eBay" ## Ex: Intercom, not intercom
+tap-name: "eBay"
 repo-url: https://github.com/singer-io/tap-ebay
 
 this-version: "1"
@@ -60,11 +60,6 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
-
-# attribution-window: "# days"
-# attribution-is-configurable: 
-
-# setup-name: ""
 
 
 # -------------------------- #
@@ -109,7 +104,14 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
 
-## remove this if the integration doesn't support at least table selection
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
+    anchor: "grant-stitch-authorization"
+    content: |
+      1. Next, you'll be prompted to sign into your {{ integration.display_name }} account.
+      2. Follow the prompts to complete the authorization process.
+      3. After the authorization process is successfully completed, you'll be directed back to Stitch.
+      4. Click {{ app.buttons.finish-int-setup }}.
+      
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |
@@ -122,13 +124,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/ebay
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
