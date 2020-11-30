@@ -71,4 +71,3 @@ oauth-attributes:
       This allows Stitch to have certain access privileges to your {{ form-property.display-name }} sales data.
     value: "<SCOPE>"
 ---     
----
