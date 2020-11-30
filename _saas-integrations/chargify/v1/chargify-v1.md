@@ -105,7 +105,7 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API Key** field, paste the API key you created in [Step 1](#create-api-key).
-      5. In the **Subdomain** field, enter your {{ integration.display_name }} subdomain.
+      5. In the **Subdomain** field, enter your {{ integration.display_name }} subdomain. For example: If the full URL of your {{ integration.display_name }} site were `https://stitch.my-{{ integration.display_name | downcase }}-site.com`, this value would be `stitch`.
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
