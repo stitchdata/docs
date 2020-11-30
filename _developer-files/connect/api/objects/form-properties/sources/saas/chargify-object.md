@@ -46,7 +46,7 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      A {{ integration.display-name }} API key. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#create-api-key" }}) for instructions on creating this credential.
+      A {{ form-property.display-name }} API key. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#create-api-key" }}) for instructions on creating this credential.
     value: "<YOUR_{{ form-property.display-name | upcase }}_API_KEY>"
 
   - name: "subdomain"
