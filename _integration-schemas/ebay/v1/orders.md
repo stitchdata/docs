@@ -7,7 +7,7 @@ name: "orders"
 doc-link: "https://developer.ebay.com/api-docs/sell/fulfillment/resources/order/methods/getOrders"
 singer-schema: "https://github.com/singer-io/tap-ebay/blob/master/tap_ebay/schemas/orders.json"
 description: |
-  The {{ integration.display_name }} table contains details about all orders in your {{ integration.display_name }} seller account.
+  The {{ table.name }} table contains details about all orders in your {{ integration.display_name }} seller account.
 
 replication-method: "Full Table"
 
