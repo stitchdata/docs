@@ -84,7 +84,7 @@ foreign-keys:
         join-on: "id"
 
   - id: "product-family-id"
-    table: "product_family"
+    table: "product_families"
     attribute: "product_family_id"
     all-foreign-keys:
       - table: "components"
