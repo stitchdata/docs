@@ -9,7 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-chargify/blob/master/tap_chargi
 description: |
   The `{{ table.name }}` table contains info about the subscriptions in your {{ integration.display_name }} instance.
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 
 api-method:
   name: "Read subscriptions for a site"
