@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-ilevel
 this-version: "1"
 
 api: |
-  [](){:target="new"}
+  [2019 SOAP API WSDL](https://services.ilevelsolutions.com/DataService/Service/2019/Q1/DataService.svc?singleWsdl){:target="new"}
 
 
 # -------------------------- #
@@ -61,53 +61,31 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-# attribution-window: "# days"
-# attribution-is-configurable: 
-
-# setup-name: ""
-
 
 # -------------------------- #
 #      Feature Summary       #
 # -------------------------- #
 
 feature-summary: |
-  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+  Stitch's {{ integration.display_name }} integration replicates data from the [{{ integration.display_name }} Portfolio Monitoring Platform](https://ihsmarkit.com/products/ilevel.html){:target="new"} by IHS Markit using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
-
-# -------------------------- #
-#      Incompatibilities     #
-# -------------------------- #
-
-## uncomment section below if integration is compatible with any Stitch destinations
-## if incompatible with multiple destinations, create a section for each destination
-
-## incompatible:
-  ## [redshift]: "always,sometimes,never"
-  ## reason: "copy" 
 
 # -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
 
 requirements-list:
-  - item: ""
-  - item: ""
-
-requirements-info:
+  - item: |
+      **Web Services access in {{ integration.display_name }}.** Reach out to {{ integration.display_name }} support to enable this in your {{ integration.display_name }} account. Once enabled, you can continue with the setup in Stitch.
 
 setup-steps:
-  - title: ""
-    anchor: ""
-    content: |
-      [Add content]
-
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-# starting with 4., add instructions for additional fields in UI. EX:
-# 4. In the [FIELD_NAME] field, [instructions]
+      5. In the **Username** field, enter the {{ integration.display_name }} API user's username.
+      6. In the **Password** field, enter the {{ integration.display_name }} API user's password.
+      7. **Optional**: If connecting to a sandbox environment, check **Connect to a sandbox environment**.
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
@@ -119,7 +97,6 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
 
-## remove this if the integration doesn't support at least table selection
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |
@@ -132,13 +109,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/saas-integration
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
