@@ -40,29 +40,29 @@
 <!-- For Certified SaaS integrations -->
             {% when 'certified' %}
                 {% assign all-saas-integrations = site.saas-integrations | where:"input",true %}
-                {% assign integrations = all-saas-integrations | where:"certified",true | sort: "title" %}
+                {% assign integrations = all-saas-integrations | where:"certified",true | sort_natural: "title" %}
 
 <!-- For Community SaaS integrations -->
             {% when 'community' %}
                 {% assign all-saas-integrations = site.saas-integrations | where:"input",true %}
-                {% assign integrations = all-saas-integrations | where:"certified",false | sort: "title" %}
+                {% assign integrations = all-saas-integrations | where:"certified",false | sort_natural: "title" %}
         {% endcase %}
 
 <!-- For database integrations -->
     {% when 'databases' %}
-        {% assign integrations = site.database-integrations | where:"show-in-menus",true | sort:"title" %}
+        {% assign integrations = site.database-integrations | where:"show-in-menus",true | sort_natural:"title" %}
 
 <!-- For webhook integrations -->
     {% when 'webhooks' %}
-        {% assign integrations = site.webhook-integrations | where:"input",true | sort:"title" %}
+        {% assign integrations = site.webhook-integrations | where:"input",true | sort_natural:"title" %}
 
 <!-- For all integrations -->
     {% when 'all-integrations' %}
-        {% assign databases = site.database-integrations | where:"show-in-menus",true | sort:"title" %}
-        {% assign saas = site.saas-integrations | where:"input",true | sort:"title" %}
-        {% assign webhooks = site.webhook-integrations | where:"input",true | sort:"title" %}
+        {% assign databases = site.database-integrations | where:"show-in-menus",true | sort_natural:"title" %}
+        {% assign saas = site.saas-integrations | where:"input",true | sort_natural:"title" %}
+        {% assign webhooks = site.webhook-integrations | where:"input",true | sort_natural:"title" %}
 
-        {% assign integrations = databases | concat: saas | concat: webhooks | sort:"title" %}
+        {% assign integrations = databases | concat: saas | concat: webhooks | sort_natural:"title" %}
 {% endcase %}
 
 
