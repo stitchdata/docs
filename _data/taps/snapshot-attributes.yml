@@ -56,10 +56,10 @@ field-values:
     <a href="{{ link.destinations.storage.loading-behavior | prepend: site.baseurl | append: "#loading-behavior-types--" | append: loading-behavior }}">{{ table.loading-behavior }}</a>
 
   api-endpoint: |
-    <a href="{{ table.api-method.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} API documentation" target="new">{{ table.api-method.name }}</a>
+    <a href="{{ table.api-method.doc-link | flatify }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} API documentation" target="new">{{ table.api-method.name }}</a>
 
   doc-link: |
-    <a href="{{ table.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} documentation" target="new">Official Docs</a>
+    <a href="{{ table.doc-link | flatify }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} documentation" target="new">Official Docs</a>
 
 
 full-table:
