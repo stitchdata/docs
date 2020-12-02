@@ -24,9 +24,13 @@ attributes:
     description: "The visitor ID."
     foreign-key-id: "visitor-id"
 
-  - name: "last_ts"
+  - name: "modified_ts"
     type: "date-time"
     replication-key: true
+    description: ""
+
+  - name: "last_ts"
+    type: "date-time"
     description: ""
 
   - name: "app_id"
