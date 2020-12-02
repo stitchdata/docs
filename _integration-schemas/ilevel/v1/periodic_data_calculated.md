@@ -4,23 +4,28 @@ version: "1"
 key: "periodic-data-calculation"
 
 name: "periodic_data_calculated"
-doc-link: ""
+doc-link: "{{ integration.api-docs }}"
 singer-schema: "https://github.com/singer-io/tap-ilevel/blob/master/tap_ilevel/schemas/periodic_data_calculated.json"
 description: |
-  The `{{ table.name }}` table contains data calculated for various periods for the assets in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains calculated data using the following dimensions:
+
+  - **Entities**: Assets
+  - **Scenarios**: Actual
+  - **Currency**: USD
+  - **Period**: Fiscal quarter
 
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: "TODO"
-  doc-link: ""
+  name: "iGetBatch"
+  doc-link: "{{ integration.api-docs }}"
 
 attributes:
   - name: "hash_key"
     type: "string"
     primary-key: true
     description: |
-      This column is a Stitch-generated SHA 256 hash that should be used as a Primary Key. The hash consists of a UTF-8 encoded JSON list containing:
+      This column is a Stitch-generated MD5 hash that should be used as a Primary Key. The hash is created using the following columns:
 
       {% assign hash-key-columns = table.attributes | where:"hash-key",true | sort:"name" %}
       {% for attribute in hash-key-columns %}

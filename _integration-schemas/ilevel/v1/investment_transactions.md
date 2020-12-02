@@ -4,7 +4,7 @@ version: "1"
 key: "investment-transaction"
 
 name: "investment_transactions"
-doc-link: ""
+doc-link: "{{ integration.api-docs }}"
 singer-schema: "https://github.com/singer-io/tap-ilevel/blob/master/tap_ilevel/schemas/investment_transactions.json"
 description: |
   The `{{ table.name }}` table contains info about investment transactions in your {{ integration.display_name }} account.
@@ -13,7 +13,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "GetInvestmentTransactions"
-  doc-link: ""
+  doc-link: "{{ integration.api-docs }}"
 
 attributes:
   - name: "id"

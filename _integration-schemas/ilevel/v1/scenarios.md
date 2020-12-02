@@ -4,7 +4,7 @@ version: "1"
 key: "scenario"
 
 name: "scenarios"
-doc-link: ""
+doc-link: "{{ integration.api-docs }}"
 singer-schema: "https://github.com/singer-io/tap-ilevel/blob/master/tap_ilevel/schemas/scenarios.json"
 description: |
   The `{{ table.name }}` table contains info about the scenarios in your {{ integration.display_name }} account.
@@ -13,7 +13,7 @@ replication-method: "Full Table"
 
 api-method:
   name: "GetScenarios"
-  doc-link: ""
+  doc-link: "{{ integration.api-docs }}"
 
 attributes:
   - name: "id"

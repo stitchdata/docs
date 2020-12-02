@@ -4,7 +4,7 @@ version: "1"
 key: "fund-fund-relation"
 
 name: "fund_to_fund_relations"
-doc-link: ""
+doc-link: "{{ integration.api-docs }}"
 singer-schema: "https://github.com/singer-io/tap-ilevel/blob/master/tap_ilevel/schemas/fund_to_fund_relations.json"
 description: |
   The `{{ table.name }}` table contains info about fund to fund relations in your {{ integration.display_name }} account.
@@ -13,7 +13,7 @@ replication-method: "Full Table"
 
 api-method:
   name: "GetObjectRelationships(FundToFund)"
-  doc-link: ""
+  doc-link: "{{ integration.api-docs }}"
 
 attributes:
   - name: "id"

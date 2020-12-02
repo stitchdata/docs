@@ -69,6 +69,7 @@ column-selection: true
 feature-summary: |
   Stitch's {{ integration.display_name }} integration replicates data from the [{{ integration.display_name }} Portfolio Monitoring Platform](https://ihsmarkit.com/products/ilevel.html){:target="new"} by IHS Markit using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
+api-docs: "https://github.com/singer-io/tap-ilevel/blob/master/web_services_guide-2019Q1.pdf"
 
 # -------------------------- #
 #      Setup Instructions    #
