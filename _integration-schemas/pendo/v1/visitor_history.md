@@ -1,8 +1,6 @@
 ---
-# 10/21/20: Commenting out as per Brian due to a bug. Team will address before initial beta.
-
-# tap: "pendo"
-# version: "1"
+tap: "pendo"
+version: "1"
 key: "visitor-history"
 
 name: "visitor_history"
@@ -24,9 +22,13 @@ attributes:
     description: "The visitor ID."
     foreign-key-id: "visitor-id"
 
-  - name: "last_ts"
+  - name: "modified_ts"
     type: "date-time"
     replication-key: true
+    description: "The time the visitor was last modified."
+
+  - name: "last_ts"
+    type: "date-time"
     description: ""
 
   - name: "app_id"
