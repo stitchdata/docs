@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: iLevel (v1)
+title: iLEVEL (v1)
 permalink: /integrations/saas/ilevel
 keywords: ilevel, integration, schema, etl ilevel, ilevel etl, ilevel schema
 layout: singer
@@ -26,7 +26,7 @@ key: "ilevel-setup"
 # -------------------------- #
 
 name: "ilevel"
-display_name: "iLevel"
+display_name: "iLEVEL"
 
 singer: true
 status-url: ""
