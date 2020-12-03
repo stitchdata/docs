@@ -13,15 +13,7 @@
 
 
 field-names:
-  schema-names-tables: &schema-names-tables-name "Include PostgreSQL schema names in destination tables"
-
-descriptions:
-  schema-names-tables: &schema-names-tables-description |
-    Checking this setting will include schema names from the source database in the destination table name - for example: `<source_schema_name>__<table_name>`.
-
-          Stitch loads all selected replicated tables to a single schema, preserving only the table name. If two tables canonicalize to the same name - even if they're in different source databases or schemas - name collision errors can arise. Checking this setting can prevent these issues. 
-
-          **Note**: This setting can not be changed after the integration is saved. Additionally, this setting may create table names that exceed your destination's limits. For more info, refer to the [Database Integration Table Name Collisions guide]({{ link.troubleshooting.database-table-name-collisions | prepend: site.baseurl }}).
+  schema-names-tables: &schema-names-tables-name "Include Microsoft SQL Server schema names in destination tables"
 
 # -------------------------- #
 #        VANILLA MSSQL       #
@@ -65,7 +57,8 @@ mssql:
   - &schema-name
     name: *schema-names-tables-name
     version: "1"
-    copy: *schema-names-tables-description          
+    copy: |
+      {{ defaults.field-copy.schema-names-tables | flatify }}         
 
 # -------------------------- #
 #            AZURE           #
@@ -83,6 +76,7 @@ microsoft-azure:
     copy: "Enter the Stitch {{ integration.display_name }} user's username. We recommend copying and pasting the username {{ integration.display_name }} displays to you directly into this field. **Note**: Verify that the name includes `'@domain'` or you'll run into connection issues."
   - *password
   - *database
+  - *schema-name
 
 
 # -------------------------- #
@@ -99,3 +93,4 @@ sql-server-rds:
   - *username
   - *password
   - *database
+  - *schema-name
