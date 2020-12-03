@@ -14,14 +14,6 @@
 field-names:
   schema-names-tables: &schema-names-tables-name "Include MongoDB database names in destination tables"
 
-descriptions:
-  schema-names-tables: &schema-names-tables-description |
-    Checking this setting will include database names from the source database in the destination table name - for example: `<source_database_name>__<collection_name>`.
-
-          Stitch loads all selected replicated collections to a single schema, preserving only the collection name. If two collection canonicalize to the same name - even if they're in different source databases - name collision errors can arise. Checking this setting can prevent these issues. 
-
-          **Note**: This setting can not be changed after the integration is saved. Additionally, this setting may create table names that exceed your destination's limits. For more info, refer to the [Database Integration Table Name Collisions guide]({{ link.troubleshooting.database-table-name-collisions | prepend: site.baseurl }}).
-
 # -------------------------- #
 #        VANILLA MONGO       #
 # -------------------------- #
@@ -83,7 +75,7 @@ mongodb:
   - &schema-name
     name: *schema-names-tables-name
     version: "1, 2"
-    copy: *schema-names-tables-description
+    copy: "{{ defaults.field-copy.schema-names-tables | flatify }} "
 
 
 # -------------------------- #
