@@ -76,9 +76,14 @@ field-copy:
       **Optional:** Enter the name of the default database Stitch will connect to. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to test and complete the connection.
 
   schema-names-tables: |
-    Checking this setting will include schema names from the source database in the destination table name - for example: `<source_schema_name>__<table_name>`.
+    {% if integration.db-type == "mongo" %}
+    {% assign table = "collection" %}
+    {% else %}
+    {% assign table = "table" %}
+    {% endif %}
+    Checking this setting will include schema names from the source database in the destination table name - for example: `<source_schema_name>__<{{table}}_name>`.
 
-          Stitch loads all selected replicated tables to a single schema, preserving only the table name. If two tables canonicalize to the same name - even if they're in different source databases or schemas - name collision errors can arise. Checking this setting can prevent these issues. 
+          Stitch loads all selected replicated tables to a single schema, preserving only the {{table}} name. If two {{table}}s canonicalize to the same name - even if they're in different source databases or schemas - name collision errors can arise. Checking this setting can prevent these issues. 
 
           **Note**: This setting can not be changed after the integration is saved. Additionally, this setting may create table names that exceed your destination's limits. For more info, refer to the [Database Integration Table Name Collisions guide]({{ link.troubleshooting.database-table-name-collisions | prepend: site.baseurl }}).
 
