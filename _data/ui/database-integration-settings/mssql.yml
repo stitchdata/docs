@@ -11,6 +11,10 @@
 ## NOTE: 'defaults' is a variable assigned to this file: 
 ## /_data/ui/database-integration-settings/default-fields.yml
 
+
+field-names:
+  schema-names-tables: &schema-names-tables-name "Include Microsoft SQL Server schema names in destination tables"
+
 # -------------------------- #
 #        VANILLA MSSQL       #
 # -------------------------- #
@@ -50,6 +54,12 @@ mssql:
       
             **Note**: If this field is defined, Stitch will attempt to connect to only the database entered. If undefined, Stitch will attempt to connect to all of the databases the Stitch user has access to. To connect several specific databases, create an integration for each database you want to connect and define it in this field.
 
+  - &schema-name
+    name: *schema-names-tables-name
+    version: "1"
+    copy: |
+      {{ defaults.field-copy.schema-names-tables | flatify }}         
+
 # -------------------------- #
 #            AZURE           #
 # -------------------------- #
@@ -66,6 +76,7 @@ microsoft-azure:
     copy: "Enter the Stitch {{ integration.display_name }} user's username. We recommend copying and pasting the username {{ integration.display_name }} displays to you directly into this field. **Note**: Verify that the name includes `'@domain'` or you'll run into connection issues."
   - *password
   - *database
+  - *schema-name
 
 
 # -------------------------- #
@@ -82,3 +93,4 @@ sql-server-rds:
   - *username
   - *password
   - *database
+  - *schema-name
