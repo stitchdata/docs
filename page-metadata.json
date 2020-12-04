@@ -4,7 +4,7 @@ search: exclude
 ---
 
 {% assign redirect-data = "redirect_from|redirect_to" | split:"|" %}
-{% assign output-collections = site.collections | where:"output",true %}=
+{% assign output-collections = site.collections | where:"output",true %}
 {% assign permalink-docs = site.documents | where_exp:"page","page.permalink != nil" %}
 
 {
