@@ -7,7 +7,9 @@ search: exclude
 {% assign output-collections = site.collections | where:"output",true %}
 {% assign permalink-docs = site.documents | where_exp:"page","page.permalink != nil" %}
 
-[
+
+{
+	"pages": [
 {% for page in permalink-docs %}
 	{% if page.this-version %}
 		{% assign page-key = page.key | append: "-v" | append: page.this-version %}
@@ -35,3 +37,4 @@ search: exclude
 	}{% unless forloop.last == true %},{% endunless %}
 {% endfor %}
 ]
+}
