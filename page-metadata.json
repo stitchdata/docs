@@ -16,26 +16,22 @@ search: exclude
 	{% endif %}
 
   {
-  	"action": "upsert",
-  	"sequence": {{ 'now' | date: '%s' }},
-  	"data": {
 		"collection": "{{ page.collection }}",
 		"key": "{{ page-key }}",
 		"title": "{{ page.title }}",
 		"permalink": "{{ page.permalink | strip }}",
 		"content-type": "{{ page.content-type }}",
-			{% for data in redirect-data %}
-				{% if page[data][1] %}
-					"{{ data | append: "_list" }}": [
-						{% for url in page[data] %}
-							"{{ url }}"{%- unless forloop.last == true -%},{% endunless %}
-						{% endfor %}
-					],
-					{% else %}
-						"{{ data }}": "{{ page[data] }}"{% unless forloop.last == true %},{% endunless %}
-				{% endif %}
-			{% endfor %}
-		}
+	{% for data in redirect-data %}
+		{% if page[data][1] %}
+			"{{ data | append: "_list" }}": [
+				{% for url in page[data] %}
+					"{{ url }}"{%- unless forloop.last == true -%},{% endunless %}
+				{% endfor %}
+			],
+			{% else %}
+				"{{ data }}": "{{ page[data] }}"{% unless forloop.last == true %},{% endunless %}
+		{% endif %}
+	{% endfor %}
 	}{% unless forloop.last == true %},{% endunless %}
 {% endfor %}
 ]
