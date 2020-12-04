@@ -7,83 +7,35 @@ search: exclude
 {% assign output-collections = site.collections | where:"output",true %}
 {% assign permalink-docs = site.documents | where_exp:"page","page.permalink != nil" %}
 
-{
-	"table_name": "jekyll_test",
-	"schema": {
-		"properties": {
-			"collection": {
-				"type": "string"
-			},
-			"key": {
-				"type": [
-					"string", "null"
-				]
-			},
-			"title": {
-				"type": "string"
-			},
-			"permalink": {
-				"type": "string"
-			},
-			"content-type": {
-				"type": [
-					"string", "null"
-				]
-			},
-			"redirect_from": {
-				"type": [
-					"string", "null"
-				]
-			},
-			"redirect_from_list": {
-				"type": [
-					"array", "null"
-				]
-			},
-			"redirect_to": {
-				"type": [
-					"string", "null"
-				]
-			},
-			"redirect_to_list": {
-				"type": [
-					"array", "null"
-				]
-			}
-		}
-	},
-	"key_names": [
-		"permalink"
-	],
-	"messages": [
-	{% for page in permalink-docs %}
-		{% if page.this-version %}
-			{% assign page-key = page.key | append: "-v" | append: page.this-version %}
-		{% else %}
-			{% assign page-key = page.key %}
-		{% endif %}
+[
+{% for page in permalink-docs %}
+	{% if page.this-version %}
+		{% assign page-key = page.key | append: "-v" | append: page.this-version %}
+	{% else %}
+		{% assign page-key = page.key %}
+	{% endif %}
 
-	  {
-	  	"action": "upsert",
-	  	"sequence": {{ 'now' | date: '%s' }},
-	  	"data": {
-			"collection": "{{ page.collection }}",
-			"key": "{{ page-key }}",
-			"title": "{{ page.title }}",
-			"permalink": "{{ page.permalink | strip }}",
-			"content-type": "{{ page.content-type }}",
-				{% for data in redirect-data %}
-					{% if page[data][1] %}
-						"{{ data | append: "_list" }}": [
-							{% for url in page[data] %}
-								"{{ url }}"{%- unless forloop.last == true -%},{% endunless %}
-							{% endfor %}
-						],
-						{% else %}
-							"{{ data }}": "{{ page[data] }}"{% unless forloop.last == true %},{% endunless %}
-					{% endif %}
-				{% endfor %}
-			}
-		}{% unless forloop.last == true %},{% endunless %}
-{% endfor %}]
-}
+  {
+  	"action": "upsert",
+  	"sequence": {{ 'now' | date: '%s' }},
+  	"data": {
+		"collection": "{{ page.collection }}",
+		"key": "{{ page-key }}",
+		"title": "{{ page.title }}",
+		"permalink": "{{ page.permalink | strip }}",
+		"content-type": "{{ page.content-type }}",
+			{% for data in redirect-data %}
+				{% if page[data][1] %}
+					"{{ data | append: "_list" }}": [
+						{% for url in page[data] %}
+							"{{ url }}"{%- unless forloop.last == true -%},{% endunless %}
+						{% endfor %}
+					],
+					{% else %}
+						"{{ data }}": "{{ page[data] }}"{% unless forloop.last == true %},{% endunless %}
+				{% endif %}
+			{% endfor %}
+		}
+	}{% unless forloop.last == true %},{% endunless %}
+{% endfor %}
+]
