@@ -21,19 +21,24 @@ search: exclude
 		"collection": "{{ page.collection }}",
 		"key": "{{ page-key }}",
 		"title": "{{ page.title }}",
-		"permalink": "{{ page.permalink | strip }}",
-		"content-type": "{{ page.content-type }}",
-	{% for data in redirect-data %}
-		{% if page[data][1] %}
-			"{{ data | append: "_list" }}": [
-				{% for url in page[data] %}
-					"{{ url }}"{%- unless forloop.last == true -%},{% endunless %}
-				{% endfor %}
-			],
-			{% else %}
-				"{{ data }}": "{{ page[data] }}"{% unless forloop.last == true %},{% endunless %}
+		"content_type": "{{ page.content-type }}",
+		"current_permalink": "{{ page.permalink | strip }}",
+		"all_permalinks": [
+			"{{ page.permalink | strip }}"
+			{% if page.redirect_from %}
+			,
+			{% if page.redirect_from[1] %}
+					{% for url in page.redirect_from %}
+						"{{ url | replace_regex:'(#.*)',"" }}"{%- unless forloop.last == true -%},{% endunless %}
+					{% endfor %}
+				{% else %}
+					"{{ page.redirect_from }}"
+			{% endif %}
 		{% endif %}
-	{% endfor %}
+	  ],
+	  "repo_url": "{{ page.repo-url }}",
+	  "api_type": "{{ page.api-type }}",
+	  "version": "{{ page.this-version }}"
 	}{% unless forloop.last == true %},{% endunless %}
 {% endfor %}
 ]
