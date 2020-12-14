@@ -85,12 +85,26 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
+requirements-info: |
+  The Stitch {{ integration.display_name }} integration allows you to connect to your {{ integration.display_name }} sandbox environment. To connect to your sandbox environment, you must be logged into your Sandbox environment prior to setting up the integration.
+
 setup-steps:
+  - title: "Login to your {{ integration.display_name }} sandbox environment."
+    anchor: "sandbox-environment"
+    content: |
+      {% capture skip-step %}
+      This step is only required if you want to integrate your {{ integration.display_name}} sandbox environment. Skip to [step 2](#add-stitch-data-source) if you're integrating your production environment.
+      {% endcapture %}
+
+      {% include important.html type="single-line" content=skip-step %}
+
+      If you want your Stitch {{ integration.display_name }} integration to connect to your {{ integration.display_name }} sandbox environment, you must first login to your sandbox environment before completing the next steps. This is the only way {{ integration.display_name }} can authorize Stitch to access your sandbox environment. For more information on this authorization flow, refer to the [Square documentation](https://developer.squareup.com/docs/oauth-api/walkthrough#33-test-your-authorization-flow){:target="new"}.
+
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      4. Check the **Connect to a sandbox environment** if choosing to connect to your {{ integration.display_name }} sandbox.
+      4. Check the **Connect to a sandbox environment** if choosing to connect to your {{ integration.display_name }} sandbox. Make sure you have completed [step 1](#sandbox-environment) before moving forward.
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
