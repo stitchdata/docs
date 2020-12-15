@@ -394,18 +394,38 @@ sections:
           4. **Any critical error that prevents Stitch from replicating data**, such as a connection issue that prevents Stitch from connecting to the database or a [schema violation](#limitation-3--structural-changes). If the error persists past the log retention period, the log will be purged before Stitch can read it.
 
         sub-subsections:
-          - title: "MongoDB: Affected tables will be re-replicated in full"
+          - title: "Microsoft SQL Sever and MongoDB: Affected tables will be re-replicated in full"
             anchor: "limitation--log-retention--full-re-replication"
-            summary: "**Affected collections will be re-replicated in full**. This is applicable to MongoDB database integrations."
+            summary: "**Affected tables will be re-replicated in full**. This is applicable to Microsoft SQL Sever and MongoDB database integrations."
             content: |
-              When logs age out for a MongoDB database integration, the affected collections will be re-replicated in full and the following will surface in the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
+              When logs age out for Microsoft SQL Server and MongoDB database integration, the affected tables will be re-replicated in full and the following will surface in the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
 
-              {% capture code %}{{ site.data.errors.extraction.databases.mongo.raw-error.oplog-age-out | strip }}
-              {% endcapture %}
+              - **For Microsoft SQL Server databases**:
+                {% capture code %}{{ site.data.errors.extraction.databases.mssql.raw-error.log-age-out | strip }}
+                {% endcapture %}
 
-              {% include layout/code-snippet.html code=code language="shell"%}
+                {% include layout/code-snippet.html use-code-block=false code=code %}
 
-              To prevent collection re-replication, increase the maximum size of the OpLog with the [replSetResizeOplog](https://docs.mongodb.com/v4.0/reference/command/replSetResizeOplog/#dbcmd.replSetResizeOplog){:target="new"} command. **Note**: As the maximum size you need depends on your database, it may take some experimentation to identify the best setting. Mongo doesn't currently recommend an OpLog size.
+                ```shell
+              {{ code | lstrip | rstrip }}
+                ```
+
+              - **For MongoDB databases**:
+                {% capture code %}{{ site.data.errors.extraction.databases.mongo.raw-error.oplog-age-out | strip }}
+                {% endcapture %}
+
+                {% include layout/code-snippet.html use-code-block=false code=code %}
+
+                ```shell
+              {{ code | lstrip | rstrip }}
+                ```
+
+              To prevent table re-replication, increase the log retention settings for the database:
+
+              - **For Microsoft SQL Server databases**, this is accomplished via the [CHANGE_RETENTION](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server?view=sql-server-ver15){:target="new"} setting. Stitch recommends a value of at least 3 days, but 7 days is preferable.
+              - **For MongoDB databases**, this is accomplished via the [replSetResizeOplog](https://docs.mongodb.com/v4.0/reference/command/replSetResizeOplog/#dbcmd.replSetResizeOplog){:target="new"} command. **Note**: As the maximum size you need depends on your database, it may take some experimentation to identify the best setting. Mongo doesn't currently recommend an OpLog size.
+
+              {{ section.back-to-list | flatify }}
 
           - title: "MySQL and Oracle: Replication will stop"
             anchor: "limitation--log-retention--stop-replication"
