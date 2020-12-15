@@ -92,7 +92,7 @@ requirements-list:
       **If you're connecting a production environment**, start with [Step 2](#add-stitch-data-source) of this guide.
 
 setup-steps:
-  - title: "Login to your {{ integration.display_name }} sandbox environment."
+  - title: "Login to your {{ integration.display_name }} sandbox environment"
     anchor: "sandbox-environment"
     content: |
       {% capture skip-step %}
