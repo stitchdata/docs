@@ -96,7 +96,7 @@ setup-steps:
     anchor: "sandbox-environment"
     content: |
       {% capture skip-step %}
-      **Note**: If you're connecting a {{ integration.display_name}} sandbox, this step is required. Skip to [step 2](#add-stitch-data-source) if you're connecting a production environment.
+      If you're connecting a {{ integration.display_name}} sandbox, this step is required. Skip to [Step 2](#add-stitch-data-source) if you're connecting a production environment.
       {% endcapture %}
 
       {% include important.html type="single-line" content=skip-step %}
