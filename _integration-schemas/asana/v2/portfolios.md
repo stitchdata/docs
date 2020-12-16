@@ -1,6 +1,6 @@
 ---
 tap: "asana"
-version: "2"
+version: "2.0"
 key: "portfolio"
 
 name: "portfolios"
