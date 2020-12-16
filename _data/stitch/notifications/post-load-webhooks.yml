@@ -77,12 +77,12 @@ request-bodies:
 # -------------------------- #
 
   table-attributes:
-    - name: "source_table_name"
-      type: "string"
+    - name: "bookmark_metadata"
+      type: "array"
       description: |
-        The name of the table in the data source.
+        An array of [`bookmark_metadata` objects](#post-load-webhook-bookmark-metadata-object).
 
-        **Note**: If this is a subtable created from denesting an array, this value will be the array key. For example: If `orders.order_items`, this value would be `order_items`.
+        **Note**: If all rows for the table have been rejected, this property will be `null`.
 
     - name: "destination_table_name"
       type: "string"
@@ -110,6 +110,11 @@ request-bodies:
       description: |
         If rows were rejected, this value will indicate the total number of rows that were rejected for the table. Refer to the [Rejected records log guide]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}) for more info.
 
+    - name: "primary_keys"
+      type: "array of strings"
+      description: |
+        **Applicable only if using an Amazon S3 destination.** The names of the table's Primary Keys columns.
+
     - name: "s3_objects"
       type: "array of strings"
       description: |
@@ -117,12 +122,12 @@ request-bodies:
 
         For example: `stitch-s3-bucket/orders/0_1563294550038.jsonl`
 
-    - name: "bookmark_metadata"
-      type: "array"
+    - name: "source_table_name"
+      type: "string"
       description: |
-        An array of [`bookmark_metadata` objects](#post-load-webhook-bookmark-metadata-object).
+        The name of the table in the data source.
 
-        **Note**: If all rows for the table have been rejected, this property will be `null`.
+        **Note**: If this is a subtable created from denesting an array, this value will be the array key. For example: If `orders.order_items`, this value would be `order_items`.
 
 
 # ----------------------------- #
@@ -170,6 +175,9 @@ request-bodies:
                "num_rows_rejected":11,
                "s3_objects":[  
                   "stitch-s3-bucket/orders/0_1563294550038.jsonl"
+               ],
+               "primary_keys":[
+                  "order_id"
                ],
                "bookmark_metadata":[  
                   {  
