@@ -1,12 +1,13 @@
 ---
 tap: "hubspot"
 version: "2"
+key: "company"
 
 name: "companies"
 doc-link: http://developers.hubspot.com/docs/methods/companies/get_company
 singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/companies.json
 description: |
-  The `{{ table.name }}` table contains info about the companies your HubSpot contacts belong to.
+  The `{{ table.name }}` table contains info about the companies your {{ integration.display_name }} contacts belong to.
 
 replication-method: "Key-based Incremental"
 

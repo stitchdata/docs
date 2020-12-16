@@ -1,12 +1,13 @@
 ---
 tap: "hubspot"
 version: "2"
+key: "campaign"
 
 name: "campaigns"
 doc-link: http://developers.hubspot.com/docs/methods/email/get_campaign_data
 singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/campaigns.json
 description: |
-  The `{{ table.name }}` table contains info about the campaigns in your HubSpot account.
+  The `{{ table.name }}` table contains info about the campaigns in your {{ integration.display_name }} account.
 
 replication-method: "Full Table"
 api-method:

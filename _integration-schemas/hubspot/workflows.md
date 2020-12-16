@@ -1,12 +1,13 @@
 ---
 tap: "hubspot"
 version: "2"
+key: "workflow"
 
 name: "workflows"
 doc-link: https://developers.hubspot.com/docs/methods/workflows/workflows_overview
 singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/workflows.json
 description: |
-  The `workflows` table contains info about the workflows in your HubSpot portal.
+  The `workflows` table contains info about the workflows in your {{ integration.display_name }} portal.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -35,7 +36,7 @@ attributes:
 
   - name: "enabled"
     type: "boolean"
-    description: "Indicates if the workflow is enabled in your HubSpot portal."
+    description: "Indicates if the workflow is enabled in your {{ integration.display_name }} portal."
 
   - name: "inserted-at"
     type: "date-time"
