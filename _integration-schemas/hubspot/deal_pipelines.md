@@ -1,6 +1,7 @@
 ---
 tap: "hubspot"
 version: "2"
+key: "deal-pipeline"
 
 name: "deal_pipelines"
 doc-link: https://developers.hubspot.com/docs/methods/deal-pipelines/overview

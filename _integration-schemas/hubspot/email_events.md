@@ -1,6 +1,7 @@
 ---
 tap: "hubspot"
 version: "2"
+key: "email-event"
 
 name: "email_events"
 doc-link: https://developers.hubspot.com/docs/methods/email/email_events_overview
@@ -8,17 +9,20 @@ singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/
 description: |
   The `email_events` table contains info about email events and how recipients interact with content.
 
-  #### Email events and HubSpot permissions
+  #### Email events and {{ integration.display_name }} permissions
 
-  Replicating this table requires **Super Admin** permissions in HubSpot. The Super Admin role is different than the Admin role, which you can read more about in [HubSpot's documentation](https://knowledge.hubspot.com/articles/kcs_article/settings/hubspot-user-roles-guide#admin).
+  Replicating this table requires **Super Admin** permissions in {{ integration.display_name }}. The Super Admin role is different than the Admin role, which you can read more about in [{{ integration.display_name }}'s documentation](https://knowledge.hubspot.com/articles/kcs_article/settings/hubspot-user-roles-guide#admin).
 
-  If this table is selected and you don't have Super Admin permissions in HubSpot, an error similar to the following will surface in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
+  If this table is selected and you don't have Super Admin permissions in {{ integration.display_name }}, an error similar to the following will surface in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
 
   ```
   tap - ERROR b'{"status":"error","message":"This oauth-token (**********) does not have proper permissions! (requires any of [email-access])", [...]
   ```
 
 replication-method: "Key-based Incremental"
+replication-key:
+  name: "startTimestamp"
+
 api-method:
   name: "Get events for campaign or recipient"
   doc-link: https://developers.hubspot.com/docs/methods/email/get_events
@@ -28,17 +32,16 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    replication-key: true
     description: "The ID of the event."
     # foreign-key-id: "email-event-id"
 
   - name: "appId"
     type: "integer"
-    description: "The ID of the HubSpot application that sent the email message."
+    description: "The ID of the {{ integration.display_name }} application that sent the email message."
 
   - name: "appName"
     type: "string"
-    description: "The name of the HubSpot application that sent the email message."
+    description: "The name of the {{ integration.display_name }} application that sent the email message."
 
   - name: "browser"
     type: "object"

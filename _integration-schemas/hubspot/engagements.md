@@ -1,20 +1,22 @@
 ---
 tap: "hubspot"
 version: "2"
+key: "engagement"
 
 name: "engagements"
 doc-link: https://developers.hubspot.com/docs/methods/engagements/engagements-overview
 singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/engagements.json
 description: |
-  The `engagements` table contains info about all the engagements in a HubSpot portal.
+  The `{{ table.name }}` table contains info about all the engagements in a {{ integration.display_name }} portal.
 
 replication-method: "Key-based Incremental"
+
 api-method:
   name: "Get all engagements"
   doc-link: https://developers.hubspot.com/docs/methods/engagements/get-all-engagements
 
 attributes:
-  - name: "id"
+  - name: "engagement_id"
     type: "integer"
     primary-key: true
     description: "The ID for the engagement."

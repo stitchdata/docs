@@ -6,9 +6,13 @@ name: "adcreative"
 doc-link: https://developers.facebook.com/docs/reference/ads-api/adcreative/
 singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/adcreative.json
 description: |
-  The `adcreative` table contains info about the creatives used in ads in your Facebook Ads account.
+  The `adcreative` table contains info about the creatives used in ads, in your {{ integration.display_name }} account.
 
   **This is a Core Object table**.
+
+  #### Limits {#adcreative-table-limits}
+
+  Facebook's API limits the number of ad creatives that can be retrieved through their API to 50,000, which is [documented here](https://developers.facebook.com/docs/marketing-api/reference/ad-creative#limits){:target="new"}. If you're missing data from this table and have more than 50,000 ad creatives in your {{ integration.display_name }} account, this may be the cause of the discrepancy.
 
 replication-method: "Full Table"
 attribution-window: true
