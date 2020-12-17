@@ -18,6 +18,8 @@ keywords: darksky, integration, schema, etl darksky, darksky etl, darksky schema
 layout: singer
 # input: false
 
+key: "darksky-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

@@ -18,6 +18,8 @@ keywords: linkedin ads, integration, schema, etl linkedin ads, linkedin ads etl,
 layout: singer
 input: true
 
+key: "linkedin-ads-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

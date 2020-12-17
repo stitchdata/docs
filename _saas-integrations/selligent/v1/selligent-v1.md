@@ -18,6 +18,8 @@ keywords: selligent, integration, schema, etl selligent, selligent etl, selligen
 layout: singer
 # input: true
 
+key: "selligent-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

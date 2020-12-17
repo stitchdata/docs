@@ -18,6 +18,9 @@ keywords: 3plcentral, integration, schema, etl 3plcentral, 3plcentral etl, 3plce
 layout: singer
 # input: false
 
+key: "3plcentral-setup"
+
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

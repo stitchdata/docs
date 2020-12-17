@@ -18,6 +18,8 @@ keywords: mambu, integration, schema, etl mambu, mambu etl, mambu schema
 layout: singer
 # input: false
 
+key: "mambu-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
