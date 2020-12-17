@@ -30,7 +30,7 @@ post:
   no-token-required: |
     curl -X "POST" "<code class='apiUrl'>{{ api.base-url }}</code>{{ request-url | flatify }}" \
          -H 'Content-Type: application/json' \
-         -d $
+         -d \
 
   without-body: |
     curl -X "POST" "<code class='apiUrl'>{{ api.base-url }}</code>{{ request-url | flatify }}" \
@@ -41,7 +41,7 @@ post:
     curl -X "POST" "<code class='apiUrl'>{{ api.base-url }}</code>{{ request-url | flatify }}" \
          -H 'Authorization: Bearer [ACCESS_TOKEN]' \
          -H 'Content-Type: application/json' \
-         -d $
+         -d \
 
 
 # -------------------------- #
@@ -58,7 +58,7 @@ put:
     curl -X "PUT" "<code class='apiUrl'>{{ api.base-url }}</code>{{ request-url | flatify }}" \
          -H 'Authorization: Bearer [ACCESS_TOKEN]' \
          -H 'Content-Type: application/json' \
-         -d $
+         -d \
 
 
 # -------------------------- #
