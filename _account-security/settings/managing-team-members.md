@@ -91,7 +91,7 @@ sections:
 
               - New team members invited to the account are automatically assigned the **{{ user-roles.general-user.name }}** user role.
               - Every account has an **{{ user-roles.invoice-admin.name }}**. This is the team member who initially enters payment info for the account.
-              - If [Single sign-on (SSO)]({{ link.security.single-sign-on | prepend: site.baseurl }}) is enabled, every account will have an **{{ user-roles.sso-admin.name }}**. This is the team member who initially enables SSO for the account. Additional {{ user-roles.sso-admin.name | append: "s" }} can be added by contacting support.
+              - If [single sign-on (SSO)]({{ link.security.single-sign-on | prepend: site.baseurl }}) is enabled, every account will have an **{{ user-roles.sso-admin.name }}**. This is the team member who initially enables SSO for the account. Additional {{ user-roles.sso-admin.name | append: "s" }} can be added by contacting support.
               - It's possible for a team member to be both an {{ user-roles.invoice-admin.name }} and an {{ user-roles.sso-admin.name }}.
 
           - title: "User role types"
@@ -202,62 +202,82 @@ sections:
     anchor: "invite-team-member"
     summary: "How to invite a team member"
     content: |
-      {% include note.html type="" content="" %}
-      
+      {% capture sso-notice-invitations %}
+      If the [SSO]({{ link.security.single-sign-on | prepend: site.baseurl }}) feature is enabled for your account:
+
+      - Only the {{ user-roles.sso-admin.name }} will have the ability to invite new users or update their own email address
+      - All pending invitations will be invalidated
+      {% endcapture %}
+      {% include note.html first-line="**Single sign-on (SSO) enablement impacts this feature**" content=sso-notice-invitations %}
+
       When inviting a team member to your account, keep the following in mind:
 
       - **An email address can only be associated with a single Stitch account**. [Try this workaround](#add-to-multiple-accounts) to use the same email address for multiple accounts.
       - **Invitation links in invitation emails are good for one attempt only.** If the login fails, try re-sending the invite.
 
-      To invite a team member:
+    subsections:
+      - title: "Add a new team member"
+        anchor: "invite-team-member--regular"
+        content: |
+          To invite a team member:
 
-      1. Click the {{ app.menu-paths.account-settings }}.
-      2. {{ app.menu-paths.add-user }}
-      3. Enter the team member's email address. **Note**: This email address must be unique, meaning it can't be associated with an existing Stitch account.
-      4. Click **Send Invitation**.
+          1. Click the {{ app.menu-paths.account-settings }}.
+          2. {{ app.menu-paths.add-user }}
+          3. Enter the team member's email address. **Note**: This email address must be unique, meaning it can't be associated with an existing Stitch account.
+          4. Click **Send Invitation**.
 
-      Shortly after this process is completed, an email invite will be sent to the email address you entered.
+          Shortly after this process is completed, an email invite will be sent to the email address you entered.
 
-      If you run into issues, refer to the [Troubleshooting team member invites guide]({{ link.troubleshooting.team-member-invites | prepend: site.baseurl }}).
+          If you run into issues, refer to the [Troubleshooting team member invites guide]({{ link.troubleshooting.team-member-invites | prepend: site.baseurl }}).
 
-  - title: "Add a team member to multiple accounts"
-    anchor: "add-to-multiple-accounts"
-    summary: "How to add a team member to multiple accounts"
-    content: |
-      Currently, Stitch allows an email address to be associated with only a single Stitch account. If you're one of our customers with two accounts and you want to use the same email address for both accounts, you may be able to use an email alias - also known as the `+` feature - to do so.
+      - title: "Add an existing team member to multiple accounts"
+        anchor: "add-to-multiple-accounts"
+        summary: "How to add a team member to multiple accounts"
+        content: |
+          {% capture sso-notice-deactivations %}
+          **Single sign-on (SSO) enablement impacts this feature**: If the [SSO]({{ link.security.single-sign-on | prepend: site.baseurl }}) feature is enabled for your account, only the {{ user-roles.sso-admin.name }} will have the ability to update their own email address. Contact the {{ user-roles.sso-admin.name }} if you need to be added to multiple Stitch accounts.
+          {% endcapture %}
+          {% include note.html type="single-line" content=sso-notice-deactivations %}
 
-      **Note**: Your email provider must support the use of aliases to use this workaround.
+          Currently, Stitch allows an email address to be associated with only a single Stitch account. If you're one of our customers with two accounts and you want to use the same email address for both accounts, you may be able to use an email alias - also known as the `+` feature - to do so.
 
-      For example: This email address is used to create the first Stitch account, which is used for staging:
+          **Note**: Your email provider must support the use of aliases to use this workaround.
 
-      `stitch@stitchdata.com`
+          For example: This email address is used to create the first Stitch account, which is used for staging:
 
-      Using `+`, we can use the same email address to add the team member to the second Stitch account, which is used for production:
+          `stitch@stitchdata.com`
 
-      `stitch+prod@stitchdata.com`
+          Using `+`, we can use the same email address to add the team member to the second Stitch account, which is used for production:
 
-      If you prefer to use an un-aliased email address for a specific account and the email is already associated with a Stitch account, use the process outlined below to modify the account using the un-aliased email. This will then allow an invitation to be sent to the un-aliased email.
+          `stitch+prod@stitchdata.com`
 
-      In this example, we'll use the `stitch@stitchdata.com` email address.
+          If you prefer to use an un-aliased email address for a specific account and the email is already associated with a Stitch account, use the process outlined below to modify the account using the un-aliased email. This will then allow an invitation to be sent to the un-aliased email.
 
-      1. Sign into the Stitch account using the un-aliased email. In this example, we'd sign into the account associated with the `stitch@stitchdata.com` email address.
-      2. Click {{ app.menu-paths.account-settings }}.
-      3. Click the **Your Profile** tab.
-      4. Update the email address to something along the lines of `name+deactivated@domain.com`. In this example, we'll update the email address to `stitch+deactivated@stitchdata.com`.
-      5. Click {{ app.buttons.update-profile }}.
+          In this example, we'll use the `stitch@stitchdata.com` email address.
 
-      Additionally, if the account is no longer needed, [you can cancel it]({{ link.account.cancel-account | prepend: site.baseurl }}).
+          1. Sign into the Stitch account using the un-aliased email. In this example, we'd sign into the account associated with the `stitch@stitchdata.com` email address.
+          2. Click {{ app.menu-paths.account-settings }}.
+          3. Click the **Your Profile** tab.
+          4. Update the email address to something along the lines of `name+deactivated@domain.com`. In this example, we'll update the email address to `stitch+deactivated@stitchdata.com`.
+          5. Click {{ app.buttons.update-profile }}.
+
+          Additionally, if the account is no longer needed, [you can cancel it]({{ link.account.cancel-account | prepend: site.baseurl }}).
 
   - title: "Deactivate a team member"
     anchor: "deactivate-team-member"
     summary: "How to deactivate a team member"
     content: |
+      {% capture sso-notice-deactivations %}
+      **Single sign-on (SSO) enablement impacts this feature**: If the [SSO]({{ link.security.single-sign-on | prepend: site.baseurl }}) feature is enabled for your account, only the {{ user-roles.sso-admin.name }} will have the ability to deactivate and reactivate team members.
+      {% endcapture %}
+      {% include note.html type="single-line" content=sso-notice-deactivations %}
+
       If a team member no longer requires access to Stitch, you can deactivate them.
 
-      **This process is reversible** - if you deactivate a user by accident, you can simply re-add them.
+      **This process is reversible**. If you deactivate a team member by accident, you can simply re-add them.
 
       1. Click the {{ app.menu-paths.account-settings }}.
-      2. In the Team Members section, find the user you want to deactivate.
-      3. Click the **Deactivate** button next to the user's name.
+      2. In the Team Members section, find the team member you want to deactivate.
+      3. Click the **Deactivate** button next to the team member's name.
 ---
 {% include misc/data-files.html %}
