@@ -1,0 +1,41 @@
+# -------------------------- #
+#  NOTIFICATION PERMISSIONS  #
+# -------------------------- #
+
+name: "Notification"
+description: ""
+
+dismiss-account-notifications: &dismiss-account-notifications
+  id: "dismiss-account-notifications"
+  name: "Dismiss account notifications"
+  description: |
+    Dismiss account-level notifications in the [Notifications tab]({{ link.account.notification-settings | prepend: site.baseurl | append: "#in-app-notifications" }}). Dismissing a notification clears it for all users in the account.
+
+manage-custom-notification-list: &manage-custom-notification-list
+  id: "manage-custom-notification-list"
+  name: "Manage custom notification list"
+  description: |
+    Add, disable, enable, or delete an email address in the account's [Custom notification list]({{ link.account.customize-notifications | prepend: site.baseurl }}).
+
+manage-notification-content: &manage-notification-content
+  id: "manage-notification-content"
+  name: "Manage notification content"
+  description: |
+    Enable or disable the [Notification content]({{ link.account.hipaa-notifications | prepend: site.baseurl }}) setting.
+
+manage-post-load-hooks: &manage-post-load-hooks
+  id: "manage-post-load-hooks"
+  name: "Manage post-load hook list"
+  description: |
+    Add, disable, enable, or delete a post-load webhook in the account's [Post-load hooks list]({{ link.account.post-load-notifications | prepend: site.baseurl }}).
+
+
+# --------------------------- #
+#        ALL PERMISSIONS      #
+# --------------------------- #
+
+all:
+  - *dismiss-account-notifications
+  - *manage-custom-notification-list
+  - *manage-notification-content
+  - *manage-post-load-hooks

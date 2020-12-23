@@ -1,0 +1,34 @@
+# ---------------------------- #
+#  USER MANAGEMENT PERMISSIONS #
+# ---------------------------- #
+
+name: "Team member management"
+description: ""
+
+invite-users: &invite-users
+  id: "invite-users"
+  name: "Invite new team members"
+  description: "Invite new team members to join the account."
+  exception: "SSO is enabled"
+
+deactivate-users: &deactivate-users
+  id: "deactivate-users"
+  name: "Deactivate existing team members"
+  description: "Deactivate an existing team member and remove their access to the account."
+  exception: "SSO is enabled"
+
+reactivate-users: &reactivate-users
+  id: "reactivate-users"
+  name: "Reactivate deactivated team members"
+  description: "Reactivate a deactivated team member and restore their access to the account."
+  exception: "SSO is enabled"
+
+
+# --------------------------- #
+#        ALL PERMISSIONS      #
+# --------------------------- #
+
+all:
+  - *invite-users
+  - *deactivate-users
+  - *reactivate-users

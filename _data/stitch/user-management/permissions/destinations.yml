@@ -1,0 +1,41 @@
+# -------------------------- #
+#   DESTINATION PERMISSIONS  #
+# -------------------------- #
+
+name: "Destination"
+description: ""
+
+add-destination: &add-destination
+  id: "add-destination"
+  name: "Add a destination"
+  description: |
+    Add new integrations to the account.
+
+modify-destination: &modify-destination
+  id: "modify-destination"
+  name: "Modify a destination"
+  description: |
+    Modify the existing destination for the account.
+
+change-destination: &change-destination
+  id: "change-destination"
+  name: "Change a destination"
+  description: |
+    Change the existing destination for the account.
+
+delete-destination: &delete-destination
+  id: "delete-destination"
+  name: "Delete a destination"
+  description: |
+    Delete the existing destination from the account.
+
+
+# --------------------------- #
+#        ALL PERMISSIONS      #
+# --------------------------- #
+
+all:
+  - *add-destination
+  - *modify-destination
+  - *change-destination
+  - *delete-destination

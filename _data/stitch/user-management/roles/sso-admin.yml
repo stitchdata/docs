@@ -1,0 +1,71 @@
+# -------------------------- #
+#     GENERAL USER ROLE      #
+# -------------------------- #  
+
+name: "SSO Admin"
+
+description: |
+  {% capture sso-admin-name %}{{ site.data.stitch.user-management.roles.sso-admin.name }}{% endcapture %}
+  {% capture invoice-admin-name %}{{ site.data.stitch.user-management.roles.invoice-admin.name }}{% endcapture %}
+
+  The {{ sso-admin-name }} is the user who initially enabled the Single Sign-On feature (SSO) for the account. They have the same permissions as a General User, but also additional permissions for managing SSO.
+
+  **Note**: If the {{ sso-admin-name }} initially entered payment info for the account, they will also have {{ invoice-admin-name }} permissions.
+
+
+# -------------------------- #
+#      ROLE PERMISSIONS      #
+# -------------------------- #
+
+## Permission data lives in: _data/stitch/user-management/permissions
+
+general: 
+  - id: "modify-company-settings"
+  - id: "update-your-email-address"
+  - id: "reset-your-password"
+  - id: "enable-single-sign-on"
+  - id: "manage-single-sign-on"
+
+billing:
+  - id: "manage-payment-info"
+  - id: "manage-plan-details"
+  - id: "view-invoices"
+  - id: "cancel-account"
+
+team-members:
+  - id: "invite-users"
+  - id: "deactivate-users"
+  - id: "reactivate-users"
+
+api:
+  - id: "manage-api-keys"
+  - id: "manage-partner-keys"
+  - id: "connect-api-usage"
+
+notifications:
+  - id: "dismiss-account-notifications"
+  - id: "manage-custom-notification-list"
+  - id: "manage-notification-content"
+  - id: "manage-post-load-hooks"
+
+destinations:
+  - id: "add-destination"
+  - id: "modify-destination"
+  - id: "change-destination"
+  - id: "delete-destination"
+
+integrations:
+  - id: "add-integrations"
+  - id: "modify-integrations"
+  - id: "pause-integrations"
+  - id: "delete-integrations"
+
+replication:
+  - id: "manage-data-selection"
+  - id: "modify-replication-schedules"
+  - id: "manage-table-settings"
+  - id: "reset-tables"
+  - id: "reset-integrations"
+  - id: "manage-extraction-jobs"
+  - id: "view-extraction-logs"
+  - id: "view-loading-reports"
