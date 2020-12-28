@@ -31,10 +31,12 @@ sections:
     summary: "How to update your email address"
     content: |
       {% capture email-requirements %}
-      **Note**: An email address can only be associated with one Stitch account. If your email client supports using aliases, [you can use this workaround]({{ link.account.team-members | prepend: site.baseurl | append: "#add-to-multiple-accounts" }}) to associate an email with multiple accounts.
+      An email address can only be associated with one Stitch account. If your email client supports using aliases, [you can use this workaround]({{ link.account.team-members | prepend: site.baseurl | append: "#add-to-multiple-accounts" }}) to associate an email with multiple accounts.
+
+      **Note**: If [SSO]({{ link.security.single-sign-on | prepend: site.baseurl }}) is enabled, this workaround won't work unless configured through your Identity Provider (IdP).
       {% endcapture %}
 
-      {% include note.html type="single-line" content=email-requirements %}
+      {% include note.html first-line="**Adding an email to multiple accounts**" content=email-requirements %}
 
       1. Click the {{ app.menu-paths.account-settings }}.
       2. Click **{{ app.page-names.user-profile }}**.
