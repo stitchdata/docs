@@ -11,7 +11,13 @@ type: "account-settings"
 weight: 1
 
 intro: |
-  Manage your user profile, email address, and update your password on the **Your Profile** page.
+  {% capture sso-notice %}
+  If [Single Sign-on (SSO)]({{ link.security.single-sign-on | prepend: site.baseurl }}) is enabled, only {{ site.data.stitch.user-management.roles.sso-admin.name | append: "s" }} will have the ability to change their email address and/or password in Stitch. All other users will need to make changes through their Identity Provider (IdP).
+  {% endcapture %}
+
+  {% include note.html first-line="**Single Sign-on (SSO) can impact these features**" content=sso-notice %}
+
+  Manage your user profile, email address, and password on the **Your Profile** page.
 
   In this guide, we'll cover:
 
@@ -39,18 +45,6 @@ sections:
     anchor: "change-your-password"
     summary: "How to update your password"
     content: |
-      {% capture password-requirements %}
-      Passwords must contain:
-
-      1. A minimum of eight characters,
-      2. One number,
-      3. One uppercase letter,
-      4. One lowercase letter, and
-      5. At least one special character. For example: `! $ % @ # ^ *` or `&`
-      {% endcapture %}
-
-      {% include note.html first-line="**Stitch password requirements:**" content=password-requirements %}
-
       1. Click the {{ app.menu-paths.account-settings }}.
       2. Click **{{ app.page-names.user-profile }}**.
       3. Enter your old password in the **Old Password** field.
