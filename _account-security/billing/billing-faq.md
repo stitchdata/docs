@@ -76,10 +76,6 @@ frequently-asked-questions:
           <tr>
           <td class="attribute-name">
           <strong>{{ plan.name | capitalize | replace:"-", " " }}</strong>
-
-          {% if this-plan.legacy == true %}
-          {{ info-icon | replace:"TOOLTIP","This is a legacy plan and has been replaced by the Standard plan." }}
-          {% endif %}
           </td>
           <td>
           {{ this-plan.total-integrations }}
