@@ -48,6 +48,12 @@ sections:
     content: |
       Refer to the [Managing Your Stitch API Keys]({{ link.account.manage-api-keys | prepend: site.baseurl }}) and [Managing Stitch Partner Account Access]({{ link.account.manage-partner-access | prepend: site.baseurl }}) guides for more info.
 
+  - title: "Manage Single Sign-on"
+    anchor: "manage-single-sign-on"
+    summary: "How to manage your account's Single Sign-on (SSO) settings"
+    content: |
+      Refer to the [Managing Single Sign-on (SSO)]({{ link.security.single-sign-on | prepend: site.baseurl }}) guide for more info.
+
   - title: "Manage account team members"
     anchor: "manage-account-team-members"
     summary: "How to manage your account's team members"
