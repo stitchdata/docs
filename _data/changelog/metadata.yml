@@ -1,0 +1,6 @@
+archive-entry: |
+  {% assign entry-anchor = item.date | date: "%F" | append: "-" | append: item.title | slugify %}
+
+  [{{ item.title }}]({{ link.changelog.main | prepend: site.baseurl | append: "#" | append: entry-anchor }})
+  <br>
+  {{ item.date | date: "%B %e, %Y" }}

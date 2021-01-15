@@ -1,0 +1,153 @@
+# ---------------------------- #
+#   NETLIFY CMS CONFIGURATION  #
+# ---------------------------- #
+
+## This file contains the configuration settings for the Netlify CMS.
+
+site_url: https://stitchdata.com/docs
+logo_url: https://stitchdata.com/docs/images/stitch-logo.png
+
+
+# -------------------------- #
+#   Auth and Repo Settings   #
+# -------------------------- #
+
+# https://www.netlifycms.org/docs/backends-overview
+# This might solve the issue with OAuth causing a 404 when
+# redirected during auth. 
+
+backend:
+  name: git-gateway
+  branch: master
+
+
+# -------------------------- #
+#    Publishing Settings     #
+# -------------------------- #
+
+publish_mode: editorial_workflow
+
+
+# -------------------------- #
+#        Image Settings      #
+# -------------------------- #
+
+media_folder: "images/changelog"
+public_folder: "/images/changelog"
+
+
+# -------------------------- #
+#     Collection Settings    #
+# -------------------------- #
+
+## Only the folders (collections) listed in this section
+## will be accessible via the Netlify CMS. In this way
+## we can limit what CMS users have the ability to access and modify.
+
+## Docs: https://www.netlifycms.org/docs/configuration-options/#collections
+
+# Each collection in this list has the following fields:
+
+  # name: Used in routes, e.g., /admin/collections/blog
+  # label: Used in the UI
+  # folder: The path to the folder where the documents are stored
+  # create: Allow users to create new documents in this collection
+  # slug: Filename template, e.g., YYYY-MM-DD-title.md
+  # fields: The fields for each document, usually in front matter
+
+collections:
+  - name: "data"
+    label: "Data"
+    files:
+      - name: "entry-types"
+        label: "Entry Types"
+        label_singluar: "Entry Type"
+        file: "_data/changelog/types.yml"
+        fields:
+          - label: "type"
+            name: "type"
+            widget: "list"
+            fields:
+              - name: "name"
+                label: "Type"
+                widget: "string"
+
+              - name: "display_name"
+                label: "Display Name"
+                widget: "string"
+
+      - name: "entry-categories"
+        label: "Entry Categories"
+        label_singluar: "Entry Category"
+        file: "_data/changelog/categories.yml"
+        fields:
+          - label: "category"
+            name: "category"
+            widget: "list"
+            fields:
+              - name: "name"
+                label: "Category"
+                widget: "string"
+
+              - name: "display_name"
+                label: "Display Name"
+                widget: "string"
+
+  - name: "changelog" 
+    label: "Changelog Entries"
+    label_singular: "Changelog Entry"
+    create: true
+
+  ## File and site details
+    folder: "_changelog/entries"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    preview_path: "/docs/changelog"
+    fields: 
+      - label: "Title"
+        name: "title"
+        widget: "string"
+
+      - label: "Date"
+        name: "publish-date"
+        widget: "date"
+        hint: "The date the changelog entry should have in the changelog. Note: Setting this to a future date won't automatically publish the entry on the date."
+
+      - label: "Content Type"
+        name: "content-type"
+        widget: "hidden"
+        default: "changelog-entry"
+
+      - label: "Type"
+        name: "entry-type"
+        required: true
+        hint: "The changelog entry type. For example: New feature, bug fix, etc."
+        widget: "relation"
+        collection: "data"
+        file: "entry-types"
+        search_fields: ["type.*.name"]
+        display_fields: ["type.*.display_name"]
+        value_field: "type.*.name"
+
+      - label: "Category"
+        name: "entry-category"
+        required: true
+        hint: "The changelog entry category. For example: Integration, destination, etc."
+        widget: "relation"
+        collection: "data"
+        file: "entry-categories"
+        search_fields: ["category.*.name"]
+        display_fields: ["category.*.display_name"]
+        value_field: "category.*.name"
+
+      - label: "Connection ID"
+        name: "connection-id"
+        required: false
+        hint: "If the Category is either INTEGRATION or DESTINATION, enter the unique name for the connection. For example: For `Facebook Ads`, enter `facebook-ads`."
+        widget: "string"
+
+      - label: "Body"
+        name: "body"
+        hint: "The entry content. It's strongly recommended that you use Markdown instead of Rich Text."
+        widget: "markdown"

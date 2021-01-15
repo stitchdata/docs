@@ -1,0 +1,55 @@
+
+<!-- This formats a list of changelog entries by year/month for the changelog (/docs/changelog/archives) -->
+
+{% assign all-changelog-entries = site.changelog | where:"content-type","changelog-entry" | sort:"date" | reverse %}
+
+{% assign entries-by-year = all-changelog-entries | group_by_exp:"entry", "entry.date | date: '%Y'" %}
+
+<nav class="menu browse by-year text-center" aria-label="year">
+	<strong aria-hidden="true">Jump to:</strong>
+		{% for year in entries-by-year %}
+			<a href="#{{ year.name }}">
+				{{ year.name }}{% unless forloop.last == true %} - {% endunless %}
+			</a>
+		{% endfor %}
+</nav>
+
+<p>
+	You can also browse entries by <a href="{{ link.changelog.archive-by-type | prepend: site.baseurl }}">type</a> or <a href="{{ link.changelog.archive-by-category | prepend: site.baseurl }}">category</a>.
+</p>
+
+<hr>
+
+{% for year in entries-by-year %}
+	<h2 id="{{ year.name }}">{{ year.name }}</h2>
+
+	{% assign entries-grouped-by-month = year.items | group_by_exp:"entry","entry.date | date:'%m %B'" | sort:'name' | reverse %}
+
+	{%- for month in entries-grouped-by-month -%}
+  		{%- assign monthnamearray = month.name | split:" " %}
+  			{% assign monthname = monthnamearray[1] %}
+
+		    <a href="#{{ monthname | append: "-" | append: year.name | downcase }}">{{ monthname }}</a>{% unless forloop.last == true %} - {% endunless %}
+    {% endfor %}
+
+	{%- for month in entries-grouped-by-month -%}
+  		{%- assign monthnamearray = month.name | split:" " %}
+  			{% assign monthname = monthnamearray[1] %}
+
+		    <h3 id="{{ monthname | append: "-" | append: year.name | downcase }}">{{ monthname }}</h3>
+
+			<ul>
+			{%- for item in month.items -%} 
+	  			<li>
+	  				{{ site.data.changelog.metadata.archive-entry | flatify | markdownify }}
+	  			</li>
+			{% endfor %}
+			</ul>
+	{% endfor %}
+
+	<a href="#">Back to top</a>
+
+	{% unless forloop.last == true %}
+		<hr>
+	{% endunless %}
+{% endfor %}

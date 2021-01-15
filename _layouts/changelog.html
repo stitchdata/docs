@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<div class="post-header">
+    <h1 class="post-title-main">{{ page.title }}</h1>
+</div>
+
+{% include misc/data-files.html %}
+
+<div class="post-content">
+	{% case page.content-type %}
+		{% when 'changelog-archive' %}
+			{% case page.archive-type %}
+				{% when 'date' %}
+					{% include changelog/archive-by-year.html %}
+				{% else %}
+					{% include changelog/archive-by-taxonomy.html %}
+			{% endcase %}
+			
+		{% when 'changelog-entry-list' %}
+			{% include changelog/entry-list.html %}
+	{% endcase %}
+</div>
+
+{% include layout/footer-cta.html %}
+{% include layout/footer.html %}
