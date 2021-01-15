@@ -2,7 +2,7 @@
 title: New LivePerson integration
 content-type: "changelog-entry"
 publish-date: 2019-07-27
-entry-type: new_feature
+entry-type: new-feature
 entry-category: integration
 ---
 
