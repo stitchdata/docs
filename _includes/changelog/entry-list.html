@@ -3,35 +3,47 @@
 
 {% assign changelog-entries = site.changelog | where:"content-type","changelog-entry" | sort:"date" | reverse %}
 
-<div class="changelog">
+<ul class="changelog">
 	{% for entry in changelog-entries %}
-		<div class="changelog entry">
-			<div class="changelog entry entry-metadata">
-				{{ entry.date | date: "%b %e, %Y" }}
+		{% assign entry-id = entry.date | date: "%F" | append: "-" | append: entry.title | slugify %}
 
-				{% assign entry-type = site.data.changelog.types.type | where:"name",entry.entry-type | first %}
+		{% assign entry-type = site.data.changelog.types.type | where:"name",entry.entry-type | first %}
+
+		<li class="changelog-entry changelog-entry--{{ entry.entry-type }}">
+			<div class="changelog-entry-metadata">
+				{{ entry.date | date: "%b %e, %Y" | upcase }}
+				<br>
+				<strong class="changelog-entry-type">
+					{{ entry-type.display_name | upcase }}
+				</strong>
+			</div>
+
+			<dl class="changelog-entry-details">
+				<dt class="anchored" id="{{ entry-id }}">
+					<strong>
+						{{ entry.title }}
+					</strong>
+				</dt>
+
+				<dd>
+					{% assign link = site.data.urls %}
+					{{ entry.content | flatify | markdownify }}
+
+					<strong>Tags:</strong>
+
 					<a href="{{ link.changelog.archive-by-type | prepend: site.baseurl | append: "#" | append: entry.entry-type }}">
 						<button type="button" class="btn btn-primary btn-sm">{{ entry-type.display_name }}</button>
 					</a>
 
-				{% assign entry-category = site.data.changelog.categories.category | where:"name",entry.entry-category | first %}
-					<a href="{{ link.changelog.archive-by-category | prepend: site.baseurl | append: "#" | append: entry.entry-category }}">
-						<button type="button" class="btn btn-primary btn-sm">{{ entry-category.display_name }}</button>
-					</a>
-
-			</div>
-			<div class="changelog entry entry-content">
-				{% assign entry-anchor = entry.date | date: "%F" | append: "-" | append: entry.title | slugify %}
-
-				<h4 id="{{ entry-anchor }}">
-					{{ entry-type.display_name }}: {{ entry.title }}
-				</h4>
-
-				{{ entry.content | flatify | markdownify }}
-			</div>
-		</div>
+					{% assign entry-category = site.data.changelog.categories.category | where:"name",entry.entry-category | first %}
+						<a href="{{ link.changelog.archive-by-category | prepend: site.baseurl | append: "#" | append: entry.entry-category }}">
+							<button type="button" class="btn btn-primary btn-sm">{{ entry-category.display_name }}</button>
+						</a>
+				</dd>
+			</dl>
+		</li>
 		{% unless forloop.last == true %}
-			<hr>
+			<hr style="margin-top: 0">
 		{% endunless %}
 	{% endfor %}
-</div>
+</ul>
