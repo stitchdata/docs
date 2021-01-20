@@ -1,0 +1,115 @@
+{% include misc/data-files.html %}
+
+<div class="menu-list">
+
+<ul id="mysidebar" class="nav" data-swiftype-index='false'>
+    <!-- Stitch status widget -->
+    <a class="status-page" href="http://status.stitchdata.com" target="_blank">
+        <span class="color-dot"></span>
+        <span class="color-description"></span>
+    </a>
+
+    <li>
+    	<a href="{{ link.changelog.main | prepend: site.baseurl }}">
+            <strong>
+                Changelog 
+            </strong>
+        </a>
+    </li>
+
+<!-- ENTRIES BY YEAR -->
+    {% assign all-changelog-entries = site.changelog | where:"content-type","changelog-entry" | sort:"date" | reverse %}
+        {% assign entries-by-year = all-changelog-entries | group_by_exp:"entry", "entry.date | date: '%Y'" %}
+
+    <li class="subfolders">
+        <a data-toggle="collapse" href="#archives-by-year--menu" aria-expanded="false" aria-controls="#archives-by-year--menu">
+            <strong>
+                Entries by year
+            </strong>
+            <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+        </a>
+
+        <ul class="collapse in" id="archives-by-year--menu">
+            <li>
+                <a href="{{ link.changelog.archives | prepend: site.baseurl }}">
+                    Archives by year
+                </a>
+            </li>
+            {% for year in entries-by-year %}
+                <li class="subfolders">
+                    <a data-toggle="collapse" href="#{{ year.name }}--menu" aria-expanded="false" aria-controls="{{ year.name }}--menu">
+                        {{ year.name }}
+                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                    </a>
+
+     <!-- ENTRIES BY MONTH FOR THE YEAR -->
+                    {% assign entries-grouped-by-month = year.items | group_by_exp:"entry","entry.date | date:'%m %B'" | sort:'name' %}
+   
+                    <ul class="collapse" id="{{ year.name }}--menu">
+                        {%- for month in entries-grouped-by-month -%}
+                            <li>
+                                {%- assign monthnamearray = month.name | split:" " %}
+                                    {% assign monthname = monthnamearray[1] %}
+                                        {% assign month-archive-anchor = monthname | prepend: "#" | append: "-" | append: year.name | downcase %}
+
+                                    <a href="{{ link.changelog.archives | prepend: site.baseurl | append: month-archive-anchor }}">
+                                        {{ monthname }}
+                                    </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </li>
+
+    <hr>
+<!-- END ENTRIES BY YEAR -->
+
+<!-- ENTRIES BY TAXONOMY - TYPE AND CATEGORY -->
+    {% assign taxonomy-item-list = "types|categories" | split:"|" %}
+
+    {% for list-item in taxonomy-item-list %}
+        {% case list-item %}
+            {% when 'categories' %}
+                {% assign singular-label = "category" %}
+                {% assign taxonomy-frontmatter = "entry-category" %}
+                {% assign archive-link = link.changelog.archive-by-category %}
+                
+            {% when 'types' %}
+                {% assign singular-label = "type" %}
+                {% assign taxonomy-frontmatter = "entry-type" %}
+                {% assign archive-link = link.changelog.archive-by-type %}
+        {% endcase %}
+
+        {% assign taxonomy-items = site.data.changelog[list-item][singular-label] %}
+            {% assign entries-by-taxonomy = all-changelog-entries | sort: taxonomy-frontmatter | group_by: taxonomy-frontmatter |  %}
+
+        <li class="subfolders">
+            <a data-toggle="collapse" href="#{{ taxonomy-frontmatter }}--menu" aria-expanded="false" aria-controls="#{{ taxonomy-frontmatter }}--menu">
+                <strong>
+                    Entries by {{ singular-label }}
+                </strong>
+                <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+            </a>
+
+            <ul class="collapse in" id="{{ taxonomy-frontmatter }}--menu">
+                {% for taxonomy in entries-by-taxonomy %}
+                    {% assign taxonomy-name = taxonomy-items | where:"name",taxonomy.name | first %}
+
+                    <li>
+                        <a href="{{ archive-link | prepend: site.baseurl | append: "#" | append: taxonomy.name }}">{{ taxonomy-name.display_name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+
+        {% unless forloop.last == true %}
+            <hr>
+        {% endunless %}
+    {% endfor %}
+    
+<!-- END ENTRIES BY TAXONOMY -->
+
+</ul>
+</div>
