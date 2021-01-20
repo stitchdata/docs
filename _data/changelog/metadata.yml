@@ -4,3 +4,20 @@ archive-entry: |
   [{{ item.title }}]({{ link.changelog.main | prepend: site.baseurl | append: "#" | append: entry-anchor }})
   <br>
   {{ item.date | date: "%B %e, %Y" }}
+
+single-integration: |
+  {% assign connections = site.saas-integrations | concat: site.database-integrations | concat: site.webhook-integrations | where:"name",page.connection-id %}
+  {% assign this-connection = connections | where:"this-version",page.connection-version | first %}
+
+integration-list: |
+  {% for connection in page.connections %}
+
+  {% assign connections = site.saas-integrations | concat: site.database-integrations | concat: site.webhook-integrations | where:"name",connection.id %}
+  {% assign this-connection = connections | where:"this-version",connection.version | first %}
+
+  - [{{ this-connection.display_name }}]({{ this-connection.url | prepend: site.baseurl }}) {% if this-connection.tier == "Enterprise" %}(**Enterprise only**){% endif %}{% if this-connection.copy %}: {{ this-connection.copy | flatify }}{% endif %}
+  {% endfor %}
+
+single-destination: |
+  {% assign connections = site.destinations | where:"type",page.connection-id %}
+  {% assign this-connection = connections | where:"this-version",page.connection-version | first %}
