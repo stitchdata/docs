@@ -27,7 +27,7 @@ api-type: "platform.lookml"
 display-name: "LookML"
 
 source-type: "saas"
-docs-name: "lookml" # This should be whatever integration.name is. Ex: LinkedIn Ads is linkedin-ads
+docs-name: "lookml"
 
 
 # -------------------------- #
@@ -45,18 +45,24 @@ object-attributes:
   - name: "api_token"
     type: "string"
     required: true
-    description: "An API token which allows access to any project the user wants to replicate data from. **Note**: This access token must have the `repo` scope at a minimum. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#create-access-token" }}) for more info."
+    description: |
+      An API token which allows access to any project the user wants to replicate data from. **Note**: This access token must have the `repo` scope at a minimum. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#create-access-token" }}) for more info.
     value: "<API_TOKEN>"
 
   - name: "git_owner"
     type: "string"
     required: true
-    description: "The owner of the GitHub repository you're replicating {{ form-property.display-name }} data from. You can find the owner in the URL of the repositories you want to replicate. Ex: `https://github.com/git-owner/git-repository`."
-    value: "<GIT_OWNER>"  
+    description: |
+      The name of owner of the GitHub repository to replicate {{ form-property.display-name }} data from. You can find the owner in the URL of the repositories you want to replicate. For example: If the URL of the repository is `https://github.com/stichdata/docs`, the repository owner would be `stitchdata`.
+    value: "<GIT_REPOSITORY_OWNER>"  
   
   - name: "git_repositories"
     type: "string"
     required: true
-    description: "The GitHub repository you're replicating {{ form-property.display-name }} data from. You can find the owner in the URL of the repositories you want to replicate. Ex: `https://github.com/git-owner/git-repository`. The repositories must be comma-delimited if replicating multiple repositories. Ex: `repository-1, repository-2`."
-    value: "<GIT_REPOSITORY>"    
+    description: |
+      A comma-delimited list of the GitHub repositories to replicate {{ form-property.display-name }} data from. The name of the repository is in its URL. For example: If the URL of the repository is `https://github.com/stichdata/docs`, the repository would be `docs`.
+      
+      - To track a single repository, this value should be just the name of the repository: `repository-1`
+      - To track multiple repositories, this value should be comma-delimited: `repository-1, repository-2`, etc.
+    value: "<GIT_REPOSITORY_NAME>"    
 ---
