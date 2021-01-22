@@ -67,7 +67,7 @@ column-selection: true
 # -------------------------- #
 
 feature-summary: |
-  Stitch's {{ integration.display_name }} integration connects to GitHub repositories where your Looker {{ integration.display_name }} is hosted for your Looker project and replicates it using {{ integration.api | flatify | strip }} to extract {{ integration.display_name }} components using [lkml parser](https://github.com/joshtemple/lkml){:target="new"}.
+  Stitch's {{ integration.display_name }} integration connects to GitHub repositories where your Looker {{ integration.display_name }} is hosted for your Looker project. Stitch then replicates it using {{ integration.api | flatify | strip }} to extract {{ integration.display_name }} components using [lkml parser](https://github.com/joshtemple/lkml){:target="new"}.
   
   Refer to the [Schema](#schema) section for a list of objects available for replication.
 
