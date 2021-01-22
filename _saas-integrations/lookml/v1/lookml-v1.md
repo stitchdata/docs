@@ -61,18 +61,15 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-# attribution-window: "# days"
-# attribution-is-configurable: 
-
-# setup-name: ""
-
 
 # -------------------------- #
 #      Feature Summary       #
 # -------------------------- #
 
 feature-summary: |
-  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+  Stitch's {{ integration.display_name }} integration connects to GitHub repositories where your Looker {{ integration.display_name }} is hosted for your Looker project and replicates it using {{ integration.api | flatify | strip }} to extract {{ integration.display_name }} components using [lkml parser](https://github.com/joshtemple/lkml){:target="new"}.
+  
+  Refer to the [Schema](#schema) section for a list of objects available for replication.
 
 
 # -------------------------- #
@@ -92,7 +89,7 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      **Access to the projects you want to replicate data from.** Stitch will only be able to access the same projects as the user who creates the access token.
+      **Access to the GitHub repositories you want to replicate data from.** Stitch will only be able to access the same repositories as the user who creates the access token.
 
 
 setup-steps:
@@ -118,8 +115,12 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API Token** field, paste the access token you copied from [step 1](#create-access-token).
-      5. In the **Git Owner** field, enter the Git Owner of the repositories you want to replicate. You can find this info in the URL of the repositories. For example, the Git Owner of `https://github.com/stitch/stitch-repo` would be `stitch`. Keep in mind that you can only replicate data from one Git Owner per Stitch {{ integration.display_name }} integration.
-      6. In the **Git Repositories** field, enter the repositories you want to replicate. You can find this info in its URL. For example, the repository of `https://github.com/stitch/stitch-repo` would be `stitch-repo`. The repositories must be comma-delimited if replicating multiple repositories. Ex: `repo-1, repo-2`."
+      5. In the **Git Owner** field, enter the owner of the repositories you want to replicate. You can find this info in the repository's URL. For example: The Git owner of `https://github.com/stitch/stitch-repo` would be `stitch`.
+         
+         **Note**: While you can replicate data from multiple repositories, this integration only supports replicating from one owner at a time.
+      6. In the **Git Repositories** field, enter the repository or repositories you want to replicate. You can find this info in the repository's URL. For example: The repository of `https://github.com/stitch/stitch-repo` would be `stitch-repo`.
+      
+         To track multiple repositories, enter them as a comma-delimited list. For example: `repo-1, repo-2`.
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
@@ -131,7 +132,6 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
 
-## remove this if the integration doesn't support at least table selection
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |
@@ -143,14 +143,7 @@ setup-steps:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/lookml
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
+# Each table has a its own .md file in /_integration-schemas/lookml/v1
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
