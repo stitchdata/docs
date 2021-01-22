@@ -1,7 +1,7 @@
 ---
 tap: "lookml"
 version: "1"
-key: ""
+key: "model-file
 
 name: "model_files"
 doc-link: ""
@@ -16,6 +16,11 @@ api-method:
     doc-link: "https://docs.github.com/en/rest/reference/search#search-code"
 
 attributes:
+  - name: "url"
+    type: "string"
+    primary-key: true
+    description: ""
+    
   - name: "git_owner"
     type: "string"
     description: "The GitHub repository owner."
@@ -30,14 +35,17 @@ attributes:
       
   - name: "last_modified"
     type: "date-time"
+    replication-key: true
     description: "The time the file was last modiefied."  
 
   - name: "content"
     type: "string"
     description: ""
+    
   - name: "download_url"
     type: "string"
     description: ""
+    
   - name: "encoding"
     type: "string"
     description: ""
@@ -45,6 +53,7 @@ attributes:
   - name: "git_url"
     type: "string"
     description: ""
+    
   - name: "html_url"
     type: "string"
     description: ""
@@ -56,13 +65,12 @@ attributes:
   - name: "sha"
     type: "string"
     description: ""
+    
   - name: "size"
     type: "integer"
     description: ""
+    
   - name: "type"
-    type: "string"
-    description: ""
-  - name: "url"
     type: "string"
     description: ""
 ---
