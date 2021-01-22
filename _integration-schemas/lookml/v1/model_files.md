@@ -15,22 +15,20 @@ api-method:
     name: "Git API Search"
     doc-link: "https://docs.github.com/en/rest/reference/search#search-code"
 
-attributes:
-  - name: "url"
-    type: "string"
-    primary-key: true
-    description: ""
-    
+attributes:    
   - name: "git_owner"
     type: "string"
+    primary-key: true
     description: "The GitHub repository owner."
 
   - name: "git_repository"
     type: "string"
+    primary-key: true
     description: "The GitHub repository."
 
   - name: "path"
     type: "string"
+    primary-key: true
     description: "The URL for the repository."
       
   - name: "last_modified"
@@ -71,6 +69,10 @@ attributes:
     description: ""
     
   - name: "type"
+    type: "string"
+    description: ""
+    
+  - name: "url"
     type: "string"
     description: ""
 ---
