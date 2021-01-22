@@ -1,7 +1,7 @@
 ---
 tap: "lookml"
 version: "1"
-key: "model-file
+key: "model-file"
 
 name: "model_files"
 doc-link: ""
