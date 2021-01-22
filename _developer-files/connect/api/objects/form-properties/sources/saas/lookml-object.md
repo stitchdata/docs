@@ -29,6 +29,10 @@ display-name: "LookML"
 source-type: "saas"
 docs-name: "lookml"
 
+## This is used to fill in the description that displays in the source form property rollup and under the object itself.
+
+property-description: "GitHub repositories containing Looker {{ form-property.display-name }} code"
+
 
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
@@ -46,7 +50,9 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      An API token which allows access to any project the user wants to replicate data from. **Note**: This access token must have the `repo` scope at a minimum. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#create-access-token" }}) for more info.
+      A GitHub access token which allows access to any repository the user wants to replicate data from.
+      
+      **Note**: This access token must have the `repo` scope at a minimum. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#create-access-token" }}) for more info.
     value: "<API_TOKEN>"
 
   - name: "git_owner"
