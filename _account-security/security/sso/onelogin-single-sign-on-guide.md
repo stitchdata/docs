@@ -17,6 +17,16 @@ weight: 4
 
 # enterprise: true ## TODO: Flip this when confirmed
 
+
+# -------------------------- #
+#         IdP Details        #
+# -------------------------- #
+
+idp: true
+name: "onelogin"
+display-name: "OneLogin"
+
+
 # -------------------------- #
 #        Introduction        #
 # -------------------------- #
