@@ -1,22 +1,45 @@
 ---
 tap: "pinterest-ads"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "advertisers"
-doc-link: ""
+doc-link: "https://developers.pinterest.com/docs/redoc/adsreporting/#tag/advertisers"
 singer-schema: "https://github.com/singer-io/tap-pinterest-ads/blob/master/tap_pinterest_ads/schemas/advertisers.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about the advertisers in your {{ integration.display_name }} account.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "Get advertisers"
+    doc-link: "https://developers.pinterest.com/docs/redoc/adsreporting/#tag/advertisers"
+
 attributes:
+  - name: "owner_user_id"
+    type: "string"
+    primary-key: true
+    description: "The ad owner's user ID."
+    #foreign-key-id: "owner-id"
+
+  - name: "updated_time"
+    type: "integer"
+    description: "The time the advertiser's information was last updated."  
+
   - name: "accepted_terms"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "value"
+        type: "integer"
+        description: ""
   - name: "actions"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
   - name: "billing_type"
     type: "integer"
     description: ""
@@ -46,8 +69,13 @@ attributes:
         type: "string"
         description: ""
   - name: "campaign_ids"
-    type: "null"
-    description: ""
+    type: "array"
+    description: "A list of the advertisers' campaign IDs."
+    foreign-key-id: "campaign-id"
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
   - name: "country"
     type: "string"
     description: ""
@@ -75,15 +103,17 @@ attributes:
   - name: "name"
     type: "string"
     description: ""
-  - name: "owner_user_id"
-    type: "string"
-    description: ""
+  
   - name: "represented_advertiser_country"
     type: "string"
     description: ""
   - name: "roles"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
   - name: "source_integration_platform_type"
     type: "string"
     description: ""
@@ -96,9 +126,7 @@ attributes:
   - name: "type"
     type: "string"
     description: ""
-  - name: "updated_time"
-    type: "integer"
-    description: ""
+  
   - name: "vat_exempt_number"
     type: "string"
     description: ""
