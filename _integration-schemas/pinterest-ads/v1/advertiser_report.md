@@ -1,7 +1,7 @@
 ---
 tap: "pinterest-ads"
 version: "1"
-key: ""
+key: "advertiser-report"
 
 name: "advertiser_report"
 doc-link: "https://developers.pinterest.com/docs/redoc/adsreporting/#tag/advertisers"
@@ -12,8 +12,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Get advertisers"
-    doc-link: "https://developers.pinterest.com/docs/redoc/adsreporting/#tag/advertisers"
+  name: "Get advertisers"
+  doc-link: "https://developers.pinterest.com/docs/redoc/adsreporting/#tag/advertisers"
 
 attributes:
   - name: "ADVERTISER_ID"
@@ -27,7 +27,6 @@ attributes:
     primary-key: true
     description: "The date the report was created."
     replication-key: true
-    
 
   - name: "APP_INSTALL_COST_PER_ACTION"
     type: "string"
