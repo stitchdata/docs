@@ -12,32 +12,32 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: SAAS-INTEGRATION (vVERSION)
-permalink: /integrations/saas/saas-integration ## Add if there are multiple versions: /vVERSION
-keywords: saas-integration, integration, schema, etl saas-integration, saas-integration etl, saas-integration schema
+title: Pinterest Ads (vVERSION)
+permalink: /integrations/saas/pinterest-ads ## Add if there are multiple versions: /vVERSION
+keywords: pinterest-ads, integration, schema, etl pinterest-ads, pinterest-ads etl, pinterest-ads schema
 layout: singer
 # input: false
 
-key: "saas-integration-setup"
+key: "pinterest-ads-setup"
 
 
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
 
-name: "saas-integration"
-display_name: "SAAS-INTEGRATION"
+name: "pinterest-ads"
+display_name: "Pinterest Ads"
 
 singer: true
 status-url: ""
 
-tap-name: "" ## Ex: Intercom, not intercom
-repo-url: https://github.com/singer-io/tap-saas-integration
+tap-name: "Pinterest Ads" ## Ex: Intercom, not intercom
+repo-url: https://github.com/singer-io/tap-pinterest-ads
 
-this-version: ""
+this-version: "1"
 
 api: |
-  [](){:target="new"}
+  [Pinterest Ads API V3](https://developers.pinterest.com/docs/redoc/adsreporting/){:target="new"}
 
 
 # -------------------------- #
@@ -48,9 +48,9 @@ certified: true
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Standard/Enterprise"
+tier: "Standard"
 
-api-type: ""
+api-type: "platform.pinterest-ads"
 
 anchor-scheduling: true
 cron-scheduling: true
@@ -58,8 +58,8 @@ cron-scheduling: true
 extraction-logs: true
 loading-reports: true
 
-table-selection: true/false
-column-selection: true/false
+table-selection: true
+column-selection: true
 
 # attribution-window: "# days"
 # attribution-is-configurable: 
@@ -91,35 +91,41 @@ feature-summary: |
 # -------------------------- #
 
 requirements-list:
-  - item: ""
-  - item: ""
-
-requirements-info:
+  - item: |
+      A {{ integration.display_name }} OAuth App. If you don't have one, refer to {{ integration.display_name }}'s docs [here](https://developers.pinterest.com/docs/redoc/adsreporting/#section/User-Authorization/Start-the-OAuth-flow-(explicit-server-side)) for instructions on how to create one.
 
 setup-steps:
-  - title: ""
-    anchor: ""
+  - title: "Identify your advertisers"
+    anchor: "identify-advertisers"
     content: |
-      [Add content]
+      1. Login to your {{ integration.display_name }} account.
+      2. Navigate to the overhead menu bar and click **`Ads` > `Overview`**.
+      3. In the column on the left-hand side of the page, navigate to the **Ad Status** section and click **All**.
+      4. You should see all of your advertisers. Copy the advertiser names you'd like to replicate in Stitch and paste those values someplace safe to use for the next step.
 
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-# starting with 4., add instructions for additional fields in UI. EX:
-# 4. In the [FIELD_NAME] field, [instructions]
+      4. In the **Advertisers** field, paste the advertisers you copied in [step 1](#identify-advertisers), separated by commas.
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
-      {% include integrations/saas/setup/historical-sync.html %}
+      {% include integrations/saas/setup/historical-sync.html %}    
 
   - title: "Create a replication schedule"
     anchor: "define-rep-frequency"
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
 
-## remove this if the integration doesn't support at least table selection
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
+    anchor: "grant-stitch-authorization"
+    content: |
+      1. Next, you'll be redirected to {{ integration.display_name }}.
+      2. Log into your {{ integration.display_name }} account and complete the authorization process.  When finished, you'll be redirected back to Stitch.
+      3. Click {{ app.buttons.finish-int-setup }}.    
+
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |
@@ -131,7 +137,7 @@ setup-steps:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/saas-integration
+# Each table has a its own .md file in /_integration-schemas/pinterest-ads
 
 
 # Remove this if you don't need it:
