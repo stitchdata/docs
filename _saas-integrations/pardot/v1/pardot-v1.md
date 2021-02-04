@@ -95,19 +95,19 @@ requirements-list:
       **A user with a preferred timezone of UTC.** This is required to ensure you don't encounter Extraction errors during Daylight Savings Time, as some Replication Key fields used by Stitch are reported in {{ integration.display_name }} using the user's preferred timezone. By using UTC, this ensures that time data is accurately reported during extraction. Otherwise, you might encounter [Extraction errors during Daylight Savings Time]({{ link.troubleshooting.pardot-extraction-errors | prepend: site.baseurl | append: "#out-of-order-data" }}).
 
 setup-steps:
-  - title: "Retrieve your {{ integration.display_name }} Business Unit ID"
+  - title: "Retrieve your {{ integration.display_name }} business unit ID"
     anchor: "retrieve-business-unit"
     content: |
       1. Sign into your Salesforce account.
       2. Navigate to the **Setup** page.
       3. Enter `{{ integration.display_name}} Account Setup` in the Quick Find.
-      4. The {{ integration.display_name }} setup will appear. Copy your 18-charater {{ integration.display_name }} Business Unit and keep it readily available for the next step.
+      4. The {{ integration.display_name }} setup page will display. Copy your 18-charater {{ integration.display_name }} Business Unit ID and keep it readily available for the next step.
 
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      4. In the **{{ integration.display_name }} Business Unit Id** field, paste your Business Unit ID that you copied in [step 1](#retrieve-business-unit).
+      4. In the **{{ integration.display_name }} Business Unit Id** field, paste your Business Unit ID that you copied in [Step 1](#retrieve-business-unit).
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
