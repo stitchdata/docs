@@ -1,7 +1,7 @@
 ---
 tap: "pinterest-ads"
 version: "1"
-key: ""
+key: "campaign-report"
 
 name: "campaign_report"
 doc-link: "https://developers.pinterest.com/docs/redoc/adsreporting/#tag/campaigns"
