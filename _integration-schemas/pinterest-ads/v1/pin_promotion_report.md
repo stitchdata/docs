@@ -1,7 +1,7 @@
 ---
 tap: "pinterest-ads"
 version: "1"
-key: ""
+key: "pin-promotion-report"
 
 name: "pin_promotion_report"
 doc-link: "https://developers.pinterest.com/docs/redoc/adsreporting/#operation/ads_v3_get_pin_promotion_handler_GET"
@@ -12,8 +12,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Get pin promotions"
-    doc-link: "https://developers.pinterest.com/docs/redoc/adsreporting/#operation/ads_v3_get_pin_promotion_handler_GET"
+  name: "Get pin promotions"
+  doc-link: "https://developers.pinterest.com/docs/redoc/adsreporting/#operation/ads_v3_get_pin_promotion_handler_GET"
 
 attributes:
   - name: "PIN_PROMOTION_ID"
