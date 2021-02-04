@@ -108,6 +108,8 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Advertisers** field, paste the advertisers you copied in [step 1](#identify-advertisers), separated by commas.
+      
+         For example: `advertiser_1, advertiser_2`
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
