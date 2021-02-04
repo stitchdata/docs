@@ -4,7 +4,10 @@ title: Liquid Tutorial Week 1
 
 permalink: /liquid-tutorial/week-1 
 
+layout: page
+
 --- 
+
 
 #Example 1
 
@@ -25,3 +28,4 @@ You will be a Liquid Master in no time!
 #Example 3
 
 {{ 'liquid-tutorial' | append: '.yaml'}}
+
