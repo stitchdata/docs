@@ -1,7 +1,7 @@
 ---
 tap: "pinterest-ads"
 version: "1"
-key: ""
+key: "ad-group-report"
 
 name: "ad_group_report"
 doc-link: "https://developers.pinterest.com/docs/redoc/adsreporting/#tag/ad-groups"
