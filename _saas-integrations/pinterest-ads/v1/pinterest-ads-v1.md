@@ -101,7 +101,7 @@ setup-steps:
       1. Login to your {{ integration.display_name }} account.
       2. Navigate to the overhead menu bar and click **`Ads` > `Overview`**.
       3. In the column on the left-hand side of the page, navigate to the **Ad Status** section and click **All**.
-      4. You should see all of your advertisers. Copy the advertiser names you'd like to replicate in Stitch and paste those values someplace safe to use for the next step.
+      4. Your advertisers should display. Copy the names of the advertisers you'd like to replicate in Stitch and paste those values someplace safe to use for the next step.
 
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
