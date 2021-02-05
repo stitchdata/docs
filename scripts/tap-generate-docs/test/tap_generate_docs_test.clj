@@ -246,6 +246,13 @@
        "type" "date-time, integer"
        "description" ""}
 
+      ["a_date" {"anyOf" [{"type" ["null" "string"]
+                           "format" "date-time"}
+                          {"type" "integer"}]}]
+      {"name" "a_date"
+       "type" "date-time, integer"
+       "description" ""}
+
       ["a_date" {"type" "string"
                  "format" "date-time"}]
       {"name" "a_date"
@@ -317,6 +324,26 @@
                (convert-multiary-type nil
                                       {"definitions" {"integer" {"type" "integer"}}}
                                       ["an_string" {"$ref" "#/definitions/string"}]))))
+
+(deftest maybe-remove-anyOf-test
+  (are [x y] (= y
+                (maybe-remove-anyOf x))
+    ["field1" {"anyOf" [{"type" "string"}
+                        {"type" "integer"}]}]
+    ["field1" {"type" ["string" "integer"]}]
+
+    ["field2" {"anyOf" [{"type" ["null" "string"]}
+                        {"type" "integer"}]}]
+    ["field2" {"type" ["null" "string" "integer"]}]
+
+    ["field3" {"anyOf" [{"type" ["null" "string"]
+                         "format" "date-time"}
+                        {"type" "string"}]}]
+    ["field3" {"type" ["null" "string"]
+               "format" "date-time"}]
+
+    ["field4" {"type" ["null" "string"]}]
+    ["field4" {"type" ["null" "string"]}]))
 
 (deftest convert-types-with-bad-refs-tests
   (is (thrown? clojure.lang.ExceptionInfo

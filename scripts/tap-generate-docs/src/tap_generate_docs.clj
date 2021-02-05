@@ -96,23 +96,25 @@
                      "subattributes"
                      (convert-object-properties tap-fs schema (property-json-schema-partial "properties"))))
             (= "array" (property-json-schema-partial "type"))
-            (let [items (property-json-schema-partial "items")
-                  item-type (items "type")
-                  converted-property (do
-                                       (when ((set item-type) "array")
-                                         (throw (ex-info (str "Currently cannot handle a type with arrays of arrays. "
-                                                              "Discuss how docs output should work if encountered.")
-                                                         {:property property})))
-                                       (if (or (= "object" item-type)
-                                               ((set item-type) "object"))
-                                         (convert-array-object-type tap-fs schema property items)
-                                         [(convert-multiary-type tap-fs schema ["value" items])]))]
-              ;; TODO Log (or verify that it's already logged) dropped value
-              (if (empty? converted-property)
-                base-converted-property
-                (assoc base-converted-property
-                       "subattributes"
-                       converted-property)))
+            (if (nil? (property-json-schema-partial "items"))
+              (throw (ex-info "Found array type without items defined: " {:property-name property-name}))
+              (let [items (property-json-schema-partial "items")
+                    item-type (items "type")
+                    converted-property (do
+                                         (when ((set item-type) "array")
+                                           (throw (ex-info (str "Currently cannot handle a type with arrays of arrays. "
+                                                                "Discuss how docs output should work if encountered.")
+                                                           {:property property})))
+                                         (if (or (= "object" item-type)
+                                                 ((set item-type) "object"))
+                                           (convert-array-object-type tap-fs schema property items)
+                                           [(convert-multiary-type tap-fs schema ["value" items])]))]
+                ;; TODO Log (or verify that it's already logged) dropped value
+                (if (empty? converted-property)
+                  base-converted-property
+                  (assoc base-converted-property
+                         "subattributes"
+                         converted-property))))
 
             (and (= "string" (property-json-schema-partial "type"))
                  (contains? property-json-schema-partial "enum"))
@@ -205,6 +207,31 @@
   [{:keys [tap-schema-dir]} file]
   (read-schema (io/file tap-schema-dir file)))
 
+(defn remove-anyOf [[property-name property-json-schema-partial]]
+  [property-name  (apply merge-with
+                         (fn [x y]
+                           (let [x (if (vector? x)
+                                     x
+                                     [x])
+                                 y (if (vector? y)
+                                     y
+                                     [y])]
+                             (vec (dedupe (into x y)))))
+                         (property-json-schema-partial "anyOf"))])
+
+(defn maybe-remove-anyOf [property]
+  (if (get-in property [1 "anyOf"])
+    (remove-anyOf property)
+    property))
+
+(defn property->converted-unary-types [tap-fs schema property]
+  (->> (maybe-remove-anyOf property)
+       property->unary-type-properties
+       (map (partial convert-unary-type
+                     tap-fs
+                     schema))
+       dedupe))
+
 (defn convert-multiary-type
   "multiary-type = a property that _may_ have more than one type."
   [tap-fs schema [property-name property-json-schema-partial
@@ -237,12 +264,8 @@
                                         :schema schema})))
                      [property-name referenced-json-schema-partial])
                    property)]
-    (let [unary-type-properties
-          (property->unary-type-properties property)
-
-          converted-unary-type-properties
-          (map (partial convert-unary-type tap-fs schema)
-               unary-type-properties)]
+    (let [converted-unary-type-properties
+          (property->converted-unary-types tap-fs schema property)]
       (if (empty? converted-unary-type-properties)
         (do
           (println (str "Null unary type passed for property"
@@ -460,6 +483,15 @@
                                     "$1:"))))))
         (when-not *interactive*
           (System/exit 0))))))
+
+(comment
+  ;; How to run with just one file
+  (map (partial convert-multiary-type nil nil)
+       (-> "/Users/andylu/git/tap-closeio/tap_closeio/schemas/activities.json"
+           slurp
+           json/read-str
+           (get "properties")))
+  )
 
 (comment
   (def ^:dynamic *interactive* true)
