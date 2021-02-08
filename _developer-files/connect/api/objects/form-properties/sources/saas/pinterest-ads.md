@@ -50,7 +50,7 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      A comma-delimited list of the advertiser ID's in your {{ form-property.display-name }} you want to replicate data from."
+      A comma-delimited list of the advertiser IDs in your {{ form-property.display-name }} account you want to replicate data from.
     value: "<ADVERTISER_ID1>, <ADVERTISER_ID2>"
 
   - name: "attribution_window"
