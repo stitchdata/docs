@@ -24,7 +24,9 @@ attributes:
 
   - name: "updated_time"
     type: "integer"
-    description: "The time the advertiser's information was last updated."  
+    primary-key: true
+    replication-key: true
+    description: "The time the advertiser's information was last updated." 
 
   - name: "accepted_terms"
     type: "array"
