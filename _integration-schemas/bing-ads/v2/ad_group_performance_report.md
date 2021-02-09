@@ -2,7 +2,7 @@
 tap: "bing-ads"
 version: "2"
 
-name: "adgroup_performance_report"
+name: "ad_group_performance_report"
 doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/adgroupperformancereportfilter?view=bingads-13
 singer-schema: 
 description: |
