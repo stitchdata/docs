@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-pinterest-ads
 this-version: "1"
 
 api: |
-  [Pinterest Ads API V3](https://developers.pinterest.com/docs/redoc/adsreporting/){:target="new"}
+  [{{ integration.display_name }} Ads API V3](https://developers.pinterest.com/docs/redoc/adsreporting/){:target="new"}
 
 
 # -------------------------- #
