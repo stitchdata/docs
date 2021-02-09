@@ -73,11 +73,11 @@ attributes:
   - name: "campaign_ids"
     type: "array"
     description: "A list of the advertisers' campaign IDs."
-    foreign-key-id: "campaign-id"
     subattributes:
       - name: "value"
         type: "string"
-        description: ""
+        description: "The campaign ID."
+        foreign-key-id: "campaign-id"
   - name: "country"
     type: "string"
     description: ""
