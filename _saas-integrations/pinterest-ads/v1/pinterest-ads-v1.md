@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Pinterest Ads (vVERSION)
+title: Pinterest Ads (v1)
 permalink: /integrations/saas/pinterest-ads ## Add if there are multiple versions: /vVERSION
 keywords: pinterest-ads, integration, schema, etl pinterest-ads, pinterest-ads etl, pinterest-ads schema
 layout: singer
