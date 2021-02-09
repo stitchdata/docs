@@ -120,6 +120,8 @@ setup-steps:
     anchor: "define-rep-frequency"
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
+      
+      When finished, click **Authorize**.
 
   - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
