@@ -32,7 +32,8 @@ foreign-keys:
       - table: "pin_promotion_report"
         join-on: "pin_promotion_campaign_id"
       - table: "advertisers"
-        join-on: "campaign_ids"  
+        subattribute: "campaign_ids"
+        join-on: "value"
 
   - id: "adgroup-id"
     table: "ad_group_report"
