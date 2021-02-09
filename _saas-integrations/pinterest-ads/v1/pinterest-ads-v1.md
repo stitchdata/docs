@@ -92,7 +92,7 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      A {{ integration.display_name }} OAuth App. If you don't have one, refer to {{ integration.display_name }}'s docs [here](https://developers.pinterest.com/docs/redoc/adsreporting/#section/User-Authorization/Start-the-OAuth-flow-(explicit-server-side)) for instructions on how to create one.
+      A {{ integration.display_name }} OAuth App. If you don't have one, refer to {{ integration.display_name }}'s [documentation](https://developers.pinterest.com/docs/redoc/adsreporting/#section/User-Authorization){:target="new"} for instructions on how to create one.
 
 setup-steps:
   - title: "Identify your advertisers"
