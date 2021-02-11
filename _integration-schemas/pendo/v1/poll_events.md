@@ -13,7 +13,7 @@ description: |
 
 replication-method: "Key-based Incremental"
 replication-key:
-  name: "day or hour"
+  name: "browserTime"
 
 attribution-window: true
 
