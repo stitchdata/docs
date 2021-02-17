@@ -12,8 +12,6 @@ description: |
   {{ event-replication-note }}
 
 replication-method: "Key-based Incremental"
-replication-key:
-  name: "day or hour"
 
 attribution-window: true
 
@@ -38,6 +36,11 @@ attributes:
     primary-key: true
     description: ""
 
+  - name: "browser_time"
+    type: "date-time"
+    description: ""
+    replication-key: true  
+
   - name: "visitor_id"
     type: "string"
     description: ""
@@ -56,10 +59,6 @@ attributes:
     type: "string"
     description: ""
     foreign-key-id: "app-id"
-
-  - name: "browser_time"
-    type: "date-time"
-    description: ""
 
   - name: "country"
     type: "string"

@@ -12,8 +12,6 @@ description: |
   {{ event-replication-note }}
 
 replication-method: "Key-based Incremental"
-replication-key:
-  name: "day or hour"
 
 attribution-window: true
 
@@ -39,6 +37,11 @@ attributes:
     description: ""
     foreign-key-id: "visitor-id"
 
+  - name: "browser_time"
+    type: "date-time"
+    description: ""
+    replication-key: true  
+
   - name: "account_ids"
     type: "array"
     description: "A list of accounts the visitor (`visitor_id`) belongs to."
@@ -47,10 +50,6 @@ attributes:
         type: "string"
         description: "The account ID."
         foreign-key-id: "account-id"
-
-  - name: "browser_time"
-    type: "date-time"
-    description: ""
 
   - name: "country"
     type: "string"
