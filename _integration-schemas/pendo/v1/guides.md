@@ -10,8 +10,6 @@ description: |
   The `{{ table.name }}` table contains info about the guides in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
-replication-key:
-  name: "browserTime"
 
 api-method:
   name: "Aggregation"
@@ -27,6 +25,7 @@ attributes:
   - name: "last_updated_at"
     type: "date-time"
     description: ""
+    replication-key: true
 
   - name: "attributes"
     type: "object"
