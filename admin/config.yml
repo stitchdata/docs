@@ -147,6 +147,14 @@ collections:
         hint: "If the Category is either INTEGRATION or DESTINATION, enter the unique name for the connection. For example: For `Facebook Ads`, enter `facebook-ads`."
         widget: "string"
 
+      - label: "Connection version"
+        name: "connection-version"
+        required: false
+        hint: "If the Category is either INTEGRATION or DESTINATION, enter the version of the integration the entry applies to. For example: If it's version 1, enter `1`."
+        widget: "number"
+        value_type: "int"
+        min: 1
+
       - label: "Body"
         name: "body"
         hint: "The entry content. It's strongly recommended that you use Markdown instead of Rich Text."
