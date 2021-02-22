@@ -213,9 +213,7 @@ sections:
     content: |
       While using cron expressions will give you the most control over your integrations' replication schedules, there are some limitations to keep in mind:
 
-      1. **Advanced scheduling isn't available for all integrations**. Some database integrations don't currently support advanced scheduling. We are working on converting these integrations into Singer-powered taps, at which point advanced scheduling will be available.
-
-      2. **You can specify a Day of week OR Day of month value, but not both**. Quartz, the cron implementation used by Stitch, [doesn't currently support specifying values for both fields in an expression](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html#notes){:target="new"}. One of these fields must contain the `?` character for the expression to be considered valid.
+      1. **You can specify a Day of week OR Day of month value, but not both**. Quartz, the cron implementation used by Stitch, [doesn't currently support specifying values for both fields in an expression](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html#notes){:target="new"}. One of these fields must contain the `?` character for the expression to be considered valid.
 
       3. **Advanced Scheduling can only be used to whitelist extraction start times**. This means that a job could start during a whitelisted time period but continue running beyond that window, depending on the duration of the extraction.
 
