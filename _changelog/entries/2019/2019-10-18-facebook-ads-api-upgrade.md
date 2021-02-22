@@ -10,4 +10,4 @@ connection-version: 1
 
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-The [{{ this-connection.display_name }} integration]({{ this-connection.url | prepend: site.baseurl }}) now replicates data using version 4.0 of the Facebook Marketing API. For more details, view the [Facebook API changelog](https://developers.facebook.com/docs/graph-api/changelog/version4.0#marketing-api){:target="new"}.
+The [{{ this-connection.display_name }} integration]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}) now replicates data using version 4.0 of the Facebook Marketing API. For more details, view the [Facebook API changelog](https://developers.facebook.com/docs/graph-api/changelog/version4.0#marketing-api){:target="new"}.

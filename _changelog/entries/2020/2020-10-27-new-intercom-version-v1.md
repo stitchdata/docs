@@ -16,20 +16,20 @@ We’ve worked hard to ensure this new integration is the best way to extract da
 - Use of Intercom API version 2.0
 - Updated OAuth flow for easier authentication
 - New tables, including:
-  - [contacts]({{ this-connection.url | prepend: site.baseurl | append: "#contacts" }}) (formerly (`users`)
-  - [contact_attributes]({{ this-connection.url | prepend: site.baseurl | append: "#contact_attributes" }})
-  - [company_attributes]({{ this-connection.url | prepend: site.baseurl | append: "#company_attributes" }})
-  - [teams]({{ this-connection.url | prepend: site.baseurl | append: "#teams" }})
-- Additional field support for the [conversations]({{ this-connection.url | prepend: site.baseurl | append: "#conversations" }}) table, including:
+  - [contacts]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#contacts" }}) (formerly (`users`)
+  - [contact_attributes]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#contact_attributes" }})
+  - [company_attributes]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#company_attributes" }})
+  - [teams]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#teams" }})
+- Additional field support for the [conversations]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#conversations" }}) table, including:
   - `conversation_ratings`
   - `sla_applied`
   - `statistics`
 - Enhanced extraction approaches for the `contacts` and `companies` tables
-- User-facing [Extraction Logs]({{ site.data.urls.replication.extraction-logs | prepend: site.baseurl }})
-- [Table and field selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl }})
-- [Enhanced scheduling options]({{ site.data.urls.replication.rep-scheduling | prepend: site.baseurl }})
-- [Run and stop Extraction]({{ site.data.urls.replication.start-stop-extraction | prepend: site.baseurl }}) on demand functionality
-- Availability via the [Stitch Connect API]({{ site.data.urls.connect.overview | prepend: site.baseurl }})
+- User-facing [Extraction Logs]({{ site.data.urls.replication.extraction-logs | prepend: site.baseurl | prepend: site.home }})
+- [Table and field selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl | prepend: site.home }})
+- [Enhanced scheduling options]({{ site.data.urls.replication.rep-scheduling | prepend: site.baseurl | prepend: site.home }})
+- [Run and stop Extraction]({{ site.data.urls.replication.start-stop-extraction | prepend: site.baseurl | prepend: site.home }}) on demand functionality
+- Availability via the [Stitch Connect API]({{ site.data.urls.connect.overview | prepend: site.baseurl | prepend: site.home }})
 - Enhanced schema validation
 
-Get started today by creating a new {{ this-connection.display_name }} integration or learn more in the [updated documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Get started today by creating a new {{ this-connection.display_name }} integration or learn more in the [updated documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

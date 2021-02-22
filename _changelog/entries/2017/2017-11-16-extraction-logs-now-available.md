@@ -42,7 +42,7 @@ connections:
     version: 1
 ---
 
-Detailed [Extraction Logs]({{ site.data.urls.replication.extraction-logs | prepend: site.baseurl }}) are now available for select integrations in Stitch. This new feature presents detailed information about the extraction process in these integrations, and lets you:
+Detailed [Extraction Logs]({{ site.data.urls.replication.extraction-logs | prepend: site.baseurl | prepend: site.home }}) are now available for select integrations in Stitch. This new feature presents detailed information about the extraction process in these integrations, and lets you:
 
 - Inspect, copy, and download extraction log files up to 50MB in size
 - View historical logs over the past seven days
@@ -53,4 +53,4 @@ This feature is available for the following integrations:
   
 {{ site.data.changelog.metadata.integration-list | flatify }}
 
-We'll be working over the coming weeks to bring these logs to the rest of our integrations. Check out the [docs]({{ site.data.urls.replication.extraction-logs | prepend: site.baseurl }}) for more info on this new feature.
+We'll be working over the coming weeks to bring these logs to the rest of our integrations. Check out the [docs]({{ site.data.urls.replication.extraction-logs | prepend: site.baseurl | prepend: site.home }}) for more info on this new feature.

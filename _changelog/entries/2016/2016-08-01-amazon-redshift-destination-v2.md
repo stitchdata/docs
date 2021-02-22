@@ -14,4 +14,4 @@ Now 50% Redshiftier, along with these improvements:
 - Transactional upserts
 - **NO MORE VIEWS**! Data is materialized into tables directly in the target schema, and these tables are never dropped
 
-Learn more in the [docs]({{ site.data.urls.destinations.overviews.redshift | prepend: site.baseurl }}).
+Learn more in the [docs]({{ site.data.urls.destinations.overviews.redshift | prepend: site.baseurl | prepend: site.home }}).

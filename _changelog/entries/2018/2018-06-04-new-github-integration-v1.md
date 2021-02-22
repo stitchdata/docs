@@ -21,4 +21,4 @@ This integration lets you extract data from any {{ this-connection.display_name 
 - `reviews`
 - `stargazers`
 
-Create a new integration today with seven days of free historical data. [Learn more in our documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Create a new integration today with seven days of free historical data. [Learn more in our documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

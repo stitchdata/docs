@@ -9,7 +9,7 @@ connection-version: 1
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-The {{ this-connection.display_name }} integration can now replicate inactive users into the [users]({{ this-connection.url | prepend: site.baseurl | append: "#users" }}) table.
+The {{ this-connection.display_name }} integration can now replicate inactive users into the [users]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#users" }}) table.
 
 To determine the status of a user, use the `active` field. For example: The following query will only return active users:
 

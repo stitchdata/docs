@@ -11,4 +11,4 @@ connection-version: 1
 
 Are you using {{ this-connection.display_name }} for deep linking in your mobile app? Now you can replicate event data from your {{ this-connection.display_name }} account to your destination and analyze app installs and engagement.
 
-Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

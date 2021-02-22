@@ -12,4 +12,4 @@ When the next replication job will start?
 
 How many rows you’ve loaded today?
 
-This information (and more) is now available in Stitch: Just click on any individual integration to experience this... experience. Check out the [docs]({{ site.data.urls.replication.rep-progress | prepend: site.baseurl }}) for more info.
+This information (and more) is now available in Stitch: Just click on any individual integration to experience this... experience. Check out the [docs]({{ site.data.urls.replication.rep-progress | prepend: site.baseurl | prepend: site.home }}) for more info.

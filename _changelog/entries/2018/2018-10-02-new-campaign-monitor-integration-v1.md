@@ -11,4 +11,4 @@ connection-version: 1
 
 Stitch's new {{ this-connection.display_name }} integration will extract your lists, campaigns, and campaign activity to power all of your email marketing analyses. Create a {{ this-connection.display_name }} integration today and load your historical data for free. 
 
-Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

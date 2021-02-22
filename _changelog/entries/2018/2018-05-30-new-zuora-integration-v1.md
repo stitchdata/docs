@@ -17,7 +17,7 @@ We’ve worked hard to ensure this new integration is the best way to extract da
 - Expanded table and field availability 
 - Choice of {{ this-connection.display_name }} API, allowing you to choose the API that best fits your needs
 - Replication of deleted records when using the AQuA API
-- [Table and field selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl }})
+- [Table and field selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl | prepend: site.home }})
 - Enhanced schema validation
 
-Get started today by creating a new {{ this-connection.display_name }} integration or learn more in the [updated documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Get started today by creating a new {{ this-connection.display_name }} integration or learn more in the [updated documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

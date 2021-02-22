@@ -15,4 +15,4 @@ connections:
 ---
 todo: fix logic in here to account for integrations and destinations
 
-We’re excited to report that Stitch supports the recently announced PostgreSQL flavor of the the Google CloudSQL service. It’s available as both an input [integration]({{ this-connection.url | prepend: site.baseurl }}) AND a [destination]({{ site.data.urls.destinations.postgres | prepend: site.baseurl }}) - a dual threat!
+We’re excited to report that Stitch supports the recently announced PostgreSQL flavor of the the Google CloudSQL service. It’s available as both an input [integration]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}) AND a [destination]({{ site.data.urls.destinations.postgres | prepend: site.baseurl | prepend: site.home }}) - a dual threat!

@@ -17,6 +17,6 @@ A few highlights include:
 - Configurable fields in each of your selected Google AdWords reports 
 - Connect multiple individual or MCC AdWords accounts in each Stitch integration
 - Using a 30-day conversion/lookback window to update data over the past 30 days
-- Loading report data using [Append-Only loading]({{ site.data.urls.destinations.storage.loading-behavior | prepend: site.baseurl }}) with an `_sdc_report_date` field so that users know when data was retrieved from the AdWords API
+- Loading report data using [Append-Only loading]({{ site.data.urls.destinations.storage.loading-behavior | prepend: site.baseurl | prepend: site.home }}) with an `_sdc_report_date` field so that users know when data was retrieved from the AdWords API
 
-Learn more about the new version [in our documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Learn more about the new version [in our documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

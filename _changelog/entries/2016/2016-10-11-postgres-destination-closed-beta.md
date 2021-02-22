@@ -14,4 +14,4 @@ Longing to get your data into {{ this-connection.display_name }} instead of Amaz
 
 Good news, everyone!
 
-{{ this-connection.display_name }} as a Stitch destination is now in closed beta! Sign up today if you are interested in the beta and we’ll add you to the waiting list. In the mean time, learn more about this destination in the [docs]({{ this-connection.url | prepend: site.baseurl }}).
+{{ this-connection.display_name }} as a Stitch destination is now in closed beta! Sign up today if you are interested in the beta and we’ll add you to the waiting list. In the mean time, learn more about this destination in the [docs]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

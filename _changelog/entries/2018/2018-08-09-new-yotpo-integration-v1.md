@@ -11,4 +11,4 @@ connection-version: 1
 
 A new {{ this-connection.display_name }} integration is now available! {{ this-connection.display_name }} generates social reviews, ratings, and other user-generated content for eCommerce websites.
 
-Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

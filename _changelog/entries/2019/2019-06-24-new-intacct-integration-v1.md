@@ -11,4 +11,4 @@ connection-version: 1
 
 {{ this-connection.display_name }} is an accounting and financial management software for the digital era. Our new {{ this-connection.display_name }} integration enables you to extract core objects via the {{ this-connection.display_name }} Data Delivery Service.
 
-Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

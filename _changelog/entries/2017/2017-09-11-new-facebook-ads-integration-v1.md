@@ -12,4 +12,4 @@ connection-version: 1
 
 A new (open-sourced!) version (v{{ this-connection.this-version }}) of our {{ this-connection.display_name }} integration is now available! This version, built from the ground up, supports field selection for increased control over what data you replicate through Stitch.
 
-Learn more about the integration in our [{{ this-connection.display_name }} integration documentation]({{ this-connection.url | prepend: site.baseurl }}). 
+Learn more about the integration in our [{{ this-connection.display_name }} integration documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}). 

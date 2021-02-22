@@ -22,4 +22,4 @@ A new version (v{{ this-connection.this-version }}) of our {{ this-connection.di
 	- The `keywords` table has been removed. {{ this-connection.display_name }} has deprecated the keywords feature of their product and API. Note: [{{ this-connection.display_name }} has deprecated their Keywords tool](https://www.hubspot.com/product-updates/sunsetting-keywords-in-2018) as of June 1.
 	- New counters added to `campaigns`, including: `deferred`, `unsubscribed`, `statuschange`, `bounce`, `mta_dropped`, `suppressed`
 
-Learn more about the integration and these features in our [{{ this-connection.display_name }} integration documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Learn more about the integration and these features in our [{{ this-connection.display_name }} integration documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

@@ -10,4 +10,4 @@ We've just released [Stitch Connect](https://blog.stitchdata.com/introducing-sti
 
 Stitch Connect comprises a JavaScript user interface and an API that lets developers programmatically create and access Stitch client accounts and configure source and destination connections.
 
-Interested in seeing how it could work with your application? Check out the [docs]({{ site.data.urls.connect.overview | prepend: site.baseurl }}) or [get in touch]({{ site.data.connect.api.interest-form }}){:target="new"}.
+Interested in seeing how it could work with your application? Check out the [docs]({{ site.data.urls.connect.overview | prepend: site.baseurl | prepend: site.home }}) or [get in touch]({{ site.data.connect.api.interest-form }}){:target="new"}.

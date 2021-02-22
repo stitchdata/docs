@@ -10,4 +10,4 @@ Occasionally, Stitch encounters data that it can’t load into a destination for
 
 Stitch now logs these records into a special table (`{{ site.data.stitch.system-tables.sdc-rejected.name }}`) for each integration. Each rejected record includes the reason for the rejection and as much data from the original record as can fit.
 
-Learn more in the [docs]({{ site.data.urls.destinations.storage.rejected-records | prepend: site.baseurl }}).
+Learn more in the [docs]({{ site.data.urls.destinations.storage.rejected-records | prepend: site.baseurl | prepend: site.home }}).

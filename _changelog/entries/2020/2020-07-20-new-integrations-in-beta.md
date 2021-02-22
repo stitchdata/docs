@@ -23,4 +23,4 @@ Stitch is pleased to announce the release of several new integrations into open 
 
 {{ site.data.changelog.metadata.integration-list | flatify }}
 
-In addition to providing more tables, these integrations now include [table and column selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl }}), [Extraction Logs]({{ site.data.urls.replication.extraction-logs | prepend: site.baseurl }}), [Loading Reports]({{ site.data.urls.replication.loading-reports | prepend: site.baseurl }}) and full [Connect API compatibility]({{ site.data.urls.connect.overview | prepend: site.baseurl }})!
+In addition to providing more tables, these integrations now include [table and column selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl | prepend: site.home }}), [Extraction Logs]({{ site.data.urls.replication.extraction-logs | prepend: site.baseurl | prepend: site.home }}), [Loading Reports]({{ site.data.urls.replication.loading-reports | prepend: site.baseurl | prepend: site.home }}) and full [Connect API compatibility]({{ site.data.urls.connect.overview | prepend: site.baseurl | prepend: site.home }})!

@@ -27,7 +27,7 @@ Stitch is pleased to announce the release of three new integrations into open be
 {% assign integrations = site.saas-integrations | where:"name",connection.id %}
 {% assign integration = integrations | where:"this-version",connection.version | first %}
 
-- [{{ integration.display_name }}]({{ integration.url | prepend: site.baseurl }}): {{ connection.copy | flatify }}
+- [{{ integration.display_name }}]({{ integration.url | prepend: site.baseurl | prepend: site.home }}): {{ connection.copy | flatify }}
 {% endfor %}
 
 All three of these integrations are available to all customers in open beta and can be added to your account through the integrations page. 

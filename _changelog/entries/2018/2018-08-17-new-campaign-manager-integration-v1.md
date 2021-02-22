@@ -11,4 +11,4 @@ connection-version: 1
 
 Stitch has a new integration with Google {{ this-connection.display_name }} (formerly DoubleClick Campaign Manager). After you select {{ this-connection.display_name }} reports, Stitch will run them and replicate the results to your Stitch destination.
 
-Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

@@ -11,4 +11,4 @@ connection-version: 1
 
 {{ this-connection.display_name }} provides tools for online messaging, marketing, and analytics. The new Stitch {{ this-connection.display_name }} integration enables you to extract agent activity, groups, statuses, enagements, messages, users, and more from a {{ this-connection.display_name }} account.
 
-Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

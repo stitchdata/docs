@@ -13,4 +13,4 @@ A new {{ this-connection.display_name }} destination is now available!
 
 Interested in Amazon Redshift but don’t want the hassle of maintaining an Amazon Web Services account? Exciting news - Stitch has partnered with {{ this-connection.display_name }} to bring their managed data warehouse solution to our users - including a free tier with up to 10 million rows per month!
 
-Get started by creating a new {{ this-connection.display_name }} destination or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Get started by creating a new {{ this-connection.display_name }} destination or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

@@ -15,4 +15,4 @@ For example: Setting a six (6) hour replication with an anchor time of 12:00 PM 
 - 12:00AM
 - 06:00AM
 
-Check out the [docs]({{ site.data.urls.replication.anchor-scheduling | prepend: site.baseurl }}) for full details.
+Check out the [docs]({{ site.data.urls.replication.anchor-scheduling | prepend: site.baseurl | prepend: site.home }}) for full details.

@@ -14,4 +14,4 @@ A new {{ this-connection.display_name }} destination is now available!
 
 {{ this-connection.display_name }} helps you host and share your data, collaborate with your team, and capture context and conclusions as you work. We've partnered with them to allow you to replicate all your sources into your {{ this-connection.display_name }} account.
 
-Check out the [docs]({{ this-connection.url | prepend: site.baseurl }}) for more info.
+Check out the [docs]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}) for more info.

@@ -12,4 +12,4 @@ connection-version: 1
 
 {{ this-connection.display_name }} is now available in open beta as a Stitch destination. Highlights include support for both JSON and CSV formats and the ability to customize the S3 Object Keys to control how your data is stored.
 
-Check out the [docs]({{ this-connection.url | prepend: site.baseurl }}) for more info.
+Check out the [docs]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}) for more info.

@@ -17,6 +17,6 @@ We’ve worked hard to ensure this new integration is the best way to extract da
 - {{ integration.display_name }} token based authentication
 - Optimizations to API concurrency during discovery of tables/fields
 - Utilization of an updated {{ integration.display_name }} WSDL for a more complete set of tables/fields
-- [Field selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl }})
+- [Field selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl | prepend: site.home }})
 
-Get started today by creating a new {{ this-connection.display_name }} integration or learn more in the [updated documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Get started today by creating a new {{ this-connection.display_name }} integration or learn more in the [updated documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

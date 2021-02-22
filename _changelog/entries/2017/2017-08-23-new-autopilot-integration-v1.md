@@ -11,4 +11,4 @@ connection-version: 1
 
 A new {{ this-connection.display_name }} integration is now available! Make your customer journeys take flight with data from [{{ this-connection.display_name }}](https://autopilothq.com){:target="new"} - now generally available as a Stitch source.
 
-Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

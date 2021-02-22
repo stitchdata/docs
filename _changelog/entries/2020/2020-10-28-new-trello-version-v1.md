@@ -15,15 +15,15 @@ We’ve worked hard to ensure this new integration is the best way to extract da
 
 - Removal of `trello_` prefixes on table names
 - Native OAuth support
-- Support for [custom fields]({{ this-connection.url | prepend: site.baseurl | append: "#custom-field-support" }}) for the `boards` and `cards` tables
-- User-facing [Extraction Logs]({{ site.data.urls.replication.extraction-logs | prepend: site.baseurl }})
+- Support for [custom fields]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#custom-field-support" }}) for the `boards` and `cards` tables
+- User-facing [Extraction Logs]({{ site.data.urls.replication.extraction-logs | prepend: site.baseurl | prepend: site.home }})
 - Updated API secret authentication
-- The `export` table now uses [Append-only loading behavior]({{ this-connection.url | prepend: site.baseurl | append: "#export-events-loading-behavior" }})
-- [Configurable attribution windows]({{ this-connection.url | prepend: site.baseurl | append: "#attribution-windows-extraction" }}) for the `export`, `funnels`, and `revenue` tables
-- [Table and field selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl }})
-- [Enhanced scheduling options]({{ site.data.urls.replication.rep-scheduling | prepend: site.baseurl }})
-- [Run and stop Extraction]({{ site.data.urls.replication.start-stop-extraction | prepend: site.baseurl }}) on demand functionality
-- Availability via the [Stitch Connect API]({{ site.data.urls.connect.overview | prepend: site.baseurl }})
+- The `export` table now uses [Append-only loading behavior]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#export-events-loading-behavior" }})
+- [Configurable attribution windows]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#attribution-windows-extraction" }}) for the `export`, `funnels`, and `revenue` tables
+- [Table and field selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl | prepend: site.home }})
+- [Enhanced scheduling options]({{ site.data.urls.replication.rep-scheduling | prepend: site.baseurl | prepend: site.home }})
+- [Run and stop Extraction]({{ site.data.urls.replication.start-stop-extraction | prepend: site.baseurl | prepend: site.home }}) on demand functionality
+- Availability via the [Stitch Connect API]({{ site.data.urls.connect.overview | prepend: site.baseurl | prepend: site.home }})
 - Enhanced schema validation
 
-Get started today by creating a new {{ this-connection.display_name }} integration or learn more in the [updated documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Get started today by creating a new {{ this-connection.display_name }} integration or learn more in the [updated documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

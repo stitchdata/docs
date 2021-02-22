@@ -11,4 +11,4 @@ connection-version: 1
 
 A new {{ this-connection.display_name }} integration is now available! With the new integration, Stitch will replicate your core {{ this-connection.display_name }} objects including bank transactions, contacts, invoices, journal entries, payments, and more to your Stitch destination.
 
-Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

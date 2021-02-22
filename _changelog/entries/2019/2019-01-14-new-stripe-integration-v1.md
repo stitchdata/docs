@@ -15,12 +15,12 @@ We’ve worked hard to ensure this new integration is the best way to extract da
 
 - Removal of `stripe_` prefixes from table names
 - New and improved tables, including:
-  - [invoice_line_items]({{ this-connection.url | prepend: site.baseurl | append: "#invoice_line_items" }})
-  - [subscription_items]({{ this-connection.url | prepend: site.baseurl | append: "#subscription_items" }})
-  - [subscription_line_items]({{ this-connection.url | prepend: site.baseurl | append: "#subscription_line_items" }})
-  - The `transfer_transactions` table has been replaced by [payouts]({{ this-connection.url | prepend: site.baseurl | append: "#payouts" }})
-- User-facing [Extraction Logs]({{ site.data.urls.replication.extraction-logs | prepend: site.baseurl }})
-- [Table and field selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl }})
-- Availability via the [Stitch Connect API]({{ site.data.urls.connect.overview | prepend: site.baseurl }})
+  - [invoice_line_items]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#invoice_line_items" }})
+  - [subscription_items]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#subscription_items" }})
+  - [subscription_line_items]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#subscription_line_items" }})
+  - The `transfer_transactions` table has been replaced by [payouts]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#payouts" }})
+- User-facing [Extraction Logs]({{ site.data.urls.replication.extraction-logs | prepend: site.baseurl | prepend: site.home }})
+- [Table and field selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl | prepend: site.home }})
+- Availability via the [Stitch Connect API]({{ site.data.urls.connect.overview | prepend: site.baseurl | prepend: site.home }})
 
-Get started today by creating a new {{ this-connection.display_name }} integration or learn more in the [updated documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Get started today by creating a new {{ this-connection.display_name }} integration or learn more in the [updated documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

@@ -17,4 +17,4 @@ A new version (v{{ this-connection.this-version }}) of our {{ this-connection.di
 - **Column selection** – Just as with tables, we’ll only replicate the columns that you want.
 - **Improved efficiency** – The integration now uses {{ this-connection.display_name }} Bulk API, which allows us to more efficiently replicate large amounts of data. [Review our documentation](https://www.stitchdata.com/docs/integrations/saas/marketo#activities-leads-replication) for more details.
 
-Learn more about the integration and these features in our [{{ this-connection.display_name }} integration documentation]({{ this-connection.url | prepend: site.baseurl }}). 
+Learn more about the integration and these features in our [{{ this-connection.display_name }} integration documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}). 

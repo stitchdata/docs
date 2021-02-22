@@ -14,7 +14,7 @@ A new (open-sourced!) version (v{{ this-connection.this-version }}) of our {{ th
 
 Major improvements include:
 
-- [Table selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl }})
+- [Table selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl | prepend: site.home }})
 - Improved data typing
 - Improved Primary Keys
 - New tables:
@@ -23,4 +23,4 @@ Major improvements include:
 
 Open sourcing our integrations means more transparency into and flexibility around integration features. If you'd like to contribute to the {{ this-connection.display_name }} integration, you can [check out the code here]({{ this-connection.repo-url }}){:target="new"}.
 
-Learn more about the integration and these features in our [{{ this-connection.display_name }} integration documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Learn more about the integration and these features in our [{{ this-connection.display_name }} integration documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

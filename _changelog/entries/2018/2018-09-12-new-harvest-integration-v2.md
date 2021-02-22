@@ -18,4 +18,4 @@ Changes in this version include:
 - Schema modifications to align with the {{ this-connection.display_name }} API
 - The `people` table was renamed to `users`, as per new {{ this-connection.display_name }} API endpoints
 
-Full details can be found on the pull request against the open sourced integration [here](https://github.com/singer-io/tap-harvest/pull/20). Stitch docs for the version 2 of the {{ this-connection.display_name }} integration can be found [here]({{ this-connection.url | prepend: site.baseurl }}).
+Full details can be found on the pull request against the open sourced integration [here](https://github.com/singer-io/tap-harvest/pull/20). Stitch docs for the version 2 of the {{ this-connection.display_name }} integration can be found [here]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

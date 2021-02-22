@@ -11,4 +11,4 @@ connection-version: 1
 
 [{{ this-connection.display_name }}](https://typeform.com) can help you build conversational forms, surveys, quizzes, landing pages, and more. The new Stitch {{ this-connection.display_name }} integration extracts questions, landings and answers for the forms you care about the most. Choose the granularity you need by selecting between an hourly or daily breakdown of your data.
 
-Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

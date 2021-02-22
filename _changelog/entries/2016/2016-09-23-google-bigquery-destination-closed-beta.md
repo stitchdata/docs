@@ -12,4 +12,4 @@ connection-version: "1"
 
 Excited about {{ this-connection.display_name }}? We’ve got some big news for you!
 
-Our {{ this-connection.display_name }} destination is now in closed beta. Sign up if you’re interested in joining the beta to start sending your data to Google BigQuery. In the mean time, learn more about this destination in the [docs]({{ this-connection.url | prepend: site.baseurl }}).
+Our {{ this-connection.display_name }} destination is now in closed beta. Sign up if you’re interested in joining the beta to start sending your data to Google BigQuery. In the mean time, learn more about this destination in the [docs]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

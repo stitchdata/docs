@@ -18,4 +18,4 @@ This integration can connect to your S3 bucket and replicate CSV files to your S
 - Column selection for choosing which columns you want to extract from your CSV files 
 - Automatic inference of data types and the ability to explicitly specify datetime fields
 
-Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Get started by creating a new {{ this-connection.display_name }} integration or learning more in [our documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).

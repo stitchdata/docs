@@ -15,13 +15,13 @@ We’ve worked hard to ensure this new integration is the best way to extract da
 
 - Removal of `jira_` prefixes from table names
 - New tables, including:
-  - [issues]({{ this-connection.url | prepend: site.baseurl | append: "#issues" }}), [changelog]({{ this-connection.url | prepend: site.baseurl | append: "#changelog" }}), and [transitions]({{ this-connection.url | prepend: site.baseurl | append: "#transitions" }}) are now top-level tables
-  - [roles]({{ this-connection.url | prepend: site.baseurl | append: "#worklogs" }}) (formerly `jira_project_roles`)
-  - [worklogs]({{ this-connection.url | prepend: site.baseurl | append: "#worklogs" }})
+  - [issues]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#issues" }}), [changelog]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#changelog" }}), and [transitions]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#transitions" }}) are now top-level tables
+  - [roles]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#worklogs" }}) (formerly `jira_project_roles`)
+  - [worklogs]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#worklogs" }})
 - {{ this-connection.display_name }} Cloud accounts now use an API token instead of user/password authentication
-- User-facing [Extraction Logs]({{ site.data.urls.replication.extraction-logs | prepend: site.baseurl }})
-- [Table and field selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl }})
-- [Run and stop Extraction]({{ site.data.urls.replication.start-stop-extraction | prepend: site.baseurl }}) on demand functionality
+- User-facing [Extraction Logs]({{ site.data.urls.replication.extraction-logs | prepend: site.baseurl | prepend: site.home }})
+- [Table and field selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl | prepend: site.home }})
+- [Run and stop Extraction]({{ site.data.urls.replication.start-stop-extraction | prepend: site.baseurl | prepend: site.home }}) on demand functionality
 - Enhanced schema validation
 
-Get started today by creating a new {{ this-connection.display_name }} integration or learn more in the [updated documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Get started today by creating a new {{ this-connection.display_name }} integration or learn more in the [updated documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}).
