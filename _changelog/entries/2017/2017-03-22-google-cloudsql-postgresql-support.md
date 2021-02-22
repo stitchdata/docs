@@ -3,7 +3,7 @@ title: Google Cloud SQL PostgreSQL Support
 content-type: "changelog-entry"
 date: 2017-03-22
 entry-type: new-feature
-entry-category: connection
+entry-category: integration
 connections:
   - id: "postgres"
     type: "integration"

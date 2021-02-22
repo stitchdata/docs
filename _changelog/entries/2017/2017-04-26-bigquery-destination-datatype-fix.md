@@ -3,7 +3,7 @@ title: "Google BigQuery (v1) destination: Data type incompatibilities fix"
 content-type: "changelog-entry"
 date: 2017-04-26
 entry-type: bug-fix
-entry-category: destinations
+entry-category: destination
 connection-id: bigquery
 connection-version: 1
 ---
