@@ -8,7 +8,7 @@ layout: none
   {% assign site-url = site.home | append: site.baseurl %}
 
   <channel>
-    <title>{{ site.site_title | xml_escape }}</title>
+    <title>Stitch Product and Documentation Changelog</title>
     <description>{{ site.description | xml_escape }}</description>
     <link>{{ site-url }}</link>
     <atom:link href="{{ site-url }}/changelog/feed.xml" rel="self" type="application/rss+xml" />

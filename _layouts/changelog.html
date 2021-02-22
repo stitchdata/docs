@@ -9,6 +9,20 @@ layout: default
 {% include misc/data-files.html %}
 
 <div class="post-content">
+{% capture intro-rss %}
+Product and documentation updates from the team at Stitch.
+
+Stay up-to-date by subscribing to our [RSS feed]({{ site.data.urls.changelog.rss-feed | prepend: site.baseurl }}).
+{% endcapture %}
+
+	<center>
+		<span class="h5">
+			{{ intro-rss | flatify | markdownify }}
+		</span>
+	</center>
+
+	<hr>
+
 	{% case page.content-type %}
 		{% when 'changelog-archive' %}
 			{% case page.archive-type %}
