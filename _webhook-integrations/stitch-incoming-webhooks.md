@@ -15,6 +15,8 @@ key: "incoming-webhooks-reference"
 name: "incoming-webhooks"
 display_name: "Incoming Webhooks"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

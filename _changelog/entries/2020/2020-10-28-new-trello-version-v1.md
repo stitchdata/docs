@@ -1,5 +1,5 @@
 ---
-title: New version (v1) of Trello integration
+title: "Trello integration: New version (v1)"
 content-type: "changelog-entry"
 date: 2020-10-28
 entry-type: new-feature
@@ -16,14 +16,14 @@ We’ve worked hard to ensure this new integration is the best way to extract da
 - Removal of `trello_` prefixes on table names
 - Native OAuth support
 - Support for [custom fields]({{ this-connection.url | prepend: site.baseurl | append: "#custom-field-support" }}) for the `boards` and `cards` tables
-- User-facing [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }})
+- User-facing [Extraction Logs]({{ site.data.urls.replication.extraction-logs | prepend: site.baseurl }})
 - Updated API secret authentication
 - The `export` table now uses [Append-only loading behavior]({{ this-connection.url | prepend: site.baseurl | append: "#export-events-loading-behavior" }})
 - [Configurable attribution windows]({{ this-connection.url | prepend: site.baseurl | append: "#attribution-windows-extraction" }}) for the `export`, `funnels`, and `revenue` tables
-- [Table and field selection]({{ link.replication.syncing | prepend: site.baseurl }})
-- [Enhanced scheduling options]({{ link.replication.rep-scheduling | prepend: site.baseurl }})
-- [Run and stop Extraction]({{ link.replication.start-stop-extraction | prepend: site.baseurl }}) on demand functionality
-- Availability via the [Stitch Connect API]({{ link.connect.overview | prepend: site.baseurl }})
+- [Table and field selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl }})
+- [Enhanced scheduling options]({{ site.data.urls.replication.rep-scheduling | prepend: site.baseurl }})
+- [Run and stop Extraction]({{ site.data.urls.replication.start-stop-extraction | prepend: site.baseurl }}) on demand functionality
+- Availability via the [Stitch Connect API]({{ site.data.urls.connect.overview | prepend: site.baseurl }})
 - Enhanced schema validation
 
 Get started today by creating a new {{ this-connection.display_name }} integration or learn more in the [updated documentation]({{ this-connection.url | prepend: site.baseurl }}).

@@ -13,6 +13,8 @@ summary: "Connect your SparkPost data to Stitch using Stitch's Incoming Webhooks
 name: "sparkpost"
 display_name: "SparkPost"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

@@ -11,6 +11,4 @@ connections:
     version: "1"
 ---
 
-You can now quickly and easily select and de-select all tables and columns within Facebook Ads and Salesforce integrations! Check it out:
-
-TODO!
+You can now quickly and easily select and de-select all tables and columns within Facebook Ads and Salesforce integrations!

@@ -18,6 +18,8 @@ format: ## controls formatting options in template
 name: "segment"
 display_name: "Segment"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

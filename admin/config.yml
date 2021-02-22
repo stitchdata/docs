@@ -4,7 +4,7 @@
 
 ## This file contains the configuration settings for the Netlify CMS.
 
-site_url: https://stitchdata.com/docs
+site_url: https://stitch-docs-changelog-test.netlify.app/docs
 logo_url: https://stitchdata.com/docs/images/stitch-logo.png
 
 
@@ -18,8 +18,7 @@ logo_url: https://stitchdata.com/docs/images/stitch-logo.png
 
 backend:
   name: git-gateway
-  branch: add-changelog
-
+  branch: master
 
 # -------------------------- #
 #    Publishing Settings     #
@@ -56,62 +55,36 @@ public_folder: "/images/changelog"
   # fields: The fields for each document, usually in front matter
 
 collections:
-  - name: "data"
-    label: "Data"
-    files:
-      - name: "entry-types"
-        label: "Entry Types"
-        label_singluar: "Entry Type"
-        file: "_data/changelog/types.yml"
-        fields:
-          - label: "type"
-            name: "type"
-            widget: "list"
-            fields:
-              - name: "name"
-                label: "Type"
-                widget: "string"
-
-              - name: "display_name"
-                label: "Display Name"
-                widget: "string"
-
-      - name: "entry-categories"
-        label: "Entry Categories"
-        label_singluar: "Entry Category"
-        file: "_data/changelog/categories.yml"
-        fields:
-          - label: "category"
-            name: "category"
-            widget: "list"
-            fields:
-              - name: "name"
-                label: "Category"
-                widget: "string"
-
-              - name: "display_name"
-                label: "Display Name"
-                widget: "string"
-
   - name: "changelog" 
     label: "Changelog Entries"
     label_singular: "Changelog Entry"
     create: true
 
   ## File and site details
-    folder: "_changelog/entries"
+    folder: "_changelog/entries/2020"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     extension: "md"
     format: "frontmatter"
-    preview_path: "/docs/changelog"
+    preview_path: "/changelog"
+
+  ## CMS controls
+    summary: "{{fields.date}}: {{title}}"
+    view_groups:
+      - label: "Year"
+        field: "date"
+        pattern: \d{4}
+  ## CMS fields
     fields: 
       - label: "Title"
         name: "title"
         widget: "string"
 
       - label: "Date"
-        name: "publish-date"
-        widget: "date"
+        name: "date"
+        widget: "datetime"
+        date_format: "MMMM DD, YYYY"
+        format: "YYYY-MM-DD"
+        picker_utc: true
         hint: "The date the changelog entry should have in the changelog. Note: Setting this to a future date won't automatically publish the entry on the date."
 
       - label: "Content Type"
@@ -159,3 +132,40 @@ collections:
         name: "body"
         hint: "The entry content. It's strongly recommended that you use Markdown instead of Rich Text."
         widget: "markdown"
+
+  - name: "data"
+    label: "Data"
+    files:
+      - name: "entry-types"
+        label: "Entry Types"
+        label_singluar: "Entry Type"
+        file: "_data/changelog/types.yml"
+        fields:
+          - label: "type"
+            name: "type"
+            widget: "list"
+            fields:
+              - name: "name"
+                label: "Type"
+                widget: "string"
+
+              - name: "display_name"
+                label: "Display Name"
+                widget: "string"
+
+      - name: "entry-categories"
+        label: "Entry Categories"
+        label_singluar: "Entry Category"
+        file: "_data/changelog/categories.yml"
+        fields:
+          - label: "category"
+            name: "category"
+            widget: "list"
+            fields:
+              - name: "name"
+                label: "Category"
+                widget: "string"
+
+              - name: "display_name"
+                label: "Display Name"
+                widget: "string"

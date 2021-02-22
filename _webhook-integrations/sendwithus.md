@@ -13,6 +13,8 @@ summary: "Connect your SendWithUs data to Stitch using Stitch's Incoming Webhook
 name: "sendwithus"
 display_name: "SendWithUs"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

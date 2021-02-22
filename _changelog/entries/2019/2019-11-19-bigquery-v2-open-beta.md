@@ -14,10 +14,10 @@ We've built a new {{ this-connection.display_name }} destination from the ground
 
 Some notable improvements include:
 
-- The ability to choose between append only and upsert [loading behavior]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }})
+- The ability to choose between append only and upsert [loading behavior]({{ site.data.urls.destinations.storage.loading-behavior | prepend: site.baseurl }})
 
 - Authentication using your own Google Service Account
 
-- [Support for all existing Google regions]({{ link.destinations.overviews.bigquery-v2 | prepend: site.baseurl | append: "#supported-gcs-regions" }})
+- [Support for all existing Google regions]({{ site.data.urls.destinations.overviews.bigquery-v2 | prepend: site.baseurl | append: "#supported-gcs-regions" }})
 
 It's available now - [check it out]({{ this-connection.url | prepend: site.baseurl }})!

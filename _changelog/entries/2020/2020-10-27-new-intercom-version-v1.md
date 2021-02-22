@@ -1,5 +1,5 @@
 ---
-title: New version (v1) of Intercom integration
+title: "Intercom integration: New version (v1)"
 content-type: "changelog-entry"
 date: 2020-10-27
 entry-type: new-feature
@@ -25,11 +25,11 @@ We’ve worked hard to ensure this new integration is the best way to extract da
   - `sla_applied`
   - `statistics`
 - Enhanced extraction approaches for the `contacts` and `companies` tables
-- User-facing [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }})
-- [Table and field selection]({{ link.replication.syncing | prepend: site.baseurl }})
-- [Enhanced scheduling options]({{ link.replication.rep-scheduling | prepend: site.baseurl }})
-- [Run and stop Extraction]({{ link.replication.start-stop-extraction | prepend: site.baseurl }}) on demand functionality
-- Availability via the [Stitch Connect API]({{ link.connect.overview | prepend: site.baseurl }})
+- User-facing [Extraction Logs]({{ site.data.urls.replication.extraction-logs | prepend: site.baseurl }})
+- [Table and field selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl }})
+- [Enhanced scheduling options]({{ site.data.urls.replication.rep-scheduling | prepend: site.baseurl }})
+- [Run and stop Extraction]({{ site.data.urls.replication.start-stop-extraction | prepend: site.baseurl }}) on demand functionality
+- Availability via the [Stitch Connect API]({{ site.data.urls.connect.overview | prepend: site.baseurl }})
 - Enhanced schema validation
 
 Get started today by creating a new {{ this-connection.display_name }} integration or learn more in the [updated documentation]({{ this-connection.url | prepend: site.baseurl }}).

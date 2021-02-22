@@ -1,5 +1,5 @@
 ---
-title: Facebook Ads (v1) API upgrade
+title: Facebook Ads (v1) API upgrade to v4.0
 content-type: "changelog-entry"
 date: 2019-10-18
 entry-type: updated-feature
