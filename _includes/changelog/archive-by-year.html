@@ -5,14 +5,15 @@
 
 {% assign entries-by-year = all-changelog-entries | group_by_exp:"entry", "entry.date | date: '%Y'" %}
 
-<nav class="menu browse by-year text-center" aria-label="year">
+<p>
 	<strong aria-hidden="true">Jump to:</strong>
-		{% for year in entries-by-year %}
-			<a href="#{{ year.name }}">
-				{{ year.name }}{% unless forloop.last == true %} - {% endunless %}
-			</a>
-		{% endfor %}
-</nav>
+</p>
+
+{% for year in entries-by-year %}
+	<a href="#{{ year.name }}">
+		<button type="button" class="btn btn-primary btn-sm">{{ year.name }}</button>
+	</a>
+{% endfor %}
 
 <p>
 	You can also browse entries by <a href="{{ link.changelog.archive-by-type | prepend: site.baseurl }}">type</a> or <a href="{{ link.changelog.archive-by-category | prepend: site.baseurl }}">category</a>.

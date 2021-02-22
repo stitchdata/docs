@@ -35,14 +35,12 @@
 	<strong>Jump to a {{ page.archive-type-singular }}:</strong>
 </p>
 
-<div class="btn-group">
-	{% for taxonomy in entries-by-taxonomy %}
-		{% assign taxonomy-name = taxonomy-items | where:"name",taxonomy.name | first %}
-		  <a href="#{{ taxonomy.name }}" class="btn btn-primary active" {% if forloop.first == true %}aria-current="page"{% endif %}>
-		  	{{ taxonomy-name.display_name }}
-		  </a>
-	{% endfor %}
-</div>
+{% for taxonomy in entries-by-taxonomy %}
+	{% assign taxonomy-name = taxonomy-items | where:"name",taxonomy.name | first %}
+	<a href="#{{ taxonomy.name }}">
+		<button type="button" class="btn btn-primary btn-sm">{{ taxonomy-name.display_name }}</button>
+	</a>
+{% endfor %}
 
 <p>
 	You can also browse entries by {{ other-taxonomy }} or {{ date-archive }}.
