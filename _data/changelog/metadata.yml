@@ -15,7 +15,7 @@ integration-list: |
   {% assign connections = site.saas-integrations | concat: site.database-integrations | concat: site.webhook-integrations | where:"name",connection.id %}
   {% assign this-connection = connections | where:"this-version",connection.version | first %}
 
-  - [{{ this-connection.display_name }}]({{ this-connection.url | prepend: site.baseurl }}){% if this-connection.tier == "Enterprise" %} (**Enterprise only**){% endif %}{% if connection.copy %}: {{ connection.copy | flatify }}{% endif %}
+  - [{{ this-connection.display_name }}]({{ this-connection.url | prepend: site.baseurl }}){% if this-connection.tier == "Enterprise" %} (**Enterprise only**){% endif %}{% if connection.copy %}: {{ connection.copy | flatify }}{% endif %} 
   {% endfor %}
 
 single-destination: |
