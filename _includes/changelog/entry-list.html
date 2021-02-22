@@ -3,6 +3,8 @@
 
 {% assign changelog-entries = site.changelog | where:"content-type","changelog-entry" | sort:"date" | reverse %}
 
+{% include misc/data-files.html %}
+
 <ul class="changelog">
 	{% for entry in changelog-entries %}
 		{% assign entry-id = entry.date | date: "%F" | append: "-" | append: entry.title | slugify %}
@@ -26,7 +28,6 @@
 				</dt>
 
 				<dd>
-					{% assign link = site.data.urls %}
 					{{ entry.content | flatify | markdownify }}
 
 					<strong>Tags:</strong>
