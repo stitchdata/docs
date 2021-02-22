@@ -15,6 +15,8 @@ summary: "Connect your Customer.io data to Stitch using Stitch's Incoming Webhoo
 name: "customerio"
 display_name: "Customer.io"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

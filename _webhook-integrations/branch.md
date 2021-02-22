@@ -14,6 +14,8 @@ summary: "Connect your Branch data to Stitch using Stitch's Incoming Webhooks in
 name: "branch"
 display_name: "Branch"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

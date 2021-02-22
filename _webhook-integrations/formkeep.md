@@ -14,6 +14,8 @@ summary: "Connect your FormKeep data to Stitch using Stitch's Incoming Webhooks 
 name: "formkeep"
 display_name: "FormKeep"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
