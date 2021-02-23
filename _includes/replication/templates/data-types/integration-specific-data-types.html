@@ -16,6 +16,9 @@
         {% include shared/versioning/integration-version-logic.html connection-type="integration" item-name="integration" %}
     {% endif %}
 
+<!-- Only get non-deprecated and non-sunset versions
+        The original logic for this is in the integration-version-logic.html include, right above this line-->
+    {% assign released-versions = non-sunset-versions %}
 
 <!-- Assign variables, so they're easier to re-use later-->
     {% assign data-type-files = site.data.taps.extraction.data-types %}
@@ -99,7 +102,12 @@
     {% for data-type in all-data-types %}
         <tr>
             <td class="attribute-name">
-                <strong>{{ data-type.name | upcase }}</strong>
+            <!-- If the data-type includes a doc link, do this -->
+                {% if this-integration.[clean-version].[data-type.name]doc-link %}
+                    <a href="{{ this-integration.[clean-version].[data-type.name]doc-link | flatify }}">{{ this-integration.[clean-version].[data-type.name]stitch-type | upcase | strip }}</a>
+                {% else %}
+                    <strong>{{ data-type.name | upcase }}</strong>
+                {% endif %}
             </td>
             {% for version in released-versions %}
                 {% assign clean-version = version.number | prepend: "v" %}
@@ -108,11 +116,16 @@
                     skip it. -->
                 {% if this-integration[clean-version] %}
                     <td>
-                        {% case this-integration.[clean-version].[data-type.name]stitch-type %}
+                        {% capture unsupported-type %}
+                        {{ not-supported | replace:"TOOLTIP","This data type is unsupported for this version of the integration." }}
+                        {% endcapture %}
+
+                        {% if this-integration.[clean-version].[data-type.name]stitch-type %}
+                            {% case this-integration.[clean-version].[data-type.name]stitch-type %}
 
                         <!-- If the data-type is unsupported, show the unsupported icon -->
                             {% when 'unsupported' %}
-                                {{ not-supported | replace:"TOOLTIP","This data type is unsupported for this version of the integration." }}
+                                {{ unsupported-type | flatify }}
 
                             {% else %}
 
@@ -130,27 +143,24 @@
                                             {{ not-applicable | replace:"TOOLTIP",flatified-tooltip }}
 
                                         {% else %}
-                                            {{ info-icon | replace:"TOOLTIP",flatified-tooltip }}
+                                            {{ info-icon | replace:"TOOLTIP",flatified-tooltip }} {{ this-integration.[clean-version].[data-type.name]stitch-type | upcase }}
+                                            {% if this-integration.[clean-version].[data-type.name]format %}
+                                                , formatted as {{ this-integration.[clean-version].[data-type.name]format | upcase }}
+                                            {% endif %}
                                     {% endcase %}
                                     
                                 {% else %}
 
                         <!-- Otherwise, just show the supported icon -->
-                                    {{ supported | replace:"TOOLTIP","This data type is supported for this version of the integration." }}
+                                    {{ supported | replace:"TOOLTIP","This data type is supported for this version of the integration." }} {{ this-integration.[clean-version].[data-type.name]stitch-type | upcase }}
+
+                                    {% if this-integration.[clean-version].[data-type.name]format %}
+                                        , formatted as {{ this-integration.[clean-version].[data-type.name]format | upcase }}
+                                    {% endif %}
                                 {% endif %}
-                        {% endcase %}
-
-                <!-- If the data-type includes a doc link, do this -->
-                        {% if this-integration.[clean-version].[data-type.name]doc-link %}
-                            <a href="{{ this-integration.[clean-version].[data-type.name]doc-link | flatify }}">{{ this-integration.[clean-version].[data-type.name]stitch-type | upcase | strip }}</a>
-
-                <!-- Otherwise, just output the data-type name and transform it. -->
+                            {% endcase %}
                         {% else %}
-                            {{ this-integration.[clean-version].[data-type.name]stitch-type | upcase | strip }}
-                        {% endif %}
-
-                        {% if this-integration.[clean-version].[data-type.name]format %}
-                            , formatted as {{ this-integration.[clean-version].[data-type.name]format | upcase }}
+                            {{ unsupported-type | flatify }}
                         {% endif %}
                     </td>
                 {% endif %}
