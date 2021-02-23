@@ -75,7 +75,7 @@ log-based-replication-read-replica-doc-link: |
 
 ## Other Replication Methods
 
-key-based-incremental-replication: true
+key-based-incremental-replication: false
 full-table-replication: true
 
 view-replication: true
