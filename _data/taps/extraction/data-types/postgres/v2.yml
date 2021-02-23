@@ -1,0 +1,166 @@
+# ----------------------------------- #
+#  POSTGRESQL V2 SUPPORTED DATA TYPES #
+# ----------------------------------- #
+
+## In addition to the common supported data types (_data/stitch/supported-data-types.yml), the following data types are relevant to PostgreSQL VERSION 2.
+
+# Source: https://github.com/stitchdata/tap-postgres/blob/master/src/tap_postgres/utils/avro.clj#L377
+
+
+# --------------------------------- #
+#  INTEGRATION-SPECIFIC DATA TYPES  #
+# --------------------------------- #
+
+## PostgreSQL has integration-specific data types. Refer to:
+## _data/taps/extraction/data-types/postgres/specific.yml
+
+
+# --------------------------------- #
+#          ALL DATA TYPES           #
+# --------------------------------- #
+
+array:
+  stitch-type: "unsupported"
+
+bigint:
+  stitch-type: "integer"
+
+bigserial:
+  stitch-type: "integer"
+
+bit:
+  stitch-type: "boolean"
+
+boolean:
+  stitch-type: "boolean"
+
+box:
+  stitch-type: "unsupported"
+
+bytea:
+  stitch-type: "unsupported"
+
+char:
+  stitch-type: "string"
+
+cidr:
+  stitch-type: "string"
+
+circle:
+  stitch-type: "unsupported"
+
+citext:
+  stitch-type: "string"
+      
+date:
+  stitch-type: "string"
+  format: "date-time"
+      
+decimal:
+  stitch-type: "number"
+
+double:
+  stitch-type: "number"
+
+float:
+  stitch-type: "number"  
+
+hstore:
+  stitch-type: "unsupported"
+
+inet:
+  stitch-type: "string"
+
+ip:
+  stitch-type: "string"
+      
+integer:
+  stitch-type: "integer"
+
+interval:
+  stitch-type: "string"
+
+json:
+  stitch-type: "string"
+
+jsonb:
+  stitch-type: "string"
+
+line:
+  stitch-type: "unsupported"
+
+lseg:
+  stitch-type: "unsupported"
+
+longvarchar:
+  stitch-type: "string"
+
+longnvarchar:
+  stitch-type: "string"
+
+macaddr:
+  stitch-type: "string"
+
+money:
+  stitch-type: "string"
+
+nchar:
+  stitch-type: "string"
+
+numeric:
+  stitch-type: "number"
+      
+nvarchar:
+  stitch-type: "string"
+
+path:
+  stitch-type: "unsupported"
+
+pg_lsn:
+  stitch-type: "string"
+
+point:
+  stitch-type: "unsupported"
+
+polygon:
+  stitch-type: "unsupported"
+
+real:
+  stitch-type: "number"
+
+serial:
+  stitch-type: "integer"
+
+smallserial:
+  stitch-type: "integer"
+
+smallint:
+  stitch-type: "integer"
+
+time:
+  stitch-type: "string"
+
+timestamp:
+  stitch-type: "string"
+  format: "date-time"
+
+tinyint:
+  stitch-type: "integer"
+
+tsquery:
+  stitch-type: "string"
+
+tsvector:
+  stitch-type: "string"
+
+txid_snapshot:
+  stitch-type: "string"
+
+uuid:
+  stitch-type: "string"
+
+varchar:
+  stitch-type: "string"
+
+xml:
+  stitch-type: "unsupported"

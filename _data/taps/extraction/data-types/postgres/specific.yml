@@ -3,17 +3,58 @@
 # --------------------------------- #
 
 - name: "array"
+- name: "bigserial"
+  doc-link: &serial-link "https://www.postgresql.org/docs/10/datatype-numeric.html#DATATYPE-SERIAL"
+
+- name: "box"
+- name: "bytea"
 - name: "cidr"
+  doc-link: "https://www.postgresql.org/docs/10/datatype-net-types.html#DATATYPE-CIDR"
+
+- name: "circle"
 - name: "citext"
 - name: "hstore"
   doc-link: "https://www.postgresql.org/docs/current/static/hstore.html"
+
 - name: "inet"
-  doc-link: "https://www.postgresql.org/docs/current/static/datatype-net-types.html#datatype-inet"
+  doc-link: "https://www.postgresql.org/docs/10/datatype-net-types.html#DATATYPE-INET"
+
+- name: "interval"
+  doc-link: "https://www.postgresql.org/docs/10/datatype-datetime.html#DATATYPE-INTERVAL-INPUT"
+
 - name: "ip"
 - name: "json"
 - name: "jsonb"
+- name: "line"
+- name: "lseg"
 - name: "macaddr"
+  doc-link: "https://www.postgresql.org/docs/10/datatype-net-types.html#DATATYPE-MACADDR"
+
 - name: "money"
   doc-link: "https://www.postgresql.org/docs/10/static/datatype-money.html"
+
+- name: "path"
+- name: "pg_lsn"
+  doc-link: "https://www.postgresql.org/docs/10/datatype-pg-lsn.html"
+  
+- name: "point"
+- name: "polygon"
+
+- name: "serial"
+  doc-link: *serial-link
+
+- name: "smallserial"
+  doc-link: *serial-link
+
+- name: "tsquery"
+  doc-link: "https://www.postgresql.org/docs/10/datatype-textsearch.html#DATATYPE-TSQUERY"
+
+- name: "tsvector"
+  doc-link: "https://www.postgresql.org/docs/10/datatype-textsearch.html#DATATYPE-TSVECTOR"
+
+- name: "txid_snapshot"
+
 - name: "uuid"
   doc-link: "https://www.postgresql.org/docs/10/static/datatype-uuid.html"
+
+- name: "xml"
