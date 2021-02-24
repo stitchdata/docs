@@ -34,16 +34,16 @@
 
 				<!-- Entry type button -->
 					{% assign item-link = link.changelog.archive-by-type | prepend: site.baseurl | append: "#" | append: entry.entry-type %}
-						{% assign item-display-text =  entry-type.display_name %}
+					{% assign item-display-text =  entry-type.display_name %}
 
-						{{ site.data.changelog.metadata.archive-button | flatify }}
+					{{ site.data.changelog.metadata.archive-button | flatify }}
 
 				<!-- Entry category button -->
 					{% assign entry-category = site.data.changelog.categories.category | where:"name",entry.entry-category | first %}
-							{% assign item-link = link.changelog.archive-by-category | prepend: site.baseurl | append: "#" | append: entry.entry-category %}
-						{% assign item-display-text =  entry-category.display_name %}
+					{% assign item-link = link.changelog.archive-by-category | prepend: site.baseurl | append: "#" | append: entry.entry-category %}
+					{% assign item-display-text =  entry-category.display_name %}
 
-								{{ site.data.changelog.metadata.archive-button | flatify }}
+					{{ site.data.changelog.metadata.archive-button | flatify }}
 				</dd>
 			</dl>
 		</li>
