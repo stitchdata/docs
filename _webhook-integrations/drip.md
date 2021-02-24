@@ -14,6 +14,8 @@ summary: "Connect your Drip data to Stitch using Stitch's Incoming Webhooks inte
 name: "drip"
 display_name: "Drip"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

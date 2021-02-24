@@ -14,6 +14,8 @@ summary: "Connect your Delighted data to Stitch using Stitch's Incoming Webhooks
 name: "delighted"
 display_name: "Delighted"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

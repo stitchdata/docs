@@ -14,6 +14,8 @@ summary: "Connect your Contentful data to Stitch using Stitch's Incoming Webhook
 name: "contentful"
 display_name: "Contentful"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

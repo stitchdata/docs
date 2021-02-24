@@ -1137,8 +1137,9 @@ pre {
   outline-width: 0px;
 }
 
-/* TILES */
-/* line 711, ../sass/_components.scss */
+/* LISTS */
+/* LISTS > TILES */
+/* line 712, ../sass/_components.scss */
 ul.tiles {
   list-style: none;
   text-align: center;
@@ -1146,7 +1147,7 @@ ul.tiles {
   display: grid;
   padding: 0;
 }
-/* line 718, ../sass/_components.scss */
+/* line 719, ../sass/_components.scss */
 ul.tiles li {
   display: inline-block;
   vertical-align: top;
@@ -1155,16 +1156,16 @@ ul.tiles li {
   line-height: 1.2em;
   padding: 20px;
 }
-/* line 726, ../sass/_components.scss */
+/* line 727, ../sass/_components.scss */
 ul.tiles li strong {
   display: block;
   margin-bottom: 10px;
 }
-/* line 731, ../sass/_components.scss */
+/* line 732, ../sass/_components.scss */
 ul.tiles li .links {
   margin-top: 15px;
 }
-/* line 735, ../sass/_components.scss */
+/* line 736, ../sass/_components.scss */
 ul.tiles li img {
   display: block;
   margin: 1em auto;
@@ -1173,16 +1174,16 @@ ul.tiles li img {
   border: 0px;
 }
 @media (min-width: 1190px) {
-  /* line 735, ../sass/_components.scss */
+  /* line 736, ../sass/_components.scss */
   ul.tiles li img {
     max-width: 160px;
   }
 }
-/* line 747, ../sass/_components.scss */
+/* line 748, ../sass/_components.scss */
 ul.tiles li ul {
   list-style-type: disc;
 }
-/* line 750, ../sass/_components.scss */
+/* line 751, ../sass/_components.scss */
 ul.tiles li ul li {
   list-style: disc;
   display: list-item;
@@ -1191,21 +1192,21 @@ ul.tiles li ul li {
   min-height: 0px;
   padding: 0px;
 }
-/* line 761, ../sass/_components.scss */
+/* line 762, ../sass/_components.scss */
 ul.tiles .lg-tile {
   min-height: 200px;
   width: 40%;
 }
-/* line 764, ../sass/_components.scss */
+/* line 765, ../sass/_components.scss */
 ul.tiles .lg-tile img {
   max-height: 60px;
   max-width: 180px;
 }
-/* line 770, ../sass/_components.scss */
+/* line 771, ../sass/_components.scss */
 ul.tiles .developer-tile {
   text-align: left;
 }
-/* line 774, ../sass/_components.scss */
+/* line 775, ../sass/_components.scss */
 ul.tiles li.category-version-toggle {
   border: none;
   display: list-item;
@@ -1217,18 +1218,18 @@ ul.tiles li.category-version-toggle {
   text-align: left;
   margin: 0px !important;
 }
-/* line 785, ../sass/_components.scss */
+/* line 786, ../sass/_components.scss */
 ul.tiles li.category-version-toggle strong {
   margin-bottom: 0;
 }
 
-/* line 791, ../sass/_components.scss */
+/* line 792, ../sass/_components.scss */
 ul.link-tiles {
   list-style: none;
   text-align: center;
   border: 0px;
 }
-/* line 798, ../sass/_components.scss */
+/* line 799, ../sass/_components.scss */
 ul.link-tiles li a {
   display: inline-block;
   color: #000000;
@@ -1236,36 +1237,36 @@ ul.link-tiles li a {
   font-weight: 400;
   height: 100%;
 }
-/* line 805, ../sass/_components.scss */
+/* line 806, ../sass/_components.scss */
 ul.link-tiles li a strong {
   font-weight: 700;
 }
-/* line 810, ../sass/_components.scss */
+/* line 811, ../sass/_components.scss */
 ul.link-tiles li img {
   border: 0;
 }
-/* line 814, ../sass/_components.scss */
+/* line 815, ../sass/_components.scss */
 ul.link-tiles li:hover {
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25) !important;
   cursor: pointer;
 }
 
-/* line 821, ../sass/_components.scss */
+/* line 822, ../sass/_components.scss */
 .two-columns {
   grid-template-columns: repeat(2, 1fr);
 }
 
-/* line 825, ../sass/_components.scss */
+/* line 826, ../sass/_components.scss */
 .three-columns {
   grid-template-columns: repeat(3, 1fr);
 }
 
-/* line 829, ../sass/_components.scss */
+/* line 830, ../sass/_components.scss */
 blockquote {
   border-left: 3px solid #ED4040;
   margin: 1rem 0;
 }
-/* line 833, ../sass/_components.scss */
+/* line 834, ../sass/_components.scss */
 blockquote p {
   font-size: 1rem;
   color: #ED4040;
@@ -1274,7 +1275,7 @@ blockquote p {
 }
 
 /* CONTENT TYPE FLAGS */
-/* line 843, ../sass/_components.scss */
+/* line 844, ../sass/_components.scss */
 .div-flag {
   float: left;
   margin-left: -15px;
@@ -1284,22 +1285,22 @@ blockquote p {
   font-weight: 600;
 }
 
-/* line 852, ../sass/_components.scss */
+/* line 853, ../sass/_components.scss */
 .tutorial, .beta {
   background-color: #66bdff;
 }
 
-/* line 856, ../sass/_components.scss */
+/* line 857, ../sass/_components.scss */
 .concept, .all-plans, .released {
   background-color: #82bd41;
 }
 
-/* line 860, ../sass/_components.scss */
+/* line 861, ../sass/_components.scss */
 .reference {
   background-color: #0675c1;
 }
 
-/* line 864, ../sass/_components.scss */
+/* line 865, ../sass/_components.scss */
 .troubleshooting {
   background-color: #E96065;
 }
@@ -1307,24 +1308,24 @@ blockquote p {
 /*.sdk, .library, .wrapper {
 	background-color: $lochmara;
 }*/
-/* line 872, ../sass/_components.scss */
+/* line 873, ../sass/_components.scss */
 .deprecated, .sunset {
   background-color: #969696;
 }
 
-/* line 876, ../sass/_components.scss */
+/* line 877, ../sass/_components.scss */
 .enterprise {
   background-color: #82bd41;
 }
 
 /* API/JS HEADINGS */
-/* line 883, ../sass/_components.scss */
+/* line 884, ../sass/_components.scss */
 .api-js-heading {
   width: 100%;
   margin: 40px 0px 20px 0px;
   border: 1px solid #EAEAEA;
 }
-/* line 888, ../sass/_components.scss */
+/* line 889, ../sass/_components.scss */
 .api-js-heading div.method {
   color: #ffffff;
   padding: 20px 30px 13px 30px;
@@ -1333,43 +1334,43 @@ blockquote p {
   font-weight: 600;
 }
 
-/* line 897, ../sass/_components.scss */
+/* line 898, ../sass/_components.scss */
 .object, .put {
   background-color: #66bdff;
   /* blue */
 }
 
-/* line 901, ../sass/_components.scss */
+/* line 902, ../sass/_components.scss */
 .destination {
   background-color: #EA8330;
   /* orange */
 }
 
-/* line 905, ../sass/_components.scss */
+/* line 906, ../sass/_components.scss */
 .source {
   background-color: #f3c446;
   /* yellow */
 }
 
-/* line 909, ../sass/_components.scss */
+/* line 910, ../sass/_components.scss */
 .post {
   background-color: #82bd41;
   /* green */
 }
 
-/* line 913, ../sass/_components.scss */
+/* line 914, ../sass/_components.scss */
 .get, .function {
   background-color: #0675c1;
   /* dark blue */
 }
 
-/* line 917, ../sass/_components.scss */
+/* line 918, ../sass/_components.scss */
 .delete {
   background-color: #E96065;
   /* red */
 }
 
-/* line 921, ../sass/_components.scss */
+/* line 922, ../sass/_components.scss */
 .method-bullet {
   padding: 3px 5px 3px 5px;
   margin-top: -3px;
@@ -1378,29 +1379,29 @@ blockquote p {
   font-weight: 600;
 }
 
-/* line 929, ../sass/_components.scss */
+/* line 930, ../sass/_components.scss */
 .method-function {
   padding: 1.5em;
   line-height: 1em;
 }
 
-/* line 934, ../sass/_components.scss */
+/* line 935, ../sass/_components.scss */
 .method-resource {
   padding: 0px;
 }
-/* line 937, ../sass/_components.scss */
+/* line 938, ../sass/_components.scss */
 .method-resource h4 {
   margin-bottom: 1em;
   line-height: 1em;
 }
 
 /* Footer CTA */
-/* line 945, ../sass/_components.scss */
+/* line 946, ../sass/_components.scss */
 hr.footer-cta {
   margin: 3em 0 0;
 }
 
-/* line 949, ../sass/_components.scss */
+/* line 950, ../sass/_components.scss */
 .footer-signup-cta {
   margin-top: 30px;
   background: linear-gradient(135deg, #237288 0%, #181a28 100%);
@@ -1411,7 +1412,7 @@ hr.footer-cta {
   z-index: 1;
   height: 9rem;
 }
-/* line 959, ../sass/_components.scss */
+/* line 960, ../sass/_components.scss */
 .footer-signup-cta:before {
   content: "";
   position: absolute;
@@ -1423,7 +1424,7 @@ hr.footer-cta {
   border-right: 9rem solid transparent;
   z-index: -1;
 }
-/* line 971, ../sass/_components.scss */
+/* line 972, ../sass/_components.scss */
 .footer-signup-cta .wrapper {
   width: auto;
   margin: 0 auto;
@@ -1431,18 +1432,18 @@ hr.footer-cta {
   justify-content: center;
   z-index: 2;
 }
-/* line 978, ../sass/_components.scss */
+/* line 979, ../sass/_components.scss */
 .footer-signup-cta .wrapper div {
   padding: 0 10px;
 }
-/* line 983, ../sass/_components.scss */
+/* line 984, ../sass/_components.scss */
 .footer-signup-cta p {
   line-height: 1.4;
   font-size: 1.2rem;
   margin: 0;
   margin-top: 15px;
 }
-/* line 990, ../sass/_components.scss */
+/* line 991, ../sass/_components.scss */
 .footer-signup-cta .btn-default {
   padding: 15px 30px;
   /* make the standard button a little bigger */
@@ -1452,7 +1453,7 @@ hr.footer-cta {
   border-color: #66bdff;
   color: #000000;
 }
-/* line 998, ../sass/_components.scss */
+/* line 999, ../sass/_components.scss */
 .footer-signup-cta .btn-default:hover, .footer-signup-cta .btn-default:active, .footer-signup-cta .btn-default:focus {
   background-color: #66bdff;
   border-color: #66bdff;
@@ -1631,4 +1632,108 @@ hr.footer-cta {
 /* line 158, ../sass/_mobile.scss */
 .hide {
   display: none;
+}
+
+/* CHANGELOG */
+/* line 3, ../sass/_changelog.scss */
+.changelog {
+  list-style-type: none;
+  padding: 0;
+}
+/* line 7, ../sass/_changelog.scss */
+.changelog .changelog-entry {
+  margin-bottom: 0;
+  position: relative;
+  /* Categories */
+}
+/* line 12, ../sass/_changelog.scss */
+.changelog .changelog-entry ul li, .changelog .changelog-entry ol li {
+  margin-bottom: inherit;
+}
+/* line 15, ../sass/_changelog.scss */
+.changelog .changelog-entry ul li:last-of-type, .changelog .changelog-entry ol li:last-of-type {
+  margin-bottom: 1.5rem;
+}
+@media only screen and (max-width: 700px) {
+  /* line 7, ../sass/_changelog.scss */
+  .changelog .changelog-entry {
+    margin-top: -4px;
+  }
+}
+/* line 25, ../sass/_changelog.scss */
+.changelog .changelog-entry-metadata {
+  color: #202020;
+  font-size: 14px;
+  font-weight: 700;
+  position: absolute;
+  left: 0;
+  top: 1em;
+}
+/* line 34, ../sass/_changelog.scss */
+.changelog .changelog-entry-details {
+  padding-bottom: 1.5rem;
+  margin-left: 125px;
+  padding-left: 28px;
+}
+/* line 39, ../sass/_changelog.scss */
+.changelog .changelog-entry-details dt {
+  font-weight: 400;
+  margin-bottom: .25rem;
+  font-size: 1.25rem;
+  padding-top: 10px;
+  margin-top: 0px;
+}
+/* line 47, ../sass/_changelog.scss */
+.changelog .changelog-entry-details dd {
+  margin: 0;
+  line-height: 1.75;
+}
+/* line 54, ../sass/_changelog.scss */
+.changelog .changelog-entry:last-of-type .changelog-entry-details {
+  border-left: none;
+}
+/* line 60, ../sass/_changelog.scss */
+.changelog .changelog-entry--beta .changelog-entry-type {
+  color: #0675c1;
+  font-weight: 400;
+}
+/* line 60, ../sass/_changelog.scss */
+.changelog .changelog-entry--bug-fix .changelog-entry-type {
+  color: #EA8330;
+  font-weight: 400;
+}
+/* line 60, ../sass/_changelog.scss */
+.changelog .changelog-entry--deprecation .changelog-entry-type {
+  color: #E96065;
+  font-weight: 400;
+}
+/* line 60, ../sass/_changelog.scss */
+.changelog .changelog-entry--documentation .changelog-entry-type {
+  color: #66bdff;
+  font-weight: 400;
+}
+/* line 60, ../sass/_changelog.scss */
+.changelog .changelog-entry--improvement .changelog-entry-type {
+  color: #0675c1;
+  font-weight: 400;
+}
+/* line 60, ../sass/_changelog.scss */
+.changelog .changelog-entry--new-feature .changelog-entry-type {
+  color: #82bd41;
+  font-weight: 400;
+}
+/* line 60, ../sass/_changelog.scss */
+.changelog .changelog-entry--removed .changelog-entry-type {
+  color: #E96065;
+  font-weight: 400;
+}
+/* line 60, ../sass/_changelog.scss */
+.changelog .changelog-entry--sunset .changelog-entry-type {
+  color: #E96065;
+  font-weight: 400;
+}
+/* line 60, ../sass/_changelog.scss */
+.changelog .changelog-entry--updated-feature .changelog-entry-type {
+  color: #0675c1;
+  font-weight: 400;
 }
