@@ -5,6 +5,11 @@ archive-entry: |
   <br>
   {{ item.date | date: "%B %e, %Y" }}
 
+archive-button: |
+  <a href="{{ item-link }}">
+    <button type="button" class="btn btn-primary btn-sm">{{ item-display-text }}</button>
+  </a>
+
 single-integration: |
   {% assign connections = site.saas-integrations | concat: site.database-integrations | concat: site.webhook-integrations | where:"name",page.connection-id %}
   {% assign this-connection = connections | where:"this-version",page.connection-version | first %}

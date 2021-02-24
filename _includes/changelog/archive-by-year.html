@@ -10,11 +10,13 @@
 </p>
 
 {% for year in entries-by-year %}
-	<a href="#{{ year.name }}">
-		<button type="button" class="btn btn-primary btn-sm">{{ year.name }}</button>
-	</a>
+	{% assign item-link = year.name | prepend: "#" %}
+	{% assign item-display-text = year.name %}
+
+	{{ site.data.changelog.metadata.archive-button | flatify }}
 {% endfor %}
 
+<p></p>
 <p>
 	You can also browse entries by <a href="{{ link.changelog.archive-by-type | prepend: site.baseurl }}">type</a> or <a href="{{ link.changelog.archive-by-category | prepend: site.baseurl }}">category</a>.
 </p>
@@ -28,16 +30,19 @@
 
 	{%- for month in entries-grouped-by-month -%}
   		{%- assign monthnamearray = month.name | split:" " %}
-  			{% assign monthname = monthnamearray[1] %}
 
-		    <a href="#{{ monthname | append: "-" | append: year.name | downcase }}">{{ monthname }}</a>{% unless forloop.last == true %} - {% endunless %}
+  			{% assign item-link = monthnamearray[1] | prepend: "#" | append: "-" | append: year.name | downcase %}
+			{% assign item-display-text = monthnamearray[1] %}
+
+			{{ site.data.changelog.metadata.archive-button | flatify }}
+
     {% endfor %}
 
 	{%- for month in entries-grouped-by-month -%}
   		{%- assign monthnamearray = month.name | split:" " %}
   			{% assign monthname = monthnamearray[1] %}
 
-		    <h3 id="{{ monthname | append: "-" | append: year.name | downcase }}">{{ monthname }}</h3>
+		    <h3 id="{{ monthname | append: "-" | append: year.name | downcase }}">{{ monthname }} {{ year.name }}</h3>
 
 			<ul>
 			{%- for item in month.items -%} 

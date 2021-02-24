@@ -27,8 +27,8 @@
 
 
 <!-- Get all the changelog entries, then group them by the variable assigned in the previous CASE statement. EX: `taxonomy-data = "entry-type"` -->
-{% assign all-changelog-entries = site.changelog | where:"content-type","changelog-entry" | sort:"date" | reverse %}
-	{% assign entries-by-taxonomy = all-changelog-entries | group_by: taxonomy-data %}
+{% assign all-changelog-entries = site.changelog | where:"content-type","changelog-entry" %}
+	{% assign entries-by-taxonomy = all-changelog-entries | sort: taxonomy-data | group_by: taxonomy-data %}
 
 <!-- A list of all archive type items (ex: categories) at the top of the page -->
 <p>
@@ -37,11 +37,13 @@
 
 {% for taxonomy in entries-by-taxonomy %}
 	{% assign taxonomy-name = taxonomy-items | where:"name",taxonomy.name | first %}
-	<a href="#{{ taxonomy.name }}">
-		<button type="button" class="btn btn-primary btn-sm">{{ taxonomy-name.display_name }}</button>
-	</a>
+		{% assign item-link = taxonomy.name | prepend: "#" %}
+		{% assign item-display-text = taxonomy-name.display_name %}
+
+		{{ site.data.changelog.metadata.archive-button | flatify }}
 {% endfor %}
 
+<p></p>
 <p>
 	You can also browse entries by {{ other-taxonomy }} or {{ date-archive }}.
 </p>
@@ -57,7 +59,8 @@
 	</h2>
 
 	<ul>
-		{% for item in taxonomy.items %}
+		{% assign taxonomy-entries = taxonomy.items | sort:"date" | reverse %}
+		{% for item in taxonomy-entries %}
 		<li>
 			{{ site.data.changelog.metadata.archive-entry | flatify | markdownify }}
 		</li>
