@@ -94,6 +94,11 @@
             </a>
 
             <ul class="collapse in" id="{{ taxonomy-frontmatter }}--menu">
+                <li>
+                    <a href="{{ archive-link | prepend: site.baseurl }}">
+                        Archives by {{ singular-label }}
+                    </a>
+                </li>
                 {% for taxonomy in entries-by-taxonomy %}
                     {% assign taxonomy-name = taxonomy-items | where:"name",taxonomy.name | first %}
 
