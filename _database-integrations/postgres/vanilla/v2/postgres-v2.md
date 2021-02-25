@@ -80,14 +80,14 @@ full-table-replication: true
 
 view-replication: true
 
+
 # -------------------------- #
 #    Supported Data Types    #
 # -------------------------- #
 
 ## Some data type support & handling is specific to an integration's version.
 
-## See _data/taps/data-types/postgres.yml
-
+## See _data/taps/data-types/postgres/v2.yml
 
 
 # -------------------------- #
@@ -95,7 +95,18 @@ view-replication: true
 # -------------------------- #
 
 feature-summary: |
-  Stitch's {{ integration.display_name }} integration todo
+  {% assign all-postgres = site.database-integrations | where:"key","postgres-integration" %}
+  {% assign postgres-overview = all-postgres | where:"content-type","database-category" | first %}
+
+  This version (v{{ integration.this-version }}) of Stitch's {{ integration.display_name }} integration optimizes replication by utilizing Avro schemas to write and validate data, thereby reducing the amount of time spent on data extraction and preparation. Compared to previous versions of the {{ integration.display_name }} integration, this version boasts increased performance and overall reduced replication time.
+
+  Notable improvements and changes in this version also include:
+
+  - **New column (field) naming rules.** Avro has specific rules that dictate how columns can be named. As a result, column names will be canonicalized to adhere to Avro rules and persisted to your destination using the Avro-friendly name. Refer to [todo]() for more info.
+  - **Expanded data type support**. This version supports additional {{ integration.display_name }} data types. Refer to the [{{ integration.display_name }} data types documentation]({{ postgres-overview.url | prepend: site.baseurl | append: "#data-types" }}) for more info.
+  - **Key-based Incremental Replication isn't currently supported,** but will be before the integration leaves beta.
+
+  To get a look at how this version compares to the previous version of {{ integration.display_name }}, refer to the [{{ integration.display_name }} version comparison documentation]({{ postgres-overview.url | prepend: site.baseurl | append: "#supported-features" }}).
 
 
 # -------------------------- #
