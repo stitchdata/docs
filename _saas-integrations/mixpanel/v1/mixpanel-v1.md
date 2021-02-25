@@ -111,6 +111,8 @@ feature-summary: |
 requirements-list:
   - item: |
       **Admin privileges**. Your role in your {{ integration.display_name }} account must be admin in order to be able to retrieve your API secret.
+  - item: |
+      **A US-based {{ integration.display_name }} account**. The Stitch {{ integration.display_name }} integration does not currently support interacting with EU Mixpanel domains.
 
 setup-steps:
   - title: "Retrieve your {{ integration.display_name }} project timezone and API secret"
