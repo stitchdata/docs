@@ -14,6 +14,8 @@ summary: "Connect your Iterable data to Stitch using Stitch's Incoming Webhooks 
 name: "iterable"
 display_name: "Iterable"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

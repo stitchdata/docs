@@ -24,8 +24,8 @@ attributes:
 
   - name: "last_updated_at"
     type: "date-time"
-    replication-key: true
     description: ""
+    replication-key: true
 
   - name: "attributes"
     type: "object"

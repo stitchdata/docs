@@ -13,6 +13,8 @@ summary: "Connection instructions and schema details for Stitch's SendGrid integ
 name: "sendgrid"
 display_name: "SendGrid"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
