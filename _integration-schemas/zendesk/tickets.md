@@ -27,10 +27,14 @@ attributes:
     description: "The ticket ID."
     foreign-key-id: "ticket-id"
 
+  - name: "generated_timestamp"
+    type: "integer"
+    description: "A Stitch-generated timestamp of when the ticket was last updated."
+    replication-key: true
+
   - name: "updated_at"
     type: "date-time"
     description: "The time the ticket was last updated."
-    replication-key: true
 
   - name: "organization_id"
     type: "integer"
@@ -67,9 +71,7 @@ attributes:
       In the case of a follow-up ticket, the value of this field will be the ID of the user who created the ticket.
     foreign-key-id: "user-id"
 
-  # - name: "generated_timestamp"
-  #   type: "integer"
-  #   description:
+  
 
   - name: "brand_id"
     type: "integer"
