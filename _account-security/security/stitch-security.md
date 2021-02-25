@@ -132,6 +132,11 @@ frequently-asked-questions:
 
           Regardless of the level of permissions we need for an integration, we will only ever read your data.
 
+      - question: "What are Stitch's policies regarding data retention?"
+        anchor: "stitch-policies-data-retention"
+        answer: |
+          All data that Stitch processes for customers will be deleted from its systems within 30 days.    
+
   - topic: "Protocols and recommendations"
     anchor: "stitch-protocols-recommendations"
     items:

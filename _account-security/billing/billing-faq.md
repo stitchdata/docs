@@ -135,11 +135,6 @@ frequently-asked-questions:
           {% endfor %}
           </table>
 
-      - question: "What is Stitch's Data Retention Policy?"
-        anchor: "data-retention-policy"
-        answer: |
-          All data that Stitch processes for customers will be deleted from its systems within 30 days.
-
 
 
 # -------------------------- #
