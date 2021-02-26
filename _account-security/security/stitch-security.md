@@ -38,7 +38,7 @@ frequently-asked-questions:
         answer: |
           All payment information submitted through Stitch's billing interface to pay for your subscription is handled in a PCI-compliant manner.
 
-          To log feedback about replicating data subject to PCI requirements, reach out to our [support team](mailto: {{ site.support }}).
+          Stitch doesn't currently support replicating data subject to PCI. To log feedback about replicating data subject to PCI requirements, reach out to our [support team](mailto: {{ site.support }}).
 
       - question: "Is Stitch HIPAA compliant?"
         anchor: "hipaa-compliant"
@@ -113,17 +113,17 @@ frequently-asked-questions:
 
           Refer to the [Advanced connectivity section]({{ link.security.encryption | prepend: site.baseurl | append: "#advanced-connectivity" }}) in the Data encryption guide for more info.
 
-  - topic: "Data access"
+  - topic: "Data access and retention"
     anchor: "stitch-access"
     items:
       - question: "What are Stitch's policies regarding access to my data?"
         anchor: "stitch-policies-data-access"
         answer: |
-          Before your data is loaded into your data warehouse, it passes through Stitch's secure infrastructure. This is a closed network protected by multi-factor authentication and accessible only to qualified members of our engineering team. On rare occasions, our engineers may need to read or move the data while it is in our infrastructure to debug or resolve an operational issue.
+          Before your data is loaded into your destination, it passes through Stitch's secure infrastructure. This is a closed network protected by multi-factor authentication and accessible only to qualified members of our engineering team. On rare occasions, our engineers may need to read or move the data while it is in our infrastructure to debug or resolve an operational issue.
 
           When this happens, your data will never leave our infrastructure. All members of our team - not just our engineers - have signed non-disclosure agreements. We're committed to ensuring your data remains private.
 
-          **As for your data warehouse, we will never access it without your explicit permission.** We’ll ask every time it’s required to troubleshoot an issue and we’ll be sure to notify you when we’re doing it. No one likes surprises, least of all when it comes to their private data.
+          **As for your destination, we will never access it without your explicit permission.** We’ll ask every time it’s required to troubleshoot an issue and we’ll be sure to notify you when we’re doing it. No one likes surprises, least of all when it comes to their private data.
 
       - question: "Why is full access required for some SaaS integrations?"
         anchor: "full-access-saas-integrations"
@@ -135,7 +135,7 @@ frequently-asked-questions:
       - question: "What are Stitch's policies regarding data retention?"
         anchor: "stitch-policies-data-retention"
         answer: |
-          All data that Stitch processes for customers will be deleted from its systems within 30 days.    
+          All data that Stitch processes for customers will be deleted from our systems within 30 days.    
 
   - topic: "Protocols and recommendations"
     anchor: "stitch-protocols-recommendations"
