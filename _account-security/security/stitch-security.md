@@ -38,7 +38,7 @@ frequently-asked-questions:
         answer: |
           All payment information submitted through Stitch's billing interface to pay for your subscription is handled in a PCI-compliant manner.
 
-          To inquire about replicating data subject to PCI requirements, reach out to our [support team](mailto: {{ site.support }}).
+          To log feedback about replicating data subject to PCI requirements, reach out to our [support team](mailto: {{ site.support }}).
 
       - question: "Is Stitch HIPAA compliant?"
         anchor: "hipaa-compliant"
