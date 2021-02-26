@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-mixpanel
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} Event Export API and Mixpanel Query API](https://developer.mixpanel.com/docs/mixpanel-apis){:target="new"}
+  [{{ integration.display_name }} Event Export API and {{ integration.display_name }} Query API](https://developer.mixpanel.com/docs/mixpanel-apis){:target="new"}
 
 
 # -------------------------- #
@@ -68,9 +68,6 @@ row-usage-hog-reasons:
   data-structure: true
   data-volume: true
   lots-of-full-table: false
-
-
-# setup-name: ""
 
 # -------------------------- #
 #      Querying Details      #
@@ -110,9 +107,9 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      **Admin privileges**. Your role in your {{ integration.display_name }} account must be admin in order to be able to retrieve your API secret.
+      **Admin privileges**. These are required to retrieve your API secret in your {{ integration.display_name }} account.
   - item: |
-      **A US-based {{ integration.display_name }} account**. The Stitch {{ integration.display_name }} integration does not currently support interacting with EU Mixpanel domains.
+      **A US-based {{ integration.display_name }} account**. The Stitch {{ integration.display_name }} integration does not currently support interacting with EU {{ integration.display_name }} domains.
 
 setup-steps:
   - title: "Retrieve your {{ integration.display_name }} project timezone and API secret"
