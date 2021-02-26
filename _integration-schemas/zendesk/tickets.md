@@ -29,12 +29,8 @@ attributes:
 
   - name: "generated_timestamp"
     type: "integer"
-    description: "A Stitch-generated timestamp of when the ticket was last updated."
+    description: "A {{ integration.display_name }} system-generated timestamp of when the ticket was last updated."
     replication-key: true
-
-  - name: "updated_at"
-    type: "date-time"
-    description: "The time the ticket was last updated."
 
   - name: "organization_id"
     type: "integer"
@@ -263,4 +259,9 @@ attributes:
       - name: "value"
         type: "integer"
         description: "The ID of the email CC associated with the ticket."
+        
+  - name: "updated_at"
+    type: "date-time"
+    description: |
+      The time the ticket was last updated. **Note**: {{ integration.display_name }} only updates this value when a ticket update generates a defiend ticket event. Refer to [{{ integration.display_name }}'s documentation](https://develop.zendesk.com/hc/en-us/articles/1500000071922#excluding-system-updated-tickets-time-based-exports){:target="new"} for more info.
 ---
