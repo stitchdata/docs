@@ -1,5 +1,5 @@
 ---
-title: PostgreSQL (v2)
+title: PostgreSQL (HP) (v2)
 keywords: postgresql, postgres, database integration, etl postgres, postgres etl, postgresql etl, etl
 permalink: /integrations/databases/postgresql/v2
 summary: "Connect and replicate data from your PostgreSQL database using Stitch's PostgreSQL integration."
@@ -41,6 +41,8 @@ db-type: "postgres"
 
 ## Stitch features
 api-type: "platform.hp-postgres"
+override-api-type: true
+
 versions: "9.3+; 9.4+ for binlog"
 ssh: false
 ssl: true

@@ -175,7 +175,7 @@ sections:
       {% assign latest-version = site.data.taps.versions[connection.name]latest-version %}
       {% endif %}
 
-      {% if connection.this-version == latest-version %}
+      {% if connection.this-version == latest-version or connection.override-api-type == true %}
       <tr>
       <td>
       <a href="{{ connection.url | prepend: site.baseurl }}">
