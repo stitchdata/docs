@@ -19,7 +19,7 @@ display_name: "PostgreSQL"
 singer: true
 
 tap-name: "Postgres"
-# repo-url: "https://github.com/singer-io/tap-postgres"
+repo-url: "Not applicable"
 
 hosting-type: "generic"
 
@@ -42,7 +42,7 @@ db-type: "postgres"
 ## Stitch features
 api-type: "platform.postgres"
 versions: "9.3+; 9.4+ for binlog"
-ssh: true
+ssh: false
 ssl: true
 
 ## General replication features
@@ -110,7 +110,7 @@ feature-summary: |
 
   - **New column (field) naming rules.** Avro has specific rules that dictate how columns can be named. As a result, column names will be canonicalized to adhere to Avro rules and persisted to your destination using the Avro-friendly name. Refer to the [Column name transformations section](#data-replication--column-name-transformations) for more info.
   - **Expanded data type support**. This version supports additional {{ integration.display_name }} data types. Refer to the [{{ integration.display_name }} data types documentation]({{ postgres-overview.url | prepend: site.baseurl | append: "#data-types" }}) for more info.
-  - **Key-based Incremental Replication isn't currently supported,** but will be before the integration leaves beta.
+  - **Key-based Incremental Replication and SSH connections aren't currently supported,** but will be before the integration leaves beta.
 
   To get a look at how this version compares to the previous version of {{ integration.display_name }}, refer to the [{{ integration.display_name }} version comparison documentation]({{ postgres-overview.url | prepend: site.baseurl | append: "#supported-features" }}).
 
