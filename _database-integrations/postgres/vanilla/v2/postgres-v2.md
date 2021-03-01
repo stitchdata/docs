@@ -279,6 +279,85 @@ setup-steps:
     anchor: "sync-data"
     content: |
       {% include integrations/shared-setup/data-selection/object-selection.html %}
+
+
+# -------------------------- #
+#      Replication Info      #
+# -------------------------- #
+
+replication-sections:
+  - content: |
+      In this section:
+
+      {% for section in page.replication-sections %}
+      {% if section.title %}
+      - [{{ section.summary | flatify }}](#{{ section.anchor }})
+      {% endif %}
+      {% endfor %}
+
+  - title: "Extraction"
+    anchor: "extraction-details"
+    summary: "Details about Extraction, including object and data type discovery and selecting data for replication"
+    content: |
+      For every table set to replicate, Stitch will perform the following during Extraction:
+
+      {% for subsection in section.subsections %}
+      - [{{ subsection.summary | flatify }}](#{{ subsection.anchor }})
+      {% endfor %}
+
+    subsections:
+      - title: "Discovery"
+        anchor: "extraction--discovery"
+        summary: "Discover table schemas and type discovered columns"
+        content: |
+          During Discovery, Stitch will:
+
+          {% for sub-subsection in subsection.sub-subsections %}
+          - [{{ sub-subsection.summary | flatify }}](#{{ sub-subsection.anchor }})
+          {% endfor %}
+        sub-subsections:
+          - title: "Determining table schemas"
+            anchor: "discovery--objects"
+            summary: "Determine table schemas"
+            content: |
+              During this phase of Discovery, Stitch queries system tables to retrieve metadata about the objects the Stitch database user has access to. This metadata is used to determine which databases, tables, and columns to display in Stitch for replication.
+
+              {{ site.data.taps.extraction.database-queries.postgres.structure-sync | flatify | markdownify }}
+
+          - title: "Data typing"
+            anchor: "discovery--data-types"
+            summary: "Type the data in discovered columns"
+            content: |
+              Refer to the [{{ integration.display_name }} data types documentation]({{ postgres-overview.url | prepend: site.baseurl | append: "#data-types" }}) for more info about how {{ integration.display_name }} data is typed for selected columns.
+
+      - title: "Data replication"
+        anchor: "extraction--data-replication"
+        summary: "Select records for replication"
+        content: |
+          During data replication, Stitch will:
+
+          {% for sub-subsection in subsection.sub-subsections %}
+          - [{{ sub-subsection.summary | flatify }}](#{{ sub-subsection.anchor }})
+          {% endfor %}
+
+        sub-subsections:
+          - title: "Column name transformations"
+            anchor: "data-replication--column-name-transformations"
+            summary: "Transform column names to adhere to Avro rules"
+            content: |
+              To ensure column names are compatible with Avro, the integration will transform column names to adhere to Avro's rules. In Avro, [column names must](https://avro.apache.org/docs/current/spec.html#names){:target="new"}:
+
+              - Start with one of the following:
+                 - `A-Z`
+                 - `a-z`
+                 - `_` (underscore)
+              - Contain only the following:
+                 - Any characters in the list above (`A-Z`, `_`, etc)
+                 - `0-9`
+
+              If a column name contains an unsupported character, the integration will replace it with an underscore (`_`).
+
+              For example: {{ integration.display_name }} may allow column names (identifiers) to contain [dollar signs (`$`)](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS){:target="new"}, such as `column_$one`. When replicated, this column name will be canonicalized to `column__one` and persisted to your destination.
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
