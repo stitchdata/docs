@@ -31,6 +31,9 @@ bigserial:
 bit:
   stitch-type: "boolean"
 
+bit varying:
+  stitch-type: "string"
+
 boolean:
   stitch-type: "boolean"
 
@@ -55,6 +58,8 @@ citext:
 date:
   stitch-type: "string"
   format: "date-time"
+  tooltip: |
+    Dates are exported as epoch timestamps with milisecond precision.
       
 decimal:
   stitch-type: "number"
@@ -66,7 +71,9 @@ float:
   stitch-type: "number"  
 
 hstore:
-  stitch-type: "unsupported"
+  stitch-type: "object"
+  tooltip: |
+    HSTORE is supported, but may be de-nested depending on the destination you're using. <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}'>Learn more.</a>
 
 inet:
   stitch-type: "string"
@@ -81,10 +88,14 @@ interval:
   stitch-type: "string"
 
 json:
-  stitch-type: "string"
+  stitch-type: "object"
+  tooltip: |
+    JSON is supported, but may be de-nested depending on the destination you're using. <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}'>Learn more.</a>
 
 jsonb:
-  stitch-type: "string"
+  stitch-type: "object"
+  tooltip: |
+    JSONB is supported, but may be de-nested depending on the destination you're using. <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}'>Learn more.</a>
 
 line:
   stitch-type: "unsupported"
