@@ -44,7 +44,7 @@ api-type: "platform.hp-postgres"
 override-api-type: true
 
 versions: "9.3+; 9.4+ for binlog"
-ssh: false
+ssh: true
 ssl: true
 
 ## General replication features
