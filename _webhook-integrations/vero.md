@@ -14,6 +14,8 @@ summary: "Connect your Vero data to Stitch using Stitch's Incoming Webhooks inte
 name: "vero"
 display_name: "Vero"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

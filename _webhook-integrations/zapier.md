@@ -14,6 +14,8 @@ summary: "Connect your Zapier data to Stitch using Stitch's Incoming Webhooks in
 name: "zapier"
 display_name: "Zapier"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

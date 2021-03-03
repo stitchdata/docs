@@ -1,0 +1,85 @@
+/* CHANGELOG */
+
+.changelog {
+  list-style-type: none;
+  padding: 0;
+
+  .changelog-entry {
+    margin-bottom: 0;
+    position: relative;
+
+    ul, ol {
+      li {
+        margin-bottom: inherit;
+
+        &:last-of-type {
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+
+    @media only screen and (max-width: $desktop-breakpoint) {
+      margin-top: -4px;
+    }
+
+    &-metadata {
+      color: $protocol-black;
+      font-size: 14px;
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+      top: 1em;
+    }
+
+    &-details {
+      padding-bottom: 1.5rem;
+      margin-left: 125px;
+      padding-left: 28px;
+
+      dt {
+        font-weight: 400;
+        margin-bottom: .25rem;
+        font-size: 1.25rem;
+        padding-top: 10px;
+        margin-top: 0px;
+      }
+
+      dd {
+        margin: 0;
+        line-height: 1.75;
+      }
+    }
+
+    &:last-of-type {
+      .changelog-entry-details {
+        border-left: none;
+      }
+    }
+
+    @mixin entry-type($accent-color) {
+      .changelog-entry-type {
+        color: $accent-color;
+        font-weight: 400;
+      }
+    }
+
+    /* Categories */
+    $changelog-types: (
+      beta: $lochmara,
+      bug-fix: $jaffa,
+      deprecation: $chestnut-rose,
+      documentation: $scooter,
+      improvement: $lochmara,
+      new-feature: $rio-grande, 
+      removed: $chestnut-rose,
+      sunset: $chestnut-rose,
+      updated-feature: $lochmara
+    );
+
+    @each $type, $accent-color in $changelog-types {
+      &--#{$type} {
+        @include entry-type($accent-color);
+      }
+    }
+  }
+}

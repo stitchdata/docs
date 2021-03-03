@@ -14,6 +14,8 @@ summary: "Connect your AfterShip data to Stitch using Stitch's Incoming Webhooks
 name: "aftership"
 display_name: "AfterShip"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
