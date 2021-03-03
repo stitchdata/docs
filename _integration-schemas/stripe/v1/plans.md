@@ -44,6 +44,10 @@ attributes:
     type: "integer"
     description: "The amount (in cents) to be charged on the interval specified."
 
+  - name: "amount_decimal"
+    type: "decimal"
+    description: ""
+
   - name: "billing_scheme"
     type: "string"
     description: |
