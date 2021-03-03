@@ -2,7 +2,7 @@
 title: "Shopify (v1) improvement: Standardized error messages"
 content-type: "changelog-entry"
 date: 2021-02-26
-entry-type: bug-fix
+entry-type: improvement
 entry-category: integration
 connection-id: shopify
 connection-version: 1
