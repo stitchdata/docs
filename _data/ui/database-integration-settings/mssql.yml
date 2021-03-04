@@ -94,3 +94,16 @@ sql-server-rds:
   - *password
   - *database
   - *schema-name
+
+
+# --------------------------------------- #
+#         GOOGLE CLOUD SQL SEVER          #
+# --------------------------------------- #  
+
+google-cloudsql-microsoft-sql-server:
+  - *integration-name
+  - *port
+  - *username
+  - *password
+  - *database
+  - *schema-name
