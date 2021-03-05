@@ -31,6 +31,14 @@ attributes:
     doc-link: "https://stripe.com/docs/connect/subscriptions#creating-subscriptions"
     description: "The percentage {{ integration.display_name }} should take off the final invoice amount each billing period."
 
+  - name: "billing_thresholds"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "usage_gte"
+        type: "integer"
+        description: ""
+
   - name: "cancel_at_period_end"
     type: "boolean"
     description: "Indicates if the subscription item is canceled at period end."
