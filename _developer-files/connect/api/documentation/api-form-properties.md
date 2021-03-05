@@ -45,9 +45,18 @@ property-description: |
 
 sections:
   - content: |
-      Stitch connects to a large, diverse universe of applications and data warehouses, each of which is configured differently.
+      Stitch connects to a large, diverse universe of applications and data warehouses, each of which is configured differently. Connection property objects contain the properties necessary to create a source or destination object.
 
-      Connection property objects contain the properties necessary to create a source or destination object. Connection object property objects can contain two types of properties:
+      {% for section in doc.sections %}
+      {% if section.title %}
+      - [{{ section.title }}](#{{ section.anchor }})
+      {% endif %}
+      {% endfor %}
+
+  - title: "Connection property types"
+    anchor: "connection-property-types"
+    content: |
+      Connection property objects can contain two types of properties:
 
       - **Form properties** are required to create the source or destination and complete the connection's [`form` step]({{ site.data.connect.api.data-structures.connection-steps.section }}). The majority of sources and destinations will only have form properties.
 
