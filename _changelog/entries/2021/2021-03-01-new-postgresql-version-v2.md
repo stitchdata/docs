@@ -1,5 +1,5 @@
 ---
-title: PostgreSQL integration: New version (v2) now in beta
+title: "PostgreSQL integration: New version (v2) now in beta"
 content-type: "changelog-entry"
 date: 2021-03-05
 entry-type: beta
