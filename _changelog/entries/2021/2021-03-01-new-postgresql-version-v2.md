@@ -1,8 +1,8 @@
 ---
-title: New version (v2) of our PostgreSQL integration
+title: PostgreSQL integration: New version (v2) now in beta
 content-type: "changelog-entry"
 date: 2021-03-05
-entry-type: new-feature
+entry-type: beta
 entry-category: integration
 connection-id: postgres
 connection-version: 2
@@ -13,7 +13,7 @@ connection-version: 2
 {% assign all-postgres = site.database-integrations | where:"key","postgres-integration" %}
 {% assign postgres-overview = all-postgres | where:"content-type","database-category" | first %}
 
-A new version (v{{ this-connection.this-version }}) of our {{ this-connection.display_name }} integration is now available!
+A new version (v{{ this-connection.this-version }}) of our {{ this-connection.display_name }} integration is now in beta!
 
 This version (v{{ this-connection.this-version }}) of Stitch's {{ this-connection.display_name }} integration optimizes replication by utilizing Avro schemas to write and validate data, thereby reducing the amount of time spent on data extraction and preparation. Compared to previous versions of the {{ this-connection.display_name }} integration, this version boasts increased performance and overall reduced replication time.
 
