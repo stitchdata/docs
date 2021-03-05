@@ -79,7 +79,7 @@ feature-summary: |
 
   - Supports creating multiple custom reports
   - Supports [custom metrics and dimensions](#custom-metrics-dimensions)
-  - Supports Lifetime Values and Cohorts
+  - Doesn't currently support Lifetime Values and Cohorts
   - Doesn't currently support Filters or Segments
 
 
