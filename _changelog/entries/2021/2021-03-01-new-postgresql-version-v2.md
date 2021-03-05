@@ -1,6 +1,6 @@
 ---
 title: "PostgreSQL integration: New version (v2) now in beta"
-# content-type: "changelog-entry"
+content-type: "changelog-entry"
 date: 2021-03-05
 entry-type: beta
 entry-category: integration
@@ -29,5 +29,3 @@ Notable improvements and changes in this version also include:
 - `ARRAY` data type
 
 To get a look at how this version compares to the previous version of {{ this-connection.display_name }}, refer to the [{{ this-connection.display_name }} version comparison documentation]({{ postgres-overview.url | prepend: site.baseurl | append: "#supported-features" }}).
-
-Learn more about the integration and these features in our [{{ this-connection.display_name }} integration documentation]({{ this-connection.url | prepend: site.baseurl }}). 
