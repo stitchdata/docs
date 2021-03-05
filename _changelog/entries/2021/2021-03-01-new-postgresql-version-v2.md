@@ -1,6 +1,6 @@
 ---
 title: New version (v2) of our PostgreSQL integration
-content-type: "changelog-entry"
+# content-type: "changelog-entry"
 date: 2021-03-05
 entry-type: new-feature
 entry-category: integration
