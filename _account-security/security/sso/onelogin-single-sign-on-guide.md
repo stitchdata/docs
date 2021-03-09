@@ -97,6 +97,8 @@ steps:
           1. Sign into your Stitch account.
           {% include shared/sso/stitch-sso-menu-path.html type="initial-setup" %}
 
+          Leave this page open - you'll need it to complete the setup.
+
       - title: "Create the app in {{ page.display-name }}"
         anchor: "create-app-in-onelogin"
         content: |
@@ -207,4 +209,7 @@ steps:
     summary: "Activating SSO for your Stitch account"
     content: |
       When finished, click the **Activate SSO** button.
+
+next-steps: |
+  After you've enabled SSO for your Stitch account, remember to grant Stitch access to users in your {{ page.display-name }} instance.
 ---
