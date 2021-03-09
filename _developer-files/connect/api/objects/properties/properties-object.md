@@ -17,6 +17,32 @@ description: "{{ api.data-structures.properties.description | flatify }}"
 
 
 # -------------------------- #
+#    PROPERTY TYPE VALUES    #
+# -------------------------- #
+
+property-types:
+  - name: "read_only"
+    description: "Indicates the property is read-only and not settable by the API. Generally, this is an internal field set inside of Stitch."
+
+  - name: "system_provided_by_default"
+    oauth: true
+    description: |
+      Indicates the property used to be `system_provided: true`, but can now be set by the user. These are generally properties associated with OAuth for generating refresh and access tokens. **Note**: Use caution when setting these properties, as using incorrect values can put the connection into a non-functioning state.
+
+  - name: "user_provided"
+    oauth: true
+    description: "Indicates the property must be set by the user."
+
+  - name: "user_provided_immutable"
+    description: |
+      Indicates that the property must be set by the user, but once set, its value can't be changed.
+
+  - name: "user_provided_advanced"
+    description: |
+      Indicates that the property may be set by the user, but should be done with caution. Inputting incorrect values can put the connection into a non-functioning state.
+
+
+# -------------------------- #
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
@@ -55,22 +81,23 @@ object-attributes:
     description: |
       Indicates the type of the property. Possible values are:
 
-      - `user_provided` - Indicates the property must be set by the user.
-      - `read_only` - Indicates the property is read-only and is not settable by the API. Generally, this is an internal field set inside of Stitch.
-      - `system_provided_by_default` - Indicates the property used to be `system_provided: true`, but can now be set by the API consumer. These are generally properties associated with OAuth for generating refresh and access tokens.
-
-         **Note**: Use caution when setting these properties, as using incorrect values can put the source into a non-functioning state.
+      {% for property-type in structure.property-types %}
+      - `{{ property-type.name }}` - {{ property-type.description | flatify }}
+      {% endfor %}
     oauth-description: |
       Indicates the type of the property. For OAuth properties, possible values are:
 
-      - `user_provided` - Indicates the property must be set by you.
-      - `system_provided_by_default` - Indicates that the property is provided by Stitch by default, but can be set by you. **Note**: Use caution when setting these properties, as incorrect values may put the source into a non-functioning state.
+      {% assign auth-property-types = structure.property-types | where:"oauth",true %}
+
+      {% for property-type in auth-property-types %}
+      - `{{ property-type.name }}` - {{ property-type.description | flatify }}
+      {% endfor %}
     value: "user_provided"
 
   - name: "json_schema"
     type: "array"
     description: |
-      **Note**: Data will only be returned for this array if `property_type: user_provided` or `property_type: system_provided_by_default`. If `property_type: read_only`, this property will be `null`.
+      **Note**: Data will only be returned for this array if `property_type` is not `read_only`. If `property_type: read_only`, this property will be `null`.
       
       An array containing:
 

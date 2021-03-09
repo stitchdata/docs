@@ -132,6 +132,8 @@ api-availability: &api-availability
   field-value: |
     {% if integration.this-version == latest-version and integration.api-type %}
     {{ supported | replace:"TOOLTIP","This version of the integration is available via the API." }} Available
+    {% elsif integration.api-type and integration.override-api-type == true %}
+    {{ supported | replace:"TOOLTIP","This version of the integration is available via the API." }} Available
     {% else %}
     {{ not-supported | replace:"TOOLTIP","This version of the integration isn't available via the API." }} Not available
     {% endif %}

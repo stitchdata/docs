@@ -9,7 +9,7 @@ connection-version: 1
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-A new version (v{{ this-connection.this-version }}) of our {{ integration.display_name }} integration is now available! 
+A new version (v{{ this-connection.this-version }}) of our {{ this-connection.display_name }} integration is now available! 
 
 We’ve worked hard to ensure this new integration is the best way to extract data from {{ this-connection.display_name }} to your Stitch destination. The new integration, based on the [Singer standard]({{ site.singer }}){:target="new"}, includes many new features such as:
 
