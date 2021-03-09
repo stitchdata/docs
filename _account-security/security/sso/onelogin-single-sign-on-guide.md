@@ -26,6 +26,18 @@ display-name: "OneLogin"
 
 
 # -------------------------- #
+#   RELATED SIDEBAR LINKS    #
+# -------------------------- #
+
+related:
+  - title: "Single Sign-On documentation"
+    link: "{{ link.security.single-sign-on | prepend: site.baseurl }}"
+
+  - title: "Stitch team roles and permissions"
+    link: "{{ link.account.team-roles-permissions | prepend: site.baseurl }}"
+
+
+# -------------------------- #
 #        Introduction        #
 # -------------------------- #
 
@@ -83,7 +95,7 @@ steps:
         anchor: "retrieve-sso-info-from-stitch"
         content: |
           1. Sign into your Stitch account.
-          2. TODO
+          {% include shared/sso/stitch-sso-menu-path.html type="initial-setup" %}
 
       - title: "Create the app in {{ page.display-name }}"
         anchor: "create-app-in-onelogin"
@@ -111,7 +123,7 @@ steps:
 
              This is how the page should look when you're finished:
 
-             ![TODO]()
+             ![Fully configured OneLOgin Application Details page]({{ site.baseurl }}/images/account-security/sso/onelogin-application-details.png)
 
       - title: "Define the app's parameters"
         anchor: "define-app-parameters"
@@ -184,7 +196,7 @@ steps:
     anchor: "connect-to-stitch"
     summary: "Connecting your {{ page.display-name }} app to Stitch"
     content: |
-      Navigate back to the page where your Stitch account is open. If you closed this page, navigate to [TODO]
+      Navigate back to the page where your Stitch account is open.
 
       1. In Stitch, scroll down to the **Connect to Stitch** section of the {{ page.display-name }} setup page.
       2. Click **Upload SAML Metadata**.
@@ -195,7 +207,4 @@ steps:
     summary: "Activating SSO for your Stitch account"
     content: |
       When finished, click the **Activate SSO** button.
-
-next-steps: |
-  TODO
 ---
