@@ -67,7 +67,7 @@ sections:
           Additionally, when SSO is enabled:
 
           - Upon initial enablement, all pending team member invitations are invalidated
-          - Upon initial enablement, all team members in the account receive an email notification
+          - Upon initial enablement, all existing team members in the account receive an email notification
           - Only {{ user-roles.sso-admin.name }} users are able to update their email addresses and passwords, or add, deactivate, or reactivate other team members
           - Team members access must be [managed in your IdP](#basics--how-is-user-access-managed)
 
