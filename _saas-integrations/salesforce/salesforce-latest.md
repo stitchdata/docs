@@ -51,7 +51,7 @@ loading-reports: true
 # -------------------------- #
 
 feature-summary: |
-  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication. There are some objects that are unsupported for extraction. To find out which objects are unsupported, review [this section](#bulk-vs-rest-api).
 
 
 # -------------------------- #
