@@ -21,7 +21,7 @@ status-url: "https://trust.salesforce.com/trust/instances"
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} Lightning Platform REST API (v41.0)](https://developer.salesforce.com/docs/atlas.en-us.210.0.api_rest.meta/api_rest/intro_what_is_rest_api.htm){:target="new"}
+  [{{ integration.display_name }} Lightning Platform REST API (v41.0)](https://developer.salesforce.com/docs/atlas.en-us.210.0.api_rest.meta/api_rest/intro_what_is_rest_api.htm){:target="new"} and [{{ integration.display_name }} Bulk API (v41.0)](https://developer.salesforce.com/docs/atlas.en-us.210.0.api_asynch.meta/api_asynch/asynch_api_intro.htm){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -51,7 +51,13 @@ loading-reports: true
 # -------------------------- #
 
 feature-summary: |
-  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication. There are some objects that are unsupported for extraction. To find out which objects are unsupported, review [this section](#bulk-vs-rest-api).
+  Stitch's {{ integration.display_name }} integration replicates data from your {{ integration.display_name }} account. When setting up a {{ integration.display_name }} integration in Stitch, you can select one of the following {{ integration.display_name }} APIs to replicate your data:
+
+  - [{{ integration.display_name }} Lightning Platform REST API (v41.0)](https://developer.salesforce.com/docs/atlas.en-us.210.0.api_rest.meta/api_rest/intro_what_is_rest_api.htm){:target="new"}
+  - [{{ integration.display_name }} Bulk API (v41.0)](https://developer.salesforce.com/docs/atlas.en-us.210.0.api_asynch.meta/api_asynch/asynch_api_intro.htm){:target="new"}
+
+  Each API has its own advantages and disadvantages, such as support for compound fields and specific objects. Learn more [in the setup guide](#bulk-vs-rest-api).
+  
 
 
 # -------------------------- #
