@@ -1,0 +1,59 @@
+# --------------------------- #
+#   GENERAL USER PERMISSIONS  #
+# --------------------------- #
+
+## General user permissions for the Stitch app.
+
+name: "General"
+description: ""
+
+modify-company-settings: &modify-company-settings
+  id: "modify-company-settings"
+  name: "Modify company settings"
+  description: |
+    Modify the [company information]({{ link.account.account-settings | prepend: site.baseurl }}) for the account.
+
+update-your-email-address: &update-your-email-address
+  id: "update-your-email-address"
+  name: "Update your email address"
+  description: |
+    [Update the email address]({{ link.account.email-password | prepend: site.baseurl }}) associated with your Stitch user.
+  exception: &sso-exception "SSO is enabled"
+
+reset-your-password: &reset-your-password
+  id: "reset-your-password"
+  name: "Reset your password"
+  description: |
+    [Reset the password]({{ link.account.email-password | prepend: site.baseurl }}) associated with your Stitch user.
+  exception: &sso-exception "SSO is enabled"
+
+manage-pipeline-region: &manage-pipeline-region
+  id: "manage-pipeline-region"
+  name: "Manage data pipeline region"
+  description: |
+    Modify the [data pipeline region]({{ link.security.supported-operating-regions | prepend: site.baseurl }}) setting for the account.
+
+enable-single-sign-on: &enable-single-sign-on
+  id: "enable-single-sign-on"
+  name: "Enable single sign-on (SSO)"
+  description: |
+    Initially [enable SSO]({{ link.security.single-sign-on | prepend: site.baseurl }}) for the account.
+
+manage-single-sign-on: &manage-single-sign-on
+  id: "manage-single-sign-on"
+  name: "Manage single sign-on (SSO)"
+  description: |
+    [Modify, disable, or reenable SSO]({{ link.security.single-sign-on | prepend: site.baseurl }}) for the account.
+
+
+# --------------------------- #
+#        ALL PERMISSIONS      #
+# --------------------------- #
+
+all:
+  - *modify-company-settings
+  - *update-your-email-address
+  - *reset-your-password
+  - *manage-pipeline-region
+  - *enable-single-sign-on
+  - *manage-single-sign-on

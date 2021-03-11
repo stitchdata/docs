@@ -1,0 +1,41 @@
+# -------------------------- #
+#   INTEGRATION PERMISSIONS  #
+# -------------------------- #
+
+name: "Integration"
+description: ""
+
+add-integrations: &add-integrations
+  id: "add-integrations"
+  name: "Add integrations"
+  description: |
+    Add new integrations to the account.
+
+modify-integrations: &modify-integrations
+  id: "modify-integrations"
+  name: "Modify integrations"
+  description: |
+    Modify existing integrations in the account. This includes the integration's connection info, credentials, replication schedule, and table and column selection.
+
+pause-integrations: &pause-integrations
+  id: "pause-integrations"
+  name: "Pause integrations"
+  description: |
+    Pause or unpause existing integrations in the account.
+
+delete-integrations: &delete-integrations
+  id: "delete-integrations"
+  name: "Delete integrations"
+  description: |
+    Delete integrations from the account.
+
+
+# --------------------------- #
+#        ALL PERMISSIONS      #
+# --------------------------- #
+
+all:
+  - *add-integrations
+  - *modify-integrations
+  - *pause-integrations
+  - *delete-integrations

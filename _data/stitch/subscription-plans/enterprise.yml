@@ -7,7 +7,6 @@ name: "Enterprise"
 trial-description: "During the Free Trial, you'll have access to all of Stitch's integrations and unlimited rows for 14 days. The trial begins when you successfully connect and replicate data to a destination."
 
 paid: true
-legacy: false
 
 integrations: "all"
 total-integrations: "Unlimited"
@@ -21,6 +20,8 @@ api-access: true
 customize-notifications: true
 post-load-notifications: true
 cron-scheduling: true
+single-sign-on: true
+
 
 # -------------------------- #
 #     ADDITIONAL FEATURES    #
@@ -45,7 +46,6 @@ features:
         summary: |
           Establish a connection to a database in your private network without opening holes in your network's firewall. A reverse SSH tunnel is an outbound connection from a machine on your network that connects securely over the internet to Stitch.
         free-trial-available: false
-
 
   - category: "Destinations"
     guides:
