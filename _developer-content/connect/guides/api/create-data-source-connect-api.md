@@ -287,7 +287,7 @@ steps:
          "display_name":"Recurly",
          "properties":{
             "start_date":"2018-01-10T00:00:00Z",
-            "api_key":"<RECURLY_API_KEY>",
+            "api_key":"[RECURLY_API_KEY]",
             "frequency_in_minutes":"60",
             "quota_limit":"30",
             "subdomain":"stitchdata"

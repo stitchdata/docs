@@ -15,6 +15,8 @@ summary: "Connect your Mandrill data to Stitch using Stitch's Incoming Webhooks 
 name: "mandrill"
 display_name: "Mandrill"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

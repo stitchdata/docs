@@ -12,21 +12,22 @@
         {% include shared/versioning/integration-version-logic.html item-name="page" %}
 
         {% assign connection-is-certified = page.certified %}
-
-    <!-- Only display this for integrations that haven't been sunset -->
-        {% if this-version.status != "sunset" %}
-            {% include notifications/status-support/support.html %}
-        {% endif %}
-
 {% endcase %}
 
 
 <!-- Based on the version's status, display the correct notice: -->
-    {% case this-version.status %}
-        {% when 'beta' %}
-            {% include notifications/status-support/beta.html %}
-        {% when 'deprecated' %}
-            {% include notifications/status-support/deprecated.html %}
-        {% when 'sunset' %}
-            {% include notifications/status-support/sunset.html %}
-    {% endcase %}
+{% case this-version.status %}
+    {% when 'beta' %}
+        {% include notifications/status-support/beta.html %}
+    {% when 'closed-beta' %}
+        {% include notifications/status-support/closed-beta.html %}
+    {% when 'deprecated' %}
+        {% include notifications/status-support/deprecated.html %}
+    {% when 'sunset' %}
+        {% include notifications/status-support/sunset.html %}
+{% endcase %}
+
+<!-- Only display this for integrations that haven't been sunset -->
+{% if this-version.status != "sunset" %}
+    {% include notifications/status-support/support.html %}
+{% endif %}

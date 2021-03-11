@@ -46,13 +46,19 @@ all-docs:
         - title: "Manage Stitch partner access"
           url: "{{ link.account.manage-partner-access }}"
 
+        - title: "Manage Single Sign-on (SSO)"
+          url: "{{ link.security.single-sign-on }}"
+
         - title: Cancel your account
           url: "{{ link.account.cancel-account }}"
 
-    - title: "Invite your team"
+    - title: "Manage your team"
       subsections:
         - title: "Team member basics"
           url: "{{ link.account.team-members }}#team-member-basics"
+
+        - title: "Team member roles & permissions"
+          url: "{{ link.account.team-roles-permissions }}"
 
         - title: "Add a team member"
           url: "{{ link.account.team-members }}#invite-team-member"
@@ -62,6 +68,9 @@ all-docs:
 
         - title: "Deactivate a team member"
           url: "{{ link.account.team-members }}#deactivate-team-member"
+
+        - title: "Manage Single Sign-on (SSO)"
+          url: "{{ link.security.single-sign-on }}"
 
     - title: Notifications
       subsections:
@@ -153,6 +162,23 @@ all-docs:
 
           - title: "At rest"
             url: "{{ link.security.encryption }}#data-at-rest"
+
+      - title: "Single Sign-on (SSO)"
+        subsections:
+          - title: "Overview"
+            url: "{{ link.security.single-sign-on }}#basics"
+
+          - title: "Enable SSO"
+            url: "{{ link.security.single-sign-on }}#enable-sso"
+
+          - title: "Modify SSO settings"
+            url: "{{ link.security.single-sign-on }}#modify-sso"
+
+          - title: "Disable SSO"
+            url: "{{ link.security.single-sign-on }}#enable-sso"
+
+          - title: "Switch Identity Providers"
+            url: "{{ link.security.single-sign-on }}#switch-idp"
 
       - title: "Data access policies"
         url: "{{ link.security.faq }}#stitch-access"
@@ -586,3 +612,7 @@ all-docs:
   - title: Developers
     drop-down: false
     url: "{{ link.developers }}"
+
+  - title: "Changelog"
+    drop-down: false
+    url: "{{ link.changelog.main }}"

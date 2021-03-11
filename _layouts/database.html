@@ -20,6 +20,14 @@ layout: page
 {% endunless %}
 
 
+<!-- INTEGRATION FEATURE SUMMARY -->
+{% if integration.feature-summary %}
+    <h2 id="feature-summary">{{ integration.display_name }} integration summary</h2>
+
+    {{ integration.feature-summary | flatify | markdownify }}
+{% endif %}
+
+
 <!-- INTEGRATION SNAPSHOT -->
     {% include shared/versioning/integration-supported-features.html type="integration-snapshot" feature-type="databases" %}
 

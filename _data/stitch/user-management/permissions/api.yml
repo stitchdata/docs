@@ -1,0 +1,34 @@
+# ---------------------------- #
+#      API PERMISSIONS         #
+# ---------------------------- #
+
+name: "API"
+description: ""
+
+manage-api-keys: &manage-api-keys
+  id: "manage-api-keys"
+  name: "Manage API access keys"
+  description: |
+    Add, disable, enable, or delete an [API access key]({{ link.account.manage-api-keys | prepend: site.baseurl }}) for the account.
+
+manage-partner-keys: &manage-partner-keys
+  id: "manage-partner-keys"
+  name: "Manage partner keys"
+  description: |
+    Disable, enable, or delete a [partner key]({{ link.account.manage-partner-access | prepend: site.baseurl }}) for the account.
+
+connect-api-usage: &connect-api-usage
+  id: "connect-api-usage"
+  name: "Use the Connect API"
+  description: |
+    Usage of the [Connect API]({{ link.developers.connect | prepend: site.baseurl }}) with a [valid API access key]({{ link.account.manage-api-keys | prepend: site.baseurl }}).
+
+
+# --------------------------- #
+#        ALL PERMISSIONS      #
+# --------------------------- #
+
+all:
+  - *manage-api-keys
+  - *manage-partner-keys
+  - *connect-api-usage

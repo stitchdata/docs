@@ -14,7 +14,7 @@
 
             {% for category in doc.categories %}
                 {% if category.drop-down == false %}
-                    {% if category.title == "Developers" %}
+                    {% if category.title == "Developers" or category.title == "Changelog" %}
                         <li>
                             <hr style="margin: 0px; display: inline-block">
                         </li>

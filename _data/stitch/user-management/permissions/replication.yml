@@ -1,0 +1,69 @@
+# -------------------------- #
+#   REPLICATION PERMISSIONS  #
+# -------------------------- #
+
+name: "Replication"
+description: ""
+
+manage-data-selection: &manage-data-selection
+  id: "manage-data-selection"
+  name: "Manage table and column selection"
+  description: |
+    [Track and untrack tables and columns]({{ link.replication.syncing | prepend: site.baseurl }}) for integrations in the account.
+
+modify-replication-schedules: &modify-replication-schedules
+  id: "modify-replication-schedules"
+  name: "Modify replication schedules"
+  description: |
+    Modify the [replication schedule]({{ link.replication.rep-scheduling | prepend: site.baseurl }}) for integrations in the account.
+
+manage-table-settings: &manage-table-settings
+  id: "manage-table-settings"
+  name: "Manage table settings"
+  description: |
+    Modify the settings for tables in existing integrations. This includes defining [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}), [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}), and [Primary Keys]({{ link.replication.db-views | prepend: site.baseurl }}) (database views only), if supported by the integration.
+
+reset-tables: &reset-tables
+  id: "reset-tables"
+  name: "Reset tables"
+  description: |
+    Reset an individual table's [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}), which will trigger a full re-replication of the table's data. **Note**: This may be unavailable for some integrations.
+
+reset-integrations: &reset-integrations
+  id: "reset-integrations"
+  name: "Reset integrations"
+  description: |
+    Reset the [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}) for all the tables in an integration, which will trigger a full re-replication of the integration's data. **Note**: This feature may be unavailable for some integrations.
+
+manage-extraction-jobs: &manage-extraction-jobs
+  id: "manage-extraction-jobs"
+  name: "Manage extraction jobs"
+  description: |
+    [Start and stop extraction jobs]({{ link.replication.start-stop-extraction | prepend: site.baseurl }}) for integrations. **Note**: This feature may be unavailable for some integrations.
+
+view-extraction-logs: &view-extraction-logs
+  id: "view-extraction-logs"
+  name: "View Extraction Logs"
+  description: |
+    View the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}) for integrations.
+
+view-loading-reports: &view-loading-reports
+  id: "view-loading-reports"
+  name: "View Loading Reports"
+  description: |
+    View the [Loading Reports]({{ link.replication.loading-reports | prepend: site.baseurl }}) for integrations.
+
+
+# --------------------------- #
+#        ALL PERMISSIONS      #
+# --------------------------- #
+
+all:
+  - *manage-data-selection
+  - *modify-replication-schedules
+  - *manage-table-settings
+  - *reset-tables
+  - *reset-integrations
+  - *manage-extraction-jobs
+  - *view-extraction-logs
+  - *view-loading-reports

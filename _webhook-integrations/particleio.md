@@ -14,6 +14,8 @@ summary: "Connect your Particle.io data to Stitch using Stitch's Incoming Webhoo
 name: "particleio"
 display_name: "Particle.io"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

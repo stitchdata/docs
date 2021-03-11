@@ -34,4 +34,18 @@ description: ""
 uses-common-fields: true
 uses-feature-fields: true
 uses-start-date: false
+
+object-attributes:
+  - name: "wal2json_message_format"
+    required: false
+    internal: true
+    type: "string"
+    description: |
+      The message format version the [wal2json plugin](https://github.com/eulerto/wal2json){:target="new"} on Stitch's server should use when performing Log-based Incremental Replication.
+
+      Accepted values are:
+
+      - `1` - Use the v1 message format. This is the default.
+      - `2` - Use the v2 message format
+    value: "2"
 ---

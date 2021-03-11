@@ -169,7 +169,15 @@ attributes:
     type: "string"
     description: "The type of {{ integration.display_name }} object. This will be `payout`."
 
+  - name: "original_payout"
+    type: "string"
+    description: ""
+
   - name: "recipient"
+    type: "string"
+    description: ""
+
+  - name: "reversed_by"
     type: "string"
     description: ""
 

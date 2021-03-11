@@ -14,6 +14,8 @@ summary: "Connect your Mailjet data to Stitch using Stitch's Incoming Webhooks i
 name: "mailjet"
 display_name: "Mailjet"
 
+this-version: "1"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

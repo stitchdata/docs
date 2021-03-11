@@ -13,7 +13,7 @@ replication-method: "Full Table"
 
 api-method:
   name: "List payments (V2)"
-  doc-link: "https://developer.squareup.com/reference/square/payments-api/v1-list-payments"
+  doc-link: "https://developer.squareup.com/reference/square/payments-api/list-payments"
 
 attributes:
   - name: "id"

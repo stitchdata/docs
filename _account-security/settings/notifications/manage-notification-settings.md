@@ -32,5 +32,5 @@ sections:
       2. In the **Your user profile** section, uncheck the {{ app.buttons.replication-notification-opt-out }} checkbox.
       3. Click {{ app.buttons.update-profile }}.
 
-      **Note**: You will still receive general email notifications, such as notifications about approaching the account's row limit. Refer to the [Notification reference]({{ link.account.notification-reference | prepend: site.baseurl }}) each individual notification's opt out status.
+      **Note**: You will still receive general email notifications, such as notifications about [Single Sign-on (SSO)]({{ link.security.single-sign-on | prepend: site.baseurl }}) changes or the account approaching its row limit. Refer to the [Notification reference]({{ link.account.notification-reference | prepend: site.baseurl }}) each individual notification's opt out status.
 ---

@@ -1,0 +1,73 @@
+# -------------------------- #
+#     GENERAL USER ROLE      #
+# -------------------------- #  
+
+name: "General User"
+
+description: |
+  {% capture sso-admin-name %}{{ site.data.stitch.user-management.roles.sso-admin.name }}{% endcapture %}
+  {% capture invoice-admin-name %}{{ site.data.stitch.user-management.roles.invoice-admin.name }}{% endcapture %}
+
+  General Users have the majority of available permissions, with the exception of those granted to the {{ invoice-admin-name }} and {{ sso-admin-name }} user roles. New team members invited to an account are automatically assigned this role.
+
+
+# -------------------------- #
+#      ROLE PERMISSIONS      #
+# -------------------------- #
+
+## Permission data lives in: _data/stitch/user-management/permissions
+
+general: 
+  - id: "modify-company-settings"
+  - id: "update-your-email-address"
+    use-exception: true
+  - id: "reset-your-password"
+    use-exception: true
+  - id: "enable-single-sign-on"
+
+billing:
+  - id: "manage-payment-info"
+  - id: "manage-plan-details"
+  - id: "view-invoices"
+  - id: "cancel-account"
+
+team-members:
+  - id: "invite-users"
+    use-exception: true
+  - id: "deactivate-users"
+    use-exception: true
+  - id: "reactivate-users"
+    use-exception: true
+
+api:
+  - id: "manage-api-keys"
+  - id: "manage-partner-keys"
+  - id: "connect-api-usage"
+
+notifications:
+  - id: "dismiss-account-notifications"
+  - id: "manage-custom-notification-list"
+  - id: "manage-notification-content"
+  - id: "manage-post-load-hooks"
+
+destinations:
+  - id: "add-destination"
+  - id: "modify-destination"
+  - id: "change-destination"
+  - id: "delete-destination"
+
+integrations:
+  - id: "add-integrations"
+  - id: "modify-integrations"
+  - id: "pause-integrations"
+  - id: "delete-integrations"
+
+replication:
+  - id: "manage-data-selection"
+  - id: "modify-replication-schedules"
+  - id: "manage-table-settings"
+  - id: "reset-tables"
+  - id: "reset-integrations"
+  - id: "manage-extraction-jobs"
+  - id: "view-extraction-logs"
+  - id: "view-loading-reports"
