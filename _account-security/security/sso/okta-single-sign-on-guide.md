@@ -49,7 +49,7 @@ intro: |
   {% endcapture %}
 
   {% capture sso-admin-note %}
-  Setting up or modifying an existing {{ page.display-summary }} connection requires SSO Admin privileges in Stitch. {{ sso-admin }}
+  Setting up or modifying an existing {{ page.display-name }} connection requires SSO Admin privileges in Stitch. {{ sso-admin }}
   {% endcapture %}
 
   {% include note.html first-line="**Stitch SSO Admin privileges required**" content=sso-admin-note %}
