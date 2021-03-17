@@ -99,6 +99,8 @@ setup-steps:
     content: |
       {% include integrations/saas/setup/historical-sync.html %}
 
+      To retreive data from the `orders` table, the historical start date must be within 90 days.
+
   - title: "Create a replication schedule"
     anchor: "define-rep-frequency"
     content: |
