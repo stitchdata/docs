@@ -23,24 +23,19 @@
 {% endcase %}
 
 <!-- Assign a variable to the data file containing the data for the archive type -->
-{% assign taxonomy-items = site.data.changelog[page.archive-type][page.archive-type-singular] %}
+{% assign taxonomy-items = site.data.changelog[page.archive-type][page.archive-type-singular] | sort:"display_name" %}
 
-
-<!-- Get all the changelog entries, then group them by the variable assigned in the previous CASE statement. EX: `taxonomy-data = "entry-type"` -->
-{% assign all-changelog-entries = site.changelog | where:"content-type","changelog-entry" %}
-	{% assign entries-by-taxonomy = all-changelog-entries | sort: taxonomy-data | group_by: taxonomy-data %}
 
 <!-- A list of all archive type items (ex: categories) at the top of the page -->
 <p>
 	<strong>Jump to a {{ page.archive-type-singular }}:</strong>
 </p>
 
-{% for taxonomy in entries-by-taxonomy %}
-	{% assign taxonomy-name = taxonomy-items | where:"name",taxonomy.name | first %}
-		{% assign item-link = taxonomy.name | prepend: "#" %}
-		{% assign item-display-text = taxonomy-name.display_name %}
+{% for taxonomy-item in taxonomy-items %}
+	{% assign item-link = taxonomy-item.name | prepend: "#" %}
+	{% assign item-display-text = taxonomy-item.display_name %}
 
-		{{ site.data.changelog.metadata.archive-button | flatify }}
+	{{ site.data.changelog.metadata.archive-button | flatify }}
 {% endfor %}
 
 <p></p>
@@ -51,25 +46,35 @@
 <hr>
 
 <!-- Sections for each taxonomy item. -->
-{% for taxonomy in entries-by-taxonomy %}
-	{% assign taxonomy-name = taxonomy-items | where:"name",taxonomy.name | first %}
-
-	<h2 id="{{ taxonomy.name }}">
-		{{ taxonomy-name.display_name }}
+{% for taxonomy-item in taxonomy-items %}
+	<h2 id="{{ taxonomy-item.name }}">
+		{{ taxonomy-item.display_name }}
 	</h2>
 
-	<ul>
-		{% assign taxonomy-entries = taxonomy.items | sort:"date" | reverse %}
-		{% for item in taxonomy-entries %}
-		<li>
-			{{ site.data.changelog.metadata.archive-entry | flatify | markdownify }}
-		</li>
-		{% endfor %}
-	</ul>
+	<!-- Get all the changelog entries, then group them by the variable assigned in the page.archive-type CASE statement. EX: `taxonomy-data = "entry-type"` -->
+	{% assign all-changelog-entries = site.changelog | where:"content-type","changelog-entry" %}
+		{% assign entries-by-taxonomy = all-changelog-entries | where_exp:"item","item[taxonomy-data] contains taxonomy-item.name" | sort:"date" | reverse %}
+
+	<!-- Get the number of entries for the taxonomy-item, and conditionally
+		display either a list of entries or a "nothing here yet" message. -->
+	{% case entries-by-taxonomy.size %}
+	{% when 0 %}
+		<p>No entries for this {{ page.archive-type-singular }} yet.</p>
+
+	{% else %}
+		<ul>
+			{% for item in entries-by-taxonomy %}
+				<li>
+					{{ site.data.changelog.metadata.archive-entry | flatify | markdownify }}
+				</li>
+			{% endfor %}
+		</ul>
+	{% endcase %}
 
 	<a href="#">Back to top</a>
 
 	{% unless forloop.last == true %}
 		<hr>
 	{% endunless %}
+
 {% endfor %}
