@@ -6,8 +6,11 @@ entry-type: beta
 entry-category: destination
 connections:
   - id: "postgres"
+    type: "destination"
     version: "1"
+
   - id: "bigquery"
+    type: "destination"
     version: "1"
 ---
 

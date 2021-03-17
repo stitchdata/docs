@@ -6,40 +6,73 @@ entry-type: new-feature
 entry-category: replication
 connections:
   - id: "aurora-mysql"
-    version: 1
+    type: "integration"
+    version: "1"
+
   - id: "autopilot"
-    version: 1
+    type: "integration"
+    version: "1"
+
   - id: "braintree"
-    version: 1
+    type: "integration"
+    version: "1"
+
   - id: "facebook-ads"
-    version: 1
+    type: "integration"
+    version: "1"
+
   - id: "freshdesk"
-    version: 1
+    type: "integration"
+    version: "1"
+
   - id: "gitlab"
-    version: 1
+    type: "integration"
+    version: "1"
+
   - id: "cloudsql-mysql"
-    version: 1
+    type: "integration"
+    version: "1"
+
   - id: "harvest"
-    version: 1
+    type: "integration"
+    version: "1"
+
   - id: "hubspot"
-    version: 1
+    type: "integration"
+    version: "1"
+
   - id: "mariadb"
-    version: 1
+    type: "integration"
+    version: "1"
+
   - id: "mysql"
-    version: 1
+    type: "integration"
+    version: "1"
+
   - id: "outbrain"
-    version: 1
+    type: "integration"
+    version: "1"
+
   - id: "referral-saasquatch"
-    version: 1
+    type: "integration"
+    version: "1"
+
   - id: "salesforce"
-    version: 1
+    type: "integration"
+    version: "1"
     copy: "(v1 only)"
+
   - id: "shippo"
-    version: 1
+    type: "integration"
+    version: "1"
+
   - id: "taboola"
-    version: 1
+    type: "integration"
+    version: "1"
+
   - id: "urban-airship"
-    version: 1
+    type: "integration"
+    version: "1"
 ---
 
 Detailed [Extraction Logs]({{ site.data.urls.replication.extraction-logs | prepend: site.baseurl | prepend: site.home }}) are now available for select integrations in Stitch. This new feature presents detailed information about the extraction process in these integrations, and lets you:

@@ -6,32 +6,59 @@ entry-type: new-feature
 entry-category: integration
 connections:
   - id: "aftership"
+    type: "integration"
     version: "1"
+
   - id: "contentful"
+    type: "integration"
     version: "1"
+
   - id: "customerio"
+    type: "integration"
     version: "1"
+
   - id: "delighted"
+    type: "integration"
     version: "1"
+
   - id: "drip"
+    type: "integration"
     version: "1"
+
   - id: "iterable"
+    type: "integration"
     version: "1"
+
   - id: "mailjet"
+    type: "integration"
     version: "1"
+
   - id: "particleio"
+    type: "integration"
     version: "1"
+
   - id: "sendgrid"
+    type: "integration"
     version: "1"
+
   - id: "sendwithus"
+    type: "integration"
     version: "1"
+
   - id: "sparkpost"
+    type: "integration"
     version: "1"
+
   - id: "formkeep"
+    type: "integration"
     version: "1"
+
   - id: "vero"
+    type: "integration"
     version: "1"
+    
   - id: "zapier"
+    type: "integration"
     version: "1"
 ---
 

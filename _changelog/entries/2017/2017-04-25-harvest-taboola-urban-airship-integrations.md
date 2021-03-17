@@ -6,10 +6,15 @@ entry-type: new-feature
 entry-category: integration
 connections:
   - id: "harvest"
+    type: "integration"
     version: 1
+
   - id: "taboola"
+    type: "integration"
     version: 1
+
   - id: "urban-airship"
+    type: "integration"
     version: "1"
 ---
 

@@ -6,23 +6,28 @@ entry-type: new-feature
 entry-category: integration
 connections:
   - id: "bronto"
-    version: 1
+    type: "integration"
+    version: "1"
     copy: "An email marketing platform for ecommerce"
 
   - id: "fullstory"
-    version: 1
+    type: "integration"
+    version: "1"
     copy: "A tool that offers high-fidelity session playback"
 
   - id: "listrak"
-    version: 1
+    type: "integration"
+    version: "1"
     copy: "A marketing platform for engaging shoppers across all channels"
 
   - id: "quick-base"
-    version: 1
+    type: "integration"
+    version: "1"
     copy: "A platform for developers to build, customize and connect scalable, secure cloud applications"
 
   - id: "sendgrid-core"
-    version: 1
+    type: "integration"
+    version: "1"
     copy: "A platform for delivering transactional and marketing emails"
 ---
 
