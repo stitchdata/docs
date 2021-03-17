@@ -1,12 +1,50 @@
 
 <!-- This page formats the list of changelog entries for the changelog (/docs/changelog) -->
 
-{% assign changelog-entries = site.changelog | where:"content-type","changelog-entry" | sort:"date" | reverse %}
+<!-- If the page has a connection-type property,
+	we need to get only the entries relevant to that connection type. -->
+{% if page.connection-type %}
+	{% assign all-changelog-entries = site.changelog | where:"content-type","changelog-entry" %}
+
+	<!-- from the filtered entries, only get those with an entry-category value that contains the page's
+		connection-type value -->
+		{% assign entries-for-connection-type = all-changelog-entries | where_exp:"entry","entry.entry-category contains page.connection-type" %}
+
+		<!-- from the filtered entries, get those that have a connection-id value that matches the page's name value-->
+			{% assign named-entries-for-this-connection = entries-for-connection-type | where:"connection-id",page.name %}
+			
+		<!-- from the filtered entries, get those that have an existing connections property -->
+			{% assign entries-with-connection-lists = entries-for-connection-type | where_exp:"entry","entry.connections != nil" %}
+		
+			<!-- Creates an empty array, which is used in the next block to store entries with connection items that have ids that match the page's name value -->
+				{% assign entries-for-this-connection = "" | split: "," %}
+
+			<!-- Loop through all the entries with connections list properties -->
+				{% for entry in entries-with-connection-lists %}
+
+				<!-- If the connections list contains an item with an id that matches the page's name, assign is-applicable -->
+					{% assign is-applicable = entry.connections | where:"id",page.name %}
+
+				<!-- If the size of the is-applicable list is 1 (indicating there's a match), push the entire entry into the empty entries-for-this-connection array -->
+					{% if is-applicable.size == 1 %}
+						{% assign entries-for-this-connection = entries-for-this-connection | push: entry %}
+					{% endif %}
+				{% endfor %}
+
+	<!-- Concat the named entries and the entries with matching connection list items together, and sort them -->
+		{% assign changelog-entries = named-entries-for-this-connection | concat: entries-for-this-connection | sort:"date" | reverse %}
+
+
+<!-- Otherwise, display all changelog entries -->
+{% else %}
+	{% assign changelog-entries = site.changelog | where:"content-type","changelog-entry" | sort:"date" | reverse %}
+{% endif %}
 
 {% include misc/data-files.html %}
 
 <ul class="changelog">
 	{% for entry in changelog-entries %}
+
 		{% assign entry-id = entry.date | date: "%F" | append: "-" | append: entry.title | slugify %}
 
 		{% assign entry-type = site.data.changelog.types.type | where:"name",entry.entry-type | first %}
