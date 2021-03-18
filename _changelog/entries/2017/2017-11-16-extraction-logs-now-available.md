@@ -3,9 +3,9 @@ title: Extraction logs now available!
 content-type: "changelog-entry"
 date: 2017-11-16
 entry-type: new-feature
-entry-category: replication
+entry-category: "replication, integration"
 connections:
-  - id: "aurora-mysql"
+  - id: "aurora-rds"
     type: "integration"
     version: "1"
 
