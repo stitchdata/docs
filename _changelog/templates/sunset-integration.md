@@ -2,7 +2,7 @@
 title: "[INTEGRATION] (v) sunset"
 #content-type: "changelog-entry"
 date: 2016-01-01
-entry-type: deprecation
+entry-type: sunset
 entry-category: "integration"
 connection-id: ""
 connection-version: ""
