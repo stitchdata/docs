@@ -3,8 +3,8 @@ title: "MySQL (v1) integrations: Binlog replication support"
 content-type: "changelog-entry"
 date: 2018-05-30
 entry-type: new-feature
-entry-category: replication
-connection-id: mysql
+entry-category: "replication, integration"
+connection-id: "mysql"
 connection-version: 1
 ---
 
