@@ -10,4 +10,4 @@ connection-version: 1
 
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've updated the error handling in the F{{ this-connection.display_name }} integration to more aggressively retry when Insights jobs fail. As a result of this change, the error rate for this integration has been significantly reduced.
+We've updated the error handling in the {{ this-connection.display_name }} integration to more aggressively retry when Insights jobs fail. As a result of this change, the error rate for this integration has been significantly reduced.
