@@ -3,7 +3,7 @@ title: "Google Analytics (v1) update: Lifetime Value and Cohorts documentation"
 content-type: "changelog-entry"
 date: 2021-03-19
 entry-type: bug-fix
-entry-category: "integration, documentation"
+entry-category: "integration"
 connection-id: "google-analytics" 
 connection-version: "1"
 ---
