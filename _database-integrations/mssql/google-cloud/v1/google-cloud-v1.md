@@ -12,10 +12,10 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Google Cloud SQL Server
+title: Google Cloudsql for SQL Server
 keywords: google-cloudsql-microsoft-sql-server, database integration, etl google-cloudsql-microsoft-sql-server, google-cloudsql-microsoft-sql-server etl
 permalink: /integrations/databases/google-cloudsql-microsoft-sql-server
-summary: "Connect and replicate data from your Google Cloud SQL Server database using Stitch's Google Cloud SQL Server integration."
+summary: "Connect and replicate data from your Google Cloud SQL Server database using Stitch's Microsoft SQL Server integration."
 
 show-in-menus: true
 key: "google-cloudsql-microsoft-sql-server-integration"
@@ -26,6 +26,7 @@ key: "google-cloudsql-microsoft-sql-server-integration"
 
 name: "google-cloudsql-microsoft-sql-server"
 display_name: "Google Cloud SQL Server"
+setup-name: "mssql"
 
 singer: true
 tap-name: "Google Cloud SQL Server"
@@ -42,8 +43,8 @@ driver: "7.2.1.jre8"
 #      Feature Summary       #
 # -------------------------- #
 
-feature-summary: |
-  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.driver | flatify | strip }}. [TODO]
+#feature-summary: |
+Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.driver | flatify | strip }}. [TODO]
 
 
 # -------------------------- #
@@ -61,8 +62,8 @@ db-type: "mssql"
 
 api-type: "platform.mssql"
 versions: "2012 through 2017"
-ssh: true
-ssl: true
+ssh: false
+ssl: false
 
 ## General replication features
 
@@ -86,8 +87,7 @@ define-replication-methods: true
 
 log-based-replication-minimum-version: "n/a"
 log-based-replication-master-instance: false
-log-based-replication-master-instance-reason: "Google CloudSQL doesn't currently support logical replication."
-log-based-replication-master-instance-doc-link: "https://groups.google.com/forum/#!topic/google-cloud-sql-discuss/md_7Rq3LgB0"
+#log-based-replication-master-instance-reason: "Google CloudSQL doesn't currently support Log-based Incremental Replication for SQL Server instances."
 log-based-replication-read-replica: false
 
 ## Other Replication Methods
@@ -144,16 +144,6 @@ setup-steps:
         anchor: "define-connection-details"
         content: |
           {% include shared/database-connection-settings.html type="general" %}
-
-      - title: "Define the SSH connection details"
-        anchor: "ssh-connection-details"
-        content: |
-          {% include shared/database-connection-settings.html type="ssh" %}
-
-      - title: "Define the SSL connection details"
-        anchor: "ssl-connection-details"
-        content: |
-          {% include shared/database-connection-settings.html type="ssl" %}
 
       - title: "Create a replication schedule"
         anchor: "create-replication-schedule"
