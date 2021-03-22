@@ -28,6 +28,8 @@ Stay up-to-date by subscribing to our [RSS feed]({{ site.data.urls.changelog.rss
 			{% case page.archive-type %}
 				{% when 'date' %}
 					{% include changelog/archive-by-year.html %}
+				{% when 'connections' %}
+					{% include changelog/archive-by-connection.html %}
 				{% else %}
 					{% include changelog/archive-by-taxonomy.html %}
 			{% endcase %}
