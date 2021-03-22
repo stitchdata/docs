@@ -65,6 +65,8 @@
         {% assign integrations = databases | concat: saas | concat: webhooks | sort_natural:"title" %}
 {% endcase %}
 
+<!-- Get all the changelogs for the given set of integrations -->
+    {% assign all-integration-changelogs = site.documents | where:"content-type","changelog-entry-list" %}
 
 <!-- Generate the tiles for the integrations using the variables assigned by include.type -->
 <ul class="tiles three-columns">
@@ -99,6 +101,13 @@
 
                     {% if integration.permalink contains "saas" or integration.permalink contains "webhooks" %}
                         | <a href="{{ integration.url | prepend: site.baseurl | append: "#schema" }}">Schema</a>
+                    {% endif %}
+                
+                <!-- Get the changelog for the integration, if there is one -->
+                    {% assign integration-changelog = all-integration-changelogs | find:"name",integration.name %}
+
+                    {% if integration-changelog %}
+                        | <a href="{{ integration-changelog.url | prepend: site.baseurl }}">Changelog</a>
                     {% endif %}
             {% endif %}
          </li>
