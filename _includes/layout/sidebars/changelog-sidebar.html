@@ -66,6 +66,61 @@
     <hr>
 <!-- END ENTRIES BY YEAR -->
 
+<!-- ENTRIES BY CONNECTION TYPE -->
+    <li class="subfolders">
+        <a data-toggle="collapse" href="#archives-by-connection-type--menu" aria-expanded="false" aria-controls="#archives-by-connection-type--menu">
+            <strong>
+                Entries by connection type
+            </strong>
+            <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+        </a>
+
+        <ul class="collapse in" id="archives-by-connection-type--menu">
+            <li>
+                <a href="{{ link.changelog.archive-by-connection-type | prepend: site.baseurl }}">
+                    Archives by connection type
+                </a>
+            </li>
+
+    <!-- TODO: Add destinations in once we have at least one destination changelog -->
+            {% assign connection-types = "integrations" | split:"|" %}
+
+            {% for connection-type in connection-types %}
+                {% case connection-type %}
+                    {% when 'integrations' %}
+                        {% assign connections = site.database-integrations | concat: site.saas-integrations | concat: site.webhook-integrations | where:"content-type","changelog-entry-list" | sort_natural:"title" %}
+
+                        {% assign clean-title = " Integration Changelog" %}
+
+                    {% when 'destinations' %}
+                        {% assign connections = site.destinations | where:"content-type","changelog-entry-list" | sort_natural:"title" %}
+
+                        {% assign clean-title = " Destination Changelog" %}
+                {% endcase %}
+
+                <li class="subfolders">
+                    <a data-toggle="collapse" href="#{{ connection-type }}--menu" aria-expanded="false" aria-controls="{{ connection-type }}--menu">
+                        {{ connection-type | capitalize }}
+                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                    </a>
+
+                    <ul class="collapse" id="{{ connection-type }}--menu">
+                        {%- for connection in connections -%}
+                            <li>
+                                <a href="{{ connection.url | prepend: site.baseurl }}">
+                                    {{ connection.title | remove: clean-title }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </li>
+<!-- END ENTRIES BY CONNECTION TYPE -->
+
+<hr>
+
 <!-- ENTRIES BY TAXONOMY - TYPE AND CATEGORY -->
     {% assign taxonomy-item-list = "types|categories" | split:"|" %}
 
