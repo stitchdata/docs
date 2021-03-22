@@ -1,7 +1,9 @@
 ---
 title: Stitch Changelog Archives by Category
 permalink: /changelog/archives/entry-categories
-summary: "TODO"
+summary: "Stitch changelog archives by entry category."
+
+key: "changelog-archive-entry-categories"
 
 content-type: "changelog-archive"
 archive-type: "categories"

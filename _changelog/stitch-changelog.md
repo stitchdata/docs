@@ -3,6 +3,8 @@ title: Stitch Changelog
 permalink: /changelog
 summary: "Product and documentation updates from the Stitch team."
 
+key: "changelog"
+
 level: "category"
 
 content-type: "changelog-entry-list"
