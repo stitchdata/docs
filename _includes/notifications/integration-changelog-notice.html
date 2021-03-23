@@ -1,0 +1,9 @@
+{% capture changelog-notice %}
+{% capture changelog-notice-content %}
+**Keep up with the latest {{ integration.display_name }} updates** with the [{{ integration-changelog.title }}]({{ integration-changelog.url | prepend: site.baseurl }}).
+{% endcapture %}
+
+{% include note.html type="single-line" content=changelog-notice-content %}
+{% endcapture %}
+
+{{ changelog-notice | flatify | markdownify }}

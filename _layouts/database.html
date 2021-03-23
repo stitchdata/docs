@@ -19,6 +19,14 @@ layout: page
 	{% endif %}
 {% endunless %}
 
+<!-- CHANGELOG NOTICE -->
+    {% assign all-integration-changelogs = site[integration.collection] | where:"content-type","changelog-entry-list" %}
+        {% assign integration-changelog = all-integration-changelogs | find:"name",integration.name %}
+
+        {% if integration-changelog %}
+            {% include notifications/integration-changelog-notice.html %}
+        {% endif %}
+
 
 <!-- INTEGRATION FEATURE SUMMARY -->
 {% if integration.feature-summary %}
