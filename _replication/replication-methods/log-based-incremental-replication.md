@@ -52,7 +52,7 @@ feature-details:
     link: "https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-tracking-sql-server?view=sql-server-2017"
 
   - database: "MongoDB"
-    db-type: "mongo"
+    db-type: "mongodb"
     name: "OpLog"
     link: "https://docs.mongodb.com/manual/core/replica-set-oplog/"
 
@@ -367,7 +367,7 @@ sections:
 ## LOG AGE OUT
       - title: "Limitation {{ forloop.index }}: Logs can age out and impact replication (Microsoft SQL Server, MongoDB, MySQL, and Oracle)"
         anchor: "limitation--log-retention"
-        databases: "mongo, mssql, mysql, oracle"
+        databases: "mongodb, mssql, mysql, oracle"
         content: |
           {% include note.html type="single-line" content="**Note**: This section is applicable only to **Microsoft SQL Server, MongoDB, MySQL,** and **Oracle**-backed database integrations." %}
 
@@ -411,7 +411,7 @@ sections:
                 ```
 
               - **For MongoDB databases**:
-                {% capture code %}{{ site.data.errors.extraction.databases.mongo.raw-error.oplog-age-out | strip }}
+                {% capture code %}{{ site.data.errors.extraction.databases.mongodb.raw-error.oplog-age-out | strip }}
                 {% endcapture %}
 
                 {% include layout/code-snippet.html use-code-block=false code=code %}
@@ -524,7 +524,7 @@ sections:
 
       - title: "Limitation {{ forloop.index }}: Multiple data types in the _id field can cause discrepancies during historical replication (MongoDB)"
         anchor: "limitation--single-data-type-id-field-mongo"
-        databases: "mongo"
+        databases: "mongodb"
         content: |
           {% include note.html type="single-line" content="**Note**: This applies only to MongoDB-based database integrations." %}
 

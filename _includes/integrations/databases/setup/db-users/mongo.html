@@ -5,7 +5,7 @@
 2. Navigate to the authentication database. In this example, we're using `admin`:
    
    ```shell
-   {{ site.data.taps.extraction.database-setup.user-privileges.mongo.switch-database | strip }}
+   {{ site.data.taps.extraction.database-setup.user-privileges.mongodb.switch-database | strip }}
    ```
 
    Replace `<username>`, `<database-host>`, and `<port>` with your {{ integration.display_name }} username, database host address, and the port used by the database, respectively.
@@ -22,7 +22,7 @@ Select the version your {{ integration.display_name }} database is using to view
 Create the user, using the `addUser` command for {{ integration.display_name }} versions 2.4 through 2.6. Replace `<password>` with a password:
 
 {% capture code %}
-{{ site.data.taps.extraction.database-setup.user-privileges.mongo.create-user-v2 | strip }}
+{{ site.data.taps.extraction.database-setup.user-privileges.mongodb.create-user-v2 | strip }}
 {% endcapture %}
 
 {% include layout/code-snippet.html code=code language="javascript" %}
@@ -35,7 +35,7 @@ Create the user, using the `addUser` command for {{ integration.display_name }} 
 Create the user, using the `createUser` command for {{ integration.display_name }} versions 3.0 through 3.2. Replace `<password>` with a password:
 
 {% capture code %}
-{{ site.data.taps.extraction.database-setup.user-privileges.mongo.create-user-v3-2 | strip }}
+{{ site.data.taps.extraction.database-setup.user-privileges.mongodb.create-user-v3-2 | strip }}
 {% endcapture %}
 
 {% include layout/code-snippet.html code=code language="javascript" %}
@@ -48,7 +48,7 @@ Create the user, using the `createUser` command for {{ integration.display_name 
 [For versions 3.4 and above](https://docs.mongodb.com/v3.4/reference/built-in-roles/#readAnyDatabase){:target="new"}, the `readAnyDatabase` role doesn't include the `local` database. Create the user, granting the additional `read` role on the `local` database:
 
 {% capture code %}
-{{ site.data.taps.extraction.database-setup.user-privileges.mongo.create-user-v3-4 | strip }}
+{{ site.data.taps.extraction.database-setup.user-privileges.mongodb.create-user-v3-4 | strip }}
 {% endcapture %}
 
 {% include layout/code-snippet.html code=code language="javascript" %}

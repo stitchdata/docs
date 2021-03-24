@@ -4,7 +4,7 @@ content-type: "changelog-entry"
 date: 2017-04-06
 entry-type: updated-feature
 entry-category: integration
-connection-id: "mongo"
+connection-id: "mongodb"
 connection-version: "11-01-2016"
 ---
 

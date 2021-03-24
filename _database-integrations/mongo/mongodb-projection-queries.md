@@ -12,7 +12,7 @@ content-type: "guide"
 
 display_name: "MongoDB"
 name: "mongodb"
-db-type: "mongo"
+db-type: "mongodb"
 
 # this-version: "1"
 

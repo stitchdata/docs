@@ -76,7 +76,7 @@ field-copy:
       **Optional:** Enter the name of the default database Stitch will connect to. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to test and complete the connection.
 
   schema-names-tables: |
-    {% if integration.db-type == "mongo" %}
+    {% if integration.db-type == "mongodb" %}
     {% assign table = "collection" %}
     {% else %}
     {% assign table = "table" %}

@@ -35,7 +35,7 @@ certified: true
 frequency: "30 minutes"
 tier: "Standard"
 port: 27017
-db-type: "mongo"
+db-type: "mongodb"
 
 ## Stitch features
 api-type: "platform.mongodb"
