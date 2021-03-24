@@ -23,16 +23,30 @@ db-type: "postgres"
 name: "postgres"
 display_name: "PostgreSQL"
 
+connection-type: "integration"
+
 sections:
   - title: "Identify your version"
     anchor: "identify-your-version"
     content: |
       {% include shared/versioning/integration-version-tiles.html %}
 
-  - title: "{{ integration.display_name }} version history"
-    anchor: "version-history"
+  - title: "{{ integration.display_name }} updates"
+    anchor: "integration-updates"
     content: |
-      {% include shared/versioning/version-history.html %}
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title | flatify }}](#{{ subsection.anchor }})
+      {% endfor %}
+    subsections:
+      - title: "{{ integration.display_name }} version history"
+        anchor: "version-history"
+        content: |
+          {% include shared/versioning/version-history.html %}
+
+      - title: "{{ integration.display_name }} changelog"
+        anchor: "integration-changelog"
+        content: |
+          {% include changelog/entry-list.html type="connection-overview" %}
 
   - title: "{{ integration.display_name }} version features"
     anchor: "version-features"
