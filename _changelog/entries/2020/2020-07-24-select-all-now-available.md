@@ -6,8 +6,11 @@ entry-type: new-feature
 entry-category: replication
 connections:
   - id: "facebook-ads"
+    type: "integration"
     version: "1"
+
   - id: "salesforce"
+    type: "integration"
     version: "1"
 ---
 

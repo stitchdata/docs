@@ -19,7 +19,7 @@ display-name: "MongoDB"
 
 source-type: "database"
 docs-name: "mongodb"
-db-type: "mongo"
+db-type: "mongodb"
 
 description: ""
 

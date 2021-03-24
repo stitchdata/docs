@@ -38,7 +38,7 @@ data-sync-queries:
 
 all-types:
   - name: "Mongo"
-    type: "mongo"
+    type: "mongodb"
   - name: "Microsoft SQL Server"
     type: "mssql"
   - name: "MySQL"
@@ -50,7 +50,7 @@ all-types:
 #           MongoDB          #
 # -------------------------- #
 
-mongo:
+mongodb:
   structure-sync: |
     Stitch runs the following queries on Mongo databases to perform a structure sync:
 

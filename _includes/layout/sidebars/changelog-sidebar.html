@@ -66,24 +66,78 @@
     <hr>
 <!-- END ENTRIES BY YEAR -->
 
+<!-- ENTRIES BY CONNECTION TYPE -->
+    <li class="subfolders">
+        <a data-toggle="collapse" href="#archives-by-connection-type--menu" aria-expanded="false" aria-controls="#archives-by-connection-type--menu">
+            <strong>
+                Entries by connection type
+            </strong>
+            <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+        </a>
+
+        <ul class="collapse in" id="archives-by-connection-type--menu">
+            <li>
+                <a href="{{ link.changelog.archive-by-connection-type | prepend: site.baseurl }}">
+                    Archives by connection type
+                </a>
+            </li>
+
+    <!-- TODO: Add destinations in once we have at least one destination changelog -->
+            {% assign connection-types = "integrations" | split:"|" %}
+
+            {% for connection-type in connection-types %}
+                {% case connection-type %}
+                    {% when 'integrations' %}
+                        {% assign connections = site.database-integrations | concat: site.saas-integrations | concat: site.webhook-integrations | where:"content-type","changelog-entry-list" | sort_natural:"title" %}
+
+                        {% assign clean-title = " Integration Changelog" %}
+
+                    {% when 'destinations' %}
+                        {% assign connections = site.destinations | where:"content-type","changelog-entry-list" | sort_natural:"title" %}
+
+                        {% assign clean-title = " Destination Changelog" %}
+                {% endcase %}
+
+                <li class="subfolders">
+                    <a data-toggle="collapse" href="#{{ connection-type }}--menu" aria-expanded="false" aria-controls="{{ connection-type }}--menu">
+                        {{ connection-type | capitalize }}
+                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                    </a>
+
+                    <ul class="collapse" id="{{ connection-type }}--menu">
+                        {%- for connection in connections -%}
+                            <li>
+                                <a href="{{ connection.url | prepend: site.baseurl }}">
+                                    {{ connection.title | remove: clean-title }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </li>
+<!-- END ENTRIES BY CONNECTION TYPE -->
+
+<hr>
+
 <!-- ENTRIES BY TAXONOMY - TYPE AND CATEGORY -->
     {% assign taxonomy-item-list = "types|categories" | split:"|" %}
 
     {% for list-item in taxonomy-item-list %}
         {% case list-item %}
-            {% when 'categories' %}
-                {% assign singular-label = "category" %}
-                {% assign taxonomy-frontmatter = "entry-category" %}
-                {% assign archive-link = link.changelog.archive-by-category %}
-                
             {% when 'types' %}
                 {% assign singular-label = "type" %}
                 {% assign taxonomy-frontmatter = "entry-type" %}
                 {% assign archive-link = link.changelog.archive-by-type %}
+
+            {% when 'categories' %}
+                {% assign singular-label = "category" %}
+                {% assign taxonomy-frontmatter = "entry-category" %}
+                {% assign archive-link = link.changelog.archive-by-category %}
         {% endcase %}
 
         {% assign taxonomy-items = site.data.changelog[list-item][singular-label] %}
-            {% assign entries-by-taxonomy = all-changelog-entries | sort: taxonomy-frontmatter | group_by: taxonomy-frontmatter |  %}
 
         <li class="subfolders">
             <a data-toggle="collapse" href="#{{ taxonomy-frontmatter }}--menu" aria-expanded="false" aria-controls="#{{ taxonomy-frontmatter }}--menu">
@@ -99,11 +153,10 @@
                         Archives by {{ singular-label }}
                     </a>
                 </li>
-                {% for taxonomy in entries-by-taxonomy %}
-                    {% assign taxonomy-name = taxonomy-items | where:"name",taxonomy.name | first %}
 
+                {% for taxonomy-item in taxonomy-items %}
                     <li>
-                        <a href="{{ archive-link | prepend: site.baseurl | append: "#" | append: taxonomy.name }}">{{ taxonomy-name.display_name }}</a>
+                        <a href="{{ archive-link | prepend: site.baseurl | append: "#" | append: taxonomy-item.name }}">{{ taxonomy-item.display_name }}</a>
                     </li>
                 {% endfor %}
             </ul>

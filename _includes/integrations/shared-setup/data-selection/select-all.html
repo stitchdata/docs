@@ -5,7 +5,7 @@
 
 	{% when 'database-integrations' %}
 		{% case integration.db-type %}
-			{% when 'mongo' %}
+			{% when 'mongodb' %}
 				{% assign object = "collection" %}
 				{% assign fields = "" %}
 			{% else %}

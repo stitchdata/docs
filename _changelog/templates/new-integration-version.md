@@ -1,11 +1,12 @@
 ---
-title: New version (v1) of  integration
+title: "New version (vVERSION) of [INTEGRATION] integration"
 #content-type: "changelog-entry"
 date: 2017-11-16
 entry-type: new-feature
 entry-category: integration
-connection-id: salesforce
-connection-version: 1
+connection-id: ""
+connection-version: ""
+# pull-request: "" UNCOMMENT IF THERE'S A PR
 ---
 
 {{ site.data.changelog.metadata.single-integration | flatify }}

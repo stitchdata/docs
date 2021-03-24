@@ -1,14 +1,104 @@
-
 <!-- This page formats the list of changelog entries for the changelog (/docs/changelog) -->
 
-{% assign changelog-entries = site.changelog | where:"content-type","changelog-entry" | sort:"date" | reverse %}
+<!-- This include contains the logic for pulling the correct entries to display,
+	given the type of page calling the include.
+
+	Ex: Integration changelog pages will only pull entries for a specific integration. -->
+{% include changelog/connection-entry-filter.html %}
 
 {% include misc/data-files.html %}
 
+
+<!-- Depending on whether the include is called with a `type`, display the entries
+	in the requested format. -->
+{% case include.type %}
+
+<!-- If the include has a type of connection-overview, display the most recent 5 entries 
+	in a tabular format -->
+{% when 'connection-overview' %}
+
+<!-- Get the connection's changelog -->
+{% assign all-connection-changelogs = site[page.collection] | where:"content-type","changelog-entry-list" %}
+{% assign connection-changelog = all-connection-changelogs | find:"name",connection-name %}
+
+
+<!-- If this is for a database integration or a destination, we need to check if
+	it's a variant of the original connection type. Ex: PostgreSQL tap powers Heroku. -->
+{% if page.collection == "database-integrations" or page.collection == "destinations" %}
+	{% case page.collection %}
+		{% when 'database-integrations' %}
+			{% assign database-type = "db-type" %}
+
+		{% when 'destinations' %}
+			{% assign database-type = "type" %}
+	{% endcase %}
+
+<!-- If the page's 'database-type' doesn't match its 'name' value,
+	then it's a variant.
+
+	In this case, we get the data for the backing connection and display a notice. -->
+	{% if page[database-type] != page.name %}
+		{% assign all-flavors = site[page.collection] | where:database-type,page[database-type] %}
+			{% assign original-db-flavor = all-flavors | find_exp:"connection","connection[database-type] == connection.name" %}
+
+
+<!-- Variant notice copy and callout -->
+{% capture variant-notice %}
+**Some entires shown here may not be applicable to {{ page.display_name }}**. As the {{ page.display_name }} {{ page.connection-type }} is a variant of Stitch's {{ original-db-flavor.display_name }} {{ page.connection-type }}, some entries shown below may not be completely applicable to {{ page.display_name }}. Refer to the full entries for details.
+{% endcapture %}
+
+{% include note.html type="single-line" content=variant-notice %}
+	{% endif %}
+{% endif %}
+
+<p>
+	The five most recent updates made to the {{ page.display_name }} {{ page.connection-type }}. Refer to the <a href="{{ connection-changelog.url | prepend: site.baseurl }}">{{ connection-changelog.title }}</a> for this {{ page.connection-type }}'s full history.
+</p>
+
+
+<!-- START LIST OF ENTRIES -->
+<table>
+	<tr>
+		<td align="right">
+			<strong>Date</strong>
+		</td>
+		<td>
+			<strong>Type</strong>
+		</td>
+		<td>
+			<strong>Entry title</strong>
+		</td>
+	</tr>
+	{% for entry in changelog-entries limit:5 %}
+		{% assign entry-id = entry.date | date: "%F" | append: "-" | append: entry.title | slugify %}
+		{% assign entry-type = site.data.changelog.types.type | where:"name",entry.entry-type | first %}
+		<tr>
+			<td align="right">
+				<strong>{{ entry.date | date: "%b %e, %Y" }}</strong>
+			</td>
+			<td>
+				{{ entry-type.display_name }}
+			</td>
+			<td>
+				<a href="{{ connection-changelog.url | prepend: site.baseurl | append: "#" | append: entry-id }}">
+					{{ entry.title }}
+				</a>
+			</td>
+		</tr>
+	{% endfor %}
+	<tr>
+		<td colspan="3" align="center">
+			<a href="{{ connection-changelog.url | prepend: site.baseurl }}">
+				View all entries in the {{ connection-changelog.title }}
+			</a>
+		</td>
+	</tr>
+</table>
+
+{% else %}
 <ul class="changelog">
 	{% for entry in changelog-entries %}
 		{% assign entry-id = entry.date | date: "%F" | append: "-" | append: entry.title | slugify %}
-
 		{% assign entry-type = site.data.changelog.types.type | where:"name",entry.entry-type | first %}
 
 		<li class="changelog-entry changelog-entry--{{ entry.entry-type }}">
@@ -18,6 +108,16 @@
 				<strong class="changelog-entry-type">
 					{{ entry-type.display_name | upcase }}
 				</strong>
+
+			<!-- If the entry has a pull request value, display it -->
+				{% if entry.pull-request %}
+					<p></p>
+					<p>
+						<a href="{{ entry.pull-request }}">
+							{{ entry.pull-request | remove: "https://github.com/singer-io/" | remove: "https://github.com/stitchdata/" | replace: "/pull/", " #" | upcase }}
+						</a>
+					</p>
+				{% endif %}
 			</div>
 
 			<dl class="changelog-entry-details">
@@ -38,17 +138,24 @@
 
 					{{ site.data.changelog.metadata.archive-button | flatify }}
 
-				<!-- Entry category button -->
-					{% assign entry-category = site.data.changelog.categories.category | where:"name",entry.entry-category | first %}
-					{% assign item-link = link.changelog.archive-by-category | prepend: site.baseurl | append: "#" | append: entry.entry-category %}
-					{% assign item-display-text =  entry-category.display_name %}
+				<!-- Entry category button(s) -->
+				<!-- Some entries can have more than one category. This runs for every item in entry.entry-category, even if there's only one category. -->
+					{% assign all-entry-categories = entry.entry-category | split:", " %}
 
-					{{ site.data.changelog.metadata.archive-button | flatify }}
+					{% for category in all-entry-categories %}
+						{% assign entry-category = site.data.changelog.categories.category | where:"name",category | first %}
+						{% assign item-link = link.changelog.archive-by-category | prepend: site.baseurl | append: "#" | append: category %}
+						{% assign item-display-text =  entry-category.display_name %}
+
+						{{ site.data.changelog.metadata.archive-button | flatify }}
+					{% endfor %}
 				</dd>
 			</dl>
 		</li>
 		{% unless forloop.last == true %}
 			<hr style="margin-top: 0">
 		{% endunless %}
+
 	{% endfor %}
 </ul>
+{% endcase %}

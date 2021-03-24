@@ -16,9 +16,9 @@ If using [Key-based Incremental Replication]({{ link.replication.key-based-incre
 1. Locate a {{ object }} you want to replicate.
 1. {{ app.menu-paths.sync | replace: "object",object }}
 
-{% if integration.db-type == "mongo" or integration.db-type == "dynamodb" %}
+{% if integration.db-type == "mongodb" or integration.db-type == "dynamodb" %}
 {% case integration.db-type %}
-{% when 'mongo' %}
+{% when 'mongodb' %}
 {% assign database = "MongoDB" %}
 {% assign type = "query" %}
 {% assign guide-link = link.integrations.mongodb-projection-queries %}

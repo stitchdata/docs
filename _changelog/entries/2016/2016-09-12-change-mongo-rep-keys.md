@@ -4,7 +4,7 @@ content-type: "changelog-entry"
 date: 2016-09-12
 entry-type: new-feature
 entry-category: replication
-connection-id: mongo
+connection-id: mongodb
 connection-version: "11-01-2016"
 ---
 

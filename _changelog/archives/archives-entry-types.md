@@ -1,7 +1,9 @@
 ---
 title: Stitch Changelog Archives by Entry Type
 permalink: /changelog/archives/entry-types
-layout: page
+summary: "Stitch changelog archives by entry type."
+
+key: "changelog-archive-entry-types"
 
 content-type: "changelog-archive"
 archive-type: "types"

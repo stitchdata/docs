@@ -82,11 +82,11 @@ sections:
 
   - title: "MongoDB extraction errors"
     anchor: "mongodb-error-reference"
-    db-type: "mongo"
+    db-type: "mongodb"
     content: |
       {{ page.applicable-integrations-note | flatify }}
 
-      {% assign errors = site.data.errors.extraction.databases.mongo.all | sort_natural:"message" %}
+      {% assign errors = site.data.errors.extraction.databases.mongodb.all | sort_natural:"message" %}
 
       {% include troubleshooting/error-messages.html  top-anchor="mongodb-error-reference" display-name="MongoDB" %}
 

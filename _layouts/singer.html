@@ -8,6 +8,15 @@ layout: page
     {% include notifications/status-support/connection-notices.html %}
 
 
+<!-- CHANGELOG NOTICE -->
+    {% assign all-integration-changelogs = site[integration.collection] | where:"content-type","changelog-entry-list" %}
+        {% assign integration-changelog = all-integration-changelogs | find:"name",integration.name %}
+
+        {% if integration-changelog %}
+            {% include notifications/integration-changelog-notice.html %}
+        {% endif %}
+
+
 <!-- INTEGRATION-SPECIFIC NOTICES -->
 {% if integration.notice %}
     {% capture notice %}

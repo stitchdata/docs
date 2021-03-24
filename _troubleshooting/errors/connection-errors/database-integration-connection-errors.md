@@ -1,7 +1,6 @@
 ---
 title: Database Integration Connection Errors
 keywords: troubleshooting, integration, database integration, trouble, issue, help, error, errors, connection issue, connection
-tags: [database_integrations, troubleshooting_integrations, troubleshooting_errors]
 layout: general
 
 permalink: /troubleshooting/integrations/database-connection-error-reference
@@ -42,7 +41,7 @@ sections:
   - title: "MongoDB connection errors"
     anchor: "mongodb-error-reference"
     content: |
-      {% assign errors = site.data.errors.connection.databases.mongo | sort_natural:"message" %}
+      {% assign errors = site.data.errors.connection.databases.mongodb | sort_natural:"message" %}
 
       {% include troubleshooting/error-messages.html top-anchor="mongodb-error-reference" display-name="MongoDB" %}
 ---

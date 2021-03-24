@@ -4,8 +4,9 @@ title: "New integration: "
 date: 2018-10-07
 entry-type: new-feature
 entry-category: integration
-connection-id: 
-connection-version: 1
+connection-id: ""
+connection-version: "1"
+# pull-request: "" UNCOMMENT IF THERE'S A PR
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
