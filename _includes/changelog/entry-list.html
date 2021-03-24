@@ -114,7 +114,7 @@
 					<p></p>
 					<p>
 						<a href="{{ entry.pull-request }}">
-							{{ entry.pull-request | remove: "https://github.com/singer-io/" | replace: "/pull/", " #" | upcase }}
+							{{ entry.pull-request | remove: "https://github.com/singer-io/" | remove: "https://github.com/stitchdata/" | replace: "/pull/", " #" | upcase }}
 						</a>
 					</p>
 				{% endif %}
