@@ -108,6 +108,16 @@
 				<strong class="changelog-entry-type">
 					{{ entry-type.display_name | upcase }}
 				</strong>
+
+			<!-- If the entry has a pull request value, display it -->
+				{% if entry.pull-request %}
+					<p></p>
+					<p>
+						<a href="{{ entry.pull-request }}">
+							{{ entry.pull-request | remove: "https://github.com/singer-io/" | replace: "/pull/", " #" | upcase }}
+						</a>
+					</p>
+				{% endif %}
 			</div>
 
 			<dl class="changelog-entry-details">
