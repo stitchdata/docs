@@ -4,8 +4,9 @@ content-type: "changelog-entry"
 date: 2021-03-09
 entry-type: improvement
 entry-category: "integration"
-connection-id: "google-analytics-adwords"
-connection-version: "05-12-2017"
+connection-id: "google-ads"
+connection-version: "1"
+pull-request: "https://github.com/singer-io/tap-adwords/pull/77"
 ---
 
 {{ site.data.changelog.metadata.single-integration | flatify }}
