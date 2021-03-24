@@ -10,7 +10,7 @@ layout: default
 
 <div class="post-content">
 {% capture intro-rss %}
-Product and documentation updates from the team at Stitch.
+Product and documentation updates {% if page.connection-type %}about the {{ page.display_name }} {{ page.connection-type }} {% endif %}from the team at Stitch.
 
 Stay up-to-date by subscribing to our [RSS feed]({{ site.data.urls.changelog.rss-feed | prepend: site.baseurl }}).
 {% endcapture %}

@@ -10,4 +10,5 @@ content-type: "changelog-entry-list"
 connection-type: "integration"
 
 name: "facebook-ads"
+display_name: "Facebook Ads"
 ---

@@ -10,4 +10,5 @@ content-type: "changelog-entry-list"
 connection-type: "integration"
 
 name: "google-analytics"
+display_name: "Google Analytics"
 ---

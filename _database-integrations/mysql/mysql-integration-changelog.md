@@ -10,4 +10,5 @@ content-type: "changelog-entry-list"
 connection-type: "integration"
 
 name: "mysql"
+display_name: "MySQL"
 ---
