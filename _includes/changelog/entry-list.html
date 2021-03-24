@@ -37,7 +37,7 @@
 	then it's a variant.
 
 	In this case, we get the data for the backing connection and display a notice. -->
-	{% if database-type != page.name %}
+	{% if page[database-type] != page.name %}
 		{% assign all-flavors = site[page.collection] | where:database-type,page[database-type] %}
 			{% assign original-db-flavor = all-flavors | find_exp:"connection","connection[database-type] == connection.name" %}
 
