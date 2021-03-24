@@ -1,12 +1,12 @@
-
 ---
-title: Zuora (v1) improvement: Updated discovery process for new enforced limit on AQuA jobs
+title: "Zuora (v1) improvement: Updated discovery process for new enforced limit on AQuA jobs"
 content-type: "changelog-entry"
 date: 2021-03-11
-entry-type: improvement, updated-feature
+entry-type: updated-feature
 entry-category: "integration"
 connection-id: "zuora"
 connection-version: "1"
+pull-request: "https://github.com/singer-io/tap-zuora/pull/53"
 ---
 
 {{ site.data.changelog.metadata.single-integration | flatify }}
