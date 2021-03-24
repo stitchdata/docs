@@ -7,7 +7,7 @@ archive-entry: |
 
 archive-button: |
   <a href="{{ item-link }}">
-    <button type="button" class="btn btn-primary btn-sm">{{ item-display-text }}</button>
+    <button type="button" class="btn btn-primary btn-sm">{{ item-display-text | upcase }}</button>
   </a>
 
 single-integration: |
