@@ -11,4 +11,4 @@ pull-request: "https://github.com/singer-io/tap-adwords/pull/77"
 
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-Logic was updated for {{ this-connection.display_name }} to be able to handle common error with custom messages.
+Logic was updated for {{ this-connection.display_name }} to be able to handle common errors. There are now custom messages on these errors to give more specific information about the error.
