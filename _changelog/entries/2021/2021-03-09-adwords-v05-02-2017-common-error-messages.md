@@ -1,5 +1,5 @@
 ---
-title: "Google Analytics (AdWords) improvement: New custom messages for common errors"
+title: "Google Ads (v1) improvement: New custom messages for common errors"
 content-type: "changelog-entry"
 date: 2021-03-09
 entry-type: improvement
