@@ -6,6 +6,7 @@ entry-type: deprecation
 entry-category: "integration"
 connection-id: ""
 connection-version: ""
+# pull-request: "" UNCOMMENT IF THERE'S A PR
 ---
 
 {{ site.data.changelog.metadata.single-integration | flatify }}

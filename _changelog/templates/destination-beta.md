@@ -1,5 +1,5 @@
 ---
-title: New destination in open beta
+title: "New destination in open beta"
 # content-type: "changelog-entry"
 date: 2020-08-03
 entry-type: "beta"

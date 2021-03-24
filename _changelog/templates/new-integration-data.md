@@ -1,11 +1,12 @@
 ---
-title: "[INTEGRATION] (vVERSION) update: New tables/fields! "
+title: "[INTEGRATION] (vVERSION) update: New tables/fields!"
 #content-type: "changelog-entry"
 date: 2018-10-07
 entry-type: updated-feature
 entry-category: integration
 connection-id: 
 connection-version: 
+# pull-request: "" UNCOMMENT IF THERE'S A PR
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
