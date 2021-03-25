@@ -4,6 +4,7 @@ content-type: "changelog-entry"
 date: 2021-03-25
 entry-type: new-feature
 entry-category: "account, documentation"
+pull-request: "https://github.com/stitchdata/docs/pull/622"
 ---
 We've expanded our list of supported Identity Providers to include Microsoft Azure Active Directory (Azure AD)!
 
