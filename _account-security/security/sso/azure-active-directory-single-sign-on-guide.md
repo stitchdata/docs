@@ -73,9 +73,7 @@ requirements:
       **SSO Admin privileges in Stitch.** {{ sso-admin }}
 
   - item: |
-      **[TODO] privileges in {{ page.display-name }} that allow you to add and configure applications.** If you don't have these privileges, **contact an {{ page.display-name }} admin before continuing**.
-
-      Refer to [{{ page.display-name }}'s documentation](TODO){:target="new"} for more info.
+      **Privileges in {{ page.display-name }} that allow you to add, configure, and register applications.** If you don't have these privileges, **contact an {{ page.display-name }} admin before continuing**.
 
 
 # -------------------------- #
@@ -152,20 +150,13 @@ steps:
             anchor: "define-user-attributes-claims"
             parameters:
               - saml-name: "given_name"
-                value: "user.firstName"
+                value: "user.givenname"
               - saml-name: "family_name"
-                value: "user.lastName"
+                value: "user.surname"
               - saml-name: "email"
-                value: "user.email"
+                value: "user.mail"
             content: |
-              Next, you'll define the user attributes for the app.
-
-              1. On the app's **Set up Single Sign-On with SAML** page, click **User Attributes & Claims > Edit**.
-              2. 
-
-              TODO: The defaults for this part seem to match with what I'm seeing in other test apps in our account, meaning the user may not need to change anything?
-
-              Next, you'll add the required attributes for the app:
+              Next, you'll define the user attributes for the app:
 
               <table>
                 <tr>
@@ -179,7 +170,7 @@ steps:
                     <strong>Value</strong>
                   </td>
                 </tr>
-                {% for parameter in substep.parameters %}
+                {% for parameter in sub-substep.parameters %}
                   <tr>
                     <td>
                       {{ forloop.index }}
@@ -194,12 +185,28 @@ steps:
                 {% endfor %}
               </table>
 
-              To add the attributes:
+              By default, {{ page.display-name }} applications are created with user attributes. To make {{ page.display-name }} work with Stitch, you'll need to modify the default attributes so they map to the correct attributes in Stitch. **Note**: If preferred, you can delete the default attributes and re-create them, as long as the claim names and values match the table above.
+
+              To modify the default attributes:
+
+              1. On the app's **Set up Single Sign-On with SAML** page, click **User Attributes & Claims > Edit**. This opens the **User Attributes & Claims** page.
+              2. For each of the attributes in the table above, perform the following:
+                 1. In the **Additional claims** section, click a claim. For example: `user.mail`
+                 2. On the **Manage claim** page, edit the **Name** field to match the corresponding **SAML Attribute Name** value in the table above. For example: For `user.mail`, the **Name** value should be `email`:
+
+                    ![The Manage Claim page in Azure for the user.mail user attribute]({{ site.baseurl }}/images/account-security/sso/azure-ad-manage-claim.png)
+                 3. When finished, click **Save**.
+
+              When all the user attributes have been modified, the **Addtional claims** section should look like the following:
+
+              ![The completed Additional claims section in Azure]({{ site.baseurl }}/images/account-security/sso/azure-ad-additional-claims.png)
 
           - title: "Download the app's federation metadata XML file"
             anchor: "download-app-saml-metadata-file"
             content: |
               The last step to configuing the app's SAML is to download its SAML metadata file, or the Federation Metdata XML file. This is required to connect your {{ page.display-name }} app with Stitch and enable SSO.
+
+              **Note**: Downloading this file before completing the previous steps will result in errors in Stitch.
 
               1. In the **Set up Single Sign-On with SAML** page, scroll to the **SAML Signing Certificate** section.
               2. Next to the **Federation Metdata XML** field, click the **Download** link.
