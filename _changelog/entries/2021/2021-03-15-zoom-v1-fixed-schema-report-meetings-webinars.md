@@ -1,5 +1,5 @@
 ---
-title: "Zoom (v1) update: Updated data for `report_meetings` and `report_webinars` tables"
+title: "Zoom (v1) update: Updated data for report_meetings and report_webinars tables"
 content-type: "changelog-entry"
 date: 2021-03-15
 entry-type: updated-feature
