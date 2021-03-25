@@ -100,7 +100,7 @@ steps:
           Leave this page open - you'll need it to complete the setup.
 
       - title: "Create the app in {{ page.display-name }}"
-        anchor: "create-app-in-onelogin"
+        anchor: "create-app"
         content: |
           1. Sign into your {{ page.display-name }} account as a user with privileges that allow you to add and configure apps.
           2. Click **Applications > Applications**.
