@@ -11,4 +11,4 @@ pull-request: "https://github.com/singer-io/tap-pendo/pull/28"
 
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've implemented [ijson](https://github.com/ICRAR/ijson), which is used in other Singer taps, to streamline replication for {{ this-connection.display_name }}'s `visitors` and `events` tables. This improvement reduces the amount of memory needed to replicate large amounts of data, potentially leading to improved Extraction times.
+We've implemented [ijson](https://github.com/ICRAR/ijson){:target="new"}, which is used in other Singer taps, to streamline replication for {{ this-connection.display_name }}'s `visitors` and `events` tables. This improvement reduces the amount of memory needed to replicate large amounts of data, potentially leading to improved Extraction times.
