@@ -1,5 +1,5 @@
 ---
-title: "Pendo (v1) improvement: Improve performance for `visitors` and `events` tables"
+title: "Pendo (v1) improvement: Improve performance for visitors and events tables"
 content-type: "changelog-entry"
 date: 2021-03-12
 entry-type: improvement
