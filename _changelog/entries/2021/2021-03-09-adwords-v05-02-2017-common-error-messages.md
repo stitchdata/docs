@@ -11,4 +11,4 @@ pull-request: "https://github.com/singer-io/tap-adwords/pull/77"
 
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-Logic was updated for {{ this-connection.display_name }} to be able to handle common errors. There are now custom messages on these errors to give more specific information about the error.
+We've updated the {{ this-connection.display_name }} integration to return actionable messages when Stitch encounters errors during Extraction. These messages now include the cause of the error, ensuring you can take action to resolve it.
