@@ -12,10 +12,10 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Google Cloudsql for SQL Server
+title: "Google CloudSQL SQL Server (v1)"
 keywords: google-cloudsql-microsoft-sql-server, database integration, etl google-cloudsql-microsoft-sql-server, google-cloudsql-microsoft-sql-server etl
 permalink: /integrations/databases/google-cloudsql-microsoft-sql-server
-summary: "Connect and replicate data from your Google Cloud SQL Server database using Stitch's Microsoft SQL Server integration."
+summary: "Connect and replicate data from your Google CloudSQL SQL Server database using Stitch's Microsoft SQL Server integration."
 
 show-in-menus: true
 key: "google-cloudsql-microsoft-sql-server-integration"
@@ -25,11 +25,11 @@ key: "google-cloudsql-microsoft-sql-server-integration"
 # -------------------------- #
 
 name: "google-cloudsql-microsoft-sql-server"
-display_name: "Google Cloud SQL Server"
+display_name: "Google CloudSQL SQL Server"
 setup-name: "mssql"
 
 singer: true
-tap-name: "Google Cloud SQL Server"
+tap-name: "Microsoft SQL Server"
 repo-url: "https://github.com/singer-io/tap-mssql"
 
 this-version: "1"
