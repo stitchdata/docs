@@ -1,7 +1,7 @@
 ---
 title: "New feature: Support for SSO with Azure Active Directory (Azure AD)"
 content-type: "changelog-entry"
-date: 2021-03-25
+date: 2021-03-31
 entry-type: new-feature
 entry-category: "account, documentation"
 pull-request: "https://github.com/stitchdata/docs/pull/622"
