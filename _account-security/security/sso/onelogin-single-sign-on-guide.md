@@ -188,11 +188,18 @@ steps:
       - title: "Download the app's SAML metadata file"
         anchor: "download-app-saml-metadata-file"
         content: |
-          The last step is to download your app's SAML metadata file. This is required to connect your {{ page.display-name }} app with Stitch and enable SSO.
+          Next, you'll download your app's SAML metadata file. This is required to connect your {{ page.display-name }} app with Stitch and enable SSO.
 
           1. Click the **More Actions** menu in the upper right section of the page.
           2. Click **SAML Metadata**.
           3. Download the file somewhere convenient.
+
+      - title: "Grant users access to the app"
+        anchor: "grant-user-app-access"
+        content: |
+          The last step to configuring the app is to grant access to users in your {{ page.display-name }} instance. This ensures that they'll be able to access Stitch via SSO.
+
+          Using the process your organization follows, grant Stitch {{ page.display-name }} app access to the your colleagues.
 
   - title: "Connect to Stitch"
     anchor: "connect-to-stitch"
@@ -211,5 +218,5 @@ steps:
       When finished, click the **Activate SSO** button.
 
 next-steps: |
-  After you've enabled SSO for your Stitch account, remember to grant Stitch access to users in your {{ page.display-name }} instance.
+  After you've enabled SSO for your Stitch account, remember to grant Stitch access to users in your {{ page.display-name }} instance, if you haven't already.
 ---
