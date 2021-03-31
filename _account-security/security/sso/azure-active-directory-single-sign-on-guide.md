@@ -265,5 +265,5 @@ steps:
       When finished, click the **Activate SSO** button.
 
 next-steps: |
-  After you've enabled SSO for your Stitch account, remember to grant Stitch access to users in your {{ page.display-name }} instance.
+  After you've enabled SSO for your Stitch account, remember to grant Stitch access to users in your {{ page.display-name }} instance, if you haven't already.
 ---
