@@ -139,6 +139,8 @@ steps:
 
               4. In the window that displays, fill in the fields as follows:
                  - **Identifier (Entity ID)**: Copy and paste the **Identifier (Entity ID) value from Stitch** into this field and check the **Default** checkbox.
+
+                    **Note**: You can leave or remove the initial default `adapplicationregistry` Entity ID. If you leave it, verify that the **Default** box is checked next to the value from Stitch.
                  - **Reply URL**: Copy and paste the **Reply URL value from Stitch** into this field and check the **Default** checkbox.
 
                  The page should look similar to the following:
@@ -204,7 +206,7 @@ steps:
           - title: "Download the app's federation metadata XML file"
             anchor: "download-app-saml-metadata-file"
             content: |
-              The last step to configuing the app's SAML is to download its SAML metadata file, or the Federation Metdata XML file. This is required to connect your {{ page.display-name }} app with Stitch and enable SSO.
+              The last step to configuring the app's SAML is to download its SAML metadata file, or the Federation Metadata XML file. This is required to connect your {{ page.display-name }} app with Stitch and enable SSO.
 
               **Note**: Downloading this file before completing the previous steps will result in errors in Stitch.
 
@@ -215,8 +217,6 @@ steps:
       - title: "Configure the app's permissions"
         anchor: "configure-app-permissions"
         content: |
-          The last step to complete the app setup is to configure its permissions.
-
           1. Navigate back to your **Azure tenant's Overview page**. This will typically be the first link after **Home** in the breadcrumbs near the top of the page.
           2. In the left sidenav, click **Manage > App registrations**.
           3. In the **All applications** tab, click the app you created in [Step 1.2](#create-app).
@@ -240,6 +240,13 @@ steps:
              When the changes have been saved, you'll be redirected back to the **API permissions** page.
           8. On the **API permissions** page, click **Grant admin consent for [YOUR_APP_NAME]**.
           9. When prompted, click **Yes** to grant consent for the app's permissions.
+
+      - title: "Grant users access to the app"
+        anchor: "grant-user-app-access"
+        content: |
+          The last step to configuring the app is to grant access to users in your {{ page.display-name }} instance. This ensures that they'll be able to access Stitch via SSO.
+
+          Using the process your organization follows, grant Stitch {{ page.display-name }} app access to the your colleagues.
 
   - title: "Connect to Stitch"
     anchor: "connect-to-stitch"
