@@ -77,7 +77,7 @@ log-based-replication-read-replica-doc-link: |
 
 ## Other Replication Methods
 
-key-based-incremental-replication: false
+key-based-incremental-replication: true
 full-table-replication: true
 
 view-replication: true
@@ -116,7 +116,6 @@ feature-summary: |
   
   **Note**: The following features aren't currently supported, but will be before the integration leaves beta:
 
-  - Key-based Incremental Replication
   - `ARRAY` data type
 
   To get a look at how this version compares to the previous version of {{ integration.display_name }}, refer to the [{{ integration.display_name }} version comparison documentation]({{ postgres-overview.url | prepend: site.baseurl | append: "#supported-features" }}).
