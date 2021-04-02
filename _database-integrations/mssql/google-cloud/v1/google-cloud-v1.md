@@ -25,7 +25,7 @@ key: "google-cloudsql-microsoft-sql-server-integration"
 # -------------------------- #
 
 name: "google-cloudsql-microsoft-sql-server"
-display_name: "Google CloudSQL SQL Server"
+display_name: "Microsoft SQL Server"
 setup-name: "mssql"
 
 singer: true
@@ -43,8 +43,8 @@ driver: "7.2.1.jre8"
 #      Feature Summary       #
 # -------------------------- #
 
-#feature-summary: |
-Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.driver | flatify | strip }}. [TODO]
+##feature-summary: |
+##Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.driver | flatify | strip }}. [TODO]
 
 
 # -------------------------- #
