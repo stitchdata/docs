@@ -87,7 +87,7 @@ define-replication-methods: true
 
 log-based-replication-minimum-version: "n/a"
 log-based-replication-master-instance: false
-#log-based-replication-master-instance-reason: "Google CloudSQL doesn't currently support Log-based Incremental Replication for SQL Server instances."
+log-based-replication-master-instance-reason: "Google CloudSQL doesn't currently support Change Tracking for CloudSQL SQL Server."
 log-based-replication-read-replica: false
 
 ## Other Replication Methods
