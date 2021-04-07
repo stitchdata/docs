@@ -100,6 +100,7 @@ sections:
 
               The specific permissions Stitch requires are different for each destination. Refer to the documentation [for your destination]({{ link.destinations.main | prepend: site.baseurl }}) for more info.
 
+## NOTE: Data in the table in this section lives here: _data/stitch/compliance.yml
   - title: "Compliance"
     anchor: "stitch-compliance"
     content: |
