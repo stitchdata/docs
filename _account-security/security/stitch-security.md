@@ -189,48 +189,60 @@ sections:
 
       - title: "Data retention"
         anchor: "data-retention"
+        pipeline:
+          - step-name: "The Pipeline"
+            maximum-retention-period: "7 days"
+            description: |
+              Stitch uses Apache Kafka and Amazon S3 systems spanning multiple data centers to durably buffer the data received by the Import API. Data is always encrypted at rest, and automatically deleted from the buffer before the maximum retention period for this step.
+
+          - step-name: "The Streamery"
+            maximum-retention-period: "30 days"
+            description: |
+              The Streamery reads data from the Pipeline and separates, batches, and prepares it for loading. Prepared data is encrypted, separated by tenant (Stitch account) and data set, and written to Amazon S3 to be loaded.
+
+                Most data is loaded within minutes, but if a destination is unavailable, it can stay in S3 for up to 30 days before being automatically deleted.
         content: |
-          To ensure we meet our most important service-level target - don't lose data - replicated data may be retained in Stitch's system for a short period of time. Stitch automatically deletes data when it is no longer needed for replication.
+          To ensure we meet our most important service-level target - don't lose data - replicated data may be retained in Stitch's system for a short period of time. Stitch automatically deletes data when it is no longer needed for replication. 
 
           During the [**Preparing** phase of the replication process]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#system-architecture--preparing" }}), Stitch buffers extracted data in its internal data pipeline and readies it for loading. This phase consists of the following steps:
 
+          {% assign attributes = "step-name|maximum-retention-period|description" | split: "|" %}
+
           <table>
             <tr>
-              <td align="right" width="20%; fixed">
-                <strong>Step</strong>
-              </td>
-              <td width="25%; fixed">
-                <strong>Maximum retention period</strong>
-              </td>
-              <td>
-                <strong>Step description</strong>
-              </td>
+              {% for attribute in attributes %}
+                {% if forloop.index == 1 %}
+                  <td align="right" width="20%; fixed">
+                {% elsif forloop.index == 2 %}
+                  <td width="25%; fixed">
+                {% else %}
+                  <td>
+                {% endif %}
+                  <strong>
+                    {{ attribute | replace:"-"," " | capitalize }}
+                  </strong>
+                </td>
+              {% endfor %}
             </tr>
-            <tr>
-              <td align="right">
-                <strong>The Pipeline</strong>
-              </td>
-              <td>
-                7 days
-              </td>
-              <td>
-                Stitch uses Apache Kafka and Amazon S3 systems spanning multiple data centers to durably buffer the data received by the Import API. Data is always encrypted at rest, and automatically deleted from the buffer before the maximum retention period for this step.
-              </td>
-            </tr>
-            <tr>
-              <td align="right">
-                <strong>The Streamery</strong>
-              </td>
-              <td>
-                30 days
-              </td>
-              <td>
-               The Streamery reads data from the Pipeline and separates, batches, and prepares it for loading. Prepared data is encrypted, separated by tenant (Stitch account) and data set, and written to Amazon S3 to be loaded.<br><br>
-
-                Most data is loaded within minutes, but if a destination is unavailable, it can stay in S3 for up to 30 days before being automatically deleted.
-              </td>
-            </tr>
+            {% for step in subsection.pipeline %}
+              <tr>
+              {% for attribute in attributes %}
+                {% if forloop.first == true %}
+                  <td align="right">
+                    <strong>
+                      {{ step[attribute] | markdownify }}
+                    </strong>
+                {% else %}
+                  <td>
+                    {{ step[attribute] | markdownify }}
+                {% endif %}
+                </td>
+              {% endfor %}
+              </tr>
+            {% endfor %}
           </table>
+
+          To summarize, all data that Stitch processes for customers will be deleted from our systems within 30 days.
 
   - title: "Protocols and recommendations"
     anchor: "stitch-protocols-recommendations"
