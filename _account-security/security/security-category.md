@@ -81,21 +81,36 @@ sections:
   - title: "Access control"
     anchor: "access-control-category"
     type: ""
-    additional-guides:
-      - title: "Configuring SSH tunnels"
-        url: "{{ page.url }}#data-encryption--ssh"
-
-      - title: "Advanced connectivity"
-        url: "{{ link.security.encryption }}#advanced-connectivity"
-
-      - title: "IP whitelisting"
-        url: "{{ link.security.ip-addresses }}"
     content: |
-      Learn about the options Stitch provides for securing access to your integrations and destinations with these guides.
+      Learn about the options Stitch provides for securing access to your account, integrations, and destinations with these guides.
 
-      {% assign guides = section.additional-guides  %}
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
+    subsections:
+      - title: "Stitch account access"
+        anchor: "access-control--account"
+        type: "single-sign-on"
+        content: |
+          {% assign guides = this-collection | where_exp:"guide","guide.key contains subsection.type" | sort:"title" %}
 
-      {% include layout/category-section-tiles.html %}
+          {% include layout/category-section-tiles.html %}
+
+      - title: "Integration and destination access control"
+        anchor: "access-control--connections"
+        additional-guides:
+          - title: "Configuring SSH tunnels"
+            url: "{{ page.url }}#data-encryption--ssh"
+
+          - title: "Advanced connectivity"
+            url: "{{ link.security.encryption }}#advanced-connectivity"
+
+          - title: "IP whitelisting"
+            url: "{{ link.security.ip-addresses }}"
+        content: |
+          {% assign guides = subsection.additional-guides  %}
+
+          {% include layout/category-section-tiles.html %}
 
   - title: "Data encryption"
     anchor: "data-encryption-category"
