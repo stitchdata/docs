@@ -1,7 +1,6 @@
 ---
 title: Querying Append-Only Tables
 permalink: /data-structure/querying-append-only-tables
-tags: [destinations, bigquery_destination]
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery, append-only, append only, query append only
 summary: "In this article, we'll cover how append-only replication works and how to account for it in your queries."
 weight: 4.0
@@ -13,13 +12,13 @@ destination: "BigQuery"
 ---
 {% include misc/data-files.html %}
 
-{% capture note %}The querying strategy outline here can be applied to any table that is loaded in an <a href="#" data-toggle="tooltip" data-original-title="{{site.data.tooltips.append-only-rep}}">Append-Only</a> manner. This is applicable to **BigQuery** and **Amazon S3 (CSV) destinations**. {% endcapture %}
+{% capture note %}The querying strategy outline here can be applied to any table that is loaded in an <a href="#" data-toggle="tooltip" data-original-title="{{site.data.tooltips.append-only-rep}}">Append-Only</a> manner. This is applicable to **BigQuery (v1)**, **BigQuery (v2) with Append-Only, and **Amazon S3 (CSV) destinations**. {% endcapture %}
 
 {% include note.html type="single-line" content=note %}
 
 {{ site.data.tooltips.append-only-rep }}
 
-For tables using Incremental Replication, Stitch currently loads data into Google BigQuery in an append-only fashion. This means that as time goes on, tables will wind up containing many different versions of the same row.
+When data is loaded using Append-Only Loading, all newly replicated records - even updates to previously replicated records - are appended as new rows to the end of a table. This means that as time goes on, tables will wind up containing many different versions of the same row.
 
 Data stored this way can provide insights and historical details about how those rows have changed over time - creating a timeline of the status changes of an order record, for example - but in some cases, you might just want the latest version of the table.
 
@@ -61,7 +60,7 @@ This approach uses a subquery to get a single list of every row's Primary Key, m
 
 To make this easier, you can turn queries like the one above into a view. We recommend this approach because a view will encapsulate all the logic and simplify the process of querying against the latest version of your data.
 
-For more info on creating views in the data warehouses Stitch supports, check out these docs:
+For more info on creating views in the destinations Stitch supports, check out these docs:
 
 - [Creating views in Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_VIEW.html){:target="new"}
 - [Creating views in Google BigQuery](https://cloud.google.com/bigquery/querying-data#views){:target="new"}

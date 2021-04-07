@@ -298,7 +298,8 @@ steps:
  
       The response will be a [Source object]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.object }}) containing the source's ID, [report card]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.report-cards.source.section }}), and current configuration status (`report_card.current_step_type`):
 
-      {% capture code %}
+      {% capture 
+        notecode %}
       {
         "properties": {
           "frequency_in_minutes": "60",

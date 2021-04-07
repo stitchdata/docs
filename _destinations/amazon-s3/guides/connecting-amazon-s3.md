@@ -79,7 +79,6 @@ steps:
       8. When you reach the **Review** screen, verify that all the bucket's information and settings are correct.
       9. When ready, click **Create bucket**.
 
-
   - title: "Define the bucket settings in Stitch"
     anchor: "configure-stitch-settings"
     content: |

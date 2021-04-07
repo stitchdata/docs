@@ -27,7 +27,7 @@ enterprise-cta:
 # -------------------------- #
 
 related:
-  - title: "Extend Stitch email notificatons"
+  - title: "Extend Stitch email notifications"
     link: "{{ link.account.customize-notifications | prepend: site.baseurl }}"
 
   - title: "Notifications overview"

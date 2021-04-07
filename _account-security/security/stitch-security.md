@@ -43,8 +43,6 @@ frequently-asked-questions:
       - question: "Is Stitch HIPAA compliant?"
         anchor: "hipaa-compliant"
         answer: |
-          {% include misc/data-files.html %}
-
           Stitch can replicate data in a HIPAA-compliant manner as part of an Enterprise plan.
 
           To learn more replicating data subject to HIPAA compliance with Stitch, refer to the [Operating Stitch in Compliance with HIPAA]({{ link.account.hipaa-compliance | prepend: site.baseurl }}) doc or contact the Stitch Sales team by using the [contact form on the Stitch website]({{ site.sales | append: page.enterprise-utm.url }}).

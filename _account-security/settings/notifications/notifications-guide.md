@@ -76,9 +76,7 @@ sections:
       - title: "In-app notification resolution"
         anchor: "in-app-notification-resolution"
         content: |
-          Notifications in the **Notifications** tab will continue to display until the issue that triggered the notification is resolved.
-
-          **Note**: At this time, manually clearing notifications is not supported.
+          Notifications in the **Notifications** tab will continue to display until the issue that triggered the notification is resolved or dismissed.
 
   - title: "Email notifications"
     anchor: "email-notifications"
