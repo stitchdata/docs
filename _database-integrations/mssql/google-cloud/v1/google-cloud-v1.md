@@ -25,8 +25,8 @@ key: "google-cloudsql-microsoft-sql-server-integration"
 # -------------------------- #
 
 name: "google-cloudsql-microsoft-sql-server"
-display_name: "Microsoft SQL Server"
-setup-name: "mssql"
+display_name: "CloudSQL SQL Server"
+setup-name: "Microsoft SQL Server"
 
 singer: true
 tap-name: "Microsoft SQL Server"
