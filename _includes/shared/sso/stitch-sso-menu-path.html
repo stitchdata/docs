@@ -1,19 +1,21 @@
 1. Click {{ app.menu-paths.account-settings }}.
 1. Scroll down to the **Single Sign-on** section and click **Enable SSO**.
-
 {% if include.type == "initial-setup" %}
-{% case page.key %}
-{% when 'single-sign-on' %}
-{% assign sso-provider = "your IdP" %}
-{% assign configure-page-name = "configuration page for your IdP" %}
+	{% case page.key %}
+	{% when 'single-sign-on' %}
+		{% assign sso-provider = "your IdP" %}
+		{% assign configure-page-name = "configuration page for your IdP" %}
 
-{% else %}
-{% assign sso-provider = "**" | append: page.display-name | append: "**" %}
-{% assign configure-page-name = "**Configure Your " | append: page.display-name | append: " SSO** page" %}
+	{% else %}
+		{% if page.setup-name %}
+			{% assign sso-name = page.setup-name %}
+		{% else %}
+			{% assign sso-name = page.display-name %}
+		{% endif %}
+
+		{% assign sso-provider = "**" | append: sso-name | append: "**" %}
+		{% assign configure-page-name = "**Configure Your " | append: sso-name | append: " SSO** page" %}
 {% endcase %}
-
 1. Select {{ sso-provider }} from the **SSO Provider** menu.
 1. Click **Continue**.
-{% endif %}
-1. The {{ configure-page-name }} will display.
-
+{% endif %}1. The {{ configure-page-name }} will display.
