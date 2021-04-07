@@ -142,7 +142,15 @@ all-docs:
         url: "{{ link.security.faq }}#stitch-access"
 
       - title: "Access control"
-        url: "{{ link.security.faq }}#access-control"
+        subsections:
+          - title: "Stitch account access"
+            url: "{{ link.security.faq }}#account-access"
+
+          - title: "Connectivity"
+            url: "{{ link.security.faq }}#connectivity"
+
+          - title: "Connection permissions"
+            url: "{{ link.security.faq }}#permissions"
 
       - title: "Compliance"
         url: "{{ link.security.faq }}#stitch-compliance"
