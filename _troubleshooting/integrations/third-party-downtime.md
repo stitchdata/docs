@@ -1,7 +1,6 @@
 ---
 title: Third-Party Integration Downtime
 keywords: integration troubleshooting
-tags: [troubleshooting_integrations]
 permalink: /troubleshooting/third-party-integration-downtime
 
 summary: "From time to time, some of the applications and databases we integrate with may experience downtime. During these outages, Stitch may be unable to successfully connect to your data source and replicate your data."

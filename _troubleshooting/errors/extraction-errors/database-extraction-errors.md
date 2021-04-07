@@ -1,7 +1,6 @@
 ---
 title: Database Integration Extraction Error Reference
 keywords: troubleshooting, integration, database integration, extraction error, common errors, 6 hour limit, table limit
-tags: [database_integrations, troubleshooting_integrations, troubleshooting_errors]
 layout: general
 
 permalink: /troubleshooting/integrations/database-extraction-error-reference

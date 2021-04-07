@@ -2,7 +2,6 @@
 title: Account Login, Password Reset, & Lockout Issues
 keywords: troubleshooting, trouble, issue, help, can't login, account lockout, password reset, can't sign in
 permalink: /troubleshooting/account/account-lockout
-tags: [account]
 
 key: "troubleshoot-account-lockout"
 

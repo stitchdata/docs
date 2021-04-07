@@ -1,7 +1,7 @@
 ---
 title: Known Third-Party Issues
 keywords: troubleshooting, integration, trouble, issue, help, bug, defect, bugs, third-party bugs, third party
-permalink: /troubleshooting/known-third-party-issues
+#permalink: /troubleshooting/known-third-party-issues
 datatable: true
 
 summary: "Occasionally, some integrations used by Stitch may encounter bugs or other issues. Whenever we’ve identified a third-party issue - meaning on the integration provider’s end - we’ll post an update here."
