@@ -68,6 +68,19 @@ sections:
       {% endfor %}
       
     subsections:
+      - title: "Stitch account access"
+        anchor: "account-access"
+        content: |
+          Stitch supports Single Sign-On (SSO), which allows you to securely grant members of your team access to Stitch by internally managing their credentials. Stitch currently supports the following Identity Providers (IdP):
+
+          {% assign supported-identity-providers = site.account-security | where:"idp",true | sort_natural:"display-name" %}
+
+          {% for idp in supported-identity-providers %}
+          - [{{ idp.display-name }}]({{ idp.url | prepend: site.baseurl }})
+          {% endfor %}
+
+          The SSO feature is available on all Stitch plans.
+
       - title: "Connectivity"
         anchor: "connectivity"
         content: |
