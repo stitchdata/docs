@@ -119,25 +119,6 @@ sections:
 
   - title: "Managing account security"
     anchor: "manage-account-security-category"
-    type: "security"
-    additional-guides:
-      - title: "Compliance"
-        url: "{{ link.security.faq }}#stitch-compliance"
-        weight: 1
-
-      - title: "Data access policies"
-        url: "{{ link.security.faq }}#stitch-access"
-        weight: 1
-
-      - title: "Protocols and recommendations"
-        url: "{{ link.security.faq }}#stitch-protocols-recommendations"
-        weight: 1
-
-      - title: "Reporting issues"
-        url: "{{ link.security.faq }}#security-issues"
-        weight: 6
     content: |
-      {% assign guides = this-collection | where_exp:"guide","guide.type contains section.type" | concat: section.additional-guides | sort:"weight" %}
-
-      {% include layout/category-section-tiles.html %}
+      Refer to the [Security category]({{ link.security.main | prepend: site.baseurl }}) for a list of guides.
 ---
