@@ -133,6 +133,4 @@ sections:
           {% assign guides = this-collection | where_exp:"guide","guide.key contains subsection.type" | sort:"title" %}
 
           {% include layout/category-section-tiles.html %}
-
-
 ---
