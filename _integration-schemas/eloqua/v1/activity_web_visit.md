@@ -1,10 +1,9 @@
 ---
 tap: "eloqua"
 version: "1"
-
-name: "activity_web_visit"
 key: "activity-web-visit"
 
+name: "activity_web_visit"
 doc-link: &doc-link "https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAC/op-api-bulk-2.0-activities-exports-post.html"
 description: |
   The `{{ table.name }}` table contains info about `WebVisit` contact activities.
@@ -41,6 +40,7 @@ attributes:
   - name: "AssetId"
     type: "string"
     description: "The ID of the associated asset."
+    foreign-key-id: "asset-id"
 
   - name: "AssetType"
     type: "string"
