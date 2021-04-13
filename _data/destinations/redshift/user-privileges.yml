@@ -20,7 +20,7 @@ defaults:
 
   reasons:
     create: &create-reason |
-      {{ common.postgresql.create-database-reason | flatify }}
+      {{ site.data.destinations.common.user-privileges.postgresql.create-database-reason | flatify }}
 
     object-ownership: &object-ownership-reason |
       Stitch occasionally needs to run `COMMENT` and `ALTER TABLE` commands to properly insert data.
@@ -30,7 +30,7 @@ defaults:
       If the database user you use to connect to {{ destination.display_name }} creates the schemas and tables, you will not need to grant explicit ownership permissions. If another user creates the schemas and tables prior to Stitch loading data into them, you will need to alter ownership to the Stitch database user. Failure to do so will result in replication issues.
 
     select: &select-reason |
-      {{ common.postgresql.select-systems-tables-reason | flatify }}
+      {{ site.data.destinations.common.user-privileges.postgresql.select-systems-tables-reason | flatify }}
       
 
 # -------------------------- #
@@ -59,13 +59,13 @@ all-permissions:
 # -------------------------- #
 
 create-user: &create-user-sql |
-  {{ common.postgresql.sql-commands.create-user | flatify }}
+  {{ site.data.destinations.common.user-privileges.postgresql.sql-commands.create-user | flatify }}
 
 create-database: &create-database-sql |
-  {{ common.postgresql.sql-commands.create-database | flatify }}
+  {{ site.data.destinations.common.user-privileges.postgresql.sql-commands.create-database | flatify }}
 
 select-systems-tables: &select-systems-tables-sql |
-  {{ common.postgresql.sql-commands.select-systems-tables | flatify }}
+  {{ site.data.destinations.common.user-privileges.postgresql.sql-commands.select-systems-tables | flatify }}
 
 
 # -------------------------- #
@@ -77,12 +77,12 @@ select-systems-tables: &select-systems-tables-sql |
 redshift:
   - copy: "If you haven't already, connect to your {{ page.display_name }} instance using your SQL client."
   - copy: |
-      {{ common.postgresql.setup-steps.create-user | flatify }}
+      {{ site.data.destinations.common.user-privileges.postgresql.setup-steps.create-user | flatify }}
     command: *create-user-sql
   - copy: |
-      {{ common.postgresql.setup-steps.create-database | flatify }}
+      {{ site.data.destinations.common.user-privileges.postgresql.setup-steps.create-database | flatify }}
 
     command: *create-database-sql
   - copy: |
-      {{ common.postgresql.setup-steps.systems-tables | flatify }}
+      {{ site.data.destinations.common.user-privileges.postgresql.setup-steps.systems-tables | flatify }}
     command: *select-systems-tables-sql

@@ -91,7 +91,7 @@ cloudsql-mysql:
   - name: *binlog-format-name
     value: *binlog-format-value
     description: |
-      {{ database.defaults.descriptions.binlog-format | flatify }}
+      {{ site.data.taps.database-setup.server-settings.mysql.defaults.descriptions.binlog-format | flatify }}
 
       **By default**, {{ integration.display_name }} databases use `ROW` for this setting when binary logging is enabled.
     doc-link: "https://cloud.google.com/sql/docs/mysql/replication/tips#bin-log-impact"
@@ -99,7 +99,7 @@ cloudsql-mysql:
   - name: *binlog-row-image-name
     value: *binlog-row-image-value
     description: |
-      {{ database.defaults.descriptions.binlog-row-image | flatify }}
+      {{ site.data.taps.database-setup.server-settings.mysql.defaults.descriptions.binlog-row-image | flatify }}
 
       **By default**, {{ integration.display_name }} databases use `FULL` for this setting when binary logging is enabled. 
     doc-link: "https://cloud.google.com/sql/docs/mysql/flags?hl=en_GB&_ga=2.66402088.-705966469.1464113851#list-flags"
