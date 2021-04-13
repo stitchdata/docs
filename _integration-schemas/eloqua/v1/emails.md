@@ -1,10 +1,9 @@
 ---
 tap: "eloqua"
 version: "1"
+key: "email"
 
 name: "emails"
-key: "emails"
-
 doc-link: &doc-link "https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAC/op-api-rest-1.0-assets-emails-get.html"
 singer-schema: "https://github.com/singer-io/tap-eloqua/blob/master/tap_eloqua/schemas/emails.json"
 description: |
@@ -54,6 +53,7 @@ attributes:
   - name: "createdBy"
     type: "string"
     description: "The ID of the user who created the email."
+    foreign-key-id: "user-id"
 
   - name: "currentStatus"
     type: "string"
@@ -79,6 +79,7 @@ attributes:
       - name: "createdBy"
         type: "string"
         description: "The ID of the user who created the dynamic content."
+        foreign-key-id: "user-id"
 
       - name: "currentStatus"
         type: "string"
@@ -99,6 +100,7 @@ attributes:
       - name: "folderId"
         type: "string"
         description: ""
+        foreign-key-id: "folder-id"
 
       - name: "id"
         type: "string"
@@ -127,10 +129,12 @@ attributes:
       - name: "updatedBy"
         type: "string"
         description: "The ID of the user that last updated the dynamic content."
+        foreign-key-id: "user-id"
 
   - name: "emailFooterId"
     type: "string"
     description: "The ID of the email footer."
+    foreign-key-id: "email-footer-id"
 
   - name: "emailGroupId"
     type: "string"
@@ -139,6 +143,7 @@ attributes:
   - name: "emailHeaderId"
     type: "string"
     description: "The ID of the email header."
+    foreign-key-id: "email-header-id"
 
   - name: "encodingId"
     type: "string"
@@ -171,6 +176,7 @@ attributes:
       - name: "createdBy"
         type: "string"
         description: "The ID of the user who created the field merge."
+        foreign-key-id: "user-id"
 
       - name: "defaultValue"
         type: "string"
@@ -242,6 +248,7 @@ attributes:
       - name: "updatedBy"
         type: "string"
         description: "The ID of the user that last updated the field merge."
+        foreign-key-id: "user-id"
 
   - name: "files"
     type: "array"
@@ -313,7 +320,7 @@ attributes:
 
   - name: "forms"
     type: "array"
-    description: "A list of associated Form assets."
+    description: "A list of associated form assets."
     subattributes:
       - name: "accessedAt"
         type: "date-time"
@@ -326,6 +333,7 @@ attributes:
       - name: "createdBy"
         type: "string"
         description: "The ID of the user who created the form."
+        foreign-key-id: "user-id"
 
       - name: "currentStatus"
         type: "string"
@@ -355,6 +363,7 @@ attributes:
           - name: "createdBy"
             type: "string"
             description: "The ID of the user who created the form element."
+            foreign-key-id: "user-id"
 
           - name: "currentStatus"
             type: "string"
@@ -400,6 +409,7 @@ attributes:
           - name: "updatedBy"
             type: "string"
             description: "The ID of the user that last updated the form element."
+            foreign-key-id: "user-id"
 
       - name: "emailAddressFormField"
         type: "string"
@@ -454,6 +464,7 @@ attributes:
       - name: "updatedBy"
         type: "string"
         description: "The ID of the user that last updated the form."
+        foreign-key-id: "user-id"
 
   - name: "htmlContent"
     type: "object"
@@ -514,6 +525,7 @@ attributes:
       - name: "createdBy"
         type: "string"
         description: "The ID of the user who created the hyperlink."
+        foreign-key-id: "user-id"
 
       - name: "depth"
         type: "string"
@@ -522,6 +534,7 @@ attributes:
       - name: "folderId"
         type: "string"
         description: "The ID of the folder containing the hyperlink asset."
+        foreign-key-id: "folder-id"
 
       - name: "href"
         type: "string"
@@ -562,6 +575,7 @@ attributes:
       - name: "updatedBy"
         type: "string"
         description: "The ID of the user that last updated the hyperlink."
+        foreign-key-id: "user-id"
 
   - name: "images"
     type: "array"
@@ -574,6 +588,7 @@ attributes:
       - name: "createdBy"
         type: "string"
         description: "The ID of the user who created the image."
+        foreign-key-id: "user-id"
 
       - name: "currentStatus"
         type: "string"
@@ -586,6 +601,7 @@ attributes:
       - name: "folderId"
         type: "string"
         description: "The ID of the folder containing the image."
+        foreign-key-id: "folder-id"
 
       - name: "fullImageUrl"
         type: "string"
@@ -626,6 +642,7 @@ attributes:
       - name: "updatedBy"
         type: "string"
         description: "The ID of the user that last updated the image."
+        foreign-key-id: "user-id"
 
   - name: "isContentProtected"
     type: "boolean"
@@ -722,6 +739,7 @@ attributes:
   - name: "updatedBy"
     type: "string"
     description: "The ID of the user that last updated the email."
+    foreign-key-id: "user-id"
 
   - name: "virtualMTAId"
     type: "string"

@@ -1,10 +1,9 @@
 ---
 tap: "eloqua"
 version: "1"
-
-name: "activity_form_submit"
 key: "activity-form-submit"
 
+name: "activity_form_submit"
 doc-link: &doc-link "https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAC/op-api-bulk-2.0-activities-exports-post.html"
 description: |
   The `{{ table.name }}` table contains info about `FormSubmit` contact activities.
@@ -40,6 +39,7 @@ attributes:
   - name: "AssetId"
     type: "string"
     description: "The ID of the associated asset."
+    foreign-key-id: "asset-id"
 
   - name: "AssetName"
     type: "string"
@@ -74,6 +74,7 @@ attributes:
   - name: "VisitorId"
     type: "string"
     description: "The ID of the visitor who performed the activity."
+    foreign-key-id: "visitor-id"
 
   - name: "VisitorExternalId"
     type: "string"

@@ -213,7 +213,7 @@ steps:
         content: |
           The last step to configuring the app is to grant access to users in your {{ page.display-name }} instance. This ensures that they'll be able to access Stitch via SSO.
 
-          Using the process your organization follows, grant Stitch {{ page.display-name }} app access to the your colleagues.
+          Using the process your organization follows, grant Stitch {{ page.display-name }} app access to your colleagues.
 
   - title: "Connect to Stitch"
     anchor: "connect-to-stitch"

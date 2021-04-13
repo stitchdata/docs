@@ -69,6 +69,7 @@ attributes:
   - name: "createdBy"
     type: "string"
     description: "The ID of the user who created the campaign."
+    foreign-key-id: "user-id"
 
   - name: "crmId"
     type: "string"
@@ -121,6 +122,7 @@ attributes:
   - name: "folderId"
     type: "string"
     description: "The ID of the folder containing the campaign."
+    foreign-key-id: "folder-id"
 
   - name: "isEmailMarketingCampaign"
     type: "string"
@@ -169,6 +171,7 @@ attributes:
   - name: "runAsUserId"
     type: "string"
     description: "The ID of the user to activate the campaign."
+    foreign-key-id: "user-id"
 
   - name: "scheduledFor"
     type: "date-time"

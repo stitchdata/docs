@@ -1,10 +1,9 @@
 ---
 tap: "eloqua"
 version: "1"
+key: "visitor"
 
 name: "visitors"
-key: "visitors"
-
 doc-link: &doc-link "https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAC/op-api-rest-2.0-data-visitors-get.html"
 singer-schema: "https://github.com/singer-io/tap-eloqua/blob/master/tap_eloqua/schemas/visitors.json"
 description: |

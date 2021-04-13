@@ -1,10 +1,9 @@
 ---
 tap: "eloqua"
 version: "1"
+key: "account"
 
 name: "accounts"
-key: "accounts"
-
 doc-link: &doc-link "https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAC/op-api-bulk-2.0-accounts-exports-post.html"
 description: |
   The `{{ table.name }}` table contains info about the accounts, or companies, in your {{ integration.display_name }} account.
