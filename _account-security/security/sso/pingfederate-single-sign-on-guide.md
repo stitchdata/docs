@@ -88,6 +88,8 @@ steps:
     anchor: "create-the-sp-connection"
     summary: "Creating and configuring an SP connection in {{ page.display-name }}"
     content: |
+      {% include note.html type="single-line" content="**Note**: This guide was written for PingFederate v10.0.1.5. As a result, the location or names of some pages and fields may be different for you depending on your version." %}
+
       {% for substep in step.substeps %}
       - [Step 1.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
       {% endfor %}
@@ -229,7 +231,7 @@ steps:
 
           1. After clicking **Done**, you'll be redirected back to the **Browser SSO** tab. Click **Next**.
           2. In the **Credentials** tab, click **Configure Credentials**.
-          3. In the **Diginal Signature Settings** tab, select a **Signing Certificate**.
+          3. In the **Digital Signature Settings** tab, select a **Signing Certificate**.
           4. Check these boxes:
              - **Include the certificate in the signature [KEYINFO] element**
              - **Include the raw key in the signature [KEYVALUE] element**
