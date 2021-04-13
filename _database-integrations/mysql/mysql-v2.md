@@ -1,40 +1,53 @@
 ---
-title: MySQL (v1)
+# -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/integration-templates/databases/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+
+# -------------------------- #
+#      Page & Formatting     #
+# -------------------------- #
+
+title: MySQL (HP) (v2)
 keywords: mysql, database integration, etl mysql, mysql etl
-permalink: /integrations/databases/mysql/v1
+permalink: /integrations/databases/mysql/v2
 summary: "Connect and replicate data from your MySQL database using Stitch's MySQL integration."
+
 microsites:
   - title: "{{ page.display_name }} to Redshift"
     url: "http://mysql.toredshift.com/"
   - title: "{{ page.display_name }} to Postgres"
     url: "http://mysql.topostgres.com/"
 
-show-in-menus: true
+
 key: "mysql-integration"
 
 # -------------------------- #
-#         Tap Details        #
+#     Integration Details    #
 # -------------------------- #
 
 name: "mysql"
 display_name: "MySQL"
 
 singer: true
-repo-url: https://github.com/singer-io/tap-mysql
+tap-name: "MySQL"
+repo-url: "Not Applicable"
 
-this-version: "1"
+this-version: "2"
 
 hosting-type: "generic"
 
 driver: |
-  [PyMySQL 0.7.11](https://pymysql.readthedocs.io/en/latest/){:target="new"}
+  [](){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-singer: true
-repo-url: https://github.com/singer-io/tap-mysql
 certified: true
 
 frequency: "1 hour"
@@ -43,7 +56,8 @@ port: 3306
 db-type: "mysql"
 
 ## Stitch features
-api-type: "platform.mysql"
+
+api-type: "platform.hp-mysql"
 versions: "n/a"
 ssh: true
 ssl: true
@@ -79,6 +93,32 @@ full-table-replication: true
 
 view-replication: true
 
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+beta-copy: |
+  {% assign all-mysql = site.database-integrations | where:"key","mysql-integration" %}
+  {% assign mysql-overview = all-mysql | where:"content-type","database-category" | first %}
+  
+  **Note**: This version differs greatly than the previous version. Refer to the [Integration feature summary]({{ integration.url | prepend: site.baseurl | append: "#feature-summary" }}) and [version comparison documentation]({{ mysql-overview.url | prepend: site.baseurl | append: "#supported-features" }}) for more info.
+
+feature-summary: |
+  {% assign all-mysql = site.database-integrations | where:"key","mysql-integration" %}
+  {% assign mysql-overview = all-postgres | where:"content-type","database-category" | first %}
+
+  This version (v{{ integration.this-version }}) of Stitch's {{ integration.display_name }} integration optimizes replication by utilizing Avro schemas to write and validate data, thereby reducing the amount of time spent on data extraction and preparation. Compared to previous versions of the {{ integration.display_name }} integration, this version boasts increased performance and overall reduced replication time.
+
+  Notable improvements and changes in this version also include:
+
+  - **New column (field) naming rules.** Avro has specific rules that dictate how columns can be named. As a result, column names will be canonicalized to adhere to Avro rules and persisted to your destination using the Avro-friendly name. Refer to the [Column name transformations section](#data-replication--column-name-transformations) for more info.
+  - **Improved handling of `JSON`, `JSONB`, and `HSTORE` data types**. In previous versions, these data types were treated as strings. This version will send them to your destination as JSON objects, which may result in [de-nesting]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
+  
+  **Note**: The following features aren't currently supported, but will be before the integration leaves beta:
+
+  - `ARRAY` data type
+
+  To get a look at how this version compares to the previous version of {{ integration.display_name }}, refer to the [{{ integration.display_name }} version comparison documentation]({{ mysql-overview.url | prepend: site.baseurl | append: "#supported-features" }}).
 
 # -------------------------- #
 #      Setup Requirements    #
