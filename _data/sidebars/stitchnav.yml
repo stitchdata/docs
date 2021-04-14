@@ -256,12 +256,12 @@ all-docs:
 
   - title: Extracting data
     sections:
-    - title: Replicate data
+    - title: Selecting data
       subsections:
-        - title: Select data to replicate 
+        - title: Selecting tables and columns 
           url: "{{ link.replication.syncing }}"
 
-        - title: Replicate new and additional columns
+        - title: Replicating new and additional columns
           url: "{{ link.replication.syncing-new-columns }}"
 
         - title: Database views
@@ -270,30 +270,8 @@ all-docs:
         - title: Historical SaaS data
           url: "{{ link.replication.saas-historical }}"
 
-    - title: Replication Keys
-      subsections:
-        - title: Database Replication Keys
-          url: "{{ link.replication.rep-keys }}"
-
-        - title: MongoDB Replication Keys
-          url: "{{ link.replication.mongo-rep-keys }}"
-
-        - title: Reset Replication Keys
-          url: "{{ link.replication.reset-rep-keys }}"
-
-    - title: Replication Methods
-      subsections:
-        - title: Overview
-          url: "{{ link.replication.rep-methods }}"
-
-        - title: "Log-based Incremental"
-          url: "{{ link.replication.log-based-incremental }}"
-
-        - title: "Key-based Incremental"
-          url: "{{ link.replication.key-based-incremental }}"
-
-        - title: Full Table
-          url: "{{ link.replication.full-table }}"
+        - title: Supported data types
+          url: "{{ link.replication.supported-data-types }}"
 
     - title: Replication scheduling
       subsections:
@@ -309,8 +287,30 @@ all-docs:
         - title: "Advanced Scheduling using Cron"
           url: "{{ link.replication.advanced-scheduling }}"
 
-    - title: Supported data types
-      url: "{{ link.replication.supported-data-types }}"
+    - title: Replication Methods
+      subsections:
+        - title: Overview
+          url: "{{ link.replication.rep-methods }}"
+
+        - title: "Log-based Incremental"
+          url: "{{ link.replication.log-based-incremental }}"
+
+        - title: "Key-based Incremental"
+          url: "{{ link.replication.key-based-incremental }}"
+
+        - title: Full Table
+          url: "{{ link.replication.full-table }}"
+
+    - title: Replication Keys
+      subsections:
+        - title: Database Replication Keys
+          url: "{{ link.replication.rep-keys }}"
+
+        - title: MongoDB Replication Keys
+          url: "{{ link.replication.mongo-rep-keys }}"
+
+        - title: Resetting Replication Keys
+          url: "{{ link.replication.reset-rep-keys }}"
 
     - title: Deleted record handling
       subsections:

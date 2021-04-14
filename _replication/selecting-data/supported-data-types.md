@@ -1,5 +1,5 @@
 ---
-title: Data Typing
+title: Understanding Data Typing
 permalink: /replication/data-typing
 redirect_from: /replication/supported-data-types
 keywords: supported datatypes data types datatype
