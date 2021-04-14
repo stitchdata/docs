@@ -29,7 +29,7 @@
     {% assign latest-version = site.data.destinations[page_name]versions.latest-version %}
 
 <!-- Last, pulls all docs that that match the given key  -->
-    {% assign all-versioned-docs = site.destinations | where:"key",[include.item-name]key %}
+    {% assign all-versioned-docs = site.documents | where:"key",[include.item-name]key %}
 
 <!-- Get the doc that is the latest version based on the given key. -->
 	{% assign latest-version-doc = all-versioned-docs | find:"this-version",latest-version %}
