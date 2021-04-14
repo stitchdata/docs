@@ -14,6 +14,7 @@ key: "bigquery-loading-reference"
 layout: general
 content-type: "loading-reference"
 
+connection-type: "destination"
 display_name: "Google BigQuery"
 type: "bigquery"
 this-version: "1"
