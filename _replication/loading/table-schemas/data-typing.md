@@ -1,11 +1,6 @@
----
-# -------------------------- #
-#          PAGE INFO         #
-# -------------------------- #
-
 title: Data Typing in Stitch
 # permalink: /replication/data-typing
-redirect_from: /replication/supported-data-types
+# redirect_from: /replication/supported-data-types
 keywords: 
 sidebar: stitchnav
 layout: general
@@ -16,19 +11,8 @@ content-type: "select-data"
 toc: true
 weight: 4
 
-
-# -------------------------- #
-#           INTRO            #
-# -------------------------- #
-
 intro: |
   todo
-
-
-
-# -------------------------- #
-#          CONTENT           #
-# -------------------------- #
 
 sections:
   - title: "How data types are determined"
