@@ -53,7 +53,7 @@ sections:
           <a href="{{ guide.url | prepend: site.baseurl }}">
             <img src="{{ site.baseurl }}/images/destinations/icons/{{ connection-type }}.svg" alt="{{ guide.display_name }}">
           </a>
-          <strong>{{ guide.display_name }}</strong><br>
+          <strong>{{ guide.display_name }} (v{{ guide.this-version }})</strong><br>
 
           {% if guide.has-versions == true %}
             {% include shared/versioning/version-menu.html connection-type="destination" menu-type="category-page" item-name="guide" %}
