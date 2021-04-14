@@ -4,7 +4,7 @@
 # -------------------------- #
 
 title: Microsoft Azure Synapse Analytics Data Loading Behavior
-permalink: /replication/loading/reference/microsoft-azure-synapse-analytics
+permalink: /replication/loading/destination-guides/microsoft-azure-synapse-analytics
 redirect_from: 
   - /data-structure/microsoft-azure-synapse-analytics-loading-behavior
   - /data-structure/microsoft-azure-data-loading-behavior

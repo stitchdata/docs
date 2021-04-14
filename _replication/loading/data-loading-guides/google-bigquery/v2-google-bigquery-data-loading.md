@@ -4,7 +4,7 @@
 # -------------------------- #
 
 title: Google BigQuery (v2) Data Loading Reference
-permalink: /replication/loading/reference/google-bigquery/v2
+permalink: /replication/loading/destination-guides/google-bigquery/v2
 redirect_from: 
   - /data-structure/bigquery-data-loading-behavior
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery

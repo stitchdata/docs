@@ -4,7 +4,7 @@
 # -------------------------- #
 
 title: Amazon Redshift Data Loading Reference
-permalink: /replication/loading/reference/amazon-redshift/
+permalink: /replication/loading/destination-guides/amazon-redshift/
 redirect_from: 
   - /replication/reference/amazon-redshift/
   - /data-structure/redshift-data-loading-behavior

@@ -4,8 +4,8 @@
 # -------------------------- #
 
 title: Destination Data Loading Reference Guides
-permalink: /replication/loading/reference
-redirect_from:
+permalink: /replication/loading/destination-guides
+redirect_from: 
   - /replication/reference
   - /data-structure/loading-stitch-data-into-destinations
 keywords: loading behavior, loading, how data is loaded, data structure

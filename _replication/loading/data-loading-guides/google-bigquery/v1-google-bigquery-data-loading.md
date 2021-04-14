@@ -4,7 +4,7 @@
 # -------------------------- #
 
 title: Google BigQuery (v1) Data Loading Reference
-permalink: /replication/loading/reference/google-bigquery/v1/
+permalink: /replication/loading/destination-guides/google-bigquery/v1/
 redirect_from: /replication/reference/google-bigquery/v1/
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery
 summary: "Learn how Stitch will load data from your integrations into version 2 of Stitch's Google BigQuery destination."
