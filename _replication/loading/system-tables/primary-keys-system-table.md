@@ -4,10 +4,8 @@
 # -------------------------- #
 
 title: Primary Key System Table Reference (_sdc_primary_keys)
-permalink: /replication/reference/system-tables-columns/primary-keys
-redirect_from:
-  - /replication/loading/primary-keys-system-table
-  - /destinations/microsoft-azure-sql-data-warehouse/primary-key-handling
+permalink: /replication/loading/system-tables-columns/primary-keys-system-table
+redirect_from: /destinations/microsoft-azure-sql-data-warehouse/primary-key-handling
 keywords: microsoft azure, microsoft azure, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure
 summary: "Some of Stitch's destinations don't have native support for Primary Keys. To ensure data can be de-duped during loading, Stitch will create a Primary Keys table for each integration schema."
 

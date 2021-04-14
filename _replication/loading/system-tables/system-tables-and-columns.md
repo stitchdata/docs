@@ -4,7 +4,7 @@
 # -------------------------- #
 
 title: Stitch System Table and Column Reference
-permalink: /replication/reference/system-tables-columns
+permalink: /replication/loading/system-tables-columns
 redirect_from: /data-structure/system-tables-and-columns
 keywords: sdc, _sdc, system columns, system tables
 summary: "When data is loaded into your destination, Stitch will create some additional columns and tables. Learn about these system columns and tables and how Stitch uses them."

@@ -183,9 +183,9 @@ destinations:
     loading-behavior: /replication/loading/understanding-loading-behavior
 
     ## SYSTEM COLUMNS AND TABLES
-    system-tables-and-columns: &system-data /replication/reference/system-tables-columns
-    primary-key-system-table: /replication/reference/system-tables-columns/primary-keys
-    rejected-records: /replication/reference/system-tables-columns/rejected-records
+    system-tables-and-columns: &system-data /replication/loading/system-tables-columns
+    primary-key-system-table: /replication/loading/system-tables-columns/primary-keys-system-table
+    rejected-records: /replication/loading/system-tables-columns/rejected-records-system-table
     sdc-columns: *system-data
 
     ## SCHEMAS AND STRUCTURE

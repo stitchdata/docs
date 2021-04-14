@@ -4,7 +4,7 @@
 # -------------------------- #
 
 title: Rejected Records System Table Reference (_sdc_rejected)
-permalink: /replication/reference/system-tables-columns/rejected-records
+permalink: /replication/loading/system-tables-columns/rejected-records-system-table
 redirect_from: /data-structure/identifying-rejected-records
 keywords: troubleshooting, destination, trouble, issue, help, error, errors
 summary: "From time to time, Stitch may run into problems when attempting to load data into your destination. When data is deemed incompatible by the destination, the record will be rejected and Stitch will log it in a rejected records log."
