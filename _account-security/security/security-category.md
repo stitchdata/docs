@@ -92,7 +92,7 @@ sections:
         anchor: "access-control--account"
         type: "single-sign-on"
         content: |
-          {% assign guides = this-collection | where_exp:"guide","guide.key contains subsection.type" | sort:"title" %}
+          {% assign guides = this-collection | where_exp:"guide","guide.key contains subsection.type" | sort:"weight" %}
 
           {% include layout/category-section-tiles.html %}
 

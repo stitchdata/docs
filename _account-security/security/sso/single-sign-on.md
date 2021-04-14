@@ -13,7 +13,7 @@ feedback: true
 
 key: "single-sign-on"
 type: "security"
-weight: 4
+weight: 1
 
 
 # -------------------------- #
