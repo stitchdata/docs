@@ -127,7 +127,7 @@ object-attributes:
     modifiable: false 
     applies-to: "oracle, postgres, mysql, db2"
     value: |
-      <TODO>
+      id
 
   # Source: https://github.com/singer-io/tap-google-analytics/blob/master/spikes/discover_metrics_and_dimensions.py#L158
   - name: "tap_google_analytics.all_cubes"

@@ -39,12 +39,14 @@ api-type: "platform.salesforce"
 anchor-scheduling: true
 cron-scheduling: true
 
-table-selection: true
-column-selection: true
-define-replication-methods: true
-
 extraction-logs: true
 loading-reports: true
+
+table-selection: true
+column-selection: true
+table-level-reset: true
+define-replication-methods: true
+
 
 # -------------------------- #
 #      Feature Summary       #

@@ -1,7 +1,6 @@
 ---
 title: SaaS Integration Connection Errors
 keywords: troubleshooting, connection issue, connection error, trouble, saas integration
-tags: [troubleshooting_integrations, troubleshooting_errors]
 
 permalink: /troubleshooting/integrations/saas-integration-connection-errors
 redirect_from: /troubleshooting/integrations/integration-connection-errors

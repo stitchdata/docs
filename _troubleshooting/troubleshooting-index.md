@@ -37,9 +37,9 @@ categories:
     url: "{{ site.status }}"
     description: "Whenever the Stitch app encounters an issue, we'll post an update about it on our Status Page. We recommend checking our status first if you encounter problems in the app."
 
-  - title: "Known issues"
-    url: "{{ link.troubleshooting.known-issues | prepend: site.baseurl }}"
-    description: "Occasionally, some integrations used by Stitch may encounter bugs or other issues. Whenever we've identified a third-party issue - meaning on the integration provider's end - we'll post an update here. Additionally, we'll also update any issues that have been resolved."
+  # - title: "Known issues"
+  #   url: "{{ link.troubleshooting.known-issues | prepend: site.baseurl }}"
+  #   description: "Occasionally, some integrations used by Stitch may encounter bugs or other issues. Whenever we've identified a third-party issue - meaning on the integration provider's end - we'll post an update here. Additionally, we'll also update any issues that have been resolved."
 
   - title: "Account and billing"
     url: "{{ site.baseurl }}/troubleshooting/account"

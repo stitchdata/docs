@@ -124,7 +124,7 @@ heroku:
 
       Run the command below, replacing `<database_name>` with the database and `<heroku_database_user>` with the database name and username from the {{ destination.display_name }} database credentials page.
     command: |
-      {{ common.postgresql.sql-commands.create-database | flatify | replace: "stitch_username","heroku_database_user" }}
+      {{ site.data.destinations.common.user-privileges.postgresql.sql-commands.create-database | flatify | replace: "stitch_username","heroku_database_user" }}
 
 
 # -------------------------- #

@@ -3,15 +3,16 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Integrating Stitch Notifications with PagerDuty
+title: Integrating PagerDuty with Stitch Notifications 
 permalink: /account-security/notifications/integrate-notifications-with-pagerduty
 summary: "Integrate Stitch notifications with PagerDuty using Stitch's Custom email notification list feature."
+
+key: "pagerduty-email-notifications"
 
 input: false
 layout: tutorial
 use-tutorial-sidebar: true
 
-key: "pagerduty-email-notifications"
 type: "notifications"
 weight: 5
 
@@ -27,7 +28,7 @@ enterprise-cta:
 # -------------------------- #
 
 related:
-  - title: "Extend Stitch email notificatons"
+  - title: "Extend Stitch email notifications"
     link: "{{ link.account.customize-notifications | prepend: site.baseurl }}"
 
   - title: "Notifications overview"

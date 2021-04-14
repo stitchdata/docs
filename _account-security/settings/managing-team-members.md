@@ -1,14 +1,25 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Managing Team Members
 permalink: /account-security/managing-team-members
 keywords: add user, remove user, delete, invite, invitation, invite team
 summary: "Invite your team members to collaborate in Stitch. When someone leaves your company, learn how to remove them from your account."
 
+key: "manage-team-members"
+
 layout: general
 toc: true
 
-type: "team-members"
+type: "invite-your-team"
 weight: 1
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
 
 intro: |
   In the **Team Members** section of the {{ app.menu-paths.account-settings }}, you can view and manage the team members associated with your Stitch account.
@@ -18,6 +29,11 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
   {% endfor %}
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "Team member basics"

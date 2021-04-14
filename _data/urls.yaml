@@ -42,6 +42,7 @@ getting-started:
 #     Account & Billing      #
 # -------------------------- #
 account:
+  main: /account-security
   account-settings: /account-security/managing-account-settings
   email-password: /account-security/change-your-email-address-and-password
   team-members: /account-security/managing-team-members
@@ -79,18 +80,18 @@ billing:
 security:
   main: /security
 
-  faq: /account-security/security-faq
+  faq: /security/overview
 
-  compliance: /account-security/compliance
+  compliance: /security/overview#stitch-compliance
 
-  ip-addresses: /account-security/stitch-ip-addresses
-  supported-operating-regions: /account-security/supported-data-pipeline-regions
+  ip-addresses: /security/stitch-ip-addresses
+  supported-operating-regions: /security/supported-data-pipeline-regions
 
-  encryption: /account-security/data-encryption
-  reverse-ssh: /account-security/data-encryption/setting-up-reverse-ssh-tunnel
-  ssh-generic: /account-security/data-encryption/setting-up-ssh-tunnel-for-database-connection
-  ssh-amazon: /account-security/data-encryption/setting-up-ssh-tunnel-for-amazon-web-services
-  ssh-microsoft-azure: /account-security/data-encryption/setting-up-ssh-tunnel-for-microsoft-azure
+  encryption: /security/data-encryption
+  reverse-ssh: /security/data-encryption/setting-up-reverse-ssh-tunnel
+  ssh-generic: /security/data-encryption/setting-up-ssh-tunnel-for-database-connection
+  ssh-amazon: /security/data-encryption/setting-up-ssh-tunnel-for-amazon-web-services
+  ssh-microsoft-azure: /security/data-encryption/setting-up-ssh-tunnel-for-microsoft-azure
 
   single-sign-on: /account-security/single-sign-on
   sso-okta: /account-security/single-sign-on/enabling-okta
@@ -163,38 +164,44 @@ destinations:
 # -------------------------- #
 ## used as link.destinations.loading.[id]
   loading:
-    overview: /replication/reference
-    bigquery: /replication/reference/google-bigquery
-    bigquery-v1: /replication/reference/google-bigquery/v1
-    bigquery-v2: /replication/reference/google-bigquery
-    databricks-delta: /replication/reference/databricks-delta
-    panoply: /replication/reference/panoply
-    postgres: /replication/reference/postgresql
-    redshift: /replication/reference/amazon-redshift
-    snowflake: /replication/reference/snowflake
+    overview: /replication/loading/destination-guides
+    bigquery: /replication/loading/destination-guides/google-bigquery
+    bigquery-v1: /replication/loading/destination-guides/google-bigquery/v1
+    bigquery-v2: /replication/loading/destination-guides/google-bigquery
+    databricks-delta: /replication/loading/destination-guides/databricks-delta
+    panoply: /replication/loading/destination-guides/panoply
+    postgres: /replication/loading/destination-guides/postgresql
+    redshift: /replication/loading/destination-guides/amazon-redshift
+    snowflake: /replication/loading/destination-guides/snowflake
 
 # -------------------------- #
 #        Data Storage        #
 # -------------------------- #
 ## used as link.destinations.storage.[id]
   storage:
-    system-tables-and-columns: &system-data /data-structure/system-tables-and-columns
-    stitch-schema: /data-structure/integration-schemas
-    sdc-columns: *system-data
-    loading-data: /data-structure/loading-stitch-data-into-destinations
-    structure-changes: /data-structure/table-structural-changes
-    column-splitting: "/data-structure/table-structural-changes#columns-mixed-data-types"
-    varchar-widening: "/data-structure/table-structural-changes#widening-varchar-columns"
-    nested-structures: /data-structure/nested-data-structures-row-count-impact
-    rejected-records: /data-structure/identifying-rejected-records
-    redshift-encodings: /destinations/amazon-redshift/apply-encodings-sort-dist-keys-redshift
-    bigquery-partitioning: /destinations/google-bigquery/apply-table-partitioning-clustering
-    primary-key-system-table: /replication/loading/primary-keys-system-table
-
+    ## GENERAL
+    loading-data: /replication/loading/reference
     loading-behavior: /replication/loading/understanding-loading-behavior
 
-    bigquery-nested-structures: /replication/loading/google-bigquery-storing-nested-data-structures
+    ## SYSTEM COLUMNS AND TABLES
+    system-tables-and-columns: &system-data /replication/loading/system-tables-columns
+    primary-key-system-table: /replication/loading/system-tables-columns/primary-keys-system-table
+    rejected-records: /replication/loading/system-tables-columns/rejected-records-system-table
+    sdc-columns: *system-data
 
+    ## SCHEMAS AND STRUCTURE
+    stitch-schema: /replication/loading/understanding-destination-schemas
+    structure-changes: /replication/loading/understanding-table-structural-changes
+    column-splitting: "/replication/loading/understanding-table-structural-changes#columns-mixed-data-types"
+    varchar-widening: "/replication/loading/understanding-table-structural-changes#widening-varchar-columns"
+    nested-structures: /replication/loading/understanding-loading-row-usage-for-nested-data-structures
+    bigquery-nested-structures: /replication/loading/google-bigquery-storing-nested-data-structures
+    
+    ## PERFORMANCE ENHANCEMENT
+    redshift-encodings: /destinations/amazon-redshift/apply-encodings-sort-dist-keys-redshift
+    bigquery-partitioning: /destinations/google-bigquery/apply-table-partitioning-clustering
+    
+    ## RESERVED KEYWORDS
     reserved-keywords:
       overview: /replication/loading/reserved-keywords
       redshift-v2: /replication/loading/reserved-keywords#redshift-v2-reserved-keywords
@@ -260,7 +267,7 @@ replication:
   key-based-incremental: /replication/replication-methods/key-based-incremental
   full-table: /replication/replication-methods/full-table
 
-  append-only-querying: /data-structure/querying-append-only-tables
+  append-only-querying: /replication/loading/querying-append-only-tables
   deleted-records: "/replication/deleted-record-handling"
 
 ## Replication Keys
@@ -320,6 +327,16 @@ import-api:
 webhooks:
   post-load: /developers/webhooks/post-load-webhooks
 
+
+# -------------------------- #
+#       Analysis Tools       #
+# -------------------------- #
+## used as link.analysis-tools.[id]
+
+analysis-tools: 
+  main: /analysis-tools/
+
+
 # -------------------------- #
 #       Troubleshooting      #
 # -------------------------- #
@@ -329,6 +346,8 @@ troubleshooting:
 
   known-issues: /troubleshooting/known-third-party-issues
   billing-issues: /troubleshooting/account
+  troubleshoot-account-lockout: /troubleshooting/account/account-lockout
+  troubleshoot-payment-processing-errors: /troubleshooting/account/payment-processing-errors
   third-party-downtime: /troubleshooting/third-party-integration-downtime
   team-member-invites: /troubleshooting/account/adding-users-to-multiple-accounts
 

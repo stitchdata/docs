@@ -44,7 +44,6 @@ intro: |
   3. **Tables using Full Table Replication aren’t good candidates for this process** Due to the nature of [Full Table Replication]({{ link.replication.full-table | prepend: site.baseurl }}), encodings, SORT, and DIST keys in these tables may be overwritten during the replication attempts that follow application.
 
 
-
 # -------------------------- #
 #         Instructions       #
 # -------------------------- #
@@ -88,7 +87,6 @@ steps:
 
       - Apply SORT and DIST keys to the `id` column
       - Apply a `bytedict` encoding to the `rep_name` column
-
 
   - title: "Create a table copy and redefine the schema"
     anchor: "create-table-copy"

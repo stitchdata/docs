@@ -11,7 +11,6 @@ content-type: "changelog-entry-list"
 layout: changelog
 toc: false
 feedback: false
-sidebar: stitchnav
 
 
 # -------------------------- #

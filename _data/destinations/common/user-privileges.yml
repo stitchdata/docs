@@ -17,8 +17,11 @@ postgresql:
 
     `CREATE` permissions on the database are required to successfully load data. When Stitch loads data, it will run a `CREATE SCHEMA IF NOT EXISTS` command, which will create a schema if it doesn't already exist. To run this command, the Stitch user must have the `CREATE ON DATABASE` permission.
 
-    **Note**: The `CREATE ON SCHEMA` permission is not a sufficient alternative for `CREATE ON DATABASE`. [As outlined in {{ page.display_name }}'s documentation]({{ destination-user-setup.defaults.doc-links.create-database | flatify }}){:target="new"}, this permission only allows a user to create objects within a schema, but not the schema itself.
+    **Note**: The `CREATE ON SCHEMA` permission is not a sufficient alternative for `CREATE ON DATABASE`. [As outlined in {{ page.display_name }}'s documentation]({{ site.data.destinations[destination.type]user-privileges.defaults.doc-links.create-database | flatify }}){:target="new"}, this permission only allows a user to create objects within a schema, but not the schema itself.
 
+## NOTE: `privilege` is the item used in the forloop where this displays.
+## Ex: In _data/destinations/postgres/user-privileges.yml > all-permissions,
+## there's a `schema` attribute. So `privilege.schema` refers to that.
   select-systems-tables-reason: |
     Required to select rows from tables in the `{{ privilege.schema }}` schema. Prior to loading data, Stitch will use the data in this schema to verify the existence and structure of integration schemas and tables.
 

@@ -47,10 +47,10 @@ sections:
       {% endfor %}
       </ul>
 
-  - title: "Version history and changelog"
+  - title: "Version history"
     anchor: "version-history-comparison"
     content: |
-      {% include shared/versioning/history-and-changelog.html connection-type="destination" %}
+      {% include shared/versioning/version-history.html %}
 
   - title: "Version comparison"
     anchor: "version-comparison"

@@ -71,7 +71,6 @@ sections:
         content: |
           {% include shared/integrations/projection-column-selection.html type="adding-new-projection-query" %}
 
-
       - title: "Modifying an existing projection query"
         anchor: "modifying-existing-projection-query"
         content: |

@@ -15,7 +15,6 @@ topics: "basics"
 key: "connect-glossary"
 
 layout: general
-sidebar: api
 
 
 # -------------------------- #

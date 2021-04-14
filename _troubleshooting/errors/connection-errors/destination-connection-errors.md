@@ -1,7 +1,6 @@
 ---
 title: Destination Connection Error Reference
 keywords: troubleshooting, destination, destination, trouble, issue, help, error, errors, connection issue, connection
-tags: [troubleshooting_destinations, troubleshooting_integrations, troubleshooting_errors]
 layout: general
 
 permalink: /troubleshooting/destinations/destination-connection-error-reference

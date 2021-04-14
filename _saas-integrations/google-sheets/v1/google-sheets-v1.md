@@ -39,6 +39,7 @@ this-version: "1"
 api: |
   [Google Sheets v4 AP1](https://developers.google.com/sheets/api){:target="new"}
 
+file-system: true
 
 # -------------------------- #
 #       Stitch Details       #

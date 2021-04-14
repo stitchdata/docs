@@ -2,7 +2,6 @@
 title: Missing Mongo Data Due to Fields with Multiple Data Types
 keywords: troubleshooting, integration, database integration, trouble, issue, help, mongo, mongodb, data discrepancy, data types
 permalink: /troubleshooting/missing-mongo-data-multiple-data-types
-tags: [data_discrepancy, database_integrations]
 
 key: "mongo-multiple-data-types"
 

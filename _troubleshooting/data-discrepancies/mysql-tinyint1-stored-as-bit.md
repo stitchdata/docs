@@ -2,7 +2,6 @@
 title: MySQL TINYINT(1)/boolean Columns Stored as BIT
 keywords: troubleshooting, integration, database integration, trouble, issue, help, mysql
 permalink: /troubleshooting/mysql-tinyint1-stored-as-bit
-tags: [data_discrepancy, database_integrations]
 
 summary: "If you've noticed that some MySQL `TINYINT(1)` columns are displaying as `BIT` in Stitch, it's usually due to how the MySQL driver converts this data type."
 type: "discrepancy, database-integration, replication"
