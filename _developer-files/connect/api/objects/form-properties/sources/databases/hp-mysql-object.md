@@ -64,16 +64,6 @@ object-attributes:
       **Optional**: If `ssl_client_auth_enabled: true`, the SSL client authentication cerficiate stitch should use. The `ssl_key` property must also be provided to ensure the connection is successful.
     value: "<CA_CERTIFICATE>"
 
-  - name: "ssl_client_auth_enabled"
-    type: "string"
-    required: false
-    description: |
-      **Optional**: Indicates if SSL client authentication should be used. Accepted values are:
-
-      - `true`
-      - `false`
-    value: "true"
-
   - name: "ssl_key"
     type: "string"
     required: false
@@ -91,49 +81,5 @@ object-attributes:
       - `false'
 
       **Note**: If you don't want to use a custom CA, this property and the `check_hostname` property should both be enabled (`true`).
-    value: "true"
-
-  - name: "server_id"
-    type: "string"
-    required: false
-    description: |
-      Defines the unique ID of the server that Stitch will connect to, if using Log-based (binlog) Replication.
-
-      Server IDs must be unique, as MySQL doesn't allow replication to simultaneously occur across multiple connections using the same server ID. For more info about this setting in Stitch, refer to the [MySQL documentation]({{ site.baseurl }}/integrations/databases/mysql#server-id){:target="new"}.
-    value: "<UNIQUE_SERVER_ID>"
-
-  - name: "ssh"
-    type: "string"
-    required: false
-    description: |
-      If `true`, an SSH tunnel will be used to connect to the database.
-    value: "true" 
-
-  - name: "ssh_host"
-    type: "string"
-    required: false
-    description: |
-      The IP address or hostname of the SSH server. This property is only required if `ssh: true`.
-    value: "<SSH_HOST>"
-
-  - name: "ssh_port"
-    type: "string"
-    required: false
-    description: |
-      The port of the SSH server. This property is only required if `ssh: true`.
-    value: "22"
-
-  - name: "ssh_user"
-    type: "string"
-    required: false
-    description: |
-      The username of the SSH user. This property is only required if `ssh: true`.
-    value: "<SSH_USERNAME>"
-
-  - name: "ssl_client_auth_enabled"
-    type: "string"
-    required: false
-    description: |
-      If `true`, an SSL client will be used to authenticate the connection to the database.
-    value: "true"         
+    value: "true"        
 ---
