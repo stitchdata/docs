@@ -58,6 +58,7 @@ db-type: "mysql"
 ## Stitch features
 
 api-type: "platform.hp-mysql"
+override-api-type: true
 versions: "n/a"
 ssh: true
 ssl: true
@@ -88,7 +89,7 @@ log-based-replication-read-replica: true
 
 ## Other Replication Methods
 
-key-based-incremental-replication: true
+key-based-incremental-replication: false
 full-table-replication: true
 
 view-replication: true
@@ -105,7 +106,7 @@ beta-copy: |
 
 feature-summary: |
   {% assign all-mysql = site.database-integrations | where:"key","mysql-integration" %}
-  {% assign mysql-overview = all-postgres | where:"content-type","database-category" | first %}
+  {% assign mysql-overview = all-mysql | where:"content-type","database-category" | first %}
 
   This version (v{{ integration.this-version }}) of Stitch's {{ integration.display_name }} integration optimizes replication by utilizing Avro schemas to write and validate data, thereby reducing the amount of time spent on data extraction and preparation. Compared to previous versions of the {{ integration.display_name }} integration, this version boasts increased performance and overall reduced replication time.
 

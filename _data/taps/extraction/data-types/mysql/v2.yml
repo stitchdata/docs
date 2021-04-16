@@ -25,15 +25,23 @@ bigint:
   doc-link: &integer "https://dev.mysql.com/doc/refman/8.0/en/integer-types.html"
 
 bit:
-  stitch-type: "bit"
+  stitch-type: "unsupported"
   doc-link: ""
 
+bit(1):
+  stitch-type: "boolean"
+  doc-link: ""
+
+bit>1:
+  stitch-type: "unsupported"
+  doc-link: ""  
+
 binary:
-  stitch-type: "binary"
+  stitch-type: "unsupported"
   doc-link: "" 
 
 blob:
-  stitch-type: "binary"
+  stitch-type: "unsupported"
   doc-link: ""    
 
 char:
@@ -42,7 +50,6 @@ char:
       
 date:
   stitch-type: "date"
-  format: "date-time"
   doc-link: ""
 
 datetime:
@@ -54,7 +61,7 @@ decimal:
   doc-link: ""
 
 double:
-  stitch-type: "float"
+  stitch-type: "double"
   doc-link: ""
 
 enum:
@@ -65,25 +72,51 @@ float:
   stitch-type: "float"  
   doc-link: ""
 
+geometry:
+  stitch-type: "unsupported"
+  doc-link: "" 
+
+geometrycollection:
+  stitch-type: "unsupported"
+  doc-link: ""   
+
 int:
   stitch-type: "integer"
   doc-link: ""  
       
 integer:
-  stitch-type: ""
+  stitch-type: "integer"
   doc-link: ""
 
 json:
-  stitch-type: "json"
+  stitch-type: "string"
   doc-link: ""  
+
+linestring:
+  stitch-type: "unsupported"
+  doc-link: ""
+
+longblob:
+  stitch-type: "unsupported"
+  doc-link: ""
 
 longtext:
   stitch-type: "string"
   doc-link: ""
 
 longvarbinary:
-  stitch-type: "binary"
+  stitch-type: "unsupported"
   doc-link: ""     
+
+longvarchar:
+  stitch-type: "string"
+
+longnvarchar:
+  stitch-type: "unsupported"
+
+mediumblob:
+  stitch-type: "unsupported"
+  doc-link: ""
 
 mediumint:
   stitch-type: "integer"
@@ -91,19 +124,58 @@ mediumint:
 
 mediumtext:
   stitch-type: "string"
-  doc-link: ""  
+  doc-link: ""
+
+multilinestring:
+  stitch-type: "unsupported"
+  doc-link: ""
+
+multipoint:
+  stitch-type: "unsupported"
+  doc-link: ""
+
+multipolygon:
+  stitch-type: "unsupported"
+  doc-link: ""
+
+nchar:
+  stitch-type: "string"
+
+numeric:
+  stitch-type: "decimal"
+
+nvarchar:
+  stitch-type: "string"      
 
 other:
-  stitch-type: "other"
+  stitch-type: "unsupported"
   doc-link: ""  
+
+point:
+  stitch-type: "unsupported"
+  doc-link: ""
+
+polygon:
+  stitch-type: "unsupported"
+  doc-link: ""
+
+real:
+  stitch-type: "double"  
+
+set:
+  stitch-type: "unsupported"
+  doc-link: ""
 
 smallint:
   stitch-type: "integer"
   doc-link: ""
 
+text:
+  stitch-type: "string"
+  doc-link: ""
+
 time:
-  stitch-type: "time"
-  format: "date-time"
+  stitch-type: "unsupported"
   doc-link: ""
 
 timestamp:
@@ -111,9 +183,21 @@ timestamp:
   format: "date-time"
   doc-link: ""
 
-tinyint:
-  stitch-type: "integer"
+tinyblob:
+  stitch-type: "unsupported"
   doc-link: ""
+
+tinyint:
+  stitch-type: "unsupported"
+  doc-link: ""
+
+tinyint(1):
+  stitch-type: "boolean"
+  doc-link: ""
+
+tinyint>1:
+  stitch-type: "integer"
+  doc-link: ""    
 
 varchar:
   stitch-type: "string"
@@ -122,3 +206,7 @@ varchar:
 varbinary:
   stitch-type: "binary"
   doc-link: ""
+
+year:
+  stitch-type: "unsupported"
+  doc-link: ""  
