@@ -6,6 +6,7 @@ entry-type: beta
 entry-category: integration
 connection-id: mysql
 connection-version: 2
+pull-request: "https://github.com/stitchdata/docs/pull/629"
 ---
 
 {{ site.data.changelog.metadata.single-integration | flatify }}
@@ -19,13 +20,11 @@ This version (v{{ this-connection.this-version }}) of Stitch's {{ this-connectio
 
 Notable improvements and changes in this version also include:
 
-- **New column (field) naming rules.** Avro has specific rules that dictate how columns can be named. As a result, column names will be canonicalized to adhere to Avro rules and persisted to your destination using the Avro-friendly name. Refer to the [Column name transformations section](#data-replication--column-name-transformations) in the {{ this-connection.display_name }} docs for more info.
-- **Expanded data type support**. This version supports additional {{ this-connection.display_name }} data types. Refer to the [{{ this-connection.display_name }} data types documentation]({{ postgres-overview.url | prepend: site.baseurl | append: "#data-types" }}) for more info.
-- **Improved handling of `JSON` data types**. In previous versions, these data types were treated as strings. This version will send them to your destination as JSON objects, which may result in [de-nesting]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
+- **New column (field) naming rules.** Avro has specific rules that dictate how columns can be named. As a result, column names will be canonicalized to adhere to Avro rules and persisted to your destination using the Avro-friendly name. Refer to the [Column name transformations section]({{ this-connection.url | prepend: site.baseurl | prepend: site.home | append: "#data-replication--column-name-transformations" }}) in the {{ this-connection.display_name }} docs for more info.
+- **Expanded data type support**. This version supports additional {{ this-connection.display_name }} data types. Refer to the [{{ this-connection.display_name }} data types documentation]({{ mysql-overview.url | prepend: site.baseurl | prepend: site.home | append: "#data-types" }}) for more info.
 
 **Note**: The following features aren't currently supported, but will be before the integration leaves beta:
 
-- Key-based Incremental Replication
-- `ARRAY` data type
+- Custom SSL certificates and certificate authorities
 
-To get a look at how this version compares to the previous version of {{ this-connection.display_name }}, refer to the [{{ this-connection.display_name }} version comparison documentation]({{ mysql-overview.url | prepend: site.baseurl | append: "#supported-features" }}).
+To get a look at how this version compares to the previous version of {{ this-connection.display_name }}, refer to the [{{ this-connection.display_name }} version comparison documentation]({{ mysql-overview.url | prepend: site.baseurl | prepend: site.home | append: "#supported-features" }}).
