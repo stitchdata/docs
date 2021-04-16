@@ -116,7 +116,8 @@ feature-summary: |
   - **Improved handling of `JSON` data types**. In previous versions, these data types were treated as strings. This version will send them to your destination as JSON objects, which may result in [de-nesting]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
   
   **Note**: The following features aren't currently supported, but will be before the integration leaves beta:
-
+  
+  - Custom SSL certificates and certificate authorities
 
   To get a look at how this version compares to the previous version of {{ integration.display_name }}, refer to the [{{ integration.display_name }} version comparison documentation]({{ mysql-overview.url | prepend: site.baseurl | append: "#supported-features" }}).
 
