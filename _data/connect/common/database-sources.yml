@@ -47,7 +47,9 @@ all-databases:
 # -------------------------- #
 
 mysql:
-  - name: "database"
+## TODO: Address this when we start moving over branded MySQL to the API for v2.
+  - name: |
+      {% if form-property.api-type == "platform.hp-mysql" %}dbname{% else %}database{% endif %}
     required: false
     read-only: false
     internal: false
