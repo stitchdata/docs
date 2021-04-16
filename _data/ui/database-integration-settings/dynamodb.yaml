@@ -8,15 +8,11 @@
 ## Depending on the provider of the database, some field names
 ## or values will vary. See the lists below for specifics.
 
-## NOTE: 'defaults' is a variable assigned to this file: 
-## /_data/ui/database-integration-settings/default-fields.yml
-
-
 amazon-dynamodb:
-  - name: "{{ defaults.field-names.integration-name }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.integration-name }}"
     version: "all"
     copy: |
-      {{ defaults.field-copy.integration-name | flatify }}
+      {{ site.data.ui.common.database-connections.field-copy.integration-name | flatify }}
 
     version: "all"  
 

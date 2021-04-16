@@ -2,7 +2,6 @@
 title: AWS & Redshift I/O Connection Errors
 keywords: troubleshooting, destination, trouble, issue, help, error, errors, redshift, panoply, io, i/o
 permalink: /troubleshooting/destinations/aws-io-errors
-tags: [troubleshooting_destinations, troubleshooting_errors]
 
 summary: "While typically transient, I/O errors arise from connection issues between Stitch and your data warehouse. If persistent, these errors may be indicative of a larger issue."
 type: "redshift-destination, error"

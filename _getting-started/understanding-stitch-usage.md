@@ -554,8 +554,6 @@ sections:
         content: |
           For integrations that support Replication Method configuration, we recommend using either [Key-based]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) or [Log-based Incremental Replication]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) whenever possible.
 
-      
-
       - title: "De-select unnecessary data"
         anchor: "deselect-unnecessary-data"
         content: |

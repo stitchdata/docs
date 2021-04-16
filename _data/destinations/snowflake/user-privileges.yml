@@ -79,13 +79,13 @@ snowflake:
     command: *grant-role-sql
 
   - copy: |
-      [Grant warehouse privileges to the Stitch role]({{ destination-user-setup.defaults.doc-links.all-on-warehouse }}){:target="_blank"}, using the name of the warehouse you created for Stitch.
+      [Grant warehouse privileges to the Stitch role]({{ site.data.destinations[destination.type]user-privileges.defaults.doc-links.all-on-warehouse }}){:target="_blank"}, using the name of the warehouse you created for Stitch.
 
       **Note**: This will grant all privileges except `OWNERSHIP`, and only apply to the warehouse you specify.
     command: *grant-warehouse-sql
 
   - copy: |
-      [Grant database privileges to the Stitch role]({{ destination-user-setup.defaults.doc-links.all-on-database }}){:target="_blank"}, using the name of the database you created for Stitch.
+      [Grant database privileges to the Stitch role]({{ site.data.destinations[destination.type]user-privileges.defaults.doc-links.all-on-database }}){:target="_blank"}, using the name of the database you created for Stitch.
 
       **Note**: This will grant all privileges except `OWNERSHIP`, and only apply to the database(s) you specify.
     command: *grant-database-sql

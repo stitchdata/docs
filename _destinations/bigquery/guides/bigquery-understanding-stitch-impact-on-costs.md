@@ -14,7 +14,6 @@ content-type: "destination-general"
 key: "bigquery-pricing"
 type: "bigquery"
 
-
 toc: false
 layout: general
 

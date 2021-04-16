@@ -5,25 +5,22 @@
 ## This file contains the properties required to successfully set up
 ## a Microsoft Azure Synapse Analytics destination in Stitch.
 
-## NOTE: 'defaults' is a variable assigned to this file: 
-## /_data/ui/common/database-connections.yml
-
 
 microsoft-azure:
-  - name: "{{ defaults.field-names.host }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.host }}"
     copy: "Enter the host address (server name) used by the {{ destination.display_name }} instance. This is the **Server name** value you retrieved in [the previous step](#locate-connection-details)."
 
-  - name: "{{ defaults.field-names.port }}"
-    copy: "{{ defaults.field-copy.port | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.port }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.port | flatify }}"
 
-  - name: "{{ defaults.field-names.username }}"
-    copy: "{{ defaults.field-copy.username | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.username }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.username | flatify }}"
 
-  - name: "{{ defaults.field-names.password }}"
-    copy: "{{ defaults.field-copy.password | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.password }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.password | flatify }}"
 
-  - name: "{{ defaults.field-names.database }}"
-    copy: "{{ common.field-copy.destination-database | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.database }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.destination-database | flatify }}"
 
   - name: "Shared Access Signature URL"
     copy: "Paste the **Blob service SAS URL** you generated in [Step 3.1](#generate-shared-access-signature-url)."

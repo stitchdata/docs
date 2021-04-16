@@ -4,7 +4,7 @@
 # -------------------------- #
 
 # The queries used to identify & extract data for
-# replication are the same regardless of database type.
+# replication and are the same regardless of database type.
 
 
 data-sync-queries:
@@ -39,10 +39,13 @@ data-sync-queries:
 all-types:
   - name: "Mongo"
     type: "mongodb"
+
   - name: "Microsoft SQL Server"
     type: "mssql"
+
   - name: "MySQL"
     type: "mysql"
+    
   - name: "PostgreSQL"
     type: "postgres"
 

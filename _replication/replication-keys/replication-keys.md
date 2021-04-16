@@ -2,9 +2,8 @@
 title: Replication Keys for Database Integrations
 permalink: /replication/replication-keys
 keywords: replicate, replication, replication key, keys, stitch replicates data, rp
-tags: [replication]
 
-type: "replication-keys"
+content-type: "replication-keys"
 toc: true
 weight: 1
 

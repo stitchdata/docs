@@ -39,21 +39,25 @@
 
                     <!-- SECOND-LEVEL ITEMS -->
                         {% for section in category.sections %}
+                            {% if section.anchor %}
+                                {% assign section-id = section.anchor %}
+                            {% else %}
+                                {% assign section-id = section.title | slugify %}
+                            {% endif %}
 
                         <!-- SECOND-LEVEL ITEMS WITH SUBSECTIONS -->
                             {% if section.subsections %}
-
                             <!-- THIRD-LEVEL ITEMS -->
                                 <li class="subfolders">
                                     <a data-toggle="collapse" 
-                                    href="#{{ section.title | slugify }}" 
+                                    href="#{{ section-id }}" 
                                     aria-expanded="false" 
-                                    aria-controls="{{ section.title | slugify }}">
+                                    aria-controls="{{ section-id }}">
                                         {{ section.title }} 
                                         <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
                                     </a>
 
-                                    <ul class="collapse" id="{{ section.title | slugify }}">
+                                    <ul class="collapse" id="{{ section-id }}">
                                     <!-- Third-level items -->
 
                                         {% for subsection in section.subsections %}

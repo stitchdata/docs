@@ -19,12 +19,12 @@
 
 
 ## Table contains too many columns
-- id: column-table-limit
-  rejectable: true
-  # if: uses default
-  then:
-    v1: &column-table-limit "{{ site.data.dataloading.scenarios.tables.column-table-limit.then | flatify }}"
-  error:
-    v1: &column-table-limit-error "{{ site.data.destinations.common.loading-errors.too-many-columns }}"
-  fix-it:
-    v1: &column-table-limit-fix-it "{{ site.data.dataloading.scenarios.tables.column-table-limit.fix-it | flatify }}"
+# - id: column-table-limit
+#   rejectable: true
+#   # if: uses default
+#   then:
+#     v1: &column-table-limit "{{ site.data.dataloading.scenarios.tables.column-table-limit.then | flatify }}"
+#   error:
+#     v1: &column-table-limit-error "{{ site.data.destinations.common.loading-errors.too-many-columns }}"
+#   fix-it:
+#     v1: &column-table-limit-fix-it "{{ site.data.dataloading.scenarios.tables.column-table-limit.fix-it | flatify }}"

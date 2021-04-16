@@ -4,14 +4,22 @@
 # -------------------------- #
 
 title: Setting up an SSH Tunnel for a database in Amazon Web Services
-permalink: /account-security/data-encryption/setting-up-ssh-tunnel-for-amazon-web-services
+permalink: /security/data-encryption/setting-up-ssh-tunnel-for-amazon-web-services
+redirect_from: /account-security/data-encryption/setting-up-ssh-tunnel-for-amazon-web-services
 summary: "If a database is in private subnet in your Amazon Web Services account, you can use an SSH tunnel to connect Stitch. This tutorial will walk you through setting up an SSH server and configuring access for an Amazon RDS or Amazon Redshift connection to Stitch."
+
+key: "ssh-setup-amazon-web-services"
+type: "security"
+content-type: "encryption"
 
 input: false
 layout: tutorial
+weight: 3
+
 use-tutorial-sidebar: false
 
 hosting-type: "amazon"
+
 
 # -------------------------- #
 #       Introduction         #
@@ -119,6 +127,7 @@ steps:
         anchor: "configure-ssh-server"
         content: |
           The first part of creating an SSH server in your VPC is configuring the instance.
+          
           1. Navigate to the EC2 Management Console in AWS. If you use the **Services** menu (top left corner), click the **EC2** option under the **Compute** section.
           2. On the EC2 Dashboard, click the **Launch Instance** button.
           3. Next, you’ll be asked to select the Amazon Machine Image, or AMI, that will be used to launch the instance. For this tutorial, we'll be using a Linux-based AMI.

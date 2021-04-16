@@ -22,7 +22,7 @@ toc: false
 
 related:
   - title: "Connect a {{ page.display_name }} destination"
-    link: "{{ link.destinations.setup.bigquery | prepend: site.baseurl }}"
+    link: "{{ link.destinations.setup.redshift | prepend: site.baseurl }}"
 
   - title: "Loading nested structures in {{ page.display_name }}"
     link: "{{ link.destinations.storage.bigquery-nested-structures | prepend: site.baseurl }}"

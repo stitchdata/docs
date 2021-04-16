@@ -4,16 +4,18 @@
 # -------------------------- #
 
 title: Supported Data Pipeline Regions
-permalink: /account-security/supported-data-pipeline-regions
+permalink: /security/supported-data-pipeline-regions
+redirect_from: /account-security/supported-data-pipeline-regions
 summary: "The data pipeline region feature, available to all Stitch plans, determines the region where Stitch-hosted data centers will process your replicated data."
+
+key: "supported-operating-regions"
+type: "security"
+content-type: "data-processing"
+weight: 4
 
 input: false
 layout: general
 feedback: true
-
-key: "supported-operating-regions"
-type: "security"
-weight: 4
 
 
 # -------------------------- #

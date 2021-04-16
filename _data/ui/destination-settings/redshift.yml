@@ -5,24 +5,18 @@
 ## This file contains the names and descriptions of fields in the 
 ## Destination Settings page for a Redshift-backed destination.
 
-## NOTE: 'defaults' is a variable assigned to this file: 
-## /_data/ui/common/database-connections.yml
-
-## 'common' is a variable assigned to this file: 
-## /_data/ui/destination-settings/common.yml
-
 redshift:
-  - name: "{{ defaults.field-names.host }}"
-    copy: "{{ defaults.field-copy.host-rds | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.host }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.host-rds | flatify }}"
 
-  - name: "{{ defaults.field-names.port }}"
-    copy: "{{ defaults.field-copy.port | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.port }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.port | flatify }}"
 
-  - name: "{{ defaults.field-names.username }}"
-    copy: "{{ defaults.field-copy.username | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.username }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.username | flatify }}"
 
-  - name: "{{ defaults.field-names.password }}"
-    copy: "{{ defaults.field-copy.password | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.password }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.password | flatify }}"
 
-  - name: "{{ defaults.field-names.database }}"
-    copy: "{{ common.field-copy.destination-database | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.database }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.destination-database | flatify }}"

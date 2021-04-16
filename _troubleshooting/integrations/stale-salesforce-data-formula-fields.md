@@ -2,7 +2,6 @@
 title: Stale Salesforce Data & Formula Fields
 keywords: troubleshooting, integration, saas integration, trouble, issue, help, error, data discrepancy, stale data, salesforce
 permalink: /troubleshooting/stale-salesforce-data-formula-fields
-tags: [troubleshooting_integrations, saas_integrations, data_discrepancy]
 
 summary: "If you've noticed some out-of-date Salesforce data in your data warehouse, the root cause may be a formula field. "
 type: "discrepancy, saas-integration, replication"

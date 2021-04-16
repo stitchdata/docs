@@ -102,7 +102,7 @@ steps:
   - title: "Check the status of the Import API"
     anchor: "check-import-api-status"
     content: |
-      {% assign api = site.data.connect.api %}
+      {% assign api = site.data.import-api.api %}
 
       Next, check the status of the Import API by sending a request to [GET {{ site.data.import-api.core-objects.api-status.url }}]({{ link.import-api.api | prepend: site.baseurl | append: site.data.import-api.core-objects.api-status.anchor }}). This will ensure that the test request you send in the next step, which will validate your credentials and some sample data, will not fail due to an API outage.
 

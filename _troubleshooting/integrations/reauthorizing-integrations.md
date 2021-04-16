@@ -2,7 +2,6 @@
 title: Re-authorizing Integrations
 keywords: troubleshooting, integration, trouble, issue, help, error, errors, reauthorize, re-auth, credentials, authorization
 permalink: /troubleshooting/integrations/reauthorizing-integrations
-tags: [troubleshooting_integrations, troubleshooting_errors]
 
 summary: "If you see a message that asks you to re-authorize an integration, it means that Stitch's permissions to that service have been revoked."
 type: "all-integrations, error"

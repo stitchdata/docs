@@ -132,7 +132,7 @@ list:
     description: |
       {{ destination.display_name }} will store the data as `TIMESTAMP WITH TIMEZONE`, or `timestamp_tz` and adjust to show as UTC.
 
-      More info about timestamp data types can be found in [Snowflake's documentation]({{ site.data.destinations.snowflake.resource-links.datetime-type }}){:target="new"}.
+      More info about timestamp data types can be found in [Snowflake's documentation]({{ site.data.destinations[destination.type]resource-links.datetime-type }}){:target="new"}.
 
   # - id: "date-and-time-date-range"
   #   categories: "data-limits"
