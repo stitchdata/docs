@@ -1,61 +1,53 @@
 ---
 # -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/connect-templates/database-source-form-property/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+## PLEASE REMOVE COMMENTS WHEN FINISHED
+
+
+# -------------------------- #
 #        CONTENT TYPE        #
 # -------------------------- #
 
 product-type: "connect"
 content-type: "api-form"
 form-type: "source"
-key: "source-form-properties-mysql-object"
+key: "source-form-properties-hp-mysql-object"
 
 
 # -------------------------- #
 #        OBJECT INFO         #
 # -------------------------- #
 
-title: "MySQL Source Form Property"
-api-type: "platform.mysql"
-display-name: "MySQL"
+title: "MySQL (HP) Source Form Property"
+api-type: "platform.hp-mysql"
+display-name: "MySQL (HP)"
 
 source-type: "database"
 docs-name: "mysql"
 db-type: "mysql"
 
-description: ""
+property-description: |
+  MySQL databases
+
+description: |
+  **Note**: This version of the MySQL source differs from the version used by the `platform.mysql` form property. Refer to the [{{ form-property.display-name }} integration feature summary]({{ doc-link | append: "#feature-summary" }}) for more info.
 
 
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
-## See these fields in _data/connect/common/database-sources.yml > all-databases
-## This object will also list the fields in the `mysql` list ^
-
 uses-common-fields: true
 uses-feature-fields: true
+uses-start-date: true
 
 object-attributes:
-  - name: "allow_non_auto_increment_pks"
-    type: "string"
-    required: false
-    description: |
-      If `true`, an auto-incrementing Primary Key will not be required for tables using Full Table Replication. Auto-incrementing Primary Keys are used during full table replication to allow the replication of a table to span multiple replication jobs.
-
-      Unless set, this property will default to `true`.
-    value: "true"
-    
-  - name: "check_hostname"
-    type: "string"
-    required: false
-    description: |
-      **Optional**: This property works with the `verify_mode` property to validate that the hostname of the database server matches the name in the provided certificate. Accepted values are:
-
-      - `true`
-      - `false`
-
-      **Note**: If you don't want to use a custom CA, this property and the `verify_mode` property should both be enabled (`true`).
-    value: "true"
-    
   - name: "ssl_ca"
     type: "string"
     required: false
@@ -71,16 +63,6 @@ object-attributes:
     description: |
       **Optional**: If `ssl_client_auth_enabled: true`, the SSL client authentication cerficiate stitch should use. The `ssl_key` property must also be provided to ensure the connection is successful.
     value: "<CA_CERTIFICATE>"
-
-  - name: "ssl_client_auth_enabled"
-    type: "string"
-    required: false
-    description: |
-      **Optional**: Indicates if SSL client authentication should be used. Accepted values are:
-
-      - `true`
-      - `false`
-    value: "true"
 
   - name: "ssl_key"
     type: "string"
@@ -99,5 +81,5 @@ object-attributes:
       - `false'
 
       **Note**: If you don't want to use a custom CA, this property and the `check_hostname` property should both be enabled (`true`).
-    value: "true"
+    value: "true"        
 ---
