@@ -1,0 +1,19 @@
+---
+title: "JIRA (v2) update: New table!"
+content-type: "changelog-entry"
+date: 2021-04-06
+entry-type: updated-feature
+entry-category: integration
+connection-id: jira
+connection-version: 2
+pull-request: "https://github.com/singer-io/tap-jira/pull/59"
+---
+{{ site.data.changelog.metadata.single-integration | flatify }}
+
+A new table has been added to our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration!
+
+The following table is now available for replication:
+
+- `components`
+
+Learn more in [our documentation]({{ this-connection.url | prepend: site.baseurl }}).
