@@ -96,6 +96,8 @@ collections:
     output: true
   getting-started:
     output: true
+  integrations:
+    output: true
   integration-schemas:
    output: false
   replication:
@@ -189,6 +191,24 @@ defaults:
       enterprise: false
       sidebar: on-page
       toc: true
+
+  - scope:
+      type: integrations
+    values:
+      layout: singer
+      connection-type: "integration"
+      content-type: "integration"
+      enterprise: false
+      toc: true
+      sidebar: stitchnav
+      display-summary: "false"
+      input: true
+      incompatible:
+        redshift: "never"
+        bigquery: "never"
+        postgres: "never"
+        panoply: "never"
+        snowflake: "never"
 
 ## Replication
   - scope:
