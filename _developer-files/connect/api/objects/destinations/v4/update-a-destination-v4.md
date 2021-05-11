@@ -37,7 +37,7 @@ arguments:
   - name: "properties"
     required: true
     type: "object"
-    description: "A [Destination Form Properties object]({{ api.form-properties.destination-forms.section }}) corresponding to the value of `type`."
+    description: "A [Connection property object]({{ api.form-properties.destination-forms.section }}) corresponding to the value of `type`."
 
 
 # -------------------------- #
