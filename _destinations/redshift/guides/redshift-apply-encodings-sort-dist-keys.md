@@ -37,6 +37,8 @@ intro: |
 
   - **[Distribution, or DIST keys](http://docs.aws.amazon.com/redshift/latest/dg/t_Distributing_data.html)** determine where data is stored in Redshift. When data is replicated into your data warehouse, it’s stored across the compute nodes that make up the cluster. If data is heavily skewed - meaning a large amount is placed on a single node - query performance will suffer. Even distribution prevents these bottlenecks by ensuring that nodes equally share the processing load.
 
+  Currently, Redshift supports automatic table optimization to improve querying performance by using `ALTER` statements and then defining automation for either distribution or sort keys. This feature is not supported for encodings. For more information on how to set this up in Redshift, read the AWS documentation [here](https://docs.aws.amazon.com/redshift/latest/dg/t_Creating_tables.html){:target="new"}. If you prefer to manually improve query performance, continue using this guide.
+
   ### Considerations
 
   1. **Optimizing for every single query isn’t possible.** We suggest selecting the most important queries and selecting SORT/DIST keys that will improve the performance of those queries.
