@@ -96,7 +96,7 @@ object-attributes:
 
   - name: "properties"
     type: "object"
-    sub-type: " source form properties"
+    sub-type: "connection property"
     url: "{{ api.form-properties.source-forms.section }}"
     description: |
       Parameters for connecting to the source, excluding any sensitive credentials. The parameters must adhere to the `type` of source.

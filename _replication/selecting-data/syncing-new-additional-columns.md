@@ -47,7 +47,7 @@ For tables using Full Table Replication, data in the newly-synced column will be
 
 For tables using Incremental Replication, data in the newly-synced column will be available **only for rows added AFTER the column is synced. Existing rows must be backfilled to make the data available.**
 
-Getting newly-synced column data into existing rows requires a full re-ync of the table. Because this can significantly impact your row count and we don't want to re-replicate data without your say-so, we leave inserting newly-synced column data into existing rows up to you.
+Getting newly-synced column data into existing rows requires a full re-replication of the table. Because this can significantly impact your row count and we don't want to re-replicate data without your say-so, we leave inserting newly-synced column data into existing rows up to you.
 
 ---
 

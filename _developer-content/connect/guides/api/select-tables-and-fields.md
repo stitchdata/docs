@@ -252,7 +252,7 @@ steps:
         anchor: "create-the-request-body"
         content: |
           {% capture quote %}'{% endcapture %}
-          To select a stream, you'll make a request to [POST {{ site.data.connect.core-objects.streams.update.name | flatify }}]({{ link.connect.api | append: site.data.connect.core-objects.streams.update.anchor | prepend: site.baseurl }}) with a request body that contains:
+          To select a stream, you'll make a request to [PUT {{ site.data.connect.core-objects.streams.update.name | flatify }}]({{ link.connect.api | append: site.data.connect.core-objects.streams.update.anchor | prepend: site.baseurl }}) with a request body that contains:
 
           1. The stream's `tap_stream_id`. **Note** This is different than the `stream_id`, which is always numeric.
 
