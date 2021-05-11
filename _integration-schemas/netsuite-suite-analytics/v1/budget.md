@@ -20,23 +20,23 @@ attributes:
       {{ integration.netsuite-primary-keys | flatify }}
 
   - name: "budget_id"
-    type: "integer"
+    type: "number"
     netsuite-primary-key: true
     description: "The budget ID. {{ integration.netsuite-primary-key-description | flatify }}"
     # foreign-key-id: "budget-id"
 
   - name: "account_id"
-    type: "integer"
+    type: "number"
     description: "The account ID."
     foreign-key-id: "account-id"
 
   - name: "accounting_book_id"
-    type: "integer"
+    type: "number"
     description: "The accounting book ID."
     foreign-key-id: "accounting-book-id"
 
   - name: "accounting_period_id"
-    type: "integer"
+    type: "number"
     description: "The accounting period."
     foreign-key-id: "accounting-period-id"
 
@@ -49,37 +49,37 @@ attributes:
     description: "The date of the budget."
 
   - name: "category_id"
-    type: "integer"
+    type: "number"
     description: "The budget category ID."
     foreign-key-id: "budget-category-id"
 
   - name: "class_id"
-    type: "integer"
+    type: "number"
     description: "The class of the budget."
     foreign-key-id: "class-id"
 
   - name: "customer_id"
-    type: "integer"
+    type: "number"
     description: "The customer associated with the budget."
     foreign-key-id: "customer-id"
 
   - name: "department_id"
-    type: "integer"
+    type: "number"
     description: "The department associated with the budget."
     foreign-key-id: "department-id"
 
   - name: "item_id"
-    type: "integer"
+    type: "number"
     description: "The item associated with the budget."
     foreign-key-id: "item-id"
 
   - name: "location_id"
-    type: "integer"
+    type: "number"
     description: "The location associated with the budget."
     foreign-key-id: "location-id"
 
   - name: "subsidiary_id"
-    type: "integer"
+    type: "number"
     description: "The subsidiary associated with the budget."
     foreign-key-id: "subsidiary-id"
 ---
