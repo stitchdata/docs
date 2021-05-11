@@ -9,7 +9,10 @@ singer-schema: "https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_li
 description: |
   The `{{ table.name }}` table contains analytics data for ads, segmented by campaign.
 
+  **Note**: This table is replicated using an attribution window of {{ integration.attribution-window }}. Refer to the [Replication](#replication) section for more info.
+
 replication-method: "Key-based Incremental"
+attribution-window: true
 
 api-method:
   name: "Analytics Finder; Creative"
