@@ -7,7 +7,9 @@ name: "orders"
 doc-link: "https://developer.ebay.com/api-docs/sell/fulfillment/resources/order/methods/getOrders"
 singer-schema: "https://github.com/singer-io/tap-ebay/blob/master/tap_ebay/schemas/orders.json"
 description: |
-  The {{ table.name }} table contains details about all orders in your {{ integration.display_name }} seller account. This table must use a request with a Start Date that is within 90 days of the current date. Exceeding 90 days will result in an [{{ integration.display_name }} 30830 API error](https://developer.ebay.com/api-docs/sell/fulfillment/resources/order/methods/getOrders#h2-error-codes){:target="new"}.
+  The {{ table.name }} table contains details about all orders in your {{ integration.display_name }} seller account. 
+  
+  **Note**: The integration's **Start Date** must be within 90 days of the current date, if initially creating or resetting the integration. Exceeding 90 days will result in an [{{ integration.display_name }} 30830 API error](https://developer.ebay.com/api-docs/sell/fulfillment/resources/order/methods/getOrders#h2-error-codes){:target="new"}.
 
 replication-method: "Full Table"
 
