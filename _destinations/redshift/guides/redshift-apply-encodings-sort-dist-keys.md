@@ -28,16 +28,16 @@ intro: |
   {% include important.html type="single-line" content="The process we outline in this tutorial - which includes dropping tables - can lead to data corruption and other issues if done incorrectly. **Proceed with caution or reach out to Stitch support if you have questions.**" %}
 
   Want to improve your query performance? In this guide, we’ll walk you through how to use encoding, SORT, and DIST (distribution) keys to streamline query processing.
+  
+  **Note**: Redshift supports automatic table optimization to improve querying performance by using `ALTER` statements and then defining automation for either DIST or SORT keys. This feature is not supported for encodings. For more information on how to set this up in Redshift, refer to the [AWS documentation](https://docs.aws.amazon.com/redshift/latest/dg/t_Creating_tables.html){:target="new"}. If you prefer to apply SORT and DIST keys manually, continue using this guide.
 
-  Before we dive into their application, here's a quick overview of each of these performance enhancing tools.
+  Before we dive into their application, here's a quick overview of each of these performance enhancing tools:
 
   - **Encodings**, or [compression types](http://docs.aws.amazon.com/redshift/latest/dg/t_Compressing_data_on_disk.html), are used to reduce the amount of required storage space and the size of data that’s read from storage. This in turn can lead to a reduction in processing time for queries.
 
   - **[SORT keys](http://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html)** determine the order in which rows in a table are stored. When properly applied, SORT Keys allow large chunks of data to be skipped during query processing. Less data to scan means a shorter processing time, thus improving the query’s performance.
 
   - **[Distribution, or DIST keys](http://docs.aws.amazon.com/redshift/latest/dg/t_Distributing_data.html)** determine where data is stored in Redshift. When data is replicated into your data warehouse, it’s stored across the compute nodes that make up the cluster. If data is heavily skewed - meaning a large amount is placed on a single node - query performance will suffer. Even distribution prevents these bottlenecks by ensuring that nodes equally share the processing load.
-
-  Currently, Redshift supports automatic table optimization to improve querying performance by using `ALTER` statements and then defining automation for either distribution or sort keys. This feature is not supported for encodings. For more information on how to set this up in Redshift, read the AWS documentation [here](https://docs.aws.amazon.com/redshift/latest/dg/t_Creating_tables.html){:target="new"}. If you prefer to manually improve query performance, continue using this guide.
 
   ### Considerations
 
