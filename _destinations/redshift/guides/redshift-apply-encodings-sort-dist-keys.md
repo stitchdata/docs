@@ -28,8 +28,10 @@ intro: |
   {% include important.html type="single-line" content="The process we outline in this tutorial - which includes dropping tables - can lead to data corruption and other issues if done incorrectly. **Proceed with caution or reach out to Stitch support if you have questions.**" %}
 
   Want to improve your query performance? In this guide, we’ll walk you through how to use encoding, SORT, and DIST (distribution) keys to streamline query processing.
+  
+  **Note**: Redshift supports automatic table optimization to improve querying performance by using `ALTER` statements and then defining automation for either DIST or SORT keys. This feature is not supported for encodings. For more information on how to set this up in Redshift, refer to the [AWS documentation](https://docs.aws.amazon.com/redshift/latest/dg/t_Creating_tables.html){:target="new"}. If you prefer to apply SORT and DIST keys manually, continue using this guide.
 
-  Before we dive into their application, here's a quick overview of each of these performance enhancing tools.
+  Before we dive into their application, here's a quick overview of each of these performance enhancing tools:
 
   - **Encodings**, or [compression types](http://docs.aws.amazon.com/redshift/latest/dg/t_Compressing_data_on_disk.html), are used to reduce the amount of required storage space and the size of data that’s read from storage. This in turn can lead to a reduction in processing time for queries.
 
