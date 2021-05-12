@@ -216,9 +216,9 @@ replication-sections:
 
   - title: "Replication delays"
     anchor: "replication-delays"
-    summary: "Details about expected delays in {{ integration.display_name }} replication."
+    summary: "Details about expected delays in {{ integration.display_name }} replication"
     content: |
-      Stitch cannot replicate data from your {{ integration.display_name }} database until the shard is closed in your account. This can result in a delay in replicaton. If you force an extraction in Stitch before the shard is closed in your {{ integration.display_name }} account, you may have non-current data.
+      Stitch can't replicate data from your {{ integration.display_name }} database until the shard is closed in your account. This can result in a delay in the replicaton of new data, as the new data is available only after the shard has been closed. Forcing an extraction in Stitch won't have any effect on replicating new data unless the shard is closed.
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
