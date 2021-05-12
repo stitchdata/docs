@@ -43,6 +43,10 @@ attributes:
   - name: "ad_unit_clicks"
     type: "integer"
     description: "The count of clicks on the ad unit alongside the Sponsored InMail."
+
+  - name: "approximate_unique_impressions"
+    type: "integer"
+    description: "The approximate reach of the campaign. The number of unique member accounts with at least one impression."  
   
   - name: "comments"
     type: "integer"
