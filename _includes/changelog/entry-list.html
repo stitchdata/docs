@@ -96,15 +96,16 @@
 </table>
 
 {% else %}
-<ul class="changelog">
 	{% for entry in changelog-entries %}
 		{% assign entry-id = entry.date | date: "%F" | append: "-" | append: entry.title | slugify %}
 		{% assign entry-type = site.data.changelog.types.type | where:"name",entry.entry-type | first %}
 
-		<li class="changelog-entry changelog-entry--{{ entry.entry-type }}">
+		<div class="changelog-entry changelog-entry--{{ entry.entry-type }}">
 			<div class="changelog-entry-metadata">
-				{{ entry.date | date: "%b %e, %Y" | upcase }}
-				<br>
+				<span class="entry-date">
+					{{ entry.date | date: "%b %e, %Y" | upcase }}
+				</span>
+
 				<strong class="changelog-entry-type">
 					{{ entry-type.display_name | upcase }}
 				</strong>
@@ -120,42 +121,43 @@
 				{% endif %}
 			</div>
 
-			<dl class="changelog-entry-details">
-				<dt class="anchored" id="{{ entry-id }}">
-					<strong>
+			<div class="changelog-entry-details">
+				<div class="changelog-entry-title">
+					<h3 id="{{ entry-id }}">
 						{{ entry.title }}
-					</strong>
-				</dt>
+					</h3>
+				</div>
 
-				<dd>
+				<div class="changelog-entry-content">
 					{{ entry.content | flatify | markdownify }}
 
-					<strong>Tags:</strong>
+					<div class="changelog-entry-tags">
+						<strong>Tags:</strong>
 
-				<!-- Entry type button -->
-					{% assign item-link = link.changelog.archive-by-type | prepend: site.baseurl | append: "#" | append: entry.entry-type %}
-					{% assign item-display-text =  entry-type.display_name %}
-
-					{{ site.data.changelog.metadata.archive-button | flatify }}
-
-				<!-- Entry category button(s) -->
-				<!-- Some entries can have more than one category. This runs for every item in entry.entry-category, even if there's only one category. -->
-					{% assign all-entry-categories = entry.entry-category | split:", " %}
-
-					{% for category in all-entry-categories %}
-						{% assign entry-category = site.data.changelog.categories.category | where:"name",category | first %}
-						{% assign item-link = link.changelog.archive-by-category | prepend: site.baseurl | append: "#" | append: category %}
-						{% assign item-display-text =  entry-category.display_name %}
+					<!-- Entry type button -->
+						{% assign item-link = link.changelog.archive-by-type | prepend: site.baseurl | append: "#" | append: entry.entry-type %}
+						{% assign item-display-text =  entry-type.display_name %}
 
 						{{ site.data.changelog.metadata.archive-button | flatify }}
-					{% endfor %}
-				</dd>
-			</dl>
-		</li>
+
+					<!-- Entry category button(s) -->
+					<!-- Some entries can have more than one category. This runs for every item in entry.entry-category, even if there's only one category. -->
+						{% assign all-entry-categories = entry.entry-category | split:", " %}
+
+						{% for category in all-entry-categories %}
+							{% assign entry-category = site.data.changelog.categories.category | where:"name",category | first %}
+							{% assign item-link = link.changelog.archive-by-category | prepend: site.baseurl | append: "#" | append: category %}
+							{% assign item-display-text =  entry-category.display_name %}
+
+							{{ site.data.changelog.metadata.archive-button | flatify }}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
 		{% unless forloop.last == true %}
 			<hr style="margin-top: 0">
 		{% endunless %}
 
 	{% endfor %}
-</ul>
 {% endcase %}
