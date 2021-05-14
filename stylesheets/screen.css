@@ -1682,6 +1682,16 @@ hr.footer-cta {
   font-weight: 400;
 }
 /* line 13, ../sass/_changelog.scss */
+.changelog-entry--issue-identified .changelog-entry-type {
+  color: #E96065;
+  font-weight: 400;
+}
+/* line 13, ../sass/_changelog.scss */
+.changelog-entry--issue-resolved .changelog-entry-type {
+  color: #EA8330;
+  font-weight: 400;
+}
+/* line 13, ../sass/_changelog.scss */
 .changelog-entry--new-feature .changelog-entry-type {
   color: #82bd41;
   font-weight: 400;
@@ -1702,7 +1712,7 @@ hr.footer-cta {
   font-weight: 400;
 }
 
-/* line 39, ../sass/_changelog.scss */
+/* line 41, ../sass/_changelog.scss */
 .changelog-entry-metadata {
   max-width: 140px;
   font-size: 14px;
@@ -1711,7 +1721,7 @@ hr.footer-cta {
   float: left;
   font-weight: 700;
 }
-/* line 47, ../sass/_changelog.scss */
+/* line 49, ../sass/_changelog.scss */
 .changelog-entry-metadata .entry-date {
   color: #202020;
   padding-top: 180px;
@@ -1719,37 +1729,20 @@ hr.footer-cta {
   display: block;
 }
 
-/* line 55, ../sass/_changelog.scss */
+/* line 57, ../sass/_changelog.scss */
 .changelog-entry-details {
-  margin-left: 125px;
-  padding-left: 20px;
+  padding-left: 140px;
   /* This fixes a really weird display issue with the metadata div - without it, the metadata div displays near the bottom left corner of the previous changelog entry. */
   padding-top: 1px;
-}
-/* line 62, ../sass/_changelog.scss */
-.changelog-entry-details:last-of-type .changelog-entry-details {
-  border-left: none;
-}
-
-/* line 68, ../sass/_changelog.scss */
-.changelog-entry-title {
-  font-weight: 400;
-  font-size: 1.25rem;
-  margin-top: 0px;
-}
-/* line 73, ../sass/_changelog.scss */
-.changelog-entry-title h3 {
-  padding-bottom: 10px;
-  line-height: 1em;
-}
-
-/* line 79, ../sass/_changelog.scss */
-.changelog-entry-content {
   margin: 0;
   line-height: 1.75;
 }
-
-/* line 84, ../sass/_changelog.scss */
-.changelog-entry-tags {
-  padding-top: 10px;
+/* line 64, ../sass/_changelog.scss */
+.changelog-entry-details h3 {
+  padding-bottom: 10px;
+  line-height: 1em;
+}
+/* line 70, ../sass/_changelog.scss */
+.changelog-entry-details:last-of-type .changelog-entry-details {
+  border-left: none;
 }

@@ -23,6 +23,8 @@
     deprecation: $chestnut-rose,
     documentation: $scooter,
     improvement: $lochmara,
+    issue-identified: $chestnut-rose,
+    issue-resolved: $jaffa,
     new-feature: $rio-grande, 
     removed: $chestnut-rose,
     sunset: $chestnut-rose,
@@ -53,34 +55,23 @@
   }
 
 .changelog-entry-details {
-    margin-left: 125px;
-    padding-left: 20px;
+    padding-left: 140px;
   /* This fixes a really weird display issue with the metadata div - without it, the metadata div displays near the bottom left corner of the previous changelog entry. */
-    padding-top: 1px; 
+    padding-top: 1px;
+    margin: 0;
+    line-height: 1.75;
 
-  &:last-of-type {
-    .changelog-entry-details {
-      border-left: none;
+    h3 {
+      padding-bottom: 10px;
+      line-height: 1em;
     }
-  }
-}
 
-.changelog-entry-title {
-  font-weight: 400;
-  font-size: 1.25rem;
-  margin-top: 0px;
-
-  h3 {
-    padding-bottom: 10px;
-    line-height: 1em;
-  }
-}
-
-.changelog-entry-content {
-  margin: 0;
-  line-height: 1.75;
+    &:last-of-type {
+      .changelog-entry-details {
+        border-left: none;
+      }
+    }
 }
 
 .changelog-entry-tags {
-  padding-top: 10px;
-}
+  }
