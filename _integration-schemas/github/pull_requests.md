@@ -11,7 +11,7 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-  name: "listPullRequests"
+  name: "List pull requests"
   doc-link: https://developer.github.com/v3/pulls/#list-pull-requests
 
 attributes:
@@ -24,6 +24,38 @@ attributes:
   - name: "updated_at"
     type: "date-time"
     description: "The last time the pull request was updated."
+
+  - name: "base"
+    type: "object"
+    description: "Details about the base branch."
+    subattributes:
+      - name: "ref"
+        type: "string"
+        description: ""
+
+      - name: "label"
+        type: "string"
+        description: ""
+
+      - name: "repo"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "id"
+            type: "integer"
+            description: ""
+
+          - name: "name"
+            type: "string"
+            description: ""
+
+          - name: "url"
+            type: "string"
+            description: ""
+
+      - name: "sha"
+        type: "string"
+        description: ""
 
   - name: "body"
     type: "string"
