@@ -7,6 +7,8 @@ permalink: /troubleshooting/integrations/intercom-extraction-error-reference
 
 summary: "Extraction errors for Intercom integrations and how to resolve them."
 
+key: "intercom-extraction-error-reference"
+
 level: "guide"
 top-level: "replication"
 category: "extraction-errors"
