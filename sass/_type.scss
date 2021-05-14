@@ -55,6 +55,11 @@ h5, .h5 {
 	font-family: $main-font;
 }
 
+/* make room for the nav bar */
+h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
+	scroll-margin-top: 180px;
+}
+
 .wf-loading h1
 .wf-loading h2
 .wf-loading h3 {
@@ -80,10 +85,3 @@ p.caption {
 p.glossary-definition {
 	margin-left: 25px;
 }
-
-/*h3 {color: #ED1951; font-weight:normal; font-size:130%;}
-h4 {color: #808080; font-weight:normal; font-size:120%; font-style:italic;}
-body.print h1 {color: #5b893c !important; font-size:28px;}
-body.print h2 {color: #595959 !important; font-size:24px;}
-body.print h3 {color: #E50E51 !important; font-size:14px;}
-body.print h4 {color: #679DCE !important; font-size:14px; font-style: italic;}*/
