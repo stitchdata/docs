@@ -1,5 +1,5 @@
 ---
-title: "Shopify (v1) update: API upgrade"
+title: "Shopify (v1): API upgraded to Shopify v2021-04"
 content-type: "changelog-entry"
 date: 2021-04-26
 entry-type: updated-feature

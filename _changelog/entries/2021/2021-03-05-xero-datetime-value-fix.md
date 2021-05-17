@@ -8,7 +8,8 @@ connection-id: xero
 connection-version: 1
 pull-request: "https://github.com/singer-io/tap-xero/pull/79"
 ---
-
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-The bug was removing the time component of date-time values. The fix ensures that the time component of date-time values are preserved through the replication process.
+Previously, the integration would truncate `date-time` data with a format of `"\/Date(1419937200000+0000)\/"` to `date` only.
+
+This fix ensures that the time component of `date-time` values are correctly preserved.

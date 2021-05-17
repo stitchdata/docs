@@ -1,16 +1,15 @@
 ---
-title: "Zuora"
+title: "Zuora (v1): AQuA API CSV handling improvement"
 content-type: "changelog-entry"
 date: 2021-03-31
-entry-type: new-feature
+entry-type: improvement
 entry-category: integration
 connection-id: zuora
 connection-version: 1
 pull-request: "https://github.com/singer-io/tap-zuora/pull/54"
 ---
-
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-When we encounter a truncated {{ this-connection.display_name }} CSV file, the integration will get a new stateful query session.
+We've improved how {{ this-connection.display_name }} (v{{ this-connection.this-version }})integrations handle truncated CSVs received from the {{ this-connection.display_name }} API.
 
-For more context behind this new feature, be sure to click the `TAP-ZUORA #54` button to the left of the header of this changelog entry.
+For more info about this new feature, check out the [pull request in the tap-zuora repository]({{ item.pull-request }}){:target="new"}.

@@ -1,6 +1,6 @@
 ---
-title: "Zendesk Chat (v1) update: New field!"
-content-type: "changelog-entry"
+title: "Zendesk Chat (v1): New field!"
+#content-type: "changelog-entry"
 date: 2021-04-16
 entry-type: updated-feature
 entry-category: integration

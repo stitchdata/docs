@@ -1,5 +1,5 @@
 ---
-title: "Xero (v1) update: Increased currency precision"
+title: "Xero (v1): Increased precision for CurrencyRate values"
 content-type: "changelog-entry"
 date: 2021-04-13
 entry-type: updated-feature
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-xero/pull/87"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've increased the `CurrencyRate` field's precision from six decimals to 10 decimals in all tables that have that property.
+We've increased the `CurrencyRate` field's precision from six decimals to 10. This affects all tables that contain this field.
