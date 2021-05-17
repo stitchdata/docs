@@ -1,5 +1,5 @@
 ---
-title: "Mambu (v1): Improved custom field naming"
+title: "Mambu (v1) improvement: Improved custom field naming"
 content-type: "changelog-entry"
 date: 2021-04-21
 entry-type: improvement

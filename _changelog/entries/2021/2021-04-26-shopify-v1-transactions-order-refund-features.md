@@ -1,5 +1,5 @@
 ---
-title: "Shopify (v1): Improvements to order_refunds and transactions tables"
+title: "Shopify (v1) improvement: Improvements to order_refunds and transactions tables"
 content-type: "changelog-entry"
 date: 2021-04-26
 entry-type: updated-feature

@@ -1,5 +1,5 @@
 ---
-title: "Pendo (v1): Fixed replication issue for track_events table"
+title: "Pendo (v1) bug fix: Fixed replication issue for track_events table"
 content-type: "changelog-entry"
 date: 2021-04-15
 entry-type: bug-fix

@@ -1,5 +1,5 @@
 ---
-title: "Zuora (v1): AQuA API CSV handling improvement"
+title: "Zuora (v1) improvement: AQuA API CSV handling improvement"
 content-type: "changelog-entry"
 date: 2021-03-31
 entry-type: improvement

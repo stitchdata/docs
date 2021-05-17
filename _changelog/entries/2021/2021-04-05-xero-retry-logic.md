@@ -1,5 +1,5 @@
 ---
-title: "Xero (v1): Improved error handling with retry logic"
+title: "Xero (v1) improvement: Improved error handling with retry logic"
 content-type: "changelog-entry"
 date: 2021-04-05
 entry-type: improvement

@@ -1,5 +1,5 @@
 ---
-title: "Salesforce (v1): Remove FieldHistoryArchive object"
+title: "Salesforce (v1) update: Removed FieldHistoryArchive object"
 content-type: "changelog-entry"
 date: 2021-03-22
 entry-type: removed

@@ -1,5 +1,5 @@
 ---
-title: "PostgreSQL (v2) integrations: Key-based Incremental Replication now available!"
+title: "PostgreSQL (v2) update: Key-based Incremental Replication now available!"
 content-type: "changelog-entry"
 date: 2021-03-30
 entry-type: updated-feature

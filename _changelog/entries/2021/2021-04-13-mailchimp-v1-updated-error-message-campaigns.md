@@ -1,5 +1,5 @@
 ---
-title: "MailChimp (v1): Improved timeout message for campaigns"
+title: "MailChimp (v1) improvement: Improved timeout message for campaigns"
 content-type: "changelog-entry"
 date: 2021-04-13
 entry-type: updated-feature

@@ -1,5 +1,5 @@
 ---
-title: "JIRA (v2): New components table"
+title: "JIRA (v2) update: New components table"
 content-type: "changelog-entry"
 date: 2021-04-06
 entry-type: updated-feature

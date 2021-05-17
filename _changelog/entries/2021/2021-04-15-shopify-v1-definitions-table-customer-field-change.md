@@ -1,5 +1,5 @@
 ---
-title: "Shopify (v1): Allow null values for `definitions.customer` field"
+title: "Shopify (v1) bug fix: Allow null values for `definitions.customer` field"
 content-type: "changelog-entry"
 date: 2021-04-15
 entry-type: bug-fix

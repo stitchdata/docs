@@ -1,5 +1,5 @@
 ---
-title: "Xero (v1): Improved handling of Xero API errors"
+title: "Xero (v1) improvement: Improved handling of Xero API errors"
 content-type: "changelog-entry"
 date: 2021-04-09
 entry-type: improvement

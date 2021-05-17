@@ -1,5 +1,5 @@
 ---
-title: "Xero (v1): New quotes table"
+title: "Xero (v1) update: New quotes table"
 content-type: "changelog-entry"
 date: 2021-04-13
 entry-type: updated-feature

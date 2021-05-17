@@ -1,5 +1,5 @@
 ---
-title: "Salesforce (v1): Improved OPERATION_TOO_LARGE error messaging"
+title: "Salesforce (v1) improvement: Improved OPERATION_TOO_LARGE error messaging"
 content-type: "changelog-entry"
 date: 2021-03-16
 entry-type: improvement

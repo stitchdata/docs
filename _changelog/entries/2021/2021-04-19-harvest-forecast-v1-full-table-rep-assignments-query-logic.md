@@ -1,5 +1,5 @@
 ---
-title: "Harvest Forecast (v1): Corrected replication for Full Table and assignments"
+title: "Harvest Forecast (v1) improvement: Corrected replication for Full Table and assignments"
 content-type: "changelog-entry"
 date: 2021-04-19
 entry-type: improvement

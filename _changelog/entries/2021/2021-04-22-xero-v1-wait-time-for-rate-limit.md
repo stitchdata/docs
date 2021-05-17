@@ -1,8 +1,8 @@
 ---
-title: "Xero (v1): New wait time for rate limiting"
+title: "Xero (v1) improvement: New wait time for rate limiting"
 content-type: "changelog-entry"
 date: 2021-04-22
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: xero
 connection-version: 1

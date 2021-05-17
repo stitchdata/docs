@@ -1,5 +1,5 @@
 ---
-title: "Xero (v1): Replicating archived contacts"
+title: "Xero (v1) update: Replicating archived contacts"
 content-type: "changelog-entry"
 date: 2021-04-15
 entry-type: updated-feature

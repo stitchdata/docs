@@ -1,5 +1,5 @@
 ---
-title: "Xero (v1): Increased precision for CurrencyRate values"
+title: "Xero (v1) update: Increased precision for CurrencyRate values"
 content-type: "changelog-entry"
 date: 2021-04-13
 entry-type: updated-feature

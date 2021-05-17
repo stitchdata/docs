@@ -1,5 +1,5 @@
 ---
-title: "Marketo (v1): Improved Stitch compatibility"
+title: "Marketo (v1) improvement: Improved Stitch compatibility"
 content-type: "changelog-entry"
 date: 2021-04-22
 entry-type: improvement
