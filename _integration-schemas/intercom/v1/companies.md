@@ -9,9 +9,19 @@ singer-schema: "https://github.com/singer-io/tap-intercom/blob/master/tap_interc
 description: |
   The `{{ table.name }}` table contains info about companies that use your {{ integration.display_name }} product.
 
-  #### Custom Attributes
+  #### Custom attributes {#company-custom-attributes}
 
   If applicable, Stitch will replicate custom fields related to `{{ table.name }}` in {{ integration.display_name }}.
+
+  #### Limitations {#company-limitations}
+
+  [{{ integration.display_name }}'s API limits the number of simultaneous requests]({{ table.api-method.doc-link }}){:target="new"} a single {{ integration.display_name }} app, or connection, can make to the {{ table.api-method.name }} endpoint. Stitch uses this endpoint to replicate company data. Currently, only one request can occur at a time.
+
+  If multiple connections exist and they attempt to use this endpoint at the same time, only the connection who made the request first will succeed.
+
+  This means that if Stitch attempts to extract data when another connection is using the endpoint, Extraction will fail and an [error](TODO) will surface in the Extraction Logs.
+
+  To prevent or minimize this issue, we recommend limiting the number of connections a single workspace has or scheduling extraction jobs in Stitch around your other connections' usage.
 
 replication-method: "Key-based Incremental"
 
