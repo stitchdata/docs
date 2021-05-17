@@ -52,7 +52,6 @@ warning:
     opt-out: true
     content:
       - "A brief explanation of the issue"
-      - "The HTTP status code Stitch received"
       - "The webhook URL Stitch is attempting to deliver to"
     potential-causes:
       - "Issues with the webhook service Stitch is attempting to deliver to"
@@ -156,7 +155,7 @@ critical:
 
 
 # -------------------------- #
-#   JAMMED READ HEAD ERRORS  #
+#      SSH TUNNEL ERROR      #
 # -------------------------- #
   - id: "loader-tunnel-error"
     name: "SSH tunnel connection error"

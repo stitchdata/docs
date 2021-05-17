@@ -52,7 +52,7 @@ returns: |
 examples:
   - type: "Request"
     request-url: "{{ endpoint.short-url | flatify | strip_newlines }}"
-    header: "{{ site.data.connect.request-headers.put.with-body | flatify }}"
+    header: "{{ site.data.connect.request-headers.post.with-body | flatify }}"
     code: |
       '{
          "email_address": "stitch-custom-notification@yourdomain.com"
