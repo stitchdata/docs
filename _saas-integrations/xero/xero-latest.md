@@ -70,6 +70,8 @@ setup-steps:
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
+      4. **Optional**: Check **Include archived contacts** to have Stitch replicate records for archived contacts. If left unchecked, only records for active contacts will be replicated.
+
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
@@ -91,20 +93,11 @@ setup-steps:
       3. Click **Authorise.**
       4. After the authorization process successfully completes, you'll be redirected back to Stitch.
       5. Click {{ app.buttons.finish-int-setup }}.
+  
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |
       {% include integrations/shared-setup/data-selection/object-selection.html %}
-
-# -------------------------- #
-#    Replication Details     #
-# -------------------------- #
-
-# replication-sections:
-#   - title: ""
-#     anchor: ""
-#     content: |
-#       Xero has a daily limit of 5,000 calls in a rolling 24 hour window, and will return a 503 Service Unavailable error if exceeded. This is on a per organization basis.
 
 
 # -------------------------- #

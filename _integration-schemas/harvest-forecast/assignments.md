@@ -1,6 +1,7 @@
 ---
 tap: "harvest-forecast"
 version: "1"
+key: "assignment"
 
 name: "assignments"
 doc-link:
@@ -8,7 +9,7 @@ singer-schema: https://github.com/singer-io/tap-harvest-forecast/blob/master/tap
 description: |
   The `{{ table.name }}` table contains info about the assignments assigned to the people in your {{ integration.display_name }} account.
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 
 attributes:
   - name: "id"
@@ -19,7 +20,6 @@ attributes:
 
   - name: "updated_at"
     type: "string"
-    replication-key: true
     description: "The time the assignment was last updated."
 
   - name: "active_on_days_off"
