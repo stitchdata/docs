@@ -102,7 +102,18 @@ sections:
       - title: "How can I access Stitch if my Identity Provider experiences downtime?"
         anchor: "basics--idp-downtime"
         content: |
-          If SSO is enabled and your IdP is experiencing downtime, only {{ user-roles.sso-admin.name }} users will be able to access Stitch. These users can sign into Stitch using their password, ensuring a member of your team will always have access even if your Identity Provider is down.
+          If SSO is enabled and your IdP is experiencing downtime, only {{ user-roles.sso-admin.name }} users will be able to access Stitch. These users can sign into Stitch using the [**Sign In With Magic Link**](#basics--magic-link) option on the sign in page, ensuring a member of your team will always have access even if your IdP is down.
+
+      - title: "How does the Magic Link feature work?"
+        anchor: "basics--magic-link"
+        content: |
+          Accessed on the Stitch sign in page, the Magic Link feature allows {{ user-roles.sso-admin.name }} users to access Stitch using [passwordless authentication](https://auth0.com/docs/connections/passwordless/guides/email-magic-link){:target="new"}. When an {{ user-roles.sso-admin.name }} requests a magic link, Stitch will send an email containing a link that directs them to Stitch and immediately logs them into their account. This allows {{ user-roles.sso-admin.name }} users to access Stitch even if their IdP is experiencing downtime.
+
+          Additionally, magic links:
+
+          - **Are available only to {{ user-roles.sso-admin.name }} users**. If a non-{{ user-roles.sso-admin.name }} user requests a magic link, Stitch will display a confirmation but no email will be sent. This is by design for security purposes.
+          - **Expire 5 minutes after they are requested.** If you receive a message that your link has expired, try requesting a new one on the sign in page.
+          - **Are available only when the SSO feature is enabled in Stitch.** If SSO is disabled, the Magic Link feature will be deactivated.
 
       - title: "What happens when SSO is disabled in Stitch?"
         anchor: "basics--disable-sso"
@@ -113,6 +124,7 @@ sections:
           - All team members in the account receive a password reset email
           - Team members must sign in using Stitch credentials
           - Team members may be invited or removed directly in Stitch
+          - The Magic Link feature is deactivated, even for {{ user-roles.sso-admin.name }} users
 
           **Note**: This is also applicable when [switching to a different IdP](#switch-idp), as switching IdPs requires disabling the current SSO configuration.
 

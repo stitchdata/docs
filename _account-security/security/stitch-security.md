@@ -79,7 +79,7 @@ sections:
           - [{{ idp.display-name }}]({{ idp.url | prepend: site.baseurl }})
           {% endfor %}
 
-          The SSO feature is available on all Stitch plans.
+          The SSO feature is available on all Stitch plans. Refer to the [SSO docs]({{ link.security.single-sign-on | prepend: site.baseurl }}) for more info.
 
       - title: "Connectivity"
         anchor: "connectivity"
