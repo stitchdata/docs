@@ -6,6 +6,7 @@
 content-type: "integration-metadata"
 key: "[name]-details-v[version]"
 name: "[name]"
+type: "database"
 
 db-type: "[db-type]"
 

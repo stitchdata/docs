@@ -6,6 +6,7 @@
 content-type: "integration-metadata"
 key: "[integration]-details-v[version]"
 name: "[integration]"
+type: "saas"
 
 version: &version-number "[version]"
 

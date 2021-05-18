@@ -5,14 +5,17 @@
 
 content-type: "integration-metadata"
 key: "[db-type]-default-details-v[version]"
+name: "[name]"
+type: "database"
 
 db-type: "[db-type]"
-version: &version-number "[version]"
 
 
 # -------------------------- #
 #       Version Details      #
 # -------------------------- #
+
+version: &version-number "[version]"
 
 version:
   number: *version-number
