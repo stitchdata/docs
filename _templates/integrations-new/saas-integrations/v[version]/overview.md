@@ -3,10 +3,10 @@
 #          PAGE INFO         #
 # -------------------------- #
 
-title: "[INTEGRATION] (v[VERSION]) Overview"
+title: "[DISPLAY-NAME] (v[VERSION]) Overview"
 keywords: "[integration], schema, etl [integration], [integration] etl, [integration] schema"
 permalink: /integrations/saas/[integration]/v[version]
-summary: "Details about version [VERSION] of Stitch's [INTEGRATION] integration, including supported features, setup guides, and replication info."
+summary: "Details about version [VERSION] of Stitch's [DISPLAY-NAME] integration, including supported features, setup guides, and replication info."
 layout: general
 
 content-type: "saas-version-overview"
@@ -20,7 +20,7 @@ key: "[integration]-version-overview"
 this-version: "[VERSION]"
 
 name: "[integration]"
-display_name: "[INTEGRATION]"
+display_name: "[DISPLAY-NAME]"
 
 
 # -------------------------- #

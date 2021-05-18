@@ -4,8 +4,8 @@
 # -------------------------- #
 
 content-type: "integration-metadata"
-key: "[flavor]-details-v[version]"
-name: "[flavor]"
+key: "[name]-details-v[version]"
+name: "[name]"
 
 db-type: "[db-type]"
 
