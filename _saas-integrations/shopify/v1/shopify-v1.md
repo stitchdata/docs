@@ -57,7 +57,7 @@ row-usage-hog-reasons:
 # -------------------------- #
 #      Feature Summary       #
 # -------------------------- #
-
+ 
 feature-summary: |
   Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
@@ -66,6 +66,9 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
+requirements-info: |
+  Staff members on a {{ integration.display_name }} Plus plan cannot export data by default. Store owners can give staff members permissions export orders, draft orders, products, inventory, and customer data. Read the [{{ integration.display_name }} Staff permissions documentation](https://help.shopify.com/en/manual/your-account/staff-accounts/staff-permissions#store-owner-permissions){:target="new"} for more information.
+  
 setup-steps:
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
