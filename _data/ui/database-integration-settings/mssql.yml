@@ -18,36 +18,37 @@ field-names:
 
 mssql:
   - &integration-name
-    name: "{{ site.data.ui.common.database-connectionsfield-names.integration-name }}"
+    name: "{{ site.data.ui.common.database-connections.field-names.integration-name }}"
     version: "all"
     copy: |
-      {{ site.data.ui.common.database-connectionsfield-copy.integration-name | flatify }}
+      {{ site.data.ui.common.database-connections.field-copy.integration-name | flatify }}
 
   - &host
-    name: "{{ site.data.ui.common.database-connectionsfield-names.host }}"
+    name: "{{ site.data.ui.common.database-connections.field-names.host }}"
     version: "all"
-    copy: "{{ site.data.ui.common.database-connectionsfield-copy.host | flatify }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.host | flatify }}"
 
   - &port
-    name: "{{ site.data.ui.common.database-connectionsfield-names.port }}"
+    name: "{{ site.data.ui.common.database-connections.field-names.port }}"
     version: "all"
-    copy: "{{ site.data.ui.common.database-connectionsfield-copy.port | flatify }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.port | flatify }}"
 
   - &username
-    name: "{{ site.data.ui.common.database-connectionsfield-names.username }}"
+    name: "{{ site.data.ui.common.database-connections.field-names.username }}"
     version: "all"
-    copy: "{{ site.data.ui.common.database-connectionsfield-copy.username | flatify }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.username | flatify }}"
 
   - &password
-    name: "{{ site.data.ui.common.database-connectionsfield-names.password }}"
-    version: "all"
-    copy: "{{ site.data.ui.common.database-connectionsfield-copy.password | flatify }}"
-
-  - &database
-    name: "{{ site.data.ui.common.database-connectionsfield-names.database }}"
+    name: "{{ site.data.ui.common.database-connections.field-names.password }}"
     version: "all"
     copy: |
-      {{ site.data.ui.common.database-connectionsfield-copy.optional-database | flatify }}
+      {{ site.data.ui.common.database-connections.field-copy.password | flatify }}
+
+  - &database
+    name: "{{ site.data.ui.common.database-connections.field-names.database }}"
+    version: "all"
+    copy: |
+      {{ site.data.ui.common.database-connections.field-copy.optional-database | flatify }}
       
             **Note**: If this field is defined, Stitch will attempt to connect to only the database entered. If undefined, Stitch will attempt to connect to all of the databases the Stitch user has access to. To connect several specific databases, create an integration for each database you want to connect and define it in this field.
 
@@ -55,7 +56,7 @@ mssql:
     name: *schema-names-tables-name
     version: "1"
     copy: |
-      {{ site.data.ui.common.database-connectionsfield-copy.schema-names-tables | flatify }}         
+      {{ site.data.ui.common.database-connections.field-copy.schema-names-tables | flatify }}         
 
 # -------------------------- #
 #            AZURE           #
@@ -63,12 +64,12 @@ mssql:
 
 microsoft-azure:
   - *integration-name
-  - name: "{{ site.data.ui.common.database-connectionsfield-names.host }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.host }}"
     version: "all"
     copy: |
       Enter the host address (endpoint) used by the {{ integration.display_name }} instance. This is usually a server endpoint like `<server-name>.database.windows.net`.
   - *port
-  - name: "{{ site.data.ui.common.database-connectionsfield-names.username }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.username }}"
     version: "all"
     copy: "Enter the Stitch {{ integration.display_name }} user's username. We recommend copying and pasting the username {{ integration.display_name }} displays to you directly into this field. **Note**: Verify that the name includes `'@domain'` or you'll run into connection issues."
   - *password
@@ -82,10 +83,10 @@ microsoft-azure:
 
 sql-server-rds:
   - *integration-name
-  - name: "{{ site.data.ui.common.database-connectionsfield-names.host }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.host }}"
     version: "all"
     copy: |
-      {{ site.data.ui.common.database-connectionsfield-copy.host-rds | flatify }}
+      {{ site.data.ui.common.database-connections.field-copy.host-rds | flatify }}
   - *port
   - *username
   - *password
