@@ -2,7 +2,7 @@
 title: Authentication
 product-type: "connect"
 content-type: "api-doc"
-order: 3
+order: 2
 
 anchor: "authentication-overview"
 
