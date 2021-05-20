@@ -12,4 +12,4 @@ pull-request: "https://github.com/singer-io/tap-zuora/pull/56"
 
 Our code is now explicitly forcing the use of UTC for timestamps for our {{ this-connection.display_name }} integration.
 
-Our REST API was not specifying a timezone while querying, and our code was created to assume that no timezone retrieved means UTC. This update ensures times are recorded in a UTC format.
+Our requests to the {{ this-connection.display_name }} REST API weren't specifying a timezone while querying, and the integration assumed that no timezone retrieved meant UTC.  This update ensures times are consistently recorded in a UTC format.
