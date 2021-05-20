@@ -1,5 +1,5 @@
 ---
-title: "Shopify (v1) bug-fix: Remove duplicates of `build` fields"
+title: "Shopify (v1) bug fix: Remove duplicates of `build` fields"
 content-type: "changelog-entry"
 date: 2021-05-06
 entry-type: bug-fix
