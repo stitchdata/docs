@@ -37,6 +37,13 @@ docs-name: "pendo"
 uses-start-date: true
 
 object-attributes:
+  - name: "include_anonymous_visitors"
+    type: "string"
+    required: false
+    description: |
+      If `true`, anonymous visitors will be included when extracting visitor data. The default is `false`.
+      
+    value:  "false"
   - name: "lookback_window"
     type: "string"
     required: false
@@ -64,11 +71,4 @@ object-attributes:
     description: |
       A {{ form-property.display-name }} integration key. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#create-integration-key" }}) for instructions on creating this credential.
     value: "<{{ form-property.display-name | upcase }}_INTEGRATION_KEY>"
-
-  - name: "include_anonymous_visitors"
-    type: "string"
-    required: false
-    description: |
-      Whether or not to include anonymous visitors' data. The default value is `false`, which will exclude anonymous visitors' data.
-    value:  "false"
 ---
