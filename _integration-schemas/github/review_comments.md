@@ -1,12 +1,13 @@
 ---
 tap: "github"
 version: "1"
+key: "review-comment"
 
 name: "review_comments"
 doc-link: https://developer.github.com/v3/pulls/comments/
 singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/review_comments.json
 description: |
-  The `review_comments` table contains info about comments made on pull request reviews.
+  The `{{ table.name }}` table contains info about comments made on pull request reviews.
 
   **Note**: In order to replicate this table, you must also set the [`pull_requests`](#pull_requests) table to replicate.
 
@@ -14,7 +15,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "List comments on a pull request"
-  doc-link: https://developer.github.com/v3/pulls/comments/#list-comments-on-a-pull-request
+  doc-link: "https://docs.github.com/en/rest/reference/pulls#list-review-comments-on-a-pull-request"
 
 attributes:
   - name: "id"
@@ -88,6 +89,7 @@ attributes:
   - name: "in_reply_to_id"
     type: "integer"
     description: "If the review comment is a reply to another review comment, this will be the ID of the review comment it is in response to."
+    foreign-key-id: "review-comment-id"
 
   - name: "issue_url"
     type: "string"

@@ -1,18 +1,19 @@
 ---
 tap: "github"
 version: "1"
+key: "comment"
 
 name: "comments"
 doc-link: https://developer.github.com/v3/comments/
 singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/comments.json
 description: |
-  The `comments` table contains info about comments made on issues.
+  The `{{ table.name }}` table contains info about comments made on issues in the specified repositories for the integration.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: "List comments on a pull request"
-  doc-link: https://developer.github.com/v3/pulls/comments/#list-comments-on-a-pull-request
+  name: "List issue comments for a repository"
+  doc-link: "https://docs.github.com/en/rest/reference/issues#list-issue-comments-for-a-repository"
 
 attributes:
   - name: "id"

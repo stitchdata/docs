@@ -1,18 +1,19 @@
 ---
 tap: "github"
 version: "1"
+key: "assignee"
 
 name: "assignees"
 doc-link: https://developer.github.com/v3/issues/assignees/
 singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/assignees.json
 description: |
-  The `assignees` table contains info about the available assignees for issues in a repository.
+  The `{{ table.name }}` table contains info about the available assignees for issues of the repositiries specified for the integration.
 
 replication-method: "Full Table"
 
 api-method:
-  name: "listAssignees"
-  doc-link: https://developer.github.com/v3/issues/assignees/#list-assignees
+  name: "List assignees"
+  doc-link: "https://docs.github.com/en/rest/reference/issues#list-assignees"
 
 attributes:
   - name: "id"

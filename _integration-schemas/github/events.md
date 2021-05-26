@@ -1,7 +1,7 @@
 ---
 tap: "github"
 version: "1"
-key: ""
+key: "event"
 
 name: "events"
 doc-link: "https://developer.github.com/v3/activity/events/"
@@ -12,8 +12,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List events"
-    doc-link: "https://developer.github.com/v3/activity/events/"
+    name: "List issue events for a repository"
+    doc-link: "https://docs.github.com/en/rest/reference/issues#list-issue-events-for-a-repository"
 
 attributes:
   - name: "id"
@@ -34,18 +34,23 @@ attributes:
       - name: "avatar_url"
         type: "string"
         description: ""
+
       - name: "display_login"
         type: "string"
         description: ""
+
       - name: "gravatar_id"
         type: "string"
         description: ""
+
       - name: "id"
         type: "number"
         description: ""
+
       - name: "login"
         type: "string"
         description: ""
+
       - name: "url"
         type: "string"
         description: ""
@@ -59,23 +64,28 @@ attributes:
   
   - name: "org"
     type: "object"
-    description: "Information about the organization"
+    description: "Information about the organization."
     subattributes:
       - name: "avatar_url"
         type: "string"
         description: ""
+
       - name: "gravatar_id"
         type: "string"
         description: ""
+
       - name: "id"
         type: "number"
         description: ""
+
       - name: "login"
         type: "string"
         description: ""
+
       - name: "url"
         type: "string"
         description: ""
+
   - name: "payload"
     type: "object"
     description: "Information about the events payload."
@@ -83,12 +93,15 @@ attributes:
       - name: "action"
         type: "string"
         description: ""
+
       - name: "before"
         type: "string"
         description: ""
+
       - name: "comment"
         type: "string"
         description: ""
+
       - name: "commits"
         type: "array"
         description: ""
@@ -100,48 +113,63 @@ attributes:
               - name: "email"
                 type: "string"
                 description: ""
+
               - name: "name"
                 type: "string"
                 description: ""
+
           - name: "distinct"
             type: "boolean"
             description: ""
+
           - name: "message"
             type: "string"
             description: ""
+
           - name: "sha"
             type: "string"
             description: ""
+
           - name: "url"
             type: "string"
             description: ""
+
       - name: "description"
         type: "string"
         description: ""
+
       - name: "issue"
         type: "string"
         description: ""
+
       - name: "master_branch"
         type: "string"
         description: ""
+
       - name: "pusher_type"
         type: "string"
         description: ""
+
       - name: "ref"
         type: "string"
         description: ""
+
       - name: "ref_type"
         type: "string"
         description: ""
+
   - name: "public"
     type: "boolean"
     description: "When a private repository becomes public."
+
   - name: "push_id"
     type: "number"
     description: "The push ID."
+
   - name: "ref"
     type: "string"
     description: "The full `git ref` that was pushed."
+
   - name: "repo"
     type: "object"
     description: "Information about the repository where the event occured."
@@ -149,15 +177,19 @@ attributes:
       - name: "id"
         type: "number"
         description: ""
+
       - name: "name"
         type: "string"
         description: ""
+
       - name: "url"
         type: "string"
         description: ""
+
   - name: "size"
     type: "number"
     description: "The number of commits in the push."
+
   - name: "type"
     type: "string"
     description: "The event type."

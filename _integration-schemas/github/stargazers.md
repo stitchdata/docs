@@ -1,18 +1,19 @@
 ---
 tap: "github"
 version: "1"
+key: "stargazer"
 
 name: "stargazers"
 doc-link: https://developer.github.com/v3/activity/starring/
 singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/stargazers.json
 description: |
-  The `stargazers` table contains info about users who have starred a repository.
+  The `{{ table.name }}` table contains info about users who have starred a repository.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: "listStargazers"
-  doc-link: https://developer.github.com/v3/activity/starring/#list-stargazers
+  name: "List stargazers"
+  doc-link: "https://docs.github.com/en/rest/reference/activity#list-stargazers"
 
 attributes:
   - name: "user_id"

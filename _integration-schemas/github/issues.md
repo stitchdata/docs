@@ -1,6 +1,7 @@
 ---
 tap: "github"
 version: "1"
+key: "id"
 
 name: "issues"
 doc-link: https://developer.github.com/v3/issues/
@@ -15,8 +16,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: "listIssuesForRepository"
-  doc-link: https://developer.github.com/v3/issues/#list-issues-for-a-repository
+  name: "List issues for repository"
+  doc-link: "https://docs.github.com/en/rest/reference/issues#list-repository-issues"
 
 attributes:
   - name: "id"

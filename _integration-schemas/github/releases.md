@@ -1,6 +1,7 @@
 ---
 tap: "github"
 version: "1"
+key: "release"
 
 name: "releases"
 doc-link: "https://developer.github.com/v3/repos/releases/"
@@ -11,8 +12,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "listReleases"
-    doc-link: "https://developer.github.com/v3/repos/releases/#list-releases"
+    name: "List releases"
+    doc-link: "https://docs.github.com/en/rest/reference/repos#list-releases"
 
 attributes:
   - name: "id"

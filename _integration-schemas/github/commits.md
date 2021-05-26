@@ -1,12 +1,13 @@
 ---
 tap: "github"
 version: "1"
+key: "commit"
 
 name: "commits"
 doc-link:
 singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/commits.json
 description: |
-  The `commits` table contains info about repository commits in a project.
+  The `{{ table.name }}` table contains info about repository commits in a project.
 
 replication-method: "Key-based Incremental"
 replication-key:
@@ -14,8 +15,8 @@ replication-key:
   tooltip: "This is query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
 api-method:
-  name: "listRepositoryCommits"
-  doc-link: https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository
+  name: "List commits"
+  doc-link: "https://docs.github.com/en/rest/reference/repos#list-commits"
 
 attributes:
   - name: "sha"
