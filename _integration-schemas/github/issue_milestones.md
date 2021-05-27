@@ -7,9 +7,13 @@ name: "issue_milestones"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/issue_milestones.json"
 description: |
-  The `{{ table.name }}` table contains info about issue milestones for the repositories specified in the integration.
+  The `{{ table.name }}` table contains info about issue milestones in the repositories specified for the integration.
 
 replication-method: "Key-based Incremental"
+replication-key:
+  name: "since"
+  based-on: "due_on"
+  tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
 api-method:
   name: "List milestones"

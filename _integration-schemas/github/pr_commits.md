@@ -1,29 +1,45 @@
 ---
 tap: "github"
 version: "1"
-key: "commit"
+key: "pull-request-commit"
 
-name: "commits"
-doc-link:
-singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/commits.json
+name: "pr_commits"
+doc-link: ""
+singer-schema: ""
 description: |
-  The `{{ table.name }}` table contains info about repository commits in a project.
+  The `{{ table.name }}` table contains info about pull request commits and is a slight variation of the [`commits`](#commits) table. This allows you to associate commits to pull requests that are squash merged.
 
 replication-method: "Key-based Incremental"
 replication-key:
   name: "since"
+  based-on: "updated_at"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
+dependent-on: "pull_requests"
+
 api-method:
-  name: "List commits"
-  doc-link: "https://docs.github.com/en/rest/reference/repos#list-commits"
+  name: "List pull requests"
+  doc-link: "https://docs.github.com/en/rest/reference/pulls#list-commits-on-a-pull-request"
 
 attributes:
-  - name: "sha"
+  - name: "id"
     type: "string"
     primary-key: true
+    description: "The commit ID."
+
+  - name: "pr_number"
+    type: "integer"
+    description: ""
+
+  - name: "pr_id"
+    type: "string"
+    description: "The ID of the pull request associated with the commit."
+    foreign-key-id: "pull-request-id"
+
+  - name: "sha"
+    type: "string"
     description: "The git commit hash."
-    # foreign-key-id: "sha"
+    foreign-key-id: "sha"
 
   - name: "comments_url"
     type: "string"

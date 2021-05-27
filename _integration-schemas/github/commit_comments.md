@@ -7,9 +7,13 @@ name: "commit_comments"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/commit_comments.json"
 description: |
-  The `{{ table.name }}` table contains info about the commit comments for the repositories specified for the integration.
+  The `{{ table.name }}` table contains info about the commit comments in the repositories specified for the integration.
 
 replication-method: "Key-based Incremental"
+replication-key:
+  name: "since"
+  based-on: "updated_at"
+  tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
 api-method:
   name: "List commit comments for a repository"

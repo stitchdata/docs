@@ -7,7 +7,7 @@ name: "collaborators"
 doc-link: ""
 singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/collaborators.json
 description: |
-  The `{{ table.name }}` table contains info about the users who contribute to a repository.
+  The `{{ table.name }}` table contains info about the users who contribute to the repositories specified for the integration.
 
   For organization-owned repositories, this will include outside collaborators, organization owners, organization members that are direct collaborators, who have access through team memberships, or have access through default organization permissions.
 

@@ -10,6 +10,10 @@ description: |
   The `{{ table.name }}` table contains info about projects in the repositories specified for the integration. 
 
 replication-method: "Key-based Incremental"
+replication-key:
+  name: "since"
+  based-on: "updated_at"
+  tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
 api-method:
   name: "List repository projects"

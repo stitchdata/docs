@@ -77,12 +77,12 @@ foreign-keys:
 
   - id: "label-id"
     table: "labels"
-    attribute: "label_id"
+    attribute: "labels.id"
     all-foreign-keys:
       - table: "issue_events"
-        join-on: "labels.id"
-      - table: "labels"
+      - table: "issue_labels"
         join-on: "id"
+      - table: "issues"
 
   - id: "milestone-id"
     table: "milestones"
@@ -103,9 +103,11 @@ foreign-keys:
     attribute: "pull_request_id"
     table: "pull_requests"
     all-foreign-keys:
-      - table: "pull_requests"
-        join-on: "id"
       - table: "issues"
+        join-on: "id"
+      - table: "pr_commits"
+        join-on: "pr_id"
+      - table: "pull_requests"
         join-on: "id"
 
   - id: "review-comment-id"
@@ -114,6 +116,8 @@ foreign-keys:
     all-foreign-keys:
       - table: "review_comments"
         join-on: "id"
+      - table: "review_comments"
+        join-on: "in_reply_to_id"
 
   - id: "review-id"
     attribute: "review_id"
@@ -129,12 +133,26 @@ foreign-keys:
     table: "commits"
     all-foreign-keys:
       - table: "commits"
-        join-on: "sha"
+      - table: "pr_commits"
 
   - id: "release-id"
     attribute: "id"
     table: "releases"
     all-foreign-keys:
       - table: "releases"
-        join-on: "id"   
+        join-on: "id"
+
+  - id: "team-member-id"
+    table: "team_members"
+    attribute: ""
+    all-foreign-keys:
+      - table: "team_members"
+        join-on: "id"
+
+  - id: "team-id"
+    table: "teams"
+    attribute: ""
+    all-foreign-keys:
+      - table: "teams"
+        join-on: "id"
 ---

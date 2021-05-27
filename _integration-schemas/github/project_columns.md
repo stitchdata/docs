@@ -7,11 +7,17 @@ name: "project_columns"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/project_columns.json"
 description: |
-  The `{{ table.name }}` table contains info about the columns of projects in the specified repositories for the integration.
+  The `{{ table.name }}` table contains info about the columns of projects in the repositories specified for the integration.
 
   **Note**: In order to replicate this table, you must also set the [`projects`](#projects) table to replicate.
 
 replication-method: "Key-based Incremental"
+replication-key:
+  name: "since"
+  based-on: "updated_at"
+  tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
+
+dependent-on: "projects"
 
 api-method:
   name: "List project columns"

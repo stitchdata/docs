@@ -4,16 +4,18 @@ version: "1"
 key: "release"
 
 name: "releases"
-doc-link: "https://developer.github.com/v3/repos/releases/"
+doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/releases.json"
 description: |
-  The `{{ table.name }}` table contains a list of releases. **Note**: {{ integration.display_name }} doesn't include regular Git tags that haven't been associated with a release.
+  The `{{ table.name }}` table contains info about releases in the repositories specified for the integration.
+
+  **Note**: {{ integration.display_name }} doesn't include regular Git tags that haven't been associated with a release.
 
 replication-method: "Full Table"
 
 api-method:
-    name: "List releases"
-    doc-link: "https://docs.github.com/en/rest/reference/repos#list-releases"
+  name: "List releases"
+  doc-link: "https://docs.github.com/en/rest/reference/repos#list-releases"
 
 attributes:
   - name: "id"

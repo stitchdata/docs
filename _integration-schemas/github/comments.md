@@ -7,9 +7,13 @@ name: "comments"
 doc-link: https://developer.github.com/v3/comments/
 singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/comments.json
 description: |
-  The `{{ table.name }}` table contains info about comments made on issues in the specified repositories for the integration.
+  The `{{ table.name }}` table contains info about comments made on issues in the repositories specified for the integration.
 
 replication-method: "Key-based Incremental"
+replication-key:
+  name: "since"
+  based-on: "updated_at"
+  tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
 api-method:
   name: "List issue comments for a repository"
@@ -22,14 +26,9 @@ attributes:
     description: "The comment ID."
     # foreign-key-id: "comment-id"
 
-  - name: "updated_at"
-    type: "date-time"
-    replication-key: true
-    description: "The time the comment was last updated."
-
-  # - name: "author_association"
-  #   type: "string"
-  #   description: ""
+  - name: "author_association"
+    type: "string"
+    description: ""
 
   - name: "body"
     type: "string"
@@ -54,6 +53,10 @@ attributes:
   - name: "node_id"
     type: "string"
     description: "The node ID."
+
+  - name: "updated_at"
+    type: "date-time"
+    description: "The time the comment was last updated."
 
   - name: "url"
     type: "string"

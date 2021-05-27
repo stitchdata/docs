@@ -7,9 +7,13 @@ name: "pull_requests"
 doc-link: https://developer.github.com/v3/pulls/
 singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/pull_requests.json
 description: |
-  The `{{ table.name }}` table contains info about pull requests made against repositofies specified for the integration.
+  The `{{ table.name }}` table contains info about pull requests made against the repositories specified for the integration.
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
+replication-key:
+  name: "since"
+  based-on: "updated_at"
+  tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
 api-method:
   name: "List pull requests"

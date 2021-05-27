@@ -12,6 +12,11 @@ description: |
   **Note**: In order to replicate this table, you must also set the [`teams`](#teams) table to replicate.
 
 replication-method: "Key-based Incremental"
+replication-key:
+  name: "since"
+  tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
+
+parent-table: "teams"
 
 api-method:
   name: "List teams"

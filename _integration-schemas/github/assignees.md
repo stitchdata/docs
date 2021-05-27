@@ -7,7 +7,7 @@ name: "assignees"
 doc-link: https://developer.github.com/v3/issues/assignees/
 singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/assignees.json
 description: |
-  The `{{ table.name }}` table contains info about the available assignees for issues of the repositiries specified for the integration.
+  The `{{ table.name }}` table contains info about the available assignees for issues in the repositories specified for the integration.
 
 replication-method: "Full Table"
 

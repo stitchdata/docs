@@ -7,11 +7,17 @@ name: "project_cards"
 doc-link: "https://docs.github.com/en/rest/reference/projects#cards"
 singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/project_cards.json"
 description: |
-  The `{{ table.name }}` table contains information about cards in your {{ integration.display_name }} project.
+  The `{{ table.name }}` table contains information about project cards in the repositories specified for the integration.
 
   **Note**: In order to replicate this table, you must also set the [`projects`](#projects) table to replicate.
 
 replication-method: "Key-based Incremental"
+replication-key:
+  name: "since"
+  based-on: "updated_at"
+  tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
+
+dependent-on: "projects"
 
 api-method:
   name: "List project cards"

@@ -7,13 +7,19 @@ name: "events"
 doc-link: "https://developer.github.com/v3/activity/events/"
 singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/events.json"
 description: |
-  The `{{ table.name }}` table contains information about events in your {{ integration.display_name }} repositories.
+  The `{{ table.name }}` table contains information about events in the repositories specified for the integration.
 
 replication-method: "Key-based Incremental"
+replication-key:
+  name: "since"
+  based-on: "`updated_at` if non-NULL; otherwise `created_at`"
+  tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
+
+parent-table: "teams"
 
 api-method:
-    name: "List issue events for a repository"
-    doc-link: "https://docs.github.com/en/rest/reference/issues#list-issue-events-for-a-repository"
+  name: "List issue events for a repository"
+  doc-link: "https://docs.github.com/en/rest/reference/issues#list-issue-events-for-a-repository"
 
 attributes:
   - name: "id"
@@ -21,11 +27,6 @@ attributes:
     primary-key: true
     description: "The event ID."
     foreign-key-id: "event-id"
-
-  - name: "created_at"
-    type: "string"
-    description: "The date the event was created."
-    replication-key: true  
 
   - name: "actor"
     type: "object"
@@ -54,10 +55,15 @@ attributes:
       - name: "url"
         type: "string"
         description: ""
+
+  - name: "created_at"
+    type: "string"
+    description: "The date the event was created."
   
   - name: "distinct_size"
     type: "number"
     description: "The number of distinct commits in a push."
+
   - name: "head"
     type: "string"
     description: "The SHA of the most recent commit on `ref` after the push."
