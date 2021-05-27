@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
 key: "project-column"
@@ -11,17 +15,27 @@ description: |
 
   **Note**: In order to replicate this table, you must also set the [`projects`](#projects) table to replicate.
 
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "List project columns"
+  doc-link: "https://docs.github.com/en/rest/reference/projects#list-project-columns"
+
 replication-method: "Key-based Incremental"
 replication-key:
   name: "since"
   based-on: "updated_at"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
-dependent-on: "projects"
+dependent-table-key: "project"
 
-api-method:
-  name: "List project columns"
-  doc-link: "https://docs.github.com/en/rest/reference/projects#list-project-columns"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

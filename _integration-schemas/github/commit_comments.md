@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
 key: "commit-comment"
@@ -9,15 +13,25 @@ singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/s
 description: |
   The `{{ table.name }}` table contains info about the commit comments in the repositories specified for the integration.
 
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "List commit comments for a repository"
+  doc-link: "https://docs.github.com/en/rest/reference/repos#list-commit-comments-for-a-repository"
+
 replication-method: "Key-based Incremental"
 replication-key:
   name: "since"
   based-on: "updated_at"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
-api-method:
-  name: "List commit comments for a repository"
-  doc-link: "https://docs.github.com/en/rest/reference/repos#list-commit-comments-for-a-repository"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

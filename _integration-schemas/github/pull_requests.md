@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
 key: "pull-request"
@@ -9,15 +13,27 @@ singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/sc
 description: |
   The `{{ table.name }}` table contains info about pull requests made against the repositories specified for the integration.
 
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "List pull requests"
+  doc-link: "https://docs.github.com/en/rest/reference/pulls#list-pull-requests"
+
 replication-method: "Key-based Incremental"
 replication-key:
   name: "since"
   based-on: "updated_at"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
-api-method:
-  name: "List pull requests"
-  doc-link: "https://docs.github.com/en/rest/reference/pulls#list-pull-requests"
+is-parent-table: true
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

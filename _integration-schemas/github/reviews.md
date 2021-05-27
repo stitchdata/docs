@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
 key: "review"
@@ -9,7 +13,14 @@ singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/sc
 description: |
   The `{{ table.name }}` table contains info about pull request reviews in the repositories specified for the integration. A pull request review is a group of comments on a pull request.
 
-    **Note**: In order to replicate this table, you must also set the [`pull_requests`](#pull_requests) table to replicate.
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "List reviews for a pull request"
+  doc-link: "https://docs.github.com/en/rest/reference/pulls#list-reviews-for-a-pull-request"
 
 replication-method: "Key-based Incremental"
 replication-key:
@@ -17,11 +28,12 @@ replication-key:
   based-on: "updated_at"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
-dependent-on: "pull_requests"
+dependent-table-key: "pull-request"
 
-api-method:
-  name: "List reviews for a pull request"
-  doc-link: "https://docs.github.com/en/rest/reference/pulls#list-reviews-for-a-pull-request"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

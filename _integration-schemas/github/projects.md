@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
 key: "project"
@@ -9,15 +13,27 @@ singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/s
 description: |
   The `{{ table.name }}` table contains info about projects in the repositories specified for the integration. 
 
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "List repository projects"
+  doc-link: "https://docs.github.com/en/rest/reference/projects#list-repository-projects"
+
 replication-method: "Key-based Incremental"
 replication-key:
   name: "since"
   based-on: "updated_at"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
-api-method:
-  name: "List repository projects"
-  doc-link: "https://docs.github.com/en/rest/reference/projects#list-repository-projects"
+is-parent-table: true
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

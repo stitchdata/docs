@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
 key: "issue-milestone"
@@ -9,15 +13,25 @@ singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/s
 description: |
   The `{{ table.name }}` table contains info about issue milestones in the repositories specified for the integration.
 
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "List milestones"
+  doc-link: "https://docs.github.com/en/rest/reference/issues#list-milestones"
+
 replication-method: "Key-based Incremental"
 replication-key:
   name: "since"
   based-on: "due_on"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
-api-method:
-  name: "List milestones"
-  doc-link: "https://docs.github.com/en/rest/reference/issues#list-milestones"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

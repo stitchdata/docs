@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
 key: "collaborator"
@@ -11,11 +15,21 @@ description: |
 
   For organization-owned repositories, this will include outside collaborators, organization owners, organization members that are direct collaborators, who have access through team memberships, or have access through default organization permissions.
 
-replication-method: "Full Table"
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
 
 api-method:
   name: "List collaborators"
   doc-link: "https://docs.github.com/en/rest/reference/repos#list-repository-collaborators"
+
+replication-method: "Full Table"
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

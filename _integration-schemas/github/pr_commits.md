@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
 key: "pull-request-commit"
@@ -9,17 +13,27 @@ singer-schema: ""
 description: |
   The `{{ table.name }}` table contains info about pull request commits and is a slight variation of the [`commits`](#commits) table. This allows you to associate commits to pull requests that are squash merged.
 
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "List commits on a pull request"
+  doc-link: "https://docs.github.com/en/rest/reference/pulls#list-commits-on-a-pull-request"
+
 replication-method: "Key-based Incremental"
 replication-key:
   name: "since"
   based-on: "updated_at"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
-dependent-on: "pull_requests"
+dependent-table-key: "pull-request"
 
-api-method:
-  name: "List pull requests"
-  doc-link: "https://docs.github.com/en/rest/reference/pulls#list-commits-on-a-pull-request"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

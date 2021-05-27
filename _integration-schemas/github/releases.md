@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
 key: "release"
@@ -11,11 +15,21 @@ description: |
 
   **Note**: {{ integration.display_name }} doesn't include regular Git tags that haven't been associated with a release.
 
-replication-method: "Full Table"
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
 
 api-method:
   name: "List releases"
   doc-link: "https://docs.github.com/en/rest/reference/repos#list-releases"
+
+replication-method: "Full Table"
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

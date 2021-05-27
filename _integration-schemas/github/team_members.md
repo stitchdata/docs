@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
 key: "team-member"
@@ -11,16 +15,26 @@ description: |
 
   **Note**: In order to replicate this table, you must also set the [`teams`](#teams) table to replicate.
 
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "List teams"
+  doc-link: "https://docs.github.com/en/rest/reference/teams#list-teams"
+
 replication-method: "Key-based Incremental"
 replication-key:
   name: "since"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
-parent-table: "teams"
+dependent-table-key: "team"
 
-api-method:
-  name: "List teams"
-  doc-link: "https://docs.github.com/en/rest/reference/teams#list-teams"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

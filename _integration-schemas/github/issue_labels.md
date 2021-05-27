@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
 key: "issue-label"
@@ -9,14 +13,24 @@ singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/s
 description: |
   The `{{ table.name }}` table contains info about issue labels in the repositories specified for the integration.
 
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "List labels for a repository"
+  doc-link: "https://docs.github.com/en/rest/reference/issues#list-labels-for-a-repository"
+
 replication-method: "Key-based Incremental"
 replication-key:
   name: "since"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
-api-method:
-  name: "List labels for a repository"
-  doc-link: "https://docs.github.com/en/rest/reference/issues#list-labels-for-a-repository"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

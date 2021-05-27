@@ -1,7 +1,11 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
-key: "id"
+key: "issue"
 
 name: "issues"
 doc-link: https://developer.github.com/v3/issues/
@@ -13,15 +17,25 @@ description: |
 
   GitHub's API considers every pull request an issue, but not every issue may be a pull request. Therefore, this table may contain both issues and pull requests.
 
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "List issues for repository"
+  doc-link: "https://docs.github.com/en/rest/reference/issues#list-repository-issues"
+
 replication-method: "Key-based Incremental"
 replication-key:
   name: "since"
   based-on: "updated_at"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
-api-method:
-  name: "List issues for repository"
-  doc-link: "https://docs.github.com/en/rest/reference/issues#list-repository-issues"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

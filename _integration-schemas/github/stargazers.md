@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
 key: "stargazer"
@@ -9,15 +13,25 @@ singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/sc
 description: |
   The `{{ table.name }}` table contains info about users who have starred the repositories specified for the integration.
 
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "List stargazers"
+  doc-link: "https://docs.github.com/en/rest/reference/activity#list-stargazers"
+
 replication-method: "Key-based Incremental"
 replication-key:
   name: "since"
   based-on: "starred_at"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
-api-method:
-  name: "List stargazers"
-  doc-link: "https://docs.github.com/en/rest/reference/activity#list-stargazers"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "user_id"

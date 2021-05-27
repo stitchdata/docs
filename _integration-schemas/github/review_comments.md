@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
 key: "review-comment"
@@ -9,7 +13,14 @@ singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/s
 description: |
   The `{{ table.name }}` table contains info about comments made on pull request reviews in the repositories specified for the integration.
 
-  **Note**: In order to replicate this table, you must also set the [`pull_requests`](#pull_requests) table to replicate.
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "List comments on a pull request"
+  doc-link: "https://docs.github.com/en/rest/reference/pulls#list-review-comments-on-a-pull-request"
 
 replication-method: "Key-based Incremental"
 replication-key:
@@ -17,11 +28,12 @@ replication-key:
   based-on: "updated_at"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
-dependent-on: "pull_requests"
+dependent-table-key: "pull-request"
 
-api-method:
-  name: "List comments on a pull request"
-  doc-link: "https://docs.github.com/en/rest/reference/pulls#list-review-comments-on-a-pull-request"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

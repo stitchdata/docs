@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
 key: "team"
@@ -11,14 +15,26 @@ description: |
 
   **Note**: Only teams that are visible to the user who authorized the integration in Stitch will be replicated.
 
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "List teams"
+  doc-link: "https://docs.github.com/en/rest/reference/teams#list-teams"
+
 replication-method: "Key-based Incremental"
 replication-key:
   name: "since"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
-api-method:
-  name: "List teams"
-  doc-link: "https://docs.github.com/en/rest/reference/teams#list-teams"
+is-parent-table: true
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"
