@@ -9,9 +9,9 @@
 
 <!-- Get the table's API method data, if there is any. Otherwise, use the doc link value. -->
     {% if table.api-method.name %}
-        {% assign doc-field = site.data.taps.snapshot-attributes.api-field %}
+        {% assign api-field = site.data.taps.snapshot-attributes.api-field %}
     {% else %}
-        {% assign doc-field = site.data.taps.snapshot-attributes.doc-link-field %}
+        {% assign api-field = site.data.taps.snapshot-attributes.doc-link-field %}
     {% endif %}
 
 <!-- If the table has a defined loading behavior, get it -->
@@ -21,13 +21,19 @@
         {% assign loading-field = null | compact %}
     {% endif %}
 
+    {% if table.dependent-table-key %}
+        {% assign parent-table-field = site.data.taps.snapshot-attributes.parent-table %}
+    {% else %}
+        {% assign parent-table-field = null | compact %}
+    {% endif %}
+
 <!-- Reassign everything to snapshot fields -->
-    {% assign snapshot-fields = rep-method-fields | concat: doc-field | concat: loading-field %}
+    {% assign snapshot-fields = rep-method-fields | concat: api-field | concat: parent-table-field | concat: loading-field %}
 
 <!-- Get the table's Primary Key(s) -->
     {% include integrations/templates/schemas/table-keys.html key="primary-key" %}
 
-<!-- If the replication method is 'full table', get its rep key -->
+<!-- If the replication method isn't 'full table', get its rep key -->
     {% if rep-method-key != 'full-table' %}
         {% include integrations/templates/schemas/table-keys.html key="replication-key" %}
     {% endif %}

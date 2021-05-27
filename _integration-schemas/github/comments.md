@@ -1,18 +1,37 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
+key: "comment"
 
 name: "comments"
 doc-link: https://developer.github.com/v3/comments/
-singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/comments.json
+singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/comments.json
 description: |
-  The `comments` table contains info about comments made on issues.
+  The `{{ table.name }}` table contains info about comments made on issues in the repositories specified for the integration.
 
-replication-method: "Key-based Incremental"
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
 
 api-method:
-  name: "List comments on a pull request"
-  doc-link: https://developer.github.com/v3/pulls/comments/#list-comments-on-a-pull-request
+  name: "List issue comments for a repository"
+  doc-link: "https://docs.github.com/en/rest/reference/issues#list-issue-comments-for-a-repository"
+
+replication-method: "Key-based Incremental"
+replication-key:
+  name: "since"
+  based-on: "updated_at"
+  tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"
@@ -21,14 +40,9 @@ attributes:
     description: "The comment ID."
     # foreign-key-id: "comment-id"
 
-  - name: "updated_at"
-    type: "date-time"
-    replication-key: true
-    description: "The time the comment was last updated."
-
-  # - name: "author_association"
-  #   type: "string"
-  #   description: ""
+  - name: "author_association"
+    type: "string"
+    description: ""
 
   - name: "body"
     type: "string"
@@ -53,6 +67,14 @@ attributes:
   - name: "node_id"
     type: "string"
     description: "The node ID."
+
+  - name: "_sdc_repository"
+    type: "string"
+    description: ""
+
+  - name: "updated_at"
+    type: "date-time"
+    description: "The time the comment was last updated."
 
   - name: "url"
     type: "string"

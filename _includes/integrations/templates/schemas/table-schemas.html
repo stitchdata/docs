@@ -45,6 +45,33 @@ For example: Object names are lowercased in Redshift (`CusTomERs` > `customers`)
 <!-- Table description & any other notes -->
     {{ table.description | flatify | markdownify }}
 
+<!-- Dependent and parent table info -->
+    {% if table.dependent-table-key or table.is-parent-table %}
+    <!-- If the table is dependent on another table, show this note: -->
+        {% if table.dependent-table-key %}
+            <p>
+                <strong>Note</strong>: In order to replicate this table, you must also set the <a href="#{{ parent-table.name | slugify }}">{{ parent-table.name }}</a> table to replicate.
+            </p>
+        {% endif %}
+
+    <!-- If the table has other tables that depend on it, show this note: -->
+        {% if table.is-parent-table %}
+            {% assign child-tables = schema | where:"dependent-table-key",table.key | sort_natural:"name" %}
+
+            <p>
+                <strong>Note</strong>: This table must be selected to replicate the following tables:
+
+                <ul>
+                {% for child-table in child-tables %}
+                    <li>
+                        <a href="#{{ child-table.name | slugify }}">{{ child-table.name }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </p>
+        {% endif %}
+    {% endif %}
+
     {% if table.notes %}
         {{ table.notes | flatify | markdownify }}
     {% endif %}

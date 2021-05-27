@@ -5,13 +5,13 @@
 
 tap: "github"
 version: "1"
-key: "commit"
+key: "pull-request-commit"
 
-name: "commits"
-doc-link:
-singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/commits.json
+name: "pr_commits"
+doc-link: ""
+singer-schema: ""
 description: |
-  The `{{ table.name }}` table contains info about repository commits in a project.
+  The `{{ table.name }}` table contains info about pull request commits and is a slight variation of the [`commits`](#commits) table. This allows you to associate commits to pull requests that are squash merged.
 
 
 # -------------------------- #
@@ -19,13 +19,16 @@ description: |
 # -------------------------- #
 
 api-method:
-  name: "List commits"
-  doc-link: "https://docs.github.com/en/rest/reference/repos#list-commits"
+  name: "List commits on a pull request"
+  doc-link: "https://docs.github.com/en/rest/reference/pulls#list-commits-on-a-pull-request"
 
 replication-method: "Key-based Incremental"
 replication-key:
   name: "since"
+  based-on: "updated_at"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
+
+dependent-table-key: "pull-request"
 
 
 # -------------------------- #
@@ -33,11 +36,24 @@ replication-key:
 # -------------------------- #
 
 attributes:
-  - name: "sha"
+  - name: "id"
     type: "string"
     primary-key: true
+    description: "The commit ID."
+
+  - name: "pr_number"
+    type: "integer"
+    description: ""
+
+  - name: "pr_id"
+    type: "string"
+    description: "The ID of the pull request associated with the commit."
+    foreign-key-id: "pull-request-id"
+
+  - name: "sha"
+    type: "string"
     description: "The git commit hash."
-    # foreign-key-id: "sha"
+    foreign-key-id: "sha"
 
   - name: "comments_url"
     type: "string"
@@ -103,62 +119,6 @@ attributes:
         type: "integer"
         description: "The number of comments on the commit."
 
-      - name: "message"
-        type: "string"
-        description: ""
-
-      - name: "tree"
-        type: "object"
-        description: ""
-        subattributes:
-          - name: "sha"
-            type: "string"
-            description: ""
-
-          - name: "url"
-            type: "string"
-            description: ""
-
-      - name: "url"
-        type: "string"
-        description: ""
-
-  - name: "files"
-    type: "array"
-    description: ""
-    subattributes:
-      - name: "additions"
-        type: "number"
-        description: ""
-
-      - name: "blob_url"
-        type: "string"
-        description: ""
-        
-      - name: "changes"
-        type: "number"
-        description: ""
-
-      - name: "deletions"
-        type: "number"
-        description: ""
-
-      - name: "filename"
-        type: "string"
-        description: ""
-
-      - name: "patch"
-        type: "string"
-        description: ""
-
-      - name: "raw_url"
-        type: "string"
-        description: ""
-
-      - name: "status"
-        type: "string"
-        description: ""
-
   - name: "html_url"
     type: "string"
     description: "The HTML URL to the commit."
@@ -179,10 +139,6 @@ attributes:
       - name: "url"
         type: "string"
         description: "The URL to the parent commit."
-
-  - name: "_sdc_repository"
-    type: "string"
-    description: ""
 
   - name: "url"
     type: "string"
