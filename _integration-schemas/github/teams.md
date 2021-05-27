@@ -11,9 +11,7 @@ name: "teams"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/teams.json"
 description: |
-  The `{{ table.name }}` table contains info about the teams in an organization.
-
-  **Note**: Only teams that are visible to the user who authorized the integration in Stitch will be replicated.
+  The `{{ table.name }}` table contains info about the teams in an organization. Only teams that are visible to the user who authorized the integration in Stitch will be replicated.
 
 
 # -------------------------- #

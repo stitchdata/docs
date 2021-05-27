@@ -13,8 +13,6 @@ singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/s
 description: |
   The `{{ table.name }}` table contains info about the columns of projects in the repositories specified for the integration.
 
-  **Note**: In order to replicate this table, you must also set the [`projects`](#projects) table to replicate.
-
 
 # -------------------------- #
 #    Replication Details     #

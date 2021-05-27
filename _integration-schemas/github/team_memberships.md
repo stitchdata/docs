@@ -13,8 +13,6 @@ singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/s
 description: |
   The `{{ table.name }}` table contains info about membership of users in of organization teams that are visible to the user who authorized the integration.
 
-  **Note**: In order to replicate this table, you must also set the [`teams`](#teams) table to replicate.
-
 
 # -------------------------- #
 #    Replication Details     #
