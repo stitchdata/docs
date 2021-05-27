@@ -83,6 +83,7 @@ foreign-keys:
       - table: "issue_labels"
         join-on: "id"
       - table: "issues"
+      - table: "pull_requests"
 
   - id: "milestone-id"
     table: "milestones"
@@ -133,6 +134,8 @@ foreign-keys:
     table: "commits"
     all-foreign-keys:
       - table: "commits"
+      - table: "events"
+        subattribute: "payload.commits"
       - table: "pr_commits"
 
   - id: "release-id"

@@ -5,7 +5,7 @@ key: "id"
 
 name: "issues"
 doc-link: https://developer.github.com/v3/issues/
-singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/issues.json
+singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/issues.json
 description: |
   The `{{ table.name }}` table contains info about issues in the repositories specified for the integration.
 
@@ -162,7 +162,6 @@ attributes:
   - name: "user"
     type: "object"
     description: ""
-
     subattributes:
       - name: "avatar_url"
         type: "string"
@@ -235,5 +234,4 @@ attributes:
       - name: "url"
         type: "string"
         description: ""
-
 ---

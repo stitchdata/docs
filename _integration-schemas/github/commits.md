@@ -5,7 +5,7 @@ key: "commit"
 
 name: "commits"
 doc-link:
-singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/commits.json
+singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/commits.json
 description: |
   The `{{ table.name }}` table contains info about repository commits in a project.
 
@@ -89,6 +89,62 @@ attributes:
         type: "integer"
         description: "The number of comments on the commit."
 
+      - name: "message"
+        type: "string"
+        description: ""
+
+      - name: "tree"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "sha"
+            type: "string"
+            description: ""
+
+          - name: "url"
+            type: "string"
+            description: ""
+
+      - name: "url"
+        type: "string"
+        description: ""
+
+  - name: "files"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "additions"
+        type: "number"
+        description: ""
+
+      - name: "blob_url"
+        type: "string"
+        description: ""
+        
+      - name: "changes"
+        type: "number"
+        description: ""
+
+      - name: "deletions"
+        type: "number"
+        description: ""
+
+      - name: "filename"
+        type: "string"
+        description: ""
+
+      - name: "patch"
+        type: "string"
+        description: ""
+
+      - name: "raw_url"
+        type: "string"
+        description: ""
+
+      - name: "status"
+        type: "string"
+        description: ""
+
   - name: "html_url"
     type: "string"
     description: "The HTML URL to the commit."
@@ -109,6 +165,10 @@ attributes:
       - name: "url"
         type: "string"
         description: "The URL to the parent commit."
+
+  - name: "_sdc_repository"
+    type: "string"
+    description: ""
 
   - name: "url"
     type: "string"

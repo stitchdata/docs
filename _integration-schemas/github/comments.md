@@ -5,7 +5,7 @@ key: "comment"
 
 name: "comments"
 doc-link: https://developer.github.com/v3/comments/
-singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/comments.json
+singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/comments.json
 description: |
   The `{{ table.name }}` table contains info about comments made on issues in the repositories specified for the integration.
 
@@ -53,6 +53,10 @@ attributes:
   - name: "node_id"
     type: "string"
     description: "The node ID."
+
+  - name: "_sdc_repository"
+    type: "string"
+    description: ""
 
   - name: "updated_at"
     type: "date-time"

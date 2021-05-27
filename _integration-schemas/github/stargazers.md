@@ -5,7 +5,7 @@ key: "stargazer"
 
 name: "stargazers"
 doc-link: ""
-singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/stargazers.json
+singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/stargazers.json
 description: |
   The `{{ table.name }}` table contains info about users who have starred the repositories specified for the integration.
 
@@ -25,6 +25,10 @@ attributes:
     primary-key: true
     description: "The user ID."
     # foreign-key-id: "stargazer-id"
+
+  - name: "_sdc_repository"
+    type: "string"
+    description: ""
 
   - name: "starred_at"
     type: "string"

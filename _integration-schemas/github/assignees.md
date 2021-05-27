@@ -5,7 +5,7 @@ key: "assignee"
 
 name: "assignees"
 doc-link: https://developer.github.com/v3/issues/assignees/
-singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/assignees.json
+singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/assignees.json
 description: |
   The `{{ table.name }}` table contains info about the available assignees for issues in the repositories specified for the integration.
 
@@ -25,6 +25,10 @@ attributes:
   - name: "login"
     type: "string"
     description: "The user's username."
+
+  - name: "_sdc_repository"
+    type: "string"
+    description: ""
 
   - name: "type"
     type: "string"

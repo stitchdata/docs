@@ -135,6 +135,7 @@ attributes:
           - name: "sha"
             type: "string"
             description: ""
+            foreign-key-id: "sha"
 
           - name: "url"
             type: "string"
@@ -178,7 +179,7 @@ attributes:
 
   - name: "repo"
     type: "object"
-    description: "Information about the repository where the event occured."
+    description: "Information about the repository where the event occurred."
     subattributes:
       - name: "id"
         type: "number"
@@ -191,6 +192,10 @@ attributes:
       - name: "url"
         type: "string"
         description: ""
+
+  - name: "_sdc_repository"
+    type: "string"
+    description: ""
 
   - name: "size"
     type: "number"

@@ -5,7 +5,7 @@ key: "collaborator"
 
 name: "collaborators"
 doc-link: ""
-singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/collaborators.json
+singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/collaborators.json
 description: |
   The `{{ table.name }}` table contains info about the users who contribute to the repositories specified for the integration.
 
@@ -27,6 +27,10 @@ attributes:
   - name: "login"
     type: "string"
     description: "The collaborator's username."
+
+  - name: "_sdc_repository"
+    type: "string"
+    description: ""
 
   - name: "type"
     type: "string"

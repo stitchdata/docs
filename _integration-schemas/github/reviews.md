@@ -56,6 +56,10 @@ attributes:
       - `PENDING`
       - `CHANGES_REQUESTED`
 
+  - name: "submitted_at"
+    type: "date-time"
+    description: ""
+
   - name: "user"
     type: "object"
     description: "Details about the user who submitted the review."

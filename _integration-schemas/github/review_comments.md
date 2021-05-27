@@ -83,10 +83,6 @@ attributes:
     type: "string"
     description: ""
 
-  - name: "home_url"
-    type: "string"
-    description: ""
-
   - name: "html_url"
     type: "string"
     description: "The HTML URL of the review comment."
@@ -120,23 +116,18 @@ attributes:
     type: "string"
     description: "The review comment's node ID."
 
-  - name: "original_position"
-    type: "integer"
-    description: "The original position of the review comment."
-
   - name: "original_commit_id"
     type: "string"
     description: "The ID of the original comment the review comment is associated with."
     foreign-key-id: "commit-id"  
 
+  - name: "original_position"
+    type: "integer"
+    description: "The original position of the review comment."
+
   - name: "patch_url"
     type: "string"
     description: ""
-
-  - name: "pull_request_review_id"
-    type: "integer"
-    description: "The ID of the pull request review the comment is a part of."
-    foreign-key-id: "review-id"
 
   - name: "path"
     type: "string"
@@ -145,6 +136,11 @@ attributes:
   - name: "position"
     type: "integer"
     description: "The position of the review comment."
+
+  - name: "pull_request_review_id"
+    type: "integer"
+    description: "The ID of the pull request review the comment is a part of."
+    foreign-key-id: "review-id"
 
   - name: "pull_request_url"
     type: "string"

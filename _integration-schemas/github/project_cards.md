@@ -33,7 +33,6 @@ attributes:
   - name: "updated_at"
     type: "date-time"
     description: "The time the card was last updated."
-    replication-key: true
       
   - name: "_sdc_repository"
     type: "string"
