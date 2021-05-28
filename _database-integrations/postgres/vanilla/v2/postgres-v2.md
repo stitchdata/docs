@@ -114,9 +114,9 @@ feature-summary: |
   - **Expanded data type support**. This version supports additional {{ integration.display_name }} data types. Refer to the [{{ integration.display_name }} data types documentation]({{ postgres-overview.url | prepend: site.baseurl | append: "#data-types" }}) for more info.
   - **Improved handling of `JSON`, `JSONB`, and `HSTORE` data types**. In previous versions, these data types were treated as strings. This version will send them to your destination as JSON objects, which may result in [de-nesting]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
   
-  **Note**: The following features aren't currently supported, but will be before the integration leaves beta:
+  **Note**: The following features aren't yet fully supported, but are being worked on:
 
-  - `ARRAY` data type
+  - **Arrays of `DECIMAL`, `NUMERIC`, and `TIMESTAMP(TZ)` data types**
 
   To get a look at how this version compares to the previous version of {{ integration.display_name }}, refer to the [{{ integration.display_name }} version comparison documentation]({{ postgres-overview.url | prepend: site.baseurl | append: "#supported-features" }}).
 
@@ -338,30 +338,13 @@ replication-sections:
         anchor: "extraction--data-replication"
         summary: "Select records for replication"
         content: |
-          During data replication, Stitch will:
+          During data replication, Stitch will query the selected tables and columns using the Replication Method defined for the table:
 
-          {% for sub-subsection in subsection.sub-subsections %}
-          - [{{ sub-subsection.summary | flatify }}](#{{ sub-subsection.anchor }})
+          {% assign replication-methods = site.data.taps.extraction.replication-methods %}
+
+          {% for method in replication-methods.all %}
+          - [{{ replication-methods[method.id]display-name }}]({{ replication-methods[method.id]documentation | flatify }})
           {% endfor %}
-
-        sub-subsections:
-          - title: "Column name transformations"
-            anchor: "data-replication--column-name-transformations"
-            summary: "Transform column names to adhere to Avro rules"
-            content: |
-              To ensure column names are compatible with Avro, the integration will transform column names to adhere to Avro's rules. In Avro, [column names must](https://avro.apache.org/docs/current/spec.html#names){:target="new"}:
-
-              - Start with one of the following:
-                 - `A-Z`
-                 - `a-z`
-                 - `_` (underscore)
-              - Contain only the following:
-                 - Any characters in the list above (`A-Z`, `_`, etc)
-                 - `0-9`
-
-              If a column name contains an unsupported character, the integration will replace it with an underscore (`_`).
-
-              For example: {{ integration.display_name }} may allow column names (identifiers) to contain [dollar signs (`$`)](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS){:target="new"}, such as `column_$one`. When replicated, this column name will be canonicalized to `column__one` and persisted to your destination.
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
