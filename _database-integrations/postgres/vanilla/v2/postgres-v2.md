@@ -96,12 +96,6 @@ view-replication: true
 #      Feature Summary       #
 # -------------------------- #
 
-beta-copy: |
-  {% assign all-postgres = site.database-integrations | where:"key","postgres-integration" %}
-  {% assign postgres-overview = all-postgres | where:"content-type","database-category" | first %}
-  
-  **Note**: This version differs greatly than the previous version. Refer to the [Integration feature summary]({{ integration.url | prepend: site.baseurl | append: "#feature-summary" }}) and [version comparison documentation]({{ postgres-overview.url | prepend: site.baseurl | append: "#supported-features" }}) for more info.
-
 feature-summary: |
   {% assign all-postgres = site.database-integrations | where:"key","postgres-integration" %}
   {% assign postgres-overview = all-postgres | where:"content-type","database-category" | first %}
@@ -110,7 +104,6 @@ feature-summary: |
 
   Notable improvements and changes in this version also include:
 
-  - **New column (field) naming rules.** Avro has specific rules that dictate how columns can be named. As a result, column names will be canonicalized to adhere to Avro rules and persisted to your destination using the Avro-friendly name. Refer to the [Column name transformations section](#data-replication--column-name-transformations) for more info.
   - **Expanded data type support**. This version supports additional {{ integration.display_name }} data types. Refer to the [{{ integration.display_name }} data types documentation]({{ postgres-overview.url | prepend: site.baseurl | append: "#data-types" }}) for more info.
   - **Improved handling of `JSON`, `JSONB`, and `HSTORE` data types**. In previous versions, these data types were treated as strings. This version will send them to your destination as JSON objects, which may result in [de-nesting]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
   
