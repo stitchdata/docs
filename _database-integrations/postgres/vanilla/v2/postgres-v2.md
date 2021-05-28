@@ -106,10 +106,12 @@ feature-summary: |
 
   - **Expanded data type support**. This version supports additional {{ integration.display_name }} data types. Refer to the [{{ integration.display_name }} data types documentation]({{ postgres-overview.url | prepend: site.baseurl | append: "#data-types" }}) for more info.
   - **Improved handling of `JSON`, `JSONB`, and `HSTORE` data types**. In previous versions, these data types were treated as strings. This version will send them to your destination as JSON objects, which may result in [de-nesting]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
-  
-  **Note**: The following features aren't yet fully supported, but are being worked on:
+  - **Improved handling of schema changes in tables using Log-based Incremental Replication.** Adding and removing columns in these tables will no longer cause extraction errors. **Note**: This limitation still applies to [version 1]({{ link.replication.log-based-incremental | append: site.baseurl | append: "#limitation--structural-changes" }}).
+
+  **Note**: The following features aren't fully supported, but are being worked on:
 
   - **Arrays of `DECIMAL`, `NUMERIC`, and `TIMESTAMP(TZ)` data types**
+  - **Support for other flavors of {{ integration.display_name }}**. We're in the process of testing this version of our integration with other flavors of {{ integration.display_name }}, including Heroku, Google CloudSQL, Amazon Aurora, and Amazon RDS.
 
   To get a look at how this version compares to the previous version of {{ integration.display_name }}, refer to the [{{ integration.display_name }} version comparison documentation]({{ postgres-overview.url | prepend: site.baseurl | append: "#supported-features" }}).
 
