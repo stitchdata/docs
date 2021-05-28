@@ -20,7 +20,9 @@
 # --------------------------------- #
 
 array:
-  stitch-type: "unsupported"
+  stitch-type: "array"
+  tooltip: |
+    Arrays aren't fully implemented for this version. Arrays of some types - such as decimals or dates - are not yet supported.
 
 bigint:
   stitch-type: "integer"
@@ -32,7 +34,7 @@ bit:
   stitch-type: "boolean"
 
 bit varying:
-  stitch-type: "string"
+  stitch-type: "unsupported"
 
 boolean:
   stitch-type: "boolean"
@@ -59,7 +61,7 @@ date:
   stitch-type: "string"
   format: "date-time"
   tooltip: |
-    Dates are exported as epoch timestamps with milisecond precision.
+    Dates are exported as epoch days and loaded as DATE-TIME.
       
 decimal:
   stitch-type: "number"
@@ -124,11 +126,14 @@ numeric:
 nvarchar:
   stitch-type: "string"
 
+oid:
+  stitch-type: "unsupported"
+
 path:
   stitch-type: "unsupported"
 
 pg_lsn:
-  stitch-type: "string"
+  stitch-type: "unsupported"
 
 point:
   stitch-type: "unsupported"
@@ -138,6 +143,30 @@ polygon:
 
 real:
   stitch-type: "number"
+
+regproc:
+  stitch-type: "unsupported"
+
+regprocedure:
+  stitch-type: "unsupported"
+
+regoper:
+  stitch-type: "unsupported"
+
+regoperator:
+  stitch-type: "unsupported"
+
+regclass:
+  stitch-type: "unsupported"
+
+regtype:
+  stitch-type: "unsupported"
+
+regconfig:
+  stitch-type: "unsupported"
+
+regdictionary:
+  stitch-type: "unsupported"
 
 serial:
   stitch-type: "integer"
@@ -154,18 +183,20 @@ time:
 timestamp:
   stitch-type: "string"
   format: "date-time"
+  tooltip: |
+    Timestamps are exported as epoch microseconds and loaded as DATE-TIME.
 
 tinyint:
   stitch-type: "integer"
 
 tsquery:
-  stitch-type: "string"
+  stitch-type: "unsupported"
 
 tsvector:
-  stitch-type: "string"
+  stitch-type: "unsupported"
 
 txid_snapshot:
-  stitch-type: "string"
+  stitch-type: "unsupported"
 
 uuid:
   stitch-type: "string"
