@@ -53,7 +53,7 @@ arguments:
   - name: "properties"
     required: false
     type: "object"
-    description: "A [Source Form Property object]({{ api.form-properties.source-forms.section }}) corresponding to the value of `type`."
+    description: "A [Connection property object]({{ api.form-properties.source-forms.section }}) corresponding to the value of `type`."
 
 
 # -------------------------- #

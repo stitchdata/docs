@@ -1,7 +1,7 @@
 ---
 title: MySQL (v1)
 keywords: mysql, database integration, etl mysql, mysql etl
-permalink: /integrations/databases/mysql
+permalink: /integrations/databases/mysql/v1
 summary: "Connect and replicate data from your MySQL database using Stitch's MySQL integration."
 microsites:
   - title: "{{ page.display_name }} to Redshift"

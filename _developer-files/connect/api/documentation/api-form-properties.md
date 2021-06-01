@@ -3,7 +3,7 @@ title: Connection property objects
 product-type: "connect"
 content-type: "api-doc"
 anchor: "form-properties"
-order: 7
+order: 8
 
 # This parameter is used in _includes/connect/api-endpoint-rollup.html
 # To display the correct description for a given form property

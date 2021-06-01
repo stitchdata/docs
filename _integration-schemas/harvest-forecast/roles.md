@@ -42,4 +42,13 @@ attributes:
         type: "integer"
         description: "The placeholder ID."
         foreign-key-id: "placeholder-id"
+
+  - name: "updated_at"
+    type: "date-time"
+    description: "The time the role was last updated."
+
+  - name: "updated_by_id"
+    type: "integer"
+    description: "The ID of the user who last updated the role."
+    foreign-key-id: "person-id"
 ---

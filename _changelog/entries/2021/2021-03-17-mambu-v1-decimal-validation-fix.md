@@ -1,5 +1,5 @@
 ---
-title: "Mambu (v1): Resolved decimal precision failures"
+title: "Mambu (v1) bug fix: Resolved decimal precision failures"
 content-type: "changelog-entry"
 date: 2021-03-17
 entry-type: bug-fix

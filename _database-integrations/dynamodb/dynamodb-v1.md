@@ -213,6 +213,12 @@ replication-sections:
       To perform Full Table Replications with Stitch's {{ integration.display_name }} integration, Stitch uses scans to return data. A scan returns data by accessing all items within a table. As queries require you to specify the hash key (Primary Key), Stitch uses scans to simplify setup and replication. For more information about scans, click [here](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html){:target="new"}.
 
       Additionally, Stitch's {{ integration.display_name }} integration only uses eventually consistent reads from your selected {{ integration.display_name }} tables. **Note**: This means that you will not see all of your recent data right away due to a delay from Amazon, but it will eventually catch up and return the latest records. For more information on {{ integration.display_name }} read consistency, refer to [Amazon's documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html){:target="new"}.
+
+  - title: "Replication delays"
+    anchor: "replication-delays"
+    summary: "Details about expected delays in {{ integration.display_name }} replication"
+    content: |
+      Stitch can't replicate data from your {{ integration.display_name }} database until the shard is closed in your account. This can result in a delay in the replicaton of new data, as the new data is available only after the shard has been closed. Forcing an extraction in Stitch won't have any effect on replicating new data unless the shard is closed.
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

@@ -30,6 +30,16 @@ description: ""
 uses-start-date: true
 
 object-attributes:
+  - name: "include_archived_contacts"
+    type: "string"
+    required: false
+    description: |
+      If `true`, Stitch will query for `archived` and `active` contacts when replicating contact data.
+
+      If `false`, only `active` contacts will be replicated.
+    value: "true"
+
+object-attributes:
   - name: "oauth_s3_bucket"
     type: "string"
     read-only: true

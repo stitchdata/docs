@@ -59,13 +59,11 @@ tables:
 {% include misc/data-files.html %}
 
 {% contentfor setup %}
-{% include integrations/webhooks/webhook-setup.html %}
+{% include integrations/webhooks/webhook-setup.html %} For additional info on Branch webhooks, check out [Branch's webhooks documentation](https://dev.branch.io/getting-started/webhooks/guide/).
 
-For additional info on Branch webhooks, check out [Branch's webhooks documentation](https://dev.branch.io/getting-started/webhooks/guide/).
-
-1. Sign into your Branch account.
-2. In the side nav, click the [webhooks](https://dashboard.branch.io/webhook) option.
-3. Click **Add a new webhook**. 
+1. Sign into your {{ integration.display_name }} account.
+2. Open the [webhooks](https://dashboard.branch.io/data-import-export/webhooks){:target="new"} page on the {{ integration.display_name }} dashboard.
+3. Click **+ Add a new webhook**. 
 4. In the window that displays:
    - Paste your Stitch-generated webhook URL in the URL field.
    - Leave the method (`POST`) as-is.

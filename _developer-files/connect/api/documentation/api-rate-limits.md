@@ -2,7 +2,7 @@
 title: Rate limits
 product-type: "connect"
 content-type: "api-doc"
-order: 5
+order: 4
 
 anchor: "rate-limit-overview"
 

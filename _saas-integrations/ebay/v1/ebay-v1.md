@@ -99,6 +99,8 @@ setup-steps:
     content: |
       {% include integrations/saas/setup/historical-sync.html %}
 
+      **Note**: To retrieve data from the `orders` table, the **Start Date** must not exceed 90 days from the current date, whether you're initially creating the integration or resetting this parameter. If this exceeds 90 days, you'll encounter [errors during Extraction](#orders).
+
   - title: "Create a replication schedule"
     anchor: "define-rep-frequency"
     content: |
