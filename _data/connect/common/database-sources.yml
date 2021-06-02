@@ -142,7 +142,7 @@ binlog-replication:
     description: |
       If `true`, Log-based Incremental Replication will be used as the default Replication Method for tables set to replicate. This choice can be overriden on individual tables at any time.
     value: "true"
-    database: "mysql, mssql"
+    database: "mysql, mssql, postgres"
 
   - name: "server_id"
     required: false

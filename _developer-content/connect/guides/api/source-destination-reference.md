@@ -151,7 +151,7 @@ sections:
       {% capture table %}
       {% assign form-properties = site.developer-files | where:"content-type","api-form" %}
       {% assign forms-of-type = form-properties | where:"form-type","source" | sort:"display-name" %}
-      {% assign all-connections = site.documents | where:"input",true | sort:"display_name" %}
+      {% assign all-connections = site.documents | where:"input",true | sort_natural:"display_name" %}
 
       <table class="attribute-list" id="filter-table">
       <tr>
@@ -179,7 +179,7 @@ sections:
       <tr>
       <td>
       <a href="{{ connection.url | prepend: site.baseurl }}">
-      {{ connection.display_name }}
+      {{ connection.title }}
       </a>
       </td>
       <td>
