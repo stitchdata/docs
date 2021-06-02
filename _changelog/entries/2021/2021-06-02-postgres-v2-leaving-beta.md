@@ -1,7 +1,7 @@
 ---
 title: "PostgreSQL (v2) update: Leaving beta!"
 content-type: "changelog-entry"
-date: 2021-06-01
+date: 2021-06-02
 entry-type: new-feature
 entry-category: integration
 connection-id: "postgres"
