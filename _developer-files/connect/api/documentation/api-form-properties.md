@@ -10,6 +10,18 @@ order: 8
 property-description: |
   {% assign connection-name = VARIABLE.display-name %}
 
+  {% if VARIABLE.deprecated %}
+  {% assign replacement-form-property = all-form-properties | find:"api-type",VARIABLE.deprecated.use-instead %}
+
+  {% capture deprecation-notice %}
+  **Deprecated as of {{ VARIABLE.deprecated.as-of }}**. Use the [{{ replacement-form-property.api-type }}](#{{ replacement-form-property.key }}) object to create {{ connection-name }} connections.
+  {% endcapture %}
+
+  {% include important.html type="single-line" content=deprecation-notice %}
+  {% endif %}
+
+
+
   {% case VARIABLE.form-type %}
 
   {% when "source" %}

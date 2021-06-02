@@ -24,7 +24,7 @@ description: ""
 
 deprecated:
   as-of: "June 26, 2018"
-  use-instead: "[Marketo Bulk]({{ api.form-properties.source-forms.marketo-bulk.section }})"
+  use-instead: "platform.marketobulk"
 
 
 # -------------------------- #
