@@ -97,7 +97,8 @@ object-attributes:
       If `true`, Stitch will place all elements of key-value pairs in quotes when `output_file_format` is `csv`.
 
       For example: Numerical fields will appear as `"123"` instead of `123`.
-    value: "true"
+    value: |
+      "true"
 
   - name: "s3_key_format_string"
     type: "string"
