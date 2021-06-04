@@ -263,6 +263,17 @@ sections:
   - title: "All connection property objects"
     anchor: "all-form-properties"
     summary: "A reference of each connection property object's attributes"
+    insert-subsections: |
+      {% assign form-properties = site.developer-files | where:"content-type","api-form" | sort_natural:"display-name" %}
+      
+      {% for form-property in form-properties %}                         
+        <li>
+            <a href="#{{ form-property.key }}" class="api">
+              <span class="method {{ form-property.form-type }} method-bullet">{{ form-property.form-type | upcase | strip_newlines }}</span>
+                {{ form-property.display-name | flatify }}
+              </a>
+        </li>
+      {% endfor %}
     content: |
       {% include developers/api-form-properties.html %}
 ---
