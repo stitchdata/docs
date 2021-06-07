@@ -16,8 +16,8 @@ This version (v{{ this-connection.this-version }}) of Stitch's {{ this-connectio
 Notable improvements and changes in this version also include:
 
 - **Expanded data type support**. This version supports additional {{ this-connection.display_name }} data types. Refer to the [{{ this-connection.display_name }} data types documentation]({{ postgres-overview.url | prepend: site.baseurl | append: "#data-types" }}) for more info.
-- **Improved handling of `JSON`, `JSONB`, and `HSTORE` data types**. In previous versions, these data types were treated as strings. This version will send them to your destination as JSON objects, which may result in [de-nesting]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
-- **Improved handling of schema changes in tables using Log-based Incremental Replication.** Adding and removing columns in these tables will no longer cause extraction errors. **Note**: This limitation still applies to [version 1]({{ site.home | append: site.baseurl | append: link.replication.log-based-incremental | append: "#limitation--structural-changes" }}).
+- **Improved handling of `JSON`, `JSONB`, and `HSTORE` data types**. In previous versions, these data types were treated as strings. This version will send them to your destination as JSON objects, which may result in [de-nesting]({{ site.data.urls.destinations.storage.nested-structures | prepend: site.baseurl | prepend: site.home }}).
+- **Improved handling of schema changes in tables using Log-based Incremental Replication.** Adding and removing columns in these tables will no longer cause extraction errors. **Note**: This limitation still applies to [version 1]({{ site.home | append: site.baseurl | append: site.data.urls.replication.log-based-incremental | append: "#limitation--structural-changes" }}).
 
 **Note**: The following features aren't fully supported, but are being worked on:
 
