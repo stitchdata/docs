@@ -37,6 +37,9 @@ related:
   - title: "Destination and source API availability"
     link: "{{ link.connect.guides.connection-reference | prepend: site.baseurl }}"
 
+  - title: "Create a destination with the Connect API"
+    link: "{{ link.connect.guides.create-configure-a-destination | prepend: site.baseurl }}"
+
   - title: "Replication scheduling for sources using the Connect API"
     link: "{{ link.connect.guides.replication-scheduling-for-sources | prepend: site.baseurl }}"
 

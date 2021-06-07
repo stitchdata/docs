@@ -1,126 +1,132 @@
+
+
 <!-- This file contains the logic for displaying form property documentation. 
-    Ex: destination and source form properties. -->
+Ex: destination and source form properties. -->
 
 {% include misc/data-files.html %}
+{% include misc/icons.html %}
+
+{% assign api-reference = link.connect.api | prepend: site.baseurl %}
 
 {% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
-    {% assign all-form-properties = all-docs | where:"content-type","api-form" | sort_natural: "title" %}
+{% assign all-form-properties = all-docs | where:"content-type","api-form" | sort_natural: "title" %}
 
 
 {% for form-property in all-form-properties %}
-    {% case form-property.form-type %}
-        {% when 'destination' %}
-            {% assign form-type = "destinations" %}
-        {% when 'source' %}
-            {% assign form-type = "sources" %}
-    {% endcase %}
+{% case form-property.form-type %}
+    {% when 'destination' %}
+        {% assign form-type = "destinations" %}
+    {% when 'source' %}
+        {% assign form-type = "sources" %}
+{% endcase %}
 
 <!-- The logic for getting a form property's applicable fields -->
-    {% include developers/api-form-property-fields-logic.html %}
+{% include developers/api-form-property-fields-logic.html %}
 
-    <div class="api-js-heading">
-        <div class="method {{ form-property.form-type }}">
-            {{ form-property.form-type | upcase }}
-        </div>
-
-        <div class="method-resource">
-            <h4 id="{{ form-property.key }}">
-                The {{ form-property.display-name }} {{ form-property.form-type }} connection property object
-            </h4>
-        </div>
+<div class="api-js-heading" style="border-bottom: 0;">
+    <div class="method {{ form-property.form-type }}">
+        {{ form-property.form-type | upcase }}
     </div>
 
-<!-- property-description is a Frontmatter variable located in _developer-files/documentation/api-form-properties.html
+    <div class="method-resource">
+        <h3 id="{{ form-property.key }}">
+            The {{ form-property.display-name }} {{ form-property.form-type }} connection property object
+        </h3>
+    </div>
 
-It's a block of Liquid code that checks a form property's type and then outputs
-the correct description for it. -->
-    {{ doc.property-description | replace: "VARIABLE","form-property" | flatify | markdownify }}
+    {% include developers/api-form-property-snapshot-table.html %}
+</div>
 
-    {% if form-property.oauth-attributes %}
-        <p>
-            {{ form-property.display-name }} {{ form-property.form-type }} connection property objects can contain two types of properties:
-        </p>
 
-        <ul>
-            <li>
-                <a href="#{{ form-property.key }}-form">Form properties</a>: Required to create the {{ form-property.form-type }} and complete the {{ form-property.form-type }}'s <code>form</code> step.
-            </li>
-            <li>
-                <a href="#{{ form-property.key }}-oauth">OAuth properties</a>: <strong>Required only if you're performing OAuth for this {{ form-property.form-type }} yourself.</strong> Refer to the <a href="{{ link.connect.guides.configure-connection-oauth | prepend: site.baseurl }}">Performing OAuth with Stitch Connect</a> guide for more info.
-            </li>
-        </ul>
-    {% endif %}
+
+<!-- Get the action description for the property -->
+
+{% case form-property.form-type %}
+    {% when 'source' %}
+        {% if form-property.property-description %}
+            {% assign connection-action = "read data from " | append: form-property.property-description %}
+
+        {% else %}
+            {% case form-property.source-type %}
+                {% when 'database' %}
+                    {% assign connection-action = "read data from " | append: form-property.display-name | append: " databases" %}
+
+                {% when 'saas' %}
+                    {% assign connection-action = "read data from the " | append: form-property.display-name | append: " API" %}
+
+                {% when 'import-api' %}
+                    {% assign connection-action = "receive data you push to the Import API" %}
+            {% endcase %}
+        {% endif %}
+
+    {% when 'destination' %}
+        {% if form-property.property-description %}
+            {% assign connection-action = "write data to " | append: form-property.property-description %}
+        {% else %}
+            {% assign connection-action = "write data to a " | append: form-property.display-name | appned: " database" %}
+        {% endif %}
+{% endcase %}
+
+<p>
+    {{ form-property.display-name }} connections {{ connection-action | flatify }} and correspond to {{ form-property.form-type }} <code>type: {{ form-property.api-type }}</code>.
+</p>
+
+
+{% if form-property.oauth-attributes %}
+<p>
+    {{ form-property.display-name }} {{ form-property.form-type }} connection property objects can contain two types of properties:
+</p>
+
+<ul>
+    <li>
+        <a href="#{{ form-property.key }}-form">Form properties</a>: Required to create the {{ form-property.form-type }} and complete the {{ form-property.form-type }}'s <code>form</code> step.
+    </li>
+    <li>
+        <a href="#{{ form-property.key }}-oauth">OAuth properties</a>: <strong>Required only if you're performing OAuth for this {{ form-property.form-type }} yourself.</strong> Refer to the <a href="{{ link.connect.guides.configure-connection-oauth | prepend: site.baseurl }}">Performing OAuth with Stitch Connect</a> guide for more info.
+    </li>
+</ul>
+{% endif %}
 
 <!-- The description found in the form property's file. Additional details about setup, etc. -->
-    {{ form-property.description | flatify | markdownify }}
+{{ form-property.description | flatify | markdownify }}
 
 
 <!-- If there are OAuth attributes, do this:-->
-    {% if form-property.oauth-attributes %}
-        <h5 id="{{ form-property.key }}-form">
-            {{ form-property.display-name }} {{ form-property.form-type }} form properties
-        </h5>
+{% if form-property.oauth-attributes %}
+<h4 id="{{ form-property.key }}-form">
+    {{ form-property.display-name }} {{ form-property.form-type }} form properties
+</h4>
 
-        <p>Form properties are used to complete the <code>form</code> step in {{ form-property.form-type }} configuration.</p>
-    {% endif %}
+<p>
+    Form properties are used to complete the <code>form</code> step in {{ form-property.form-type }} configuration.
+</p>
+{% endif %}
 
-    {% unless form-property.override-attributes == true %}
-        <p>
-            <strong>Note</strong>: Attributes marked as <font color="#E96065">REQUIRED</font> must be provided in the <code>properties</code> argument for <a href="{{ api.core-objects[form-type]create.anchor }}">Creating</a> or <a href="{{ api.core-objects[form-type]update.anchor }}">Updating a {{ form-property.form-type | capitalize }}</a>.
-        </p>
+{% unless form-property.override-attributes == true %}
+<p>
+    <strong>Note</strong>: Attributes marked as {{ supported | replace:"TOOLTIP","Required" | flatify }} (required) must be provided to complete the <code>form</code> step for the connection.
+</p>
 
-    <!-- The table listing of the form property's attributes -->
-        {% include developers/api-form-property-field-table.html %}
-    
-    {% endunless %}
+<!-- The table listing of the form property's attributes -->
+    {% include developers/api-form-property-field-table.html attributes=all-form-attributes %}
+{% endunless %}
 
-    <!-- The example JSON object of the form property -->
+<!-- The example JSON object of the form property -->
     {% include developers/api-form-property-example-object.html content=include.content property-type="form" %}
 
 
 <!-- Display OAuth properties, if the form-property has them -->
-    {% if form-property.oauth-attributes %}
-        <h5 id="{{ form-property.key }}-oauth">
-            {{ form-property.display-name }} {{ form-property.form-type }} OAuth properties
-        </h5>
+{% if form-property.oauth-attributes %}
+    {% include developers/api-form-properties-oauth.html %}
+{% endif %}
 
-        <p>
-            OAuth properties are used to complete the <code>oauth</code> step in {{ form-property.form-type }} configuration.
-        </p>
-
-        <p>
-            <strong>A {{ form-property.form-type }}'s OAuth properties are required only if you’re performing OAuth for this {{ form-property.form-type }} yourself.</strong> After you perform the OAuth handshake, use the <a href="{{ site.data.connect.core-objects[form-type]update.anchor }}">PUT {{ site.data.connect.core-objects[form-type]update.name | flatify }}</a> endpoint to update the {{ form-property.form-type }} with the OAuth properties listed below.
-        </p>
-
-        {% if form-property.oauth-description %}
-            {{ form-property.oauth-description | flatify | markdownify }}
-        {% endif %}
-
-        {% if form-property.oauth-link %}
-            <p>
-                Refer to <a href="{{ form-property.oauth-link }}" target="new">{{ form-property.display-name }}'s documentation</a> for more info on performing OAuth with {{ form-property.display-name }}.
-            </p>
-        {% endif %}
-
-        <p>
-            <strong>Note</strong>: Attributes marked as <font color="#E96065">REQUIRED</font> must be provided to complete the <code>oauth</code> step.
-        </p>
-
-    <!-- OAuth properties table -->
-        {% assign all-form-attributes = form-property.oauth-attributes | sort_natural:"name" %}
-        {% include developers/api-form-property-field-table.html %}
-
-    <!-- OAuth example object -->
-        {% include developers/api-form-property-example-object.html content=include.content property-type="OAuth" %}
-    {% endif %}
-
-    {% case include.content %}
-        {% when 'destination' %}
-            <hr>
-        {% else %}
-            {% unless forloop.last == true %}
-                <hr>
-            {% endunless %}
-    {% endcase %}
+{% case include.content %}
+{% when 'destination' %}
+<hr>
+{% else %}
+{% unless forloop.last == true %}
+<hr>
+{% endunless %}
+{% endcase %}
 
 {% endfor %}

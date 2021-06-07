@@ -1,3 +1,5 @@
+
+
 <!-- This file contains the logic used to pull and display applicable fields
 	for database source form properties. -->
 
@@ -20,7 +22,7 @@
 	{% if form-property.db-type == "postgres" or form-property.db-type == "mysql" or form-property.db-type == "mssql" %}
 		{% assign specific-attributes = connect-database-attributes[form-property.db-type] %}
 	{% else %}
-	<!-- If there isn't, create a 1 item array; otherwise Jekyll will throw a fit -->
+<!-- If there isn't, create a 1 item array; otherwise Jekyll will throw a fit -->
 		{% assign specific-attributes = null | compact %}
 	{% endif %}
 
@@ -31,8 +33,7 @@
 	{% assign all-database-docs = site.database-integrations | where:"name",form-property.docs-name %}
 		{% assign this-database = all-database-docs | where:"input",true %}
 
-
-	<!-- Get support info for SSL and SSH connections,
+<!-- Get support info for SSL and SSH connections,
 		using the corresponding doc for the database source -->
 		{% for database in this-database %}
 
@@ -40,7 +41,7 @@
 			{% assign doc-link = database.url | prepend: site.baseurl %}
 
 			{% assign replication-frequency-value = database.frequency | remove: " " | remove: "minutes" | remove: "hours" %}
-			<!-- We have to do some math because `frequency_in_minutes` is in minutes, and frequencies in the UI are show in hours. -->
+<!-- We have to do some math because `frequency_in_minutes` is in minutes, and frequencies in the UI are show in hours. -->
 				{% if replication-frequency-value == "30" %}
 					{% assign replication-frequency = replication-frequency-value %}
 				{% else %}
@@ -53,24 +54,24 @@
 					{% assign cron-scheduling = false %}
 				{% endif %}
 
-		<!-- If the form property uses feature fields, run the code below -->
+<!-- If the form property uses feature fields, run the code below -->
 			{% if form-property.uses-feature-fields == true %}
 
-			<!-- Check for SSL support -->
+<!-- Check for SSL support -->
 				{% if database.ssl == true %}
 					{% assign ssl-fields = connect-database-attributes.ssl %}
 				{% else %}
 					{% assign ssl-fields = null | compact %}
 				{% endif %}
 				
-			<!-- Check for SSH support -->
+<!-- Check for SSH support -->
 				{% if database.ssh == true %}
 					{% assign ssh-fields = connect-database-attributes.ssh %}
 				{% else %}
 					{% assign ssh-fields = null | compact %}
 				{% endif %}
 
-			<!-- Check for binlog support -->
+<!-- Check for binlog support -->
 				{% if database.log-based-replication-master-instance == true %}
 					{% assign binlog-fields = connect-database-attributes.binlog-replication | where_exp:"field","field.database contains form-property.db-type" %}
 				{% else %}
@@ -87,12 +88,12 @@
 <!-- If the form property has its own specific attributes, get them &
     concat them to the other arrays -->
 	{% if form-property.object-attributes %}
-		<!-- Get the specific attributes -->
+<!-- Get the specific attributes -->
 	    {% assign form-object-attributes = form-property.object-attributes %}
-	    <!-- Concat them to all the other arrays -->
+<!-- Concat them to all the other arrays -->
 	    	{% assign all-form-attributes = common-database-attributes | concat: all-source-attributes | concat: form-object-attributes | concat: feature-fields | concat: specific-attributes | sort: "name" %}
 
-	<!-- Otherwise, run this -->
+<!-- Otherwise, run this -->
 	{% else %}
 	    {% assign all-form-attributes = common-database-attributes | concat: all-source-attributes | concat: feature-fields | concat: specific-attributes | sort: "name" %}
 	{% endif %}
