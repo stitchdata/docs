@@ -3,7 +3,7 @@ title: "MongoDB (v11-01-2016) integrations: Replication Keys modification suppor
 content-type: "changelog-entry"
 date: 2016-09-12
 entry-type: new-feature
-entry-category: replication
+entry-category: replication, integration
 connection-id: mongodb
 connection-version: "11-01-2016"
 ---

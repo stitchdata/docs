@@ -1286,8 +1286,8 @@ blockquote p {
 /* line 851, ../sass/_components.scss */
 .div-flag {
   float: left;
-  margin-left: -15px;
-  margin-top: -15px;
+  margin-left: -21px;
+  margin-top: -21px;
   padding: 5px 10px;
   font-size: small;
   font-weight: 600;
@@ -1299,7 +1299,7 @@ blockquote p {
 }
 
 /* line 864, ../sass/_components.scss */
-.concept, .all-plans, .released {
+.concept, .all-plans, .released, .enterprise {
   background-color: #82bd41;
 }
 
@@ -1309,7 +1309,7 @@ blockquote p {
 }
 
 /* line 872, ../sass/_components.scss */
-.troubleshooting {
+.troubleshooting, .deprecated {
   background-color: #E96065;
 }
 
@@ -1317,23 +1317,18 @@ blockquote p {
 	background-color: $lochmara;
 }*/
 /* line 880, ../sass/_components.scss */
-.deprecated, .sunset {
+.sunset {
   background-color: #969696;
 }
 
-/* line 884, ../sass/_components.scss */
-.enterprise {
-  background-color: #82bd41;
-}
-
 /* API/JS HEADINGS */
-/* line 891, ../sass/_components.scss */
+/* line 888, ../sass/_components.scss */
 .api-js-heading {
   width: 100%;
   margin: 40px 0px 20px 0px;
   border: 1px solid #EAEAEA;
 }
-/* line 896, ../sass/_components.scss */
+/* line 893, ../sass/_components.scss */
 .api-js-heading div.method {
   color: #ffffff;
   padding: 20px 30px 13px 30px;
@@ -1342,43 +1337,43 @@ blockquote p {
   font-weight: 600;
 }
 
-/* line 905, ../sass/_components.scss */
+/* line 902, ../sass/_components.scss */
 .object, .put {
   background-color: #66bdff;
   /* blue */
 }
 
-/* line 909, ../sass/_components.scss */
+/* line 906, ../sass/_components.scss */
 .destination {
   background-color: #EA8330;
   /* orange */
 }
 
-/* line 913, ../sass/_components.scss */
+/* line 910, ../sass/_components.scss */
 .source {
   background-color: #f3c446;
   /* yellow */
 }
 
-/* line 917, ../sass/_components.scss */
+/* line 914, ../sass/_components.scss */
 .post {
   background-color: #82bd41;
   /* green */
 }
 
-/* line 921, ../sass/_components.scss */
+/* line 918, ../sass/_components.scss */
 .get, .function {
   background-color: #0675c1;
   /* dark blue */
 }
 
-/* line 925, ../sass/_components.scss */
+/* line 922, ../sass/_components.scss */
 .delete {
   background-color: #E96065;
   /* red */
 }
 
-/* line 929, ../sass/_components.scss */
+/* line 926, ../sass/_components.scss */
 .method-bullet {
   padding: 3px 5px 3px 5px;
   margin-top: -3px;
@@ -1387,17 +1382,17 @@ blockquote p {
   font-weight: 600;
 }
 
-/* line 937, ../sass/_components.scss */
+/* line 934, ../sass/_components.scss */
 .method-function {
   padding: 1.5em;
   line-height: 1em;
 }
 
-/* line 942, ../sass/_components.scss */
+/* line 939, ../sass/_components.scss */
 .method-resource {
   padding: 0px;
 }
-/* line 945, ../sass/_components.scss */
+/* line 942, ../sass/_components.scss */
 .method-resource h4 {
   margin-bottom: 1em;
   line-height: 1em;
@@ -1405,12 +1400,12 @@ blockquote p {
 }
 
 /* Footer CTA */
-/* line 954, ../sass/_components.scss */
+/* line 951, ../sass/_components.scss */
 hr.footer-cta {
   margin: 3em 0 0;
 }
 
-/* line 958, ../sass/_components.scss */
+/* line 955, ../sass/_components.scss */
 .footer-signup-cta {
   margin-top: 30px;
   background: linear-gradient(135deg, #237288 0%, #181a28 100%);
@@ -1421,7 +1416,7 @@ hr.footer-cta {
   z-index: 1;
   height: 9rem;
 }
-/* line 968, ../sass/_components.scss */
+/* line 965, ../sass/_components.scss */
 .footer-signup-cta:before {
   content: "";
   position: absolute;
@@ -1433,7 +1428,7 @@ hr.footer-cta {
   border-right: 9rem solid transparent;
   z-index: -1;
 }
-/* line 980, ../sass/_components.scss */
+/* line 977, ../sass/_components.scss */
 .footer-signup-cta .wrapper {
   width: auto;
   margin: 0 auto;
@@ -1441,18 +1436,18 @@ hr.footer-cta {
   justify-content: center;
   z-index: 2;
 }
-/* line 987, ../sass/_components.scss */
+/* line 984, ../sass/_components.scss */
 .footer-signup-cta .wrapper div {
   padding: 0 10px;
 }
-/* line 992, ../sass/_components.scss */
+/* line 989, ../sass/_components.scss */
 .footer-signup-cta p {
   line-height: 1.4;
   font-size: 1.2rem;
   margin: 0;
   margin-top: 15px;
 }
-/* line 999, ../sass/_components.scss */
+/* line 996, ../sass/_components.scss */
 .footer-signup-cta .btn-default {
   padding: 15px 30px;
   /* make the standard button a little bigger */
@@ -1462,7 +1457,7 @@ hr.footer-cta {
   border-color: #66bdff;
   color: #000000;
 }
-/* line 1007, ../sass/_components.scss */
+/* line 1004, ../sass/_components.scss */
 .footer-signup-cta .btn-default:hover, .footer-signup-cta .btn-default:active, .footer-signup-cta .btn-default:focus {
   background-color: #66bdff;
   border-color: #66bdff;
