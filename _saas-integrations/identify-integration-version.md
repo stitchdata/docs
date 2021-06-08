@@ -3,8 +3,8 @@
 #          PAGE INFO         #
 # -------------------------- #
 
-title: Identifying An Integration's Version
-keywords: integrations, integration, version, version number
+title: Identifying An Integration's Version and Status
+keywords: integrations, integration, version, version number, integration status, status, version status
 permalink: /integrations/identify-an-integration-version
 summary: "Identify the version an integration is running using its Extraction Logs."
 
@@ -18,15 +18,87 @@ content-type: "guide"
 
 
 # -------------------------- #
+#         GUIDE INTRO        #
+# -------------------------- #
+
+intro: |
+  {% include misc/data-files.html %}
+
+  To ensure you're viewing the documentation for the correct version of your integration, you should first check its version in Stitch.
+
+  In this guide, we'll cover:
+
+  {% for section in page.sections %}
+  - [{{ section.summary }}](#{{ section.anchor }})
+  {% endfor %}
+
+
+# -------------------------- #
 #      CONTENT SECTIONS      #
 # -------------------------- #
 
 sections:
-  - content: |
-      {% include misc/data-files.html %}
+  - title: "Understand integration versioning in Stitch"
+    anchor: "understand-integration-versioning"
+    summary: "How versioning works in Stitch"
+    content: |
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
 
-      To ensure you're viewing the documentation for the correct version of your integration, you should first check its version in Stitch.
+    subsections:
+      - title: "Version statuses"
+        anchor: "version-statuses"
+        content: |
+          The following table describes each of the statuses an integration version can be in at a given time:
 
+          - **Name**: The name of the status. **Note**: We use these status names mainly in the Stitch Docs - only versions in `beta` will have a `beta` flag in Stitch.
+          - **Status in API**: The `pipeline_state` value the status corresponds to in the API. Contained in a [`details` object]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.details.section }}), the `pipeline_state` attribute indicates the current version status of an integration.
+          - **Availability**: Indicates the availability of the version in Stitch or the API:
+              - **Unavailable**: The version isn't available. New connections can't be created.
+              - **Private**: The version is available only to accounts who have been granted access.
+              - **Available**: The version is generally available, depending on the plan type required for the integration. For example: If an integration is **Enterprise**, only users of an Enterprise plan will have access to it.
+          - **Description**: A description of the status, including in-app and support availability
+
+          {% assign version-statuses = site.data.stitch.version-statuses %}
+
+          <table>
+            <tr>
+              <td width="15%; fixed">
+                <strong>Name</strong>
+              </td>
+              <td width="20%; fixed">
+                <strong>Status in API</strong>
+              </td>
+              <td>
+                <strong>Availability</strong>
+              </td>
+              <td>
+                <strong>Description</strong>
+              </td>
+            </tr>
+            {% for status in version-statuses.all %}
+              <tr>
+                <td>
+                  <strong>{{ status.name | capitalize | replace:"-"," " }}</strong>
+                </td>
+                <td>
+                  <code>{{ status.api }}</code>
+                </td>
+                <td>
+                  {{ status.availability | capitalize }}
+                </td>
+                <td>
+                  {{ version-statuses[status.name]description | flatify | markdownify }}
+                </td>
+              </tr>
+            {% endfor %}
+          </table>
+
+  - title: "Identify an integration's version"
+    anchor: "identify-version-in-stitch"
+    summary: "How to identify an integration's version in Stitch"
+    content: |
       1. [Sign into your Stitch account]({{ site.sign-in }}){:target="new"}.
       2. On the {{ app.page-names.dashboard }} page, click the {{ integration.display_name }} integration you want to check.
       3. Click the **Extraction Logs** tab:
@@ -43,6 +115,7 @@ sections:
 
   - title: "Legacy integration versions"
     anchor: "legacy-integration-versions"
+    summary: ""
     content: |
       The integrations in the table below only have a single running version, which is listed in the table. When and if these integrations are converted to Singer taps, they will support [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}) and you'll be able to identify their version using the method above.
 
