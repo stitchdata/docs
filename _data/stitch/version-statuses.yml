@@ -4,19 +4,19 @@
 
 alpha:
   description: &alpha-description |
-    The version is currently in development and not generally available in Stitch.
+    The version is available only to accounts that have been granted access. Versions in alpha may be missing features, contain bugs, and/or change at any time.
 
-closed-beta:
-  description: &closed-beta-description |
-    The version is available only to users enrolled in private testing. Versions in closed beta may be missing features, contain bugs, and/or change at any time.
+    **Note**: This status may also encompass "closed" beta.
 
 beta:
   description: &beta-description |
     The version is generally available in Stitch, but may not be "fully baked." Versions in beta may be missing features, contain bugs, and/or change at any time. Connections in beta will have a `beta` flag.
 
+    **Note**: Enteprise SLAs aren't applicable to versions in beta.
+
 released:
   description: &released-description |
-    The version is generally available in Stitch.
+    The version is generally available in Stitch. Support is available based on the integration's **Certified** or **Community** support status.
 
 in-testing:
   description: &in-testing-description |
@@ -26,19 +26,15 @@ in-testing:
 
 deprecated:
   description: &deprecated-description |
-    The version has been replaced by a newer version, but will continue to function in Stitch. New connections can't be created. Stitch Support isn't available for depcrecated versions, even if the connection is **Certified**.
+    The version has been replaced by a newer version, but will continue to function in Stitch. New connections can't be created. Support isn't available for depcrecated versions, even if the connection is **Certified**.
 
 sunset:
   description: &sunset-description |
-    The version has been removed from Stitch and will no longer function. Stitch Support isn't available for sunset versions, even if the connection is **Certified**.
+    The version has been removed from Stitch and will no longer function. Support isn't available for sunset versions, even if the connection is **Certified**.
 
 all:
   - name: "alpha"
-    api: "alpha"
-    availability: "unavailable"
-
-  - name: "closed-beta"
-    api: "beta"
+    api: "alpha/beta"
     availability: "private"
 
   - name: "beta"
