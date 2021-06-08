@@ -1,0 +1,62 @@
+# -------------------------- #
+#      VERSION STATUSES      #
+# -------------------------- #
+
+alpha:
+  description: &alpha-description |
+    The version is currently in development and not generally available in Stitch.
+
+closed-beta:
+  description: &closed-beta-description |
+    The version is available only to users enrolled in private testing. Versions in closed beta may be missing features, contain bugs, and/or change at any time.
+
+beta:
+  description: &beta-description |
+    The version is generally available in Stitch, but may not be "fully baked." Versions in beta may be missing features, contain bugs, and/or change at any time. Connections in beta will have a `beta` flag.
+
+released:
+  description: &released-description |
+    The version is generally available in Stitch.
+
+in-testing:
+  description: &in-testing-description |
+    The version is generally available in Stitch, but hasn't been fully tested with a specific flavor of the connection.
+
+    For example: Amazon PostgreSQL RDS databases can be connected using the PostgreSQL integration, but RDS connections may not have been specifically tested prior to releasing a new version for PostgreSQL.
+
+deprecated:
+  description: &deprecated-description |
+    The version has been replaced by a newer version, but will continue to function in Stitch. New connections can't be created. Stitch Support isn't available for depcrecated versions, even if the connection is **Certified**.
+
+sunset:
+  description: &sunset-description |
+    The version has been removed from Stitch and will no longer function. Stitch Support isn't available for sunset versions, even if the connection is **Certified**.
+
+all:
+  - name: "alpha"
+    api: "alpha"
+    availability: "unavailable"
+
+  - name: "closed-beta"
+    api: "beta"
+    availability: "private"
+
+  - name: "beta"
+    api: "beta"
+    availability: "available"
+
+  - name: "released"
+    api: "released"
+    availability: "available"
+
+  - name: "in-testing"
+    api: "released"
+    availability: "available"
+
+  - name: "deprecated"
+    api: "deprecated"
+    availability: "unavailable"
+
+  - name: "sunset"
+    api: "deprecated"
+    availability: "unavailable"
