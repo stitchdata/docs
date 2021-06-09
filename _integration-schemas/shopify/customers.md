@@ -6,7 +6,7 @@ name: "customers"
 doc-link: "https://shopify.dev/docs/admin-api/rest/reference/customers"
 singer-schema: "https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/customers.json"
 description: |
-  The `{{ table.name }}` table contains info about the shop's customers. This includes their contact details, order history, and email marketing preferences. Null values are now accepted for replication.
+  The `{{ table.name }}` table contains info about the shop's customers. This includes their contact details, order history, and email marketing preferences.
 
   #### Customer metafield data
 
