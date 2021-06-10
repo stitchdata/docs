@@ -1,0 +1,26 @@
+---
+tap: "mambu"
+version: "2.x"
+key: ""
+name: "index_rate_sources"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/index_rate_sources.json"
+description: ""
+replication-method: ""
+api-method:
+    name: ""
+    doc-link: ""
+attributes:
+  - name: "encoded_key"
+    type: "string"
+    description: ""
+  - name: "name"
+    type: "string"
+    description: ""
+  - name: "notes"
+    type: "string"
+    description: ""
+  - name: "type"
+    type: "string"
+    description: ""
+---
