@@ -52,31 +52,34 @@ unsupported-tooltip-logic: &unsupported-tooltip-logic |
 release-status: &release-status
   display-name: "Release status"
   name: "status"
+  doc-link: "{{ link.integrations.identify-integration-version | prepend: site.baseurl }}"
   field-value: |
+    {% assign version-statuses = site.data.stitch.version-statuses %}
+
     {% if include.feature-type == "webhooks" %}
-    {{ integration.status }}
+      {{ integration.status }}
 
     {% else %}
-    {% case include.type %}
-    {% when 'integration-snapshot' %}
-    {% assign version-variable = this-version %}
+      {% case include.type %}
+        {% when 'integration-snapshot' %}
+          {% assign version-variable = this-version %}
 
-    {% when 'version-comparison' %}
-    {% assign version-variable = version %}
-    {% endcase %}
+        {% when 'version-comparison' %}
+          {% assign version-variable = version %}
+      {% endcase %}
 
-    {% assign version-status = version-variable.status | capitalize %}
+      {% if integration.override-version-status %}
+        {% assign version-status = version-statuses[integration.override-version-status] %}
 
-    {% case version-variable.status %}
-    {% when 'released' %}
-    {% assign version-date = version-variable.date-released | prepend: " on " %}
-    {% when 'deprecated' %}
-    {% assign version-date = version-variable.deprecation-date | prepend: " on "  %}
-    {% when 'sunset' %}
-    {% assign version-date = version-variable.sunset-date | prepend: " on " %}
-    {% endcase %}
+      {% else %}
+        {% assign version-status = version-statuses[version-variable.status] %}
+      {% endif %}
 
-    {{ version-status | append: version-date }}
+      {% if version-status.date %}
+        {% assign version-info = version-variable[version-status.date] | prepend: " on " %}
+      {% endif %}
+
+      {{ version-status.display-name | flatify }} {{ version-info | flatify }}
     {% endif %}
 
 support-level: &support-level
