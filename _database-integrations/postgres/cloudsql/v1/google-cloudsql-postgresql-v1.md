@@ -19,6 +19,7 @@ tap-name: "Postgres"
 repo-url: "https://github.com/singer-io/tap-postgres"
 
 this-version: "1"
+override-version-status: "released"
 
 hosting-type: "google-cloudsql"
 
