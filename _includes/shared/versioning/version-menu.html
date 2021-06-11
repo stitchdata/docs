@@ -13,6 +13,15 @@
     {% assign total-versions = released-versions | size %}
 
 
+<!-- List items on category pages require a specific class,
+    so based on the menu-type we get it here -->
+{% if include.menu-type == "category-page" %}
+    {% capture li-class %}class="category-version-toggle"{% endcapture %}
+{% else %}
+    {% capture li-class %}{% endcapture %}
+{% endif %}
+
+
 <!-- VERSION SELECTION MENU -->
 
 {% if total-versions > 1 %}
@@ -28,45 +37,63 @@
             </button>
 
             <ol class="dropdown-menu">
-                {% if [include.item-name]show-in-version-menu == true %}
-                    <li class="category-version-toggle">
-                        <a href="{{ [include.item-name]url | prepend: site.baseurl }}"><strong>Compare versions</strong></a>
-                    </li>
+            <!-- If this is a category page, get the integration's overview page
+                and create a list item for it. Currently only applies to databases. -->
+                {% if include.menu-type == "category-page" %}
+                    {% assign overview = all-versioned-docs | find:"content-type","database-category" %}
+
+                    {% if overview != null %}
+                        <li {{ li-class }}>
+                            <a href="{{ overview.url | prepend: site.baseurl }}"><strong>Compare versions</strong></a>
+                        </li>
+                    {% endif %}
                 {% endif %}
 
                 {% for version in released-versions %}
-                    {% if version.number == [include.item-name]this-version and [include.item-name]url == page.url %}
-                        <li class="active">
-                            version {{ version.number }}
+                    {% assign doc = all-versioned-docs | find:"this-version",version.number %}
 
-                            {% if version.number == latest-version and version.status == "released" %}
-                             (latest)
-                            {% else %}
-                                {% unless version.status == "released" %}
-                                    ({{ version.status }})
-                                {% endunless %}
-                            {% endif %}
+                <!-- If there's a matching doc for the current version, run the code below -->
+                    {% if doc != null %}
 
-                            <i class="fa fa-check fa-1" aria-hidden="true"></i>
-                        </li>
-                    {% else %}
-                        {% for doc in all-versioned-docs %}
-                            {% if version.number == doc.this-version %}
-                                {% if include.menu-type == "category-page" %}
-                                    <li class="category-version-toggle">
+                    <!-- But don't do it if it's a category page -->
+                        {% unless doc.content-type contains "category" %}
+
+                        <!-- Some branded integrations can have different release statuses
+                            than the integration they're backed by. This accounts for that. -->
+                            {% if doc.override-version-status %}
+                                {% assign version-status = doc.override-version-status %}
+
+                                {% if version-status == "released" or version-status == "in-testing" %}
+                                    {% assign status-display = "latest" %}
                                 {% else %}
-                                    <li>
+                                    {% assign status-display = doc.override-version-status %}
                                 {% endif %}
-                                    <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}
-                                        {% if version.number == latest-version and version.status == "released" %}
-                                            (latest)
-                                        {% else %}
-                                            ({{ version.status }})
-                                        {% endif %}
-                                    </a>
-                                </li>
+
+                        <!-- Otherwise, just run this for the current version -->
+                            {% else %}
+                                {% assign doc-version = released-versions | find:"number",doc.this-version %}
+                                    {% assign version-status = doc-version.status %}
+
+                                    {% if doc.this-version == latest-version %}
+                                        {% assign status-display = "latest" %}
+                                    {% else %}
+                                        {% assign status-display = doc-version.status %}
+                                    {% endif %}
                             {% endif %}
-                        {% endfor %}
+
+                            {% if doc.url == page.url %}
+                                <li class="active">
+                                    version {{ doc.this-version }} ({{ status-display }})
+
+                                    <i class="fa fa-check fa-1" aria-hidden="true"></i>
+                            {% else %}
+                                <li {{ li-class }}>
+                                    <a href="{{ doc.url | prepend: site.baseurl }}">
+                                        version {{ doc.this-version }} ({{ status-display }})
+                                    </a>
+                            {% endif %}
+                            </li>
+                        {% endunless %}
                     {% endif %}
                 {% endfor %}
             </ol>
