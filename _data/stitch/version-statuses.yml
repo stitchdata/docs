@@ -6,6 +6,10 @@ alpha: &alpha
   display-name: "Alpha"
   api: "alpha/beta"
   availability: "private"
+  notes:
+    - "Available only to accounts that have been granted access"
+    - "May be missing features, contain bugs, and/or change at any time"
+    - "May also encompass 'closed' beta"
   description: &alpha-description |
     - Available only to accounts that have been granted access
     - May be missing features, contain bugs, and/or change at any time
@@ -15,46 +19,69 @@ beta: &beta
   display-name: "Beta"
   api: "beta"
   availability: "available"
+  notes:
+    - "Generally available in Stitch, but may not be 'fully baked'"
+    - "May be missing features, contain bugs, and/or change at any time"
+    - "Support is available, but Enterprise SLAs don't apply"
   description: &beta-description |
     - Generally available in Stitch, but may not be "fully baked"
     - May be missing features, contain bugs, and/or change at any time
-    - Support is available
-    The version is generally available in Stitch, but may not be "fully baked." Versions in beta may be missing features, contain bugs, and/or change at any time. Connections in beta will have a `beta` flag.
-
-    **Note**: Enteprise SLAs aren't applicable to versions in beta.
+    - Support is available, but Enterprise SLAs don't apply
 
 released: &released
   display-name: "Released"
   api: "released"
   availability: "available"
   date: "date-released"
-  description: &released-description |
-    The version is generally available in Stitch. Support is available based on the integration's **Certified** or **Community** support status.
+  notes:
+    - "Generally available in Stitch"
+    - "Support is available depending on the integration's **Certified** or **Community** support status"
+  description: |
+    - Generally available in Stitch
+    - Support is available depending on the integration's **Certified** or **Community** support status
 
 in-testing: &in-testing
   display-name: "Released (Testing)"
   api: "released"
   availability: "available"
-  description: &in-testing-description |
-    The version is generally available in Stitch, but hasn't been fully tested with a specific variant of the connection.
+  notes:
+    - |
+        Generally available in Stitch, but hasn't been fully tested with a specific variant of the connection
+
+        For example: Amazon PostgreSQL RDS databases can be connected using the PostgreSQL integration, but RDS connections may not have been specifically tested prior to releasing a new version for PostgreSQL.
+  description: |
+    Generally available in Stitch, but hasn't been fully tested with a specific variant of the connection
 
     For example: Amazon PostgreSQL RDS databases can be connected using the PostgreSQL integration, but RDS connections may not have been specifically tested prior to releasing a new version for PostgreSQL.
+  tooltip: ""
 
 deprecated: &deprecated
   display-name: "Deprecated"
   api: "deprecated"
   availability: "unavailable"
   date: "deprecation-date"
-  description: &deprecated-description |
-    The version has been replaced by a newer version, but will continue to function in Stitch. New connections can't be created. Support isn't available for depcrecated versions, even if the connection is **Certified**.
+  notes:
+    - "No longer available in Stitch"
+    - "Existing connections will continue to function"
+    - "Support is unavailable, even if the connection is **Certified**"
+  description: |
+    - No longer available in Stitch
+    - Existing connections will continue to function
+    - Support is unavailable, even if the connection is **Certified**
 
 sunset: &sunset
   display-name: "Sunset"
   api: "deprecated"
   availability: "unavailable"
   date: "sunset-date"
-  description: &sunset-description |
-    The version has been removed from Stitch and will no longer function. Support isn't available for sunset versions, even if the connection is **Certified**.
+  notes:
+    - "No longer available in Stitch"
+    - "Existing connections will no longer function"
+    - "Support is unavailable, even if the connection is **Certified**"
+  description: |
+    - No longer available in Stitch
+    - Existing connections will no longer function
+    - Support is unavailable, even if the connection is **Certified**
 
 all:
   - name: "alpha"

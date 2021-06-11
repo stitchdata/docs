@@ -122,7 +122,11 @@ sections:
                   {{ status.availability | capitalize }}
                 </td>
                 <td>
-                  {{ version-statuses[status.name]description | flatify | markdownify }}
+                  <ul>
+                  {% for note in version-statuses[status.name]notes %}
+                    <li style="margin-top: 0px;">{{ note | flatify | markdownify }}</li>
+                  {% endfor %}
+                  </ul>
                 </td>
               </tr>
             {% endfor %}
