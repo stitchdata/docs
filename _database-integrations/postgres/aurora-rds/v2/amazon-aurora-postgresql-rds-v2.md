@@ -1,11 +1,10 @@
 ---
-title: Amazon Aurora PostgreSQL RDS (v1)
+title: Amazon Aurora PostgreSQL RDS (v2)
 keywords: amazon aurora, aurora postgresql, postgres, database integration, etl aurora, aurora etl
-permalink: /integrations/databases/amazon-aurora-postgresql/v1
-redirect_from: /integrations/databases/amazon-aurora-postgresql
+permalink: /integrations/databases/amazon-aurora-postgresql/v2
 summary: "Connect and replicate data from your Amazon Aurora PostgreSQL RDS database using Stitch's PostgreSQL integration."
-input: false
-show-in-menus: false
+input: true
+show-in-menus: true
 
 key: "aurora-postgresql-rds-integration"
 
@@ -18,14 +17,14 @@ display_name: "Amazon Aurora PostgreSQL RDS"
 singer: true
 
 tap-name: "Postgres"
-repo-url: https://github.com/singer-io/tap-postgres
+repo-url: "Not applicable"
 
-this-version: "1"
+this-version: "2"
+override-version-status: "in-testing"
 
 hosting-type: "amazon"
 
-driver: |
-  [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}
+driver: ""
 
 # -------------------------- #
 #       Stitch Details       #
