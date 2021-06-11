@@ -95,7 +95,7 @@ sections:
 
           <table>
             <tr>
-              <td width="15%; fixed">
+              <td width="20%; fixed">
                 <strong>Name</strong>
               </td>
               <td width="20%; fixed">
@@ -111,7 +111,9 @@ sections:
             {% for status in version-statuses.all %}
               <tr>
                 <td>
-                  <strong>{{ status.name | capitalize | replace:"-"," " }}</strong>
+                  <strong>
+                    {{ status.display-name }}
+                  </strong>
                 </td>
                 <td>
                   <code>{{ status.api }}</code>
