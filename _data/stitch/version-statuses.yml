@@ -2,57 +2,75 @@
 #      VERSION STATUSES      #
 # -------------------------- #
 
-alpha:
+alpha: &alpha
+  display-name: "Alpha"
+  api: "alpha/beta"
+  availability: "private"
   description: &alpha-description |
-    The version is available only to accounts that have been granted access. Versions in alpha may be missing features, contain bugs, and/or change at any time.
+    - Available only to accounts that have been granted access
+    - May be missing features, contain bugs, and/or change at any time
+    - May also encompass "closed" beta
 
-    **Note**: This status may also encompass "closed" beta.
-
-beta:
+beta: &beta
+  display-name: "Beta"
+  api: "beta"
+  availability: "available"
   description: &beta-description |
+    - Generally available in Stitch, but may not be "fully baked"
+    - May be missing features, contain bugs, and/or change at any time
+    - Support is available
     The version is generally available in Stitch, but may not be "fully baked." Versions in beta may be missing features, contain bugs, and/or change at any time. Connections in beta will have a `beta` flag.
 
     **Note**: Enteprise SLAs aren't applicable to versions in beta.
 
-released:
+released: &released
+  display-name: "Released"
+  api: "released"
+  availability: "available"
+  date: "date-released"
   description: &released-description |
     The version is generally available in Stitch. Support is available based on the integration's **Certified** or **Community** support status.
 
-in-testing:
+in-testing: &in-testing
+  display-name: "Released (Testing)"
+  api: "released"
+  availability: "available"
   description: &in-testing-description |
-    The version is generally available in Stitch, but hasn't been fully tested with a specific flavor of the connection.
+    The version is generally available in Stitch, but hasn't been fully tested with a specific variant of the connection.
 
     For example: Amazon PostgreSQL RDS databases can be connected using the PostgreSQL integration, but RDS connections may not have been specifically tested prior to releasing a new version for PostgreSQL.
 
-deprecated:
+deprecated: &deprecated
+  display-name: "Deprecated"
+  api: "deprecated"
+  availability: "unavailable"
+  date: "deprecation-date"
   description: &deprecated-description |
     The version has been replaced by a newer version, but will continue to function in Stitch. New connections can't be created. Support isn't available for depcrecated versions, even if the connection is **Certified**.
 
-sunset:
+sunset: &sunset
+  display-name: "Sunset"
+  api: "deprecated"
+  availability: "unavailable"
+  date: "sunset-date"
   description: &sunset-description |
     The version has been removed from Stitch and will no longer function. Support isn't available for sunset versions, even if the connection is **Certified**.
 
 all:
   - name: "alpha"
-    api: "alpha/beta"
-    availability: "private"
+    <<: *alpha
 
   - name: "beta"
-    api: "beta"
-    availability: "available"
+    <<: *beta
 
   - name: "released"
-    api: "released"
-    availability: "available"
+    <<: *released
 
   - name: "in-testing"
-    api: "released"
-    availability: "available"
+    <<: *in-testing
 
   - name: "deprecated"
-    api: "deprecated"
-    availability: "unavailable"
+    <<: *deprecated
 
   - name: "sunset"
-    api: "deprecated"
-    availability: "unavailable"
+    <<: *sunset
