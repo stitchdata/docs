@@ -15,7 +15,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "List plans"
-  doc-link: "https://apidocs.chargebee.com/docs/api/plans#list_plans"
+  doc-link: "https://apidocs.chargebee.com/docs/api/plans?prod_cat_ver=1#list_plans"
 
 product-catalog-version: "v1"
 

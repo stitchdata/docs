@@ -15,7 +15,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "List addons"
-  doc-link: "https://apidocs.chargebee.com/docs/api/addons#list_addons"
+  doc-link: "https://apidocs.chargebee.com/docs/api/addons?prod_cat_ver=1#list_addons"
 
 product-catalog-version: "v1"
 
