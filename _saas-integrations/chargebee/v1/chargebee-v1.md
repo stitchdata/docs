@@ -104,6 +104,7 @@ setup-steps:
       {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API Key** field, paste the API key you generated in [Step 1](#generate-api-key).
       5. In the **Site** field, enter the name of your {{ integration.display_name }} site. This can be found in the URL of your {{ integration.display_name }} site. For example: If the URL was `https://stitch.chargebee.com`, only `stitch` would be entered into this field.
+
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
@@ -119,12 +120,86 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/data-selection/object-selection.html %}
 
+
+# -------------------------- #
+#     Integration Tables     #
+# -------------------------- #
+
+replication-sections:
+  - content: |
+      todo
+
+  - title: "Table and field availability and {{ integration.display_name }} product catalogs"
+    anchor: "product-catalog-versions"
+    content: |
+      The availability of some tables and fields is dependent on the {{ integration.display_name }} Product Catalog version your {{ integration.display_name }} site uses. Refer to [{{ integration.display_name }}'s documentation](https://www.chargebee.com/docs/2.0/product-catalog.html){:target="new"} for more info, including how to identify which Product Catalog version your site is using.
+
+      The following table contains a list of the tables included in this version of Stitch's {{ integration.display_name }} integration and the Product Catalog version required to replicate the table.
+
+      Additionally, some fields are also subject to Product Catalog version requirements. These fields are noted in the attribute documentation for individual tables.
+
+      **Note**: If your site is using a Product Catalog version that a table or field doesn't support, the table/field won't display in the **Tables to Replicate** tab in Stitch. For example: If the site is using v2.0 of the Product Catalog, tables/fields that require v1.0 won't display in Stitch.
+
+      {% assign all-integration-tables = site.integration-schemas | where:"tap",integration.name %}
+        {% assign integration-tables-this-version = all-integration-tables | where:"version",integration.this-version | sort_natural:"name" %}
+
+      <table>
+        <tr>
+          <td>
+            <strong>Table name</strong>
+          </td>
+          <td> 
+            <strong>Required Product Catalog version</strong>
+          </td>
+        </tr>
+        {% for table in integration-tables-this-version %}
+          <tr>
+            <td>
+              <a href="#{{ table.name | slugify }}">
+                {{ table.name }}
+              </a>
+            </td>
+            <td>
+              {% case table.product-catalog-version %}
+                {% when 'any' %}
+                  Any
+                {% else %}
+                  {{ table.product-catalog-version | append: ".0 only" }}
+              {% endcase %}
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/chargebee
+# Each table has a its own .md file in /_integration-schemas/chargebee/v1
+
+table-type: |
+  {% capture product-catalog-version %}
+  {% case table.product-catalog-version %}
+    {% when 'any' %}
+    for sites using **any {{ integration.display_name }} Product Catalog version**.
+
+    {% when 'v1' %}
+    for {{ integration.display_name }} sites using **v1.0 of {{ integration.display_name }}'s Product Catalog**.
+
+    {% when 'v2' %}
+    for {{ integration.display_name }} sites using **v2.0 of {{ integration.display_name }}'s Product Catalog**.
+  {% endcase %}
+  {% endcapture %}
+
+  **Note**: This table is available {{ product-catalog-version | flatify | strip_newlines }} Refer to the [Table and field availability and {{ integration.display_name }} Product Catalogs section](#product-catalog-versions) for more info.
+
+product-catalog-v2: |
+  This attribute will be present only if your {{ integration.display_name }} site uses v2.0 of {{ integration.display_name }}'s Product Catalog. Refer to the [Table and field availability and {{ integration.display_name }} Product Catalogs section](#product-catalog-versions) for more info.
+
+product-catalog-v1: |
+  This attribute will be present only if your {{ integration.display_name }} site uses v1.0 of {{ integration.display_name }}'s Product Catalog. Refer to the [Table and field availability and {{ integration.display_name }} Product Catalogs section](#product-catalog-versions) for more info.
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
