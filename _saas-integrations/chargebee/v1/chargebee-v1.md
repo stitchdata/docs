@@ -67,6 +67,8 @@ column-selection: true
 feature-summary: |
   Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
+  This integration supports {{ integration.display_name }} sites that use version 1.0 or version 2.0 of {{ integration.display_name }}'s Product Catalog. The Product Catalog version your site uses determines which tables and fields you can select for replication, however. Refer to the [Table and field availability and {{ integration.display_name }} product catalogs section](#product-catalog-versions) for more info.
+
 
 # -------------------------- #
 #      Setup Instructions    #
