@@ -34,7 +34,7 @@ repo-url: https://github.com/singer-io/tap-chargebee
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} API](https://apidocs.chargebee.com/docs/api){:target="new"}
+  [{{ integration.display_name }} v2 API](https://apidocs.chargebee.com/docs/api){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -127,7 +127,11 @@ setup-steps:
 
 replication-sections:
   - content: |
-      todo
+      {% for section in page.replication-sections %}
+      {% if section.title %}
+      - [{{ section.title | flatify }}](#{{ section.anchor }})
+      {% endif %}
+      {% endfor %}
 
   - title: "Table and field availability and {{ integration.display_name }} product catalogs"
     anchor: "product-catalog-versions"
