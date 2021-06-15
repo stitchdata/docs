@@ -20,7 +20,7 @@ permalink: /destinations/google-bigquery/v2/connecting-google-bigquery-to-stitch
 redirect_from: /destinations/bigquery/connecting-google-bigquery-to-stitch
 
 content-type: "destination-setup"
-key: "bigquery-setup"
+key: "bigquery-destination-setup"
 
 order: 1
 
