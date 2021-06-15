@@ -39,6 +39,8 @@ db-type: "postgres"
 
 ## Stitch features
 api-type: "platform.heroku_pg"
+override-api-type: true
+
 versions: "9.3+"
 ssh: false
 ssl: true
