@@ -5,15 +5,19 @@ key: "credit-note"
 
 name: "credit_notes"
 doc-link: "https://apidocs.chargebee.com/docs/api/credit_notes"
-singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/credit_notes.json"
+singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/common/credit_notes.json"
 description: |
   The `{{ table.name }}` table contains info about the credit notes in your {{ integration.display_name }} account. A credit note is a document that specifies the money owed by a business to a customer.
+
+  {{ integration.table-type | flatify }}
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List credit notes"
-    doc-link: "https://apidocs.chargebee.com/docs/api/credit_notes#list_credit_notes"
+  name: "List credit notes"
+  doc-link: "https://apidocs.chargebee.com/docs/api/credit_notes#list_credit_notes"
+
+product-catalog-version: "any"
 
 attributes:
   - name: "id"
@@ -333,7 +337,7 @@ attributes:
 
       - name: "txn_date"
         type: "date-time"
-        description: "The date the transaction occured."
+        description: "The date the transaction occurred."
 
       - name: "txn_id"
         type: "string"

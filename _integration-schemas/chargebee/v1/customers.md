@@ -9,11 +9,15 @@ singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_charg
 description: |
   The `{{ table.name }}` table contains info about the customers in your {{ integration.display_name }} account.
 
+  {{ integration.table-type | flatify }}
+
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List customers"
-    doc-link: "https://apidocs.chargebee.com/docs/api/customers#list_customers"
+  name: "List customers"
+  doc-link: "https://apidocs.chargebee.com/docs/api/customers#list_customers"
+
+product-catalog-version: "any"
 
 attributes:
   - name: "id"
@@ -447,6 +451,23 @@ attributes:
     type: "boolean"
     description: "Indicates if the customer is registered under GST. Available for Australia only."
 
+  - name: "relationship"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "invoice_owner_id"
+        type: "string"
+        description: ""
+      - name: "parent_id"
+        type: "string"
+        description: ""
+      - name: "payment_owner_id"
+        type: "string"
+        description: ""
+      - name: "root_id"
+        type: "string"
+        description: ""
+
   - name: "resource_version"
     type: "integer"
     description: "The version number of the customer. Each update of the customer results in an incremental change of this value. **Note**: This attribute will be present only if the customer has been updated after 2016-09-28."
@@ -476,8 +497,4 @@ attributes:
       - `invalid`
       - `not_validated`
       - `undetermined`
-    
-  - name: "vat_number_validated_time"
-    type: "date-time"
-    description: ""  
 ---

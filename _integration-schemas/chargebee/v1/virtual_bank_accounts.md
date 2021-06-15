@@ -9,11 +9,15 @@ singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_charg
 description: |
   The `{{ table.name }}` table contains info about the virtual bank accounts in your {{ integration.display_name }} account. A virtual bank account is a unique account number that can be shared with your users while still protecting your sensitive bank account details.
 
+  {{ integration.table-type | flatify }}
+
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List virtual bank accounts"
-    doc-link: "https://apidocs.chargebee.com/docs/api/virtual_bank_accounts#list_virtual_bank_accounts"
+  name: "List virtual bank accounts"
+  doc-link: "https://apidocs.chargebee.com/docs/api/virtual_bank_accounts#list_virtual_bank_accounts"
+
+product-catalog-version: "any"
 
 attributes:
   - name: "id"

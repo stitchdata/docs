@@ -9,11 +9,15 @@ singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_charg
 description: |
   The `{{ table.name }}` table contains info about the transactions that have occurred in your {{ integration.display_name }} account.
 
+  {{ integration.table-type | flatify }}
+
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List transactions"
-    doc-link: "https://apidocs.chargebee.com/docs/api/transactions#list_transactions"
+  name: "List transactions"
+  doc-link: "https://apidocs.chargebee.com/docs/api/transactions#list_transactions"
+
+product-catalog-version: "any"
 
 attributes:
   - name: "id"

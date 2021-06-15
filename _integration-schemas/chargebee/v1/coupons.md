@@ -1,19 +1,23 @@
 ---
 tap: "chargebee"
 version: "1"
-key: "coupon"
+key: "coupons"
 
 name: "coupons"
-doc-link: "https://apidocs.chargebee.com/docs/api/coupons"
-singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/coupons.json"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/item_model/coupons.json"
 description: |
   The `{{ table.name }}` table contains info about the coupons in your {{ integration.display_name }} account.
+
+  {{ integration.table-type | flatify }}
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List coupons"
-    doc-link: "https://apidocs.chargebee.com/docs/api/coupons#list_coupons"
+  name: "List coupons"
+  doc-link: "https://apidocs.chargebee.com/docs/api/coupons#list_coupons"
+
+product-catalog-version: "any"
 
 attributes:
   - name: "id"
@@ -30,6 +34,8 @@ attributes:
   - name: "addon_constraint"
     type: "string"
     description: |
+      {{ integration.product-catalog-v1 | flatify }}
+
       The addons the coupon can be applied to. Possible values are:
 
       - `none`
@@ -39,7 +45,10 @@ attributes:
 
   - name: "addon_ids"
     type: "array"
-    description: "IDs of the addons associated with the coupon."
+    description: |
+      {{ integration.product-catalog-v1 | flatify }}
+
+      A list of IDs of addons associated with the coupon.
     subattributes:
       - name: "value"
         type: "string"
@@ -108,6 +117,62 @@ attributes:
     type: "string"
     description: "Invoice notes for the coupon."
 
+  - name: "item_constraint_criteria"
+    type: "array"
+    description: |
+      {{ integration.product-catalog-v2 | flatify }}
+    subattributes:
+      - name: "currencies"
+        type: "array"
+        description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
+
+      - name: "item_family_ids"
+        type: "array"
+        description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
+            foreign-key-id: "item-family-id"
+
+      - name: "item_price_periods"
+        type: "array"
+        description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
+
+      - name: "item_type"
+        type: "string"
+        description: ""
+
+  - name: "item_constraints"
+    type: "array"
+    description: |
+      {{ integration.product-catalog-v2 | flatify }}
+    subattributes:
+      - name: "constraint"
+        type: "string"
+        description: ""
+
+      - name: "item_price_ids"
+        type: "array"
+        description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
+            foreign-key-id: "item-price-id"
+
+      - name: "item_type"
+        type: "string"
+        description: ""
+
   - name: "max_redemptions"
     type: "integer"
     description: "The maximum number of times the coupon can be redeemed."
@@ -127,6 +192,8 @@ attributes:
   - name: "plan_constraint"
     type: "string"
     description: |
+      {{ integration.product-catalog-v1 | flatify }}
+
       The plans the coupon can be applied to. Possible values are:
 
       - `none`
@@ -136,7 +203,10 @@ attributes:
 
   - name: "plan_ids"
     type: "array"
-    description: "IDs of the plans associated with the coupon."
+    description: |
+      {{ integration.product-catalog-v1 | flatify }}
+
+      A list of IDs of plans associated with the coupon.
     subattributes:
       - name: "value"
         type: "string"

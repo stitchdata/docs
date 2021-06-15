@@ -5,15 +5,19 @@ key: "invoice"
 
 name: "invoices"
 doc-link: "https://apidocs.chargebee.com/docs/api/invoices"
-singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/invoices.json"
+singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/item_model/invoices.json"
 description: |
   The `{{ table.name }}` table contains info about the invoices in your {{ integration.display_name }} account. Invoices are statements containing charges, adjustments, and any discounts for a subscription specific to a term.
+
+  {{ integration.table-type | flatify }}
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List invoices"
-    doc-link: "https://apidocs.chargebee.com/docs/api/invoices#list_invoices"
+  name: "List invoices"
+  doc-link: "https://apidocs.chargebee.com/docs/api/invoices#list_invoices"
+
+product-catalog-version: "any"
 
 attributes:
   - name: "id"
@@ -236,6 +240,10 @@ attributes:
           - `promotional_credits`: Represents promotional credits in the invoice.
           - `prorated_credits`: Represents credit adjustments in the invoice.
 
+      - name: "object"
+        type: "string"
+        description: ""
+
   - name: "due_date"
     type: "date-time"
     description: "The due date of the invoice."
@@ -269,14 +277,6 @@ attributes:
   - name: "is_gifted"
     type: "boolean"
     description: "Indicates if the invoice is gifted or not."
-
-  - name: "is_partial_tax_applied"
-    type: "boolean"
-    description: "Indicates if partial tax has been applied."
-
-  - name: "is_non_compliance_tax"
-    type: "boolean"
-    description: ""
 
   - name: "issued_credit_notes"
     type: "array"
@@ -313,10 +313,22 @@ attributes:
     type: "array"
     description: "The list of taxes applied on line items."
     subattributes:
+      - name: "is_partial_tax_applied"
+        type: "boolean"
+        description: ""
+
+      - name: "is_non_compliance_tax"
+        type: "boolean"
+        description: ""
+
       - name: "line_item_id"
         type: "string"
         description: "The ID of the line item for which the tax is applicable."
         foreign-key-id: "line-item-id"
+
+      - name: "taxable_amount"
+        type: "integer"
+        description: ""
 
       - name: "tax_amount"
         type: "integer"
@@ -352,6 +364,46 @@ attributes:
         type: "number"
         description: "The rate of tax used to calculate the tax amount."
 
+  - name: "line_item_tiers"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "ending_unit"
+        type: "integer"
+        description: ""
+
+      - name: "ending_unit_in_decimal"
+        type: "string"
+        description: &plan-model-only "{{ integration.product-catalog-v1 | flatify }}"
+
+      - name: "line_item_id"
+        type: "string"
+        description: ""
+
+      - name: "quantity_used"
+        type: "integer"
+        description: ""
+
+      - name: "quantity_used_in_decimal"
+        type: "string"
+        description: *plan-model-only
+
+      - name: "starting_unit"
+        type: "integer"
+        description: ""
+
+      - name: "starting_unit_in_decimal"
+        type: "string"
+        description: *plan-model-only
+
+      - name: "unit_amount"
+        type: "integer"
+        description: ""
+
+      - name: "unit_amount_in_decimal"
+        type: "string"
+        description: *plan-model-only
+
   - name: "line_items"
     type: "array"
     description: "The line items in the invoice."
@@ -359,6 +411,10 @@ attributes:
       - name: "amount"
         type: "integer"
         description: "The total amount of the line item, calculated as `unit_amount x quantity`."
+
+      - name: "amount_in_decimal"
+        type: "string"
+        description: *plan-model-only
 
       - name: "date_from"
         type: "date-time"
@@ -415,9 +471,17 @@ attributes:
           - `volume`: Charges the per unit price for the total quantity purchased based on the tier under which it falls.
           - `stairstep`: Charges a price for a range.
 
+      - name: "object"
+        type: "string"
+        description: ""
+
       - name: "quantity"
         type: "integer"
         description: "The quantity of the recurring item, represented by the line item."
+
+      - name: "quantity_in_decimal"
+        type: "string"
+        description: *plan-model-only
 
       - name: "subscription_id"
         type: "string"
@@ -449,29 +513,9 @@ attributes:
         type: "integer"
         description: "The unit amount of the line item, in cents."
 
-  - name: "line_item_tiers"
-    type: "array"
-    description: ""
-    subattributes:
-      - name: "line_item_id"
+      - name: "unit_amount_in_decimal"
         type: "string"
-        description: ""
-
-      - name: "starting_unit"
-        type: "integer"
-        description: ""
-
-      - name: "ending_unit"
-        type: "integer"
-        description: ""
-
-      - name: "quantity_used"
-        type: "integer"
-        description: ""
-
-      - name: "unit_amount"
-        type: "integer"
-        description: ""
+        description: *plan-model-only
 
   - name: "linked_orders"
     type: "array"
@@ -485,6 +529,10 @@ attributes:
         type: "date-time"
         description: "the time the order was created."
 
+      - name: "document_number"
+        type: "string"
+        description: ""
+
       - name: "fulfillment_status"
         type: "string"
         description: "The fulfillment status of an order as reflected in the shipping/order management application. Typical statuses include `Shipped`, `Awaiting Shipment`, `Not fulfilled`, etc."
@@ -492,6 +540,11 @@ attributes:
       - name: "id"
         type: "string"
         description: "The order ID."
+        foreign-key-id: "order-id"
+
+      - name: "order_type"
+        type: "string"
+        description: ""
 
       - name: "reference_id"
         type: "string"
@@ -527,13 +580,9 @@ attributes:
         type: "date-time"
         description: "The time the amount was applied."
 
-      - name: "document_number"
-        type: "integer"
-        description: ""
-
       - name: "order_type"
         type: "string"
-        description: ""
+        description: &item-model-only "{{ integration.product-catalog-v2 | flatify }}"
 
       - name: "txn_amount"
         type: "integer"
@@ -541,7 +590,7 @@ attributes:
 
       - name: "txn_date"
         type: "date-time"
-        description: "The date the transaction occured."
+        description: "The date the transaction occurred."
 
       - name: "txn_id"
         type: "string"
@@ -575,7 +624,7 @@ attributes:
   - name: "notes"
     type: "array"
     description: |
-      The list of notes associated with the invoice. If entity_type & entity_id are not present, then it is general notes (i.e Notes input provided under **Customize Invoice** action in {{ integration.display_name }} web interface).
+      The list of notes associated with the invoice. If `entity_type` and `entity_id` are not present, then it's a general note (i.e Notes input provided under **Customize Invoice** action in {{ integration.display_name }} web interface).
     subattributes:
       - name: "entity_id"
         type: "string"
@@ -603,6 +652,10 @@ attributes:
   - name: "paid_at"
     type: "date-time"
     description: "The time the invoice was paid."
+
+  - name: "payment_owner"
+    type: "string"
+    description: ""
 
   - name: "po_number"
     type: "string"
@@ -657,10 +710,6 @@ attributes:
   - name: "tax"
     type: "integer"
     description: "The total tax amount for the invoice, in cents."
-
-  - name: "taxable_amount"
-    type: "integer"
-    description: ""
 
   - name: "taxes"
     type: "array"

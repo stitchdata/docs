@@ -4,16 +4,20 @@ version: "1"
 key: "plan"
 
 name: "plans"
-doc-link: "https://apidocs.chargebee.com/docs/api/plans"
-singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/plans.json"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/plan_model/plans.json"
 description: |
   The `{{ table.name }}` table contains info about the plans in your {{ integration.display_name }} account. Plans are used to specify prices and billing frequencies for [`subscriptions`](#subscriptions).
+
+  {{ integration.table-type | flatify }}
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List plans"
-    doc-link: "https://apidocs.chargebee.com/docs/api/plans#list_plans"
+  name: "List plans"
+  doc-link: "https://apidocs.chargebee.com/docs/api/plans?prod_cat_ver=1#list_plans"
+
+product-catalog-version: "v1"
 
 attributes:
   - name: "id"
@@ -52,9 +56,17 @@ attributes:
         description: "The ID of the addon."
         foreign-key-id: "addon-id"
 
+      - name: "quantity_in_decimal"
+        type: "string"
+        description: ""
+
   - name: "archived_at"
     type: "date-time"
     description: "The time the plan was archived."
+
+  - name: "avalara_sale_type"
+    type: "string"
+    description: ""
 
   - name: "avalara_service_type"
     type: "integer"
@@ -91,6 +103,14 @@ attributes:
     type: "string"
     description: "The description of the plan to show in hosted pages and the customer portal."
 
+  - name: "enabled_in_hosted_pages"
+    type: "boolean"
+    description: ""
+
+  - name: "enabled_in_portal"
+    type: "boolean"
+    description: ""
+
   - name: "event_based_addons"
     type: "array"
     description: "IDs of the event-based addons associated with the plan."
@@ -115,6 +135,10 @@ attributes:
   - name: "free_quantity"
     type: "integer"
     description: "The free quantity the subscriptions of the plan will have. Only quantities more than this value will be charged for the subscription."
+
+  - name: "free_quantity_in_decimal"
+    type: "string"
+    description: ""
 
   - name: "giftable"
     type: "boolean"
@@ -165,6 +189,10 @@ attributes:
     type: "integer"
     description: "The price of the plan."
 
+  - name: "price_in_decimal"
+    type: "string"
+    description: ""
+
   - name: "redirect_url"
     type: "string"
     description: "The URL to redirect on successful checkout."
@@ -197,6 +225,10 @@ attributes:
       - `active`
       - `archived`
 
+  - name: "tax_code"
+    type: "string"
+    description: ""
+
   - name: "tax_profile_id"
     type: "string"
     description: "The ID of the tax profile for the plan."
@@ -209,21 +241,29 @@ attributes:
     type: "array"
     description: ""
     subattributes:
-      - name: "starting_unit"
+      - name: "ending_unit"
         type: "integer"
         description: ""
 
-      - name: "ending_unit"
-        type: "integer"
+      - name: "ending_unit_in_decimal"
+        type: "string"
         description: ""
 
       - name: "price"
         type: "integer"
         description: ""
 
-  - name: ""
-    type: 
-    description: ""
+      - name: "price_in_decimal"
+        type: "string"
+        description: ""
+
+      - name: "starting_unit"
+        type: "integer"
+        description: ""
+
+      - name: "starting_unit_in_decimal"
+        type: "string"
+        description: ""
 
   - name: "trial_period"
     type: "integer"
@@ -242,5 +282,5 @@ attributes:
       Possible values are:
 
       - `day`
-      - `month`   
+      - `month` 
 ---

@@ -5,7 +5,7 @@ key: "subscription"
 
 name: "subscriptions"
 doc-link: "https://apidocs.chargebee.com/docs/api/subscriptions"
-singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/subscriptions.json"
+singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/item_model/subscriptions.json"
 description: |
   The `{{ table.name }}` table contains info about the subscriptions your customers have subscribed to. A subscription is a recurring item that customers are billed for, such as a plan or addon. It may also contain discount items.
 
@@ -17,11 +17,15 @@ description: |
 
   Because of this functionality and Stitch's use of this value as a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}), updates made to subscriptions where only these attributes are modified may not be detected. You should ensure that another attribute on the subscription is also modified to ensure that the `updated_at` value is updated, which will allow Stitch to detect and replicate the record.
 
+  {{ integration.table-type | flatify }}
+
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List subscriptions"
-    doc-link: "https://apidocs.chargebee.com/docs/api/subscriptions#list_subscriptions"
+  name: "List subscriptions"
+  doc-link: "https://apidocs.chargebee.com/docs/api/subscriptions#list_subscriptions"
+
+product-catalog-version: "any"
 
 attributes:
   - name: "id"
@@ -50,7 +54,10 @@ attributes:
 
   - name: "addons"
     type: "array"
-    description: "Details about the addon(s) associated with the subscription."
+    description: |
+      {{ integration.product-catalog-v1 | flatify }}
+
+      Details about the addon(s) associated with the subscription.
     subattributes:
       - name: "id"
         type: "string"
@@ -84,7 +91,10 @@ attributes:
 
   - name: "affiliate_token"
     type: "string"
-    description: "A unique tracking token for the subscription."
+    description: |
+      {{ integration.product-catalog-v1 | flatify }}
+
+      A unique tracking token for the subscription.
 
   - name: "auto_collection"
     type: "string"
@@ -134,11 +144,14 @@ attributes:
 
   - name: "cancelled_at"
     type: "date-time"
-    description: "The time at which subscription was cancelled or is set to be cancelled."
+    description: "The time at which subscription was canceled or is set to be canceled."
 
   - name: "charged_event_based_addons"
     type: "array"
-    description: "A list of event-based addons that have already been charged."
+    description: |
+      {{ integration.product-catalog-v1 | flatify }}
+
+      A list of event-based addons that have already been charged.
     subattributes:
       - name: "id"
         type: "string"
@@ -151,6 +164,20 @@ attributes:
 
       - name: "object"
         type: "string"
+        description: ""
+
+  - name: "charged_items"
+    type: "array"
+    description: |
+      {{ integration.product-catalog-v2 | flatify }}
+    subattributes:
+      - name: "item_price_id"
+        type: "string"
+        description: ""
+        foreign-key-id: "item-price-id"
+
+      - name: "last_charged_at"
+        type: "date-time"
         description: ""
 
   - name: "coupon"
@@ -204,7 +231,8 @@ attributes:
 
   - name: "custom_fields"
     type: "string"
-    description: ""  
+    description: |
+      {{ integration.product-catalog-v1 | flatify }}
 
   - name: "customer_id"
     type: "string"
@@ -225,7 +253,10 @@ attributes:
 
   - name: "event_based_addons"
     type: "array"
-    description: "A list of non-recurring addons associated with the subscription that will be charged on the occurrence of a specified event."
+    description: |
+      {{ integration.product-catalog-v1 | flatify }}
+
+      A list of non-recurring addons associated with the subscription that will be charged on the occurrence of a specified event.
     subattributes:
       - name: "charge_once"
         type: "boolean"
@@ -258,7 +289,10 @@ attributes:
 
   - name: "gift_id"
     type: "string"
-    description: "The ID of the gift associated with the subscription."
+    description: |
+      {{ integration.product-catalog-v1 | flatify }}
+
+      The ID of the gift associated with the subscription.
     foreign-key-id: "gift-id"
 
   - name: "has_scheduled_changes"
@@ -268,6 +302,28 @@ attributes:
   - name: "invoice_notes"
     type: "string"
     description: "The invoice notes for the subscription."
+
+  - name: "item_tiers"
+    type: "array"
+    description: |
+      {{ integration.product-catalog-v2 | flatify }}
+    subattributes:
+      - name: "ending_unit"
+        type: "integer"
+        description: ""
+
+      - name: "item_price_id"
+        type: "string"
+        description: ""
+        foreign-key-id: "item-price-id"
+
+      - name: "price"
+        type: "integer"
+        description: ""
+
+      - name: "starting_unit"
+        type: "integer"
+        description: ""
 
   - name: "meta_data"
     type: "string"
@@ -296,24 +352,57 @@ attributes:
 
   - name: "plan_amount"
     type: "integer"
-    description: ""
+    description: |
+      {{ integration.product-catalog-v1 | flatify }}
+
+  - name: "plan_amount_in_decimal"
+    type: "string"
+    description: |
+      {{ integration.product-catalog-v1 | flatify }}
 
   - name: "plan_free_quantity"
     type: "integer"
-    description: "The units of the item that will be free with the plan associated with the subscription."
+    description: |
+      {{ integration.product-catalog-v1 | flatify }}
+
+      The units of the item that will be free with the plan associated with the subscription.
+
+  - name: "plan_free_quantity_in_decimal"
+    type: "string"
+    description: |
+      {{ integration.product-catalog-v1 | flatify }}
 
   - name: "plan_id"
     type: "string"
-    description: "The ID of the plan associated with the subscription."
+    description: |
+      {{ integration.product-catalog-v1 | flatify }}
+
+      The ID of the plan associated with the subscription.
     foreign-key-id: "plan-id"
 
   - name: "plan_quantity"
     type: "integer"
-    description: "The plan quantity for the subscription."
+    description: |
+      {{ integration.product-catalog-v1 | flatify }}
+
+      The plan quantity for the subscription.
+
+  - name: "plan_quantity_in_decimal"
+    type: "string"
+    description: |
+      {{ integration.product-catalog-v1 | flatify }}
 
   - name: "plan_unit_price"
     type: "integer"
-    description: "The amount that will override the plan's default price."
+    description: |
+      {{ integration.product-catalog-v1 | flatify }}
+
+      The amount that will override the plan's default price.
+
+  - name: "plan_unit_price_in_decimal"
+    type: "string"
+    description: |
+      {{ integration.product-catalog-v1 | flatify }}
 
   - name: "po_number"
     type: "string"
@@ -416,10 +505,6 @@ attributes:
     type: "date-time"
     description: ""
 
-  - name: "setup_fee"
-    type: "integer"
-    description: ""
-
   - name: "shipping_address"
     type: "object"
     description: "The shipping address for the subscription."
@@ -508,6 +593,64 @@ attributes:
       - `paused`
       - `cancelled`
 
+  - name: "subscription_items"
+    type: "array"
+    description: |
+      {{ integration.product-catalog-v2 | flatify }}
+    subattributes:
+      - name: "amount"
+        type: "integer"
+        description: ""
+
+      - name: "billing_cycles"
+        type: "integer"
+        description: ""
+
+      - name: "charge_on_event"
+        type: "string"
+        description: ""
+
+      - name: "charge_on_option"
+        type: "string"
+        description: ""
+
+      - name: "charge_once"
+        type: "boolean"
+        description: ""
+
+      - name: "free_quantity"
+        type: "integer"
+        description: ""
+
+      - name: "item_price_id"
+        type: "string"
+        description: ""
+        foreign-key-id: "item-price-id"
+
+      - name: "item_type"
+        type: "string"
+        description: ""
+
+      - name: "object"
+        type: "string"
+        description: ""
+
+      - name: "quantity"
+        type: "integer"
+        description: ""
+
+      - name: "service_period_days"
+        type: "integer"
+        description: ""
+
+      - name: "trial_end"
+        type: "date-time"
+        description: ""
+
+      - name: "unit_price"
+        type: "integer"
+        description: ""
+
   - name: "total_dues"
     type: "integer"
     description: ""
@@ -520,5 +663,5 @@ attributes:
   - name: "trial_start"
     type: "date-time"
     description: |
-      The start of the trial period for the subscription. The presence of this value for future subscriptions (`status: future`) implies the subscription will move to `in_trial` when the subscription starts.  
+      The start of the trial period for the subscription. The presence of this value for future subscriptions (`status: future`) implies the subscription will move to `in_trial` when the subscription starts.
 ---

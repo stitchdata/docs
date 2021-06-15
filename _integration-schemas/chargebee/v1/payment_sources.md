@@ -9,11 +9,15 @@ singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_charg
 description: |
   The `{{ table.name }}` table contains info about customer payment sources.
 
+  {{ integration.table-type | flatify }}
+
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List payment sources"
-    doc-link: "https://apidocs.chargebee.com/docs/api/payment_sources#list_payment_sources"
+  name: "List payment sources"
+  doc-link: "https://apidocs.chargebee.com/docs/api/payment_sources#list_payment_sources"
+
+product-catalog-version: "any"
 
 attributes:
   - name: "id"
