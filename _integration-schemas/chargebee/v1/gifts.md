@@ -6,13 +6,18 @@ key: "gifts"
 name: "gifts"
 doc-link: "https://apidocs.chargebee.com/docs/api/gifts"
 singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/gifts.json"
-description: "The `{{ table.name }}` table contains info about the gifts in your {{ integration.display_name }} account."
+description: |
+  The `{{ table.name }}` table contains info about the gifts in your {{ integration.display_name }} account.
+
+  {{ integration.table-type | flatify }}
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List gifts"
-    doc-link: "https://apidocs.chargebee.com/docs/api/gifts#list_gifts"
+  name: "List gifts"
+  doc-link: "https://apidocs.chargebee.com/docs/api/gifts#list_gifts"
+
+product-catalog-version: "any"
 
 attributes:
   - name: "id"

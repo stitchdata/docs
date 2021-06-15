@@ -9,11 +9,15 @@ singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_charg
 description: |
   The `{{ table.name }}` table contains info about the events that have occurred on your {{ integration.display_name }} site. Event records contain data about affected resources and additional details, such as when the change occurred. This can be used to create a log of events for a record and analyze how it has changed over time.
 
+  {{ integration.table-type | flatify }}
+
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List events"
-    doc-link: "https://apidocs.chargebee.com/docs/api/events#list_events"
+  name: "List events"
+  doc-link: "https://apidocs.chargebee.com/docs/api/events#list_events"
+
+product-catalog-version: "any"
 
 attributes:
   - name: "id"

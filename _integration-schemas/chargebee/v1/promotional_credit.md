@@ -5,22 +5,26 @@ key: "promotional-credit"
 
 name: "promotional_credits"
 doc-link: "https://apidocs.chargebee.com/docs/api/promotional_credits"
-singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/promotional_credits.json"
+singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/item_model/promotional_credits.json"
 description: |
   The `{{ table.name }}` table contains info about the promotional_credits in your {{ integration.display_name }} account.
+
+  {{ integration.table-type | flatify }}
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List promotional credits"
-    doc-link: "https://apidocs.chargebee.com/docs/api/promotional_credits#list_promotional_credits"
+  name: "List promotional credits"
+  doc-link: "https://apidocs.chargebee.com/docs/api/promotional_credits#list_promotional_credits"
+
+product-catalog-version: "any"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The promotional credit ID."
-    # foreign-key-id: "promotional-credit-id"
+    foreign-key-id: "promotional-credit-id"
 
   - name: "created_at"
     type: "date-time"
@@ -30,6 +34,10 @@ attributes:
   - name: "amount"
     type: "string"
     description: "The amount of the promotional credit."
+
+  - name: "amount_in_decimal"
+    type: "string"
+    description: "{{ integration.product-catalog-v1 | flatify }}"
 
   - name: "closing_balance"
     type: "integer"
@@ -60,6 +68,10 @@ attributes:
   - name: "done_by"
     type: "string"
     description: "The user who added/deducted the credit."
+
+  - name: "reference"
+    type: "string"
+    description: ""
 
   - name: "type"
     type: "string"

@@ -6,13 +6,18 @@ key: "orders"
 name: "orders"
 doc-link: "https://apidocs.chargebee.com/docs/api/orders"
 singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/orders.json"
-description: "The `{{ table.name }}` table contains info about the orders in your {{ integration.display_name }} account. The **Order Management** feature must be enabled to sync this table. For more information, refer to the [{{ integration.display_name }} docs](https://www.chargebee.com/docs/orders.html)."
+description: |
+  The `{{ table.name }}` table contains info about the orders in your {{ integration.display_name }} account. The **Order Management** feature must be enabled to replicate this table. For more information, refer to the [{{ integration.display_name }} docs](https://www.chargebee.com/docs/orders.html).
+
+  {{ integration.table-type | flatify }}
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List orders"
-    doc-link: "https://apidocs.chargebee.com/docs/api/orders#list_orders"
+  name: "List orders"
+  doc-link: "https://apidocs.chargebee.com/docs/api/orders#list_orders"
+
+product-catalog-version: "any"
 
 attributes:
   - name: "id"
@@ -434,7 +439,7 @@ attributes:
 
   - name: "shipping_cut_off_date"
     type: "date-time"
-    description: "The time after an order becomes unservicable."
+    description: "The time after an order becomes unserviceable."
 
   - name: "shipping_date"
     type: "date-time"

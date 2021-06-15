@@ -4,16 +4,20 @@ version: "1"
 key: "addon"
 
 name: "addons"
-doc-link: "https://apidocs.chargebee.com/docs/api/addons"
-singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/addons.json"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/plan_model/addons.json"
 description: |
   The `{{ table.name }}` table contains info about the addons in your {{ integration.display_name }} account. Addons are additional charges applied to subscriptions apart from base charges.
+
+  {{ integration.table-type | flatify }}
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List addons"
-    doc-link: "https://apidocs.chargebee.com/docs/api/addons#list_addons"
+  name: "List addons"
+  doc-link: "https://apidocs.chargebee.com/docs/api/addons#list_addons"
+
+product-catalog-version: "v1"
 
 attributes:
   - name: "id"
@@ -130,6 +134,10 @@ attributes:
     description: "The addon price. Addon price is calculated based on the addon type and charge type."
     doc-link: "https://www.chargebee.com/docs/addons.html#charge-type-and-pricing"
 
+  - name: "price_in_decimal"
+    type: "string"
+    description: ""
+
   - name: "pricing_model"
     type: "string"
     description: |
@@ -205,5 +213,5 @@ attributes:
   - name: "unit"
     type: "string"
     description: |
-      Applicable only for quantity type addons. This specifies the type of quantity. For example: If the addon price is `$10` and `agent` is the unit, it will be displayed as `$10/agent`.   
+      Applicable only for quantity type addons. This specifies the type of quantity. For example: If the addon price is `$10` and `agent` is the unit, it will be displayed as `$10/agent`.
 ---
