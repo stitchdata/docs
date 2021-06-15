@@ -6,10 +6,10 @@
         {% assign integration-tables = site.integration-schemas | where:"tap",integration.name %}  
 
     <!-- Using the filtered data set above, filter out only the tables for this version of the integration -->
-        {% assign schema = integration-tables | where:"version",integration.this-version %}
+        {% assign schema = integration-tables | where:"version",integration.this-version | sort_natural:"name" %}
 
 {% else %}
-    {% assign schema = site.integration-schemas | where:"tap",integration.name %}
+    {% assign schema = site.integration-schemas | where:"tap",integration.name | sort_natural:"name" %}
 {% endif %}
 
 <!-- NOTICE ABOUT DOC/DESTINATION OBJECT DIFFERENCES -->
