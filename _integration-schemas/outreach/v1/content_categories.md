@@ -30,18 +30,24 @@ attributes:
   - name: "allowSequences"
     type: "string"
     description: ""
+
   - name: "allowSnippets"
     type: "string"
     description: ""
+
   - name: "allowTemplates"
     type: "string"
     description: ""
+
   - name: "createdAt"
     type: "date-time"
     description: ""
+
   - name: "creatorId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
+
   - name: "name"
     type: "string"
     description: ""
