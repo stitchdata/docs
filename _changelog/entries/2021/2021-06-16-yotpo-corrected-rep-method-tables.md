@@ -8,7 +8,7 @@ connection-id: "yotpo"
 connection-version: 1
 ---
 
-We've corrected the Replication Method for a few {{ this-connection.display-name }} tables in the docs. These tables were listed as using Key-based Incremental Replication, but in fact are Full Table:
+We've corrected the Replication Method for a few {{ this-connection.display_name }} tables in the docs. These tables were listed as using Key-based Incremental Replication, but in fact are Full Table:
 
 - `products`
 - `unsubscribers`
