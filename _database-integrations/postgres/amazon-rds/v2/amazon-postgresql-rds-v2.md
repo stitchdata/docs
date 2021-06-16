@@ -1,31 +1,31 @@
 ---
-title: Amazon Aurora PostgreSQL RDS (v1)
-keywords: amazon aurora, aurora postgresql, postgres, database integration, etl aurora, aurora etl
-permalink: /integrations/databases/amazon-aurora-postgresql/v1
-redirect_from: /integrations/databases/amazon-aurora-postgresql
-summary: "Connect and replicate data from your Amazon Aurora PostgreSQL RDS database using Stitch's PostgreSQL integration."
-input: false
-show-in-menus: false
+title: Amazon PostgreSQL RDS (v2)
+keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl
+permalink: /integrations/databases/amazon-rds-postgresql/v2
+summary: "Connect and replicate data from your Amazon PostgreSQL RDS using Stitch's PostgreSQL integration."
+microsites:
+  - title: "{{ page.display_name }} to Postgres"
+    url: "http://postgres.topostges.com/"
 
-key: "aurora-postgresql-rds-integration"
+key: "postgresql-rds-integration"
 
 # -------------------------- #
-#         Tap Details        #
+#     Integration Details    #
 # -------------------------- #
 
-name: "aurora-postgresql-rds"
-display_name: "Amazon Aurora PostgreSQL RDS"
+name: "postgresql-rds"
+display_name: "Amazon PostgreSQL RDS"
+
 singer: true
-
 tap-name: "Postgres"
-repo-url: https://github.com/singer-io/tap-postgres
-
-this-version: "1"
+repo-url: "Not Applicable"
 
 hosting-type: "amazon"
 
-driver: |
-  [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}
+this-version: "2"
+override-version-status: "in-testing"
+
+driver: ""
 
 # -------------------------- #
 #       Stitch Details       #
@@ -41,7 +41,7 @@ db-type: "postgres"
 
 # Stitch features
 api-type: "platform.postgres"
-versions: "9.3+; 10.6+ for binlog"
+versions: "9.3+; 9.4+ for binlog"
 ssh: true
 ssl: true
 
@@ -65,11 +65,13 @@ table-level-reset: true
 define-replication-methods: true
 set-default-replication-method: true
 
-log-based-replication-minimum-version: "10.6"
+log-based-replication-minimum-version: "9.4"
 log-based-replication-master-instance: true
 
 log-based-replication-read-replica: false
-log-based-replication-read-replica-reason: ""
+log-based-replication-read-replica-reason: "PostgreSQL only supports logical replication on master instances."
+log-based-replication-read-replica-doc-link: |
+  {{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation-7--only-supports-master-instances-postgresql" }} 
 
 ## Other Replication Methods
 
@@ -83,31 +85,33 @@ view-replication: true
 #      Setup Requirements    #
 # -------------------------- #
 
-notice-first-line: "**Aurora PostgreSQL as an input data source**"
+notice-first-line: "**PostgreSQL RDS as an input data source**"
 notice-copy: |
 
   This article describes how to connect {{ integration.display_name }} **as an input data source.**
 
-  If you want to connect a {{ integration.display_name }} instance as a **destination**, refer to the [Connecting an {{ integration.display_name }} Destination guide]({{ link.destinations.setup.aurora-postgres | prepend: site.baseurl }}).
+  If you want to connect a {{ integration.display_name }} instance as a **destination**, refer to the [Connecting an {{ integration.display_name }} Destination guide]({{ link.destinations.setup.postgres-rds | prepend: site.baseurl }}).
 
 requirements-list:
   - item: |
       **Permissions in Amazon Web Services (AWS) that allow you to**:
 
         - Create/manage Security Groups, which is required to whitelist Stitch's IP addresses.
-        - View database details, which is required for retrieving the database's connection details.
+        - View database details, which is required for retrieving the database's connection details
   - item: "**Permissions in PostgreSQL that allow you to create users.** This is required to create a database user for Stitch."
   - item: |
       **If using Log-based Incremental Replication**, you'll need:
 
-      - **A database running Aurora PostgreSQL 10.6 or greater**. This is required to use wal2json, the plugin Stitch uses to perform Log-based Incremental Replication. Amazon introduced support for wal2json in [version 10.6 of their Aurora PostgreSQL engine](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Replication.Logical.html#AuroraPostgreSQL.Replication.Logical.Configure){:target="new"}.
+      - **A database running PostgreSQL 9.4 or greater**. Earlier versions of PostgreSQL do not include logical replication functionality, which is required for Log-based Replication.
       - **The `rds_superuser` role in your {{ integration.display_name }} database, if you want to use Log-based Replication.** [This role](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Roles){:target="new"} is required to grant the `rds_replication` privilege to Stitch's database user.
       - **To connect to the master instance.** Log-based replication will only work on master instances due to a feature gap in PostgreSQL 10. [Based on their forums](https://commitfest.postgresql.org/12/788/){:target="new"}, PostgreSQL is working on adding support for using logical replication on a read replica to a future version.
   - item: |
       **If you're not using Log-based Incremental Replication**, you'll need:
 
       - **A database running PostgreSQL 9.3.x or greater.** PostgreSQL 9.3.x is the minimum version Stitch supports for PostgreSQL integrations.
-      - **To verify if the database is a read replica, or follower**. While we always recommend connecting a replica over a production database, this also means you may need to verify some of its settings - specifically the `max_standby_streaming_delay` and `max_standby_archive_delay` settings - before connecting it to Stitch. We recommend setting these parameters to 8-12 hours for an initial replication job, and then decreasing them afterwards.
+      - **To verify if the database is a read replica, or follower**. While we always recommend connecting a replica over a production database, this also means you may need to verify some of its settings before connecting it to Stitch:
+         - `max_standby_streaming_delay`, `max_standby_archive_delay` settings - We recommend setting these parameters to 8-12 hours for an initial replication job and then decreasing them afterwards.
+         - `hot_standby_feedback` - Set this to `on` - or `1` for true. This will avoid the `conflict with recovery` error when a parameter group updates.
 
 
 # -------------------------- #
@@ -143,14 +147,10 @@ setup-steps:
       - [Step 4.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
       {% endfor %}
     substeps:
-      - title: "Configure the DB cluster parameter group"
-        anchor: "configure-db-cluster-parameter-group"
+      - title: "Configure the database parameter group"
+        anchor: "configure-database-parameter-group"
         content: |
-          In this step, you'll configure the required parameters in the database's DB cluster parameter group and enable Log-based Incremental Replication.
-
-          **Note**: Modifications must be made to the DB Cluster Parameter Group associated with the database. This is because the parameters required to enable Log-based Incremental do not exist in Database Parameter Groups.
-
-          {% include integrations/databases/setup/binlog/amazon-rds/aurora-postgresql-rds.html cluster=true %}
+          {% include integrations/databases/setup/binlog/amazon-rds/postgresql-rds.html %}
 
       - title: "Define the backup retention period"
         anchor: "define-backup-retention-period"
@@ -208,6 +208,11 @@ setup-steps:
         anchor: "create-replication-schedule"
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
+
+      - title: "Save the integration"
+        anchor: "save-integration"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 
   - title: "Select data to replicate"
     anchor: "sync-data"

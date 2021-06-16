@@ -7,10 +7,20 @@
 
     {% when 'integration' %}
         {% include shared/versioning/integration-version-logic.html %}
-
 {% endcase %}
 
-    {% assign total-versions = released-versions | size %}
+{% assign total-versions = released-versions | size %}
+
+{% assign version-statuses = site.data.stitch.version-statuses %}
+
+
+<!-- List items on category pages require a specific class,
+    so based on the menu-type we get it here -->
+{% if include.menu-type == "category-page" %}
+    {% capture li-class %}class="category-version-toggle"{% endcapture %}
+{% else %}
+    {% capture li-class %}{% endcapture %}
+{% endif %}
 
 
 <!-- VERSION SELECTION MENU -->
@@ -28,45 +38,47 @@
             </button>
 
             <ol class="dropdown-menu">
-                {% if [include.item-name]show-in-version-menu == true %}
-                    <li class="category-version-toggle">
-                        <a href="{{ [include.item-name]url | prepend: site.baseurl }}"><strong>Compare versions</strong></a>
-                    </li>
+            <!-- If this is a category page, get the integration's overview page
+                and create a list item for it. Currently only applies to databases. -->
+                {% if include.menu-type == "category-page" %}
+                    {% assign overview = all-versioned-docs | find:"content-type","database-category" %}
+
+                    {% if overview != null %}
+                        <li {{ li-class }}>
+                            <a href="{{ overview.url | prepend: site.baseurl }}"><strong>Compare versions</strong></a>
+                        </li>
+                    {% endif %}
                 {% endif %}
 
                 {% for version in released-versions %}
-                    {% if version.number == [include.item-name]this-version and [include.item-name]url == page.url %}
-                        <li class="active">
-                            version {{ version.number }}
+                    {% assign doc = all-versioned-docs | find:"this-version",version.number %}
 
-                            {% if version.number == latest-version and version.status == "released" %}
-                             (latest)
+                <!-- If there's a matching doc for the current version, run the code below -->
+                    {% if doc != null %}
+
+                    <!-- But don't do it if it's a category page -->
+                        {% unless doc.content-type contains "category" %}
+                            {% include shared/versioning/integration-version-status-logic.html %}
+
+                            {% if is-latest == true %}
+                                {% assign status-display = "latest" %}
                             {% else %}
-                                {% unless version.status == "released" %}
-                                    ({{ version.status }})
-                                {% endunless %}
+                                {% assign status-display = version-status.display-name %}
                             {% endif %}
 
-                            <i class="fa fa-check fa-1" aria-hidden="true"></i>
-                        </li>
-                    {% else %}
-                        {% for doc in all-versioned-docs %}
-                            {% if version.number == doc.this-version %}
-                                {% if include.menu-type == "category-page" %}
-                                    <li class="category-version-toggle">
-                                {% else %}
-                                    <li>
-                                {% endif %}
-                                    <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}
-                                        {% if version.number == latest-version and version.status == "released" %}
-                                            (latest)
-                                        {% else %}
-                                            ({{ version.status }})
-                                        {% endif %}
+                            {% if doc.url == page.url %}
+                                <li class="active">
+                                    version {{ doc.this-version }} ({{ status-display }})
+
+                                    <i class="fa fa-check fa-1" aria-hidden="true"></i>
+                            {% else %}
+                                <li {{ li-class }}>
+                                    <a href="{{ doc.url | prepend: site.baseurl }}">
+                                        version {{ doc.this-version }} ({{ status-display }})
                                     </a>
-                                </li>
                             {% endif %}
-                        {% endfor %}
+                            </li>
+                        {% endunless %}
                     {% endif %}
                 {% endfor %}
             </ol>

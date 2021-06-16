@@ -9,7 +9,7 @@ microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://mysql.topostgres.com/"
 
-show-in-menus: true
+input: false
 key: "mysql-integration"
 
 # -------------------------- #

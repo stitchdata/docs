@@ -25,51 +25,59 @@ release and deprecation dates -->
 
 <table class="attribute-list">
     <tr>
-        <td width="25%; fixed" align="right">
+        <td width="20%; fixed" align="right">
             <strong>Version</strong>
         </td>
-        <td>
+        <td width="20%; fixed">
             <strong>Status</strong>
         </td>
         <td>
-            <strong>Release date</strong>
+            <strong>Release</strong>
         </td>
         <td>
-            <strong>Deprecation date</strong>
+            <strong>Deprecation</strong>
         </td>
         <td>
             <strong>End of life (Sunset)</strong>
         </td>
     </tr>
     {% for version in released-versions %}
+
     <!-- Get the category page specific to the version  -->
-        {% assign version-pages = site[page.collection] | where:"key",version-page-key %}
-            {% assign version-page = version-pages | find:"this-version",version.number %}
+        {% assign doc = all-versioned-docs | find:"this-version",version.number %}
 
     <!-- Only display a row if there's a page that matches the current version -
         that is, that the page-version variable isn't nil -->
-        {% if version-page %}
+        {% if doc != null %}
+            {% include shared/versioning/integration-version-status-logic.html %}
+
             <tr>
-                <td width="25%; fixed" align="right">
+                <td align="right">
                     <strong>
-                        <a href="{{ version-page.url | prepend: site.baseurl }}">version {{ version.number }}</a>
+                        <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}</a>
                     </strong>
-                    {% if version.number == latest-version %} (latest){% endif %}
+                    {% if is-latest == true %} (latest){% endif %}
                 </td>
 
-                <td class="attribute-description">
-                    {{ version.status | capitalize }}
+                <td >
+                    {{ version-status.display-name }}
                 </td>
 
-                <td class="attribute-description">
+                <td>
                     {{ version.date-released }}
                 </td>
 
-                <td class="attribute-description">
-                    {{ version.deprecation-date }}
+                <td>
+                    {% if doc.override-version-status %}
+                    {% else %}
+                        {{ version.deprecation-date }}
+                    {% endif %}
                 </td>
                 <td>
-                    {{ version.sunset-date }}
+                    {% if doc.override-version-status %}
+                    {% else %}
+                        {{ version.sunset-date }}
+                    {% endif %}
                 </td>
             </tr>
         {% endif %}
