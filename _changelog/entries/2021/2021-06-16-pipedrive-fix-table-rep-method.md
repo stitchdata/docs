@@ -8,6 +8,7 @@ connection-id: "pipedrive"
 connection-version: 1
 pull-request: "https://github.com/singer-io/tap-pipedrive/pull/90"
 ---
+{{ site.data.changelog.metadata.single-integration | flatify }}
 
 We've corrected the Replication Method for a few {{ this-connection.display_name }} tables in the docs. These tables were listed as using Key-based Incremental Replication, but in fact are Full Table:
 

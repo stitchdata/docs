@@ -7,6 +7,7 @@ entry-category: "integration, documentation"
 connection-id: "yotpo"
 connection-version: 1
 ---
+{{ site.data.changelog.metadata.single-integration | flatify }}
 
 We've corrected the Replication Method for a few {{ this-connection.display_name }} tables in the docs. These tables were listed as using Key-based Incremental Replication, but in fact are Full Table:
 
