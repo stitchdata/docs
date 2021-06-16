@@ -7,10 +7,11 @@
 
     {% when 'integration' %}
         {% include shared/versioning/integration-version-logic.html %}
-
 {% endcase %}
 
-    {% assign total-versions = released-versions | size %}
+{% assign total-versions = released-versions | size %}
+
+{% assign version-statuses = site.data.stitch.version-statuses %}
 
 
 <!-- List items on category pages require a specific class,
@@ -57,28 +58,12 @@
 
                     <!-- But don't do it if it's a category page -->
                         {% unless doc.content-type contains "category" %}
+                            {% include shared/versioning/integration-version-status-logic.html %}
 
-                        <!-- Some branded integrations can have different release statuses
-                            than the integration they're backed by. This accounts for that. -->
-                            {% if doc.override-version-status %}
-                                {% assign version-status = doc.override-version-status %}
-
-                                {% if version-status == "released" or version-status == "in-testing" %}
-                                    {% assign status-display = "latest" %}
-                                {% else %}
-                                    {% assign status-display = doc.override-version-status %}
-                                {% endif %}
-
-                        <!-- Otherwise, just run this for the current version -->
+                            {% if is-latest == true %}
+                                {% assign status-display = "latest" %}
                             {% else %}
-                                {% assign doc-version = released-versions | find:"number",doc.this-version %}
-                                    {% assign version-status = doc-version.status %}
-
-                                    {% if doc.this-version == latest-version %}
-                                        {% assign status-display = "latest" %}
-                                    {% else %}
-                                        {% assign status-display = doc-version.status %}
-                                    {% endif %}
+                                {% assign status-display = version-status.display-name %}
                             {% endif %}
 
                             {% if doc.url == page.url %}

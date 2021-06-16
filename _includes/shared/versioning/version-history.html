@@ -49,26 +49,7 @@ release and deprecation dates -->
     <!-- Only display a row if there's a page that matches the current version -
         that is, that the page-version variable isn't nil -->
         {% if doc != null %}
-            {% if doc.override-version-status %}
-                {% assign version-status = version-statuses[doc.override-version-status] %}
-
-                {% if version-status.display-name == "released" or version-status.display-name == "in-testing" %}
-                    {% assign is-latest = true %}
-                {% else %}
-                    {% assign is-latest = false %}
-                {% endif %}
-
-        <!-- Otherwise, just run this for the current version -->
-            {% else %}
-                {% assign doc-version = released-versions | find:"number",doc.this-version %}
-                    {% assign version-status = version-statuses[doc-version.status] %}
-
-                    {% if doc.this-version == latest-version %}
-                        {% assign is-latest = true %}
-                    {% else %}
-                        {% assign is-latest = false %}
-                    {% endif %}
-            {% endif %}
+            {% include shared/versioning/integration-version-status-logic.html %}
 
             <tr>
                 <td align="right">

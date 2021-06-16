@@ -11,26 +11,7 @@
     {% for version in released-versions %}
         {% assign doc = all-versioned-docs | find:"this-version",version.number %}
             {% if doc != null %}
-                {% if doc.override-version-status %}
-                    {% assign version-status = version-statuses[doc.override-version-status] %}
-
-                    {% if version-status.display-name == "released" or version-status.display-name == "in-testing" %}
-                        {% assign is-latest = true %}
-                    {% else %}
-                        {% assign is-latest = false %}
-                    {% endif %}
-
-            <!-- Otherwise, just run this for the current version -->
-                {% else %}
-                    {% assign doc-version = released-versions | find:"number",doc.this-version %}
-                        {% assign version-status = version-statuses[doc-version.status] %}
-
-                        {% if doc.this-version == latest-version %}
-                            {% assign is-latest = true %}
-                        {% else %}
-                            {% assign is-latest = false %}
-                        {% endif %}
-                {% endif %}
+                {% include shared/versioning/integration-version-status-logic.html %}
 
                 <li>
                     <div class="div-flag {{ version-status.display-name | downcase | remove:" (testing)" }}">
@@ -38,26 +19,26 @@
                     </div>
                     <a href="{{ doc.url | prepend: site.baseurl }}">
                         <img src="{{ site.baseurl }}/images/integrations/icons/{{ doc.name }}.svg" alt="{{ doc.display_name }}">
-                        </a>
-                        <strong>version {{ doc.this-version }}</strong>
+                    </a>
+                    
+                    <strong>version {{ doc.this-version }}</strong>
 
-                        <a href="{{ doc.url | prepend: site.baseurl | append: "#setup" }}">Setup</a>
+                    <a href="{{ doc.url | prepend: site.baseurl | append: "#setup" }}">Setup</a>
 
-                        {% if doc.permalink contains "databases" %}
-                            | <a href="{{ doc.url | prepend: site.baseurl | append: "#extract-data" }}">Replication</a>
+                    {% if doc.permalink contains "databases" %}
+                        | <a href="{{ doc.url | prepend: site.baseurl | append: "#extract-data" }}">Replication</a>
 
-                        {% elsif doc.permalink contains "webhooks" or
-                                 doc.replication-notes == true %}
-                            | <a href="{{ doc.url | prepend: site.baseurl | append: "#replication" }}">Replication</a>
-                        {% endif %}
+                    {% elsif doc.permalink contains "webhooks" or
+                             doc.replication-notes == true %}
+                        | <a href="{{ doc.url | prepend: site.baseurl | append: "#replication" }}">Replication</a>
+                    {% endif %}
 
-                        {% if doc.permalink contains "saas" or doc.permalink contains "webhooks" %}
-                            {% unless doc.type == "import-api" %}
-                            | <a href="{{ doc.url | prepend: site.baseurl | append: "#schema" }}">Schema</a>
-                            {% endunless %}
-                        {% endif %}
+                    {% if doc.permalink contains "saas" or doc.permalink contains "webhooks" %}
+                        {% unless doc.type == "import-api" %}
+                        | <a href="{{ doc.url | prepend: site.baseurl | append: "#schema" }}">Schema</a>
+                        {% endunless %}
+                    {% endif %}
                 </li>
-
             {% endif %}
 
     {% endfor %}
