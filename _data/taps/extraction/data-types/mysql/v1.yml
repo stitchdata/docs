@@ -1,27 +1,24 @@
-# --------------------------------- #
-#   MySQL V2 SUPPORTED DATA TYPES   #
-# --------------------------------- #
+# ----------------------------------- #
+#    MYSQL V1 SUPPORTED DATA TYPES    #
+# ----------------------------------- #
 
-## In addition to the common supported data types (_data/stitch/supported-data-types.yml), the following data types are relevant to MySQL (v2).
+## In addition to the common supported data types (_data/stitch/supported-data-types.yml), the following data types are relevant to MySQL (v1).
 
 
 # --------------------------------- #
 #  INTEGRATION-SPECIFIC DATA TYPES  #
 # --------------------------------- #
 
-## Remove this entire section if there aren't any data types
-## specific to this integration.
-## Ex: Microsoft SQL Server (MSSQL) has specific data types.
-
 ## MySQL has integration-specific data types. Refer to:
-## _data/taps/extraction/data-types/mysql/specific.yml
+## _data/taps/extraction/data-types/postgres/specific.yml
+
 
 # --------------------------------- #
 #          ALL DATA TYPES           #
 # --------------------------------- #
 
 bigint:
-  stitch-type: "bigint"
+  stitch-type: "integer"
   doc-link: &integer "https://dev.mysql.com/doc/refman/8.0/en/integer-types.html"
 
 bit:
@@ -49,11 +46,11 @@ char:
   doc-link: ""
       
 date:
-  stitch-type: "date"
+  stitch-type: "datetime"
   doc-link: ""
 
 datetime:
-  stitch-type: "timestamp"
+  stitch-type: "datetime"
   doc-link: ""  
       
 decimal:
@@ -61,7 +58,7 @@ decimal:
   doc-link: ""
 
 double:
-  stitch-type: "double"
+  stitch-type: "float"
   doc-link: ""
 
 enum:
@@ -175,12 +172,11 @@ text:
   doc-link: ""
 
 time:
-  stitch-type: "unsupported"
+  stitch-type: "datetime"
   doc-link: ""
 
 timestamp:
-  stitch-type: "timestamp"
-  format: "date-time"
+  stitch-type: "datetime"
   doc-link: ""
 
 tinyblob:
