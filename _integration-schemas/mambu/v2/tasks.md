@@ -1,6 +1,6 @@
 ---
 tap: "mambu"
-version: "1"
+version: "2"
 
 name: "tasks"
 doc-link: "https://api.mambu.com/?shell#welcome"

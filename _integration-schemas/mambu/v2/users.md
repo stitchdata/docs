@@ -1,6 +1,6 @@
 ---
 tap: "mambu"
-version: "1"
+version: "2"
 name: "users"
 doc-link: "https://api.mambu.com/?shell#welcome"
 singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/users.json"

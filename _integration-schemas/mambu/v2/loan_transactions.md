@@ -1,6 +1,6 @@
 ---
 tap: "mambu"
-version: "1"
+version: "2"
 
 name: "loan_transactions"
 doc-link: "https://api.mambu.com/?shell#welcome"

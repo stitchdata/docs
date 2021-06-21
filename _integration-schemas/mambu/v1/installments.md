@@ -1,6 +1,6 @@
 ---
 tap: "mambu"
-version: "2"
+version: "1"
 key: ""
 
 name: "installments"

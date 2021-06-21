@@ -1,6 +1,6 @@
 ---
 tap: "mambu"
-version: "1"
+version: "2"
 
 name: "credit_arrangements"
 doc-link: "https://api.mambu.com/?shell#welcome"
