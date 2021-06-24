@@ -19,7 +19,12 @@ attributes:
          **Note**: This isn't the same as configuring multiple tables. See the [Search pattern](#define-table-search-pattern-and-name) section for examples.
   
   - name: "File types"
-    all: |
+    amazon-s3-csv: |
+      - CSV (`.csv`)
+      - Text (`.txt`)
+      - JSONL (`.jsonl`)
+    
+    sftp: |
       - CSV (`.csv`)
       - Text (`.txt`)
       {% if integration.name == "amazon-s3-csv" %}
@@ -33,13 +38,13 @@ attributes:
       - zip compressed archive (`.zip`)
       - gzip compressed files (`.gz`)
 
-         **Note**: `.tar.gz` files aren't currently supported.
+        **Note**: `.tar.gz` files aren't currently supported.
 
   - name: "Delimiters"
     all: |
-      - Comma (`,`)
-      - Tab (`/t`)
-      - Pipe (`|`)
+        - Comma (`,`)
+        - Tab (`/t`)
+        - Pipe (`|`)
 
   - name: "Character encoding"
     all: |
