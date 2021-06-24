@@ -1,30 +1,45 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "2"
-key: ""
+key: "installment"
 
 name: "installments"
 doc-link: "https://api.mambu.com/#mambu-api-v2-installments"
 singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/installments.json"
-description: "This table contains information about installments for a loan."
+description: |
+  This table contains information about installments for a loan.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "Get all installments (v2.0)"
+  doc-link: "https://api.mambu.com/#installments-getall"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-    name: "getAll"
-    doc-link: "https://api.mambu.com/#mambu-api-v2-installments"
-    
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
+
 attributes:
   - name: "encoded_key"
     type: "string"
     primary-key: true
-    description: "The unique installments encoded key."
-    #foreign-key-id: "installments-encoded-key"
+    description: "The unique installment encoded key."
+    #foreign-key-id: "installment-key"
 
   - name: "last_paid_date"
     type: "date-time"
     replication-key: true
-    description: "The date of the the last paid installment."
+    description: "The date of the last paid installment."
       
   - name: "due_date"
     type: "date-time"
@@ -41,12 +56,15 @@ attributes:
           - name: "due"
             type: "number"
             description: ""
+
           - name: "expected"
             type: "number"
             description: ""
+
           - name: "paid"
             type: "number"
             description: ""
+
       - name: "tax"
         type: "object"
         description: ""
@@ -54,12 +72,15 @@ attributes:
           - name: "due"
             type: "number"
             description: ""
+
           - name: "expected"
             type: "number"
             description: ""
+
           - name: "paid"
             type: "number"
             description: ""
+
   - name: "interest"
     type: "object"
     description: ""
@@ -71,12 +92,15 @@ attributes:
           - name: "due"
             type: "number"
             description: ""
+
           - name: "expected"
             type: "number"
             description: ""
+
           - name: "paid"
             type: "number"
             description: ""
+
       - name: "tax"
         type: "object"
         description: ""
@@ -84,9 +108,11 @@ attributes:
           - name: "due"
             type: "number"
             description: ""
+
           - name: "expected"
             type: "number"
             description: ""
+
           - name: "paid"
             type: "number"
             description: ""
@@ -94,6 +120,7 @@ attributes:
   - name: "number"
     type: "string"
     description: ""
+
   - name: "penalty"
     type: "object"
     description: ""
@@ -105,12 +132,15 @@ attributes:
           - name: "due"
             type: "number"
             description: ""
+
           - name: "expected"
             type: "number"
             description: ""
+
           - name: "paid"
             type: "number"
             description: ""
+
       - name: "tax"
         type: "object"
         description: ""
@@ -124,6 +154,7 @@ attributes:
           - name: "paid"
             type: "number"
             description: ""
+
   - name: "principal"
     type: "object"
     description: ""
@@ -135,15 +166,19 @@ attributes:
           - name: "due"
             type: "number"
             description: ""
+
           - name: "expected"
             type: "number"
             description: ""
+
           - name: "paid"
             type: "number"
             description: ""
+
   - name: "repaid_date"
     type: "date-time"
     description: ""
+
   - name: "state"
     type: "string"
     description: ""

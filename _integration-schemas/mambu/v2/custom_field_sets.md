@@ -1,25 +1,38 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "2"
+key: "custom-field-set"
 
 name: "custom_field_sets"
 doc-link: "https://api.mambu.com/?shell#welcome"
 singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/custom_field_sets.json"
-description: "This table contains information about Custom Field Sets."
+description: |
+  This table contains information about custom field sets.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+api-method:
+  name: "Get custom field sets (v1.0)"
+  doc-link: "https://api.mambu.com/v1/#custom-field-sets-get-custom-field-sets"
 
 replication-method: "Full Table"
 
-api-method:
-    name: "Custom Field Sets"
-api-method:
-  name: "Get custom field sets"
-  doc-link: "https://support.mambu.com/docs/custom-fields-api#get-custom-field-sets"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The custom field set ID."
     foreign-key-id: "custom-field-set-id"
 
   - name: "created_date"
@@ -33,7 +46,6 @@ attributes:
       - name: "encoded_key"
         type: "string"
         description: ""
-        # foreign-key-id: "custom-field-encoded-key"
 
       - name: "id"
         type: "string"
@@ -179,7 +191,6 @@ attributes:
   - name: "encoded_key"
     type: "string"
     description: ""
-    # foreign-key-id: "custom-field-set-encoded-key"
 
   - name: "index_in_list"
     type: "integer"

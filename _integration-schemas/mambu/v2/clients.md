@@ -1,19 +1,33 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "2"
+key: "client"
 
 name: "clients"
 doc-link: "https://api.mambu.com/?shell#welcome"
 singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/clients.json"
-description: "This table contains information about Clients."
+description: |
+  This table contains information about clients.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "Search clients (v2.0)"
+  doc-link: "https://api.mambu.com/?http#clients-search"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-    name: "Clients"
-api-method:
-  name: "Get all clients"
-  doc-link: "https://api.mambu.com/?http#clients-getall"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"
@@ -86,12 +100,12 @@ attributes:
   - name: "assigned_centre_key"
     type: "string"
     description: "Ended key of the center that the client is assigned to."
-    foreign-key-id: "centre-encoded-key"
+    foreign-key-id: "centre-key"
 
   - name: "assigned_user_key"
     type: "string"
     description: "The encoded key of the user that the client is assigned to."
-    foreign-key-id: "user-encoded-key"
+    foreign-key-id: "user-key"
 
   - name: "birth_date"
     type: "date"
@@ -109,25 +123,23 @@ attributes:
     type: "date-time"
     description: "The date that the client was created."
 
-  - name: "custom_field_sets"
+  - name: "custom_fields"
     type: "array"
     description: ""
     subattributes:
-      - name: "custom_field_set_id"
+      - name: "field_set_id"
+        type: "string"
+        foreign-key-id: "custom-field-set-id"
+        description: ""
+
+      - name: "id"
         type: "string"
         description: ""
-        foreign-key-id: "custom-field-set-id"
-      - name: "custom_field_values"
-        type: "array"
+        foreign-key-id: "custom-field-id"
+
+      - name: "value"
+        type: "string"
         description: ""
-        subattributes:
-          - name: "custom_field_id"
-            type: "string"
-            description: ""
-            foreign-key-id: "custom-field-id"
-          - name: "custom_field_value"
-            type: "string"
-            description: ""
 
   - name: "email_address"
     type: "string"
@@ -136,6 +148,7 @@ attributes:
   - name: "encoded_key"
     type: "string"
     description: "The encoded key of the client. This value is generated and globally unique."
+    foreign-key-id: "client-key"
 
   - name: "first_name"
     type: "string"

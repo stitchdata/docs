@@ -1,6 +1,7 @@
 ---
 tap: "mambu"
 version: "1"
+key: "card"
 
 name: "cards"
 doc-link: "https://api.mambu.com/?shell#welcome"

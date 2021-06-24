@@ -1,19 +1,33 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "2"
+key: "branch"
 
 name: "branches"
 doc-link: "https://api.mambu.com/?shell#welcome"
 singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/branches.json"
-description: "This table contains information about Branches."
+description: |
+  This table contains information about branches.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "Get all branches (v2.0)"
+  doc-link: "https://api.mambu.com/?http#branches-getall"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-    name: "Branches"
-api-method:
-  name: "Get all branches"
-  doc-link: "https://api.mambu.com/?http#branches-getall"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"
@@ -103,28 +117,23 @@ attributes:
     type: "date-time"
     description: "The branch creation date."
 
-  - name: "custom_field_sets"
+  - name: "custom_fields"
     type: "array"
     description: ""
     subattributes:
-      - name: "custom_field_set_id"
+      - name: "field_set_id"
         type: "string"
         foreign-key-id: "custom-field-set-id"
         description: ""
 
-      - name: "custom_field_values"
-        type: "array"
+      - name: "id"
+        type: "string"
         description: ""
+        foreign-key-id: "custom-field-id"
 
-        subattributes:
-          - name: "custom_field_id"
-            type: "string"
-            foreign-key-id: "custom-field-id"
-            description: ""
-
-          - name: "custom_field_value"
-            type: "string"
-            description: ""
+      - name: "value"
+        type: "string"
+        description: ""
 
   - name: "email_address"
     type: "string"
@@ -133,7 +142,7 @@ attributes:
   - name: "encoded_key"
     type: "string"
     description: "The entity's encoded key. This value is generated and globally unique."
-    foreign-key-id: "branch-encoded-key"
+    foreign-key-id: "branch-key"
 
   - name: "name"
     type: "string"

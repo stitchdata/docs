@@ -1,24 +1,40 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "2"
+key: "task"
 
 name: "tasks"
 doc-link: "https://api.mambu.com/?shell#welcome"
 singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/tasks.json"
-description: "This table contains information about Tasks."
+description: |
+  This table contains information about tasks.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "Get all tasks (v2.0)"
+  doc-link: "https://api.mambu.com/?http#tasks-getall"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-  name: "Get all tasks"
-  doc-link: "https://api.mambu.com/?http#tasks-getall"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The task ID."
-#    foreign-key-id: "task-id"
+#   foreign-key-id: "task-id"
 
   - name: "last_modified_date"
     type: "date-time"
@@ -28,7 +44,7 @@ attributes:
   - name: "assigned_user_key"
     type: "string"
     description: ""
-    foreign-key-id: "user-encoded-key"
+    foreign-key-id: "user-key"
 
   - name: "created_by_full_name"
     type: "string"
@@ -37,32 +53,29 @@ attributes:
   - name: "created_by_user_key"
     type: "string"
     description: ""
-    foreign-key-id: "user-encoded-key"
+    foreign-key-id: "user-key"
 
   - name: "creation_date"
     type: "date-time"
     description: ""
 
-  - name: "custom_field_sets"
+  - name: "custom_fields"
     type: "array"
     description: ""
     subattributes:
-      - name: "custom_field_set_id"
+      - name: "field_set_id"
+        type: "string"
+        foreign-key-id: "custom-field-set-id"
+        description: ""
+
+      - name: "id"
         type: "string"
         description: ""
-        foreign-key-id: "custom-field-set-id"
+        foreign-key-id: "custom-field-id"
 
-      - name: "custom_field_values"
-        type: "array"
+      - name: "value"
+        type: "string"
         description: ""
-        subattributes:
-          - name: "custom_field_id"
-            type: "string"
-            description: ""
-            foreign-key-id: "custom-field-id"
-          - name: "custom_field_value"
-            type: "string"
-            description: ""
 
   - name: "description"
     type: "string"
@@ -75,6 +88,7 @@ attributes:
   - name: "encoded_key"
     type: "string"
     description: ""
+    # foreign-key-id: "task-key"
 
   - name: "state"
     type: "string"

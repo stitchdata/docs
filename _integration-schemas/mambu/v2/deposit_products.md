@@ -1,24 +1,38 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "2"
+key: "deposit-product"
 
 name: "deposit_products"
 doc-link: "https://api.mambu.com/?shell#welcome"
 singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/deposit_products.json"
-description: "This table contains information about deposit products."
+description: |
+  This table contains information about deposit (savings) products.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+api-method:
+  name: "Get savings products (v1.0)"
+  doc-link: "https://api.mambu.com/v1/#savings-products-get-savings-products"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-  name: "Get deposit products"
-  doc-link: "https://support.mambu.com/docs/savings-products-api#get-savings-products"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The deposit product ID."
-#    foreign-key-id: "deposit-product-id"
 
   - name: "last_modified_date"
     type: "date-time"
@@ -132,6 +146,7 @@ attributes:
           - name: "id"
             type: "string"
             description: ""
+            foreign-key-id: "custom-field-id"
 
           - name: "name"
             type: "string"
@@ -168,6 +183,7 @@ attributes:
               - name: "id"
                 type: "string"
                 description: ""
+                foreign-key-id: "custom-field-set-id"
 
               - name: "name"
                 type: "string"
@@ -290,6 +306,7 @@ attributes:
       - name: "custom_field_id"
         type: "string"
         description: ""
+        foreign-key-id: "custom-field-id"
 
       - name: "custom_field_set_group_index"
         type: "integer"
@@ -302,6 +319,7 @@ attributes:
   - name: "encoded_key"
     type: "string"
     description: ""
+    # foreign-key-id: "deposit-product-key"
 
   - name: "for_all_branches"
     type: "boolean"
@@ -376,11 +394,11 @@ attributes:
         description: ""
         subattributes: &interest-rate-tiers
           - name: "ending_balance"
-            type: "number"
+            type: "string"
             description: ""
 
           - name: "interest_rate"
-            type: "number"
+            type: "string"
             description: ""
 
           - name: "encoded_key"

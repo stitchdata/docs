@@ -1,24 +1,38 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "2"
+key: "group"
 
 name: "groups"
 doc-link: "https://api.mambu.com/?shell#welcome"
 singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/groups.json"
-description: "This table contains information about Groups."
+description: |
+  This table contains information about groups.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "Search groups (v2.0)"
+  doc-link: "https://api.mambu.com/?http#groups-search"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-  name: "Get all groups"
-  doc-link: "https://api.mambu.com/?http#groups-getall"
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The group ID."
-#   foreign-key-id: "group-id"
 
   - name: "last_modified_date"
     type: "date-time"
@@ -76,43 +90,39 @@ attributes:
   - name: "assigned_branch_key"
     type: "string"
     description: ""
-    foreign-key-id: "branch-encoded-key"
+    foreign-key-id: "branch-key"
 
   - name: "assigned_centre_key"
     type: "string"
     description: ""
-    foreign-key-id: "centre-encoded-key"
+    foreign-key-id: "centre-key"
 
   - name: "assigned_user_key"
     type: "string"
     description: ""
-    foreign-key-id: "user-encoded-key"
+    foreign-key-id: "user-key"
 
   - name: "creation_date"
     type: "date-time"
     description: ""
 
-  - name: "custom_field_sets"
+  - name: "custom_fields"
     type: "array"
     description: ""
     subattributes:
-      - name: "custom_field_set_id"
+      - name: "field_set_id"
+        type: "string"
+        foreign-key-id: "custom-field-set-id"
+        description: ""
+
+      - name: "id"
         type: "string"
         description: ""
-        foreign-key-id: "custom-field-set-id"
+        foreign-key-id: "custom-field-id"
 
-      - name: "custom_field_values"
-        type: "array"
+      - name: "value"
+        type: "string"
         description: ""
-        subattributes:
-          - name: "custom_field_id"
-            type: "string"
-            description: ""
-            foreign-key-id: "custom-field-id"
-
-          - name: "custom_field_value"
-            type: "string"
-            description: ""
 
   - name: "email_address"
     type: "string"
@@ -121,6 +131,7 @@ attributes:
   - name: "encoded_key"
     type: "string"
     description: ""
+    foreign-key-id: "group-key"
 
   - name: "group_members"
     type: "array"
@@ -129,7 +140,7 @@ attributes:
       - name: "clientKey"
         type: "string"
         description: ""
-        foreign-key-id: "client-encoded-key"
+        foreign-key-id: "client-key"
 
       - name: "roles"
         type: "array"

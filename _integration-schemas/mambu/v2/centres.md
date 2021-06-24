@@ -1,17 +1,33 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "2"
+key: "centre"
 
 name: "centres"
 doc-link: "https://api.mambu.com/?shell#welcome"
 singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/centres.json"
-description: "This table contains information about Centers."
+description: |
+  This table contains information about centres.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
 
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: "Get all centres"
+  name: "Get all centres (v2.0)"
   doc-link: "https://api.mambu.com/?http#centres-getall"
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"
@@ -76,36 +92,34 @@ attributes:
   - name: "assigned_branch_key"
     type: "string"
     description: "The encoded key of the branch that the center is assigned to."
-    foreign-key-id: "branch-encoded-key"
+    foreign-key-id: "branch-key"
 
   - name: "creation_date"
     type: "date-time"
     description: "The center creation date."
 
-  - name: "custom_field_sets"
+  - name: "custom_fields"
     type: "array"
     description: ""
     subattributes:
-      - name: "custom_field_set_id"
+      - name: "field_set_id"
+        type: "string"
+        foreign-key-id: "custom-field-set-id"
+        description: ""
+
+      - name: "id"
         type: "string"
         description: ""
-        foreign-key-id: "custom-field-set-id"
-      - name: "custom_field_values"
-        type: "array"
+        foreign-key-id: "custom-field-id"
+
+      - name: "value"
+        type: "string"
         description: ""
-        subattributes:
-          - name: "custom_field_id"
-            type: "string"
-            description: ""
-            foreign-key-id: "custom-field-id"
-          - name: "custom_field_value"
-            type: "string"
-            description: ""
 
   - name: "encoded_key"
     type: "string"
     description: "The encoded key of the entity. This value is generated and globally unique."
-    foreign-key-id: "centre-encoded-key"
+    foreign-key-id: "centre-key"
 
   - name: "meeting_day"
     type: "string"

@@ -1,17 +1,33 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "2"
+key: "loan-product"
 
 name: "loan_products"
 doc-link: "https://api.mambu.com/?shell#welcome"
 singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/loan_products.json"
-description: "This table contains information about Loan Products."
+description: |
+  This table contains information about loan products.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
 
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: "Get all loan products"
-  doc-link: "https://support.mambu.com/docs/loan-products-api#get-loan-products"
+  name: "Get all loan products (v1.0)"
+  doc-link: "https://api.mambu.com/v1/#loan-products-get-all-loan-products"
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"
@@ -116,6 +132,7 @@ attributes:
           - name: "id"
             type: "string"
             description: ""
+            foreign-key-id: "custom-field-id"
 
           - name: "name"
             type: "string"
@@ -152,6 +169,7 @@ attributes:
               - name: "id"
                 type: "string"
                 description: ""
+                foreign-key-id: "custom-field-set-id"
 
               - name: "name"
                 type: "string"
@@ -274,6 +292,7 @@ attributes:
       - name: "custom_field_id"
         type: "string"
         description: ""
+        foreign-key-id: "custom-field-id"
 
       - name: "custom_field_set_group_index"
         type: "integer"
@@ -306,6 +325,7 @@ attributes:
   - name: "encoded_key"
     type: "string"
     description: ""
+    # foreign-key-id: "loan-product-key"
 
   - name: "for_hybrid_groups"
     type: "boolean"
@@ -412,7 +432,7 @@ attributes:
         description: ""
 
       - name: "amount_calculation_method"
-        type: 
+        type: "string"
         description: ""
 
       - name: "trigger"

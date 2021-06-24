@@ -9,10 +9,16 @@
 
 tap-reference: "mambu"
 
-version: "1"
+version: "2"
 
 foreign-keys:
-  - id: "branch-encoded-key"
+  - id: "activity-key"
+    table: "activities"
+    attribute: "encoded_key"
+    all-foreign-keys:
+      - table: "activities"
+
+  - id: "branch-key"
     table: "branches"
     attribute: "encoded_key"
     all-foreign-keys:
@@ -38,43 +44,36 @@ foreign-keys:
         subattribute: "access.managed_branches"
         join-on: "branch_key"  
 
-  - id: "centre-encoded-key"
+  - id: "centre-key"
     table: "centres"
     attribute: "encoded_key"
     all-foreign-keys:
       - table: "centres"
         join-on: "encoded_key"
-
       - table: "clients"
         join-on: "assigned_centre_key"
-
       - table: "deposit_transactions"
         join-on: "centre_key" 
-
       - table: "groups"
         join-on: "assigned_centre_key"
-
       - table: "loan_accounts"
         join-on: "assigned_centre_key" 
-
       - table: "loan_transactions"
         join-on: "centre_key"      
 
-  - id: "client-encoded-key"
+  - id: "client-key"
     table: "clients"
-    attribute: "encoded_key"
+    attribute: "client_key"
     all-foreign-keys:
+      - table: "activities"
+      - table: "clients"
+        join-on: "encoded_key"
       - table: "communications"
-        join-on: "client_key"
-
-      # - table: "deposit_accounts"
-      #   join-on: "account_holder_key" 
-
       - table: "groups"
         subattribute: "group_members"
         join-on: "clientKey"   
 
-  - id: "communications-encoded-key"
+  - id: "communication-key"
     table: "communications"
     attribute: "encoded_key"
     all-foreign-keys:
@@ -83,131 +82,93 @@ foreign-keys:
 
   - id: "credit-arrangement-key"
     table: "credit_arrangements"
-    attribute: "encoded_key"
+    attribute: "credit_arrangement_key"
     all-foreign-keys:
       - table: "credit_arrangements"
         join-on: "encoded_key"
 
       - table: "deposit_accounts"
-        join-on: "credit_arrangement_key"
 
       - table: "loan_accounts"
-        join-on: "credit_arrangement_key" 
 
   - id: "custom-field-set-id"
     table: "custom_field_sets"
-    attribute: "custom_field_set_id"
+    attribute: "custom_fields.field_set_id"
     all-foreign-keys:
       - table: "branches"
-        subattribute: "custom_field_sets"
-        join-on: "custom_field_set_id"
-
       - table: "centres"
-        subattribute: "custom_field_sets"
-        join-on: "custom_field_set_id"
-
       - table: "clients"
-        subattribute: "custom_field_sets"
-        join-on: "custom_field_set_id"
-
-      - table: "credit_arrangements"
-        subattribute: "custom_field_sets"
-        join-on: "custom_field_set_id"
-
       - table: "communications"
-        subattribute: "custom_field_sets"
-        join-on: "custom_field_set_id"
-
+      - table: "credit_arrangements"
+      - table: "custom_field_sets"
+        join-on: "id"
       - table: "deposit_accounts"
-        subattribute: "custom_field_sets"
-        join-on: "custom_field_set_id"
-
+      - table: "deposit_products"
+        subattribute: "custom_field_values.custom_field.custom_field_set"
+        join-on: "id"
       - table: "deposit_transactions"
-        subattribute: "custom_field_sets"
-        join-on: "custom_field_set_id"
-
       - table: "groups"
-        subattribute: "custom_field_sets"
-        join-on: "custom_field_set_id"  
-
       - table: "loan_accounts"
-        subattribute: "custom_field_sets"
-        join-on: "custom_field_set_id"
-
+      - table: "loan_products"
+        subattribute: "custom_field_values.custom_field.custom_field_set"
+        join-on: "id"
       - table: "loan_transactions"
-        subattribute: "custom_field_sets"
-        join-on: "custom_field_set_id"
-
       - table: "tasks"
-        subattribute: "custom_field_sets"
-        join-on: "custom_field_set_id" 
-
-      - table: "users"
-        subattribute: "custom_field_sets"
-        join-on: "custom_field_set_id"           
+      - table: "users"       
         
   - id: "custom-field-id"
     table: "custom_field_sets"
-    attribute: "custom_field_id"
+    attribute: "custom_fields.id"
     all-foreign-keys:
       - table: "branches"
-        subattribute: "custom_field_sets.custom_field_values"
-        join-on: "custom_field_id"
-
       - table: "centres"
-        subattribute: "custom_field_sets.custom_field_values"
-        join-on: "custom_field_id"
-
       - table: "clients"
-        subattribute: "custom_field_sets.custom_field_values"
-        join-on: "custom_field_id" 
-
       - table: "communications"
-        subattribute: "custom_field_sets.custom_field_values"
-        join-on: "custom_field_id" 
-
       - table: "credit_arrangements"
-        subattribute: "custom_field_sets.custom_field_values"
-        join-on: "custom_field_id"
-
       - table: "custom_field_sets"
         subattribute: "custom_fields"
         join-on: "id"
-
       - table: "deposit_accounts"
-        subattribute: "custom_field_sets.custom_field_values"
-        join-on: "custom_field_id" 
-
+      - table: "deposit_products"
+        subattribute: "custom_field_values.custom_field"
+        join-on: "id"
+      - table: "deposit_products"
+        subattribute: "custom_field_values"
+        join-on: "custom_field_id"
       - table: "deposit_transactions"
-        subattribute: "custom_field_sets.custom_field_values"
-        join-on: "custom_field_id"
-
       - table: "groups"
-        subattribute: "custom_field_sets.custom_field_values"
-        join-on: "custom_field_id" 
-
       - table: "loan_accounts"
-        subattribute: "custom_field_sets.custom_field_values"
+      - table: "loan_products"
+        subattribute: "custom_field_values.custom_field"
+        join-on: "id"
+      - table: "loan_products"
+        subattribute: "custom_field_values"
         join-on: "custom_field_id"
-
       - table: "loan_transactions"
-        subattribute: "custom_field_sets.custom_field_values"
-        join-on: "custom_field_id"
-
       - table: "tasks"
-        subattribute: "custom_field_sets.custom_field_values"
-        join-on: "custom_field_id" 
-
       - table: "users"
-        subattribute: "custom_field_sets.custom_field_values"
-        join-on: "custom_field_id"
 
-  - id: "deposit-account-encoded-key"
+  - id: "deposit-id"
+    table: "deposits"
+    attribute: "deposit_id"
+    all-foreign-keys:
+      - table: "cards"
+        join-on: "deposit_id"
+
+  - id: "deposit-account-key"
     table: "deposit_accounts"
-    attribute: "encoded_key"
+    attribute: "deposit_account_key"
     all-foreign-keys:
       - table: "communications"
-        join-on: "deposit_account_key"
+      - table: "deposit_accounts"
+        join-on: "encoded_key"
+      - table: "loan_accounts"
+        subattribute: "disbursement_details.transaction_details"
+        join-on: "target_deposit_account_key"
+      - table: "loan_accounts"
+        subattribute: "funding_sources"
+      - table: "loan_accounts"
+        subattribute: "guarantors"
 
   - id: "deposit-product-id"
     table: "deposit_products"
@@ -216,155 +177,93 @@ foreign-keys:
       - table: "deposit_products"
         join-on: "id"
 
-  - id: "group-encoded-key"
+  - id: "deposit-transaction-key"
+    table: "deposit_transactions"
+    attribute: "transfer_details.linked_deposit_transaction_key"
+    all-foreign-keys:
+      - table: "deposit_transactions"
+      - table: "loan_transactions"
+
+  - id: "gl-account-code"
+    table: "gl_accounts"
+    attribute: "gl_code"
+    all-foreign-keys:
+      - table: "gl_accounts"
+      - table: "gl_journal_entries"
+        subattribute: "gl_account"
+
+  - id: "group-key"
     table: "groups"
-    attribute: "encoded_key"
+    attribute: "group_key"
     all-foreign-keys:
       - table: "communications"
-        join-on: "group_key"
+      - table: "groups"
+        join-on: "encoded_key"
 
-  - id: "linked-deposit-transaction-key"
-    table: "deposit_transactions"
-    attribute: "linked_deposit_transaction_key"
+  - id: "index-rate-key"
+    table: "index_rate_sources"
+    attribute: ""
     all-foreign-keys:
-      - table: "deposit_transactions"
-        subattribute: "transfer_details"
-        join-on: "linked_deposit_transaction_key"
+      - table: "index_rate_sources"
 
-      - table: "loan_transactions"
-        subattribute: "transfer_details"
-        join-on: "linked_deposit_transaction_key"  
-
-  - id: "linked-loan-transaction-key"
-    table: "loan_transactions"
-    attribute: "linked_loan_transaction_key"
+  - id: "installment-key"
+    table: "installments"
+    attribute: ""
     all-foreign-keys:
-      - table: "deposit_transactions"
-        join-on: "linked_loan_transaction_key"
-
-      - table: "loan_transactions"
-        join-on: "linked_loan_transaction_key"  
+      - table: "installments"
+        join-on: "encoded_key"
         
-  - id: "loan-account-encoded-key"
+  - id: "loan-account-key"
     table: "loan_accounts"
     attribute: "encoded_key"
     all-foreign-keys:
       - table: "communications"
         join-on: "loan_account_key"
+      - table: "loan_accounts"
 
-  - id: "loan-transaction-encoded-key"
-    table: "loan_transactions"
-    attribute: "encoded_key"
+  - id: "loan-product-key"
+    table: "loan_products"
+    attribute: ""
     all-foreign-keys:
-      - table: "loan_transactions"
-        join-on: "encoded_key" 
-        
-  - id: "parent-loan-key"
+      - table: "loan_products"
+        join-on: "encoded_key"
+
+  - id: "loan-transaction-key"
     table: "loan_transactions"
-    attribute: "parent_loan_transaction_key"
+    attribute: "linked_loan_transaction_key"
     all-foreign-keys:
+      - table: "deposit_transactions"
+      - table: "deposit_transactions"
+        subattribute: "transfer_details"
       - table: "loan_transactions"
-        join-on: "parent_loan_transaction_key" 
+        join-on: "encoded_key"
+      - table: "loan_transactions"
+      - table: "loan_transactions"
+        join-on: "parent_loan_transaction_key"
+      - table: "loan_transactions"
+        subattribute: "transfer_details"
   
-  - id: "user-encoded-key"
+  - id: "user-key"
     table: "users"
-    attribute: "encoded_key"
+    attribute: "user_key"
     all-foreign-keys:
+      - table: "activities"
       - table: "clients"
         join-on: "assigned_user_key"
-
       - table: "communications"
-        join-on: "user_key"
-
       - table: "communications"
         join-on: "sender_key"
-
       - table: "deposit_transactions"
-        join-on: "user_key"
-
+      - table: "gl_journal_entries"
       - table: "groups"
         join-on: "assigned_user_key"
-
       - table: "loan_accounts"
         join-on: "assigned_user_key" 
-
       - table: "loan_transactions"
-        join-on: "user_key" 
-
       - table: "tasks"
         join-on: "created_by_user_key"
-
       - table: "tasks"
-        join-on: "assigned_user_key"               
-      
-
-  # - id: "branch-id"
-  #   table: "branches"
-  #   attribute: "id"
-  #   all-foreign-keys:
-  #     - table: "branches"
-  #       join-on: "id"
-
-  # - id: "deposit-id"
-  #   table: "deposits"
-  #   attribute: "deposit_id"
-  #   all-foreign-keys:
-  #     - table: "cards"
-  #       join-on: "deposit_id"
-        
-  # - id: "reference-token"
-  #   table: "cards"
-  #   attribute: "reference_token"
-  #   all-foreign-keys:
-  #     - table: "cards"
-  #       join-on: "reference_token"
-  
-  # - id: "center-id"
-  #   table: "centres"
-  #   attribute: "id"
-  #   all-foreign-keys:
-  #     - table: "centres"
-  #       join-on: "id"
-        
-  # - id: "client-id"
-  #   table: "clients"
-  #   attribute: "id"
-  #   all-foreign-keys:
-  #     - table: "clients"
-  #       join-on: "id"
-
-  # - id: "credit-arrangement-id"
-  #   table: "credit_arrangements"
-  #   attribute: "id"
-  #   all-foreign-keys:
-  #     - table: "credit_arrangements"
-  #       join-on: "id"
-     
-  # - id: "loan-accounts-id"
-  #   table: "loan_accounts"
-  #   attribute: "id"
-  #   all-foreign-keys:
-  #     - table: "loan_accounts"
-  #       join-on: "id"  
-
-  # - id: "loan-product-id"
-  #   table: "loan_products"
-  #   attribute: "id"
-  #   all-foreign-keys:
-  #     - table: "loan_products"
-  #       join-on: "id" 
-  
-  # - id: "task-id"
-  #   table: "tasks"
-  #   attribute: "id"
-  #   all-foreign-keys:
-  #     - table: "tasks"
-  #       join-on: "id" 
-        
-  # - id: "user-id"
-  #   table: "users"
-  #   attribute: "id"
-  #   all-foreign-keys:
-  #     - table: "users"
-  #       join-on: "id"
+        join-on: "assigned_user_key"
+      - table: "users"
+        join-on: "encoded_key"              
 ---

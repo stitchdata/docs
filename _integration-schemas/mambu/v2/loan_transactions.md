@@ -1,24 +1,40 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "2"
+key: "loan-transaction"
 
 name: "loan_transactions"
 doc-link: "https://api.mambu.com/?shell#welcome"
 singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/loan_transactions.json"
-description: "This table contains information about Loan Transactions."
+description: |
+  This table contains information about loan transactions.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
 
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: "Get all loan transactions"
+  name: "Get all loan transactions (v2.0)"
   doc-link: "https://api.mambu.com/?http#loantransactions-getall"
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "encoded_key"
     type: "string"
     primary-key: true
     description: "The unique encoded key of the loan transaction."
-    foreign-key-id: "loan-transaction-encoded-key"
+    foreign-key-id: "loan-transaction-key"
   
   - name: "creation_date"
     type: "date-time"
@@ -108,34 +124,30 @@ attributes:
   - name: "branch_key"
     type: "string"
     description: ""
-    foreign-key-id: "branch-encoded-key"
+    foreign-key-id: "branch-key"
 
   - name: "centre_key"
     type: "string"
     description: ""
-    foreign-key-id: "center-encoded-key"
+    foreign-key-id: "centre-key"
 
-  - name: "custom_field_sets"
+  - name: "custom_fields"
     type: "array"
     description: ""
     subattributes:
-      - name: "custom_field_set_id"
+      - name: "field_set_id"
+        type: "string"
+        foreign-key-id: "custom-field-set-id"
+        description: ""
+
+      - name: "id"
         type: "string"
         description: ""
-        foreign-key-id: "custom-field-set-id"
+        foreign-key-id: "custom-field-id"
 
-      - name: "custom_field_values"
-        type: "array"
+      - name: "value"
+        type: "string"
         description: ""
-        subattributes:
-          - name: "custom_field_id"
-            type: "string"
-            description: ""
-            foreign-key-id: "custom-field-id"
-
-          - name: "custom_field_value"
-            type: "string"
-            description: ""
 
   - name: "custom_payment_amounts"
     type: "array"
@@ -188,7 +200,7 @@ attributes:
   - name: "linked_loan_transaction_key"
     type: "string"
     description: ""
-    foreign-key-id: "linked-loan-transaction-key"
+    foreign-key-id: "loan-transaction-key"
 
   - name: "migration_event_key"
     type: "string"
@@ -217,7 +229,7 @@ attributes:
   - name: "parent_loan_transaction_key"
     type: "string"
     description: ""
-    # foreign-key-id: "parent-loan-key"
+    foreign-key-id: "loan-transaction-key"
 
   - name: "taxes"
     type: "object"
@@ -294,11 +306,12 @@ attributes:
       - name: "linked_deposit_transaction_key"
         type: "string"
         description: ""
-        foreign-key-id: "linked-deposit-transaction-key"
+        foreign-key-id: "deposit-transaction-key"
 
       - name: "linked_loan_transaction_key"
         type: "string"
         description: ""
+        foreign-key-id: "loan-transaction-key"
 
   - name: "type"
     type: "string"
@@ -307,7 +320,7 @@ attributes:
   - name: "user_key"
     type: "string"
     description: ""
-    foreign-key-id: "user-encoded-key"
+    foreign-key-id: "user-key"
 
   - name: "value_date"
     type: "date-time"

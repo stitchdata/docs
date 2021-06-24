@@ -1,24 +1,41 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "2"
+key: "loan-account"
 
 name: "loan_accounts"
 doc-link: "https://api.mambu.com/?shell#welcome"
 singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/loan_accounts.json"
 description: "This table contains information about Loan Accounts."
 
-replication-method: "Key-based Incremental"
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
 
 api-method:
-  name: "Get all loan accounts"
+  name: "Get all loan accounts (v2)"
   doc-link: "https://api.mambu.com/?http#loanaccounts-getall"
+
+replication-method: "Key-based Incremental"
+
+is-parent-table: true
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The loan account ID."
-#    foreign-key-id: "loan-account-id"
+    # foreign-key-id: "loan-account-id"
 
   - name: "last_modified_date"
     type: "date-time"
@@ -55,7 +72,10 @@ attributes:
 
   - name: "account_holder_key"
     type: "string"
-    description: ""
+    description: |
+      The encoded key of the client or group that holds the account.
+
+      Depending on the `account_holder_type` value, this will be a foreign key to either the [`clients`](#clients) or [`groups`](#groups) table.
 
   - name: "account_holder_type"
     type: "string"
@@ -124,17 +144,17 @@ attributes:
   - name: "assigned_branch_key"
     type: "string"
     description: ""
-    foreign-key-id: "branch-encoded-key"
+    foreign-key-id: "branch-key"
 
   - name: "assigned_centre_key"
     type: "string"
     description: ""
-    foreign-key-id: "centre-encoded-key"
+    foreign-key-id: "centre-key"
 
   - name: "assigned_user_key"
     type: "string"
     description: ""
-    foreign-key-id: "user-encoded-key"
+    foreign-key-id: "user-key"
 
   - name: "balances"
     type: "object"
@@ -217,27 +237,23 @@ attributes:
     description: ""
     foreign-key-id: "credit-arrangement-key"
 
-  - name: "custom_field_sets"
+  - name: "custom_fields"
     type: "array"
     description: ""
     subattributes:
-      - name: "custom_field_set_id"
+      - name: "field_set_id"
+        type: "string"
+        foreign-key-id: "custom-field-set-id"
+        description: ""
+
+      - name: "id"
         type: "string"
         description: ""
-        foreign-key-id: "custom-field-set-id"
+        foreign-key-id: "custom-field-id"
 
-      - name: "custom_field_values"
-        type: "array"
+      - name: "value"
+        type: "string"
         description: ""
-        subattributes:
-          - name: "custom_field_id"
-            type: "string"
-            description: ""
-            foreign-key-id: "custom-field-id"
-
-          - name: "custom_field_value"
-            type: "string"
-            description: ""
 
   - name: "days_in_arrears"
     type: "integer"
@@ -298,6 +314,7 @@ attributes:
           - name: "target_deposit_account_key"
             type: "string"
             description: ""
+            foreign-key-id: "deposit-account-key"
 
           - name: "transaction_channel_id"
             type: "string"
@@ -310,6 +327,7 @@ attributes:
   - name: "encoded_key"
     type: "string"
     description: ""
+    foreign-key-id: "loan-account-key"
 
   - name: "funding_sources"
     type: "array"
@@ -326,6 +344,7 @@ attributes:
       - name: "deposit_account_key"
         type: "string"
         description: ""
+        foreign-key-id: "deposit-account-key"
 
       - name: "asset_name"
         type: "string"
@@ -362,6 +381,7 @@ attributes:
       - name: "deposit_account_key"
         type: "string"
         description: ""
+        foreign-key-id: "deposit-account-key"
 
       - name: "asset_name"
         type: "string"
@@ -378,11 +398,6 @@ attributes:
       - name: "guarantor_type"
         type: "string"
         description: ""
-
-  - name: "id"
-    type: "string"
-    description: ""
-#    foreign-key-id: "loan-account-id"
 
   - name: "interest_commission"
     type: "number"

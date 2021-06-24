@@ -1,23 +1,40 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "2"
+key: "user"
+
 name: "users"
 doc-link: "https://api.mambu.com/?shell#welcome"
 singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/users.json"
-description: "This table contains information about Users."
+description: |
+  This table contains information about users.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "Get all users (v2.0)"
+  doc-link: "https://api.mambu.com/?http#users-getall"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-  name: "Get all users"
-  doc-link: "https://api.mambu.com/?http#users-getall"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The user ID."
-#    foreign-key-id: "user-id"
+    # foreign-key-id: "user-id"
 
   - name: "last_modified_date"
     type: "date-time"
@@ -59,7 +76,7 @@ attributes:
           - name: "branch_key"
             type: "string"
             description: ""
-            foreign-key-id: "branch-encoded-key"
+            foreign-key-id: "branch-key"
 
       - name: "permissions"
         type: "array"
@@ -80,31 +97,29 @@ attributes:
   - name: "assigned_branch_key"
     type: "string"
     description: ""
+    foreign-key-id: "branch-key"
 
   - name: "creation_date"
     type: "date-time"
     description: ""
 
-  - name: "custom_field_sets"
+  - name: "custom_fields"
     type: "array"
     description: ""
     subattributes:
-      - name: "custom_field_set_id"
+      - name: "field_set_id"
+        type: "string"
+        foreign-key-id: "custom-field-set-id"
+        description: ""
+
+      - name: "id"
         type: "string"
         description: ""
-        foreign-key-id: "custom-field-set-id"
+        foreign-key-id: "custom-field-id"
 
-      - name: "custom_field_values"
-        type: "array"
+      - name: "value"
+        type: "string"
         description: ""
-        subattributes:
-          - name: "custom_field_id"
-            type: "string"
-            description: ""
-            foreign-key-id: "custom-field-id"
-          - name: "custom_field_value"
-            type: "string"
-            description: ""
 
   - name: "email"
     type: "string"
@@ -113,6 +128,7 @@ attributes:
   - name: "encoded_key"
     type: "string"
     description: ""
+    foreign-key-id: "user-key"
 
   - name: "first_name"
     type: "string"
