@@ -27,6 +27,9 @@ attributes:
     sftp: |
       - CSV (`.csv`)
       - Text (`.txt`)
+      {% if integration.name == "amazon-s3-csv" %}
+      - JSONL (`.jsonl`)
+      {% endif %}
 
   - name: "Compression types"
     all: |
@@ -34,7 +37,7 @@ attributes:
 
       - zip compressed archive (`.zip`)
       - gzip compressed files (`.gz`)
-      
+
         **Note**: `.tar.gz` files aren't currently supported.
 
   - name: "Delimiters"
