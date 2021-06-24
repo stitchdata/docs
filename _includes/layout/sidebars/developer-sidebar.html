@@ -80,7 +80,7 @@
                             </li>
                         {% else %}
                             <li>
-                                <a href="{{ section.url | flatify }}"
+                                <a href="{{ section.url | flatify | prepend: site.baseurl }}"
                                 {% if section.method %}
                                     class="api">
                                     <span class="method {{ section.method }} method-bullet">{{ section.method | upcase | strip_newlines }}</span>
