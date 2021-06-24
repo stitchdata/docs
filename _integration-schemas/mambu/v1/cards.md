@@ -24,7 +24,7 @@ api-method:
   name: "Get all cards (v2.0)"
   doc-link: "https://api.mambu.com/?http#depositaccounts-getallcards"
 
-dependent-table-key: "deposit_accounts"
+dependent-table-key: "deposit-account"
 
 
 # -------------------------- #
