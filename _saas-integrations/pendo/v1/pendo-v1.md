@@ -116,6 +116,7 @@ setup-steps:
 
          Refer to the [Event replication](#event-replication) section for more info.
       6. In the **X Pendo Integration Key** field, paste the integration key you created in [Step 1](#create-integration-key).
+      7. **Optional**: Check the **Inlude Anonymous Visitors** checkbox to have Stitch include anonymous vistors in replication.
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"

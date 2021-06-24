@@ -37,6 +37,13 @@ docs-name: "pendo"
 uses-start-date: true
 
 object-attributes:
+  - name: "include_anonymous_visitors"
+    type: "string"
+    required: false
+    description: |
+      If `true`, anonymous visitors will be included when extracting visitor data. The default is `false`.
+      
+    value:  "false"
   - name: "lookback_window"
     type: "string"
     required: false
