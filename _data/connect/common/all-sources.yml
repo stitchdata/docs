@@ -25,8 +25,6 @@ fields:
 
       This field must contain an [ISO 8601-compliant](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} date. **Note**: When Stitch stores this value, it will be in UTC. You should provide this value in UTC to ensure the desired anchor time is retained.
 
-      For example: You want to create a schedule that is anchored to `1:00PM EST` and runs every 6 hours (`360` minutes). To do this, you can set `anchor_time` to something like `2018-04-30T17:00:00Z` and `frequency_in_minutes` to `360`. This means jobs would run at `23:00:00`, `05:00:00`, `11:00:00`, and so on.
-
       {{ site.data.connect.common.all-sources.guide-callout | flatify }}
     short: |
       Defines the time that `frequency_in_minutes` is "anchored" to, which Stitch will use to create the integration's replication schedule.

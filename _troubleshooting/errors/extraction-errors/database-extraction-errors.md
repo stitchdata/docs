@@ -108,5 +108,15 @@ sections:
       {% assign errors = site.data.errors.extraction.databases.oracle.all | sort_natural:"message" %}
 
       {% include troubleshooting/error-messages.html top-anchor="oracle-error-reference" display-name="Oracle" %}
+
+  - title: "PostgreSQL extraction errors"
+    anchor: "postgresql-error-reference"
+    db-type: "postgres"
+    content: |
+      {{ page.applicable-integrations-note | flatify }}
+
+      {% assign errors = site.data.errors.extraction.databases.postgres.all | sort_natural:"message" %}
+
+      {% include troubleshooting/error-messages.html top-anchor="postgresql-error-reference" display-name="PostgreSQL" %}
 ---
 {% include misc/data-files.html %}

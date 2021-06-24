@@ -1,0 +1,33 @@
+# -------------------------- #
+#        GitHub Errors       #
+# -------------------------- #
+
+## This file contains extraction errors and how to (potentially)
+## fix them for the GitHub integration.
+
+## An object containing raw error messages
+
+raw-error:
+  repo-not-found: &repo-not-found |
+    HTTP-error-code: 404, Error: Please check the repository name '[repository_name]' or you do not have sufficient permissions to access this repository.
+
+  dependent-table: &dependent-table |
+    Unable to extract [object_name] data. To receive [object_name] data, you also need to select [object_name].
+
+all:
+## MALFORMED SHEET  
+  - message: *dependent-table
+    id: "dependent-table"
+    applicable-to: &github "GitHub integrations"
+    level: "TODO"
+    category: "Data selection"
+    version: "1" 
+    summary: "Dependent table"
+    cause: |
+      A table is selected for replication that relies on another table also being selected.
+
+      This means that to extract data for the dependent table, data for the 'parent' table must also be extracted.
+
+      For example: To replicate `pull_request_reviews`, the `pull_requests` table must be selected. In this case, for every pull request Stitch replicates, the reviews for that pull request will also be replicated.
+    fix-it: |
+      Verify that the the parent table listed in the error is set to replicate.

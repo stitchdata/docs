@@ -1,18 +1,37 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
+key: "stargazer"
 
 name: "stargazers"
-doc-link: https://developer.github.com/v3/activity/starring/
-singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/stargazers.json
+doc-link: ""
+singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/stargazers.json
 description: |
-  The `stargazers` table contains info about users who have starred a repository.
+  The `{{ table.name }}` table contains info about users who have starred the repositories specified for the integration.
 
-replication-method: "Key-based Incremental"
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
 
 api-method:
-  name: "listStargazers"
-  doc-link: https://developer.github.com/v3/activity/starring/#list-stargazers
+  name: "List stargazers"
+  doc-link: "https://docs.github.com/en/rest/reference/activity#list-stargazers"
+
+replication-method: "Key-based Incremental"
+replication-key:
+  name: "since"
+  based-on: "starred_at"
+  tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "user_id"
@@ -21,9 +40,12 @@ attributes:
     description: "The user ID."
     # foreign-key-id: "stargazer-id"
 
+  - name: "_sdc_repository"
+    type: "string"
+    description: ""
+
   - name: "starred_at"
     type: "string"
-    replication-key: true
     description: "The time the user starred the repository."
 
   - name: "user"

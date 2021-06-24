@@ -12,7 +12,7 @@ description: "An object containing the information needed to configure a destina
 get:
   name: "{{ site.data.connect.api.core-objects.destination-types.base }}/{destination_type}"
   title: "Get a destination type"
-  method: *get
+  method: "get"
   anchor: "#get-a-destination-type"
   short: "Retrieves general information about the configuration required for a destination type."
   description: |
@@ -25,7 +25,7 @@ get:
 list:
   name: "{{ site.data.connect.api.core-objects.destination-types.base }}"
   title: "List destination types"
-  method: *get
+  method: "get"
   anchor: "#list-destination-types"
   short: "Retrieves general information about the configuration required for all supported destination types."
   description: |

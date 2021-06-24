@@ -23,13 +23,16 @@ db-type: "postgres"
 
 description: ""
 
+deprecated:
+  as-of: "June 2, 2021"
+  use-instead: "platform.hp-postgres"
+
 
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
 ## See these fields in _data/connect/common/database-sources.yml > all-databases
-## This object will also list the fields in the `mysql` list ^
 
 uses-common-fields: true
 uses-feature-fields: true

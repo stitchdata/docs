@@ -62,7 +62,6 @@ attributes:
 
       - name: "id"
         type: "integer"
-        primary-key: true
         description: "The product image ID."
 
       - name: "alt"
@@ -109,7 +108,6 @@ attributes:
     subattributes:
       - name: "id"
         type: "integer"
-        primary-key: true
         description: "The custom property ID."
 
       - name: "name"
@@ -122,7 +120,6 @@ attributes:
 
       - name: "product_id"
         type: "integer"
-        primary-key: true
         description: "The ID of the product."
         foreign-key-id: "product-id"
 
@@ -173,7 +170,6 @@ attributes:
       #   description: ""
       - name: "id"
         type: "integer"
-        primary-key: true
         description: "The product variant ID."
 
       - name: "barcode"

@@ -9,7 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-pipedrive/blob/master/tap_piped
 description: |
   The `{{ table.name }}` table contains info about the filters, or data validation conditions, used in your {{ integration.display_name }} account.
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 
 api-method:
   name: "Get all filters"
@@ -21,11 +21,6 @@ attributes:
     primary-key: true
     description: "The filter ID."
    # foreign-key-id: "filter-id"
-
-  - name: "update_time"
-    type: "date-time"
-    replication-key: true
-    description: "The time the filter was last updated."
 
   - name: "active_flag"
     type: "boolean"
@@ -59,4 +54,8 @@ attributes:
   - name: "visible_to"
     type: "string"
     description: ""
+
+  - name: "update_time"
+    type: "date-time"
+    description: "The time the filter was last updated."
 ---

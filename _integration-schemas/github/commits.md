@@ -1,21 +1,36 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
+key: "commit"
 
 name: "commits"
 doc-link:
-singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/commits.json
+singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/commits.json
 description: |
-  The `commits` table contains info about repository commits in a project.
+  The `{{ table.name }}` table contains info about repository commits in a project.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "List commits"
+  doc-link: "https://docs.github.com/en/rest/reference/repos#list-commits"
 
 replication-method: "Key-based Incremental"
 replication-key:
   name: "since"
-  tooltip: "This is query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
+  tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
-api-method:
-  name: "listRepositoryCommits"
-  doc-link: https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "sha"
@@ -88,6 +103,62 @@ attributes:
         type: "integer"
         description: "The number of comments on the commit."
 
+      - name: "message"
+        type: "string"
+        description: ""
+
+      - name: "tree"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "sha"
+            type: "string"
+            description: ""
+
+          - name: "url"
+            type: "string"
+            description: ""
+
+      - name: "url"
+        type: "string"
+        description: ""
+
+  - name: "files"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "additions"
+        type: "number"
+        description: ""
+
+      - name: "blob_url"
+        type: "string"
+        description: ""
+        
+      - name: "changes"
+        type: "number"
+        description: ""
+
+      - name: "deletions"
+        type: "number"
+        description: ""
+
+      - name: "filename"
+        type: "string"
+        description: ""
+
+      - name: "patch"
+        type: "string"
+        description: ""
+
+      - name: "raw_url"
+        type: "string"
+        description: ""
+
+      - name: "status"
+        type: "string"
+        description: ""
+
   - name: "html_url"
     type: "string"
     description: "The HTML URL to the commit."
@@ -108,6 +179,10 @@ attributes:
       - name: "url"
         type: "string"
         description: "The URL to the parent commit."
+
+  - name: "_sdc_repository"
+    type: "string"
+    description: ""
 
   - name: "url"
     type: "string"

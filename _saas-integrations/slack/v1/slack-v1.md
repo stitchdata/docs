@@ -129,6 +129,7 @@ setup-steps:
               - `useergroups:read`
               - `users.profile:read`
               - `users:read`
+              - `users:read.email`
 
               {{ integration.display_name }} will automatically save the changes each time a scope is added.
           6. Repeat steps 4 and 5 until all the scopes have been added.

@@ -20,7 +20,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The persona ID."
-    #foreign-key-id: "persona-id"
+    foreign-key-id: "persona-id"
 
   - name: "updatedAt"
     type: "date-time"
@@ -30,9 +30,11 @@ attributes:
   - name: "createdAt"
     type: "date-time"
     description: ""
+
   - name: "description"
     type: "string"
     description: ""
+    
   - name: "name"
     type: "string"
     description: ""

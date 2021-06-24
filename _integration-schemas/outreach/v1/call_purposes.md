@@ -20,7 +20,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The call purpose ID."
-    #foreign-key-id: "purpose-id"
+    foreign-key-id: "call-purpose-id"
 
   - name: "updatedAt"
     type: "date-time"
@@ -30,12 +30,16 @@ attributes:
   - name: "createdAt"
     type: "date-time"
     description: ""
+
   - name: "creatorId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
+
   - name: "name"
     type: "string"
     description: ""
+
   - name: "order"
     type: "integer"
     description: ""

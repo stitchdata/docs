@@ -25,6 +25,7 @@ attributes:
   - name: "dutyType"
     type: "string"
     description: ""
+    
   - name: "symbolicName"
     type: "string"
     description: ""

@@ -40,7 +40,7 @@ If the include has a specific version parameter, only get the version being requ
 
 
 <!-- Get details about this specific version of the integration -->
-	{% assign this-version = released-versions | where:"number",[include.item-name].this-version | first %}
+	{% assign this-version = released-versions | find:"number",[include.item-name].this-version %}
 
 
 <!-- Pulls the latest version number for the integration -->
@@ -52,4 +52,4 @@ If the include has a specific version parameter, only get the version being requ
 
 
 <!-- Get the doc that is the latest version based on the given key. -->
-		{% assign latest-version-doc = all-versioned-docs | where:"this-version",latest-version | first %}
+		{% assign latest-version-doc = all-versioned-docs | find:"this-version",latest-version %}
