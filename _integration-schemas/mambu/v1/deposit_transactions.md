@@ -1,17 +1,32 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "1"
+key: "deposit-transaction"
 
 name: "deposit_transactions"
 doc-link: "https://api.mambu.com/?shell#welcome"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/deposit_transactions.json"
-description: "This table contains information about Deposit Transactions."
+singer-schema: "https://github.com/singer-io/tap-mambu/tree/v1.3.3/tap_mambu/schemas/deposit_transactions.json"
+description: |
+  This table contains information about deposit transactions.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+api-method:
+  name: "Search deposit transactions (v2.0)"
+  doc-link: "https://api.mambu.com/?http#deposittransactions-search"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-  name: "Search deposit transactions"
-  doc-link: "https://api.mambu.com/?http#deposittransactions-search"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "encoded_key"

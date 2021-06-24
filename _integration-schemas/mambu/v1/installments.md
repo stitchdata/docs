@@ -1,19 +1,34 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "1"
-key: ""
+key: "installment"
 
 name: "installments"
 doc-link: "https://api.mambu.com/#mambu-api-v2-installments"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/installments.json"
-description: "This table contains information about installments for a loan."
+singer-schema: "https://github.com/singer-io/tap-mambu/tree/v1.3.3/tap_mambu/schemas/installments.json"
+description: |
+  This table contains information about installments for a loan.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "Get all installments (v2.0)"
+  doc-link: "https://api.mambu.com/#installments-getall"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-    name: "getAll"
-    doc-link: "https://api.mambu.com/#mambu-api-v2-installments"
-    
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
+
 attributes:
   - name: "encoded_key"
     type: "string"

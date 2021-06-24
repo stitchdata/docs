@@ -1,17 +1,33 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "1"
+key: "loan-product"
 
 name: "loan_products"
 doc-link: "https://api.mambu.com/?shell#welcome"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/loan_products.json"
-description: "This table contains information about Loan Products."
+singer-schema: "https://github.com/singer-io/tap-mambu/tree/v1.3.3/tap_mambu/schemas/loan_products.json"
+description: |
+  This table contains information about loan products.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
 
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: "Get all loan products"
-  doc-link: "https://support.mambu.com/docs/loan-products-api#get-loan-products"
+  name: "Get all loan products (v1.0)"
+  doc-link: "https://api.mambu.com/v1/#loan-products-get-all-loan-products"
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

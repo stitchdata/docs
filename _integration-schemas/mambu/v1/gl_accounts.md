@@ -1,18 +1,32 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "1"
-key: ""
+key: "gl-account"
 
 name: "gl_accounts"
 doc-link: "https://support.mambu.com/docs/gl-accounts-api"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/gl_accounts.json"
-description: "This table contains information about general ledger accounts."
+singer-schema: "https://github.com/singer-io/tap-mambu/tree/v1.3.3/tap_mambu/schemas/gl_accounts.json"
+description: |
+  This table contains information about general ledger accounts.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+api-method:
+  name: "Get GL accounts (v1.0)"
+  doc-link: "https://api.mambu.com/v1/#general-ledger-accounts-get-all-gl-accounts"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-    name: "GET GL Accounts"
-    doc-link: "https://support.mambu.com/docs/gl-accounts-api"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "gl_code"
@@ -33,7 +47,7 @@ attributes:
     type: "boolean"
     description: ""
   - name: "balance"
-    type: "singer.decimal"
+    type: "string"
     description: ""
   - name: "creation_date"
     type: "date-time"

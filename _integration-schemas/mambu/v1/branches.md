@@ -1,19 +1,33 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "1"
+key: "branch"
 
 name: "branches"
 doc-link: "https://api.mambu.com/?shell#welcome"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/branches.json"
-description: "This table contains information about Branches."
+singer-schema: "https://github.com/singer-io/tap-mambu/tree/v1.3.3/tap_mambu/schemas/branches.json"
+description: |
+  This table contains information about branches.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "Get all branches (v2.0)"
+  doc-link: "https://api.mambu.com/?http#branches-getall"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-    name: "Branches"
-api-method:
-  name: "Get all branches"
-  doc-link: "https://api.mambu.com/?http#branches-getall"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"
@@ -115,7 +129,6 @@ attributes:
       - name: "custom_field_values"
         type: "array"
         description: ""
-
         subattributes:
           - name: "custom_field_id"
             type: "string"

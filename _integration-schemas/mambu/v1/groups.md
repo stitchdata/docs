@@ -1,17 +1,32 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "1"
+key: "group"
 
 name: "groups"
 doc-link: "https://api.mambu.com/?shell#welcome"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/groups.json"
-description: "This table contains information about Groups."
+singer-schema: "https://github.com/singer-io/tap-mambu/tree/v1.3.3/tap_mambu/schemas/groups.json"
+description: |
+  This table contains information about groups.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "Search groups (v2.0)"
+  doc-link: "https://api.mambu.com/?http#groups-search"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-  name: "Get all groups"
-  doc-link: "https://api.mambu.com/?http#groups-getall"
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

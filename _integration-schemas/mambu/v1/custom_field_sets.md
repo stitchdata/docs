@@ -1,19 +1,32 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "1"
+key: "custom-field-set"
 
 name: "custom_field_sets"
 doc-link: "https://api.mambu.com/?shell#welcome"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/custom_field_sets.json"
-description: "This table contains information about Custom Field Sets."
+singer-schema: "https://github.com/singer-io/tap-mambu/tree/v1.3.3/tap_mambu/schemas/custom_field_sets.json"
+description: |
+  This table contains information about custom field sets.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+api-method:
+  name: "Get custom field sets (v1.0)"
+  doc-link: "https://api.mambu.com/v1/#custom-field-sets-get-custom-field-sets"
 
 replication-method: "Full Table"
 
-api-method:
-    name: "Custom Field Sets"
-api-method:
-  name: "Get custom field sets"
-  doc-link: "https://support.mambu.com/docs/custom-fields-api#get-custom-field-sets"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

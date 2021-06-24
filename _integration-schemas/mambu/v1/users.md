@@ -1,16 +1,33 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "1"
+key: "user"
+
 name: "users"
 doc-link: "https://api.mambu.com/?shell#welcome"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/users.json"
-description: "This table contains information about Users."
+singer-schema: "https://github.com/singer-io/tap-mambu/tree/v1.3.3/tap_mambu/schemas/users.json"
+description: |
+  This table contains information about users.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "Get all users (v2.0)"
+  doc-link: "https://api.mambu.com/?http#users-getall"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-  name: "Get all users"
-  doc-link: "https://api.mambu.com/?http#users-getall"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

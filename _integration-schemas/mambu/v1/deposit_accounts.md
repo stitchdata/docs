@@ -1,17 +1,35 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "1"
+key: "deposit-account"
 
 name: "deposit_accounts"
 doc-link: "https://api.mambu.com/?shell#welcome"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/deposit_accounts.json"
-description: "This table contains information about Deposit Accounts."
+singer-schema: "https://github.com/singer-io/tap-mambu/tree/v1.3.3/tap_mambu/schemas/deposit_accounts.json"
+description: |
+  This table contains information about deposit accounts.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "Get all deposit accounts (v2.0)"
+  doc-link: "https://api.mambu.com/?http#depositaccounts-getall"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-  name: "Get all deposit accounts"
-  doc-link: "https://api.mambu.com/?http#depositaccounts-getall"
+is-parent-table: true
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

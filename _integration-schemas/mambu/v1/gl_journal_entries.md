@@ -1,18 +1,33 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "1"
-key: ""
+key: "gl-journal-entry"
 
 name: "gl_journal_entries"
 doc-link: "https://support.mambu.com/docs/gl-journal-entries-api"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/gl_journal_entries.json"
-description: "This table contains information about general ledger entries."
+singer-schema: "https://github.com/singer-io/tap-mambu/tree/v1.3.3/tap_mambu/schemas/gl_journal_entries.json"
+description: |
+  This table contains information about general ledger entries.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "Search GL journal entries (v1.0)"
+  doc-link: "https://api.mambu.com/v1/#gl-journal-entries-search-for-gl-journal-entries"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-    name: "GET GL Journal Entries"
-    doc-link: "https://support.mambu.com/docs/gl-journal-entries-api"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
     
 attributes:
   - name: "entry_id"
@@ -30,7 +45,7 @@ attributes:
     type: "string"
     description: ""
   - name: "amount"
-    type: "singer.decimal"
+    type: "string"
     description: ""
   
   - name: "creation_date"
@@ -54,7 +69,7 @@ attributes:
         type: "boolean"
         description: ""
       - name: "balance"
-        type: "singer.decimal"
+        type: "string"
         description: ""
       - name: "creation_date"
         type: "date-time"

@@ -1,17 +1,34 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "1"
+key: "loan-account"
 
 name: "loan_accounts"
 doc-link: "https://api.mambu.com/?shell#welcome"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/loan_accounts.json"
+singer-schema: "https://github.com/singer-io/tap-mambu/tree/v1.3.3/tap_mambu/schemas/loan_accounts.json"
 description: "This table contains information about Loan Accounts."
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "Get all loan accounts (v2)"
+  doc-link: "https://api.mambu.com/?http#loanaccounts-getall"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-  name: "Get all loan accounts"
-  doc-link: "https://api.mambu.com/?http#loanaccounts-getall"
+is-parent-table: true
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"
@@ -378,11 +395,6 @@ attributes:
       - name: "guarantor_type"
         type: "string"
         description: ""
-
-  - name: "id"
-    type: "string"
-    description: ""
-#    foreign-key-id: "loan-account-id"
 
   - name: "interest_commission"
     type: "number"

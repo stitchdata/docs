@@ -1,19 +1,33 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "1"
+key: "client"
 
 name: "clients"
 doc-link: "https://api.mambu.com/?shell#welcome"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/clients.json"
-description: "This table contains information about Clients."
+singer-schema: "https://github.com/singer-io/tap-mambu/tree/v1.3.3/tap_mambu/schemas/clients.json"
+description: |
+  This table contains information about clients.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "Search clients (v2.0)"
+  doc-link: "https://api.mambu.com/?http#clients-search"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-    name: "Clients"
-api-method:
-  name: "Get all clients"
-  doc-link: "https://api.mambu.com/?http#clients-getall"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

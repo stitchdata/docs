@@ -1,17 +1,32 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "1"
+key: "deposit-product"
 
 name: "deposit_products"
 doc-link: "https://api.mambu.com/?shell#welcome"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/deposit_products.json"
-description: "This table contains information about deposit products."
+singer-schema: "https://github.com/singer-io/tap-mambu/tree/v1.3.3/tap_mambu/schemas/deposit_products.json"
+description: |
+  This table contains information about deposit (savings) products.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+api-method:
+  name: "Get savings products (v1.0)"
+  doc-link: "https://api.mambu.com/v1/#savings-products-get-savings-products"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-  name: "Get deposit products"
-  doc-link: "https://support.mambu.com/docs/savings-products-api#get-savings-products"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

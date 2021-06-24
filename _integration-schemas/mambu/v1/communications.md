@@ -1,17 +1,33 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "1"
+key: "communication"
 
 name: "communications"
 doc-link: "https://api.mambu.com/?shell#welcome"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/communications.json"
-description: "This table contains information about Communications."
+singer-schema: "https://github.com/singer-io/tap-mambu/tree/v1.3.3/tap_mambu/schemas/communications.json"
+description: |
+  This table contains information about communications.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "Search all communications (v2.0)"
+  doc-link: "https://api.mambu.com/?http#communications-search"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-  name: "Search all communications"
-  doc-link: "https://api.mambu.com/?http#communications-search"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "encoded_key"

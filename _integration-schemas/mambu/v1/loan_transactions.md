@@ -1,17 +1,33 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "1"
+key: "loan-transaction"
 
 name: "loan_transactions"
 doc-link: "https://api.mambu.com/?shell#welcome"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/loan_transactions.json"
-description: "This table contains information about Loan Transactions."
+singer-schema: "https://github.com/singer-io/tap-mambu/tree/v1.3.3/tap_mambu/schemas/loan_transactions.json"
+description: |
+  This table contains information about loan transactions.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
 
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: "Get all loan transactions"
+  name: "Get all loan transactions (v2.0)"
   doc-link: "https://api.mambu.com/?http#loantransactions-getall"
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "encoded_key"
