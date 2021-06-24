@@ -47,6 +47,8 @@ frequency: "1 hour"
 tier: "Standard"
 status-url: "https://status.mambu.com/"
 
+api-type: "platform.mambu"
+
 anchor-scheduling: true
 cron-scheduling: true
 
