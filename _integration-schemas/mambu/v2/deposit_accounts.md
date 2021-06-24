@@ -1,24 +1,42 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
-version: "1"
+version: "2"
+key: "deposit-account"
 
 name: "deposit_accounts"
 doc-link: "https://api.mambu.com/?shell#welcome"
 singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/deposit_accounts.json"
-description: "This table contains information about Deposit Accounts."
+description: |
+  This table contains information about deposit accounts.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+api-method:
+  name: "Get all deposit accounts (v2.0)"
+  doc-link: "https://api.mambu.com/?http#depositaccounts-getall"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-  name: "Get all deposit accounts"
-  doc-link: "https://api.mambu.com/?http#depositaccounts-getall"
+is-parent-table: true
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The deposit account ID."
-#   foreign-key-id: "deposit-account-id"
+    foreign-key-id: "deposit-account-id"
 
   - name: "last_modified_date"
     type: "date-time"
@@ -27,8 +45,10 @@ attributes:
     
   - name: "account_holder_key"
     type: "string"
-    description: "The encoded key of the client or group."
-    # foreign-key-id: "client-encoded-key"
+    description: |
+      The encoded key of the client or group that holds the account.
+
+      Depending on the `account_holder_type` value, this will be a foreign key to either the [`clients`](#clients) or [`groups`](#groups) table.
 
   - name: "account_holder_type"
     type: "string"
@@ -123,31 +143,28 @@ attributes:
     type: "string"
     description: ""
 
-  - name: "custom_field_sets"
+  - name: "custom_fields"
     type: "array"
     description: ""
     subattributes:
-      - name: "custom_field_set_id"
+      - name: "field_set_id"
+        type: "string"
+        foreign-key-id: "custom-field-set-id"
+        description: ""
+
+      - name: "id"
         type: "string"
         description: ""
-        foreign-key-id: "custom-field-set-id"
+        foreign-key-id: "custom-field-id"
 
-      - name: "custom_field_values"
-        type: "array"
+      - name: "value"
+        type: "string"
         description: ""
-        subattributes:
-          - name: "custom_field_id"
-            type: "string"
-            description: ""
-            foreign-key-id: "custom-field-id"
-
-          - name: "custom_field_value"
-            type: "string"
-            description: ""
 
   - name: "encoded_key"
     type: "string"
     description: ""
+    foreign-key-id: "deposit-account-key"
 
   - name: "interest_settings"
     type: "object"
@@ -158,8 +175,16 @@ attributes:
         description: ""
         subattributes:
           - name: "interest_payment_dates"
-            type: "null"
+            type: "array"
             description: ""
+            subattributes:
+              - name: "day"
+                type: "integer"
+                description: ""
+
+              - name: "month"
+                type: "integer"
+                description: ""
 
           - name: "interest_payment_point"
             type: "string"
@@ -230,8 +255,12 @@ attributes:
     description: ""
 
   - name: "linked_settlement_account_keys"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
 
   - name: "locked_date"
     type: "date-time"
@@ -320,7 +349,6 @@ attributes:
   - name: "product_type_key"
     type: "string"
     description: ""
-    # foreign-key-id: "product-type-key"
 
   - name: "withholding_tax_source_key"
     type: "string"

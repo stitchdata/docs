@@ -1,17 +1,33 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "1"
+key: "centre"
 
 name: "centres"
 doc-link: "https://api.mambu.com/?shell#welcome"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/centres.json"
-description: "This table contains information about Centers."
+singer-schema: "https://github.com/singer-io/tap-mambu/tree/v1.3.3/tap_mambu/schemas/centres.json"
+description: |
+  This table contains information about centres.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
 
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: "Get all centres"
+  name: "Get all centres (v2.0)"
   doc-link: "https://api.mambu.com/?http#centres-getall"
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"

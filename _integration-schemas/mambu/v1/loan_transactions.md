@@ -1,34 +1,70 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "mambu"
 version: "1"
+key: "loan-transaction"
 
-name: "deposit_transactions"
+name: "loan_transactions"
 doc-link: "https://api.mambu.com/?shell#welcome"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/deposit_transactions.json"
-description: "This table contains information about Deposit Transactions."
+singer-schema: "https://github.com/singer-io/tap-mambu/tree/v1.3.3/tap_mambu/schemas/loan_transactions.json"
+description: |
+  This table contains information about loan transactions.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
 
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: "Search deposit transactions"
-  doc-link: "https://api.mambu.com/?http#deposittransactions-search"
+  name: "Get all loan transactions (v2.0)"
+  doc-link: "https://api.mambu.com/?http#loantransactions-getall"
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "encoded_key"
     type: "string"
     primary-key: true
-    description: "The unique encoded key of the deposit transaction."
-#    foreign-key-id: "deposit-transaction-encoded-key"  
-
+    description: "The unique encoded key of the loan transaction."
+    foreign-key-id: "loan-transaction-encoded-key"
+  
   - name: "creation_date"
     type: "date-time"
-    description: "The date when the deposit transaction was created."
+    description: ""
     replication-key: true
 
   - name: "account_balances"
     type: "object"
     description: ""
     subattributes:
+      - name: "advance_position"
+        type: "number"
+        description: ""
+
+      - name: "arrears_position"
+        type: "number"
+        description: ""
+
+      - name: "expected_principal_redraw"
+        type: "number"
+        description: ""
+
+      - name: "principal_balance"
+        type: "number"
+        description: ""
+
+      - name: "redraw_balance"
+        type: "number"
+        description: ""
+
       - name: "total_balance"
         type: "number"
         description: ""
@@ -90,78 +126,10 @@ attributes:
     description: ""
     foreign-key-id: "branch-encoded-key"
 
-  - name: "card_transaction"
-    type: "object"
-    description: ""
-    subattributes:
-      - name: "advice"
-        type: "boolean"
-        description: ""
-
-      - name: "amount"
-        type: "number"
-        description: ""
-
-      - name: "card_acceptor"
-        type: "object"
-        description: ""
-        subattributes:
-          - name: "city"
-            type: "string"
-            description: ""
-
-          - name: "country"
-            type: "string"
-            description: ""
-
-          - name: "mcc"
-            type: "integer"
-            description: ""
-
-          - name: "name"
-            type: "string"
-            description: ""
-
-          - name: "state"
-            type: "string"
-            description: ""
-
-          - name: "zip"
-            type: "string"
-            description: ""
-
-      - name: "card_token"
-        type: "string"
-        description: ""
-
-      - name: "currency_code"
-        type: "string"
-        description: ""
-
-      - name: "encoded_key"
-        type: "string"
-        description: ""
-
-      - name: "external_authorization_reference_id"
-        type: "string"
-        description: ""
-
-      - name: "external_reference_id"
-        type: "string"
-        description: ""
-
-      - name: "user_transaction_time"
-        type: "string"
-        description: ""
-
   - name: "centre_key"
     type: "string"
     description: ""
     foreign-key-id: "center-encoded-key"
-
-  - name: "currency_code"
-    type: "string"
-    description: ""
 
   - name: "custom_field_sets"
     type: "array"
@@ -185,13 +153,49 @@ attributes:
             type: "string"
             description: ""
 
+  - name: "custom_payment_amounts"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "tax_on_amount"
+        type: "number"
+        description: ""
+
+      - name: "amount"
+        type: "number"
+        description: ""
+
+      - name: "custom_payment_amount_type"
+        type: "string"
+        description: ""
+
   - name: "external_id"
     type: "string"
     description: ""
 
   - name: "fees"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "amount"
+        type: "number"
+        description: ""
+
+      - name: "trigger"
+        type: "string"
+        description: ""
+
+      - name: "tax_amount"
+        type: "number"
+        description: ""
+
+      - name: "predefined_fee_key"
+        type: "string"
+        description: ""
 
   - name: "id"
     type: "string"
@@ -210,6 +214,14 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "original_amount"
+    type: "number"
+    description: ""
+
+  - name: "original_currency_code"
+    type: "string"
+    description: ""
+
   - name: "original_transaction_key"
     type: "string"
     description: ""
@@ -218,10 +230,35 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "parent_loan_transaction_key"
+    type: "string"
+    description: ""
+    # foreign-key-id: "parent-loan-key"
+
   - name: "taxes"
     type: "object"
     description: ""
     subattributes:
+      - name: "deferred_tax_on_interest_amount"
+        type: "number"
+        description: ""
+
+      - name: "tax_interest_from_arrears_amount"
+        type: "number"
+        description: ""
+
+      - name: "tax_on_fees_amount"
+        type: "number"
+        description: ""
+
+      - name: "tax_on_interest_amount"
+        type: "number"
+        description: ""
+
+      - name: "tax_on_penalty_amount"
+        type: "number"
+        description: ""
+
       - name: "tax_rate"
         type: "number"
         description: ""
@@ -234,14 +271,6 @@ attributes:
         type: "object"
         description: ""
         subattributes:
-          - name: "interest_rate"
-            type: "number"
-            description: ""
-
-      - name: "overdraft_interest_settings"
-        type: "object"
-        description: ""
-        subattributes:
           - name: "index_interest_rate"
             type: "number"
             description: ""
@@ -250,13 +279,13 @@ attributes:
             type: "number"
             description: ""
 
-      - name: "overdraft_settings"
-        type: "object"
+      - name: "principal_payment_amount"
+        type: "number"
         description: ""
-        subattributes:
-          - name: "overdraft_limit"
-            type: "number"
-            description: ""
+
+      - name: "principal_payment_percentage"
+        type: "number"
+        description: ""
 
   - name: "till_key"
     type: "string"

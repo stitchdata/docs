@@ -1,37 +1,43 @@
 ---
-tap: "mambu"
-version: "1"
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
 
-name: "loan_products"
+tap: "mambu"
+version: "2"
+key: "deposit-product"
+
+name: "deposit_products"
 doc-link: "https://api.mambu.com/?shell#welcome"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/loan_products.json"
-description: "This table contains information about Loan Products."
+singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/deposit_products.json"
+description: |
+  This table contains information about deposit (savings) products.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+api-method:
+  name: "Get savings products (v1.0)"
+  doc-link: "https://api.mambu.com/v1/#savings-products-get-savings-products"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-  name: "Get all loan products"
-  doc-link: "https://support.mambu.com/docs/loan-products-api#get-loan-products"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: "The loan product ID."
-#   foreign-key-id: "loan-product-id"
-  
+    description: "The deposit product ID."
+
   - name: "last_modified_date"
     type: "date-time"
-    description: "The date and time the loan product was last modified."
+    description: "The date and time the deposit product was last modified."
     replication-key: true
-
-  - name: "account_initial_state"
-    type: "string"
-    description: ""
-
-  - name: "account_linking_enabled"
-    type: "boolean"
-    description: ""
 
   - name: "accounting_method"
     type: "string"
@@ -45,49 +51,73 @@ attributes:
     type: "boolean"
     description: ""
 
-  - name: "allow_collateral"
+  - name: "allow_offset"
     type: "boolean"
     description: ""
 
-  - name: "allow_guarantors"
+  - name: "allow_overdraft"
     type: "boolean"
     description: ""
 
-  - name: "amortization_method"
-    type: "string"
-    description: ""
-
-  - name: "apply_interest_on_prepayment_method"
-    type: "string"
-    description: ""
-
-  - name: "arrears_date_calculation_method"
-    type: "string"
-    description: ""
-
-  - name: "arrears_non_working_days_method"
-    type: "string"
-    description: ""
-
-  - name: "arrears_tolerance_period"
-    type: "integer"
-    description: ""
-
-  - name: "auto_create_linked_accounts"
+  - name: "allow_technical_overdraft"
     type: "boolean"
     description: ""
 
-  - name: "auto_link_accounts"
-    type: "boolean"
+  - name: "available_product_branches"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "encoded_key"
+        type: "string"
+        description: ""
 
-  - name: "automatically_close_dormant_accounts"
+      - name: "branch_key"
+        type: "string"
+        description: ""
+
+  - name: "collect_interest_when_locked"
     type: "boolean"
     description: ""
 
   - name: "creation_date"
     type: "date-time"
     description: ""
+
+  - name: "currencies"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "code"
+        type: "string"
+        description: ""
+
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "symbol"
+        type: "string"
+        description: ""
+
+      - name: "digits_after_decimal"
+        type: "integer"
+        description: ""
+
+      - name: "currency_symbol_position"
+        type: "string"
+        description: ""
+
+      - name: "is_base_currency"
+        type: "boolean"
+        description: ""
+
+      - name: "creation_date"
+        type: "date-time"
+        description: ""
+
+      - name: "last_modified_date"
+        type: "string"
+        description: ""
 
   - name: "custom_field_values"
     type: "array"
@@ -116,6 +146,7 @@ attributes:
           - name: "id"
             type: "string"
             description: ""
+            foreign-key-id: "custom-field-id"
 
           - name: "name"
             type: "string"
@@ -152,6 +183,7 @@ attributes:
               - name: "id"
                 type: "string"
                 description: ""
+                foreign-key-id: "custom-field-set-id"
 
               - name: "name"
                 type: "string"
@@ -274,57 +306,31 @@ attributes:
       - name: "custom_field_id"
         type: "string"
         description: ""
+        foreign-key-id: "custom-field-id"
 
       - name: "custom_field_set_group_index"
         type: "integer"
         description: ""
 
-  - name: "days_in_year"
+  - name: "description"
     type: "string"
-    description: ""
-
-  - name: "declining_balance_prepayment_recalculation"
-    type: "string"
-    description: ""
-
-  - name: "default_loan_amount"
-    type: "string"
-    description: ""
-
-  - name: "default_num_installments"
-    type: "integer"
-    description: ""
-
-  - name: "default_principal_repayment_interval"
-    type: "integer"
-    description: ""
-
-  - name: "default_repayment_period_count"
-    type: "integer"
     description: ""
 
   - name: "encoded_key"
     type: "string"
     description: ""
+    # foreign-key-id: "deposit-product-key"
 
-  - name: "for_hybrid_groups"
+  - name: "for_all_branches"
+    type: "boolean"
+    description: ""
+
+  - name: "for_groups"
     type: "boolean"
     description: ""
 
   - name: "for_individuals"
     type: "boolean"
-    description: ""
-
-  - name: "for_pure_groups"
-    type: "boolean"
-    description: ""
-
-  - name: "future_payments_acceptance"
-    type: "string"
-    description: ""
-
-  - name: "grace_period_type"
-    type: "string"
     description: ""
 
   - name: "id_generator_type"
@@ -339,19 +345,19 @@ attributes:
     type: "string"
     description: ""
 
-  - name: "interest_application_method"
+  - name: "interest_calculation_balance"
     type: "string"
     description: ""
 
-  - name: "interest_balance_calculation_method"
+  - name: "interest_days_in_year"
     type: "string"
     description: ""
 
-  - name: "interest_calculation_method"
-    type: "string"
+  - name: "interest_paid_into_account"
+    type: "boolean"
     description: ""
 
-  - name: "interest_charge_frequency"
+  - name: "interest_payment_point"
     type: "string"
     description: ""
 
@@ -359,8 +365,8 @@ attributes:
     type: "object"
     description: ""
     subattributes:
-      - name: "default_interest_rate"
-        type: "string"
+      - name: "accrue_interest_after_maturity"
+        type: "boolean"
         description: ""
 
       - name: "encoded_key"
@@ -383,19 +389,88 @@ attributes:
         type: "string"
         description: ""
 
-  - name: "is_investor_funds_enabled"
-    type: "boolean"
-    description: ""
-  
-  - name: "late_payments_recalculation_method"
-    type: "string"
-    description: ""
+      - name: "interest_rate_tiers"
+        type: "array"
+        description: ""
+        subattributes: &interest-rate-tiers
+          - name: "ending_balance"
+            type: "string"
+            description: ""
+
+          - name: "interest_rate"
+            type: "string"
+            description: ""
+
+          - name: "encoded_key"
+            type: "string"
+            description: ""
+
+          - name: "ending_day"
+            type: "integer"
+            description: ""
 
   - name: "line_of_credit_requirement"
     type: "string"
     description: ""
 
-  - name: "loan_fees"
+  - name: "maturity_period_limit"
+    type: "string"
+    description: ""
+
+  - name: "max_overdraft_limit"
+    type: "string"
+    description: ""
+
+  - name: "min_opening_balance"
+    type: "string"
+    description: ""
+
+  - name: "name"
+    type: "string"
+    description: ""
+
+  - name: "overdraft_days_in_year"
+    type: "string"
+    description: ""
+
+  - name: "overdraft_interest_rate_settings"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "accrue_interest_after_maturity"
+        type: "boolean"
+        description: ""
+
+      - name: "encoded_key"
+        type: "string"
+        description: ""
+
+      - name: "interest_charge_frequency"
+        type: "string"
+        description: ""
+
+      - name: "interest_charge_frequency_count"
+        type: "integer"
+        description: ""
+
+      - name: "interest_rate_source"
+        type: "string"
+        description: ""
+
+      - name: "interest_rate_terms"
+        type: "string"
+        description: ""
+
+      - name: "interest_rate_tiers"
+        type: "array"
+        description: ""
+        subattributes: *interest-rate-tiers
+
+  - name: "product_type"
+    type: "string"
+    description: ""
+
+  - name: "savings_fees"
     type: "array"
     description: ""
     subattributes:
@@ -411,8 +486,8 @@ attributes:
         type: "string"
         description: ""
 
-      - name: "amount_calculation_method"
-        type: 
+      - name: "amount_calculation_period"
+        type: "string"
         description: ""
 
       - name: "trigger"
@@ -435,29 +510,9 @@ attributes:
         type: "string"
         description: ""
 
-      - name: "amortization_interval_settings"
-        type: "object"
+      - name: "fee_amortization_upon_reschedule_option"
+        type: "string"
         description: ""
-        subattributes:
-          - name: "encoded_key"
-            type: "string"
-            description: ""
-
-          - name: "frequency"
-            type: "string"
-            description: ""
-
-          - name: "period_unit"
-            type: "string"
-            description: ""
-
-          - name: "period_count"
-            type: "integer"
-            description: ""
-
-          - name: "interval_count"
-            type: "integer"
-            description: ""
 
       - name: "fee_product_rules"
         type: "array"
@@ -467,137 +522,13 @@ attributes:
             type: "string"
             description: ""
 
-  - name: "loan_penalty_calculation_method"
-    type: "string"
-    description: ""
-
-  - name: "loan_product_rules"
+  - name: "savings_product_rules"
     type: "array"
     description: ""
     subattributes:
       - name: "value"
         type: "anything"
         description: ""
-
-  - name: "loan_product_type"
-    type: "string"
-    description: ""
-
-  - name: "loan_type"
-    type: "string"
-    description: ""
-
-  - name: "max_number_of_disbursement_tranches"
-    type: "integer"
-    description: ""
-
-  - name: "payment_method"
-    type: "string"
-    description: ""
-
-  - name: "prepayment_acceptance"
-    type: "string"
-    description: ""
-
-  - name: "product_description"
-    type: "string"
-    description: ""
-
-  - name: "product_name"
-    type: "string"
-    description: ""
-
-  - name: "product_security_settings"
-    type: "object"
-    description: ""
-    subattributes:
-      - name: "encoded_key"
-        type: "string"
-        description: ""
-
-      - name: "is_collateral_enabled"
-        type: "boolean"
-        description: ""
-
-      - name: "is_guarantors_enabled"
-        type: "boolean"
-        description: ""
-
-      - name: "is_investor_funds_enabled"
-        type: "boolean"
-        description: ""
-
-      - name: "required_guaranties"
-        type: "string"
-        description: ""
-
-  - name: "repayment_allocation_order"
-    type: "array"
-    description: ""
-    subattributes:
-      - name: "value"
-        type: "string"
-        description: ""
-
-  - name: "repayment_currency_rounding"
-    type: "string"
-    description: ""
-
-  - name: "repayment_elements_rounding_method"
-    type: "string"
-    description: ""
-
-  - name: "repayment_period_unit"
-    type: "string"
-    description: ""
-
-  - name: "repayment_rescheduling_method"
-    type: "string"
-    description: ""
-
-  - name: "repayment_schedule_edit_options"
-    type: "array"
-    description: ""
-    subattributes:
-      - name: "value"
-        type: "string"
-        description: ""
-
-  - name: "repayment_schedule_method"
-    type: "string"
-    description: ""
-
-  - name: "required_guaranty_percentage"
-    type: "string"
-    description: ""
-
-  - name: "rounding_repayment_schedule_method"
-    type: "string"
-    description: ""
-
-  - name: "schedule_due_dates_method"
-    type: "string"
-    description: ""
-
-  - name: "schedule_interest_days_count_method"
-    type: "string"
-    description: ""
-
-  - name: "settlement_options"
-    type: "string"
-    description: ""
-
-  - name: "taxes_on_fees_enabled"
-    type: "boolean"
-    description: ""
-
-  - name: "taxes_on_interest_enabled"
-    type: "boolean"
-    description: ""
-
-  - name: "taxes_on_penalty_enabled"
-    type: "boolean"
-    description: ""
 
   - name: "templates"
     type: "array"
@@ -622,4 +553,8 @@ attributes:
       - name: "type"
         type: "string"
         description: ""
+
+  - name: "withholding_tax_enabled"
+    type: "boolean"
+    description: ""
 ---

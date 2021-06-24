@@ -1,54 +1,49 @@
 ---
-tap: "mambu"
-version: "1"
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
 
-name: "loan_transactions"
+tap: "mambu"
+version: "2"
+key: "deposit-transaction"
+
+name: "deposit_transactions"
 doc-link: "https://api.mambu.com/?shell#welcome"
-singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/loan_transactions.json"
-description: "This table contains information about Loan Transactions."
+singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/deposit_transactions.json"
+description: |
+  This table contains information about deposit transactions.
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+api-method:
+  name: "Search deposit transactions (v2.0)"
+  doc-link: "https://api.mambu.com/?http#deposittransactions-search"
 
 replication-method: "Key-based Incremental"
 
-api-method:
-  name: "Get all loan transactions"
-  doc-link: "https://api.mambu.com/?http#loantransactions-getall"
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "encoded_key"
     type: "string"
     primary-key: true
-    description: "The unique encoded key of the loan transaction."
-    foreign-key-id: "loan-transaction-encoded-key"
-  
+    description: "The unique encoded key of the deposit transaction."
+#    foreign-key-id: "deposit-transaction-encoded-key"  
+
   - name: "creation_date"
     type: "date-time"
-    description: ""
+    description: "The date when the deposit transaction was created."
     replication-key: true
 
   - name: "account_balances"
     type: "object"
     description: ""
     subattributes:
-      - name: "advance_position"
-        type: "number"
-        description: ""
-
-      - name: "arrears_position"
-        type: "number"
-        description: ""
-
-      - name: "expected_principal_redraw"
-        type: "number"
-        description: ""
-
-      - name: "principal_balance"
-        type: "number"
-        description: ""
-
-      - name: "redraw_balance"
-        type: "number"
-        description: ""
-
       - name: "total_balance"
         type: "number"
         description: ""
@@ -108,48 +103,96 @@ attributes:
   - name: "branch_key"
     type: "string"
     description: ""
-    foreign-key-id: "branch-encoded-key"
+    foreign-key-id: "branch-key"
 
-  - name: "centre_key"
-    type: "string"
-    description: ""
-    foreign-key-id: "center-encoded-key"
-
-  - name: "custom_field_sets"
-    type: "array"
+  - name: "card_transaction"
+    type: "object"
     description: ""
     subattributes:
-      - name: "custom_field_set_id"
-        type: "string"
-        description: ""
-        foreign-key-id: "custom-field-set-id"
-
-      - name: "custom_field_values"
-        type: "array"
-        description: ""
-        subattributes:
-          - name: "custom_field_id"
-            type: "string"
-            description: ""
-            foreign-key-id: "custom-field-id"
-
-          - name: "custom_field_value"
-            type: "string"
-            description: ""
-
-  - name: "custom_payment_amounts"
-    type: "array"
-    description: ""
-    subattributes:
-      - name: "tax_on_amount"
-        type: "number"
+      - name: "advice"
+        type: "boolean"
         description: ""
 
       - name: "amount"
         type: "number"
         description: ""
 
-      - name: "custom_payment_amount_type"
+      - name: "card_acceptor"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "city"
+            type: "string"
+            description: ""
+
+          - name: "country"
+            type: "string"
+            description: ""
+
+          - name: "mcc"
+            type: "integer"
+            description: ""
+
+          - name: "name"
+            type: "string"
+            description: ""
+
+          - name: "state"
+            type: "string"
+            description: ""
+
+          - name: "zip"
+            type: "string"
+            description: ""
+
+      - name: "card_token"
+        type: "string"
+        description: ""
+
+      - name: "currency_code"
+        type: "string"
+        description: ""
+
+      - name: "encoded_key"
+        type: "string"
+        description: ""
+
+      - name: "external_authorization_reference_id"
+        type: "string"
+        description: ""
+
+      - name: "external_reference_id"
+        type: "string"
+        description: ""
+
+      - name: "user_transaction_time"
+        type: "string"
+        description: ""
+
+  - name: "centre_key"
+    type: "string"
+    description: ""
+    foreign-key-id: "centre-key"
+
+  - name: "currency_code"
+    type: "string"
+    description: ""
+
+  - name: "custom_fields"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "field_set_id"
+        type: "string"
+        foreign-key-id: "custom-field-set-id"
+        description: ""
+
+      - name: "id"
+        type: "string"
+        description: ""
+        foreign-key-id: "custom-field-id"
+
+      - name: "value"
         type: "string"
         description: ""
 
@@ -158,28 +201,8 @@ attributes:
     description: ""
 
   - name: "fees"
-    type: "array"
+    type: "null"
     description: ""
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "amount"
-        type: "number"
-        description: ""
-
-      - name: "trigger"
-        type: "string"
-        description: ""
-
-      - name: "tax_amount"
-        type: "number"
-        description: ""
-
-      - name: "predefined_fee_key"
-        type: "string"
-        description: ""
 
   - name: "id"
     type: "string"
@@ -188,21 +211,13 @@ attributes:
   - name: "linked_loan_transaction_key"
     type: "string"
     description: ""
-    foreign-key-id: "linked-loan-transaction-key"
+    foreign-key-id: "loan-transaction-key"
 
   - name: "migration_event_key"
     type: "string"
     description: ""
 
   - name: "notes"
-    type: "string"
-    description: ""
-
-  - name: "original_amount"
-    type: "number"
-    description: ""
-
-  - name: "original_currency_code"
     type: "string"
     description: ""
 
@@ -214,35 +229,10 @@ attributes:
     type: "string"
     description: ""
 
-  - name: "parent_loan_transaction_key"
-    type: "string"
-    description: ""
-    # foreign-key-id: "parent-loan-key"
-
   - name: "taxes"
     type: "object"
     description: ""
     subattributes:
-      - name: "deferred_tax_on_interest_amount"
-        type: "number"
-        description: ""
-
-      - name: "tax_interest_from_arrears_amount"
-        type: "number"
-        description: ""
-
-      - name: "tax_on_fees_amount"
-        type: "number"
-        description: ""
-
-      - name: "tax_on_interest_amount"
-        type: "number"
-        description: ""
-
-      - name: "tax_on_penalty_amount"
-        type: "number"
-        description: ""
-
       - name: "tax_rate"
         type: "number"
         description: ""
@@ -255,6 +245,14 @@ attributes:
         type: "object"
         description: ""
         subattributes:
+          - name: "interest_rate"
+            type: "number"
+            description: ""
+
+      - name: "overdraft_interest_settings"
+        type: "object"
+        description: ""
+        subattributes:
           - name: "index_interest_rate"
             type: "number"
             description: ""
@@ -263,13 +261,13 @@ attributes:
             type: "number"
             description: ""
 
-      - name: "principal_payment_amount"
-        type: "number"
+      - name: "overdraft_settings"
+        type: "object"
         description: ""
-
-      - name: "principal_payment_percentage"
-        type: "number"
-        description: ""
+        subattributes:
+          - name: "overdraft_limit"
+            type: "number"
+            description: ""
 
   - name: "till_key"
     type: "string"
@@ -294,11 +292,12 @@ attributes:
       - name: "linked_deposit_transaction_key"
         type: "string"
         description: ""
-        foreign-key-id: "linked-deposit-transaction-key"
+        foreign-key-id: "deposit-transaction-key"
 
       - name: "linked_loan_transaction_key"
         type: "string"
         description: ""
+        foreign-key-id: "loan-transaction-key"
 
   - name: "type"
     type: "string"
@@ -307,7 +306,7 @@ attributes:
   - name: "user_key"
     type: "string"
     description: ""
-    foreign-key-id: "user-encoded-key"
+    foreign-key-id: "user-key"
 
   - name: "value_date"
     type: "date-time"
