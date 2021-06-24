@@ -7,23 +7,6 @@
 
 ## Ex: Amazon S3 CSV, SFTP, etc.
 
-file-types: &file-types |
-  - CSV (`.csv`)
-  - Text (`.txt`)
-  - gzip (`.gz`)
-
-compression-types: &compression-types "None"
-
-delimiters: &delimiters |
-  - Comma (`,`)
-  - Tab (`/t`)
-  - Pipe (`|`)
-
-encodings: &encodings |
-  UTF-8
-
-
-
 attributes:
   - name: "First-row header"
     all: |
@@ -33,25 +16,36 @@ attributes:
 
       2. **Files with the same first-row header values, if including multiple files in a table.** Stitch's {{ integration.display_name }} integration allows you to map several files to a single destination table. Header row values are used to determine a table's schema. For the best results, each file should have the same header row values.
 
-         **Note**: This is not the same as configuring multiple tables. See the [Search pattern](#define-table-search-pattern-and-name) section for examples.
+         **Note**: This isn't the same as configuring multiple tables. See the [Search pattern](#define-table-search-pattern-and-name) section for examples.
+  
   - name: "File types"
-    all: |
+    amazon-s3-csv: |
+      - CSV (`.csv`)
+      - Text (`.txt`)
+      - JSONL (`.jsonl`)
+    
+    sftp: |
       - CSV (`.csv`)
       - Text (`.txt`)
 
   - name: "Compression types"
-    amazon-s3-csv: "None"
-    sftp: |
+    all: |
       These files must be correctly compressed or errors will surface during Extraction.
 
-      - gzip compressed files (`.gz`)
       - zip compressed archive (`.zip`)
+      - gzip compressed files (`.gz`)
+      
+        **Note**: `.tar.gz` files aren't currently supported.
 
   - name: "Delimiters"
-    all: *delimiters
+    all: |
+        - Comma (`,`)
+        - Tab (`/t`)
+        - Pipe (`|`)
 
   - name: "Character encoding"
-    all: *encodings
+    all: |
+      UTF-8
 
 
 # ------------------------------- #
