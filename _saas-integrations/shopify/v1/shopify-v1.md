@@ -68,10 +68,11 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      **Admin Access**. Only {{ integration.display_name }} admin accounts can export data.
+      **Admin access in {{ integration.display_name }}**. This is required to allow Stitch to replicate data.
 
-requirements-info: |
-  **If you're on a {{ integration.display_name }} Plus plan**, Store owners can give staff members permissions to export orders, draft orders, products, inventory, and customer data. Read the [{{ integration.display_name }} Staff permissions documentation](https://help.shopify.com/en/manual/your-account/staff-accounts/staff-permissions#store-owner-permissions){:target="new"} for more information.
+      **Note: If you're on a {{ integration.display_name }} Plus plan**, the permissions required may differ. Store owners can grant users permissions to export orders, draft orders, products, inventory, and customer data. In general, **view-level** permissions should be sufficient.
+      
+      Refer to the [{{ integration.display_name }} Staff permissions documentation](https://help.shopify.com/en/manual/your-account/staff-accounts/staff-permissions#store-owner-permissions){:target="new"} for more information.
   
 setup-steps:
   - title: "Add {{ integration.display_name }} as a Stitch data source"
@@ -79,6 +80,7 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Shopify Shop** field, enter the name of the shop you want to connect to Stitch. For example: If the shop URL was `stitch-data.shopify.com`, you'd enter `stitch-data` into this field. 
+
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
@@ -96,6 +98,7 @@ setup-steps:
       2. Click **Log in**.
       3. After the authorization process is successfully completed, you'll be directed back to Stitch.
       4. Click {{ app.buttons.finish-int-setup }}.
+
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |
