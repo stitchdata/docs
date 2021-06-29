@@ -181,7 +181,7 @@ attributes:
     description: ""
 
   - name: "cf_company_id"
-    type: "integer"
+    type: "integer, string"
     description: ""
 
   - name: "company"
