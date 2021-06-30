@@ -1,5 +1,5 @@
 ---
-title: "Yotpo (v1) update:"
+title: "Yotpo (v1) improvement: Error handling and messaging"
 content-type: "changelog-entry"
 date: 2021-06-17
 entry-type: improvement
