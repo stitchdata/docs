@@ -8,3 +8,4 @@ connection-id:
 connection-version: 
 # pull-request: ""
 ---
+{{ site.data.changelog.metadata.single-integration | flatify }}

@@ -650,7 +650,7 @@ attributes:
             type: "string"
             description: ""
           - name: "cf_company_id"
-            type: "integer"
+            type: "integer, string"
             description: ""
           - name: "company"
             type: "string"
