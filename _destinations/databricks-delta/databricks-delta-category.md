@@ -31,7 +31,7 @@ layout: general
 #     Destination Details    #
 # -------------------------- #
 
-display_name: "Databricks Delta"
+display_name: "Databricks Delta Lake (AWS)"
 type: "databricks-delta"
 
 this-version: "1"
