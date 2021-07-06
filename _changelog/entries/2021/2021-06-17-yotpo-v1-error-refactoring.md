@@ -14,7 +14,7 @@ We've made some updates to our {{ this-connection.display_name }} integration th
 
 - **Fixed a transform error with the `unsubscribers` table**. Previously, records without valid Primary Key values would result in a critical error that stopped extraction. Now, these records will be dropped and a message will display in the Extraction Logs. This allows Extraction to continue for records with valid Primary key values.
 
-- **Some errors now result in an automatic retry.**. Previously, if the integration received certain response codes from {{ this-connection.display_name }}'s API, Stitch would stop Extraction. The following response codes now trigger an exponential backoff and then automatic retry:
+- **Some errors now result in an automatic retry**. Previously, if the integration received certain response codes from {{ this-connection.display_name }}'s API, Stitch would stop Extraction. The following response codes now trigger an exponential backoff and then automatic retry:
 
    |**Response code** | **Message** |
    |-----------------:|-------------|
