@@ -52,7 +52,7 @@
 	</h2>
 
 	<!-- Get all the changelog entries, then group them by the variable assigned in the page.archive-type CASE statement. EX: `taxonomy-data = "entry-type"` -->
-	{% assign all-changelog-entries = site.changelog | where:"content-type","changelog-entry" %}
+	{% assign all-changelog-entries = site.changelog-files | where:"content-type","changelog-entry" %}
 		{% assign entries-by-taxonomy = all-changelog-entries | where_exp:"item","item[taxonomy-data] contains taxonomy-item.name" | sort:"date" | reverse %}
 
 	<!-- Get the number of entries for the taxonomy-item, and conditionally

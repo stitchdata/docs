@@ -42,8 +42,6 @@ exclude:
   - .gitignore
   - _templates
   - _drafts
-  - _changelog/entries
-  - _changelog/templates
 
 include: [_pages, _redirects]
 relative_permalinks: false
@@ -84,6 +82,8 @@ collections:
    output: true
   changelog:
    output: true
+  changelog-files:
+   output: false
   posts:
    output: false
   developer-content:
