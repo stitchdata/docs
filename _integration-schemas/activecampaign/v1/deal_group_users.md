@@ -1,0 +1,26 @@
+---
+tap: "activecampaign"
+version: "0.x"
+key: ""
+name: "deal_group_users"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/deal_group_users.json"
+description: ""
+replication-method: ""
+api-method:
+    name: ""
+    doc-link: ""
+attributes:
+  - name: "cdate"
+    type: "date-time"
+    description: ""
+  - name: "deal_group"
+    type: "integer"
+    description: ""
+  - name: "id"
+    type: "integer"
+    description: ""
+  - name: "user"
+    type: "integer"
+    description: ""
+---
