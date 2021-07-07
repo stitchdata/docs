@@ -164,7 +164,9 @@ sections:
         content: |
           Due to the inclusive nature of Replication Keys, there will be some duplication during the extraction process. This is because Stitch checks for values that are greater than **or equal to** the last saved maximum Replication Key value.
 
-          Because of this approach, the record or records with Replication Key values equal to the maximum value will be selected for extraction during subsequent jobs. Most of the time, the number of re-replicated rows will be small. If, however, a bulk update occurs and a large number of records all have the same Replication Key value, you could see a high amount of rows being replicated during every replication job until a greater Replication Key value is detected.
+          If Stitch were to only use **greater than** for a date-based Replication Key, it would only replicate your source's data captured between the day after the last replication up until the time your integration was scheduled to replicate. For example, if your Stitch integration was set to replicate every 24 hours at 12:01 AM, Stitch wouldn't replicate anymore data until 12:01 the next day - any data from your source captured after 12:01 AM that day would not be replicated. To avoid this problem, Stich checks for values **greater than OR equal to** the last saved maximum Replication Key value to ensure that all of your continuous data gets replicated.
+
+          Because of this approach, most of the time, the number of re-replicated rows will be small. If, however, a bulk update occurs and a large number of records all have the same Replication Key value, you could see a high amount of rows being replicated during every replication job until a greater Replication Key value is detected.
 
           #### Example {#extraction-duplication-example}
 
