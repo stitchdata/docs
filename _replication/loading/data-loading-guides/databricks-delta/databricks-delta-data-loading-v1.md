@@ -3,11 +3,11 @@
 #          PAGE INFO         #
 # -------------------------- #
 
-title: Databricks Delta (v1) Data Loading Reference
+title: Databricks Delta Lake on AWS (v1) Data Loading Reference
 permalink: /replication/loading/destination-guides/databricks-delta
 redirect_from: /replication/reference/databricks-delta
 keywords: databricks delta, databricks delta data warehouse, databricks data warehouse, databricks etl, etl to databricks
-summary: "Learn how Stitch will load data from your integrations into Stitch's Databricks Delta destination."
+summary: "Learn how Stitch will load data from your integrations into Stitch's Databricks Delta Lake on AWS destination."
 
 key: "databricks-delta-loading-reference"
 

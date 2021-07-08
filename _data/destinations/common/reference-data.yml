@@ -31,10 +31,10 @@ feature-comparisons:
       file: "stitch-details"
       default: &stitch-supported-region-list-default |
         <ul>
-        {% if destination-data[version]stitch-details %}
-        {% assign stitch-supported-regions = destination-data[version]stitch-details.stitch-supported-regions %}
+        {% if site.data.destinations[destination.type][version]stitch-details %}
+        {% assign stitch-supported-regions = site.data.destinations[destination.type][version]stitch-details.stitch-supported-regions %}
         {% else %}
-        {% assign stitch-supported-regions = destination-data.stitch-details.stitch-supported-regions %}
+        {% assign stitch-supported-regions = site.data.destinations[destination.type]stitch-details.stitch-supported-regions %}
         {% endif %}
         {% for region in stitch-supported-regions %}
         {% assign stitch-region = site.data.stitch.regions | where:"id",region.id | first %}
