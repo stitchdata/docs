@@ -6,7 +6,7 @@
 product-type: "connect"
 content-type: "api-form"
 form-type: "source"
-key: "source-form-properties-cloudsql-postgresql-object"
+key: "source-form-properties-hp-cloudsql-postgresql-object"
 
 
 # -------------------------- #
