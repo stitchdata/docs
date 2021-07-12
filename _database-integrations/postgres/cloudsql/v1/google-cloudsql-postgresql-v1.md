@@ -19,7 +19,6 @@ tap-name: "Postgres"
 repo-url: "https://github.com/singer-io/tap-postgres"
 
 this-version: "1"
-override-version-status: "released"
 
 hosting-type: "google-cloudsql"
 
@@ -39,7 +38,6 @@ db-type: "postgres"
 
 ## Stitch features
 api-type: "platform.cloudsql_pg"
-override-api-type: true
 
 versions: "9.3+"
 ssh: false
