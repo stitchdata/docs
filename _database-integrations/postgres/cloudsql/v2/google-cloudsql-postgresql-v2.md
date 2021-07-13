@@ -179,7 +179,7 @@ setup-steps:
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
       {% for substep in step.substeps %}
-      - [Step 4.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      - [Step 5.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
       {% endfor %}
 
     substeps:
@@ -192,6 +192,17 @@ setup-steps:
         anchor: "define-connection-details"
         content: |
           {% include shared/database-connection-settings.html type="general" %}
+
+      - title: "Define the SSL connection details"
+        anchor: "ssl-connection-details"
+        content: |
+          {% include shared/database-connection-settings.html type="ssl" %}
+
+          Addititionally, the instance shouldn't require SSL connections or you'll receive the following error in Stitch:
+
+          ```shell
+          {{ site.data.errors.extraction.databases[integration.db-type]raw-error.ssl-required-error | strip_newlines }}
+          ```
 
       - title: "Create a replication schedule"
         anchor: "create-replication-schedule"
