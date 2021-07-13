@@ -21,7 +21,6 @@ tap-name: "Postgres"
 repo-url: "https://github.com/singer-io/tap-postgres"
 
 this-version: "1"
-override-version-status: "released"
 
 driver: |
   [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}
