@@ -1,7 +1,7 @@
 ---
-title: Heroku (v1)
+title: Heroku (HP) (v2)
 keywords: heroku, heroku-postgres, database integration, etl heroku, heroku etl
-permalink: /integrations/databases/heroku/v1
+permalink: /integrations/databases/heroku/v2
 summary: "Connect and replicate data from your Heroku database using Stitch's Heroku integration."
 microsites:
   - title: "{{ page.display_name }} to Postgres"
@@ -18,12 +18,12 @@ display_name: "Heroku"
 
 singer: true
 tap-name: "Postgres"
-repo-url: "https://github.com/singer-io/tap-postgres"
+repo-url: "Not applicable"
 
-this-version: "1"
+this-version: "2"
 
 driver: |
-  [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}
+  [](){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -37,8 +37,7 @@ port: 5432
 db-type: "postgres"
 
 ## Stitch features
-api-type: "platform.heroku_pg"
-override-api-type: true
+api-type: "platform.hp-heroku-pg"
 
 versions: "9.3+"
 ssh: false

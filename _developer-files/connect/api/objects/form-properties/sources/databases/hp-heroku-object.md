@@ -6,31 +6,33 @@
 product-type: "connect"
 content-type: "api-form"
 form-type: "source"
-key: "source-form-properties-heroku-object"
+key: "source-form-properties-hp-heroku-object"
 
 
 # -------------------------- #
 #        OBJECT INFO         #
 # -------------------------- #
 
-title: "Heroku Source Form Property"
-api-type: "platform.heroku_pg"
-display-name: "Heroku"
+title: "Heroku (HP) Source Form Property"
+api-type: "platform.hp-heroku-pg"
+display-name: "Heroku (HP)"
 
 source-type: "database"
 docs-name: "heroku"
 db-type: "postgres"
 
-deprecated:
-  as-of: "July XX, 2021"
-  use-instead: "platform.hp-heroku-pg"
+property-description: |
+  {{ form-property.display-name }} PostgreSQL databases
+
+description: |
+  **Note**: This version of the {{ form-property.display-name }} source differs from the version used by the `platform.heroku_pg` form property. Refer to the [{{ form-property.display-name }} integration feature summary]({{ doc-link | append: "#feature-summary" }}) for more info.
+
 
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
 ## See these fields in _data/connect/common/database-sources.yml > all-databases
-## This object will also list the fields in the `mysql` list ^
 
 uses-common-fields: true
 uses-feature-fields: true
