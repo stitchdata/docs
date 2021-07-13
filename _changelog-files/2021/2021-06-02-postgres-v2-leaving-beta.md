@@ -24,4 +24,4 @@ Notable improvements and changes in this version also include:
 - **Arrays of `DECIMAL`, `NUMERIC`, and `TIMESTAMP(TZ)` data types**
 - **Support for other flavors of {{ this-connection.display_name }}**. We're in the process of testing this version of our integration with other flavors of {{ this-connection.display_name }}, including Heroku, Google CloudSQL, Amazon Aurora, and Amazon RDS.
 
-To get a look at how this version compares to the previous version of {{ this-connection.display_name }}, refer to the [{{ this-connection.display_name }} version comparison documentation]({{ postgres-overview.url | prepend: site.baseurl | append: "#supported-features" }}).
+To get a look at how this version compares to the previous version of {{ this-connection.display_name }}, refer to the [{{ this-connection.display_name }} version comparison documentation]({{ this-connection.url | prepend: site.baseurl | append: "#supported-features" }}).

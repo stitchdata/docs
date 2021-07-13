@@ -42,17 +42,29 @@ Your organization may require a different process, but the simplest way to creat
 7. If you want to replicate data from multiple databases or schemas, repeat steps 3 - 6 as needed.
 
 <!-- Just for RDS integrations -->
-{% if integration.name contains "rds" and integration.log-based-replication-master-instance == true %}
 
-{% capture rds-replication-role %}
-Additionally, if you want to use Log-based Incremental Replication, you'll also need to grant the `rds_replication` role to the Stitch user.
+{% if integration.name contains "rds" %}
+{% capture notice-content %}
+You'll also need to grant the `rds_replication` role to the Stitch user if you want to use Log-based Incremental Replication.
 
-**Note**: Granting this role requires that you have the `rds_superuser` role. Log into the database as a user with the `rds_superuser` role and run the following command:
+**Note**: Granting this role requires that your user have the `rds_superuser` role. Log into the database as a user with the `rds_superuser` role and run the following command:
 
 ```sql
 {{ postgres-setup.rds-grant-replication | strip }}
 ```
 {% endcapture %}
 
-{% include important.html first-line="**Using Log-based Incremental Replication**" content=rds-replication-role %}
+{% elsif integration.name contains "cloudsql" %}
+{% capture notice-content %}
+You'll also need to grant the `REPLICATION` privilege to the Stitch user if you want to use Log-based Incremental Replication:
+
+```sql
+{{ postgres-setup.cloudsql-grant-replication | strip }}
+```
+{% endcapture %}
+
+{% endif %}
+
+{% if integration.log-based-replication-master-instance == true %}
+{% include important.html first-line="**Using Log-based Incremental Replication**" content=notice-content %}
 {% endif %}

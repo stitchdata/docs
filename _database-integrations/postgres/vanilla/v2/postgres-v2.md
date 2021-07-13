@@ -111,7 +111,7 @@ feature-summary: |
   **Note**: The following features aren't fully supported, but are being worked on:
 
   - **Arrays of `DECIMAL`, `NUMERIC`, and `TIMESTAMP(TZ)` data types**
-  - **Support for other flavors of {{ integration.display_name }}**. We're in the process of testing this version of our integration with other flavors of {{ integration.display_name }}, including Heroku, Google CloudSQL, Amazon Aurora, and Amazon RDS.
+  - **Support for some flavors of {{ integration.display_name }}**. We're in the process of testing this version of our integration with other flavors of {{ integration.display_name }}, including Amazon Aurora and Amazon RDS.
 
   To get a look at how this version compares to the previous version of {{ integration.display_name }}, refer to the [{{ integration.display_name }} version comparison documentation]({{ postgres-overview.url | prepend: site.baseurl | append: "#supported-features" }}).
 
