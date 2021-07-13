@@ -21,9 +21,7 @@ source-type: "database"
 docs-name: "heroku"
 db-type: "postgres"
 
-deprecated:
-  as-of: "July XX, 2021"
-  use-instead: "platform.hp-heroku-pg"
+description: ""
 
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
