@@ -12,4 +12,4 @@ pull-request: "https://github.com/singer-io/tap-outreach/pull/13"
 
 A new field has been added to our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration!
 
-The new `name` field is now available for replication in the `events` table.
+The `name` field is now available for replication in the `events` table.
