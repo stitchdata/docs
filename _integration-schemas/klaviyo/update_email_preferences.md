@@ -1,26 +1,30 @@
 ---
 tap: "klaviyo"
 version: "1"
+key: "update-email-preferences"
 
 name: "update_email_preferences"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/update_email_preferences.json"
-description: ""
+description: |
+  The `{{ table.name }}` table contains metrics related to `Updated Email Preferences` events.
 
 replication-method: "Key-based Incremental"
 
-replication key: "since"
-
 api-method:
-    name: "API Metrics"
-    doc-link: "https://www.klaviyo.com/docs/api/metrics"
+  name: "Get metrics info"
+  doc-link: "https://www.klaviyo.com/docs/api/metrics"
 
 attributes:
   - name: "id"
     type: "string"
-    primary-key: true
-    description: "This is the update email ID."
-#    foreign-key-id: "update-email-id"
+    primay-key: true
+    description: "The update email preferences event ID."
+
+  - name: "timestamp"
+    type: "integer"
+    replication-key: true
+    description: ""
   
   - name: "datetime"
     type: "string"
@@ -56,11 +60,7 @@ attributes:
   - name: "statistic_id"
     type: "string"
     description: ""
-  
-  - name: "timestamp"
-    type: "integer"
-    description: ""
-  
+
   - name: "uuid"
     type: "string"
     description: ""
