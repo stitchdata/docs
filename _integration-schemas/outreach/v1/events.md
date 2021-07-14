@@ -44,6 +44,10 @@ attributes:
     description: ""
     foreign-key-id: "mailing-id"
 
+  - name: "name"
+    type: "string"
+    description: ""
+
   - name: "payload"
     type: "object"
     description: ""
