@@ -44,10 +44,22 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "component_handle"
+    type: "string"
+    description: ""
+
   - name: "component_id"
     type: "number"
     description: ""
     foreign-key-id: "component-id"
+
+  - name: "component_price_point_handle"
+    type: "integer"
+    description: ""
+
+  - name: "component_price_point_id"
+    type: "integer"
+    description: ""
 
   - name: "customer_id"
     type: "number"
@@ -91,6 +103,22 @@ attributes:
     type: "number"
     description: ""
     foreign-key-id: "transaction-id"
+
+  - name: "period_range_start"
+    type: "string"
+    description: ""
+
+  - name: "period_range_end"
+    type: "string"
+    description: ""
+
+  - name: "price_point_handle"
+    type: "string"
+    description: ""
+
+  - name: "price_point_id"
+    type: "integer"
+    description: ""
 
   - name: "product_id"
     type: "number"

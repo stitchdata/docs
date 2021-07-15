@@ -12,4 +12,4 @@ connection-version:
 
 New tables/fields have been added to our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration!
 
-Learn more in [our documentation]({{ this-connection.url | prepend: site.baseurl }}).
+Learn more in [our documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.baseurl }}).

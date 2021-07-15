@@ -53,7 +53,7 @@ extraction-logs: true
 loading-reports: true
 
 table-selection: true
-column-selection: false
+column-selection: true
 
 # -------------------------- #
 #      Setup Instructions    #
