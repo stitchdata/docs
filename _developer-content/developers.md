@@ -78,8 +78,8 @@ dev-categories:
         url: "{{ link.connect.guides.category | prepend: site.baseurl }}"
 
   - title: "Connect.js"
-    description: "In conjunction with the Connect API, send users to Stitch to complete data source configuration workflows with this JavaScript library."
-    plan: "enterprise"
+    description: "**This feature has been deprecated.** Send users to Stitch to complete data source configuration workflows with this JavaScript library."
+    plan: "deprecated"
     links:
       - name: "Installation"
         url: "{{ link.connect.js | prepend: site.baseurl }}#installation"
