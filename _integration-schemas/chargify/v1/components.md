@@ -35,6 +35,10 @@ attributes:
     description: ""
     foreign-key-id: "price-point-id"
 
+  - name: "default_price_point_name"
+    type: "string"
+    description: ""
+
   - name: "description"
     type: "string"
     description: ""
@@ -67,6 +71,40 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "prices"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "id"
+        type: "integer"
+        description: ""
+
+      - name: "component_id"
+        type: "integer"
+        description: ""
+        foreign-key-id: "component-id"
+
+      - name: "ending_quantity"
+        type: "integer"
+        description: ""
+
+      - name: "formatted_unit_price"
+        type: "string"
+        description: ""
+
+      - name: "price_point_id"
+        type: "integer"
+        description: ""
+        foreign-key-id: "price-point-id"
+
+      - name: "starting_quantity"
+        type: "integer"
+        description: ""
+
+      - name: "unit_price"
+        type: "string"
+        description: ""
+
   - name: "pricing_scheme"
     type: "string"
     description: ""
@@ -75,6 +113,10 @@ attributes:
     type: "number"
     description: ""
     foreign-key-id: "product-family-id"
+
+  - name: "product_family_name"
+    type: "string"
+    description: ""
 
   - name: "recurring"
     type: "boolean"
