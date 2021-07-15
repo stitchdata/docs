@@ -1,14 +1,14 @@
 ---
 tap: "facebook"
 version: "1"
-key: ""
+key: "ad-insight-hourly-advertiser"
 
 name: "ads_insights_hourly_advertiser"
 doc-link: "https://developers.facebook.com/docs/marketing-api/insights/fields/"
 singer-schema: "https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/ads_insights_hourly_advertiser.json"
 description: |
   The `ads_insights_hourly_advertiser` table contains entries for each campaign/set/ad combination for each day, along with detailed statistics, segmented by audience and advertiser time zones.
-  This table contains the same fields as the [`ads_insights`](#ads_insights) table, with the exception of `country`.
+  This table contains the same fields as the [`ads_insights`](#ads_insights) table, with the exception of `hourly_stats_aggregated_by_advertiser_time_zone`.
 
   **Note**: Data for deleted ads, adsets, and campaigns will not appear in this table even if the **Include data from deleted campaigns, ads, and adsets** option in the integration's settings is enabled.
 
