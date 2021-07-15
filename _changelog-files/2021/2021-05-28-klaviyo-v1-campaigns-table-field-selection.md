@@ -13,6 +13,6 @@ pull-request: "https://github.com/singer-io/tap-klaviyo/pull/40"
 We've made some updates to our {{ this-connection.display_name }} integration:
 
 - **Field selection is now supported!** Select only the fields you want to replicate in the **Tables to Replicate** tab.
-- ** New `campaigns` table**. This table contains info about the campaigns in your {{ this-connection.display_name }} account.
+- **New `campaigns` table**. This table contains info about the campaigns in your {{ this-connection.display_name }} account.
 
 Learn more in [our documentation]({{ this-connection.url | prepend: site.baseurl | prepend: site.baseurl }}).
