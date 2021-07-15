@@ -201,7 +201,7 @@ sections:
 
           {% capture code %}{
             "id": {{ page.token-id }},
-            "access_token": "<IMPORT_API_ACCESS_TOKEN>"
+            "access_token": "[IMPORT_API_ACCESS_TOKEN]"
           }
           {% endcapture %}
 
@@ -239,7 +239,7 @@ sections:
 
           {% capture code %}{
             "id": {{ page.new-token-id }},
-            "access_token": "<IMPORT_API_ACCESS_TOKEN>"
+            "access_token": "[IMPORT_API_ACCESS_TOKEN]"
           }
           {% endcapture %}
 

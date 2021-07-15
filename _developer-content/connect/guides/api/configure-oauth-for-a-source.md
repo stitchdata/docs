@@ -425,27 +425,26 @@ steps:
       Make a request to [{{ step.endpoint | flatify }}]({{ link.connect.api | append: site.data.connect.core-objects.sources.update.anchor | prepend: site.baseurl }}), replacing `{source_id}` with the ID of the source.
 
       The request body should contain a `properties` object with the required OAuth properties and their values:
+      
+      {% capture code %}'{
+         "properties":{
+            "client_id":"[GOOGLE_ANALYTICS_CLIENT_ID]",
+            "client_secret":"[GOOGLE_ANALYTICS_CLIENT_SECRET]",
+            "refresh_token": "[GOOGLE_ANALYTICS_CLIENT_REFRESH_TOKEN]",
+            "view_id": "143355753"
+         }
+      }'{% endcapture %}
 
       {% assign example-url = site.data.connect.core-objects.sources.update.name %}
       {% assign request-url = example-url | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines %}
 
       {% assign description = step.endpoint %}
-      {% capture code %}'{
-         "properties":{
-            "client_id":"<GOOGLE_ANALYTICS_CLIENT_ID>",
-            "client_secret":"<GOOGLE_ANALYTICS_CLIENT_SECRET>",
-            "refresh_token": "<GOOGLE_ANALYTICS_CLIENT_REFRESH_TOKEN>",
-            "view_id": "143355753"
-         }
-      }'
-      {% endcapture %}
 
       {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.put.with-body request-url=request-url code=code %}
 
       The response will be a [Source object]({{ link.connect.api | append: site.data.connect.core-objects.sources.object | flatify | prepend: site.baseurl }}). If provided, OAuth properties with an `is_credential: false` value will be included in the `properties` object. You can also check the OAuth property's `provided` value in the OAuth connection step (`steps.oauth`) property object:
 
-      {% capture code %}
-      {
+      {% capture code %}{
         "properties": {
           "cron_expression": null,
           "frequency_in_minutes": "60",

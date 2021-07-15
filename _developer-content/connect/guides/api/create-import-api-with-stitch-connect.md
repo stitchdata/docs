@@ -200,7 +200,7 @@ steps:
 
       {% capture code %}{
         "id": 828792559,
-        "access_token": "<IMPORT_API_ACCESS_TOKEN>"
+        "access_token": "[IMPORT_API_ACCESS_TOKEN]"
       }
       {% endcapture %}
 
