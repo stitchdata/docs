@@ -1,6 +1,6 @@
 ---
-title: Zendesk Chat (Zopim)
-permalink: /integrations/saas/zendesk-chat
+title: Zendesk Chat (v17-12-2017)
+permalink: /integrations/saas/zendesk-chat/v17-12-2017
 keywords: zopim, integration, schema, etl zopim, zopim etl, zopim schema, zendesk chat, zendesk
 summary: "Connection instructions and schema details for Stitch's Zendesk Chat integration."
 layout: singer
@@ -18,7 +18,7 @@ display_name: "Zendesk Chat"
 singer: false
 status-url: "https://status.zendesk.com/"
 
-this-version: "1"
+this-version: "17-12-2017"
 
 api: |
   [{{ integration.display_name }} API](https://developer.zendesk.com/rest_api/docs/chat/introduction){:target="new"}
