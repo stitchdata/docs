@@ -22,6 +22,12 @@ full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.sessions.create.short }}"
 description: |
+  {% capture deprecation-notice %}
+  Stitch.js, which uses this endpoint, has been deprecated and may stop functioning at a future date. If you're currently using Stitch.js, you should begin transitioning to the Connect API. [Learn more]({{ link.changelog.main | prepend: site.baseurl | append: "#2021-07-14-stitch-connect-javascript-stitch-js-deprecation" }}).
+  {% endcapture %}
+
+  {% include important.html type="single-line" content=deprecation-notice %}
+
   {{ api.core-objects.sessions.create.description | flatify }}
 
 
