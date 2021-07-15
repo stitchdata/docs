@@ -148,6 +148,10 @@ attributes:
       - `web` - The product is published to the Online Store channel but not published to the Point of Sale channel.
       - `global` - The product is published to both the Online Store channel and the Point of Sale channel.
 
+  - name: "status"
+    type: "string"
+    description: "The product's status."
+
   - name: "tags"
     type: "string"
     description: "The tags associated with the product."
