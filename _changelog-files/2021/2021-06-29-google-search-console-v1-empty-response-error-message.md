@@ -12,4 +12,7 @@ pull-request: "https://github.com/singer-io/tap-google-search-console/pull/21"
 
 To improve the experience of our {{ this-connection.display_name }} integration, we've changed how we handle empty response errors.
 
-Instead of bypassing the error with no explanation, we will now raise an error exception. We will display the following message when the error occurs: `HTTP-error-code: 400, Error: The request is missing or has a bad parameter.`
+Instead of bypassing the error without an explanation, the integration will now raise an error and display it in the Extraction Logs:
+
+```shell
+HTTP-error-code: 400, Error: The request is missing or has a bad parameter.
