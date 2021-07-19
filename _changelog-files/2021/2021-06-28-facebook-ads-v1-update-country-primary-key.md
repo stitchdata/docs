@@ -12,7 +12,7 @@ pull-request: "https://github.com/singer-io/tap-facebook/pull/154"
 
 We've fixed the `ads_insights_country` composite primary key. The `country` field had previously been erroneously excluded.
 
-The composite primary key is now: `campaign_id", "adset_id", "ad_id", "date_start", "country"`.
+The composite primary key is now: `campaign_id : adset_id : ad_id : date_start : country`
 
 This is a breaking change and communiation from Stitch support has been emailed to affected users.
 
