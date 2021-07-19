@@ -16,3 +16,4 @@ Instead of bypassing the error without an explanation, the integration will now 
 
 ```shell
 HTTP-error-code: 400, Error: The request is missing or has a bad parameter.
+```
