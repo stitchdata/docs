@@ -6,7 +6,7 @@ summary: "An integration's Extractions tab provides detail about the extraction 
 
 layout: general
 
-content-type: ""
+content-type: "extractions-category"
 toc: true
 weight: 1
 

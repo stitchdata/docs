@@ -2,10 +2,11 @@
 title: Key-based Incremental Replication
 permalink: /replication/replication-methods/key-based-incremental
 keywords: replicate, replication, replication method, stitch replicates data
-tags: [replication]
 layout: general
 
 content-type: "replication-methods"
+key: "key-based-incremental"
+
 toc: true
 weight: 3
 

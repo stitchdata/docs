@@ -9,6 +9,8 @@ layout: changelog
 content-type: "changelog-entry-list"
 connection-type: "integration"
 
+key: "google-analytics-integration-changelog"
+
 name: "google-analytics"
 display_name: "Google Analytics"
 ---

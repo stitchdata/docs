@@ -11,7 +11,7 @@ layout: general
 toc: false
 feedback: false
 
-key: "troubleshooting"
+key: "troubleshooting-category"
 
 level: "category"
 

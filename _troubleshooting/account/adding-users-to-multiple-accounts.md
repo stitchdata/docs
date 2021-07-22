@@ -2,8 +2,9 @@
 title: Adding Team Members to Multiple Accounts
 keywords: troubleshooting, trouble, issue, help, can't login, account lockout, password reset, can't sign in
 permalink: /troubleshooting/account/adding-users-to-multiple-accounts
-tags: [account]
 summary: "While Stitch currently allows a single email address to be associated with one account, there is a simple workaround."
+
+key: "add-users-multiple-accounts"
 
 type: "account"
 promote: "true"

@@ -5,6 +5,8 @@ permalink: /troubleshooting/stale-salesforce-data-formula-fields
 
 summary: "If you've noticed some out-of-date Salesforce data in your data warehouse, the root cause may be a formula field. "
 type: "discrepancy, saas-integration, replication"
+
+key: "salesforce-stale-data"
 ---
 {% include misc/data-files.html %}
 

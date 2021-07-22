@@ -2,10 +2,11 @@
 title: Replicating Database Views
 permalink: /replication/replicating-database-views
 keywords: replicate, replication, replicate views, view, database view, replicate database view
-tags: [replication]
 layout: general
 
 content-type: "select-data"
+key: "replicate-db-views"
+
 toc: true
 weight: 3
 

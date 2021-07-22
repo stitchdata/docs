@@ -5,6 +5,7 @@ redirect_from: /integrations/saas/sparkpost
 keywords: sparkpost, integration, schema, etl sparkpost, sparkpost etl, sparkpost schema, stitch webhooks
 summary: "Connect your SparkPost data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
+key: "sparkpost-setup"
 
 # -------------------------- #
 #     Integration Details    #

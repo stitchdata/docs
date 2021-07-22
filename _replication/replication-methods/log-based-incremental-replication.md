@@ -2,10 +2,11 @@
 title: Log-based Incremental Replication
 permalink: /replication/replication-methods/log-based-incremental
 keywords: replicate, replication, replication method, stitch replicates data, change data capture, logical replication, log replication, binary replication, binary database replication
-tags: [replication]
 layout: general
 
 content-type: "replication-methods"
+key: "log-based-incremental"
+
 toc: true
 weight: 4
 

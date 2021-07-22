@@ -16,5 +16,7 @@ content-id: "connect-guides-category"
 sidebar: overview
 layout: developer
 
+key: "connect-guides"
+
 summary: "Tutorials and reference guides for using Stitch Connect."
 ---

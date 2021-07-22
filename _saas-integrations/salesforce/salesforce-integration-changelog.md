@@ -9,6 +9,8 @@ layout: changelog
 content-type: "changelog-entry-list"
 connection-type: "integration"
 
+key: "salesforce-integration-changelog"
+
 name: "salesforce"
 display_name: "Salesforce"
 ---

@@ -2,10 +2,11 @@
 title: Deleted Record Handling
 permalink: /replication/deleted-record-handling
 keywords: deletes, delete, hard delete, soft delete, deletion
-tags: [replication]
 layout: general
 
 content-type: "replication-methods"
+key: "deleted-records"
+
 toc: true
 weight: 5
 

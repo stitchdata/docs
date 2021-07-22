@@ -9,6 +9,8 @@ layout: changelog
 content-type: "changelog-entry-list"
 connection-type: "integration"
 
+key: "mongodb-integration-changelog"
+
 name: "mongodb"
 display_name: "MongoDB"
 ---

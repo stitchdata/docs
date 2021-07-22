@@ -7,6 +7,8 @@ summary: "Manage your company's info and team members on the Account Settings pa
 layout: general
 toc: true
 
+key: "account-settings"
+
 type: "account-settings"
 weight: 3
 

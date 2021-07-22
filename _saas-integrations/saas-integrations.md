@@ -10,6 +10,7 @@ input: false
 feedback: false
 
 content-type: "category"
+key: "saas-integrations-category"
 
 sections:
   - content: |

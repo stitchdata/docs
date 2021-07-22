@@ -3,7 +3,10 @@ title: Database Integration Table Name Collisons
 keywords: troubleshooting, trouble, issue, help, data discrepancy, discrepancies,
 permalink: /troubleshooting/data-discrepancies/database-integration-table-name-collisions
 
-summary: "In database integrations, if the names of multiple tables canonicalize to the same name - even if they're from different source databses or schemas - name collisions and data discrepancies can occur. This applies to any database integration available in Stitch."
+summary: "In database integrations, if the names of multiple tables canonicalize to the same name - even if they're from different source databases or schemas - name collisions and data discrepancies can occur. This applies to any database integration available in Stitch."
+
+key: "database-table-name-collisions"
+
 type: "discrepancy, database-integration, replication"
 promote: "false"
 ---

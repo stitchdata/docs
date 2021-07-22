@@ -9,6 +9,8 @@ toc: false
 type: "discrepancy, database-integration, replication"
 promote: "false"
 
+key: "postgresql-read-replicas-slow"
+
 intro: |
   {% assign all-databases = site.database-integrations | where:"input",true %}
   {% assign postgresql-databases = all-databases | where:"db-type","postgres" | sort: title %}

@@ -15,5 +15,7 @@ content-id: "import-api-guides-category"
 sidebar: overview
 layout: developer
 
+key: "import-api-guides"
+
 summary: "Tutorials and reference guides for using the Stitch Import API."
 ---
