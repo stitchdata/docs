@@ -9,6 +9,8 @@ content-type: "start-stop-extraction"
 toc: true
 weight: 3
 
+key: "start-stop-replication"
+
 intro: |
   {% include note.html first-line="**Feature availability**" content="This feature is available only for integrations powered by Singer taps. As integrations are converted to the Singer system, this feature will be made available." %}
 

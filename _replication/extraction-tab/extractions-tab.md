@@ -10,6 +10,8 @@ content-type: "extractions-category"
 toc: true
 weight: 1
 
+key: "extractions"
+
 sections:
   - content: |
       The first phase of every Stitch replication job is called **Extraction**. During Extraction, Stitch completes the following: 

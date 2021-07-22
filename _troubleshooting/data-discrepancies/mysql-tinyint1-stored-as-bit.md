@@ -5,6 +5,8 @@ permalink: /troubleshooting/mysql-tinyint1-stored-as-bit
 
 summary: "If you've noticed that some MySQL `TINYINT(1)` columns are displaying as `BIT` in Stitch, it's usually due to how the MySQL driver converts this data type."
 type: "discrepancy, database-integration, replication"
+
+key: "mysql-tinyint-discrepancy"
 ---
 
 In MySQL, `TINYINT(1)` and boolean are synonymous. Because of this, the MySQL driver implicitly converts the `TINYINT(1)` fields to boolean if the the Java `tinyInt1isBit` configuration property is set to `true` (which is the default) and the storage size is 1. Stitch then interprets these columns as `BIT(1)/boolean`.
