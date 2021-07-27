@@ -1,5 +1,5 @@
 ---
-title: "Chargebee (v1) update: restrictive properties removed"
+title: "Chargebee (v1) update: Restrictive properties removed"
 content-type: "changelog-entry"
 date: 2021-06-30
 entry-type: updated-feature

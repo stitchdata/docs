@@ -16,12 +16,12 @@ The composite primary key is now: `campaign_id : adset_id : ad_id : date_start :
 
 This is a breaking change and communiation from Stitch support has been emailed to affected users.
 
-If you are not already including the `country` field in downstream processes that identify uniqueness of records in the files loaded to S3 for this table, this field will need to be added into those processes.
+If you are not already including the `country` field in downstream processes that identify uniqueness of records in the files loaded for this table, this field will need to be added into those processes.
 
-You may also wish to reset this table to have historical data re-replicated and more accurately portrayed in S3, in which case you should:
+You may also wish to reset this table to have historical data re-replicated and more accurately portrayed, in which case you should:
 
-  1. Contact our support team to implement a courtesy row-usage exemption for your Facebook Ads integration.
-  2. Within Stitch, navigate to the ads_insights_country table's Table Settings page.
-  3. Use the Reset Table button to queue this table's reset.
+  1. Contact our support team to implement a courtesy row-usage exemption for your {{ this-connection.display_name }} integration.
+  2. Within Stitch, navigate to the `ads_insights_country` table's **Table Settings** page.
+  3. Use the **Reset Table** button to queue this table's reset.
 
 If you have any questions about the change or this process, please reach out to Stitch support via in-app chat.
