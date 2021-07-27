@@ -7,13 +7,14 @@
 ## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-setup/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
-title: Connecting a DESTINATION-NAME Data Warehouse to Stitch
+title: Connecting a DESTINATION-NAME Destination to Stitch
 permalink: /destinations/destination-type/connecting-destination-type-to-stitch
 
 keywords: destination-type, destination-type data warehouse, destination-type data warehouse, destination-type etl, etl to destination-type, destination-type destination
 summary: "Connect a DESTINATION-NAME destination to your Stitch account."
 
 content-type: "destination-setup"
+key: "[destination]-destination-setup"
 order: 1
 
 toc: true
@@ -28,7 +29,13 @@ use-tutorial-sidebar: false
 type: "destination-type"
 display_name: "DESTINATION-NAME"
 
+ssh: true/false
+ssl: true/false
+# port: ## Remove if not needed
+
 hosting-type: "" # amazon, generic, microsoft, etc.
+
+api-type: ""
 
 this-version: ""
 
@@ -59,18 +66,26 @@ steps:
     anchor: ""
     content: ""
 
+## The Data pipeline region step is necessary ONLY
+## if the user needs to whitelist Stitch's IP addresses
+## for setup.
+
+  - title: "Verify your Stitch account's data pipeline region"
+    anchor: "verify-stitch-account-region"
+    content: |
+      {% include shared/whitelisting-ips/locate-region-ip-addresses.html first-step=true %}
+
+## The database connection settings step is necessary ONLY
+## if the user needs to whitelist Stitch's IP addresses
+## for setup.
   - title: "Configure database connection settings"
     anchor: "connect-settings"
     content: |
-      > REMOVE IF NOT NEEDED:
-
       {% include integrations/templates/configure-connection-settings.html %}
 
   - title: "Create a Stitch {{ destination.display_name }} database user"
     anchor: "create-database-user"
     content: |
-      > REMOVE IF NOT NEEDED:
-
       {% include note.html type="single-line" content="**Note**: You must have superuser privileges or the ability to create a user and grant privileges to complete this step." %}
 
       In the following tabs are the instructions for creating a Stitch {{ destination.display_name }} database user and explanations for the permissions Stitch requires.
@@ -93,10 +108,19 @@ steps:
         content: |
           {% include shared/database-connection-settings.html type="general" %}
 
+## The SSH step should remain ONLY if the destination
+## supports SSH.
       - title: "Define SSH connection details"
         anchor: "define-ssh-connection-details"
         content: |
           {% include shared/database-connection-settings.html type="ssh" %}
+
+## The SSL step should remain ONLY if the destination
+## supports SSL.
+      - title: "Define SSL connection details"
+        anchor: "define-ssl-connection-details"
+        content: |
+          {% include shared/database-connection-settings.html type="ssl" ssl-fields=true %}
 
       - title: "Save the destination"
         anchor: "save-destination"
