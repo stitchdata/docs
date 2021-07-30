@@ -75,7 +75,7 @@ sections:
           1. Login to your Stitch account.
           2. Click **Destinations** in the top navigation.
           3. Select the destination you would like to edit.
-          7. Make the edits you want to make. Currently you can edit the name & description. All other available edits are specific to the data warehouse you have.
+          4. Make the edits you want to make. Currently you can edit the name & description. All other available edits are specific to the data warehouse you have.
           5. Save your changes.
           
 
@@ -83,14 +83,19 @@ sections:
     anchor: "mapping-to-destinations"
     summary: "The data transformations Stitch performs"
     content: |
-      Mapping destinations through Stitch is simple
+      In this section you will learn how to map your data sources in Stitch to your destinations.
       
 
     subsections:
       - title: "Mapping through the Stitch app"
         anchor: "mapping-integrations-app"
         content: |
-         To map a source to a destination through the Stitch app is a very simple process. Within your setup page, you will be able to select which
+          To map a source to a destination through the Stitch app is a very simple process. Within your setup page, you will be able to select which destination you would like to map your intgration to.
+
+          1. Login to your Stitch account.
+          2. Click **Integrations** in the top navigation.
+          3. Select the integration you would like to map to your destinations.
+          4. In the **Target Destination** section, select your destinations. If you don't want to map to a destination, select **No Destination**.
 
       - title: "Mapping through the Stitch Connect API"
         anchor: "mapping-connect-api"
