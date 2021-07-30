@@ -4,25 +4,36 @@ version: "1"
 key: "chat"
 
 name: "chats"
-doc-link: ""
+doc-link: "https://developer.zendesk.com/api-reference/live-chat/chat-api/chats/"
 singer-schema: "https://github.com/singer-io/tap-zendesk-chat/blob/master/tap_zendesk_chat/schemas/chats.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about the chats within your {{ integration.display_name }} account.
 
-replication-method: ""
+replication-method: "Key-based Incremental"
 
 api-method:
-  name: ""
-  doc-link: ""
+  name: "get Chats"
+  doc-link: "https://developer.zendesk.com/api-reference/live-chat/chat-api/chats/"
 
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The chat ID."
+    #foreign-key-id: "chat-id"
+
+  - name: "timestamp"
+    type: "date-time"
+    description: "The time the chat was created."
+    replication-key: true
+
   - name: "agent_ids"
     type: "array"
     description: ""
     subattributes:
       - name: "value"
         type: "string"
-        description: ""
+        description: "The agent IDs."
 
   - name: "agent_names"
     type: "array"
@@ -46,7 +57,8 @@ attributes:
         subattributes:
           - name: "agent_id"
             type: "integer"
-            description: ""
+            description: "The agent ID."
+            foreign-key-id: "agent-id"
 
           - name: "agent_name"
             type: "string"
@@ -58,7 +70,7 @@ attributes:
 
           - name: "department_id"
             type: "integer"
-            description: ""
+            description: "The department ID."
 
           - name: "department_name"
             type: "string"
@@ -66,7 +78,8 @@ attributes:
 
       - name: "goal_id"
         type: "integer"
-        description: ""
+        description: "The goal ID."
+        foreign-key-id: "goal-id"
 
       - name: "goal_name"
         type: "string"
@@ -98,7 +111,8 @@ attributes:
 
   - name: "department_id"
     type: "integer"
-    description: ""
+    description: "The department ID."
+    foreign-key-id: "department-id"
 
   - name: "department_name"
     type: "string"
@@ -130,7 +144,8 @@ attributes:
             subattributes:
               - name: "agent_id"
                 type: "integer"
-                description: ""
+                description: "The agent ID."
+                foreign-key-id: "agent-id"
 
               - name: "agent_name"
                 type: "string"
@@ -142,7 +157,8 @@ attributes:
 
               - name: "department_id"
                 type: "integer"
-                description: ""
+                description: "The department ID."
+                foreign-key-id: "department-id"
 
               - name: "department_name"
                 type: "string"
@@ -150,7 +166,8 @@ attributes:
 
           - name: "goal_id"
             type: "integer"
-            description: ""
+            description: "The goal ID."
+            foreign-key-id: "goal-id"
 
           - name: "goal_name"
             type: "string"
@@ -166,7 +183,8 @@ attributes:
 
       - name: "department_id"
         type: "integer, string"
-        description: ""
+        description: "The department ID"
+        foreign-key-id: "department-id"
 
       - name: "department_name"
         type: "string"
@@ -206,7 +224,8 @@ attributes:
 
       - name: "prev_department_id"
         type: "integer, string"
-        description: ""
+        description: "The previous department ID."
+        foreign-key-id: "department-id"
 
       - name: "rating"
         type: "string"
@@ -235,10 +254,6 @@ attributes:
       - name: "type"
         type: "string"
         description: ""
-
-  - name: "id"
-    type: "string"
-    description: ""
 
   - name: "message"
     type: "string"
@@ -291,10 +306,6 @@ attributes:
       - name: "value"
         type: "string"
         description: ""
-
-  - name: "timestamp"
-    type: "date-time"
-    description: ""
 
   - name: "triggered"
     type: "boolean"

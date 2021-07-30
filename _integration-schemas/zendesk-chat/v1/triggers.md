@@ -4,18 +4,24 @@ version: "1"
 key: "trigger"
 
 name: "triggers"
-doc-link: ""
+doc-link: "https://developer.zendesk.com/api-reference/live-chat/chat-api/triggers/"
 singer-schema: "https://github.com/singer-io/tap-zendesk-chat/blob/master/tap_zendesk_chat/schemas/triggers.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about triggers within your {{ integration.display_name }} account.
 
-replication-method: ""
+replication-method: "Full Table"
 
 api-method:
-  name: ""
-  doc-link: ""
+  name: "get Triggers"
+  doc-link: "https://developer.zendesk.com/api-reference/live-chat/chat-api/triggers/"
 
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The trigger ID."
+    #foreign-key-id: "trigger-id"
+
   - name: "definition"
     type: "object"
     description: ""
@@ -42,10 +48,6 @@ attributes:
 
   - name: "enabled"
     type: "boolean"
-    description: ""
-
-  - name: "id"
-    type: "integer"
     description: ""
 
   - name: "name"

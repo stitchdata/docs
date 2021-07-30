@@ -4,18 +4,24 @@ version: "1"
 key: "agent"
 
 name: "agents"
-doc-link: ""
+doc-link: "https://developer.zendesk.com/api-reference/live-chat/chat-api/agents/"
 singer-schema: "https://github.com/singer-io/tap-zendesk-chat/blob/master/tap_zendesk_chat/schemas/agents.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about agents within your {{ integration.display_name }} account.
 
-replication-method: ""
+replication-method: "Full Table"
 
 api-method:
-  name: ""
-  doc-link: ""
+  name: "get Agents"
+  doc-link: "https://developer.zendesk.com/api-reference/live-chat/chat-api/agents/"
 
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The agent ID."
+    foreign-key-id: "agent-id"
+
   - name: "create_date"
     type: "date-time"
     description: ""
@@ -26,7 +32,8 @@ attributes:
     subattributes:
       - name: "value"
         type: "integer"
-        description: ""
+        description: "The department ID."
+        foreign-key-id: "department-id"
 
   - name: "display_name"
     type: "string"
@@ -50,10 +57,6 @@ attributes:
 
   - name: "first_name"
     type: "string"
-    description: ""
-
-  - name: "id"
-    type: "integer"
     description: ""
 
   - name: "last_login"

@@ -4,22 +4,23 @@ version: "1"
 key: "account"
 
 name: "account"
-doc-link: ""
+doc-link: "https://developer.zendesk.com/api-reference/live-chat/chat-api/accounts/"
 singer-schema: "https://github.com/singer-io/tap-zendesk-chat/blob/master/tap_zendesk_chat/schemas/account.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about accounts within your {{ integration.display_name }} account.
 
-replication-method: ""
+replication-method: "Full Table"
 
 api-method:
-  name: ""
-  doc-link: ""
+  name: "get Accounts"
+  doc-link: "https://developer.zendesk.com/api-reference/live-chat/chat-api/accounts/"
 
 attributes:
   - name: "account_key"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The {{ integration.display_name }} account key."
+    #foreign-key-id: "account-id"
 
   - name: "billing"
     type: "object"
@@ -108,6 +109,7 @@ attributes:
       - name: "goals"
         type: "integer"
         description: ""
+        foreign-key-id: "goal-id"
 
       - name: "high_load"
         type: "boolean"

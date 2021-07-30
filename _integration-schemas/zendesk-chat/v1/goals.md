@@ -4,18 +4,23 @@ version: "1"
 key: "goal"
 
 name: "goals"
-doc-link: ""
+doc-link: "https://developer.zendesk.com/api-reference/live-chat/chat-api/goals/"
 singer-schema: "https://github.com/singer-io/tap-zendesk-chat/blob/master/tap_zendesk_chat/schemas/goals.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about URL-based goals set within your {{ integration.display_name }} account.
 
-replication-method: ""
+replication-method: "Full Table"
 
 api-method:
-  name: ""
-  doc-link: ""
+  name: "get Goals"
+  doc-link: "https://developer.zendesk.com/api-reference/live-chat/chat-api/goals/"
 
 attributes:
+  - name: "id"
+    type: "integer"
+    description: "The goal ID."
+    foreign-key-id: "goal-id"
+
   - name: "attribution_model"
     type: "string"
     description: ""
@@ -30,10 +35,6 @@ attributes:
 
   - name: "enabled"
     type: "boolean"
-    description: ""
-
-  - name: "id"
-    type: "integer"
     description: ""
 
   - name: "name"

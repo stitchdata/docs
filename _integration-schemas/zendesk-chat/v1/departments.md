@@ -4,28 +4,30 @@ version: "1"
 key: "department"
 
 name: "departments"
-doc-link: ""
+doc-link: "https://developer.zendesk.com/api-reference/live-chat/chat-api/departments/"
 singer-schema: "https://github.com/singer-io/tap-zendesk-chat/blob/master/tap_zendesk_chat/schemas/departments.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about departments within your {{ integration.display_name }} account.
 
-replication-method: ""
+replication-method: "Full Table"
 
 api-method:
-  name: ""
-  doc-link: ""
+  name: "get Departments"
+  doc-link: "https://developer.zendesk.com/api-reference/live-chat/chat-api/departments/"
 
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The department ID."
+    foreign-key-id: "department-id"
+
   - name: "description"
     type: "string"
     description: ""
 
   - name: "enabled"
     type: "boolean"
-    description: ""
-
-  - name: "id"
-    type: "integer"
     description: ""
 
   - name: "members"

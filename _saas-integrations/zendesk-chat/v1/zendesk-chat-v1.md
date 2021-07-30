@@ -17,10 +17,12 @@ display_name: "Zendesk Chat"
 singer: true
 status-url: "https://status.zendesk.com/"
 
+api-type: "platform.zendesk-chat"
+
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} API](https://developer.zendesk.com/rest_api/docs/chat/introduction){:target="new"}
+  [{{ integration.display_name }} API](https://developer.zendesk.com/api-reference/live-chat/introduction){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -35,11 +37,9 @@ tier: "Standard"
 anchor-scheduling: false
 cron-scheduling: false
 
-table-selection: false
-column-selection: false
-select-all: false
-select-all-reason: |
-  As this integration doesn't support table or column selection, all available tables and columns are automatically replicated.
+table-selection: true
+column-selection: true
+select-all: true
 
 extraction-logs: true
 loading-reports: true
@@ -59,18 +59,19 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      **Owner permissions in {{ integration.display_name }}**. The user who authorizes the integration must have [Owner permissions in {{ integration.display_name }}](https://chat.zendesk.com/hc/en-us/articles/212679597-Understanding-and-managing-roles-in-Zendesk-Chat){:target="_blank"}. Otherwise, Stitch will encounter authentication issues and be unable to replicate data.
+      **Owner permissions in {{ integration.display_name }}**. The user who authorizes the integration must have [Owner permissions in {{ integration.display_name }}](https://support.zendesk.com/hc/en-us/articles/360022182234){:target="_blank"}. Otherwise, Stitch will encounter authentication issues and be unable to replicate data.
 
   - item: |
       **An Advanced or Premium {{ integration.display_name }} account.** Zendesk only allows customers on their Advanced or Paid {{ integration.display_name }} plans to utilize the Rest API, which is what Stitch uses to connect to your {{ integration.display_name }} account and replicate data.
 
-        If your {{ integration.display_name }} account is on Lite or Basic, you will need to upgrade your {{ integration.display_name }} plan. [More info on {{ integration.display_name }} plans can be found on Zendesk's website](https://www.zendesk.com/chat/compare/#compare){:target="_blank"}.
+        If your {{ integration.display_name }} account is on Lite or Basic, you will need to upgrade your {{ integration.display_name }} plan. [More info on {{ integration.display_name }} plans can be found on Zendesk's website](https://www.zendesk.com/pricing/#everyone){:target="_blank"}.
 
 setup-steps:
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
+      4. In the **Zendesk Subdomain** field, enter the only the subdomain of your Zendesk site. For example, the subdomain of `stitchdata.zendesk.com` would be `stitchdata`.
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
