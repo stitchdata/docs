@@ -13,7 +13,7 @@
 # -------------------------- #
 
 title: Connecting a Microsoft SQL Server Destination to Stitch
-permalink: /destinations/microsoft-sql-server/connecting-microsoft-sql-server-to-stitch
+permalink: /destinations/microsoft-sql-server/connecting-a-microsoft-sql-server-destination-to-stitch
 
 keywords: microsoft-sql-server, microsoft-sql-server data warehouse, microsoft-sql-server data warehouse, microsoft-sql-server etl, etl to microsoft-sql-server, microsoft-sql-server destination
 summary: "Connect a Microsoft SQL Server destination to your Stitch account."
