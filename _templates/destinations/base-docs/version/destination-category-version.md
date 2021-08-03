@@ -12,15 +12,15 @@
 #        Page Controls       #
 # -------------------------- #
 
-title: "[DESTINATION] Destination (v[version]) Documentation"
+title: "[DESTINATION-NAME] Destination (v[version]) Documentation"
 permalink: /destinations/[destination]/v[version]
 
 keywords: ""
-summary: "Documentation for Stitch's [DESTINATION] (v[version]) destination."
+summary: "Documentation for Stitch's [DESTINATION-NAME] (v[version]) destination."
 
 destination: true
 content-type: "destination-category"
-key: "[destination]-category"
+key: "[destination-type]-category"
 
 order: 1
 
@@ -32,8 +32,8 @@ layout: general
 #     Destination Details    #
 # -------------------------- #
 
-display_name: "[DESTINATION]"
-type: "[destination]"
+display_name: "[DESTINATION-NAME]"
+type: "[destination-type]"
 
 this-version: "[version]"
 
@@ -60,7 +60,6 @@ sections:
     anchor: "using-destination"
     guides:
       - key: "de-nesting-json"
-      - key: "redshift-encodings"
     content: |
       {% for guide in section.guides %}
       {% assign this-guide = site.documents | where:"key",guide.key | first %}
@@ -88,7 +87,7 @@ sections:
     anchor: "reference-guides"
     guides:
       - key: "dedicated-overview"
-      - key: "[destination]-loading-reference"
+      - key: "[destination-type]-loading-reference"
       - key: "source-destination-compatibility"
       - key: "system-tables-and-columns"
       - key: "reserved-keywords"

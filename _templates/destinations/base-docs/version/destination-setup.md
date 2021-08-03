@@ -19,7 +19,7 @@ keywords: destination-type, destination-type data warehouse, destination-type da
 summary: "Connect a DESTINATION-NAME destination to your Stitch account."
 
 content-type: "destination-setup"
-key: "[destination]-destination-setup"
+key: "[destination-type]-destination-setup"
 order: 1
 
 toc: true
@@ -103,6 +103,8 @@ steps:
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
 
     substeps:
+## Remove this section if the user doesn't need to locate connection details in a SaaS app like AWS
+## Check the _includes/shared/connection-details folder for available includes
       - title: "Locate the {{ destination.display_name }} connection details"
         anchor: "locate-connection-details-aws"
         content: |

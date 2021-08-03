@@ -12,7 +12,7 @@
 # -------------------------- #
 
 title: DESTINATION-NAME Destination Reference
-permalink: /destinations/destination-type/<version, if applicable>/reference
+permalink: /destinations/destination-type/v[version]/reference
 keywords: destination-type, destination-type data warehouse, destination-type data warehouse, destination-type etl, etl to destination-type, destination-type destination
 summary: "Reference documentation for Stitch's DESTINATION-NAME destination, including info about Stitch features, replication, and transformations."
 
