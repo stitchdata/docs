@@ -22,7 +22,6 @@
     {% capture li-class %}{% endcapture %}
 {% endif %}
 
-
 <!-- VERSION SELECTION MENU -->
 
 {% if total-versions > 1 %}
@@ -51,34 +50,31 @@
                 {% endif %}
 
                 {% for version in released-versions %}
+
                     {% assign doc = all-versioned-docs | find:"this-version",version.number %}
 
                 <!-- If there's a matching doc for the current version, run the code below -->
                     {% if doc != null %}
+                        {% include shared/versioning/version-status-logic.html %}
 
-                    <!-- But don't do it if it's a category page -->
-                        {% unless doc.content-type contains "category" %}
-                            {% include shared/versioning/integration-version-status-logic.html %}
+                        {% if is-latest == true %}
+                            {% assign status-display = "latest" %}
+                        {% else %}
+                            {% assign status-display = version-status.display-name %}
+                        {% endif %}
 
-                            {% if is-latest == true %}
-                                {% assign status-display = "latest" %}
-                            {% else %}
-                                {% assign status-display = version-status.display-name %}
-                            {% endif %}
+                        {% if doc.url == page.url %}
+                            <li class="active">
+                                version {{ doc.this-version }} ({{ status-display }})
 
-                            {% if doc.url == page.url %}
-                                <li class="active">
+                                <i class="fa fa-check fa-1" aria-hidden="true"></i>
+                        {% else %}
+                            <li {{ li-class }}>
+                                <a href="{{ doc.url | prepend: site.baseurl }}">
                                     version {{ doc.this-version }} ({{ status-display }})
-
-                                    <i class="fa fa-check fa-1" aria-hidden="true"></i>
-                            {% else %}
-                                <li {{ li-class }}>
-                                    <a href="{{ doc.url | prepend: site.baseurl }}">
-                                        version {{ doc.this-version }} ({{ status-display }})
-                                    </a>
-                            {% endif %}
+                                </a>
+                        {% endif %}
                             </li>
-                        {% endunless %}
                     {% endif %}
                 {% endfor %}
             </ol>
