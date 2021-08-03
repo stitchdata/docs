@@ -88,6 +88,7 @@ setup-steps:
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
+  
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
@@ -107,6 +108,7 @@ setup-steps:
          **Note that Stitch will only ever read your data**. Stitch will never modify or delete any data in your HubSpot account. 
       3. After the authorization process is successfully completed, you'll be directed back to Stitch.
       4. Click {{ app.buttons.finish-int-setup }}.
+  
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |

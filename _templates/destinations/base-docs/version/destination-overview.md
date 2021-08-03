@@ -147,7 +147,7 @@ sections:
         content: |
           {% include shared/incompatibilities/destination-version-incompatibilities.html %}
 
-    - title: "Transformations"
+  - title: "Transformations"
     anchor: "transformations"
     content: |
       {% for subsection in section.subsections %}
@@ -182,7 +182,7 @@ sections:
 
           > NATIVE SUPPORT:
 
-          > NATIVE SUPPORT, BQ-LIKE APPROACH:
+          > NATIVE SUPPORT, BIGQUERY-LIKE APPROACH:
           {{ destination.display_name }} supports nested records within tables, whether it's a single record or repeated values. This means that when nested data structures are loaded into {{ destination.display_name }}, they will be maintained.
 
           > NATIVE SUPPORT, USING A SPECIFIC DATA TYPE:
@@ -205,6 +205,8 @@ sections:
       - title: "Timezones"
         anchor: "transformations--timezones"
         content: |
+          > ADJUST AS NEEDED:
+
           {{ destination.display_name }} will store the value as `TIMESTAMP WITHOUT TIMEZONE`. In {{ destination.display_name }}, this data is stored without timezone information and expressed as UTC.
 
   - title: "Compare destinations"
