@@ -8,14 +8,15 @@ release and deprecation dates -->
 <!-- The logic for pulling version info is in this include -->
 {% case page.connection-type %}
     {% when 'destination' %}
-        {% include shared/versioning/destination-version-logic.html connection-type="destination" item-name="destination"  %}
+        {% assign page-key = page.type | append: "-version-category" %}
 
-        {% assign version-page-key = page.type | append: "-version-category" %}
+        {% include shared/versioning/destination-version-logic.html connection-type="destination" item-name="destination" page-key=page-key %}
+        
 
     {% when 'integration' %}
-        {% include shared/versioning/integration-version-logic.html connection-type="integration" item-name="integration" %}
+        {% assign page-key = page.key %}
 
-        {% assign version-page-key = page.key %}
+        {% include shared/versioning/integration-version-logic.html connection-type="integration" item-name="integration" page-key=page-key %}
 
 {% endcase %}
 
@@ -49,7 +50,7 @@ release and deprecation dates -->
     <!-- Only display a row if there's a page that matches the current version -
         that is, that the page-version variable isn't nil -->
         {% if doc != null %}
-            {% include shared/versioning/integration-version-status-logic.html %}
+            {% include shared/versioning/version-status-logic.html %}
 
             <tr>
                 <td align="right">

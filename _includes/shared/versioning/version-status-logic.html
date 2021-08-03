@@ -5,6 +5,7 @@
 
 {% assign doc = all-versioned-docs | find:"this-version",version.number %}
 
+{% assign version-statuses = site.data.stitch.version-statuses %}
 
 <!-- If the doc has an override-version-status property, do this: -->
 {% if doc.override-version-status %}
