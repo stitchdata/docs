@@ -7,6 +7,11 @@
 ## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-setup/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
+
+# -------------------------- #
+# Page formatting & Controls #
+# -------------------------- #
+
 title: Connecting a DESTINATION-NAME Destination to Stitch
 permalink: /destinations/destination-type/connecting-destination-type-to-stitch
 
