@@ -4,7 +4,7 @@
 # -------------------------- #
 
 ## NEED HELP USING THIS TEMPLATE? SEE:
-## TODO
+## https://docs-about-stitch-docs.netlify.com/how-tos/destinations/add-destination-category-page
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
 

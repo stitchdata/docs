@@ -1,5 +1,13 @@
 ---
 # -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/how-tos/destinations/add-destination-reference
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+# -------------------------- #
 #        Page Controls       #
 # -------------------------- #
 
