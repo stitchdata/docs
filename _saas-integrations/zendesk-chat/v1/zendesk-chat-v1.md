@@ -19,6 +19,8 @@ status-url: "https://status.zendesk.com/"
 
 api-type: "platform.zendesk-chat"
 
+repo-url: https://github.com/singer-io/tap-zendesk-chat
+
 this-version: "1"
 
 api: |
