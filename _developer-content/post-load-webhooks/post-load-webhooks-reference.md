@@ -14,11 +14,17 @@ layout: general
 key: "post-load-webhooks-reference"
 toc: true
 
-enterprise: true
-enterprise-cta:
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "unlimited"
+
+minimum-plan-cta:
   feature: "Post-load notifications "
-  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.enterprise-cta.feature }}"
-  copy: "{{ site.data.strings.enterprise.copy.are-an | prepend: page.enterprise-cta.feature | flatify }}"
+  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.minimum-plan-cta.feature }}"
+  copy: "{{ site.data.strings.enterprise.copy.are-an | prepend: page.minimum-plan-cta.feature | flatify }}"
 
 
 # -------------------------- #
