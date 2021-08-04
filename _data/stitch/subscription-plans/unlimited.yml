@@ -1,8 +1,8 @@
 # -------------------------- #
-#   ENTERPRISE PLAN DETAILS  #
+#   UNLIMITED PLAN DETAILS  #
 # -------------------------- #
 
-name: "Enterprise"
+name: "Unlimited"
 
 trial-description: "During the Free Trial, you'll have access to all of Stitch's integrations and unlimited rows for 14 days. The trial begins when you successfully connect and replicate data to a destination."
 
@@ -11,8 +11,8 @@ paid: true
 integrations: "all"
 total-integrations: "Unlimited"
 
-users: "Custom"
-rows: "billions"
+users: "Unlimited"
+rows: "Unlimited*"
 logs: "60 days"
 reports: "60 days"
 
@@ -21,6 +21,7 @@ customize-notifications: true
 post-load-notifications: true
 cron-scheduling: true
 single-sign-on: true
+multiple-destinations: true
 
 
 # -------------------------- #
@@ -83,7 +84,7 @@ features:
       - key: "advanced-scheduling"
       - key: "extraction-logs"
         title: "Extended Extraction Log retention"
-        summary: "{{ enterprise-doc.summary }} Stitch Enterprise gives you access to **{{ site.data.stitch.subscription-plans.enterprise.logs }}** of Extraction Logs."
+        summary: "{{ enterprise-doc.summary }} Stitch Enterprise gives you access to **{{ site.data.stitch.subscription-plans.unlimited.logs }}** of Extraction Logs."
       - key: "loading-reports"
         title: "Extended Loading Report retention"
-        summary: "{{ enterprise-doc.summary }} Stitch Enterprise gives you access to **{{ site.data.stitch.subscription-plans.enterprise.reports }}** of Loading Reports."
+        summary: "{{ enterprise-doc.summary }} Stitch Enterprise gives you access to **{{ site.data.stitch.subscription-plans.unlimited.reports }}** of Loading Reports."
