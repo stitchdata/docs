@@ -36,10 +36,17 @@ layout: page
 
 
 <!-- TUTORIAL REQUIREMENTS -->
-    {% if page.requirements %}
+    {% if page.requirements or page.minimum-plan %}
         <h2 id="prerequisites">Prerequisites</h2>
         
         <ul>
+            {% if page.minimum-plan %}
+                <li>
+                    <strong>
+                        A Stitch {{ site.data.stitch.subscription-plans[page.minimum-plan].name }} plan.
+                    </strong>
+                </li>
+            {% endif %}
             {% for requirement in page.requirements %}
                 <li>{{ requirement.item | flatify | markdownify }}</li>
             {% endfor %}
