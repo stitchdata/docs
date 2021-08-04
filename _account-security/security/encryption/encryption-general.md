@@ -17,10 +17,15 @@ input: false
 layout: general
 feedback: false
 
-enterprise: true
-enterprise-cta:
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "unlimited-plus"
+minimum-plan-cta:
   general: false
-  title: "Advanced connectivity for Stitch Enterprise"
+  title: "Advanced connectivity for Stitch {{ site.data.stitch.subscription-plans.unlimited-plus.name }}"
   copy: |
     [Additional connection options](#advanced-connectivity) are available as part of a Stitch Enterprise plan.
 
@@ -50,7 +55,6 @@ intro: |
 # -------------------------- #
 #           Content          #
 # -------------------------- #
-
 
 ssh-tunnels:
   - name: "Self-hosted"
@@ -126,12 +130,12 @@ sections:
           {% endfor %}
           </table>
 
-          **Note**: [Reverse SSH tunnels]({{ link.security.reverse-ssh | prepend: site.baseurl }}) are also available for Stitch Enterprise customers.
+          **Note**: [Reverse SSH tunnels]({{ link.security.reverse-ssh | prepend: site.baseurl }}) are also available for Stitch {{ site.data.stitch.subscription-plans.unlimited-plus.name }} customers.
 
       - title: "Advanced connectivity"
         anchor: "advanced-connectivity"
         content: |
-          Additional connection options are available as part of a Stitch Enterprise plan. This includes:
+          Additional connection options are available as part of a Stitch {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan. This includes:
 
           - Virtual Private Network (VPN)
           - [Reverse SSH tunneling]({{ link.security.reverse-ssh | prepend: site.baseurl }})

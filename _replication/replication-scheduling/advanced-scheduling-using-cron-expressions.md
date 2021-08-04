@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#      Page & Formatting     #
+# -------------------------- #
+
 title: Advanced Replication Scheduling Using Cron Expressions
 permalink: /replication/replication-scheduling/advanced-scheduling
 keywords: replicate, replication, replication frequency, frequency, anchor time, scheduling, schedule, interval, change replication time
@@ -12,12 +16,23 @@ content-type: "replication-scheduling"
 toc: true
 weight: 4
 
-enterprise: true
-enterprise-cta:
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "unlimited"
+
+minimum-plan-cta:
   title: "Advanced Scheduling is an Enterprise feature"
   url: "?utm_medium=docs&utm_campaign=cron-scheduling"
   copy: |
-    **Advanced replication scheduling is only available on an Enterprise plan**. Cron scheduling allows you to fine-tune an integration's replication schedule, ensuring you have the data you need when you need it. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}){:target="new"}.
+    Cron scheduling allows you to fine-tune an integration's replication schedule, ensuring you have the data you need when you need it. [Contact Stitch Sales for more info]({{ site.sales | append: page.minimum-plan-cta.url }}){:target="new"}.
+
+
+# -------------------------- #
+#        Introduction        #
+# -------------------------- #
 
 intro: |
   {{ page.summary }}
@@ -29,6 +44,11 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
   {% endfor %}
+
+
+# -------------------------- #
+#           Content          #
+# -------------------------- #
 
 sections:
   - title: "Uses for Advanced Scheduling"
@@ -51,13 +71,13 @@ sections:
     anchor: "access-advanced-scheduling"
     summary: "How to access Advanced Scheduling"
     content: |
-      Advanced Scheduling is available during the Free Trial or on an Enterprise plan. Contact [Stitch Sales]({{ page.enterprise-cta.url | prepend: site.home }}){:target="new"} for more info about Enterprise plans.
+      Advanced Scheduling is available during the Free Trial or on an {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan. Contact [Stitch Sales]({{ page.minimum-plan-cta.url | prepend: site.home }}){:target="new"} for more info about these plans.
 
     subsections:
       - title: "Plan downgrades"
         anchor: "plan-downgrades"
         content: |
-          When the Free Trial ends or if you downgrade from an Enterprise plan, you'll lose access to the Advanced Scheduling feature.
+          When the Free Trial ends or if you downgrade from an {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan, you'll lose access to the Advanced Scheduling feature.
 
           In the event that you downgrade, Stitch will automatically pause any integrations using Advanced Scheduling and reset their [Replication Frequencies]({{ link.replication.rep-frequency | prepend: site.baseurl }}) to their defaults. You will need to manually un-pause the integrations to continue replication.
 
@@ -230,7 +250,7 @@ sections:
       1. To access this page, click the integration from the {{ app.page-names.dashboard }} and then click the {{ app.buttons.update-int-settings }} tab.
       2. In the **Replication Frequency** section, check the **Advanced** box located under the **Anchor time** menu. This will open the **Advanced Scheduler**.
 
-         **Note**: This feature is only available [during the Free Trial or on an Enterprise plan](#access-advanced-scheduling).
+         **Note**: This feature is only available [during the Free Trial or on an {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan](#access-advanced-scheduling).
       3. Enter the values you want into each of the fields. Stitch will validate the schedule after each change. If the schedule is valid, a sample schedule will display under the fields.
 
       4. When finished, click the {{ app.buttons.save-int-settings }} button.

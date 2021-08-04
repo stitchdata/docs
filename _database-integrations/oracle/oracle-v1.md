@@ -19,6 +19,19 @@ show-in-menus: true
 
 key: "oracle-integration"
 
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "unlimited"
+
+minimum-plan-cta:
+  feature: "Oracle integrations "
+  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.minimum-plan-cta.feature }}"
+  copy: "{{ site.data.strings.enterprise.copy.are-an | prepend: page.minimum-plan-cta.feature | flatify }}"
+
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -38,20 +51,14 @@ hosting-type: "generic"
 driver: |
   [cx_Oracle 6.1](https://cx-oracle.readthedocs.io/en/latest/){:target="new"}
 
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
 certified: true
 
-enterprise: true
-enterprise-cta:
-  feature: "Oracle integrations "
-  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.enterprise-cta.feature }}"
-  copy: "{{ site.data.strings.enterprise.copy.are-an | prepend: page.enterprise-cta.feature | flatify }}"
-
 frequency: "30 minutes"
-tier: "Enterprise"
 port: 1521
 db-type: "oracle"
 

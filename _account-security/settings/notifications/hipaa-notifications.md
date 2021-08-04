@@ -16,12 +16,18 @@ toc: true
 type: "notifications"
 weight: 3
 
-enterprise: true
-enterprise-cta:
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "unlimited"
+
+minimum-plan-cta:
   feature: "HIPAA compliance "
-  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.enterprise-cta.feature }}"
+  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature }}"
   copy: |
-    {{ page.enterprise-cta.feature | flatify }} is an Enterprise feature. Before replicating any sensitive data, contact Stitch Sales to ensure all requirements for HIPAA compliance are completed.
+    Before replicating any sensitive data, contact Stitch Sales to ensure all requirements for HIPAA compliance are completed.
 
 
 # -------------------------- #
