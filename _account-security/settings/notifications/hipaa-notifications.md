@@ -25,7 +25,7 @@ minimum-plan: "unlimited"
 
 minimum-plan-cta:
   feature: "HIPAA compliance "
-  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature }}"
+  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
   copy: |
     Before replicating any sensitive data, contact Stitch Sales to ensure all requirements for HIPAA compliance are completed.
 

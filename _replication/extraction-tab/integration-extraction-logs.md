@@ -23,9 +23,9 @@ weight: 2
 minimum-plan: "unlimited"
 
 minimum-plan-cta:
-  title: "Get {{ site.data.stitch.subscription-plans.unlimited.logs }} of Extraction Logs with Stitch {{ site.data.stitch.subscription-plans.unlimited.name }}"
+  title: "Get {{ site.data.stitch.subscription-plans.unlimited.logs }} of Extraction Logs"
   utm: "?utm_medium=docs&utm_campaign=extraction-log-retention"
-  copy: "{{ site.data.stitch.subscription-plans.unlimited.name }} plans come with {{ site.data.stitch.subscription-plans.unlimited.logs }} of Extraction Logs, allowing you to view an integration's extraction behavior over time, identify patterns, and quickly resolve errors when they arise."
+  copy: "{{ site.data.stitch.subscription-plans.unlimited.name }} and {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plans come with {{ site.data.stitch.subscription-plans.unlimited.logs }} of Extraction Logs, allowing you to view an integration's extraction behavior over time, identify patterns, and quickly resolve errors when they arise."
 
 
 # -------------------------- #
@@ -58,11 +58,13 @@ sections:
       {% for plan in all-plans %}
       {% if plan.key %}
       {% assign this-plan = site.data.stitch.subscription-plans[plan.key] %}
+      {% assign plan-name = plan.name | capitalize | replace:"-"," " %}
       {% else %}
       {% assign this-plan = site.data.stitch.subscription-plans[plan.name] %}
+      {% assign plan-name = this-plan.name %}
       {% endif %}
 
-      - **{{ plan.name | capitalize | replace:"-"," " }}**: {{ this-plan.logs }}
+      - **{{ plan-name }}**: {{ this-plan.logs }}
       {% endfor %}
 
     subsections:

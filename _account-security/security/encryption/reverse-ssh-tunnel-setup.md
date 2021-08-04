@@ -26,7 +26,7 @@ weight: 3
 minimum-plan: "unlimited"
 minimum-plan-cta:
   feature: "Reverse SSH tunnels "
-  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.minimum-plan-cta.feature }}"
+  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.minimum-plan-cta.feature | flatify }}"
 
 
 # -------------------------- #

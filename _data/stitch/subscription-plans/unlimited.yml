@@ -7,6 +7,7 @@ name: "Unlimited"
 trial-description: "During the Free Trial, you'll have access to all of Stitch's integrations and unlimited rows for 14 days. The trial begins when you successfully connect and replicate data to a destination."
 
 paid: true
+type: "sales-led"
 
 integrations: "all"
 total-integrations: "Unlimited"
@@ -22,6 +23,7 @@ post-load-notifications: true
 cron-scheduling: true
 single-sign-on: true
 multiple-destinations: true
+advanced-connectivity: false
 
 
 # -------------------------- #
@@ -35,12 +37,7 @@ features:
         title: "Stitch API access"
         summary: "With the Stitch API, you can programmatically control your Stitch account. This enables you to quickly create and configure integrations, select tables and columns for replication, connect Stitch with an external scheduler, and more."
 
-  - category: "Security"
-    guides:
-      - key: "data-encryption-overview"
-        title: "Advanced connectivity"
-        summary: "Aside from SSL and SSH, additional connection options such as reverse SSH, VPN, and Amazon Web Services Private Link, are available as part of an Enterprise plan."
-        free-trial-available: false
+
 
       - key: "reverse-ssh-tunnel-setup"
         title: "Reverse SSH tunnels"

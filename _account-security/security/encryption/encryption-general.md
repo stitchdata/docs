@@ -24,8 +24,7 @@ feedback: false
 
 minimum-plan: "unlimited-plus"
 minimum-plan-cta:
-  general: false
-  title: "Advanced connectivity for Stitch {{ site.data.stitch.subscription-plans.unlimited-plus.name }}"
+  title: "Advanced connectivity for {{ site.data.stitch.subscription-plans.unlimited.name }} plans"
   copy: |
     [Additional connection options](#advanced-connectivity) are available as part of a Stitch {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan.
 

@@ -25,7 +25,7 @@ minimum-plan: "unlimited"
 
 minimum-plan-cta:
   feature: "The custom notification list "
-  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature }}"
+  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
   copy: "{{ site.data.strings.enterprise.copy.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
 
 

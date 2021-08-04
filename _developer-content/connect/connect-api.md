@@ -30,8 +30,8 @@ key: "connect-api-reference"
 minimum-plan: "unlimited"
 
 minimum-plan-cta:
-  title: ""
+  feature: "API access "
   utm: "?utm_medium=docs&utm_campaign=connect-api-access"
-  copy: ""
+  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
 ---
 {% include misc/data-files.html %}

@@ -13,7 +13,7 @@ summary: "The Advanced Scheduler feature allows you to specify granular start ti
 key: "advanced-scheduling"
 method: true
 content-type: "replication-scheduling"
-toc: true
+toc: false
 weight: 4
 
 
@@ -24,7 +24,8 @@ weight: 4
 minimum-plan: "unlimited"
 
 minimum-plan-cta:
-  title: "Advanced Scheduling is an Enterprise feature"
+  feature: "Advanced Scheduling "
+  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
   url: "?utm_medium=docs&utm_campaign=cron-scheduling"
   copy: |
     Cron scheduling allows you to fine-tune an integration's replication schedule, ensuring you have the data you need when you need it. [Contact Stitch Sales for more info]({{ site.sales | append: page.minimum-plan-cta.url }}){:target="new"}.

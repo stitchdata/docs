@@ -23,7 +23,7 @@ minimum-plan: "unlimited"
 
 minimum-plan-cta:
   feature: "Post-load notifications "
-  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.minimum-plan-cta.feature }}"
+  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.minimum-plan-cta.feature | flatify }}"
   copy: "{{ site.data.strings.enterprise.copy.are-an | prepend: page.minimum-plan-cta.feature | flatify }}"
 
 

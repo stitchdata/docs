@@ -22,9 +22,9 @@ weight: 3
 minimum-plan: "unlimited"
 
 minimum-plan-cta:
-  title: "Get {{ site.data.stitch.subscription-plans.unlimited.reports }} of Loading Reports with Stitch Enterprise"
+  title: "Get {{ site.data.stitch.subscription-plans.unlimited.reports }} of Loading Reports"
   utm: "?utm_medium=docs&utm_campaign=loading-report-retention"
-  copy: "TODO plans come with {{ site.data.stitch.subscription-plans.unlimited.reports }} of Loading Reports, allowing you to view an integration's loading behavior over time, identify high volume tables, and quickly resolve errors if they arise."
+  copy: "{{ site.data.stitch.subscription-plans.unlimited.name }} and {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plans come with {{ site.data.stitch.subscription-plans.unlimited.reports }} of Loading Reports, allowing you to view an integration's loading behavior over time, identify high volume tables, and quickly resolve errors if they arise."
 
 
 # -------------------------- #
@@ -63,11 +63,13 @@ sections:
       {% for plan in all-plans %}
       {% if plan.key %}
       {% assign this-plan = site.data.stitch.subscription-plans[plan.key] %}
+      {% assign plan-name = plan.name | capitalize | replace:"-"," " %}
       {% else %}
       {% assign this-plan = site.data.stitch.subscription-plans[plan.name] %}
+      {% assign plan-name = this-plan.name %}
       {% endif %}
 
-      - **{{ plan.name | capitalize | replace:"-"," " }}**: {{ this-plan.reports }}
+      - **{{ plan-name }}**: {{ this-plan.logs }}
       {% endfor %}
 
     subsections:
