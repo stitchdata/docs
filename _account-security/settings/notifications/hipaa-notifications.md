@@ -72,7 +72,7 @@ sections:
         content: |
           **No**. Activating this setting will not, by itself, make your Stitch account HIPAA compliant. There are other requirements that must be in place before your account is compliant with HIPAA.
 
-          HIPAA compliance is available for Enterprise plans. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
+          HIPAA compliance is available for {{ site.data.stitch.subscription-plans.unlimited.name }} and {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plans. [Contact Stitch Sales for more info]({{ site.sales | append: page.minimum-plan-cta.url }}).
 
       - title: "Who can use the plain-text error suppression feature?"
         anchor: "who-can-use-the-feature"

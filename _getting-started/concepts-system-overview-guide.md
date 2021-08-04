@@ -116,7 +116,7 @@ sections:
             content: |
               An integration is a data source. This can be a database, API, file, or other data application that Stitch replicates data from, such as MySQL, Google Analytics, or Amazon S3.
 
-              During your free trial, all of Stitch's integrations are accessible. After the trial ends, some integrations - such as Oracle or Google Analytics 360 - are only available if you enter into an [Enterprise plan]({{ link.account.enterprise-features | prepend: site.baseurl }}).
+              During your free trial, all of Stitch's integrations are accessible. After the trial ends, some integrations - such as Oracle or Google Analytics 360 - are only available if you enter into an [{{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan]({{ link.account.enterprise-features | prepend: site.baseurl }}).
 
               Refer to the [Integration]({{ site.baseurl }}/integrations) documentation for more info on each of Stitch's integrations, such as what data is available or what features are supported.
 
