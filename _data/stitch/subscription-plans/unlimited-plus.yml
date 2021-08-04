@@ -22,3 +22,22 @@ cron-scheduling: true
 single-sign-on: true
 multiple-destinations: true
 advanced-connectivity: false
+
+# -------------------------- #
+#     ADDITIONAL FEATURES    #
+# -------------------------- #
+
+features:
+  - category: "Account"
+    guides:
+      - key: "data-encryption-overview"
+        title: "Advanced Connectivity"
+        summary: |
+          Use [Advanced connection options]({{ link.security.encryption }}#advanced-connectivity), such as a VPN or AWS Private Link, to establish connections to your private network.
+        free-trial-available: false
+
+      - key: "reverse-ssh-tunnel-setup"
+        title: "Reverse SSH tunnels"
+        summary: |
+          Establish a connection to a database in your private network without opening holes in your network's firewall. A reverse SSH tunnel is an outbound connection from a machine on your network that connects securely over the internet to Stitch.
+        free-trial-available: false
