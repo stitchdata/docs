@@ -62,7 +62,7 @@ sections:
     summary: "How to access post-load hooks"
     content: |
       {% capture post-load-setup %}
-      In order to use post-load hooks, you must already have a destination set up in your Stitch account.
+      To use post-load hooks, you must already have a destination set up in your Stitch account.
       {% endcapture %}
 
       {% include important.html content=post-load-setup %}
