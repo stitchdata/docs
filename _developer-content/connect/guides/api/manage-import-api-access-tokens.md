@@ -268,11 +268,11 @@ sections:
 
           {{ retrieve-token-id-content | flatify }}
 
-          The response will be an array containing the IDs of the access tokens associated with the specified Import API source ID and its timestamp:
+          The response will be an array containing the IDs of the access tokens associated with the specified Import API source ID and its creation timestamp:
 
           {% capture code %}[
-          { {{ page.new-token-id | strip }}, {{ page.timestamp-1 | strip }} },            /* New token ID */
-          { {{ page.token-id | strip }}, {{ page.timestamp-2 | strip }} }             /* Original token ID */
+          {"token_id":{{ page.new-token-id | strip }},"created_at":"{{ page.timestamp-1 | strip }}"},        /* New token ID */
+          {"token_id":{{ page.token-id | strip }},"created_at":"{{ page.timestamp-2 | strip }}"}         /* Original token ID */
           ]
           {% endcapture %}
 

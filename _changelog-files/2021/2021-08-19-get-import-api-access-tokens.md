@@ -9,5 +9,5 @@ entry-category: "connect-api"
 
 We've updated the response in the Stitch Connect API when retrieving access token IDs.
 
-The timestamp from when the Import API access token ID was retrieved will now be included in the `GET /v4/sources/{source_id}/tokens` response. Check our docs to [learn more]({{ link.connect.guides.manage-import-api-access-tokens | prepend: site.baseurl | append: "#rotate--get-iapi-access-token-id" }}).
+The Import API access token ID creation timestamp will now be included in the `GET /v4/sources/{source_id}/tokens` response. Check our docs to [see an example]({{ link.connect.guides.manage-import-api-access-tokens | prepend: site.baseurl | append: "#rotate--get-iapi-access-token-id" }}).
 
