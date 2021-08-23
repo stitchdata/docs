@@ -12,11 +12,10 @@
 # -------------------------- #
 
 title: Microsoft SQL Server (v1) Destination Reference
-permalink: /destinations/microsoft sql server/v1/reference
+permalink: /destinations/microsoft-sql-server/v1/reference/
 keywords: microsoft sql server, microsoft sql server data warehouse, microsoft sql server data warehouse, microsoft sql server etl, etl to microsoft sql server, microsoft sql server destination
 summary: "Reference documentation for Stitch's Microsoft SQL Server destination, including info about Stitch features, replication, and transformations."
 
-destination: true
 content-type: "destination-overview"
 key: "microsoft-sql-server-reference"
 
@@ -45,10 +44,10 @@ related:
 #    Destination Details     #
 # -------------------------- #
 
-type: "microsoft sql server"
+type: "microsoft-sql-server"
 display_name: "Microsoft SQL Server"
 
-this-version: ""
+this-version: "1"
 
 
 # -------------------------- #
@@ -204,9 +203,9 @@ intro: |
 #         content: |
 #           Column names in {{ destination.display_name }}:
 
-#           {{ site.data.destinations.microsoft sql server.destination-details.column-name-rules | flatify | markdownify }}
+#           {{ site.data.destinations.microsoft-sql-server.destination-details.column-name-rules | flatify | markdownify }}
 
-#           Stitch will perform the following transformations to ensure column names [adhere to the rules imposed by {{ destination.display_name }}]({{ site.data.destinations.microsoft sql server.resource-links.object-names }}){:target="new"}:
+#           Stitch will perform the following transformations to ensure column names [adhere to the rules imposed by {{ destination.display_name }}]({{ site.data.destinations.microsoft-sql-server.resource-links.object-names }}){:target="new"}:
 
 #           {% include destinations/templates/destination-column-name-transformations.html %}
 
