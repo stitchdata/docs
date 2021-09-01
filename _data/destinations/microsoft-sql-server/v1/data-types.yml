@@ -25,18 +25,17 @@
 ## Data types specific to DESTINATION destinations:
 ## REMOVE IF NOT NEEDED.
 specific:
-  - name: ""
-  - name: ""
+  - name: "json"
 
 # ---------------------------- #
 #           BIGINT             #
 # ---------------------------- #
 
 bigint:
-  destination-type: ""
-  suffix: ""
-  doc-link: ""
-  range: ""
+  destination-type: "bigint"
+  suffix: "bi"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15"
+  range: "-2^63 (-9,223,372,036,854,775,808) to 2^63-1 (9,223,372,036,854,775,807)"
   loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
 
 
@@ -45,9 +44,10 @@ bigint:
 # ---------------------------- #
 
 boolean:
-  destination-type: ""
-  suffix: ""
-  doc-link: ""
+  destination-type: "bit"
+  suffix: "bo"
+  description: "Values are stored as `1` (`true`), `0` (`false`), or `NULL`."
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/bit-transact-sql?view=sql-server-ver15"
 
 
 # ---------------------------- #
@@ -55,11 +55,11 @@ boolean:
 # ---------------------------- #
 
 date:
-  destination-type: ""
-  suffix: ""
-  description: "Stored in UTC"
-  doc-link: ""
-  range: ""
+  destination-type: "datetimeoffset"
+  suffix: "dt"
+  description: "Stored in UTC as `DATETIMEOFFSET(3)`"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-ver15"
+  range: "0001-01-01 to 9999-12-31"
   loading-error: "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range }}"
   # date-range: &date-range ""
   # timezone-support: &timezone-support "None"
@@ -69,20 +69,18 @@ date:
 #           DOUBLE             #
 # ---------------------------- #
 
-double:
-  destination-type: ""
-  suffix: ""
-  doc-link: ""
+double: &float
+  destination-type: "float"
+  suffix: "fl"
+  description: "Stored as `FLOAT(53)`"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/float-and-real-transact-sql?view=sql-server-ver15"
 
 
 # ---------------------------- #
 #           FLOAT              #
 # ---------------------------- #
 
-float:
-  destination-type: ""
-  suffix: ""
-  doc-link: ""
+float: *float
 
 
 # ---------------------------- #
@@ -90,10 +88,10 @@ float:
 # ---------------------------- #
 
 integer:
-  destination-type: ""
-  suffix: ""
-  doc-link: ""
-  range: ""
+  destination-type: "int"
+  suffix: "it"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15"
+  range: "-2^31 (-2,147,483,648) to 2^31-1 (2,147,483,647)"
   loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
 
 
@@ -102,11 +100,11 @@ integer:
 # ---------------------------- #
 
 number:
-  destination-type: ""
-  suffix: ""
-  description: ""
-  doc-link: ""
-  range: ""
+  destination-type: "decimal"
+  suffix: "de"
+  description: "Precision must be between 1 and 38; scale must be between 0 and the precision value"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/decimal-and-numeric-transact-sql?view=sql-server-ver15"
+  #range: ""
   loading-error: "{{ site.data.destinations.common.loading-errors.decimal-out-of-range }}"
 
 
@@ -115,7 +113,18 @@ number:
 # ---------------------------- #
 
 string:
-  destination-type: ""
-  suffix: ""
-  description: ""
-  doc-link: ""
+  destination-type: "nvarchar"
+  suffix: "st"
+  #description: ""
+  range: "Maximum width is 4,000 bytes"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql?view=sql-server-ver15"
+
+# ---------------------------- #
+#            JSON              #
+# ---------------------------- #
+
+json:
+  destination-type: "nvarchar"
+  suffix: "js"
+  description: "Stored as `NVARCHAR(MAX)`"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql?view=sql-server-ver15"
