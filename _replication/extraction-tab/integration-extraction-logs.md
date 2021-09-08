@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#      Page & Formatting     #
+# -------------------------- #
+
 title: Extraction Logs
 permalink: /replication/extractions/integration-extraction-logs
 redirect_from: /replication/integration-extraction-logs
@@ -11,20 +15,34 @@ content-type: "replication-progress"
 toc: true
 weight: 2
 
-enterprise: true
-enterprise-cta:
-  title: "Get {{ site.data.stitch.subscription-plans.enterprise.logs }} of Extraction Logs with Stitch Enterprise"
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "pro"
+
+minimum-plan-cta:
+  title: "Get {{ site.data.stitch.subscription-plans.pro.logs }} of Extraction Logs"
   utm: "?utm_medium=docs&utm_campaign=extraction-log-retention"
-  copy: "Enterprise plans come with {{ site.data.stitch.subscription-plans.enterprise.logs }} of Extraction Logs, allowing you to view an integration's extraction behavior over time, identify patterns, and quickly resolve errors when they arise."
+  copy: "{{ site.data.stitch.subscription-plans.pro.name }} and {{ site.data.stitch.subscription-plans.pro-plus.name }} plans come with {{ site.data.stitch.subscription-plans.pro.logs }} of Extraction Logs, allowing you to view an integration's extraction behavior over time, identify patterns, and quickly resolve errors when they arise."
+
+
+# -------------------------- #
+#        Introduction        #
+# -------------------------- #
 
 intro: |
-  {% include note.html first-line="**Extraction log availability**" content="Extraction logs are available only for integrations powered by Singer taps. As integrations are converted to the Singer system, extraction logs will be made available." %}
-
   {{ page.summary }} In this guide, we'll cover:
 
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
   {% endfor %}
+
+
+# -------------------------- #
+#           Content          #
+# -------------------------- #
 
 sections:
   - title: "Log retention"
@@ -40,11 +58,13 @@ sections:
       {% for plan in all-plans %}
       {% if plan.key %}
       {% assign this-plan = site.data.stitch.subscription-plans[plan.key] %}
+      {% assign plan-name = plan.name | capitalize | replace:"-"," " %}
       {% else %}
       {% assign this-plan = site.data.stitch.subscription-plans[plan.name] %}
+      {% assign plan-name = this-plan.name %}
       {% endif %}
 
-      - **{{ plan.name | capitalize | replace:"-"," " }}**: {{ this-plan.logs }}
+      - **{{ plan-name }}**: {{ this-plan.logs }}
       {% endfor %}
 
     subsections:
@@ -53,8 +73,11 @@ sections:
         content: |
           Changing your plan can impact logs currently available to you.
 
-          {% assign enterprise-logs = site.data.stitch.subscription-plans.enterprise.logs | remove: " days" %}
-          {% assign standard-logs = site.data.stitch.subscription-plans.standard.logs | remove: " days" %}
+          {% assign pro = site.data.stitch.subscription-plans.pro %}
+          {% assign pro-logs = pro.logs | remove: " days" %}
+
+          {% assign standard = site.data.stitch.subscription-plans.standard %}
+          {% assign standard-logs = standard.logs | remove: " days" %}
 
         sub-subsections:
           - title: "Plan downgrades"
@@ -62,16 +85,14 @@ sections:
             content: |
               If you downgrade to a plan that offers fewer days' logs, you'll **lose** access to the difference between your current plan and your new plan.
 
-              For example: If you downgrade to Standard from the Enterprise plan, you'll lose access to {{ enterprise-logs | minus: standard-logs }} days' worth of logs.
+              For example: If you downgrade to {{ standard.name }} from the {{ pro.name }} plan, you'll lose access to {{ pro-logs | minus: standard-logs }} days' worth of logs.
 
           - title: "Plan upgrades"
             anchor: "plan-upgrades"
             content: |
               Likewise, if you upgrade to a plan that offers more days' logs, you'll immediately **gain** access to the difference.
 
-              For example: If you upgrade to Enterprise from the Standard plan, you'll gain access to an additional {{ enterprise-logs | minus: standard-logs }} days' worth of logs.
-
-              {% include enterprise-cta.html %}
+              For example: If you upgrade to {{ pro.name }} from the {{ standard.name }} plan, you'll gain access to an additional {{ pro-logs | minus: standard-logs }} days' worth of logs.
 
   - title: "Log composition"
     anchor: "log-composition"

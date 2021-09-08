@@ -17,13 +17,19 @@ permalink: /integrations/saas/workday-raas
 keywords: workday-raas, integration, schema, etl workday-raas, workday-raas etl, workday-raas schema
 layout: singer
 # input: false
-enterprise: true
-enterprise-cta:
-  feature: "Workday RaaS integrations "
-  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.enterprise-cta.feature }}"
-  copy: "{{ site.data.strings.enterprise.copy.are-an | prepend: page.enterprise-cta.feature | flatify }}"
 
 key: "workday-raas-setup"
+
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "pro"
+minimum-plan-cta:
+  feature: "Workday RaaS integrations "
+  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.minimum-plan-cta.feature | flatify }}"
+  copy: "{{ site.data.strings.enterprise.copy.are-an | prepend: page.minimum-plan-cta.feature | flatify }}"
 
 
 # -------------------------- #
@@ -55,7 +61,6 @@ api-type: "platform.workday-raas"
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Enterprise"
 
 anchor-scheduling: true
 cron-scheduling: true

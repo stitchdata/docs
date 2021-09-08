@@ -38,22 +38,27 @@ hosting-type: "amazon"
 driver: |
   [cx_Oracle 6.1](https://cx-oracle.readthedocs.io/en/latest/){:target="new"}
 
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "pro"
+
+minimum-plan-cta:
+  feature: "Oracle integrations "
+  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.minimum-plan-cta.feature | flatify }}"
+  copy: "{{ site.data.strings.enterprise.copy.are-an | prepend: page.minimum-plan-cta.feature | flatify }}"
+
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
 certified: true
 
-enterprise: true
-enterprise-cta:
-  feature: "Oracle integrations "
-  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.enterprise-cta.feature }}"
-  copy: "{{ site.data.strings.enterprise.copy.are-an | prepend: page.enterprise-cta.feature | flatify }}"
-
 setup-name: "Oracle"
-
 frequency: "30 minutes"
-tier: "Enterprise"
 port: 1521
 db-type: "oracle"
 

@@ -16,12 +16,18 @@ toc: true
 type: "notifications"
 weight: 3
 
-enterprise: true
-enterprise-cta:
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "pro"
+
+minimum-plan-cta:
   feature: "HIPAA compliance "
-  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.enterprise-cta.feature }}"
+  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
   copy: |
-    {{ page.enterprise-cta.feature | flatify }} is an Enterprise feature. Before replicating any sensitive data, contact Stitch Sales to ensure all requirements for HIPAA compliance are completed.
+    Before replicating any sensitive data, contact Stitch Sales to ensure all requirements for HIPAA compliance are completed.
 
 
 # -------------------------- #
@@ -66,7 +72,7 @@ sections:
         content: |
           **No**. Activating this setting will not, by itself, make your Stitch account HIPAA compliant. There are other requirements that must be in place before your account is compliant with HIPAA.
 
-          HIPAA compliance is available for Enterprise plans. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
+          HIPAA compliance is available for {{ site.data.stitch.subscription-plans.pro.name }} and {{ site.data.stitch.subscription-plans.pro-plus.name }} plans. [Contact Stitch Sales for more info]({{ site.sales | append: page.minimum-plan-cta.url }}).
 
       - title: "Who can use the plain-text error suppression feature?"
         anchor: "who-can-use-the-feature"

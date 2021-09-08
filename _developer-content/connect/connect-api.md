@@ -21,5 +21,17 @@ product-type: "connect"
 content-type: "api-doc"
 
 key: "connect-api-reference"
+
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "pro"
+
+minimum-plan-cta:
+  feature: "API access "
+  utm: "?utm_medium=docs&utm_campaign=connect-api-access"
+  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
 ---
 {% include misc/data-files.html %}

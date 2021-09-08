@@ -37,9 +37,7 @@ frequently-asked-questions:
         answer: |
           Plans are based on the volume of rows and events replicated per month. Each plan has a monthly allotment of replicated rows.
 
-          In addition, access to some integrations depends on the type of plan you select. To use Stitch's Standard integrations, you'll need to select a Standard plan.
-
-          Refer to the [pricing page]({{ site.pricing }}){:target="new"} for more info.
+          In addition, access to some integrations depends on the type of plan you select. Refer to the [pricing page]({{ site.pricing }}){:target="new"} for more info.
 
       - question: "What's a replicated row?"
         anchor: "what-is-a-replicated-row"
@@ -66,7 +64,7 @@ frequently-asked-questions:
 
           For example: Accounts using the Standard Plan may add up to **{{ standard-plan.total-integrations | downcase }}** different types of integrations.
 
-          If an account has **five** Google Analytics integrations connected, this wonly counts as **one** towards the integration type quota. Up to **nine** additional types of integrations may still be added.
+          If an account has **five** Google Analytics integrations connected, this only counts as **one** towards the integration type quota. Up to **nine** additional types of integrations may still be added.
 
           <table class="attribute-list">
           <tr>
@@ -95,27 +93,27 @@ frequently-asked-questions:
           </table>
           <br>
 
-          **Note**: The types of integrations available are also dependent on plan type. Users of the Enterprise plan will have access to all integrations, while Standard Plan users will have access only to Standard integrations.
+          **Note**: The types of integrations available are also dependent on plan type. Users of the {{ site.data.stitch.subscription-plans.pro.name }} and {{ site.data.stitch.subscription-plans.pro-plus.name }} plans will have access to all integrations, while Standard Plan users will have access only to Standard integrations.
 
           For more info, refer to the [pricing page]({{ site.pricing }}){:target="new"}.
 
       - question: "What integrations are available on a Standard Plan?"
         anchor: "integrations-paid-plan"
         answer: |
-          After the Free Trial has ended, only Standard integrations will be available to users who select a Standard plan. This includes the majority of Stitch's available integrations with the exception of those offered as part of an [Enterprise plan]({{ link.account.enterprise-features | prepend: site.baseurl }}).
+          After the Free Trial has ended, only Standard integrations will be available to users who select a Standard plan. This includes the majority of Stitch's available integrations with the exception of those offered as part of a [{{ site.data.stitch.subscription-plans.pro.name }} or {{ site.data.stitch.subscription-plans.pro-plus.name }} plan]({{ link.account.enterprise-features | prepend: site.baseurl }}).
 
           Refer to the [pricing page]({{ site.pricing }}){:target="new"} for a list of current Stitch plans.
 
-      - question: "What integrations are available on an Enterprise Plan?"
-        anchor: "integrations-enterprise-plan"
+      - question: "What integrations are available on {{ site.data.stitch.subscription-plans.pro.name }} or {{ site.data.stitch.subscription-plans.pro-plus.name }} Plan?"
+        anchor: "integrations-pro-plan"
         answer: |
           {% assign all-integrations = site.documents | where:"input", true %}
-          {% assign enterprise-integrations = all-integrations | where:"tier","Enterprise" %}
+          {% assign stitch-pro-integrations = all-integrations | where:"minimum-plan","pro" %}
 
-          The integrations in the table below are available only to Enterprise Plans. [Reach out to sales]({{ site.sales }}){:target="new"} for more info.
+          The integrations in the table below are available only to {{ site.data.stitch.subscription-plans.pro.name }} and {{ site.data.stitch.subscription-plans.pro-plus.name }} Plans. [Reach out to sales]({{ site.sales }}){:target="new"} for more info.
 
           <table class="attribute-list">
-          {% for integration in enterprise-integrations %}
+          {% for integration in stitch-pro-integrations %}
 
           {% assign index = forloop.index | modulo: 2 %}
 
@@ -243,7 +241,7 @@ frequently-asked-questions:
 
           If you're upgrading or downgrading a monthly plan, meaning the new plan has a greater or lower row limit than the current plan, the change will be effective immediately and you will be charged or refunded the difference between the current plan and the new plan.
 
-          In addition, if you're upgrading from the Standard plan to an Enterprise plan, you'll also have immediate access to Enterprise integrations.
+          In addition, if you're upgrading to a plan that has access to additional features, you'll have immediate access to those features. 
              
           **For annual plans**:
 

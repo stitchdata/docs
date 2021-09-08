@@ -15,11 +15,17 @@ layout: tutorial
 type: "notifications"
 weight: 6
 
-enterprise: true{:target="new"}
-enterprise-cta:
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "pro"
+
+minimum-plan-cta:
   feature: "The custom notification list "
-  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.enterprise-cta.feature }}"
-  copy: "{{ site.data.strings.enterprise.copy.is-an | prepend: page.enterprise-cta.feature | flatify }}"
+  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
+  copy: "{{ site.data.strings.enterprise.copy.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
 
 
 # -------------------------- #
@@ -61,8 +67,6 @@ intro: |
 # -------------------------- #
 
 requirements:
-  - item: |
-      **A Stitch Enterprise plan.** The Custom email notification list is available only on a Stitch Enterprise plan.
   - item: |
       **An existing Datadog account.**
 
