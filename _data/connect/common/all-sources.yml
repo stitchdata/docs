@@ -72,7 +72,7 @@ fields:
     order: 3
     description: |
       {% if cron-scheduling == false %}
-      **Note: Advanced Scheduling using Cron is not yet supported for this source.** A value may be submitted for this property if the account is on an {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan, but Stitch will not use the expression submitted.
+      **Note: Advanced Scheduling using Cron is not yet supported for this source.** A value may be submitted for this property if the account is on an {{ site.data.stitch.subscription-plans.pro.name }} or {{ site.data.stitch.subscription-plans.pro-plus.name }} plan, but Stitch will not use the expression submitted.
       {% endif %}
 
       A valid Quartz cron expression representing the replication schedule for the integration. Refer to the [Advanced Scheduling documentation]({{ link.replication.advanced-scheduling | prepend: site.baseurl }}) for more info.

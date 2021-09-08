@@ -19,12 +19,12 @@ weight: 3
 #  Stitch Plan Requirements  #
 # -------------------------- #
 
-minimum-plan: "unlimited"
+minimum-plan: "pro"
 
 minimum-plan-cta:
-  title: "Get {{ site.data.stitch.subscription-plans.unlimited.reports }} of Loading Reports"
+  title: "Get {{ site.data.stitch.subscription-plans.pro.reports }} of Loading Reports"
   utm: "?utm_medium=docs&utm_campaign=loading-report-retention"
-  copy: "{{ site.data.stitch.subscription-plans.unlimited.name }} and {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plans come with {{ site.data.stitch.subscription-plans.unlimited.reports }} of Loading Reports, allowing you to view an integration's loading behavior over time, identify high volume tables, and quickly resolve errors if they arise."
+  copy: "{{ site.data.stitch.subscription-plans.pro.name }} and {{ site.data.stitch.subscription-plans.pro-plus.name }} plans come with {{ site.data.stitch.subscription-plans.pro.reports }} of Loading Reports, allowing you to view an integration's loading behavior over time, identify high volume tables, and quickly resolve errors if they arise."
 
 
 # -------------------------- #
@@ -78,8 +78,8 @@ sections:
         content: |
           Changing your plan can impact reports currently available to you.
 
-          {% assign unlimited = site.data.stitch.subscription-plans.unlimited %}
-          {% assign unlimited-reports = unlimited.reports | remove: " days" %}
+          {% assign pro = site.data.stitch.subscription-plans.pro %}
+          {% assign pro-reports = pro.reports | remove: " days" %}
 
           {% assign standard = site.data.stitch.subscription-plans.standard %}
           {% assign standard-reports = standard.reports | remove: " days" %}
@@ -90,14 +90,14 @@ sections:
             content: |
               If you downgrade to a plan that offers fewer days' reports, you'll **lose** access to the difference between your current plan and your new plan.
 
-              For example: If you downgrade to {{ standard.name }} from the {{ unlimited.name }} plan, you'll lose access to {{ unlimited-reports | minus: standard-reports }} days' worth of reports.
+              For example: If you downgrade to {{ standard.name }} from the {{ pro.name }} plan, you'll lose access to {{ pro-reports | minus: standard-reports }} days' worth of reports.
 
           - title: "Plan upgrades"
             anchor: "plan-upgrades"
             content: |
               Likewise, if you upgrade to a plan that offers more days' reports, you'll immediately **gain** access to the difference.
 
-              For example: If you upgrade to {{ unlimited.name }} from the {{ standard.name }} plan, you'll gain access to an additional {{ unlimited-reports | minus: standard-reports }} days' worth of reports.
+              For example: If you upgrade to {{ pro.name }} from the {{ standard.name }} plan, you'll gain access to an additional {{ pro-reports | minus: standard-reports }} days' worth of reports.
 
   - title: "Loading Report composition"
     anchor: "all-loading-reports"

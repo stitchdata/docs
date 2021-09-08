@@ -1,8 +1,8 @@
 # -------------------------- #
-#   UNLIMITED PLAN DETAILS  #
+#   PRO PLAN DETAILS  #
 # -------------------------- #
 
-name: "Unlimited"
+name: "Pro"
 
 trial-description: "During the Free Trial, you'll have access to all of Stitch's integrations and unlimited rows for 14 days. The trial begins when you successfully connect and replicate data to a destination."
 
@@ -39,10 +39,10 @@ features:
 
   - category: "Destinations"
     guides:
-      - title: "Multiple destinations"
-        summary: |
-          Configure Stitch to route different data sources to different destinations based on your needs. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
-        free-trial-available: false
+      #- title: "Multiple destinations"
+        #summary: |
+          #Configure Stitch to route different data sources to different destinations based on your needs. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
+        #free-trial-available: false
 
   - category: "Notifications"
     guides:
@@ -73,8 +73,8 @@ features:
       - key: "advanced-scheduling"
       - key: "extraction-logs"
         title: "Extended Extraction Log retention"
-        summary: "{{ doc.summary }} Stitch {{ site.data.stitch.subscription-plans.unlimited.name }} and {{ site.data.stitch.subscription-plans.unlimited-plus.name }} give you access to **{{ site.data.stitch.subscription-plans.unlimited.logs }}** of Extraction Logs."
+        summary: "{{ doc.summary }} Stitch {{ site.data.stitch.subscription-plans.pro.name }} and {{ site.data.stitch.subscription-plans.pro-plus.name }} give you access to **{{ site.data.stitch.subscription-plans.pro.logs }}** of Extraction Logs."
 
       - key: "loading-reports"
         title: "Extended Loading Report retention"
-        summary: "{{ doc.summary }} Stitch {{ site.data.stitch.subscription-plans.unlimited.name }} and {{ site.data.stitch.subscription-plans.unlimited-plus.name }} give you access to **{{ site.data.stitch.subscription-plans.unlimited.reports }}** of Loading Reports."
+        summary: "{{ doc.summary }} Stitch {{ site.data.stitch.subscription-plans.pro.name }} and {{ site.data.stitch.subscription-plans.pro-plus.name }} give you access to **{{ site.data.stitch.subscription-plans.pro.reports }}** of Loading Reports."

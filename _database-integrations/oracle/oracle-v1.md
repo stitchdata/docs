@@ -24,7 +24,7 @@ key: "oracle-integration"
 #  Stitch Plan Requirements  #
 # -------------------------- #
 
-minimum-plan: "unlimited"
+minimum-plan: "pro"
 
 minimum-plan-cta:
   feature: "Oracle integrations "

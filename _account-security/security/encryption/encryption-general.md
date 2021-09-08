@@ -22,11 +22,11 @@ feedback: false
 #  Stitch Plan Requirements  #
 # -------------------------- #
 
-minimum-plan: "unlimited-plus"
+minimum-plan: "pro-plus"
 minimum-plan-cta:
-  title: "Advanced connectivity for {{ site.data.stitch.subscription-plans.unlimited.name }} plans"
+  title: "Advanced connectivity for {{ site.data.stitch.subscription-plans.pro-plus.name }} plans"
   copy: |
-    [Additional connection options](#advanced-connectivity) are available as part of a Stitch {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan.
+    [Additional connection options](#advanced-connectivity) are available as part of a {{ site.data.stitch.subscription-plans.pro.name }} or {{ site.data.stitch.subscription-plans.pro-plus.name }} plan.
 
 
 # -------------------------- #
@@ -129,12 +129,12 @@ sections:
           {% endfor %}
           </table>
 
-          **Note**: [Reverse SSH tunnels]({{ link.security.reverse-ssh | prepend: site.baseurl }}) are also available for Stitch {{ site.data.stitch.subscription-plans.unlimited-plus.name }} customers.
+          **Note**: [Reverse SSH tunnels]({{ link.security.reverse-ssh | prepend: site.baseurl }}) are also available for {{ site.data.stitch.subscription-plans.pro-plus.name }} customers.
 
       - title: "Advanced connectivity"
         anchor: "advanced-connectivity"
         content: |
-          Additional connection options are available as part of a Stitch {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan. This includes:
+          Additional connection options are available as part of a {{ site.data.stitch.subscription-plans.pro-plus.name }} plan. This includes:
 
           - Virtual Private Network (VPN)
           - [Reverse SSH tunneling]({{ link.security.reverse-ssh | prepend: site.baseurl }})

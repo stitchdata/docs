@@ -41,7 +41,7 @@ minimum-plan-cta:
   title: "Need multiple destinations?"
   url: "?utm_medium=docs&utm_campaign=multiple-destinations"
   copy: |
-    As part of a Stitch {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan, you can configure Stitch to route different data sources to different destinations based on your needs. [Contact Stitch Sales for more info]({{ site.sales | append: page.minimum-plan-cta.url }}).
+    As part of a Stitch {{ site.data.stitch.subscription-plans.pro.name }} or {{ site.data.stitch.subscription-plans.pro-plus.name }} plan, you can configure Stitch to route different data sources to different destinations based on your needs. [Contact Stitch Sales for more info]({{ site.sales | append: page.minimum-plan-cta.url }}).
 
 
 # -------------------------- #
