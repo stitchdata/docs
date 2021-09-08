@@ -37,7 +37,7 @@ minimum-plan-cta:
 intro: |
   {% include misc/data-files.html %}
 
-  In the **{{ app.page-names.notification-tab }}** tab of the **{{ app.page-names.account-settings }}** page, you can configure webhooks to fire each time data is loaded into your destination. Using Stitch's post-load hooks feature, you can automate your post-load processing functions.
+  In the **{{ app.page-names.notification-tab }}** tab of the **{{ app.page-names.account-settings }}** page, you can configure webhooks to fire each time data is loaded into your existing destination. Using Stitch's post-load hooks feature, you can automate your post-load processing functions.
 
   In this guide, we'll cover:
 
@@ -68,6 +68,14 @@ sections:
     summary: "How to access post-load hooks"
     content: |
       The post-load hook feature is available during the Free Trial or on an {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info about these plans.
+
+      {% capture post-load-setup %}
+      To use post-load hooks, you must already have a destination set up in your Stitch account.
+      {% endcapture %}
+
+      {% include important.html content=post-load-setup %}
+
+      The post-load hook feature is available during the Free Trial or on an Enterprise plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info about Enterprise plans.
 
     subsections:
       - title: "Plan downgrades"

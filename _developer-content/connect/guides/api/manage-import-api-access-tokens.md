@@ -88,7 +88,8 @@ client-id: "116078"
 source-id: "216359"
 token-id: "828704779"
 new-token-id: "828705046"
-
+timestamp-1: "2021-08-12T15:22:12Z"
+timestamp-2: "2021-08-12T15:20:03Z"
 
 sections:
   - title: "Import API access tokens and destination schemas"
@@ -267,11 +268,11 @@ sections:
 
           {{ retrieve-token-id-content | flatify }}
 
-          The response will be an array containing the IDs of the access tokens associated with the specified Import API source ID:
+          The response will be an array containing the IDs of the access tokens associated with the specified Import API source ID and its creation timestamp:
 
           {% capture code %}[
-            {{ page.new-token-id | strip }},            /* New token ID */
-            {{ page.token-id | strip }}             /* Original token ID */
+          {"token_id":{{ page.new-token-id | strip }},"created_at":"{{ page.timestamp-1 | strip }}"},        /* New token ID */
+          {"token_id":{{ page.token-id | strip }},"created_at":"{{ page.timestamp-2 | strip }}"}         /* Original token ID */
           ]
           {% endcapture %}
 
