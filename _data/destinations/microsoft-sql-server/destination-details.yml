@@ -15,33 +15,36 @@
 
 description: ""
 
-fully-managed: true/false
+fully-managed: false
 
-free-option: ""
+free-option: "Yes (plan and trial)"
 
 pricing-model: ""
 
-pricing-details: ""
+pricing-details: |
+  {{ destination.display_name }} 
+
+  Refer to [Microsoft's documentation]({{ site.data.destinations.microsoft-sql-server.resource-links.pricing }}){:target="new"} for more info and examples.
 
 
 # -------------------------- #
 #         Table limits       #
 # -------------------------- #
 
-max-columns-per-table: ""
+max-columns-per-table: "1,024"
 
-max-tables-per-database: ""
+max-tables-per-database: "Limited by total number of objects in a database"
 
 
 # -------------------------- #
 #      Object name limits    #
 # -------------------------- #
 
-case-sensitivity: "Sensitive/Insensitive"
+case-sensitivity: "Insensitive"
 
-table-name-length: " characters"
+table-name-length: "128 characters"
 
-column-name-length: " characters"
+column-name-length: "128 characters"
 
 
 # -------------------------- #
