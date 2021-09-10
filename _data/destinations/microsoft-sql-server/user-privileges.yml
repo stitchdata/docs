@@ -16,13 +16,19 @@
 defaults:
   names:
     control: &control-name "CONTROL"
+    create-table: &create-table-name "CREATE TABLE"
+    create-schema: &create-schema-name "CREATE SCHEMA"
 
   reasons:
     control: &control-reason |
       Required to create the necessary database objects to load and store your data.
       
       The `CONTROL` permission grants ownership-like capabilities to the Stitch user. This ensures that Stitch has all the necessary permissions to load data into the specified database, including ownership abilities on all schemas in the database, and all objects within all schemas in the database.
-
+    create-table: &create-table-reason |
+      Required to create tables in the database.
+    create-schema: &create-schema-reason |
+      Required to create schemas in the database.
+      
   doc-links:
     privileges: &privileges-doc "https://docs.microsoft.com/en-us/sql/relational-databases/security/permissions-database-engine?view=sql-server-ver15"
 
@@ -35,6 +41,13 @@ all-permissions:
     reason: *control-reason
     doc-link: *privileges-doc
 
+  - name: *create-table-name
+    reason: *create-table-reason
+    doc-link: *privileges-doc
+    
+  - name: *create-schema-name
+    reason: *create-schema-reason
+    doc-link: *privileges-doc
 
 # -------------------------- #
 #         SQL COMMANDS       #
