@@ -11,12 +11,13 @@ permalink: /destinations/microsoft-sql-server
 keywords: microsoft sql server, microsoft sql server data warehouse, microsoft sql server data warehouse, microsoft sql server etl, etl to microsoft sql server, microsoft sql server destination
 summary: "Documentation for Stitch's Microsoft SQL Server destination."
 
+destination: true
 content-type: "destination-category"
 key: "microsoft-sql-server-category"
 
+
 order: 1
 
-toc: true
 layout: general
 
 
@@ -27,33 +28,82 @@ layout: general
 display_name: "Microsoft SQL Server"
 type: "microsoft-sql-server"
 
-# sections:
-#   - title: "Select version"
-#     anchor: "select-version"
-#     content: |
-#       For a side-by-side comparison of each version of the {{ destination.display_name }} destination, refer to the [Version comparison section](#version-comparison).
+this-version: "1"
 
-#       {% assign destinations = site.destinations | where:"key","microsoft-sql-server-version-category" | sort:"this-version" | reverse %}
+# -------------------------- #
+#          Sections          #
+# -------------------------- #
 
-#       <ul class="tiles three-columns">
-#       {% for destination in destinations %}
-#         <li>
-#           <a href="{{ site.baseurl | append: destination.url }}">
-#             <img src="{{ site.baseurl }}/images/destinations/icons/{{ destination.type }}.svg" style="max-height: 60px;" alt="{{ destination.display_name }} v{{ destination.this-version }} logo">
-#           </a>
-#           <strong>{{ destination.display_name }} (v{{ destination.this-version }})</strong><br>
-#           <a href="{{ site.baseurl | append: destination.url }}">All {{ destination.display_name }} (v{{ destination.this-version }}) documentation</a>
-#         </li>
-#       {% endfor %}
-#       </ul>
+sections:
+  - title: "Getting started"
+    anchor: "get-started"
+    content: |
+      {% assign all-destination-setup-guides = site.documents | where:"content-type","destination-setup" %}
+      {% assign destination-setup-guides = all-destination-setup-guides | where:"type",page.type | sort:"title" %}
 
-#   - title: "Version history"
-#     anchor: "version-history-comparison"
-#     content: |
-# {% include shared/versioning/version-history.html %}
+      {% for guide in destination-setup-guides %}
+      <span class="h4">
+      [{{ guide.title }}]({{ guide.url | prepend: site.baseurl }})
+      </span>
+      {{ guide.summary | markdownify }}
+      {% endfor %}
 
-#   - title: "Version comparison"
-#     anchor: "version-comparison"
-#     content: |
-# {% include shared/versioning/destination-supported-features.html %}
+  - title: "Using {{ page.display_name }}"
+    anchor: "using-destination"
+    guides:
+      - key: "de-nesting-json"
+    content: |
+      {% for guide in section.guides %}
+      {% assign this-guide = site.documents | where:"key",guide.key | first %}
+      <span class="h4">
+      [{{ this-guide.title }}]({{ this-guide.url | prepend: site.baseurl }})
+      </span>
+      {{ this-guide.summary | flatify }}
+      {% endfor %}
+
+  - title: "Troubleshooting"
+    anchor: "troubleshooting-destination"
+    guides:
+      - key: "destination-loading-errors"
+      - key: "destination-connection-errors"
+    content: |
+      {% for guide in section.guides %}
+      {% assign this-guide = site.documents | where:"key",guide.key | first %}
+      <span class="h4">
+      [{{ this-guide.title }}]({{ this-guide.url | prepend: site.baseurl }})
+      </span>
+      {{ this-guide.summary | flatify }}
+      {% endfor %}
+
+  - title: "Reference"
+    anchor: "reference-guides"
+    guides:
+      - key: "dedicated-overview"
+      # - key: "microsoft-sql-server-loading-reference"
+      - key: "source-destination-compatibility"
+      - key: "system-tables-and-columns"
+      - key: "reserved-keywords"
+#   - loading-errors
+#   - connection-errors
+    content: |
+      {% for guide in section.guides %}
+      {% if guide.key == "dedicated-overview" %}
+        {% assign all-destination-overviews = site.documents | where:"content-type","destination-overview" %}
+
+          {% assign all-this-destinations-overviews = all-destination-overviews | where:"type",page.type %}
+            {% if page.this-version %}
+              {% assign this-guide = all-this-destinations-overviews | where:"this-version",page.this-version | first %}
+            {% else %}
+              {% assign this-guide = all-this-destinations-overviews | first %}
+            {% endif %}
+
+      {% else %}
+        {% assign this-guide = site.documents | where:"key",guide.key | first %}
+      {% endif %}
+
+      <span class="h4">
+      [{{ this-guide.title }}]({{ this-guide.url | prepend: site.baseurl }})
+      </span>
+      {{ this-guide.summary | flatify }}
+      {% endfor %}
 ---

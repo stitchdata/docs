@@ -11,8 +11,8 @@
 #        Page Controls       #
 # -------------------------- #
 
-title: Microsoft SQL Server (v1) Destination Reference
-permalink: /destinations/microsoft-sql-server/v1/reference/
+title: Microsoft SQL Server Destination Reference
+permalink: /destinations/microsoft-sql-server/reference/
 keywords: microsoft sql server, microsoft sql server data warehouse, microsoft sql server data warehouse, microsoft sql server etl, etl to microsoft sql server, microsoft sql server destination
 summary: "Reference documentation for Stitch's Microsoft SQL Server destination, including info about Stitch features, replication, and transformations."
 
@@ -131,10 +131,6 @@ sections:
 
           If the conditions for Upsert loading aren't met, data will be loaded using Append-Only loading.
 
-          In Append-Only replication, existing rows aren't updated. Multiple versions of a row can exist in a table, creating a log of how a row changed over time. **Note**: While this may look like a discrepancy, it is intended functionality for {{ destination.display_name }} {{ destination.this-version | prepend: "v" }} destinations.
-
-          Because of this loading strategy, querying may require [a different strategy than usual]({{ link.replication.append-only | prepend: site.baseurl }}). Using some of the system columns Stitch inserts into tables will enable you to locate the latest version of a record at query time.
-
           Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info and examples.
 
 #       - title: "Primary Keys"
@@ -142,10 +138,10 @@ sections:
 #         content: |
 #           > HOW DOES THE DESTINATION HANDLE PRIMARY KEYS, IF AT ALL?
 
-      # - title: "Incompatible sources"
-      #   anchor: "replication--incompatible-sources"
-      #   content: |
-      #     {% include shared/incompatibilities/destination-version-incompatibilities.html %}
+      - title: "Incompatible sources"
+        anchor: "replication--incompatible-sources"
+        content: |
+          {% include shared/incompatibilities/destination-version-incompatibilities.html %}
 
   - title: "Transformations"
     anchor: "transformations"
@@ -171,41 +167,39 @@ sections:
 
           {% include replication/templates/data-types/destination-data-types.html display-intro=true %}
 
-#       - title: "JSON structures"
-#         anchor: "transformations--json-structures"
-#         content: |
-#           > NO NATIVE SUPPORT:
+      - title: "JSON structures"
+        anchor: "transformations--json-structures"
+        content: |
+          When Stitch replicates source data containing objects or arrays, Stitch will load the data intact into a column with the type `NVARCHAR(MAX)`. This is a {{ destination.display_name }} data type that can contain semi-structured data like JSON arrays and objects.
 
-#           {{ destination.display_name }} destinations don't have native support for nested data structures. To ensure nested data can be loaded, Stitch will flatten objects and arrays into columns and subtables, respectively. For more info and examples, refer to the [Handling nested data structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
+          You can then use {{ destination.display_name }}'s functions for semi-structured data to parse the data. Refer to [{{ destination.display_name }}'s documentation]({{ site.data.destinations.microsoft-sql-server.resource-links.json-functions }}){:target="new"} for more info.
 
-#           > NATIVE SUPPORT:
+      - title: "Column names"
+        anchor: "transformations--column-naming"
+        content: |
+          Column names in {{ destination.display_name }}:
 
-#           > NATIVE SUPPORT, BIGQUERY-LIKE APPROACH:
-#           {{ destination.display_name }} supports nested records within tables, whether it's a single record or repeated values. This means that when nested data structures are loaded into {{ destination.display_name }}, they will be maintained.
+          {{ site.data.destinations.microsoft-sql-server.destination-details.column-name-rules | flatify | markdownify }}
 
-#           > NATIVE SUPPORT, USING A SPECIFIC DATA TYPE:
+          Stitch will perform the following transformations to ensure column names [adhere to the rules imposed by {{ destination.display_name }}]({{ site.data.destinations.microsoft-sql-server.resource-links.object-names }}){:target="new"}:
 
-#           When Stitch replicates source data containing objects or arrays, Stitch will load the data intact into a [`` column](). This is a {{ destination.display_name }} data type that can contain semi-structured data like JSON arrays and objects.
+          {% include destinations/templates/destination-column-name-transformations.html %}
+        
+      - title: "Table and schema names"
+        anchor: "transformations--table-schema-naming"
+        content: |
+          Table and schema names in {{ destination.display_name }}:
 
-#           You can then use {{ destination.display_name }}'s functions for semi-structured data to parse the data. Refer to [{{ destination.display_name }}'s documentation](){:target="new"} for more info.
+          {{ site.data.destinations.microsoft-sql-server.destination-details.table-name-rules | flatify | markdownify }}
 
-#       - title: "Column names"
-#         anchor: "transformations--column-naming"
-#         content: |
-#           Column names in {{ destination.display_name }}:
+          Stitch will perform the following transformations to ensure table and schema names [adhere to the rules imposed by {{ destination.display_name }}]({{ site.data.destinations.microsoft-sql-server.resource-links.object-names }}){:target="new"}:
 
-#           {{ site.data.destinations.microsoft-sql-server.destination-details.column-name-rules | flatify | markdownify }}
+          {% include destinations/templates/destination-table-name-transformations.html %}
 
-#           Stitch will perform the following transformations to ensure column names [adhere to the rules imposed by {{ destination.display_name }}]({{ site.data.destinations.microsoft-sql-server.resource-links.object-names }}){:target="new"}:
-
-#           {% include destinations/templates/destination-column-name-transformations.html %}
-
-#       - title: "Timezones"
-#         anchor: "transformations--timezones"
-#         content: |
-#           > ADJUST AS NEEDED:
-
-#           {{ destination.display_name }} will store the value as `TIMESTAMP WITHOUT TIMEZONE`. In {{ destination.display_name }}, this data is stored without timezone information and expressed as UTC.
+      - title: "Timezones"
+        anchor: "transformations--timezones"
+        content: |
+          {{ destination.display_name }} will store the value as `TIMESTAMP WITHOUT TIMEZONE`. In {{ destination.display_name }}, this data is stored without timezone information and expressed as UTC.
 
   - title: "Compare destinations"
     anchor: "compare-destinations"
