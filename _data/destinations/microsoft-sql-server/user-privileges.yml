@@ -3,11 +3,11 @@
 
 
 # -------------------------------------------------- #
-#     DESTINATION-NAME User Privileges and Setup     #
+#   Microsoft SQL Server User Privileges and Setup   #
 # -------------------------------------------------- #
 
 ## This file contains info about the privileges and setup steps
-## required to create a Stitch database user for a DESTINATION-NAME destination.
+## required to create a Stitch database user for a Microsoft SQL Server destination.
 
 ## This file includes info about the permissions required, the
 ## commands to grant those permissions, and the descriptions that
@@ -15,39 +15,59 @@
 
 defaults:
   names:
-    [key]: &key-name ""
-
-  doc-links:
-    [key]: &key-doc-link ""
+    control: &control-name "CONTROL"
 
   reasons:
-    [key]: &key-reason "" 
+    control: &control-reason |
+      Required to create the necessary database objects to load and store your data.
+      
+      The `CONTROL` permission grants ownership-like capabilities to the Stitch user. This ensures that Stitch has all the necessary permissions to load data into the specified database, including ownership abilities on all schemas in the database, and all objects within all schemas in the database.
 
-# -------------------------- #
-#  DESTINATION-NAME PRIVILEGES #
-# -------------------------- #
+  doc-links:
+    privileges: &privileges-doc "https://docs.microsoft.com/en-us/sql/relational-databases/security/permissions-database-engine?view=sql-server-ver15"
+
+# ------------------------------- #
+# Microsoft SQL Server PRIVILEGES #
+# ------------------------------- #
 
 all-permissions:
-  - name: *key-name
-    reason: *key-reason
-    doc-link: *key-doc-link
+  - name: *control-name
+    reason: *control-reason
+    doc-link: *privileges-doc
 
 
 # -------------------------- #
 #         SQL COMMANDS       #
 # -------------------------- #
 
-[command-name-key]: &command-name-key |
-  [COMMAND]
+create-user-command: &create-user-sql |
+  CREATE LOGIN stitch WITH PASSWORD = '<STRONG_PASSWORD_HERE>';
+  CREATE USER stitch FOR LOGIN stitch;
 
+grant-control-to-user: &grant-control-sql |
+  CREATE USER stitch FOR LOGIN stitch;
+  GRANT CONTROL ON DATABASE::<DATABASE_NAME> to stitch;
+
+grant-permissions-to-user: &grant-permissions-sql |
+  GRANT CREATE TABLE ON DATABASE::<DATABASE_NAME> to stitch;
+  GRANT CREATE SCHEMA ON DATABASE::<DATABASE_NAME> to stitch;
 
 # -------------------------- #
 #   STEPS FOR CREATING USER  #
 # -------------------------- #
 
-## The individual steps for creating a DESTINATION user for Stitch.
+## The individual steps for creating a Microsoft SQL Server user for Stitch.
 
-[destination-name]:
+microsoft-sql-server:
+  - copy: "If you haven't already, connect to your {{ page.display_name }} instance using your SQL client."
+  - copy: "Navigate to the `master` database."
   - copy: |
-      [Instructions for this step]
-    command: *command-name-key
+      In the `master` database, run the following commands to create a login and a user named `stitch`. Replace `<STRONG_PASSWORD_HERE>` with a strong password:
+    command: *create-user-sql
+  - copy: "Next, navigate to the database where you want Stitch to load data."
+  - copy: |
+      In this database, run the following commands to create a login and a database user named `stitch`. Replace `<DATABASE_NAME>` with the name of the database:
+    command: *grant-control-sql
+  - copy: |
+      Run the following commands to allow the user to create tables and schemas:
+    command: *grant-permissions-sql
