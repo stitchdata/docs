@@ -133,10 +133,13 @@ sections:
 
           Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info and examples.
 
-#       - title: "Primary Keys"
-#         anchor: "replication--primary-keys"
-#         content: |
-#           > HOW DOES THE DESTINATION HANDLE PRIMARY KEYS, IF AT ALL?
+      - title: "Primary Keys"
+        anchor: "replication--primary-keys"
+        content: |
+          If Primary Keys are specified, Stitch creates a table in which Primary Key columns have a `NOT NULL` constraint. Errors occur when:
+            - Primary Key data types differ between records
+            - Primary Key names differ between records
+            - The number of Primary Keys differs between records
 
       - title: "Incompatible sources"
         anchor: "replication--incompatible-sources"
