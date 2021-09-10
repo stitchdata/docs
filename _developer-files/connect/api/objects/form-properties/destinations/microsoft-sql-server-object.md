@@ -43,7 +43,7 @@ description: ""
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
-# uses-common-fields: true/false
+uses-common-fields: true
 ## See these fields in _data/connect/common/destination-forms.yml > all-destinations
 
 # object-attributes:
