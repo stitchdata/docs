@@ -127,7 +127,7 @@ sections:
         anchor: "loading-behavior"
         content: |
           {% assign version = destination.this-version | prepend: "v" %} 
-          By default, Stitch will use **{{ site.data.destinations.microsof-sql-server.v1.replication.default-loading-behavior }} loading** when loading data into {{ destination.display_name }}.
+          By default, Stitch will use **{{ site.data.destinations.microsoft-sql-server.v1.replication.default-loading-behavior }} loading** when loading data into {{ destination.display_name }}.
 
           If the conditions for Upsert loading aren't met, data will be loaded using Append-Only loading.
 

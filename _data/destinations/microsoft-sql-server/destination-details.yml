@@ -15,7 +15,7 @@
 
 description: ""
 
-port: "1433"
+port: 1433
 
 fully-managed: false
 
@@ -24,8 +24,6 @@ free-option: "Yes (plan and trial)"
 pricing-model: ""
 
 pricing-details: |
-  {{ destination.display_name }} 
-
   Refer to [Microsoft's documentation]({{ site.data.destinations.microsoft-sql-server.resource-links.pricing }}){:target="new"} for more info and examples.
 
 
@@ -103,9 +101,9 @@ table-name-transformations:
     destination-name: "<code>customers</code>"
 
   - transformation: "Convert to lowercase"
-    source-column: "<code>Customers</code>"
-    destination-column: "<code>customers</code>"
+    source-name: "<code>Customers</code>"
+    destination-name: "<code>customers</code>"
 
   - transformation: "Quote reserved words"
-    source-column: "<code>order</code>"
-    destination-column: "<code>\"order\"</code>"
+    source-name: "<code>order</code>"
+    destination-name: "<code>\"order\"</code>"

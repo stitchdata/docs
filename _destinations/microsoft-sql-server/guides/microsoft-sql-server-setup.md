@@ -37,7 +37,7 @@ name: "microsoft-sql-server"
 
 ssh: false
 ssl: true
-# port: ## Remove if not needed
+port: 1433
 
 hosting-type: "generic" # amazon, generic, microsoft, etc.
 
