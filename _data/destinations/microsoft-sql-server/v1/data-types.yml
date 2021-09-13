@@ -59,7 +59,7 @@ date:
   suffix: "dt"
   description: "Stored in UTC as `DATETIMEOFFSET(3)`"
   doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-ver15"
-  range: "0001-01-01 to 9999-12-31"
+  range: "**Date**: 0001-01-01 through 9999-12-31; **Time**: 00:00:00 through 23:59:59.999"
   loading-error: "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range }}"
   # date-range: &date-range ""
   # timezone-support: &timezone-support "None"

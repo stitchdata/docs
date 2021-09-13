@@ -13,7 +13,7 @@
 #       General/Pricing      #
 # -------------------------- #
 
-description: ""
+description: "{{ destination.display_name }} is a relational database management system that allows you to query across relational, non-relational, structured and unstructured data with the language and platform of your choice."
 
 port: 1433
 
@@ -21,7 +21,7 @@ fully-managed: false
 
 free-option: "Yes (plan and trial)"
 
-pricing-model: ""
+pricing-model: "Varies"
 
 pricing-details: |
   Refer to [Microsoft's documentation]({{ site.data.destinations.microsoft-sql-server.resource-links.pricing }}){:target="new"} for more info and examples.
@@ -63,8 +63,6 @@ column-name-transformations:
     source-column: "<code> customerid </code>"
     destination-column: "<code>customerid</code>"
 
-  - transformation: "Remove non-printable characters"
-
   - transformation: "Replace characters which are not a-z, A-Z, 0-9, _, @, $ or # with an underscore"
     source-column: "<code>customer-id</code>"
     destination-column: "<code>customer_id</code>"
@@ -93,8 +91,6 @@ table-name-transformations:
   - transformation: "Trim leading and trailing spaces"
     source-name: "<code> customers </code>"
     destination-name: "<code>customers</code>"
-
-  - transformation: "Remove non-printable characters"
 
   - transformation: "Replace characters which are not a-z, A-Z, 0-9, _, @, $ or # with an underscore."
     source-name: "<code>customers!</code>"

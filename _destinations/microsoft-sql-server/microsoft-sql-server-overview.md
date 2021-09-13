@@ -87,11 +87,6 @@ sections:
         content: |
           {% include destinations/overviews/destination-reference-table.html category="destination-details" %}
 
-#       - title: "{{ page.display_name }} pricing"
-#         anchor: "pricing"
-#         content: |
-#           > INCLUDE IF RELEVANT.
-
   - title: "Replication"
     anchor: "replication"
     content: |
