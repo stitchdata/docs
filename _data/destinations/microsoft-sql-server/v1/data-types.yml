@@ -102,7 +102,8 @@ integer:
 number:
   destination-type: "decimal"
   suffix: "de"
-  description: "Precision must be between 1 and 38; scale must be between 0 and the precision value"
+  description: "Stored as `DECIMAL(38,6)`"
+  range: "-99999999999999999999999999999999.999999 to 99999999999999999999999999999999.999999"
   doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/decimal-and-numeric-transact-sql?view=sql-server-ver15"
   #range: ""
   loading-error: "{{ site.data.destinations.common.loading-errors.decimal-out-of-range }}"
@@ -115,8 +116,8 @@ number:
 string:
   destination-type: "nvarchar"
   suffix: "st"
-  #description: ""
-  range: "Maximum width is 4,000 bytes"
+  description: "Stored as `NVARCHAR(450)` or widened to `NVARCHAR(MAX)` for larger strings"
+  range: "Maximum width is 4,000 bytes `NVARCHAR(n)` and 2 GB for `NVARCHAR(MAX)`"
   doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql?view=sql-server-ver15"
 
 # ---------------------------- #

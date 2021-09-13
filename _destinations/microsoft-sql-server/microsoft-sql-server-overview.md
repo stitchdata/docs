@@ -202,7 +202,7 @@ sections:
       - title: "Timezones"
         anchor: "transformations--timezones"
         content: |
-          {{ destination.display_name }} will store the value as `TIMESTAMP WITHOUT TIMEZONE`. In {{ destination.display_name }}, this data is stored without timezone information and expressed as UTC.
+          {{ destination.display_name }} will store the value as `DATETIMEOFFSET(3)`.
 
   - title: "Compare destinations"
     anchor: "compare-destinations"

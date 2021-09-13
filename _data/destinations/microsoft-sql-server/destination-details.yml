@@ -15,6 +15,8 @@
 
 description: ""
 
+port: "1433"
+
 fully-managed: false
 
 free-option: "Yes (plan and trial)"
@@ -33,7 +35,7 @@ pricing-details: |
 
 max-columns-per-table: "1,024"
 
-max-tables-per-database: "Limited by total number of objects in a database"
+max-tables-per-database: "Limited by total number of objects in a database. The sum of objects cannot exceed 2,147,483,647."
 
 
 # -------------------------- #
@@ -42,7 +44,7 @@ max-tables-per-database: "Limited by total number of objects in a database"
 
 case-sensitivity: "Insensitive"
 
-table-name-length: "128 characters"
+table-name-length: "113 characters"
 
 column-name-length: "128 characters"
 
