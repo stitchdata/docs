@@ -67,7 +67,7 @@ sections:
     anchor: "post-load-hooks-access"
     summary: "How to access post-load hooks"
     content: |
-      The post-load hook feature is available during the Free Trial or on an {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info about these plans.
+      The post-load hook feature is available during the Free Trial or on an {{ site.data.stitch.pro.name }} or {{ site.data.stitch.subscription-plans.pro-plus.name }} plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info about these plans.
 
       {% capture post-load-setup %}
       To use post-load hooks, you must already have a destination set up in your Stitch account.
@@ -142,10 +142,10 @@ sections:
           1. Click the {{ app.menu-paths.account-settings }}.
           2. Click the **{{ app.page-names.notification-tab }}** tab.
           3. Click the **Add Webhook** button in the **Post-load hooks** section.
-          3. In the field that displays, paste the webhook URL.
+          4. In the field that displays, paste the webhook URL.
 
              **Note**: [The webhook URL must use HTTPS](#what-services-post-load-hooks), otherwise you'll receive an `Invalid URI` error and be unable to save the webhook.
-          4. Click the **Save Webhook** button.
+          5. Click the **Save Webhook** button.
 
       - title: "Delete a post-load webhook URL in the Stitch app"
         anchor: "delete-post-load-hook"

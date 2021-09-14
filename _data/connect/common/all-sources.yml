@@ -81,7 +81,7 @@ fields:
 
       {{ site.data.connect.common.all-sources.guide-callout | flatify }}
     short: |
-      A valid Quartz cron expression representing the replication schedule for the integration. This feature is only available to users on a Stitch {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan.
+      A valid Quartz cron expression representing the replication schedule for the integration. This feature is only available to users on a Stitch {{ site.data.stitch.subscription-plans.pro.name }} or {{ site.data.stitch.subscription-plans.pro-plus.name }} plan.
 
       **Note**: If neither a `cron_expression` or `frequency_in_minutes` property is provided, Stitch will use the source's default `frequency_in_minutes` value.
     value: "0 0 12 ? * MON-FRI *"
