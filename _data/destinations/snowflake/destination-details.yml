@@ -62,9 +62,9 @@ column-name-transformations:
     source-column: "<code>CuStOmErId</code> or <code>customerid</code>"
     destination-column: "<code>CUSTOMERID</code>"
 
-  - transformation: "Remove spaces"
+  - transformation: "Replace spaces with underscores"
     source-column: "<code>CUSTOMER ID</code>"
-    destination-column: "<code>CUSTOMERID</code>"
+    destination-column: "<code>CUSTOMER_ID</code>"
 
   - transformation: "Remove special characters"
     source-column: "<code>CUSTOMER#ID</code> or <code>!CUSTOMERID</code>"
