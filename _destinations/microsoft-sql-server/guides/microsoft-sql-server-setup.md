@@ -35,7 +35,7 @@ type: "microsoft-sql-server"
 display_name: "Microsoft SQL Server"
 name: "microsoft-sql-server"
 
-ssh: false
+ssh: true
 ssl: true
 port: 1433
 
@@ -97,20 +97,16 @@ steps:
         content: |
           {% include shared/database-connection-settings.html type="general" %}
 
-# ## The SSH step should remain ONLY if the destination
-# ## supports SSH.
-#       - title: "Define SSH connection details"
-#         anchor: "define-ssh-connection-details"
-#         content: |
-#           {% include shared/database-connection-settings.html type="ssh" %}
+      - title: "Define SSH connection details"
+        anchor: "define-ssh-connection-details"
+        content: |
+          {% include shared/database-connection-settings.html type="ssh" %}
 
-# ## The SSL step should remain ONLY if the destination
-# ## supports SSL.
       - title: "Define SSL connection details"
         anchor: "define-ssl-connection-details"
         content: |
           {% capture tsl-support-note %}
-          SSL can only be used with version of {{ destination.display_name }} that support TSL 1.2. Check which versions support it in [Microsoft's documentation]({{ site.data.destinations.microsoft-sql-server.resource-links.tls-support }}).
+          SSL can only be used with versions of {{ destination.display_name }} that support TSL 1.2. Check which versions support it in [Microsoft's documentation]({{ site.data.destinations.microsoft-sql-server.resource-links.tls-support }}).
           {% endcapture %}
 
           {% include note.html type="single-line" content=tsl-support-note %}
