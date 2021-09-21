@@ -107,6 +107,8 @@ steps:
         content: |
           {% capture tsl-support-note %}
           SSL can only be used with versions of {{ destination.display_name }} that support TSL 1.2. Check which versions support it in [Microsoft's documentation]({{ site.data.destinations.microsoft-sql-server.resource-links.tls-support }}).
+
+          If your {{ destination.display_name }} instance is not hosted on RDS or Azure, you will not have the option to submit your own SSL certificate.
           {% endcapture %}
 
           {% include note.html type="single-line" content=tsl-support-note %}
