@@ -44,7 +44,7 @@ intro: |
 # -------------------------- #
 
 feature-table: |
-  {% assign plan-features = [section.plan]features %}
+  {% assign plan-features = site.data.stitch.subscription-plans.[section.plan].features %}
 
   <table class="attribute-list">
 
