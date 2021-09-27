@@ -17,13 +17,13 @@ weight: 3
 #  Stitch Plan Requirements  #
 # -------------------------- #
 
-minimum-plan: "pro"
+minimum-plan: "unlimited"
 
 minimum-plan-cta:
   title: "Need HIPAA compliance?"
   url: "?utm_medium=docs&utm_campaign=hipaa-compliance"
   copy: |
-    Activating this setting will not, by itself, make your Stitch account HIPAA compliant. As part of a {{ site.data.stitch.subscription-plans.pro.name }} or {{ site.data.stitch.subscription-plans.pro-plus.name }} plan, Stitch can ensure PHI is handled in compliance with HIPAA. [Contact Stitch Sales for more info]({{ site.sales | append: page.minimum-plan-cta.url }}).
+    Activating this setting will not, by itself, make your Stitch account HIPAA compliant. As part of an {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan, Stitch can ensure PHI is handled in compliance with HIPAA. [Contact Stitch Sales for more info]({{ site.sales | append: page.minimum-plan-cta.url }}).
 
 
 # -------------------------- #

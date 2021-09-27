@@ -37,7 +37,7 @@ sections:
         anchor: "access-token--individual-user"
         content: |
           {% capture access-notice %}
-          **Note**: For individual Stitch users, access to the API is available during the Free Trial or as part of a {{ site.data.stitch.subscription-plans.pro.name }} or {{ site.data.stitch.subscription-plans.pro-plus.name }} plan. 
+          **Note**: For individual Stitch users, access to the API is available during the Free Trial or as part of an {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan. 
           {% endcapture %}
 
           {% include note.html type="single-line" content=access-notice %}

@@ -21,10 +21,10 @@ weight: 2
 #  Stitch Plan Requirements  #
 # -------------------------- #
 
-minimum-plan: "pro"
+minimum-plan: "unlimited"
 
 minimum-plan-cta:
-  feature: "The custom notification list "
+  feature: "The custom notification list"
   title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
   copy: "{{ site.data.strings.enterprise.copy.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
 
@@ -70,7 +70,7 @@ sections:
     anchor: "custom-notification-list-access"
     summary: "How to access the custom notification list feature"
     content: |
-      The custom notification list feature is available during the Free Trial or on a {{ site.data.stitch.subscription-plans.pro.name }} or {{ site.data.stitch.subscription-plans.pro-plus.name }} plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info about these plans.
+      The custom notification list feature is available during the Free Trial or on an {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info about these plans.
 
     subsections:
       - title: "Plan downgrades"
