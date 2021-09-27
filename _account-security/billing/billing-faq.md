@@ -93,27 +93,27 @@ frequently-asked-questions:
           </table>
           <br>
 
-          **Note**: The types of integrations available are also dependent on plan type. Users of the {{ site.data.stitch.subscription-plans.pro.name }} and {{ site.data.stitch.subscription-plans.pro-plus.name }} plans will have access to all integrations, while Standard Plan users will have access only to Standard integrations.
+          **Note**: The types of integrations available are also dependent on plan type. Users of the {{ site.data.stitch.subscription-plans.unlimited.name }} and {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plans will have access to all integrations, while Standard Plan users will have access only to Standard integrations.
 
           For more info, refer to the [pricing page]({{ site.pricing }}){:target="new"}.
 
       - question: "What integrations are available on a Standard Plan?"
         anchor: "integrations-paid-plan"
         answer: |
-          After the Free Trial has ended, only Standard integrations will be available to users who select a Standard plan. This includes the majority of Stitch's available integrations with the exception of those offered as part of a [{{ site.data.stitch.subscription-plans.pro.name }} or {{ site.data.stitch.subscription-plans.pro-plus.name }} plan]({{ link.account.enterprise-features | prepend: site.baseurl }}).
+          After the Free Trial has ended, only Standard integrations will be available to users who select a Standard plan. This includes the majority of Stitch's available integrations with the exception of those offered as part of an [{{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan]({{ link.account.enterprise-features | prepend: site.baseurl }}).
 
           Refer to the [pricing page]({{ site.pricing }}){:target="new"} for a list of current Stitch plans.
 
-      - question: "What integrations are available on {{ site.data.stitch.subscription-plans.pro.name }} or {{ site.data.stitch.subscription-plans.pro-plus.name }} Plan?"
-        anchor: "integrations-pro-plan"
+      - question: "What integrations are available on {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} Plans?"
+        anchor: "integrations-unlimited-plan"
         answer: |
           {% assign all-integrations = site.documents | where:"input", true %}
-          {% assign stitch-pro-integrations = all-integrations | where:"minimum-plan","pro" %}
+          {% assign stitch-unlimited-integrations = all-integrations | where:"minimum-plan","pro" %}
 
-          The integrations in the table below are available only to {{ site.data.stitch.subscription-plans.pro.name }} and {{ site.data.stitch.subscription-plans.pro-plus.name }} Plans. [Reach out to sales]({{ site.sales }}){:target="new"} for more info.
+          The integrations in the table below are available only to {{ site.data.stitch.subscription-plans.unlimited.name }} and {{ site.data.stitch.subscription-plans.unlimited-plus.name }} Plans. [Reach out to sales]({{ site.sales }}){:target="new"} for more info.
 
           <table class="attribute-list">
-          {% for integration in stitch-pro-integrations %}
+          {% for integration in stitch-unlimited-integrations %}
 
           {% assign index = forloop.index | modulo: 2 %}
 

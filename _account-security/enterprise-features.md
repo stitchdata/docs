@@ -3,11 +3,11 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Stitch Features for Pro Plans
-permalink: /account-security/stitch-pro-features
+title: Stitch Features for Unlimited Plans
+permalink: /account-security/stitch-unlimited-features
 redirect_from: /account-security/stitch-enterprise-features
-keywords: enterprise stitch enterprise mission-critical ent pro pro plus
-summary: "Guides for the features included in Pro and Pro Plus plans."
+keywords: enterprise stitch enterprise mission-critical ent unlimited unlimited plus
+summary: "Guides for the features included in Unlimited and Unlimited Plus plans."
 
 layout: general
 toc: true
@@ -22,11 +22,11 @@ type: "enterprise"
 #  Stitch Plan Requirements  #
 # -------------------------- #
 
-minimum-plan: "pro"
+minimum-plan: "unlimited"
 
 minimum-plan-cta:
-  title: "Stitch {{ site.data.stitch.subscription-plans.pro.name }} features"
-  copy: "The features listed in this guide are available during the free trial or for customers on a {{ site.data.stitch.subscription-plans.pro.name }} or {{ site.data.stitch.subscription-plans.pro-plus.name }} plan."
+  title: "Stitch {{ site.data.stitch.subscription-plans.unlimited.name }} features"
+  copy: "The features listed in this guide are available during the free trial or for customers on an {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan."
 
 
 # -------------------------- #
@@ -36,7 +36,7 @@ minimum-plan-cta:
 intro: |
   {% include misc/data-files.html %}
 
-  For mission-critical applications, Stitch offers {{ site.data.stitch.subscription-plans.pro.name }} and {{ site.data.stitch.subscription-plans.pro-plus.name }} plans. These plans can include the features listed below, along with custom integrations and row volumes, priority support, and more.
+  For mission-critical applications, Stitch offers {{ site.data.stitch.subscription-plans.unlimited.name }} and {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plans. These plans can include the features listed below, along with custom integrations and row volumes, priority support, and more.
 
 
 # -------------------------- #
@@ -86,25 +86,25 @@ feature-table: |
   </table>
 
 sections:
-  - title: "Pro plan features"
-    anchor: "pro-plan-feature-list"
-    plan: "pro"
+  - title: "Unlimited plan features"
+    anchor: "unlimited-plan-feature-list"
+    plan: "unlimited"
     content: |
-      {% assign stitch-pro = site.data.stitch.subscription-plans.pro %}
+      {% assign stitch-unlimited = site.data.stitch.subscription-plans.unlimited %}
 
-      The features listed below are available during the free trial or to accounts on a {{ stitch-pro.name }} plan. Unless noted, all features are available during the free trial.
+      The features listed below are available during the free trial or to accounts on an {{ stitch-unlimited.name }} plan. Unless noted, all features are available during the free trial.
 
       **Note**: After the free trial ends, access to these features will be revoked.
 
       {{ page.feature-table | flatify }}
 
-  - title: "Pro Plus plan features"
-    anchor: "pro-plus-plan-feature-list"
-    plan: "pro-plus"
+  - title: "Unlimited Plus plan features"
+    anchor: "unlimitedl-plus-plan-feature-list"
+    plan: "unlimited-plus"
     content: |
-      {% assign stitch-pro-plus = site.data.stitch.subscription-plans.pro-plus %}
+      {% assign stitch-unlimited-plus = site.data.stitch.subscription-plans.unlimited-plus %}
 
-      In addition to the [{{ stitch-pro.name }} plan features](#pro-plan-feature-list), accounts on a {{ stitch-pro-plus.name }} plan will also have access to the features listed below.
+      In addition to the [{{ stitch-unlimited.name }} plan features](#unlimited-plan-feature-list), accounts on an {{ stitch-unlimited-plus.name }} plan will also have access to the features listed below.
 
       {{ page.feature-table | flatify }}
 

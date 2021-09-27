@@ -19,7 +19,7 @@ weight: 6
 #  Stitch Plan Requirements  #
 # -------------------------- #
 
-minimum-plan: "pro"
+minimum-plan: "unlimited"
 
 minimum-plan-cta:
   feature: "The custom notification list "

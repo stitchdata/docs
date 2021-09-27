@@ -27,7 +27,7 @@ key: "connect-api-reference"
 #  Stitch Plan Requirements  #
 # -------------------------- #
 
-minimum-plan: "pro"
+minimum-plan: "unlimited"
 
 minimum-plan-cta:
   feature: "API access "
