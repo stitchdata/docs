@@ -5,14 +5,14 @@
 #        Page Controls       #
 # -------------------------- #
 
-title: DESTINATION-NAME Destination Documentation
-permalink: /destinations/destination-type
+title: "[DESTINATION-NAME] Destination Documentation"
+permalink: /destinations/[destination-type]
 
 keywords: destination-type, destination-type data warehouse, destination-type data warehouse, destination-type etl, etl to destination-type, destination-type destination
-summary: "Documentation for Stitch's DESTINATION-NAME destination."
+summary: "Documentation for Stitch's [DESTINATION-NAME] destination."
 
 content-type: "destination-category"
-key: "destination-type-category"
+key: "[destination-type]-category"
 
 order: 1
 
@@ -24,8 +24,8 @@ layout: general
 #     Destination Details    #
 # -------------------------- #
 
-display_name: "DESTINATION-NAME"
-type: "destination-type"
+display_name: "[DESTINATION-NAME]"
+type: "[destination-type]"
 
 sections:
   - title: "Select version"
@@ -33,7 +33,7 @@ sections:
     content: |
       For a side-by-side comparison of each version of the {{ destination.display_name }} destination, refer to the [Version comparison section](#version-comparison).
 
-      {% assign destinations = site.destinations | where:"key","bigquery-version-category" | sort:"this-version" | reverse %}
+      {% assign destinations = site.destinations | where:"key","[destination-type]-version-category" | sort:"this-version" | reverse %}
 
       <ul class="tiles three-columns">
       {% for destination in destinations %}

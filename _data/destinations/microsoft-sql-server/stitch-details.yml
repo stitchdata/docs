@@ -15,9 +15,17 @@
 
 pricing-tier: "Standard"
 
-supported-versions: "n/a"
+supported-versions: |
+  - Azure SQL Server
+  - SQL Server 2019
+  - SQL Server 2017
+  - SQL Server 2016
+  - SQL Server 2014
+  - SQL Server 2012
 
-api-type: ""
+  **Note:** SSL can only be used with versions of {{ destination.display_name }} that support TSL 1.2. Check which versions support it in [Microsoft's documentation]({{ site.data.destinations.microsoft-sql-server.resource-links.tls-support }}).
+
+api-type: "mssql_server"
 
 available-in-connect: true
 
@@ -25,17 +33,18 @@ stitch-supported-regions:
   - id: "north-america"
   - id: "europe"
 
+
 # ------------------------------ #
 #      CONNECTION METHODS        #
 # ------------------------------ #
 
-ssl: true/false
+ssl: true
 
 connect-ssl: false ## Indicates whether SSL can be configured via the API
 
-ssh: true/false
+ssh: true
 
-vpn: true/false
+vpn: false
 
 
 # ------------------------------ #

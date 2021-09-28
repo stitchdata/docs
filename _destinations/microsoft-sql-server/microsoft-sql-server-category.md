@@ -1,30 +1,23 @@
 ---
-# -------------------------- #
-#     USING THIS TEMPLATE    #
-# -------------------------- #
-
-## NEED HELP USING THIS TEMPLATE? SEE:
-## https://docs-about-stitch-docs.netlify.com/how-tos/destinations/add-destination-category-page
-## FOR INSTRUCTIONS & REFERENCE INFO
-
+## FOR DESTINATIONS THAT HAVE MORE THAN 1 VERSION.
 
 # -------------------------- #
 #        Page Controls       #
 # -------------------------- #
 
-title: "[DESTINATION-NAME] Destination (v[version]) Documentation"
-permalink: /destinations/[destination]/v[version]
+title: Microsoft SQL Server Destination Documentation
+permalink: /destinations/microsoft-sql-server
 
-keywords: ""
-summary: "Documentation for Stitch's [DESTINATION-NAME] (v[version]) destination."
+keywords: microsoft sql server, microsoft sql server data warehouse, microsoft sql server data warehouse, microsoft sql server etl, etl to microsoft sql server, microsoft sql server destination
+summary: "Documentation for Stitch's Microsoft SQL Server destination."
 
 destination: true
 content-type: "destination-category"
-key: "[destination-type]-category"
+key: "microsoft-sql-server-category"
+
 
 order: 1
 
-toc: false
 layout: general
 
 
@@ -32,11 +25,10 @@ layout: general
 #     Destination Details    #
 # -------------------------- #
 
-display_name: "[DESTINATION-NAME]"
-type: "[destination-type]"
+display_name: "Microsoft SQL Server"
+type: "microsoft-sql-server"
 
-this-version: "[version]"
-
+this-version: "1"
 
 # -------------------------- #
 #          Sections          #
@@ -87,7 +79,7 @@ sections:
     anchor: "reference-guides"
     guides:
       - key: "dedicated-overview"
-      - key: "[destination-type]-loading-reference"
+      # - key: "microsoft-sql-server-loading-reference"
       - key: "source-destination-compatibility"
       - key: "system-tables-and-columns"
       - key: "reserved-keywords"

@@ -12,14 +12,14 @@
 # Page formatting & Controls #
 # -------------------------- #
 
-title: Connecting a DESTINATION-NAME Destination to Stitch
-permalink: /destinations/destination-type/connecting-destination-type-to-stitch
+title: Connecting a Microsoft SQL Server Destination to Stitch
+permalink: /destinations/microsoft-sql-server/connecting-a-microsoft-sql-server-destination-to-stitch
 
-keywords: destination-type, destination-type data warehouse, destination-type data warehouse, destination-type etl, etl to destination-type, destination-type destination
-summary: "Connect a DESTINATION-NAME destination to your Stitch account."
+keywords: microsoft-sql-server, microsoft-sql-server data warehouse, microsoft-sql-server data warehouse, microsoft-sql-server etl, etl to microsoft-sql-server, microsoft-sql-server destination
+summary: "Connect a Microsoft SQL Server destination to your Stitch account."
 
 content-type: "destination-setup"
-key: "[destination-type]-destination-setup"
+key: "microsoft-sql-server-destination-setup"
 order: 1
 
 toc: true
@@ -31,18 +31,19 @@ use-tutorial-sidebar: false
 #     Destination Details    #
 # -------------------------- #
 
-type: "destination-type"
-display_name: "DESTINATION-NAME"
+type: "microsoft-sql-server"
+display_name: "Microsoft SQL Server"
+name: "microsoft-sql-server"
 
-ssh: true/false
-ssl: true/false
-# port: ## Remove if not needed
+ssh: true
+ssl: true
+port: 1433
 
-hosting-type: "" # amazon, generic, microsoft, etc.
+hosting-type: "generic" # amazon, generic, microsoft, etc.
 
-api-type: ""
+api-type: "mssql_server"
 
-this-version: ""
+this-version: "1"
 
 
 # -------------------------- #
@@ -58,8 +59,7 @@ intro: |
 requirements:
   - item: |
       {% assign destination = page %}
-      **An up-and-running {{ destination.display_name }} instance.** Instructions for creating a {{ destination.display_name }} destination are outside the scope of this tutorial; our instructions assume that you have an instance up and running. For help getting started with {{ destination.display_name }}, refer to [<PROVIDER>'s documentation](){:target="new"}.
-  - item: ""
+      **An up-and-running {{ destination.display_name }} instance.** Instructions for creating a {{ destination.display_name }} destination are outside the scope of this tutorial; our instructions assume that you have an instance up and running. For help getting started with {{ destination.display_name }}, refer to [Microsoft's documentation]({{ site.data.destinations.microsoft-sql-server.resource-links.documentation }}){:target="new"}.
 
 
 # -------------------------- #
@@ -67,26 +67,15 @@ requirements:
 # -------------------------- #
 
 steps:
-  - title: ""
-    anchor: ""
-    content: ""
+  # - title: "Verify your Stitch account's data pipeline region"
+  #   anchor: "verify-stitch-account-region"
+  #   content: |
+  #     {% include shared/whitelisting-ips/locate-region-ip-addresses.html first-step=true %}
 
-## The Data pipeline region step is necessary ONLY
-## if the user needs to whitelist Stitch's IP addresses
-## for setup.
-
-  - title: "Verify your Stitch account's data pipeline region"
-    anchor: "verify-stitch-account-region"
-    content: |
-      {% include shared/whitelisting-ips/locate-region-ip-addresses.html first-step=true %}
-
-## The database connection settings step is necessary ONLY
-## if the user needs to whitelist Stitch's IP addresses
-## for setup.
-  - title: "Configure database connection settings"
-    anchor: "connect-settings"
-    content: |
-      {% include integrations/templates/configure-connection-settings.html %}
+  # - title: "Configure database connection settings"
+  #   anchor: "connect-settings"
+  #   content: |
+  #     {% include integrations/templates/configure-connection-settings.html %}
 
   - title: "Create a Stitch {{ destination.display_name }} database user"
     anchor: "create-database-user"
@@ -103,31 +92,29 @@ steps:
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
 
     substeps:
-## Remove this section if the user doesn't need to locate connection details in a SaaS app like AWS
-## Check the _includes/shared/connection-details folder for available includes
-      - title: "Locate the {{ destination.display_name }} connection details"
-        anchor: "locate-connection-details-aws"
-        content: |
-          {% include shared/connection-details/amazon.html type="connection-details" %}
-
       - title: "Enter connection details into Stitch"
         anchor: "enter-connection-details-into-stitch"
         content: |
           {% include shared/database-connection-settings.html type="general" %}
 
-## The SSH step should remain ONLY if the destination
-## supports SSH.
       - title: "Define SSH connection details"
         anchor: "define-ssh-connection-details"
         content: |
           {% include shared/database-connection-settings.html type="ssh" %}
 
-## The SSL step should remain ONLY if the destination
-## supports SSL.
       - title: "Define SSL connection details"
         anchor: "define-ssl-connection-details"
         content: |
-          {% include shared/database-connection-settings.html type="ssl" ssl-fields=true %}
+          {% capture tsl-support-note %}
+          SSL can only be used with versions of {{ destination.display_name }} that support TSL 1.2. Check which versions support it in [Microsoft's documentation]({{ site.data.destinations.microsoft-sql-server.resource-links.tls-support }}).
+
+          If your {{ destination.display_name }} instance is not hosted on RDS or Azure, you will not have the option to submit your own SSL certificate.
+          {% endcapture %}
+
+          {% include note.html type="single-line" content=tsl-support-note %}
+
+          Check the **{{ defaults.field-names.ssl }}** checkbox. {{ defaults.field-copy.ssl }}
+
 
       - title: "Save the destination"
         anchor: "save-destination"

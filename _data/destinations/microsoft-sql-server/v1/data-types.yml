@@ -1,0 +1,131 @@
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/data-types/
+
+
+# ---------------------------- #
+#  [DESTINATION] DATA TYPING   #
+# ---------------------------- #
+
+## Details about data typing for [destination] destinations.
+## Includes:
+##  - Stitch types mapped to [destination]-specific types
+##  - Data type suffixes
+##  - Limitations on each data type, imposed by [destination]
+
+
+## NOTE: Relevant files:
+##  - Stitch data types: _data/taps/extraction/data-types/stitch-types.yml
+##  - All supported source types: _data/taps/extraction/data-types/source-types.yml
+
+
+# ---------------------------- #
+#       DATA TYPE MAPPING      #
+# ---------------------------- #
+
+## Data types specific to DESTINATION destinations:
+## REMOVE IF NOT NEEDED.
+specific:
+  - name: "json"
+
+# ---------------------------- #
+#           BIGINT             #
+# ---------------------------- #
+
+bigint:
+  destination-type: "bigint"
+  suffix: "bi"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15"
+  range: "-2^63 (-9,223,372,036,854,775,808) to 2^63-1 (9,223,372,036,854,775,807)"
+  loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
+
+
+# ---------------------------- #
+#           BOOLEAN            #
+# ---------------------------- #
+
+boolean:
+  destination-type: "bit"
+  suffix: "bo"
+  description: "Values are stored as `1` (`true`), `0` (`false`), or `NULL`."
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/bit-transact-sql?view=sql-server-ver15"
+
+
+# ---------------------------- #
+#            DATE              #
+# ---------------------------- #
+
+date:
+  destination-type: "datetimeoffset"
+  suffix: "dt"
+  description: "Stored in UTC as `DATETIMEOFFSET(3)`"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-ver15"
+  range: "**Date**: 0001-01-01 through 9999-12-31; **Time**: 00:00:00 through 23:59:59.999"
+  loading-error: "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range }}"
+  # date-range: &date-range ""
+  # timezone-support: &timezone-support "None"
+
+
+# ---------------------------- #
+#           DOUBLE             #
+# ---------------------------- #
+
+double: &float
+  destination-type: "float"
+  suffix: "fl"
+  description: "Stored as `FLOAT(53)`"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/float-and-real-transact-sql?view=sql-server-ver15"
+
+
+# ---------------------------- #
+#           FLOAT              #
+# ---------------------------- #
+
+float: *float
+
+
+# ---------------------------- #
+#           INTEGER            #
+# ---------------------------- #
+
+integer:
+  destination-type: "int"
+  suffix: "it"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15"
+  range: "-2^31 (-2,147,483,648) to 2^31-1 (2,147,483,647)"
+  loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
+
+
+# ---------------------------- #
+#           NUMBER             #
+# ---------------------------- #
+
+number:
+  destination-type: "decimal"
+  suffix: "de"
+  description: "Stored as `DECIMAL(38,6)`"
+  range: "-99999999999999999999999999999999.999999 to 99999999999999999999999999999999.999999"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/decimal-and-numeric-transact-sql?view=sql-server-ver15"
+  #range: ""
+  loading-error: "{{ site.data.destinations.common.loading-errors.decimal-out-of-range }}"
+
+
+# ---------------------------- #
+#           STRING             #
+# ---------------------------- #
+
+string:
+  destination-type: "nvarchar"
+  suffix: "st"
+  description: "Stored as `NVARCHAR(450)` or widened to `NVARCHAR(MAX)` for larger strings"
+  range: "Maximum width is 4,000 bytes `NVARCHAR(n)` and 2 GB for `NVARCHAR(MAX)`"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql?view=sql-server-ver15"
+
+# ---------------------------- #
+#            JSON              #
+# ---------------------------- #
+
+json:
+  destination-type: "nvarchar"
+  suffix: "js"
+  description: "Stored as `NVARCHAR(MAX)`"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql?view=sql-server-ver15"
