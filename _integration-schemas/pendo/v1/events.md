@@ -23,7 +23,7 @@ attribution-window: true
 
 api-method:
   name: "Aggregation"
-  doc-link: "https://api/v1/aggregation"
+  doc-link: "https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation"
 
 attributes:
   - name: "account_id"
