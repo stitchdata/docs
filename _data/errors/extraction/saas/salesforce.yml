@@ -50,9 +50,11 @@ all:
     version: "1" 
     summary: "Insufficient Bulk API permissions"
     cause: |
-      The Salesforce organization associated with the integration doesn't have access to the Bulk API.
+      This error can have different causes:
+      - The Salesforce organization associated with the integration doesn't have access to the Bulk API.
+      - The user does not have the **View Setup and Configuration** permission.
     fix-it: |
-      Contact a Salesforce administrator or Salesforce support to inquire about obtaining Bulk API access. Once access is granted, you'll be able to use the Bulk API.
+      Contact a Salesforce administrator or Salesforce support to inquire about obtaining the required permissions. Once access is granted, you'll be able to use the Bulk API.
 
       Otherwise, create a new Salesforce integration in Stitch and select **REST** for the integration's Extraction API.
 
