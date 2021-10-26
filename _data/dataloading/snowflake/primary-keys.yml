@@ -74,4 +74,5 @@
   error:
     v1: *pk-change-error
   fix-it:
-    v1: *reinstate-pks-drop-table
+    v1: &reinstate-pks |
+      Re-instate the table’s Primary Key(s) to allow Stitch to continue processing data for the table.
