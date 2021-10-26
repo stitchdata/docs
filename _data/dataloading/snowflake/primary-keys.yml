@@ -58,8 +58,8 @@
   error:
     v1: &pk-change-error "{{ site.data.destinations.snowflake.loading-errors.primary-key-change }}"
   fix-it: 
-    v1: &reinstate-pks |
-      Re-instate the table's Primary Key(s) to allow Stitch to continue processing data for the table.
+    v1: &reinstate-pks-drop-table |
+      Re-instate the table's Primary Key(s) or drop the table to allow Stitch to continue loading data.
 
 
 ## Primary Key column is removed in the warehouse:
@@ -74,4 +74,4 @@
   error:
     v1: *pk-change-error
   fix-it:
-    v1: *reinstate-pks
+    v1: *reinstate-pks-drop-table
