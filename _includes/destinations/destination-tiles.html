@@ -1,7 +1,7 @@
 <!-- This creates tiles that display all destinations. Used
 	on the destination category and Choosing a Destination pages. -->
 
-{% assign destinations = site.destinations | where:"destination",true | sort: "display_name" %}
+{% assign destinations = site.destinations | where:"destination",true | sort_natural: "display_name" %}
 
 <!-- Get all the loading guides -->
 	{% assign all-data-loading-guides = site.data-structure | where:"content-type","loading-reference" %}
