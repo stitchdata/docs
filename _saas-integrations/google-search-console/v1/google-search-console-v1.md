@@ -165,7 +165,9 @@ setup-steps:
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      4. In the **Site Urls** field, enter the URLs you added to your sitemap file in [step 1](#set-up-console). The URLs should be comma delimited and begin with `https://` or `http://`. Example: `https://yoursite.com, http://yourothersite.com`.
+      1. In the **Site Urls** field, enter the URLs you added to your sitemap file in [step 1](#set-up-console). The URLs should be comma delimited and begin with `https://` or `http://`. Example: `https://yoursite.com, http://yourothersite.com`.
+      
+      **Note**: If you get an error with the message `User does not have sufficient permission for site`, try replacing `https://` or `http://` with `sc-domain:`. Example: `sc-domain:yoursite.com`.
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
