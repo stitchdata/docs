@@ -1,0 +1,85 @@
+---
+tap: "crossbeam"
+version: "1"
+key: ""
+
+name: "populations"
+doc-link: "https://developers.crossbeam.com/#514ea1c6-ca53-4bbb-9dee-e6793e7d1518"
+singer-schema: "https://github.com/singer-io/tap-crossbeam/blob/master/tap_crossbeam/schemas/populations.json"
+description: |
+  The `{{ table.name }}` table contains information about all of your populations in your {{ integration.display_name }} account.
+
+replication-method: "Full Table"
+
+api-method:
+    name: "get Populations"
+    doc-link: "https://developers.crossbeam.com/#514ea1c6-ca53-4bbb-9dee-e6793e7d1518"
+
+attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The population ID."
+
+  - name: "base_schema"
+    type: "string"
+    description: ""
+  - name: "base_table"
+    type: "string"
+    description: ""
+  - name: "current_version"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "first_processed_at"
+        type: "date-time"
+        description: ""
+      - name: "id"
+        type: "integer"
+        description: ""
+      - name: "is_active"
+        type: "boolean"
+        description: ""
+  - name: "filter_expression"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
+  - name: "filter_parts"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "column"
+        type: "string"
+        description: ""
+      - name: "id"
+        type: "integer"
+        description: ""
+      - name: "label"
+        type: "string"
+        description: ""
+      - name: "operand"
+        type: "string"
+        description: ""
+      - name: "operator"
+        type: "string"
+        description: ""
+      - name: "schema"
+        type: "string"
+        description: ""
+      - name: "table"
+        type: "string"
+        description: ""
+  
+  - name: "name"
+    type: "string"
+    description: ""
+  - name: "population_type"
+    type: "string"
+    description: ""
+  - name: "source_id"
+    type: "integer"
+    description: ""
+---
