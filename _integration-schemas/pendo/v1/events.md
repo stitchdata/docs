@@ -10,7 +10,7 @@ description: |
   The `{{ table.name }}` table contains info about events recorded in your {{ integration.display_name }} account.
 
   {% capture event-replication-note %}
-  **Note**: The **Lookback Window** and **Period** settings you define [during setup](#add-stitch-data-source) determine how this table is replicated, including the field used as a Replication Key. Refer to the [Replication section](#event-replication) for more info.
+  **Note**: The **Period** setting you define [during setup](#add-stitch-data-source) determine how this table is replicated, including the field used as a Replication Key. Refer to the [Replication section](#event-replication) for more info.
   {% endcapture %}
 
   {{ event-replication-note }}
