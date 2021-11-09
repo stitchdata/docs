@@ -2,10 +2,11 @@
 title: Log-based Incremental Replication
 permalink: /replication/replication-methods/log-based-incremental
 keywords: replicate, replication, replication method, stitch replicates data, change data capture, logical replication, log replication, binary replication, binary database replication
-tags: [replication]
 layout: general
 
 content-type: "replication-methods"
+key: "log-based-incremental"
+
 toc: true
 weight: 4
 
@@ -262,11 +263,11 @@ sections:
           {{ section.back-to-list | flatify }}
 
 ## STRUCTURAL CHANGES
-      - title: "Limitation {{ forloop.index }}: Structural changes require manual intervention (Microsoft SQL Server, MySQL, Oracle, PostgreSQL)"
+      - title: "Limitation {{ forloop.index }}: Structural changes require manual intervention (Microsoft SQL Server, MySQL, Oracle, PostgreSQL (v1))"
         anchor: "limitation--structural-changes"
         databases: "mssql, mysql, oracle, postgres"
         content: |
-          {% include note.html type="single-line" content="**Note**: This section is applicable only to **Microsoft SQL Server, MySQL, Oracle**, and **PostgreSQL**-backed database integrations." %}
+          {% include note.html type="single-line" content="**Note**: This section is applicable only to **Microsoft SQL Server, MySQL, Oracle**, and **PostgreSQL (v1)**-backed database integrations. **This doesn't apply to PostgreSQL (v2)**." %}
 
           Any time the structure of a source table changes, you'll need to [reset the table from the {{ app.page-names.table-settings }} page]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}). This will queue a full re-replication of the table and ensure that structural changes are correctly captured.
 
@@ -314,7 +315,7 @@ sections:
               1,Finn,human,2,Jake,dog,3,Bubblegum,princess
               ```
 
-              Stitch's Microsoft SQL Server, MySQL, Oracle, and PostgreSQL integrations use JSON schema validation to ensure that values in log messages are attributed to the correct fields when data is loaded into your destination. For this reason, schema changes in a source - whether it's changing a column's data type or re-ordering columns - will cause an extraction error to occur.
+              Stitch's Microsoft SQL Server, MySQL, Oracle, and PostgreSQL (v1) integrations use JSON schema validation to ensure that values in log messages are attributed to the correct fields when data is loaded into your destination. For this reason, schema changes in a source - whether it's changing a column's data type or re-ordering columns - will cause an extraction error to occur.
 
               If the column order or data types of a source table change in any capacity, the integration will not persist new or updated records that use this updated schema, as it does not have a means of attributing values to their proper columns based on the ordinal set when compared to the expected schema that was previously detected.
 

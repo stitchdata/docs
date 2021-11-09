@@ -5,6 +5,8 @@ permalink: /troubleshooting/mongo-fields-missing-from-replication-key-menu
 
 summary: "If you don't see all the fields you expect to in the Replication Key field for you Mongo integration, the root cause may be insufficient permissions or a lack of field indexing."
 type: "discrepancy, database-integration, replication"
+
+key: "mongo-missing-rep-keys"
 ---
 {% include misc/data-files.html %}
 

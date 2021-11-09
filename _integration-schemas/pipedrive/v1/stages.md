@@ -9,7 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-pipedrive/blob/master/tap_piped
 description: |
   The `{{ table.name }}` table contains info about the pipeline stages in your {{ integration.display_name }} account.
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 
 api-method:
   name: "Get all stages"
@@ -21,11 +21,6 @@ attributes:
     primary-key: true
     description: "The stage ID."
     foreign-key-id: "stage-id"
-
-  - name: "update_time"
-    type: "date-time"
-    replication-key: true
-    description: "The time the stage was last updated."
 
   - name: "active_flag"
     type: "boolean"
@@ -63,4 +58,8 @@ attributes:
   - name: "rotten_flag"
     type: "boolean"
     description: ""
+
+  - name: "update_time"
+    type: "date-time"
+    description: "The time the stage was last updated."
 ---

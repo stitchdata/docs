@@ -6,6 +6,8 @@ redirect_from: /integrations/saas/sendgrid
 keywords: sendgrid, integration, schema, etl sendgrid, sendgrid etl, sendgrid schema
 summary: "Connection instructions and schema details for Stitch's SendGrid integration."
 
+key: "sendgrid-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

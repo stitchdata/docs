@@ -7,6 +7,8 @@ datatable: true
 summary: "Occasionally, some integrations used by Stitch may encounter bugs or other issues. Whenever we’ve identified a third-party issue - meaning on the integration provider’s end - we’ll post an update here."
 type: "all-integrations, error, discrepancy"
 toc: true
+
+key: "troubleshooting-known-issues"
 ---
 
 <script>

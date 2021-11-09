@@ -518,14 +518,14 @@ data-structures:
 #       FORM PROPERTIES      #
 # -------------------------- #
 form-properties:
-  section: "#form-properties"
+  section: &form-properties "#form-properties"
 
 # -------------------------- #
 #     Destination Forms      #
 # -------------------------- #
 
   destination-forms:
-    section: "#destination-form-properties"
+    section: *form-properties
 
     postgresql:
       title: "PostgreSQL"
@@ -546,4 +546,4 @@ form-properties:
 #        Source Forms        #
 # -------------------------- #
   source-forms:
-    section: "#source-form-properties"
+    section: *form-properties

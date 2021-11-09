@@ -37,6 +37,9 @@ related:
   - title: "Destination and source API availability"
     link: "{{ link.connect.guides.connection-reference | prepend: site.baseurl }}"
 
+  - title: "Create a destination with the Connect API"
+    link: "{{ link.connect.guides.create-configure-a-destination | prepend: site.baseurl }}"
+
   - title: "Replication scheduling for sources using the Connect API"
     link: "{{ link.connect.guides.replication-scheduling-for-sources | prepend: site.baseurl }}"
 
@@ -65,7 +68,7 @@ intro: |
 
 requirements:
   - item: |
-      **Access to Stitch Connect and valid Connect API credentials.** Connect access is a Stitch Enterprise feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
+      **Access to Stitch Connect and valid Connect API credentials.** Connect access is a Stitch {{ site.data.stitch.subscription-plans.pro.name }} or {{ site.data.stitch.subscription-plans.pro-plus.name }} feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
 
 
 # -------------------------- #

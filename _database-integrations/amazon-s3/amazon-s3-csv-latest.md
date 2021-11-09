@@ -348,64 +348,218 @@ replication-sections:
       {% endfor %}
       </table>
     content: |
-      How data replicated from an {{ integration.display_name }} integration is loaded into your destination depends on two factors:
+      How data is loaded into your destination depends on a few things. In this section, we'll cover:
 
-      1. **If Primary Keys were specified for the table during integration setup.** If Primary Keys aren't specified during setup, Stitch will load data in an Append-Only manner. This means that new records and updates to existing records are appended to the end of the table as new rows.
-
-      2. **If your destination supports upserts, or updating existing rows**. For destinations that support upserts, Stitch uses Primary Keys to de-dupe data during loading. {{ site.data.tooltips.primary-key }}
-
-      **Note**: For Append-Only destinations, data will be loaded in an Append-Only manner regardless of whether a Primary Key is specified during setup.
-
+      {% for subsection in section.subsections %}
+      - [{{ subsection.summary | flatify }}](#{{ subsection.anchor }})
+      {% endfor %}
     subsections:
-      - title: "Loading with defined Primary Keys"
-        anchor: "loading--de-duped-keys-example"
+      - title: "Determining loading behavior"
+        anchor: "loading--determining-loading-behavior"
+        summary: "How loading behavior is determined"
         content: |
-          If the destination supports upserts and Primary Keys are defined during setup, Stitch will use the Primary Keys to de-dupe records during loading.
+          How data replicated from an {{ integration.display_name }} integration is loaded into your destination depends on two factors:
 
-          This means that existing rows will be overwritten with the most recent version of the row. A record can only have a single unique Primary Key value, ensuring that only one version of the record exists in the destination at a time.
+          1. **If Primary Keys were specified for the table during integration setup.** If Primary Keys aren't specified during setup, Stitch will load data in an Append-Only manner. This means that new records and updates to existing records are appended to the end of the table as new rows.
 
-          For example: The following rows are replicated during the initial replication job:
+          2. **If your destination supports upserts, or updating existing rows**. For destinations that support upserts, Stitch uses Primary Keys to de-dupe data during loading. {{ site.data.tooltips.primary-key }}
 
-          {% assign job = site.data.dataloading.examples.append-only | where:"job",1 %}
-          {% assign fields = "id|name|type" | split:"|" %}
+          **Note**: For Append-Only destinations, data will be loaded in an Append-Only manner regardless of whether a Primary Key is specified during setup.
+        sub-subsections:
+          - title: "Loading with defined Primary Keys"
+            anchor: "loading--de-duped-keys-example"
+            content: |
+              If the destination supports upserts **and** Primary Keys are defined during setup, Stitch will use the Primary Keys to de-dupe records during loading.
 
-          {{ section.record-example-table | flatify }}
+              This means that existing rows will be overwritten with the most recent version of the row. A record can only have a single unique Primary Key value, ensuring that only one version of the record exists in the destination at a time.
 
-          Before the next job, the file containing these rows is modified. This means that Stitch will replicate the contents of the entire file, including the rows for `Finn` and `Jake` even if they haven't been updated.
+              For example: The following rows are replicated during the initial replication job:
 
-          Stitch will use the Primary Key to de-dupe the records, making the table in the destination look similar to the following:
+              {% assign job = site.data.dataloading.examples.append-only | where:"job",1 %}
+              {% assign fields = "id|name|type" | split:"|" %}
 
-          {% assign job = site.data.dataloading.examples.append-only | where:"job",2 %}
-          {% assign fields = "id|name|type" | split:"|" %}
+              {{ section.record-example-table | flatify }}
 
-          {{ section.record-example-table | flatify }}
+              Before the next job, the file containing these rows is modified. This means that Stitch will replicate the contents of the entire file, including the rows for `Finn` and `Jake` even if they haven't been updated.
 
-      - title: "Loading without defined Primary Keys"
-        anchor: "loading--append-only-example"
+              Stitch will use the Primary Key to de-dupe the records, making the table in the destination look similar to the following:
+
+              {% assign job = site.data.dataloading.examples.append-only | where:"job",2 %}
+              {% assign fields = "id|name|type" | split:"|" %}
+
+              {{ section.record-example-table | flatify }}
+
+          - title: "Loading without defined Primary Keys"
+            anchor: "loading--append-only-example"
+            content: |
+              If the destination is Append-Only **or** if Primary Keys aren't defined during setup, data will be loaded in an Append-Only manner.
+
+              Additionally, Stitch will append a column (`{{ system-column.primary-key }}`) to the table to function as a Primary Key if one isn't defined.
+
+              **Note**: Appending this column will not enable Stitch to de-dupe data, as a unique value is inserted every time a row is loaded, regardless of whether it's ever been replicated before. This means that a record can have multiple `{{ system-column.primary-key }}` values, each of them unique.
+
+              For example: The following rows are replicated during the initial replication job:
+
+              {% assign job = site.data.dataloading.examples.append-only | where:"job","1" %}
+              {% assign fields = "__sdc_primary_key|id|name|type" | split:"|" %}
+
+              {{ section.record-example-table | flatify }}
+
+              Before the next job, the file containing these rows is modified. This means that Stitch will replicate the contents of the entire file, including the rows for `Finn` and `Jake` even if they haven't been updated.
+
+              In the destination, the table might now look like the table below. Notice that records for `Finn` and `Jake` have been appended to the end of the table with new `{{ system-column.primary-key }}` values:
+
+              {% assign job = site.data.dataloading.examples.append-only %}
+              {% assign fields = "__sdc_primary_key|id|name|type" | split:"|" %}
+
+              {{ section.record-example-table | flatify }}
+
+              **Note**: Querying Append-Only tables requires a different strategy than you might normally use. For instructions and a sample query, check out the [Querying Append-Only tables guide]({{ link.replication.append-only-querying | prepend: site.baseurl }}).
+
+      - title: "Handling duplicate column headers and extra row values"
+        anchor: "loading--handling-duplicate-column-headers"
+        summary: "How duplicate column headers and extra row values are handled during loading"
+        scenarios:
+          - if: "A row in the source file contains the same number of columns as headers"
+            then: |
+              The duplicate column and its value will be loaded into a Stitch-created `{{ system-column.extra }}` column.
+            source:
+              - &id
+                column: "id"
+                value: "1"
+              - &name
+                column: "name"
+                value: "Jake"
+              - &type
+                column: "type"
+                value: "human"
+              - &dupe-name
+                column: "name"
+                value: "Jake the human"
+            destination:
+              - *id
+              - *name
+              - *type
+              - column: "{{ system-column.extra }}"
+                value: |
+                  [
+                     {
+                        "name":"Jake the human"
+                     }
+                  ]
+
+          - if: "A row in the source file contains more columns than the number of headers"
+            then: |
+              The duplicate column and its value will be loaded into a Stitch-created `{{ system-column.extra }}` column.
+
+              Extra row values will be listed in a `no_headers` field inside the `{{ system-column.extra }}` column.
+            source:
+              - *id
+              - *name
+              - *type
+              - *dupe-name
+              - column: ""
+                value: "16"
+            destination:
+              - *id
+              - *name
+              - *type
+              - column: "{{ system-column.extra }}"
+                value: |
+                  [
+                     {
+                        "name":"Jake the human"
+                     },
+                     {
+                        "no_headers":[
+                           "16"
+                        ]
+                     }
+                  ]
+
+          - if: "A row in the source file contains less columns than the number of headers"
+            then: |
+              Stitch will load the values into their corresponding columns.
+
+              **Note**: Columns are only created in the destination if they contain [at least one non-null value]({{ link.replication.syncing | prepend: site.baseurl | append: "#replication-requirements" }}).
+            source: &less-than-headers
+              - column: "id"
+                value: "1"
+              - column: "name"
+                value: "Jake"
+              - column: "type"
+            destination:
+              - *id
+              - *name
         content: |
-          If the destination is Append-Only, or if Primary Keys aren't defined during setup, data will be loaded in an Append-Only manner.
+          If a file contains duplicate column headers or a row contains more values than there are columns, Stitch will append an additional column named `{{ system-column.extra }}` to the destination table. Stitch does this to ensure values are loaded into the correct columns and that column names are unique.
 
-          Additionally, Stitch will append a column (`{{ system-column.primary-key }}`) to the table to function as a Primary Key if one isn't defined.
+          In this section, we'll walk you through how Stitch loads data from {{ integration.display_name }} in the following scenarios:
 
-          **Note**: Appending this column will not enable Stitch to de-dupe data, as a unique value is inserted every time a row is loaded, regardless of whether it's ever been replicated before. This means that a record can have multiple `{{ system-column.primary-key }}` values, each of them unique.
+          {% for scenario in subsection.scenarios %}
+          - [{{ scenario.if }}](#{{ scenario.if | slugify }})
+          {% endfor %}
 
-          For example: The following rows are replicated during the initial replication job:
+          {% for scenario in subsection.scenarios %}
+          ##### {{ scenario.if }} {#{{ scenario.if | slugify }}}
 
-          {% assign job = site.data.dataloading.examples.append-only | where:"job","1" %}
-          {% assign fields = "__sdc_primary_key|id|name|type" | split:"|" %}
+          <table>
+          <tr>
+          <td width="5%; fixed">
+          <strong>IF</strong>
+          </td>
+          <td>
+          <strong>{{ scenario.if }}.</strong>
 
-          {{ section.record-example-table | flatify }}
+          For example:
 
-          Before the next job, the file containing these rows is modified. This means that Stitch will replicate the contents of the entire file, including the rows for `Finn` and `Jake` even if they haven't been updated.
+          <table>
+          <tr>
+          {% for record in scenario.source %}
+          <td>
+          <strong>{{ record.column }}</strong>
+          </td>
+          {% endfor %}
+          </tr>
+          <tr>
+          {% for record in scenario.source %}
+          <td>
+          {{ record.value }}
+          </td>
+          {% endfor %}
+          </tr>
+          </table>
 
-          In the destination, the table might now look like the table below. Notice that records for `Finn` and `Jake` have been appended to the end of the table with new `{{ system-column.primary-key }}` values:
+          </td>
+          </tr>
+          <tr>
+          <td>
+          <strong>THEN</strong>
+          </td>
+          <td>
+          {{ scenario.then | flatify | markdownify }}
 
-          {% assign job = site.data.dataloading.examples.append-only %}
-          {% assign fields = "__sdc_primary_key|id|name|type" | split:"|" %}
+          <table>
+          <tr>
+          {% for record in scenario.destination %}
+          <td>
+          <strong>{{ record.column | flatify }}</strong>
+          </td>
+          {% endfor %}
+          </tr>
+          <tr>
+          {% for record in scenario.destination %}
+          <td>
+          {{ record.value }}
+          </td>
+          {% endfor %}
+          </tr>
+          </table>
+          </td>
+          </tr>
+          </table>
+          {% endfor %}
 
-          {{ section.record-example-table | flatify }}
-
-          **Note**: Querying Append-Only tables requires a different strategy than you might normally use. For instructions and a sample query, check out the [Querying Append-Only tables guide]({{ link.replication.append-only-querying | prepend: site.baseurl }}).
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

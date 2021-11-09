@@ -1,27 +1,31 @@
 ---
 tap: "klaviyo"
 version: "1"
+key: "dropped-email"
 
 name: "dropped_email"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/dropped_email.json"
-description: ""
+description: |
+  The `{{ table.name }}` table contains metrics related to `Clicked Email` events.
 
 replication-method: "Key-based Incremental"
 
-replication key: "since"
-
 api-method:
-    name: "Metrics API"
-    doc-link: "https://www.klaviyo.com/docs/api/metrics"
+  name: "Get metrics info"
+  doc-link: "https://www.klaviyo.com/docs/api/metrics"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: "This is the dropped ID."
-#    foreign-key-id: "dropped-id"
-  
+    description: "The dropped email event ID."
+
+  - name: "timestamp"
+    type: "integer"
+    replication-key: true
+    description: ""
+
   - name: "datetime"
     type: "string"
     description: ""
@@ -48,10 +52,6 @@ attributes:
   
   - name: "statistic_id"
     type: "string"
-    description: ""
-  
-  - name: "timestamp"
-    type: "integer"
     description: ""
   
   - name: "uuid"

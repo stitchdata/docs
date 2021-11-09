@@ -7,6 +7,9 @@ redirect_from: /integrations/saas/aftership
 keywords: aftership, integration, schema, etl aftership, aftership etl, aftership schema, stitch webhooks
 summary: "Connect your AfterShip data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
+key: "aftership-setup"
+
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

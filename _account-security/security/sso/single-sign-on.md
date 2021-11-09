@@ -141,7 +141,7 @@ sections:
 
   - title: "Disabling SSO"
     anchor: "disable-sso"
-    summary: "How to enable in your Stitch account"
+    summary: "How to disable in your Stitch account"
     content: |
       {{ sso-edit }}4. In the **Disable SSO** section, click **Disable SSO**.
       5. When prompted to confirm, click **Disable SSO** to continue.

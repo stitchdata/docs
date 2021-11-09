@@ -56,6 +56,7 @@ attributes:
   - name: "deal_id"
     type: "integer"
     description: ""
+    foreign-key-id: "deal-id"
 
   - name: "deal_title"
     type: "string"

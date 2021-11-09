@@ -7,6 +7,8 @@ redirect_from: /integrations/saas/customerio
 keywords: customerio, integration, schema, etl customerio, customerio etl, customerio schema, stitch webhooks
 summary: "Connect your Customer.io data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
+key: "customerio-setup"
+
 
 # -------------------------- #
 #     Integration Details    #

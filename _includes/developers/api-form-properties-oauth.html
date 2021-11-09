@@ -1,0 +1,37 @@
+
+<!-- This file contains the formatting for displaying
+	OAuth attributes for connection property objects in the developer docs 
+	It's used in _includes/developers/api-form-properties.html -->
+
+<h4 id="{{ form-property.key }}-oauth">
+    {{ form-property.display-name }} {{ form-property.form-type }} OAuth properties
+</h4>
+
+<p>
+    OAuth properties are used to complete the <code>oauth</code> step in {{ form-property.form-type }} configuration.
+</p>
+
+<p>
+    <strong>A {{ form-property.form-type }}'s OAuth properties are required only if you’re performing OAuth for this {{ form-property.form-type }} yourself.</strong> After you perform the OAuth handshake, use the <a href="{{ api-reference | append: site.data.connect.core-objects[form-type]update.anchor }}">PUT {{ site.data.connect.core-objects[form-type]update.name | flatify }}</a> endpoint to update the {{ form-property.form-type }} with the OAuth properties listed below.
+</p>
+
+{% if form-property.oauth-description %}
+    {{ form-property.oauth-description | flatify | markdownify }}
+{% endif %}
+
+{% if form-property.oauth-link %}
+<p>
+    Refer to <a href="{{ form-property.oauth-link }}" target="new">{{ form-property.display-name }}'s documentation</a> for more info on performing OAuth with {{ form-property.display-name }}.
+</p>
+{% endif %}
+
+<p>
+    <strong>Note</strong>: Attributes marked as {{ supported | replace:"TOOLTIP","Required" | flatify }} (required) must be provided to complete the <code>oauth</code> step for the connection.
+</p>
+
+<!-- OAuth properties table -->
+    {% assign all-form-attributes = form-property.oauth-attributes | sort_natural:"name" %}
+    {% include developers/api-form-property-field-table.html attributes=all-form-attributes %}
+
+<!-- OAuth example object -->
+    {% include developers/api-form-property-example-object.html content=include.content property-type="OAuth" %}

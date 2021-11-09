@@ -21,7 +21,14 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXBN5GK"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+
+{% if page.top-page-notice %}
+  {% include layout/top-page-notice.html %}
+{% endif %}
+
 {% include_cached layout/topnav.html %}
+
+
 
 <!-- Page Content -->
 <div id="main">

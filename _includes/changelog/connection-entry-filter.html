@@ -11,7 +11,7 @@
 		{% assign connection-name = page.name %}
 	{% endif %}
 
-	{% assign all-changelog-entries = site.changelog | where:"content-type","changelog-entry" %}
+	{% assign all-changelog-entries = site.changelog-files | where:"content-type","changelog-entry" %}
 
 <!-- from the filtered entries, only get those with an entry-category value that contains the page's
 		connection-type value -->
@@ -44,5 +44,5 @@
 
 <!-- Otherwise, display all changelog entries -->
 {% else %}
-	{% assign changelog-entries = site.changelog | where:"content-type","changelog-entry" | sort:"date" | reverse %}
+	{% assign changelog-entries = site.changelog-files | where:"content-type","changelog-entry" | sort:"date" | reverse %}
 {% endif %}

@@ -4,7 +4,8 @@ keywords: webhook integration, etl webhook integration, webhook integration etl,
 layout: general
 summary: "Resources & guides for connecting your webhook apps and services to Stitch. Setup instructions, replication info, and schema details for each of Stitch's webhook integrations."
 permalink: /integrations/webhooks/
-sidebar: not-stitch
+
+key: "webhook-integrations-category"
 
 toc: false
 input: false

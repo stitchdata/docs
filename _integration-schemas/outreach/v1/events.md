@@ -30,39 +30,54 @@ attributes:
   - name: "body"
     type: "string"
     description: ""
+
   - name: "createdAt"
     type: "date-time"
     description: ""
+
   - name: "externalUrl"
     type: "string"
     description: ""
+
   - name: "mailingId"
     type: "integer"
     description: ""
-    # foreign-key-id: "mailing-id"
+    foreign-key-id: "mailing-id"
+
+  - name: "name"
+    type: "string"
+    description: ""
+
   - name: "payload"
     type: "object"
     description: ""
     # subattributes: ""
+
   - name: "prospectId"
     type: "integer"
     description: ""
-    # foreign-key-id: "prospect-id"
+    foreign-key-id: "prospect-id"
+
   - name: "requestCity"
     type: "string"
     description: ""
+
   - name: "requestDevice"
     type: "string"
     description: ""
+
   - name: "requestHost"
     type: "string"
     description: ""
+
   - name: "requestProxied"
     type: "boolean"
     description: ""
+
   - name: "requestRegion"
     type: "boolean"
     description: ""
+
   - name: "userId"
     type: "integer"
     description: ""

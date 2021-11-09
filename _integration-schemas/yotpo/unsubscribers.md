@@ -8,10 +8,7 @@ singer-schema: https://github.com/singer-io/tap-yotpo/blob/master/tap_yotpo/sche
 description: |
   The `{{ table.name }}` table contains data about customers who unsubscribed from one of Yotpo's emails.
 
-replication-method: "Key-based Incremental"
-
-replication-key:
-  name: "since"
+replication-method: "Full Table"
 
 api-method:
   name: Retrieve a list of unsubscribers

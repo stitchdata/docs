@@ -43,7 +43,7 @@ sections:
   - title: "Amazon Redshift and Panoply loading errors"
     anchor: "amazon-redshift-error-reference"
     content: |
-      {% assign errors = site.data.destinations.redshift.loading-errors | sort_natural:"message" %}
+      {% assign errors = site.data.destinations.redshift.loading-errors.all | sort_natural:"message" %}
 
       {% include note.html type="single-line" content="**Note**: The errors in this section are applicable to Amazon Redshift and Panoply destinations." %}
 
@@ -66,7 +66,7 @@ sections:
   - title: "PostgreSQL loading errors"
     anchor: "postgresql-error-reference"
     content: |
-      {% assign errors = site.data.destinations.postgres.loading-errors | sort_natural:"message" %}
+      {% assign errors = site.data.destinations.postgres.loading-errors.all | sort_natural:"message" %}
 
       {% include troubleshooting/error-messages.html top-anchor="postgresql-error-reference" display-name="PostgreSQL" %}
 

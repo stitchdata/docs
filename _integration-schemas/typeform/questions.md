@@ -19,7 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The form ID."
-    # foreign-key-id: "form-id"
+    foreign-key-id: "form-id"
     
   - name: "question_id"
     type: "string"

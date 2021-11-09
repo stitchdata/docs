@@ -20,14 +20,16 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The team ID."
-    #foreign-key-id: "team-id"
+    # foreign-key-id: "team-id"
 
   - name: "color"
     type: "string"
     description: ""
+
   - name: "createdAt"
     type: "date-time"
     description: ""
+    
   - name: "name"
     type: "string"
     description: ""

@@ -12,6 +12,8 @@ top-level: "replication"
 category: "extraction-errors"
 integration-type: "saas"
 
+key: "google-sheets-extraction-error-reference"
+
 type: "saas-integration, error, replication"
 
 sections:

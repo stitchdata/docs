@@ -2,9 +2,10 @@
 title: Syncing Historical SaaS Data & Resetting SaaS Replication Keys
 permalink: /replication/syncing-historical-saas-data-resetting-replication-keys
 keywords: replicate, replication, replication key, keys, stitch replicates data, rp, saas, historical data, reset bookmark, reset replication key
-tags: [replication]
 
 content-type: "replication-keys"
+key: "saas-historical"
+
 toc: true
 weight: 3
 

@@ -1,18 +1,39 @@
 ---
+# -------------------------- #
+#        Table Details       #
+# -------------------------- #
+
 tap: "github"
 version: "1"
+key: "pull-request"
 
 name: "pull_requests"
 doc-link: https://developer.github.com/v3/pulls/
-singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/pull_requests.json
+singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/pull_requests.json
 description: |
-  The `pull_requests` table contains info about pull requests made against the repository.
+  The `{{ table.name }}` table contains info about pull requests made against the repositories specified for the integration.
 
-replication-method: "Full Table"
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
 
 api-method:
-  name: "listPullRequests"
-  doc-link: https://developer.github.com/v3/pulls/#list-pull-requests
+  name: "List pull requests"
+  doc-link: "https://docs.github.com/en/rest/reference/pulls#list-pull-requests"
+
+replication-method: "Key-based Incremental"
+replication-key:
+  name: "since"
+  based-on: "updated_at"
+  tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
+
+is-parent-table: true
+
+
+# -------------------------- #
+#       Table Attributes     #
+# -------------------------- #
 
 attributes:
   - name: "id"
@@ -21,9 +42,41 @@ attributes:
     description: "The pull request ID."
     foreign-key-id: "pull-request-id"
 
-  - name: "updated_at"
-    type: "date-time"
-    description: "The last time the pull request was updated."
+  - name: "_sdc_repository"
+    type: "string"
+    description: ""
+
+  - name: "base"
+    type: "object"
+    description: "Details about the base branch."
+    subattributes:
+      - name: "ref"
+        type: "string"
+        description: ""
+
+      - name: "label"
+        type: "string"
+        description: ""
+
+      - name: "repo"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "id"
+            type: "integer"
+            description: ""
+
+          - name: "name"
+            type: "string"
+            description: ""
+
+          - name: "url"
+            type: "string"
+            description: ""
+
+      - name: "sha"
+        type: "string"
+        description: ""
 
   - name: "body"
     type: "string"
@@ -36,6 +89,39 @@ attributes:
   - name: "created_at"
     type: "string"
     description: "The time the pull request was created."
+
+  - name: "labels"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "color"
+        type: "string"
+        description: ""
+        
+      - name: "default"
+        type: "boolean"
+        description: ""
+
+      - name: "description"
+        type: "string"
+        description: ""
+
+      - name: "id"
+        type: "integer"
+        description: ""
+        foreign-key-id: "issue-label-id"
+
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "node_id"
+        type: "string"
+        description: ""
+
+      - name: "url"
+        type: "string"
+        description: ""
 
   - name: "merged_at"
     type: "string"
@@ -52,6 +138,10 @@ attributes:
   - name: "title"
     type: "string"
     description: "The title of the pull request."
+
+  - name: "updated_at"
+    type: "date-time"
+    description: "The last time the pull request was updated."
 
   - name: "url"
     type: "string"

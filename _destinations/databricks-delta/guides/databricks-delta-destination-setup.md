@@ -7,7 +7,7 @@
 ## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-setup/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
-title: Connecting a Databricks Delta Lake Destination to Stitch
+title: Connecting a Databricks Delta Lake on AWS Destination to Stitch
 permalink: /destinations/databricks-delta/connecting-a-databricks-delta-destination-to-stitch
 
 keywords: databricks-delta, databricks-delta data warehouse, databricks-delta data warehouse, databricks-delta etl, etl to databricks-delta, databricks-delta destination
@@ -26,7 +26,7 @@ use-tutorial-sidebar: false
 #     Destination Details    #
 # -------------------------- #
 
-display_name: "Databricks Delta Lake"
+display_name: "Databricks Delta Lake (AWS)"
 name: "databricks-delta"
 
 type: "databricks-delta"

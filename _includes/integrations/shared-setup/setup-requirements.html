@@ -1,14 +1,16 @@
 <!-- This formats and displays any setup requirements for integrations. -->
 
-{% if integration.requirements-list or integration.tier != "Standard" %}
+{% if integration.requirements-list or integration.minimum-plan %}
 <h3 id="setup-requirements">{{ integration.display_name }} setup requirements</h3>
 
     <p>To set up {{ integration.display_name }} in Stitch, you need:</p>
 
     <ul>
-    {% if integration.tier == "Enterprise" %}
+    {% if page.minimum-plan %}
         <li>
-            <strong>An Enterprise Stitch plan</strong>. {{ integration.display_name }} integrations can be added on as part of an Enterprise plan. Reach out to <a href="mailto: {{ site.support }}">Stitch support</a> for more info.
+            <strong>
+                A Stitch {{ site.data.stitch.subscription-plans[page.minimum-plan].name }} plan.
+            </strong>
         </li>
     {% endif %}
     {% for requirement in integration.requirements-list %}

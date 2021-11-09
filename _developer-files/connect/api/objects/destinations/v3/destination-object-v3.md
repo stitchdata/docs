@@ -20,7 +20,7 @@ version: "3"
 object-attributes:
   - name: "connection"
     type: "object"
-    sub-type: "destination form properties"
+    sub-type: "connection property"
     url: "{{ api.form-properties.destination-forms.section }}"
     description: |
       Parameters for connecting to the destination, excluding any sensitive credentials.

@@ -18,6 +18,9 @@ foreign-keys:
     all-foreign-keys:
       - table: "components"
         join-on: "id"
+      - table: "components"
+        subattribute: "prices"
+        join-on: "id"
       - table: "invoices"
         subattribute: "charges"
       - table: "invoices"
@@ -80,6 +83,8 @@ foreign-keys:
     all-foreign-keys:
       - table: "components"
         join-on: "default_price_point_id"
+      - table: "components"
+        subattribute: "prices"
       - table: "price_points"
         join-on: "id"
 

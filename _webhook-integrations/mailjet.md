@@ -7,6 +7,8 @@ redirect_from: /integrations/saas/mailjet
 keywords: mailjet, integration, schema, etl mailjet, mailjet etl, mailjet schema, stitch webhooks
 summary: "Connect your Mailjet data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
+key: "mailjet-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

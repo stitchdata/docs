@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-yotpo/blob/master/tap_yotpo/sche
 description: |
   The `{{ table.name }}` table contains data about products in your {{ integration.display_name }} account.
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 
 api-method:
   name: Retrieve All Products
@@ -20,11 +20,6 @@ attributes:
     primary-key: true
     description: "The product ID."
     foreign-key-id: "product-id"
-
-  - name: "updated_at"
-    type: "string"
-    replication-key: true
-    description: "The time the product was last updated."
 
   - name: "created_at"
     type: "string"
@@ -102,4 +97,8 @@ attributes:
       - name: "kind"
         type: "string"
         description: ""
+
+  - name: "updated_at"
+    type: "string"
+    description: "The time the product was last updated."
 ---

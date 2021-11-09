@@ -10,7 +10,7 @@ description: "An object representing a browser session in the Stitch web applica
 create:
   name: "/v3/sessions/ephemeral"
   title: "Create a session"
-  method: *post
+  method: "post"
   anchor: "#create-a-session"
   short: "Generates an ephemeral token to create a session in the Stitch web application. Ephemeral tokens expire after one hour."
   description: |

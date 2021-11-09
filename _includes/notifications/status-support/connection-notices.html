@@ -16,7 +16,16 @@
 
 
 <!-- Based on the version's status, display the correct notice: -->
-{% case this-version.status %}
+{% if page.override-version-status %}
+    {% assign version-status = page.override-version-status %}
+
+<!-- Otherwise, just run this for the current version -->
+{% else %}
+    {% assign version-status = this-version.status %}
+{% endif %}
+
+
+{% case version-status %}
     {% when 'beta' %}
         {% include notifications/status-support/beta.html %}
     {% when 'closed-beta' %}
@@ -28,6 +37,6 @@
 {% endcase %}
 
 <!-- Only display this for integrations that haven't been sunset -->
-{% if this-version.status != "sunset" %}
+{% if version-status != "sunset" %}
     {% include notifications/status-support/support.html %}
 {% endif %}

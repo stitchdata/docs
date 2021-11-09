@@ -1,0 +1,28 @@
+# -------------------------- #
+#       Intercom Errors      #
+# -------------------------- #
+
+## This file contains extraction errors and how to (potentially)
+## fix them for the Intercom integration.
+
+## An object containing raw error messages
+raw-error:
+  
+
+all:
+## 
+  - message: "Another integration is syncing Companies via the Scroll API. This will cause one to fail while the other succeeds"
+    id: "companies-multiple-connections"
+    applicable-to: "Intercom v1 integrations"
+    level: "critical"
+    category: "Extraction"
+    version: "1" 
+    summary: "Multiple connections syncing Companies"
+    cause: |
+      [Intercom's API limits the number of simultaneous requests](https://developers.intercom.com/intercom-api-reference/v2.0/reference#iterating-over-all-companies){:target="new"} a single Intercom app, or connection, can make to the Scroll over all companies endpoint. Stitch uses this endpoint to replicate the `companies` table. Currently, only one request can occur at a time.
+
+      If multiple connections exist and they attempt to use this endpoint at the same time, only the connection who made the request first will succeed.
+
+      This means that if Stitch attempts to extract data when another connection is using the endpoint, Extraction will fail and this error will surface in the Extraction Logs. 
+    fix-it: |
+      To prevent or minimize this issue, we recommend limiting the number of connections a single workspace has or scheduling extraction jobs in Stitch around your other connections' usage.

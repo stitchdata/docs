@@ -538,6 +538,21 @@ a[data-toggle="tooltip"] {
 	}
 }
 
+#top-page-notice {
+	position: fixed;
+	display: block;
+	width: 100%;
+	left: 0;
+	z-index: 999;
+}
+
+#notice-message {
+	padding: 10px 5px 5px 5px;
+	text-align: center;
+	font-weight: 700;
+}
+
+
 /* CODE BLOCKS */
 pre {
 	border: 1px solid $gallery;
@@ -850,8 +865,8 @@ blockquote {
 
 .div-flag {
 	float: left;
-	margin-left: -15px;
-	margin-top: -15px;
+	margin-left: -21px;
+	margin-top: -21px;
 	padding: 5px 10px;
 	font-size: small;
 	font-weight: 600;
@@ -861,7 +876,7 @@ blockquote {
 	background-color: $scooter;
 }
 
-.concept, .all-plans, .released {
+.concept, .all-plans, .released, .unlimited {
 	background-color: $rio-grande;
 }
 
@@ -869,7 +884,7 @@ blockquote {
 	background-color: $lochmara;
 }
 
-.troubleshooting {
+.troubleshooting, .deprecated {
 	background-color: $chestnut-rose;
 }
 
@@ -877,13 +892,10 @@ blockquote {
 	background-color: $lochmara;
 }*/
 
-.deprecated, .sunset {
+.sunset {
 	background-color: $gray;
 }
 
-.enterprise {
-	background-color: $rio-grande;
-}
 
 
 /* API/JS HEADINGS */
@@ -945,6 +957,7 @@ blockquote {
 	h4 {
 		margin-bottom: 1em;
 		line-height: 1em;
+		padding-top: 10px;
 	}
 }
 

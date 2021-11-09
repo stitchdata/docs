@@ -4,6 +4,9 @@ keywords: troubleshooting, integration, trouble, issue, help, data discrepancy, 
 permalink: /troubleshooting/data-discrepancy-troubleshooting-guide
 
 summary: "If you've noticed missing or incorrect data in your destination, this guide is the place to start. In it we'll walk you through the most common causes of data discrepancies, how to verify the root cause, and how to fix it. We also outline the next steps should you need to contact support."
+
+key: "discrepancy-guide"
+
 type: "discrepancy"
 weight: 1
 ---

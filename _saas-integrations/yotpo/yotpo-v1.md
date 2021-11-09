@@ -117,6 +117,7 @@ replication-sections:
       {% assign table = "reviews" %}
       {% assign replication-key = "created_at" %}
       {% assign start-date ="06/03/2017" %}
+      {% assign start-date-value = "June 3, 2017" %}
       {% assign replication-key-historical = "2017-06-03 00:00:00" %}
       {% assign replication-key-ongoing = "2017-09-01 00:00:00" %}
 

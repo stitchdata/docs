@@ -211,8 +211,13 @@
                   :as property]]
   (let [property (if (contains? property-json-schema-partial "$ref")
                    (let [{:keys [file json-pointer]}
-                         (parse-json-schema-reference
-                          (property-json-schema-partial "$ref"))
+
+                         (try
+                           (parse-json-schema-reference
+                            (property-json-schema-partial "$ref"))
+                           (catch Exception err
+                             (println (str "Got an error processing " property))
+                             (throw err)))
 
                          _
                          (when (and (nil? file)

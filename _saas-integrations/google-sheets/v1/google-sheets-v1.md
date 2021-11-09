@@ -118,6 +118,13 @@ setup-steps:
     anchor: "define-rep-frequency"
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
+  
+  - title: "Authorize Stitch"
+    anchor: "authorize-stitch"
+    content: |
+      1. Next, you’ll be prompted to log into your Google account and approve Stitch’s access to your {{ integration.display_name }} data. **Note that we will only ever read your data.**
+      2. Select the **See all your Google Sheets spreadsheets** access.
+      3. Click **Continue**.
 
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"

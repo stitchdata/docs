@@ -96,15 +96,16 @@
 </table>
 
 {% else %}
-<ul class="changelog">
 	{% for entry in changelog-entries %}
 		{% assign entry-id = entry.date | date: "%F" | append: "-" | append: entry.title | slugify %}
 		{% assign entry-type = site.data.changelog.types.type | where:"name",entry.entry-type | first %}
 
-		<li class="changelog-entry changelog-entry--{{ entry.entry-type }}">
+		<div class="changelog-entry changelog-entry--{{ entry.entry-type }}">
 			<div class="changelog-entry-metadata">
-				{{ entry.date | date: "%b %e, %Y" | upcase }}
-				<br>
+				<span class="entry-date">
+					{{ entry.date | date: "%b %e, %Y" | upcase }}
+				</span>
+
 				<strong class="changelog-entry-type">
 					{{ entry-type.display_name | upcase }}
 				</strong>
@@ -120,17 +121,15 @@
 				{% endif %}
 			</div>
 
-			<dl class="changelog-entry-details">
-				<dt class="anchored" id="{{ entry-id }}">
-					<strong>
-						{{ entry.title }}
-					</strong>
-				</dt>
+			<div class="changelog-entry-details">
+				<h3 id="{{ entry-id }}">
+					{{ entry.title }}
+				</h3>
 
-				<dd>
-					{{ entry.content | flatify | markdownify }}
+				{{ entry.content | flatify | markdownify }}
 
-					<strong>Tags:</strong>
+				<div class="changelog-entry-tags">
+				<strong>Tags:</strong>
 
 				<!-- Entry type button -->
 					{% assign item-link = link.changelog.archive-by-type | prepend: site.baseurl | append: "#" | append: entry.entry-type %}
@@ -149,13 +148,12 @@
 
 						{{ site.data.changelog.metadata.archive-button | flatify }}
 					{% endfor %}
-				</dd>
-			</dl>
-		</li>
+				</div>
+			</div>
+		</div>
 		{% unless forloop.last == true %}
 			<hr style="margin-top: 0">
 		{% endunless %}
 
 	{% endfor %}
-</ul>
 {% endcase %}

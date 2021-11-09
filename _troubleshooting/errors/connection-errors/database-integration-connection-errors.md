@@ -12,6 +12,8 @@ summary: "Resolve errors related to connecting to a database integration."
 type: "database-integration, error"
 category: "connection-errors"
 
+key: "database-connection-errors"
+
 level: "guide"
 top-level: ""
 popular: true

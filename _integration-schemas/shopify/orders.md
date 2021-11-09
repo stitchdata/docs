@@ -485,7 +485,6 @@ attributes:
 
       - name: "id"
         type: "integer"
-        primary-key: true
         description: "The fulfillment ID."
 
       - name: "created_at"
@@ -981,19 +980,16 @@ attributes:
     subattributes: &order-adjustments
       - name: "id"
         type: "integer"
-        primary-key: true
         description: "The order adjustment ID."
 
       - name: "order_id"
         type: "integer"
-        primary-key: true
         description: "The ID of the order associated with the order adjustment."
         foreign-key-id: "order-id"
 
       - name: "refund_id"
         type: "integer"
         description: "The ID of the refund associated with the order adjustment."
-        primary-key: true
         foreign-key-id: "order-refund-id"
 
       - name: "amount"
@@ -1097,7 +1093,6 @@ attributes:
 
       - name: "id"
         type: "integer"
-        primary-key: true
         description: ""
         foreign-key-id: "order-refund-id"
 
@@ -1126,7 +1121,6 @@ attributes:
         subattributes:
           - name: "id"
             type: "integer"
-            primary-key: true
             description: "The refund line item ID."
 
           - name: "line_item"

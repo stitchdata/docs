@@ -38,6 +38,7 @@ db-type: "postgres"
 
 ## Stitch features
 api-type: "platform.cloudsql_pg"
+
 versions: "9.3+"
 ssh: false
 ssl: false

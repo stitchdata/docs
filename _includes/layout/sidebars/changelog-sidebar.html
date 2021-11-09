@@ -18,7 +18,7 @@
     </li>
 
 <!-- ENTRIES BY YEAR -->
-    {% assign all-changelog-entries = site.changelog | where:"content-type","changelog-entry" | sort:"date" | reverse %}
+    {% assign all-changelog-entries = site.changelog-files | where:"content-type","changelog-entry" | sort:"date" | reverse %}
         {% assign entries-by-year = all-changelog-entries | group_by_exp:"entry", "entry.date | date: '%Y'" %}
 
     <li class="subfolders">

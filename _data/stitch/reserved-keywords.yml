@@ -186,3 +186,23 @@ snowflake:
   - name: "__va" # For the VARIANT data type
     type: "stitch"
     description: *changed-types
+
+# --------------------------------- #
+#        Microsoft SQL Server       #
+# --------------------------------- #
+
+microsoft-sql-server:
+  - *sdc-prefix
+  - *rjm-prefix
+  - *boolean-suffix
+  - *decimal-suffix
+  - *float-suffix
+  - *bigint-suffix
+  - *integer-suffix
+  - *string-suffix
+  - name: "__js" # For the JSON data type
+    type: "stitch"
+    description: *changed-types
+  - name: "__dt" # For the date data type
+    type: "stitch"
+    description: *changed-types

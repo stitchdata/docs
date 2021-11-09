@@ -1,10 +1,11 @@
 ---
 title: Amazon Aurora PostgreSQL RDS (v1)
 keywords: amazon aurora, aurora postgresql, postgres, database integration, etl aurora, aurora etl
-permalink: /integrations/databases/amazon-aurora-postgresql
+permalink: /integrations/databases/amazon-aurora-postgresql/v1
+redirect_from: /integrations/databases/amazon-aurora-postgresql
 summary: "Connect and replicate data from your Amazon Aurora PostgreSQL RDS database using Stitch's PostgreSQL integration."
-input: true
-show-in-menus: true
+input: false
+show-in-menus: false
 
 key: "aurora-postgresql-rds-integration"
 

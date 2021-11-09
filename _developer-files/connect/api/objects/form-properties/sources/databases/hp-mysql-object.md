@@ -7,8 +7,6 @@
 ## https://docs-about-stitch-docs.netlify.com/reference/connect-templates/database-source-form-property/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
-## PLEASE REMOVE COMMENTS WHEN FINISHED
-
 
 # -------------------------- #
 #        CONTENT TYPE        #
