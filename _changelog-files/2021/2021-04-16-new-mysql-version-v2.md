@@ -1,7 +1,7 @@
 ---
 title: "MySQL integration: New version (v2) now in beta"
 content-type: "changelog-entry"
-date: 2021-04-16
+date: 2021-04-19
 entry-type: beta
 entry-category: integration
 connection-id: mysql
