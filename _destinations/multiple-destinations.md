@@ -22,7 +22,7 @@ destination: false
 # -------------------------- #
 
 intro: |
-  You can now add multiple destinations to your Stitch account! In this guide, you will learn everything you need to know on how to fully utilize this feature. Before selecting destinations, we recommend reading our guide how how to choose a destination (link those docs) to ensure you're making the decision that best suits your data warehousing needs.
+  You can now add multiple destinations to your Stitch account! In this guide, you will learn everything you need to know on how to fully utilize this feature. Before selecting destinations, we recommend reading our guide on [how to choose a destination]({{site.data.urls.destinations.overviews.choose-destination}}) to ensure you're making the decision that best suits your data warehousing needs.
 
 
 # -------------------------- #
