@@ -44,36 +44,35 @@ sections:
         content: |
           This feature allows you to load data from your integrations into more than one destination in your Stitch account.
 
-
       - title: "How can I use multiple destinations?"
         anchor: "basics--how-can-i-use-multiple-destinations"
         content: |
-          QA and PROD loads
-          Webhooks
-          ask Akshat for more use cases
+          **You have multiple environments**. You may want to ensure you have clean data. To do this you can house your quality assurance and production environments in the same Stitch account instead of having to maintain two unique warehouses to ingest data from each other.
 
+          **You want to separate your raw data ingestion from your transformed data ingestion**. You can use multiple destinations in your Stitch to load raw data from integrations into a data lake for transformation, then load your transformed data into a separate warehouse.
       
       - title: "Who can use multiple destinations?"
         anchor: "basics--who-can-use-multiple-destinations"
         content: |
-          LEARN THE NEW PRICING PLAN TO ANSWER THIS QUESTION
+          Clients on a Stitch Unlimited or Unlimited Plus plan can use this feature.
 
       - title: "How many destinations can I have?"
         anchor: "basics--how-many-destinations-can-i-have"
         content: |
-          As of now, you can have up to five destinations per account.
+          The default limit is five destinations per Stitch account. To increase this limit, you must pay an add-on per additional destination. Stitch can support up to 10 destinations per account.
         
       - title: "Can I send data from one integration to multiple destinations?"
         anchor: "basics--sending-data-to-multiple-destinations"
         content: |
           Yes, you can! Head over to the [**Mapping your destinations**](#mapping-to-destinations) section for instructions on how to do that.
         
-#      - title: "What happens to my other destinations if I downgrade my plan?"
-#        anchor: "basics--who-can-use-multiple-destinations"
-#        content: For the initial launch, nothing will be done, but the plan in the future is that a hold will be issued for plan downgrades.
+      - title: "What happens to my other destinations if I downgrade my plan?"
+        anchor: "basics--what-happens-when-i-downgrade-my-plan"
+        content: |
+          Stitch will place a hold on your account if your destination count is higher that your destination limit. When a hold is placed or lifted, you will receive an email from Stitch notifying you of the changes.
 
       - title: "What happens when I delete a destination?"
-        anchor: "basics--who-can-use-multiple-destinations"
+        anchor: "basics--deleting-a-destination"
         content: |
           When you delete a destination, two things will happen. All post-load webhooks linked to the deleted destination will also be deleted. You will have to re-add them again if you still would like to use them in your other destinations. You will also have to choose if all data sources mapped to the deleted destination will be paused for replication or deleted. To continue replication of data, you must go back into the integration setup and re-map to where the data will be loaded. 
 
