@@ -17,8 +17,10 @@ layout: default
         {% include layout/toc.html %}
     {% endunless %}
 
-    {% if page.enterprise == true %}
-        {% include enterprise-cta.html %}
+  <!-- If the page has a minimum-plan property,
+      display the CTA -->
+    {% if page.minimum-plan %}
+        {% include minimum-plan-cta.html %}
     {% endif %}
 
       {{content}}

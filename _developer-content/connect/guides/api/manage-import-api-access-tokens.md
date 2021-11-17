@@ -72,7 +72,7 @@ intro: |
 
 requirements:
   - item: |
-      **Access to Stitch Connect and valid Connect API credentials.** Connect access is a Stitch Enterprise feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
+      **Access to Stitch Connect and valid Connect API credentials.** Connect access is a Stitch {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
   - item: |
       **An existing Import API source.** This guide assumes you've already created an Import API source, either in Stitch or using the Connect API. If you haven't, create one before continuing by using one of the following guides:
 
@@ -88,7 +88,8 @@ client-id: "116078"
 source-id: "216359"
 token-id: "828704779"
 new-token-id: "828705046"
-
+timestamp-1: "2021-08-12T15:22:12Z"
+timestamp-2: "2021-08-12T15:20:03Z"
 
 sections:
   - title: "Import API access tokens and destination schemas"
@@ -267,11 +268,11 @@ sections:
 
           {{ retrieve-token-id-content | flatify }}
 
-          The response will be an array containing the IDs of the access tokens associated with the specified Import API source ID:
+          The response will be an array containing the IDs of the access tokens associated with the specified Import API source ID and its creation timestamp:
 
           {% capture code %}[
-            {{ page.new-token-id | strip }},            /* New token ID */
-            {{ page.token-id | strip }}             /* Original token ID */
+          {"token_id":{{ page.new-token-id | strip }},"created_at":"{{ page.timestamp-1 | strip }}"},        /* New token ID */
+          {"token_id":{{ page.token-id | strip }},"created_at":"{{ page.timestamp-2 | strip }}"}         /* Original token ID */
           ]
           {% endcapture %}
 

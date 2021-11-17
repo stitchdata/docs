@@ -285,4 +285,4 @@ sections:
       {% include destinations/destination-tiles.html %}
 ---
 {% include misc/data-files.html %}
-{% assign destinations = site.destinations | where:"destination",true | sort: "display_name" %}
+{% assign destinations = site.destinations | where:"destination",true | sort_natural: "display_name" %}

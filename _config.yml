@@ -42,6 +42,8 @@ exclude:
   - .gitignore
   - _templates
   - _drafts
+  - .jekyll-cache
+  - .saas-cache
 
 include: [_pages, _redirects]
 relative_permalinks: false
@@ -140,7 +142,6 @@ defaults:
       layout: database
       connection-type: "integration"
       content-type: "integration"
-      enterprise: false
       toc: true
       sidebar: stitchnav
       display-summary: "false"
@@ -158,7 +159,6 @@ defaults:
     values:
       layout: general
       connection-type: "destination"
-      enterprise: false
       toc: true
       sidebar: stitchnav
       display-summary: "false"
@@ -178,7 +178,6 @@ defaults:
       type: developers
     values:
       layout: general
-      enterprise: false
       toc: true
       sidebar: stitchnav
       display-summary: "false"
@@ -188,7 +187,6 @@ defaults:
       type: getting-started
     values:
       layout: general
-      enterprise: false
       sidebar: on-page
       toc: true
 
@@ -197,7 +195,6 @@ defaults:
       type: replication
     values:
       layout: page
-      enterprise: false
       sidebar: stitchnav
       display-summary: "false"
       toc: true
@@ -209,7 +206,6 @@ defaults:
       layout: saas
       connection-type: "integration"
       content-type: "integration"
-      enterprise: false
       toc: true
       sidebar: stitchnav
       display-summary: "false"
@@ -226,7 +222,6 @@ defaults:
       type: webhook-integrations
     values:
       layout: webhook
-      enterprise: false
       toc: true
       sidebar: stitchnav
       display-summary: "false"

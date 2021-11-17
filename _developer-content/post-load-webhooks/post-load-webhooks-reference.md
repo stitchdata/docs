@@ -14,11 +14,17 @@ layout: general
 key: "post-load-webhooks-reference"
 toc: true
 
-enterprise: true
-enterprise-cta:
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "unlimited"
+
+minimum-plan-cta:
   feature: "Post-load notifications "
-  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.enterprise-cta.feature }}"
-  copy: "{{ site.data.strings.enterprise.copy.are-an | prepend: page.enterprise-cta.feature | flatify }}"
+  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.minimum-plan-cta.feature | flatify }}"
+  copy: "{{ site.data.strings.enterprise.copy.are-an | prepend: page.minimum-plan-cta.feature | flatify }}"
 
 
 # -------------------------- #
@@ -47,7 +53,7 @@ related:
 intro: |
   {% assign post-load-hooks-data = stitch.notifications.post-load-webhooks %}
 
-  Post-load hooks allow you to configure a webhook that fires each time data is loaded into your destination.
+  Post-load hooks allow you to configure a webhook that fires each time data is loaded into your existing destination.
 
   Using post-load hooks, you can extend Stitch and automate dependent processes. For example: Trigger downstream processing in SQL, an Amazon Web Services Lambda function, Talend Cloud jobs, or any other system that can be controlled with an HTTP request.
 
@@ -60,6 +66,9 @@ sections:
   - title: "Set up a post-load hook"
     anchor: "set-up-post-load-hook"
     content: |
+      {% capture post-load-setup %}
+      To use post-load hooks, you must already have a destination set up in your Stitch account.
+      {% endcapture %}
       You can configure a post-load hook in two ways:
 
       1. [In the Stitch app]({{ link.account.post-load-notifications | prepend: site.baseurl | append: "#manage-post-load-hooks" }})

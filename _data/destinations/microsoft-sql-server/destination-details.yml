@@ -1,0 +1,105 @@
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-details-data-file/
+
+
+# --------------------------------------- #
+#   DESTINATION-NAME DESTINATION DETAILS  #
+# --------------------------------------- #
+
+## Details about the destination provider.
+
+
+# -------------------------- #
+#       General/Pricing      #
+# -------------------------- #
+
+description: "{{ destination.display_name }} is a relational database management system that allows you to query across relational, non-relational, structured and unstructured data with the language and platform of your choice."
+
+port: 1433
+
+fully-managed: false
+
+free-option: "Yes (plan and trial)"
+
+pricing-model: "Varies"
+
+pricing-details: |
+  Refer to [Microsoft's documentation]({{ site.data.destinations.microsoft-sql-server.resource-links.pricing }}){:target="new"} for more info and examples.
+
+
+# -------------------------- #
+#         Table limits       #
+# -------------------------- #
+
+max-columns-per-table: "1,024"
+
+max-tables-per-database: "Limited by total number of objects in a database. The sum of objects cannot exceed 2,147,483,647."
+
+
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+case-sensitivity: "Insensitive"
+
+table-name-length: "113 characters"
+
+column-name-length: "128 characters"
+
+
+# -------------------------- #
+#     Column naming rules    #
+# -------------------------- #
+
+column-name-rules: |
+
+
+column-name-transformations:
+  - transformation: "Remove leading characters which are not a-z, A-Z, 0-9 or _"
+    source-column: "<code>!customerid</code>"
+    destination-column: "<code>customerid</code>"
+
+  - transformation: "Trim leading and trailing spaces"
+    source-column: "<code> customerid </code>"
+    destination-column: "<code>customerid</code>"
+
+  - transformation: "Replace characters which are not a-z, A-Z, 0-9, _, @, $ or # with an underscore"
+    source-column: "<code>customer-id</code>"
+    destination-column: "<code>customer_id</code>"
+
+  - transformation: "Convert to lowercase"
+    source-column: "<code>CustomerID</code>"
+    destination-column: "<code>customerid</code>"
+
+  - transformation: "Quote reserved words"
+    source-column: "<code>order</code>"
+    destination-column: "<code>\"order\"</code>"
+
+
+# ------------------------------- #
+#  Table and schema naming rules  #
+# ------------------------------- #
+
+table-name-rules: |
+
+
+table-name-transformations:
+  - transformation: "Remove leading characters which are not a-z, A-Z or _."
+    source-name: "<code>0-customers</code>"
+    destination-name: "<code>customers</code>"
+
+  - transformation: "Trim leading and trailing spaces"
+    source-name: "<code> customers </code>"
+    destination-name: "<code>customers</code>"
+
+  - transformation: "Replace characters which are not a-z, A-Z, 0-9, _, @, $ or # with an underscore."
+    source-name: "<code>customers!</code>"
+    destination-name: "<code>customers</code>"
+
+  - transformation: "Convert to lowercase"
+    source-name: "<code>Customers</code>"
+    destination-name: "<code>customers</code>"
+
+  - transformation: "Quote reserved words"
+    source-name: "<code>order</code>"
+    destination-name: "<code>\"order\"</code>"

@@ -108,15 +108,14 @@ setup-steps:
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      4. In the **Lookback Window** field, enter the number of days' worth of data you want Stitch to replicate during each replication job for selected event tables. Refer to the [Event replication](#event-replication) section for more info.
-      5. In the **Period** field, select how you want data for event tables to be aggregated:
+      1. In the **Period** field, select how you want data for event tables to be aggregated:
 
          - **Day** - Data will be aggregated by day
          - **Hour** - Data will be aggregated by hour
 
          Refer to the [Event replication](#event-replication) section for more info.
-      6. In the **X Pendo Integration Key** field, paste the integration key you created in [Step 1](#create-integration-key).
-      7. **Optional**: Check the **Inlude Anonymous Visitors** checkbox to have Stitch include anonymous vistors in replication.
+      2. In the **X Pendo Integration Key** field, paste the integration key you created in [Step 1](#create-integration-key).
+      3. **Optional**: Check the **Inlude Anonymous Visitors** checkbox to have Stitch include anonymous vistors in replication.
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
@@ -166,15 +165,6 @@ replication-sections:
           {% for table in event-tables %}
           - [{{ table.name }}](#{{ table.name | slugify }})
           {% endfor %}
-
-      - title: "Lookback windows for events"
-        anchor: "event-replication--lookback-window"
-        content: |
-          The **Lookback Window** setting controls how many days' worth of data are replicated during each replication job for any selected [event tables](#event-replication--tables).
-
-          For example: If you entered `10`, Stitch would replicate the past 10 days' worth of event tables during every replication job.
-
-          Stitch replicates data in this way to account for changes that may occur to events over time.
 
       - title: "Data aggregation for events"
         anchor: "event-replication--period"

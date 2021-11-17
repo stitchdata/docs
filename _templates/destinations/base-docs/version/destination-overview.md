@@ -1,10 +1,18 @@
 ---
 # -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/how-tos/destinations/add-destination-reference
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+# -------------------------- #
 #        Page Controls       #
 # -------------------------- #
 
 title: DESTINATION-NAME Destination Reference
-permalink: /destinations/destination-type/<version, if applicable>/reference
+permalink: /destinations/destination-type/v[version]/reference
 keywords: destination-type, destination-type data warehouse, destination-type data warehouse, destination-type etl, etl to destination-type, destination-type destination
 summary: "Reference documentation for Stitch's DESTINATION-NAME destination, including info about Stitch features, replication, and transformations."
 
@@ -147,7 +155,7 @@ sections:
         content: |
           {% include shared/incompatibilities/destination-version-incompatibilities.html %}
 
-    - title: "Transformations"
+  - title: "Transformations"
     anchor: "transformations"
     content: |
       {% for subsection in section.subsections %}
@@ -182,7 +190,7 @@ sections:
 
           > NATIVE SUPPORT:
 
-          > NATIVE SUPPORT, BQ-LIKE APPROACH:
+          > NATIVE SUPPORT, BIGQUERY-LIKE APPROACH:
           {{ destination.display_name }} supports nested records within tables, whether it's a single record or repeated values. This means that when nested data structures are loaded into {{ destination.display_name }}, they will be maintained.
 
           > NATIVE SUPPORT, USING A SPECIFIC DATA TYPE:
@@ -205,6 +213,8 @@ sections:
       - title: "Timezones"
         anchor: "transformations--timezones"
         content: |
+          > ADJUST AS NEEDED:
+
           {{ destination.display_name }} will store the value as `TIMESTAMP WITHOUT TIMEZONE`. In {{ destination.display_name }}, this data is stored without timezone information and expressed as UTC.
 
   - title: "Compare destinations"

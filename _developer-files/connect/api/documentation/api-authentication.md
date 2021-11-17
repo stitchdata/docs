@@ -28,9 +28,26 @@ sections:
     content: |
       How you obtain an access token depends on the type of user you are:
 
-      - **Individual Stitch user**: You will be using the API to programmatically control your own Stitch client account. You can create, revoke, and delete API access tokens on the [Account Settings page]({{ link.account.manage-api-keys | prepend: site.baseurl }}) of your Stitch client account.
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
 
-      - **Stitch partner**: You will be performing actions in Stitch client accounts on behalf of users who authorize your API client. You'll need to [register as an API client]({{ site.data.connect.api.interest-form }}){:target="new"} and refer to the [Partner API Authentication guide]({{ link.connect.guides.partner-authentication | prepend: site.baseurl }}) for instructions.
+    subsections:
+      - title: "Individual Stitch user"
+        anchor: "access-token--individual-user"
+        content: |
+          {% capture access-notice %}
+          **Note**: For individual Stitch users, access to the API is available during the Free Trial or as part of an {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan. 
+          {% endcapture %}
+
+          {% include note.html type="single-line" content=access-notice %}
+
+          You will be using the API to programmatically control your own Stitch client account. You can create, revoke, and delete API access tokens on the [Account Settings page]({{ link.account.manage-api-keys | prepend: site.baseurl }}) of your Stitch client account.
+
+      - title: "Stitch partner"
+        anchor: "access-token--stitch-partner"
+        content: |
+          You'll be performing actions in Stitch client accounts on behalf of users who authorize your API client. You'll need to [register as an API client]({{ site.data.connect.api.interest-form }}){:target="new"} and refer to the [Partner API Authentication guide]({{ link.connect.guides.partner-authentication | prepend: site.baseurl }}) for instructions.
 
   - title: "Credential reference"
     anchor: "credential-reference"

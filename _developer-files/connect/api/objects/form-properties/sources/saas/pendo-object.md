@@ -44,14 +44,6 @@ object-attributes:
       If `true`, anonymous visitors will be included when extracting visitor data. The default is `false`.
       
     value:  "false"
-  - name: "lookback_window"
-    type: "string"
-    required: false
-    description: |
-      The number of historical days' worth of data to replicate from the `start_date` value for each replication job for event streams. The default is `10`.
-
-      Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#event-replication" }}) for more info.
-    value: "10"
 
   - name: "period"
     type: "string"

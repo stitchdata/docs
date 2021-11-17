@@ -88,7 +88,7 @@ sections:
           - **Availability**: Indicates the availability of the version in Stitch or the API:
               - **Unavailable**: The version isn't available. New connections can't be created.
               - **Private**: The version is available only to accounts who have been granted access.
-              - **Available**: The version is generally available, depending on the plan type required for the integration. For example: If an integration is **Enterprise**, only users of an Enterprise plan will have access to it.
+              - **Available**: The version is generally available, depending on the plan type required for the integration. For example: If an integration is **{{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }}**, only users of these plans will have access to it.
           - **Description**: A description of the status, including in-app and support availability
 
           {% assign version-statuses = site.data.stitch.version-statuses %}

@@ -65,7 +65,7 @@ intro: |
 
 requirements:
   - item: |
-      **Access to Stitch Connect and valid Connect API credentials.** Connect access is a Stitch Enterprise feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
+      **Access to Stitch Connect and valid Connect API credentials.** Connect access is a Stitch {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
   - item: |
       **A Stitch account that doesn't currently have a destination.** Stitch currently supports one destination per account. If you already have a destination connected to your account, you'll need to [delete it]({{ link.connect.api | prepend: site.baseurl | append: api.core-objects.destinations.delete.anchor }}) before continuing. **Note**: Replication will be paused until a new destination is created and configured.
 

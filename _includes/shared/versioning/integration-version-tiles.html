@@ -11,7 +11,7 @@
     {% for version in released-versions %}
         {% assign doc = all-versioned-docs | find:"this-version",version.number %}
             {% if doc != null %}
-                {% include shared/versioning/integration-version-status-logic.html %}
+                {% include shared/versioning/version-status-logic.html %}
 
                 <li>
                     <div class="div-flag {{ version-status.display-name | downcase | remove:" (testing)" }}">
