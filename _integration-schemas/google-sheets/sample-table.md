@@ -13,10 +13,7 @@ description: |
   
   Refer to the [Data replication](#extraction--data-replication) section for more info about how this table replicates.
 
-replication-method: "Key-based Incremental"
-
-replication-key:
-  name: "Spreadsheet's modified_at"
+replication-method: "Full Table"
 
 api-method:
   name: "getSheets"
