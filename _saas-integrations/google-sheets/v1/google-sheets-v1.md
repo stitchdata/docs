@@ -187,7 +187,19 @@ replication-sections:
             content: |
               To determine data types, Stitch will analyze the first two rows in the [files included in object discovery](#discovery--objects).
 
-              If a column has been specified as a `STRING`, Stitch will attempt to parse the value as a string. If this fails, the column will be loaded as a nullable `STRING`.
+              If a column contains non-standard boolean language, Stitch will intentionally coerce those values into boolean. The following values are to be expected to be replicated as `True`:
+              - `YES`/`yes`
+              - `Y`/`y`
+              - `1`
+              - `true` (the string "true" prefixed with a tick [`])
+
+              The following values are expected to be replicated as `False`:
+              - `NO`/`no`
+              - `N`/`n`
+              - `0`
+              - `false` (the string "false" prefixed with a tick [`])
+
+              If a column has been specified as a `STRING`, Stitch will attempt to parse the value as a string, unless the column contains non-stantadard boolean language.  If this fails, the column will be loaded as a nullable `STRING`.
 
               For all other columns, Stitch will perform the following to determine the column's data type:
 

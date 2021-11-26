@@ -9,7 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-google-sheets/blob/master/tap_g
 description: |
   The `{{ table.name }}` table contains metadata about the spreadsheet defined in the integration's settings.
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 
 api-method:
   name: "getSheets"
@@ -24,7 +24,6 @@ attributes:
 
   - name: "modifiedTime"
     type: "date-time"
-    replication-key: true
     description: "The date and time the file was last modified."
 
   - name: "createdTime"
