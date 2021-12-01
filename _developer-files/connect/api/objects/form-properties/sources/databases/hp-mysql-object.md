@@ -85,11 +85,12 @@ object-attributes:
     required: false
     read-only: false
     internal: false
-    type: "string"
+    type: "array"
     description: |
-      **Optional**: If you want to Stitch to discover specific databases, specify their names with this property. You can add a comma-separated list of databases in the string to filter on multiple databases.
+      **Optional**: An array of strings that specifies the name of the databases that can be discovered by Stitch.
 
       If no value is specified, Stitch will discover all databases on the host.
-    value: "<DATABASE_NAME>,<OTHER_DATABASE_NAME>"
+    value: |
+      ["<DATABASE_NAME>", "<OTHER_DATABASE_NAME>"]
      
 ---
