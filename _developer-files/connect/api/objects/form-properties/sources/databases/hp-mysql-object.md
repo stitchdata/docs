@@ -59,7 +59,7 @@ object-attributes:
     type: "string"
     required: false
     description: |
-      **Optional**: If `ssl_client_auth_enabled: true`, the SSL client authentication cerficiate stitch should use. The `ssl_key` property must also be provided to ensure the connection is successful.
+      **Optional**: If `ssl_client_auth_enabled: true`, the SSL client authentication cerficiate Stitch should use. The `ssl_key` property must also be provided to ensure the connection is successful.
     value: "<CA_CERTIFICATE>"
 
   - name: "ssl_key"
@@ -79,5 +79,17 @@ object-attributes:
       - `false'
 
       **Note**: If you don't want to use a custom CA, this property and the `check_hostname` property should both be enabled (`true`).
-    value: "true"        
+    value: "true"   
+    
+  - name: "filter_dbs"
+    required: false
+    read-only: false
+    internal: false
+    type: "string"
+    description: |
+      **Optional**: If you want to Stitch to discover specific databases, specify their names with this property. You can add a comma-separated list of databases in the string to filter on multiple databases.
+
+      If no value is specified, Stitch will discover all databases on the host.
+    value: "<DATABASE_NAME>,<OTHER_DATABASE_NAME>"
+     
 ---

@@ -209,6 +209,15 @@ setup-steps:
         anchor: "define-default-replication-method"
         content: |
           {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html %}
+      
+      - title: "Select databases to discover"
+        anchor: "filter-databases"
+        content: |
+          {% include note.html type="single-line" content="**Note**: Skip this step if you don't need to filter databases." %}
+
+          Enter database names under **Limit to the following databases** to select the databases that Stitch can discover.
+
+          If no database is specified, Stitch will discover all databases on the host.
 
       - title: "Create a replication schedule"
         anchor: "create-replication-schedule"

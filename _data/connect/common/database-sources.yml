@@ -57,14 +57,6 @@ mysql:
     description: &database-description "The name of the logical database to connect to."
     value: "<DATABASE_NAME>"
 
-  - name: &filterdbs-name "filter_dbs"
-    required: false
-    read-only: false
-    internal: true
-    type: "string"
-    description: &internal-field "**This is an internal field and is for Stitch use only.**"
-    value: ""
-
 
 # -------------------------- #
 #    POSTGRESQL DATABASES    #
@@ -79,12 +71,12 @@ postgres:
     description: *database-description
     value: "<DATABASE_NAME>"
 
-  - name: *filterdbs-name
+  - name: &filterdbs-name "filter_dbs"
     required: true
     read-only: false
     internal: true
     type: "string"
-    description: *internal-field
+    description: &internal-field "**This is an internal field and is for Stitch use only.**"
     value: ""
 
   - name: "include_schemas_in_destination_stream_name"
