@@ -22,7 +22,7 @@ destination: false
 # -------------------------- #
 
 intro: |
-  You can now add multiple destinations to your Stitch account! In this guide, you will learn everything you need to know on how to fully utilize this feature. Before selecting destinations, we recommend reading our guide on [how to choose a destination]({{site.data.urls.destinations.overviews.choose-destination}}) to ensure you're making the decision that best suits your data warehousing needs.
+  You can now add multiple destinations to your Stitch account! In this guide, you will learn everything you need to know on how to fully utilize this feature. Before selecting destinations, we recommend reading our guide on [how to choose a destination](https://www.stitchdata.com/docs/destinations/choosing-a-stitch-destination) to ensure you're making the decision that best suits your data warehousing needs.
 
 
 # -------------------------- #
@@ -69,7 +69,7 @@ sections:
       - title: "What happens to my other destinations if I downgrade my plan?"
         anchor: "basics--what-happens-when-i-downgrade-my-plan"
         content: |
-          Stitch will place a hold on your account if your destination count is higher that your destination limit. When a hold is placed or lifted, you will receive an email from Stitch notifying you of the changes.
+          Stitch will place a hold on your account if your destination count is higher than your destination limit. When a hold is placed or lifted, you will receive an email from Stitch notifying you of the changes.
 
       - title: "What happens when I delete a destination?"
         anchor: "basics--deleting-a-destination"
@@ -90,12 +90,12 @@ sections:
           1. Login to your Stitch account.
           2. Click **Destinations** in the top navigation.
           3. Click **Add Destination** in the top right portion of the page.
-          4. Select the destination you would like to setup. If you aren't sure of which destination you should pick, follow this guide to help you make the decision that best suits your needs. (link the "choosing a destination" page)
+          4. Select the destination you would like to setup. If you aren't sure of which destination you should pick, follow [this guide](https://www.stitchdata.com/docs/destinations/choosing-a-stitch-destination) to help you make the decision that best suits your needs.
 
       - title: "Adding another destination through the Stitch Connect API"
         anchor: "adding-destinations-api"
         content: 
-          If you want to add through the API, (link docs)
+          If you want to add an aditional destination through the API, check out our [Create a Destination with the Connect API](https://www.stitchdata.com/docs/developers/stitch-connect/guides/create-destination-with-stitch-connect) guide.
 
       - title: "Deleting a destination"
         anchor: "deleting-destinations"
@@ -145,9 +145,8 @@ sections:
           5. Save your changes.
 
       - title: "Mapping through the Stitch Connect API"
-        anchor: "mapping-connect-api"
+        anchor: "mapping-integrations-app"
         content: |
-
-
+          Mapping your data sources to via the Stitch Connect API is also a very simple process and you can do it in the Sources POST. Check out our docs on [how to create a source](https://www.stitchdata.com/docs/developers/stitch-connect/api#create-a-source) to learn how to do this.
           
 ---
