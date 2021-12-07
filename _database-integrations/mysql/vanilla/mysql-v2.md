@@ -210,7 +210,7 @@ setup-steps:
         content: |
           {% include note.html type="single-line" content="**Note**: Skip this step if you don't need to filter databases." %}
 
-          Enter a database name in the field under **Limit to the following databases** to select the database that Stitch can discover. You can add multiple database names by clicking **Add another database**.
+          Enter a database name in the field under **Filter databases in the source** to select the database that Stitch can discover. You can add multiple database names by clicking **Add another database**.
 
           If no database is specified, Stitch will discover all databases on the host.
 
