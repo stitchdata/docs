@@ -24,8 +24,6 @@ api-method:
 
 replication-method: "Key-based Incremental"
 
-is-parent-table: true
-
 
 # -------------------------- #
 #       Table Attributes     #
