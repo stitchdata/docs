@@ -182,4 +182,8 @@ attributes:
   - name: "state"
     type: "string"
     description: ""
+
+  - name: "parent_account_key"
+    type: "string"
+    description: ""
 ---
