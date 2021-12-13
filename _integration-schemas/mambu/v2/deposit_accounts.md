@@ -19,8 +19,8 @@ description: |
 # -------------------------- #
 
 api-method:
-  name: "Get all deposit accounts (v2.0)"
-  doc-link: "https://api.mambu.com/?http#depositaccounts-getall"
+  name: "search (v2)"
+  doc-link: "https://api.mambu.com/?http#deposit-accounts-search"
 
 replication-method: "Key-based Incremental"
 
