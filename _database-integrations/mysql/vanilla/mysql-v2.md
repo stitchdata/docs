@@ -204,15 +204,6 @@ setup-steps:
         anchor: "ssl-connection-details"
         content: |
           {% include shared/database-connection-settings.html type="ssl" ssl-fields=true %}
-      
-      - title: "Select databases to discover"
-        anchor: "filter-databases"
-        content: |
-          {% include note.html type="single-line" content="**Note**: Skip this step if you don't need to filter databases." %}
-
-          Enter a database name in the field under **Filter databases in the source** to select the database that Stitch can discover. You can add multiple database names by clicking **Add another database**.
-
-          If no database is specified, Stitch will discover all databases on the host.
 
       - title: "Define the Log-based Replication setting"
         anchor: "define-default-replication-method"
