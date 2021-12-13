@@ -55,6 +55,11 @@ arguments:
     type: "object"
     description: "A [Connection property object]({{ api.form-properties.source-forms.section }}) corresponding to the value of `type`."
 
+  - name: "destination_id"
+    required: false
+    type: "integer"
+    description: "The ID of the destination you want to load data into. For example: `12345`."
+
 
 # -------------------------- #
 #           RETURNS          #
@@ -80,8 +85,8 @@ examples:
          "display_name":"Shopify",
          "properties":{
             "start_date":"2017-01-01T00:00:00Z",
-            "frequency_in_minutes":"30"
-         }
+            "frequency_in_minutes":"30"},
+         "destination_id":12345   
       }'
   
   - type: "Response"

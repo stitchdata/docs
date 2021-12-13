@@ -42,6 +42,11 @@ arguments:
     type: "object"
     description: "A [Connection property object]({{ api.form-properties.destination-forms.section }}) corresponding to the value of `type`."
 
+  - name: "ignore_unmapped_sources"
+    required: false
+    type: "boolean"
+    description: "Not providing this key or passing `false` will map all unmapped sources to the destination. If `true` no sources will be mapped to the destination."
+
 
 # -------------------------- #
 #           RETURNS          #

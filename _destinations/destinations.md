@@ -71,7 +71,7 @@ sections:
   - title: "Supported destinations"
     anchor: "supported-destinations"
     content: |
-      Stitch currently allows you to connect **one destination per account**. In addition, data will not begin replicating until you've successfully connected a destination and at least one integration.
+      Data will not begin replicating until you've successfully connected a destination and at least one integration.
 
       {% include destinations/destination-tiles.html %}
 

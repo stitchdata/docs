@@ -34,7 +34,7 @@ row-usage-hog-reasons:
 
 sections:
   - content: |
-      With Stitch, you can consolidate data from a variety of databases into [a single destination]({{ site.baseurl }}/destinations).
+      With Stitch, you can consolidate data from a variety of databases into [destinations]({{ site.baseurl }}/destinations).
 
   - title: "Database connection methods"
     anchor: "database-connection-methods"

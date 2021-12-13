@@ -92,7 +92,9 @@ steps:
 
           The first step is to choose the destination you want to use with Stitch. As your destination determines how data is loaded and structured, we recommend familiarizing yourself with our destinations before replicating any data.
 
-          Additionally, while Stitch currently allows one destination per account, you can change the type of destination you're using at any time.
+          Users on a Stitch {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan may add [multiple destinations]({{ link.destinations.overviews.multiple-destinations | prepend: site.baseurl }}). Users on a Stitch {{ site.data.stitch.subscription-plans.standard.name }} plan may only add one. 
+
+          Additionally, you can change the type of destination you're using at any time on any plan.
 
           If you're new to data warehousing or you want to see how Stitch's destination offerings compare to each other, check out our [Choosing a Destination guide]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}). This guide will help you choose the best Stitch destination for your data warehousing needs, from ensuring your data sources are compatible to staying within your budget.
 
