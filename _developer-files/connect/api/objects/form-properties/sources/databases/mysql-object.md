@@ -100,12 +100,4 @@ object-attributes:
 
       **Note**: If you don't want to use a custom CA, this property and the `check_hostname` property should both be enabled (`true`).
     value: "true"
-  
-  - name: "filter_dbs"
-    required: false
-    read-only: false
-    internal: true
-    type: "string"
-    description: "**This is an internal field and is for Stitch use only.**"
-    value: ""
 ---

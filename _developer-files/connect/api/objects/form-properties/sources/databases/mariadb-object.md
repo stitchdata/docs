@@ -44,13 +44,4 @@ object-attributes:
 
       Unless set, this property will default to `true`.
     value: "true"
-    
-  - name: "filter_dbs"
-    required: false
-    read-only: false
-    internal: true
-    type: "string"
-    description: "**This is an internal field and is for Stitch use only.**"
-    value: ""
-
 ---
