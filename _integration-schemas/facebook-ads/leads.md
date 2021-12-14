@@ -6,7 +6,7 @@ name: "leads"
 doc-link: https://developers.facebook.com/docs/marketing-api/guides/lead-ads/
 singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/leads.json
 description: |
-  ## description of the table
+  The `leads` table contains information about Lead Ads in your Facebook account.
 
 replication-method: "Key-based Incremental"
 
