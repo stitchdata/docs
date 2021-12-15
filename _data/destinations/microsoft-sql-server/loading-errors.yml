@@ -28,7 +28,7 @@ all:
       Reset the table(s) mentioned in the error. This will queue a full re-replication of the table(s), which will ensure Primary Keys are correctly captured and used to de-dupe data when loading.
 
 ## Primary Key type change not allowed
-  - message: "Incoming Primary Key type do not match Primary Key type in existing table"
+  - message: "Incoming Primary Key type does not match Primary Key type in existing table"
     id: "pk-type-change-not-permitted"
     applicable-to: "Microsoft SQL Server destinations"
     level: "critical"
