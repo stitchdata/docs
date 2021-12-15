@@ -23,8 +23,6 @@
       1. Store data for the original data type in the original column. In this example, only `BOOLEAN` values will be stored in `order_confirmed`. The name of the original column will not change.
 
       2. Create additional columns to store the other data types - one for each data type detected - and append the data type to the column name. In this example, a `order_confirmed__st` column will be created to store `STRING` values.
-
-      Refer to [TODO]() for more info and examples.
   
 
 ## Table contains nested data
@@ -53,7 +51,7 @@
   data-type: "string"
   # if: uses default
   then:
-    v1: &varchar-storage "{{ destination.display_name }} will store all `VARCHAR` data as `STRING`."
+    v1: &varchar-storage "{{ destination.display_name }} will store all `VARCHAR` data as `NVARCHAR(450)`."
 
 
 ## VARCHAR Widening
@@ -62,7 +60,7 @@
   data-type: "string"
   # if: uses default  
   then:
-    v1: &varchar-widening "No widening will occur. {{ destination.display_name }} will store all `VARCHAR` data as `STRING`."
+    v1: &varchar-widening "{{ destination.display_name }} will store all `VARCHAR` data as `NVARCHAR(MAX)`."
 
 
 # -------------------------- #
@@ -75,7 +73,7 @@
   data-type: "date-timestamp"
   # if: uses default
   then:
-    v1: &date-with-timezone "{{ destination.display_name }} has no support for timezones."
+    v1: &date-with-timezone "{{ destination.display_name }} will store the value as `DATETIMEOFFSET(3)`."
 
 
 ## Column contains timestamp data out of range
@@ -101,8 +99,8 @@
   data-type: "integer"
   # if: uses default
   then:
-    v1: "TODO"
-    v2: "TODO"
+    v1: &integer-storage |
+      Integer values will be loaded to {{ destination.display_name }} as the data type `INT`.
 
 
 ## Column contains integer data out of range
@@ -125,8 +123,7 @@
   # if: uses default
   then:
     v1: &decimal-storage |
-      Decimal values will be loaded to {{ destination.display_name }} as the data type [`TYPE`](){:target="new"}.
-    v2: *decimal-storage
+      Decimal values will be loaded to {{ destination.display_name }} as the data type `DECIMAL(38,6)`.
 
 
 ## Column contains decimal data out of range
@@ -136,7 +133,7 @@
   # if: uses default
   then:
     v1: &decimals-out-of-range |
-      {{ destination.display_name }} will reject the records that fall outside the supported maximum range for the [`TYPE` data type](){:target="new"}.
+      {{ destination.display_name }} will reject the records that fall outside the supported maximum range for the `DECIMAL(38,6)` data type.
   error:
     v1: &decimals-out-of-range-error "{{ site.data.destinations.common.loading-errors.numeric-out-of-range | flatify }}"
   fix-it: 

@@ -9,14 +9,6 @@
    ## That means the copy for that thing lives in the file mentioned above.
 ## Error data lives here: _data/destinations/common/loading-errors.yml
 
-## Only some columns are empty
-- id: some-empty-columns
-  rejectable: false
-  # if: uses default
-  then: 
-    v1: &some-empty-columns "{{ site.data.dataloading.scenarios.tables.some-empty-columns.then | flatify }}"
-
-
 ## Completely empty columns
 - id: all-empty-columns
   rejectable: false
