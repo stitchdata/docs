@@ -51,8 +51,8 @@
   # if: uses default
   then:
     v1: &pk-column-change-then "An error occurs and Stitch stops processing data for the table."
-  # error:
-  #   v1: ""
+  error:
+    v1: "{{ site.data.destinations.microsoft-sql-server.loading-errors.pk-change-not-permitted | flatify }}"
   fix-it: 
     v1: &pk-column-change-fix |
       1. Drop the table in {{ destination.display_name }}
@@ -76,8 +76,8 @@
   # if: uses default
   then:
     v1: *pk-column-change-then
-  # error:
-  #   v1: ""
+  error:
+    v1: "{{ site.data.destinations.microsoft-sql-server.loading-errors.pk-type-change-not-permitted | flatify }}"
   fix-it: 
     v1: *pk-column-change-fix
 
