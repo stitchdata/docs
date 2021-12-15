@@ -1,6 +1,6 @@
 ---
 title: DESTINATION Data Loading Behavior
-permalink: /replication/loading/destination-type/
+permalink: /replication/loading/destination-guides/destination-type/
 
 layout: general
 keywords: destination-type, destination-type data warehouse, destination-type data warehouse, destination-type etl, etl to destination-type
