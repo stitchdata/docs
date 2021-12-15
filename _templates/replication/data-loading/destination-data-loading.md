@@ -9,6 +9,8 @@ summary: "Learn how Stitch will load data from your integrations into Stitch's D
 display_name: "DESTINATION"
 type: "destination-type"
 
+key: "destination-type-loading-reference"
+
 this-version: ""
 
 ## REMOVE THE VERSION NOTICE IF NOT NEEDED.
