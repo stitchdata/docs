@@ -1,6 +1,6 @@
 ---
 title: Microsoft SQL Server Data Loading Behavior
-permalink: /replication/loading/microsoft-sql-server/
+permalink: /replication/loading/destination-guides/microsoft-sql-server
 
 layout: general
 keywords: microsoft-sql-server, microsoft-sql-server data warehouse, microsoft-sql-server data warehouse, microsoft-sql-server etl, etl to microsoft-sql-server
@@ -8,6 +8,8 @@ summary: "Learn how Stitch will load data from your integrations into Stitch's M
 
 display_name: "Microsoft SQL Server"
 type: "microsoft-sql-server"
+
+key: "microsoft-sql-server-loading-reference"
 
 this-version: "1"
 
