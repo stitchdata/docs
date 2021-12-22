@@ -12,14 +12,23 @@
     	<p>
     		A newer version of {{ page.display_name }} is available in Stitch. This version will still continue to function, but may be deprecated at a future date.
     	</p>
-    	
+
     {% else %}
     	<p>
     		This version of {{ page.display_name }} will be deprecated on <strong>{{ this-version.deprecation-date }}</strong>{% if connection-is-certified == true %} and no longer be formally supported by the Stitch Support Team{% endif %}.
     	</p>
     {% endif %}
 
-    <p>
+	{% if page.db-type == "mysql" and page.connection-type == "integration" %}
+	{% assign latest-mysql-version = site.data.taps.versions.mysql.latest-version %}
+	{% assign mysql-doc-url = link.integrations.database-integration | replace:"INTEGRATION",page.db-type | append: "/v" %}
+	<p>
+    	<a href="{{ mysql-doc-url | prepend: site.baseurl | append: latest-mysql-version }}">
+	    	Upgrade to the latest version (v{{ latest-version | remove: ".0" }}) to continue replicating data.
+	    </a>
+    </p>
+	{% else %}
+	<p>
     	<a href="{{ latest-version-doc.url | prepend: site.baseurl }}">
 	    	Upgrade to the latest version (v{{ latest-version | remove: ".0" }}) to 
 	    	{% if page.connection-type == "integration" %}
@@ -29,4 +38,7 @@
 	    	{% endif %}
 	    </a>
     </p>
+    {% endif %}
+
+    
 </div>
