@@ -67,12 +67,25 @@
   # if: uses default
   then:
     v1: &column-name-spaces |
-      {{ destination.display_name }} will convert spaces to underscores. For example:
+      {{ destination.display_name }} will convert spaces to underscores, with the exception of leading and trailing spaces. For example:
 
       | Columns in Source | Columns in {{ destination.display_name }} |
       |-------------------+--------------------------|
       | `customer id`     | `customer_id`            |
       | `CUSTOMER ID`     | `customer_id`            |
+
+## Column names with leading or trailing spaces
+- id: column-name-leading-trailing-spaces
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &column-name-leading-trailing-spaces |
+      {{ destination.display_name }} will trim leading and trailing spaces. For example:
+
+      | Columns in Source | Columns in {{ destination.display_name }} |
+      |-------------------+--------------------------|
+      | `CUSTOMER ID `    | `customer_id`            |
+      | `customerid `     | `customerid`             |
 
 
 ## Column name contains unsupported special characters
@@ -81,24 +94,34 @@
   # if: uses default
   then:
     v1: &column-name-special-char |
-      {{ destination.display_name }} will convert special characters to underscores. For example:
+      {{ destination.display_name }} will convert special characters to underscores, with the exception of the following characters: `@`, `$` and `#`. For example:
 
-      | Columns in Source |  | Columns in {{ destination.display_name }} |
-      |-------------------+--+--------------------------|
-      | `customer!id`     |  | `customer_id`             |
-      | `!CUSTOMERID`     |  | `_customerid`             |
-
+      | Columns in Source | Columns in {{ destination.display_name }} |
+      |-------------------+--------------------------|
+      | `customer!id`     | `customer_id`            |
+      | `customer#id`     | `customer#id`            |
 
 ## Column name begins with a non-letter character
-- id: column-name-starts-non-letter
+- id: column-name-starts-special-char
   rejectable: false
   # if: uses default
   then:
-    v1: &column-name-starts-non-letter |
-      {{ destination.display_name }} will remove all leading non-letter characters with the exception of leading underscores. For example:
+    v1: &column-name-starts-special-char |
+      {{ destination.display_name }} will remove all leading special characters with the exception of leading underscores. For example:
 
-      | Columns in Source |  | Columns in {{ destination.display_name }} |
-      |-------------------+--+--------------------------|
-      | `123customerid`   |  | `_customerid`            |
-      | `_customerid`     |  | `_customerid`            |
-      | `_987CUSTOMERID`  |  | `_987CUSTOMERID`         |
+      | Columns in Source | Columns in {{ destination.display_name }} |
+      |-------------------+--------------------------|
+      | `!customerid`     | `customerid`             |
+      | `_customerid`     | `_customerid`            |
+
+## Column name is a reserved word
+- id: column-name-reserved-word
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &column-name-reserved-word |
+      {{ destination.display_name }} will quote column names which are reserved words. For example:
+
+      | Columns in Source | Columns in {{ destination.display_name }} |
+      |-------------------+--------------------------|
+      | `order`           | `"order"`                |

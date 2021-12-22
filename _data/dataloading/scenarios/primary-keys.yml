@@ -43,3 +43,15 @@ remove-pk-column:
   if: "You remove the Primary Key column(s) for a table in {{ destination.display_name }}."
   then: "Data will be added to the table in an Append-Only fashion. This can result in duplicate records in the table."
   fix-it: ""
+
+## The Primary Key type is changed in the warehouse
+pk-type-change:
+  heading: "I change the Primary Key column(s) types in the destination?"
+  anchor: "pk-type-change"
+  if: "The table's Primary Key(s) type is/are changed."
+
+## The number of Primary Keys is changed in the warehouse
+pk-number-change:
+  heading: "I change the number of Primary Key columns in the destination?"
+  anchor: "pk-number-change"
+  if: "The number of Primary Keys in the table is changed."

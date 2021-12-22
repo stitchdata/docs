@@ -63,6 +63,13 @@ sections:
 
       {% include troubleshooting/error-messages.html top-anchor="google-bigquery-error-reference" display-name="Google BigQuery" %}
 
+  - title: "Microsoft SQL Server loading errors"
+    anchor: "microsoft-sql-server-error-reference"
+    content: |
+      {% assign errors = site.data.destinations.microsoft-sql-server.loading-errors.all | sort_natural:"message" %}
+
+      {% include troubleshooting/error-messages.html top-anchor="microsoft-sql-server-error-reference" display-name="Microsoft SQL Server" %}
+
   - title: "PostgreSQL loading errors"
     anchor: "postgresql-error-reference"
     content: |

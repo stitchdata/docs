@@ -79,7 +79,7 @@ sections:
     anchor: "reference-guides"
     guides:
       - key: "dedicated-overview"
-      # - key: "microsoft-sql-server-loading-reference"
+      - key: "microsoft-sql-server-loading-reference"
       - key: "source-destination-compatibility"
       - key: "system-tables-and-columns"
       - key: "reserved-keywords"

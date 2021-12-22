@@ -1,22 +1,20 @@
 ---
-title: DESTINATION Data Loading Behavior
-permalink: /replication/loading/destination-guides/destination-type/
+title: Microsoft SQL Server Data Loading Behavior
+permalink: /replication/loading/destination-guides/microsoft-sql-server
 
 layout: general
-keywords: destination-type, destination-type data warehouse, destination-type data warehouse, destination-type etl, etl to destination-type
-summary: "Learn how Stitch will load data from your integrations into Stitch's DESTINATION destination."
+keywords: microsoft-sql-server, microsoft-sql-server data warehouse, microsoft-sql-server data warehouse, microsoft-sql-server etl, etl to microsoft-sql-server
+summary: "Learn how Stitch will load data from your integrations into Stitch's Microsoft SQL Server destination."
 
-display_name: "DESTINATION"
-type: "destination-type"
+display_name: "Microsoft SQL Server"
+type: "microsoft-sql-server"
 
-key: "destination-type-loading-reference"
+key: "microsoft-sql-server-loading-reference"
 
-this-version: ""
+this-version: "1"
 
 ## REMOVE THE VERSION NOTICE IF NOT NEEDED.
 intro: |
-  {% include note.html type="single-line" content=version-notice %}
-
   {{ page.summary }}
 
   In this guide, we'll cover data loading scenarios involving: 
@@ -25,10 +23,10 @@ intro: |
   - [{{ section.summary | flatify | remove: "Scenarios involving " | remove: "." | | capitalize | strip }}](#{{ section.anchor }})
   {% endfor %}
   
-  {% assign destination-reference = site.data.destinations.destination-type[version] %}
+  {% assign destination-reference = site.data.destinations.microsoft-sql-server %}
 
-## The data & copy for DESTINATION scenarios live here: _data/dataloading/destination-type
-## The error messages for DESTINATION live here: _data/destination-type/loading-errors.yml
+## The data & copy for Microsoft SQL Server scenarios live here: _data/dataloading/microsoft-sql-server
+## The error messages for Microsoft SQL Server live here: _data/microsoft-sql-server/loading-errors.yml
 ## The data & copy for 'default' scenarios live here: _data/dataloading/scenarios
 
 sections:
