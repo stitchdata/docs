@@ -15,7 +15,7 @@ create:
   anchor: "#create-a-destination"
   short: "Creates a new destination."
   description: |
-    {{ site.data.connect.api.core-objects.destinations.create.short }} Only a single destination is supported per Stitch client account.
+    {{ site.data.connect.api.core-objects.destinations.create.short }} Only a single destination is supported per Stitch client account on a {{ site.data.stitch.subscription-plans.standard.name }} plan.
 
 update:
   name: "{{ site.data.connect.api.core-objects.destinations.base | flatify }}/{destination_id}"
@@ -31,7 +31,7 @@ list:
   method: "get"
   anchor: "#list-destinations"
   short: "Lists the destination currently in use for a Stitch account."
-  description: "{{ site.data.connect.api.core-objects.destinations.list.short }} Only a single destination is supported per Stitch client account."
+  description: "{{ site.data.connect.api.core-objects.destinations.list.short }} Only a single destination is supported per Stitch client account on a {{ site.data.stitch.subscription-plans.standard.name }} plan."
 
 delete:
   name: "{{ site.data.connect.api.core-objects.destinations.base | flatify }}/{destination_id}"

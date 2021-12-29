@@ -13,7 +13,7 @@ feedback: false
 
 sections:
   - content: |
-      With Stitch, you can consolidate data from a variety of webhook apps into a [single destination]({{ site.baseurl }}/destinations).
+      With Stitch, you can consolidate data from a variety of webhook apps into [destinations]({{ site.baseurl }}/destinations).
 
   - title: "Historical webhook data"
     anchor: "historical-webhook-data"

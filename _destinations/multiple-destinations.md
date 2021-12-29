@@ -22,7 +22,7 @@ destination: false
 # -------------------------- #
 
 intro: |
-  You can now add multiple destinations to your Stitch account! In this guide, you will learn everything you need to know on how to fully utilize this feature. Before selecting destinations, we recommend reading our guide on [how to choose a destination](https://www.stitchdata.com/docs/destinations/choosing-a-stitch-destination) to ensure you're making the decision that best suits your data warehousing needs.
+  You can now add multiple destinations to your Stitch account! In this guide, you will learn everything you need to know on how to fully utilize this feature. Before selecting destinations, we recommend reading our guide on [how to choose a destination]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}) to ensure you're making the decision that best suits your data warehousing needs.
 
 
 # -------------------------- #
@@ -90,12 +90,12 @@ sections:
           1. Login to your Stitch account.
           2. Click **Destinations** in the top navigation.
           3. Click **Add Destination** in the top right portion of the page.
-          4. Select the destination you would like to setup. If you aren't sure of which destination you should pick, follow [this guide](https://www.stitchdata.com/docs/destinations/choosing-a-stitch-destination) to help you make the decision that best suits your needs.
+          4. Select the destination you would like to setup. If you aren't sure of which destination you should pick, follow [this guide]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}) to help you make the decision that best suits your needs.
 
       - title: "Adding another destination through the Stitch Connect API"
         anchor: "adding-destinations-api"
-        content: 
-          If you want to add an aditional destination through the API, check out our [Create a Destination with the Connect API](https://www.stitchdata.com/docs/developers/stitch-connect/guides/create-destination-with-stitch-connect) guide.
+        content: |
+          If you want to add an aditional destination through the API, check out our [Create a Destination with the Connect API]({{ link.connect.guides.create-configure-a-destination | prepend: site.baseurl }}) guide.
 
       - title: "Deleting a destination"
         anchor: "deleting-destinations"
@@ -121,7 +121,7 @@ sections:
           1. Login to your Stitch account.
           2. Click **Destinations** in the top navigation.
           3. Select the destination you would like to edit.
-          4. Make the edits you want to make. Currently you can edit the name & description. All other available edits are specific to the data warehouse you have.
+          4. Make the edits you want to make. Currently you can edit the name and description. All other available edits are specific to the data warehouse you have.
           5. Save your changes.
           
 
@@ -147,6 +147,6 @@ sections:
       - title: "Mapping through the Stitch Connect API"
         anchor: "mapping-integrations-app"
         content: |
-          Mapping your data sources to via the Stitch Connect API is also a very simple process and you can do it in the Sources POST. Check out our docs on [how to create a source](https://www.stitchdata.com/docs/developers/stitch-connect/api#create-a-source) to learn how to do this.
+          Mapping your data sources to via the Stitch Connect API is also a very simple process and you can do it in the Sources POST. Check out our docs on [how to create a source]({{ link.connect.api | prepend: site.baseurl | append: "#create-a-source" }}) to learn how to do this.
           
 ---
