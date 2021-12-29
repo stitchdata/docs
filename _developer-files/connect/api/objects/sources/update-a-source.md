@@ -55,6 +55,11 @@ arguments:
     example-value: |
       "2019-06-01T00:00:00Z"
 
+  - name: "destination_id"
+    required: false
+    type: "integer"
+    description: "The ID of the destination you want to load data into. For example: `12345`."   
+
   - name: "properties"
     required: false
     type: "object"
