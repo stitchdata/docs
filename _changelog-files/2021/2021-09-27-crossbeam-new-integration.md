@@ -2,7 +2,7 @@
 title: "New integration: Crossbeam"
 content-type: "changelog-entry"
 date: 2021-09-27
-entry-type: new-feature
+entry-type: beta
 entry-category: integration
 connection-id: "crossbeam"
 connection-version: "1"
