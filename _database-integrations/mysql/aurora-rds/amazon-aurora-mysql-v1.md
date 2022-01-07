@@ -1,12 +1,11 @@
 ---
 title: Amazon Aurora MySQL RDS (v1)
 keywords: amazon aurora, aurora mysql, database integration, etl aurora, aurora etl
-permalink: /integrations/databases/amazon-aurora-mysql
+permalink: /integrations/databases/amazon-aurora-mysql/v1
 summary: "Connect and replicate data from your Amazon Aurora RDS database using Stitch's Aurora integration."
 microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://mysql.topostgres.com/"
-show-in-menus: true
 
 key: "aurora-rds-integration"
 
