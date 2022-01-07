@@ -1,9 +1,8 @@
 ---
-title: MariaDB (v1)
+title: MariaDB (v2)
 keywords: mariadb, database integration, etl mariadb, mariadb etl
-permalink: /integrations/databases/mariadb
+permalink: /integrations/databases/mariadb/v2
 summary: "Connect and replicate data from your MariaDB database using Stitch's MariaDB integration."
-show-in-menus: true
 
 key: "mariadb-integration"
 
@@ -15,11 +14,11 @@ name: "mariadb"
 display_name: "MariaDB"
 
 singer: true
-repo-url: https://github.com/singer-io/tap-mysql
+repo-url: "Not Applicable"
 
 hosting-type: "generic"
 
-this-version: "1"
+this-version: "2"
 
 driver: |
   [PyMySQL 0.7.11](https://pymysql.readthedocs.io/en/latest/){:target="new"}
@@ -29,8 +28,6 @@ driver: |
 # -------------------------- #
 
 certified: true
-singer: true
-repo-url: https://github.com/singer-io/tap-mysql
 
 frequency: "30 minutes"
 tier: "Standard"
@@ -72,7 +69,7 @@ log-based-replication-read-replica: true
 key-based-incremental-replication: true
 full-table-replication: true
 
-view-replication: false
+view-replication: true
 
 
 # -------------------------- #
