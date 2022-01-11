@@ -1,9 +1,8 @@
 ---
 title: Google CloudSQL MySQL (v1)
 keywords: google cloudsql, cloudsql, cloud sql, database integration, etl cloudsql, cloudsql etl, cloudsql mysql, cloudsql mysql etl
-permalink: /integrations/databases/google-cloudsql-mysql
+permalink: /integrations/databases/google-cloudsql-mysql/v1
 summary: "Connect and replicate data from your Google CloudSQL MySQL database using Stitch's Google CloudSQL MySQL integration."
-show-in-menus: true
 
 key: "cloudsql-mysql-integration"
 
