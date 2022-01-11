@@ -1,48 +1,27 @@
 ---
-# -------------------------- #
-#     USING THIS TEMPLATE    #
-# -------------------------- #
+title: MariaDB (v2)
+keywords: mariadb, database integration, etl mariadb, mariadb etl
+permalink: /integrations/databases/mariadb/v2
+summary: "Connect and replicate data from your MariaDB database using Stitch's MariaDB integration."
 
-## NEED HELP USING THIS TEMPLATE? SEE:
-## https://docs-about-stitch-docs.netlify.com/reference/integration-templates/databases/
-## FOR INSTRUCTIONS & REFERENCE INFO
-
-
-# -------------------------- #
-#      Page & Formatting     #
-# -------------------------- #
-
-title: MySQL (HP) (v2)
-keywords: mysql, database integration, etl mysql, mysql etl
-permalink: /integrations/databases/mysql/v2
-summary: "Connect and replicate data from your MySQL database using Stitch's MySQL integration."
-
-microsites:
-  - title: "{{ page.display_name }} to Redshift"
-    url: "http://mysql.toredshift.com/"
-  - title: "{{ page.display_name }} to Postgres"
-    url: "http://mysql.topostgres.com/"
-
-
-key: "mysql-integration"
+key: "mariadb-integration"
 
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
-name: "mysql"
-display_name: "MySQL"
+name: "mariadb"
+display_name: "MariaDB"
 
 singer: true
-tap-name: "MySQL"
 repo-url: "Not Applicable"
+
+hosting-type: "generic"
 
 this-version: "2"
 
-hosting-type: "generic" ## amazon, microsoft, google, etc.
-
 driver: |
-  [](){:target="new"}
+  [PyMySQL 0.7.11](https://pymysql.readthedocs.io/en/latest/){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -50,15 +29,13 @@ driver: |
 
 certified: true
 
-frequency: "1 hour"
+frequency: "30 minutes"
 tier: "Standard"
 port: 3306
 db-type: "mysql"
 
 ## Stitch features
-
-api-type: "platform.hp-mysql"
-override-api-type: true
+api-type: "platform.mariadb"
 versions: "n/a"
 ssh: true
 ssl: true
@@ -115,6 +92,7 @@ feature-summary: |
   - **New column (field) naming rules.** Avro has specific rules that dictate how columns can be named. As a result, column names will be canonicalized to adhere to Avro rules and persisted to your destination using the Avro-friendly name. Refer to the [Column name transformations section](#data-replication--column-name-transformations) for more info.
   - **Improved handling of `JSON` data types**. In previous versions, these data types were treated as strings. This version will send them to your destination as JSON objects, which may result in [de-nesting]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
 
+
   To get a look at how this version compares to the previous version of {{ integration.display_name }}, refer to the [{{ integration.display_name }} version comparison documentation]({{ mysql-overview.url | prepend: site.baseurl | append: "#supported-features" }}).
 
 # -------------------------- #
@@ -129,7 +107,6 @@ requirements-list:
   - item: |
       **The `SUPER` privilege in {{ integration.display_name }}.** If using binlog replication, the [`SUPER` privilege](https://dev.mysql.com/doc/refman/5.6/en/privileges-provided.html#priv_super){:target="new"} is required to define the appropriate server settings.
 
-
 # -------------------------- #
 #     Setup Instructions     #
 # -------------------------- #
@@ -139,7 +116,7 @@ setup-steps:
     anchor: "verify-stitch-account-region"
     content: |
       {% include shared/whitelisting-ips/locate-region-ip-addresses.html first-step=true %}
-
+      
   - title: "Configure database connection settings"
     anchor: "connect-settings"
     content: |
@@ -148,7 +125,7 @@ setup-steps:
   - title: "Configure Log-based Incremental Replication"
     anchor: "configure-log-based-incremental-replication"
     content: |
-      {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication. [Click to skip ahead](#db-user)." %}
+      {% include note.html type="single-line" content="This step is only required to use logical (Log-based Incremental) replication." %}
 
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
 
@@ -170,7 +147,7 @@ setup-steps:
   - title: "Create a Stitch database user"
     anchor: "db-user"
     content: |
-      {% include note.html type="single-line" content="**Note**: You must have the `CREATE USER` and `GRANT OPTION` privileges to complete this step." %} 
+      {% include note.html type="single-line" content="You must have the `CREATE USER` and `GRANT OPTION` privileges to complete this step." %} 
 
       Next, you'll create a dedicated database user for Stitch. This will ensure Stitch is visible in any logs or audits, and allow you to maintain your privilege hierarchy.
 
@@ -199,8 +176,8 @@ setup-steps:
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
-          {% include shared/database-connection-settings.html type="ssl" ssl-fields=true %}
-      
+          {% include shared/database-connection-settings.html type="ssl" %}
+
       - title: "Select databases to discover"
         anchor: "filter-databases"
         content: |
@@ -211,7 +188,7 @@ setup-steps:
           If no database is specified, Stitch will discover all databases on the host.
 
       - title: "Define the Log-based Replication setting"
-        anchor: "define-default-replication-method"
+        anchor: "define-log-based-replication-setting"
         content: |
           {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html %}
 

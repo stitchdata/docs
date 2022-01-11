@@ -1,9 +1,8 @@
 ---
 title: MariaDB (v1)
 keywords: mariadb, database integration, etl mariadb, mariadb etl
-permalink: /integrations/databases/mariadb
+permalink: /integrations/databases/mariadb/v1
 summary: "Connect and replicate data from your MariaDB database using Stitch's MariaDB integration."
-show-in-menus: true
 
 key: "mariadb-integration"
 
