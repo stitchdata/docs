@@ -121,7 +121,8 @@ requirements-list:
       **The `CREATE USER` or `INSERT` privilege (for the `mysql` database).** The [`CREATE USER` privilege](https://dev.mysql.com/doc/refman/8.0/en/create-user.html){:target="new"} is required to create a database user for Stitch.
   - item: |
       **The `GRANT OPTION` privilege in {{ integration.display_name }}.** The [`GRANT OPTION` privilege](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_grant-option){:target="new"} is required to grant the necessary privileges to the Stitch database user.
-
+  - item: |
+      ** Your database uses the InnoDB storage engine. Stitch's {{ integration.display_name }} integration doesn't support databases build with the MyISAM engine.
 
 # -------------------------- #
 #     Setup Instructions     #
