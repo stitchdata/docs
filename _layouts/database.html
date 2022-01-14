@@ -36,12 +36,12 @@ layout: page
 {% endif %}
 
 <!-- INTEGRATION VERSION INFO -->
-{% if integration.version-information %}
+{% if integration.version-information-copy %}
     {% capture version-information %}
-        {{ integration.version-information | flatify | markdownify }}
+        {{ integration.version-information-copy | flatify | markdownify }}
 	{% endcapture %}
 
-	{% include note.html content=notice-copy %}
+	{% include note.html first-line=integration.version-information-first-line content=version-information %}
 
 {% endif %}
 
