@@ -1,9 +1,8 @@
 ---
-title: Google CloudSQL MySQL (v1)
+title: Google CloudSQL MySQL (v2)
 keywords: google cloudsql, cloudsql, cloud sql, database integration, etl cloudsql, cloudsql etl, cloudsql mysql, cloudsql mysql etl
-permalink: /integrations/databases/google-cloudsql-mysql
+permalink: /integrations/databases/google-cloudsql-mysql/v2
 summary: "Connect and replicate data from your Google CloudSQL MySQL database using Stitch's Google CloudSQL MySQL integration."
-show-in-menus: true
 
 key: "cloudsql-mysql-integration"
 
@@ -15,9 +14,9 @@ name: "cloudsql-mysql"
 display_name: "Google CloudSQL MySQL"
 singer: true
 
-repo-url: https://github.com/singer-io/tap-mysql
+repo-url: "Not Applicable"
 
-this-version: "1"
+this-version: "2"
 
 hosting-type: "google-cloudsql"
 
@@ -28,8 +27,7 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-singer: true
-repo-url: https://github.com/singer-io/tap-mysql
+
 certified: true
 
 frequency: "30 minutes"
@@ -75,6 +73,29 @@ key-based-incremental-replication: true
 full-table-replication: true
 
 view-replication: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+beta-copy: |
+  {% assign all-mysql = site.database-integrations | where:"key","mysql-integration" %}
+  {% assign mysql-overview = all-mysql | where:"content-type","database-category" | first %}
+  
+  **Note**: This version differs greatly than the previous version. Refer to the [Integration feature summary]({{ integration.url | prepend: site.baseurl | append: "#feature-summary" }}) and [version comparison documentation]({{ mysql-overview.url | prepend: site.baseurl | append: "#supported-features" }}) for more info.
+
+feature-summary: |
+  {% assign all-mysql = site.database-integrations | where:"key","mysql-integration" %}
+  {% assign mysql-overview = all-mysql | where:"content-type","database-category" | first %}
+
+  This version (v{{ integration.this-version }}) of Stitch's {{ integration.display_name }} integration optimizes replication by utilizing Avro schemas to write and validate data, thereby reducing the amount of time spent on data extraction and preparation. Compared to previous versions of the {{ integration.display_name }} integration, this version boasts increased performance and overall reduced replication time.
+
+  Notable improvements and changes in this version also include:
+
+  - **New column (field) naming rules.** Avro has specific rules that dictate how columns can be named. As a result, column names will be canonicalized to adhere to Avro rules and persisted to your destination using the Avro-friendly name. Refer to the [Column name transformations section](#data-replication--column-name-transformations) for more info.
+  - **Improved handling of `JSON` data types**. In previous versions, these data types were treated as strings. This version will send them to your destination as JSON objects, which may result in [de-nesting]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
+
+  To get a look at how this version compares to the previous version of {{ integration.display_name }}, refer to the [{{ integration.display_name }} version comparison documentation]({{ mysql-overview.url | prepend: site.baseurl | append: "#supported-features" }}).
 
 
 # -------------------------- #
@@ -183,6 +204,15 @@ setup-steps:
         content: |
           {% include shared/database-connection-settings.html type="general" %}
 
+      - title: "Select databases to discover"
+        anchor: "filter-databases"
+        content: |
+          {% include note.html type="single-line" content="**Note**: Skip this step if you don't need to filter databases." %}
+
+          Enter a database name in the field under **Filter databases in the source** to select the database that Stitch can discover. You can add multiple database names by clicking **Add another database**.
+
+          If no database is specified, Stitch will discover all databases on the host.
+
       - title: "Define the Log-based Replication setting"
         anchor: "define-log-based-replication-setting"
         content: |
@@ -202,6 +232,82 @@ setup-steps:
     anchor: "sync-data"
     content: |
       {% include integrations/shared-setup/data-selection/object-selection.html %}
+
+# -------------------------- #
+#      Replication Info      #
+# -------------------------- #
+
+replication-sections:
+  - content: |
+      In this section:
+
+      {% for section in page.replication-sections %}
+      {% if section.title %}
+      - [{{ section.summary | flatify }}](#{{ section.anchor }})
+      {% endif %}
+      {% endfor %}
+
+  - title: "Extraction"
+    anchor: "extraction-details"
+    summary: "Details about Extraction, including object and data type discovery and selecting data for replication"
+    content: |
+      For every table set to replicate, Stitch will perform the following during Extraction:
+
+      {% for subsection in section.subsections %}
+      - [{{ subsection.summary | flatify }}](#{{ subsection.anchor }})
+      {% endfor %}
+
+    subsections:
+      - title: "Discovery"
+        anchor: "extraction--discovery"
+        summary: "Discover table schemas and type discovered columns"
+        content: |
+          During Discovery, Stitch will:
+
+          {% for sub-subsection in subsection.sub-subsections %}
+          - [{{ sub-subsection.summary | flatify }}](#{{ sub-subsection.anchor }})
+          {% endfor %}
+        sub-subsections:
+          - title: "Determining table schemas"
+            anchor: "discovery--objects"
+            summary: "Determine table schemas"
+            content: |
+              During this phase of Discovery, Stitch queries system tables to retrieve metadata about the objects the Stitch database user has access to. This metadata is used to determine which databases, tables, and columns to display in Stitch for replication.
+
+              {{ site.data.taps.extraction.database-queries.mysql.structure-sync | flatify | markdownify }}
+
+          - title: "Data typing"
+            anchor: "discovery--data-types"
+            summary: "Type the data in discovered columns"
+            content: |
+              Refer to the [{{ integration.display_name }} data types documentation]({{ mysql-overview.url | prepend: site.baseurl | append: "#data-types" }}) for more info about how {{ integration.display_name }} data is typed for selected columns.
+
+      - title: "Data replication"
+        anchor: "extraction--data-replication"
+        summary: "Select records for replication"
+        content: |
+          During data replication, Stitch will:
+
+          {% for sub-subsection in subsection.sub-subsections %}
+          - [{{ sub-subsection.summary | flatify }}](#{{ sub-subsection.anchor }})
+          {% endfor %}
+
+        sub-subsections:
+          - title: "Column name transformations"
+            anchor: "data-replication--column-name-transformations"
+            summary: "Transform column names to adhere to Avro rules"
+            content: |
+              To ensure column names are compatible with Avro, the integration will transform column names to adhere to Avro's rules. In Avro, [column names must](https://avro.apache.org/docs/current/spec.html#names){:target="new"}:
+
+              - Start with one of the following:
+                 - `A-Z`
+                 - `a-z`
+                 - `_` (underscore)
+              - Contain only the following:
+                 - Any characters in the list above (`A-Z`, `_`, etc)
+                 - `0-9`
+
+              If a column name contains an unsupported character, the integration will replace it with an underscore (`_`).
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

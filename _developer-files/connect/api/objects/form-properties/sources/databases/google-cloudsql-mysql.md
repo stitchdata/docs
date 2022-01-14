@@ -47,8 +47,11 @@ object-attributes:
   - name: "filter_dbs"
     required: false
     read-only: false
-    internal: true
-    type: "string"
-    description: "**This is an internal field and is for Stitch use only.**"
-    value: ""
+    internal: false
+    type: "array"
+    description: |
+      **Optional**: An array of strings that specifies the name of the databases that can be discovered by Stitch.
+      If no value is specified, Stitch will discover all databases on the host.
+    value: |
+      ["<DATABASE_NAME>", "<OTHER_DATABASE_NAME>"]
 ---
