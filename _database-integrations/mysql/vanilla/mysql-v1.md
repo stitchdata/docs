@@ -79,6 +79,13 @@ full-table-replication: true
 
 view-replication: true
 
+# -------------------------- #
+#    Version information     #
+# -------------------------- #
+
+version-information: |
+  {% assign latest-version = site.data.taps.versions.mysql.latest-version %}
+  Existing integrations using {{ integration.display_name }} (v{{ integration.this-version }}) are still supported, but new integrations will use the latest version. For more information, refer to the [{{ integration.display_name }} (v{{ latest-version  }}) documentation]({{ latest-version-doc.url | prepend: site.baseurl }}).
 
 # -------------------------- #
 #      Setup Requirements    #
