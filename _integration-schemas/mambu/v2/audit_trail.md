@@ -78,8 +78,4 @@ attributes:
   - name: "response_payload"
     type: "string"
     description: "The raw response payload with sensitive information removed."
-
-  - name: "original_account_key"
-    type: "string"
-    description: ""
 ---
