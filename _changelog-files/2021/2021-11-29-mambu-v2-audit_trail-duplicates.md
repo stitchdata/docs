@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-mambu/pull/59"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've updated our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to add a `number_last_occurrence` value for bookmarks in the `audit_trails` stream. This solved the issue of duplicated records.
+We've updated our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to add a `number_last_occurrence` value for bookmarks in the `audit_trails` stream. This solves the issue of duplicated records.

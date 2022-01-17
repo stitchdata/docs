@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-zendesk/pull/95"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've updated how our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration handles `503` errors. SDtitch will rety after a `503` error only if the `Retry-After` header is present in the response.
+We've updated how our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration handles `503` errors. Stitch will retry after a `503` error only if the `Retry-After` header is present in the response.
