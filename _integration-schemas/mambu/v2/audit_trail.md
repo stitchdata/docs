@@ -70,7 +70,6 @@ attributes:
     type: "number"
     description: "The HTTP response code."
 
-
   - name: "occurred_at"
     type: "date-time"
     replication-key: true
@@ -79,4 +78,8 @@ attributes:
   - name: "response_payload"
     type: "string"
     description: "The raw response payload with sensitive information removed."
+
+  - name: "original_account_key"
+    type: "string"
+    description: ""
 ---
