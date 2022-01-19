@@ -706,4 +706,8 @@ attributes:
           - name: "disbursement_transaction_key"
             type: "string"
             description: ""
+
+  - name: "original_account_key"
+    type: "string"
+    description: ""
 ---

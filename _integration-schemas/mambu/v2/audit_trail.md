@@ -70,7 +70,6 @@ attributes:
     type: "number"
     description: "The HTTP response code."
 
-
   - name: "occurred_at"
     type: "date-time"
     replication-key: true

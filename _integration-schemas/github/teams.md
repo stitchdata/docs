@@ -66,7 +66,7 @@ attributes:
     description: ""
 
   - name: "parent"
-    type: "string"
+    type: "object, string"
     description: ""
 
   - name: "permission"
