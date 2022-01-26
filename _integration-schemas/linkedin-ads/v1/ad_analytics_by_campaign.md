@@ -9,6 +9,8 @@ singer-schema: "https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_li
 description: |
   The `{{ table.name }}` table contains analytics data for ads, segmented by campaign.
 
+  To replicate data from this table, you must also select the parent `campaigns` table.
+
   **Note**: This table is replicated using an attribution window of {{ integration.attribution-window }}. Refer to the [Replication](#replication) section for more info.
 
 replication-method: "Key-based Incremental"
