@@ -2,7 +2,7 @@
 title: Response codes
 product-type: "connect"
 content-type: "api-doc"
-order: 4
+order: 3
 
 sections:
   - content: |

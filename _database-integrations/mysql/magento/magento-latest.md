@@ -107,6 +107,10 @@ setup-steps:
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
+      {% for substep in step.substeps %}
+      - [Step 3.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
+
     substeps:
       - title: "Define the database connection details"
         anchor: "define-connection-details"
@@ -122,6 +126,11 @@ setup-steps:
         anchor: "create-replication-schedule"
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
+
+      - title: "Save the integration"
+        anchor: "save-integration"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 
   - title: "Select data to replicate"
     anchor: "sync-data"

@@ -47,32 +47,15 @@ all-databases:
 # -------------------------- #
 
 mysql:
-  - name: "database"
+## TODO: Address this when we start moving over branded MySQL to the API for v2.
+  - name: |
+      {% if form-property.api-type == "platform.hp-mysql" %}dbname{% else %}database{% endif %}
     required: false
     read-only: false
     internal: false
     type: "string"
     description: &database-description "The name of the logical database to connect to."
     value: "<DATABASE_NAME>"
-
-  - name: &filterdbs-name "filter_dbs"
-    required: false
-    read-only: false
-    internal: true
-    type: "string"
-    description: &internal-field "**This is an internal field and is for Stitch use only.**"
-    value: ""
-
-  - name: "allow_non_auto_increment_pks"
-    required: false
-    read-only: false
-    internal: false
-    type: "string"
-    description: |
-      If `true`, an auto-incrementing Primary Key will not be required for tables using Full Table Replication. Auto-incrementing Primary Keys are used during full table replication to allow the replication of a table to span multiple replication jobs.
-
-      Unless set, this property will default to `true`.
-    value: "true"
 
 
 # -------------------------- #
@@ -88,12 +71,12 @@ postgres:
     description: *database-description
     value: "<DATABASE_NAME>"
 
-  - name: *filterdbs-name
+  - name: &filterdbs-name "filter_dbs"
     required: true
     read-only: false
     internal: true
     type: "string"
-    description: *internal-field
+    description: &internal-field "**This is an internal field and is for Stitch use only.**"
     value: ""
 
   - name: "include_schemas_in_destination_stream_name"
@@ -151,7 +134,7 @@ binlog-replication:
     description: |
       If `true`, Log-based Incremental Replication will be used as the default Replication Method for tables set to replicate. This choice can be overriden on individual tables at any time.
     value: "true"
-    database: "mysql, mssql"
+    database: "mysql, mssql, postgres"
 
   - name: "server_id"
     required: false

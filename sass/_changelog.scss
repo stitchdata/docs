@@ -1,0 +1,77 @@
+/* CHANGELOG */
+
+.changelog-entry {
+  margin-bottom: 2.5em;
+  position: relative;
+  width: 100%;
+
+  @media only screen and (max-width: $desktop-breakpoint) {
+    margin-top: -4px;
+  }
+
+  @mixin entry-type($accent-color) {
+    .changelog-entry-type {
+      color: $accent-color;
+      font-weight: 400;
+    }
+  }
+
+  /* Categories */
+  $changelog-types: (
+    beta: $lochmara,
+    bug-fix: $jaffa,
+    deprecation: $chestnut-rose,
+    documentation: $scooter,
+    improvement: $lochmara,
+    issue-identified: $chestnut-rose,
+    issue-resolved: $jaffa,
+    new-feature: $rio-grande, 
+    removed: $chestnut-rose,
+    sunset: $chestnut-rose,
+    updated-feature: $lochmara
+  );
+
+  @each $type, $accent-color in $changelog-types {
+    &--#{$type} {
+      @include entry-type($accent-color);
+    }
+  }
+}
+
+.changelog-entry-metadata {
+    max-width: 140px;
+    font-size: 14px;
+    margin-top: 6px;
+    padding-right: 20px;
+    float: left;
+    font-weight: 700;
+
+    .entry-date {
+      color: $protocol-black;
+      padding-top: 180px;
+      margin-top: -160px;
+      display: block;
+    }
+  }
+
+.changelog-entry-details {
+    padding-left: 140px;
+  /* This fixes a really weird display issue with the metadata div - without it, the metadata div displays near the bottom left corner of the previous changelog entry. */
+    padding-top: 1px;
+    margin: 0;
+    line-height: 1.75;
+
+    h3 {
+      padding-bottom: 10px;
+      line-height: 1em;
+    }
+
+    &:last-of-type {
+      .changelog-entry-details {
+        border-left: none;
+      }
+    }
+}
+
+.changelog-entry-tags {
+  }

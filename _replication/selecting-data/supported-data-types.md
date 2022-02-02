@@ -1,11 +1,12 @@
 ---
-title: Data Typing
+title: Understanding Data Typing
 permalink: /replication/data-typing
 redirect_from: /replication/supported-data-types
 keywords: supported datatypes data types datatype
-sidebar: stitchnav
 
 content-type: "select-data"
+key: "data-typing"
+
 toc: true
 weight: 4
 

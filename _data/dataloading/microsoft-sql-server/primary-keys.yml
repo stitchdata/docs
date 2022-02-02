@@ -1,0 +1,93 @@
+# -------------------------------------------- #
+#                                              #
+#         PRIMARY KEYS SCENARIOS               #
+#                                              #
+# -------------------------------------------- #
+
+## Scenario data lives here: _data/dataloading/scenarios/primary-keys.yml
+   ## NOTE: If something is commented out and marked as 'uses default',
+   ## That means the copy for that thing lives in the file mentioned above.
+
+## Error data lives here: _data/destinations/common/loading-errors.yml
+
+## Data arrives without a Primary Key:
+- id: no-pk
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &primary-keys |
+      - **Initial job**: Table is created without Primary Key and `NOT NULL` constraints.
+      - **Subsequent jobs**: If using Key-based Incremental or Log-based Incremental Replication, data will be added to the table in an Append-Only fashion.
+
+        If using Full Table Replication, the table will be overwritten in its entirety during each job.
+
+
+## Data arrives with single Primary Key:
+- id: single-pk
+  rejectable: false
+  # if: uses default
+  then:
+    v1: |
+      - **Initial job:** Table is created with Primary Key constraint. The Primary Key column has `NOT NULL` constraint.
+      - **Subsequent jobs:** If using Key-based Incremental or Log-based Incremental Replication, data will be de-duped based on the Primary Key column and upserted into the table.
+
+        If using Full Table Replication, the table will be overwritten in its entirety during each job.
+
+## Data arrives with MULTIPLE Primary Keys:
+- id: multiple-pks
+  rejectable: false
+  # if: uses default 
+  then:
+    v1: |
+      - **Initial job:** Table is created with Primary Key constraint. The Primary Key columns have `NOT NULL` constraint.
+      - **Subsequent jobs:** If using Key-based Incremental or Log-based Incremental Replication, data will be de-duped based on the Primary Key columns and upserted into the table.
+
+        If using Full Table Replication, the table will be overwritten in its entirety during each job.
+
+
+## Primary Key column is changed in the warehouse:
+- id: pk-column-change
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &pk-column-change-then "An error occurs and Stitch stops processing data for the table."
+  error:
+    v1: "{{ site.data.destinations.microsoft-sql-server.loading-errors.pk-change-not-permitted | flatify }}"
+  fix-it: 
+    v1: &pk-column-change-fix |
+      1. Drop the table in {{ destination.display_name }}
+      2. Reset the table in Stitch. This will queue a full re-replication of the table's data, and re-create the table in {{ destination.display_name }} with the correct data type for the Primary Key column.
+
+
+# ## Primary Key column is removed in the warehouse:
+# - id: remove-pk-column
+#   rejectable: false
+#   # if: uses default
+#   then:
+#     v1: "No effect. Data will continue to load into the table."
+#   error:
+#     v1: ""
+#   fix-it:
+#     v1: ""
+
+## Primary Key column type is changed in the warehouse:
+- id: pk-type-change
+  rejectable: false
+  # if: uses default
+  then:
+    v1: *pk-column-change-then
+  error:
+    v1: "{{ site.data.destinations.microsoft-sql-server.loading-errors.pk-type-change-not-permitted | flatify }}"
+  fix-it: 
+    v1: *pk-column-change-fix
+
+## Number of Primary Keys is changed in the warehouse:
+- id: pk-number-change
+  rejectable: false
+  # if: uses default
+  then:
+    v1: *pk-column-change-then
+  # error:
+  #   v1: ""
+  fix-it: 
+    v1: *pk-column-change-fix

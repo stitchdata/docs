@@ -2,7 +2,7 @@
 title: Pagination
 product-type: "connect"
 content-type: "api-doc"
-order: 6
+order: 5
 
 anchor: "pagination--overview"
 

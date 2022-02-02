@@ -1,0 +1,20 @@
+<!-- This include displays a menu that allows visitors to
+	select their Stitch data pipeline region. Their selection
+	will determine what region-specific info displays on
+	pages that use this. -->
+
+<!-- The script that powers this is here:
+	_ includes/shared/regions/region-selection-javascript.html -->
+
+<div class="version-toggle">
+  <div class="btn-group">
+  	<select id="regions" onchange="submit();" class="custom-select btn btn-primary dropdown-toggle">
+  		<option value="selectRegion">Select your region</option>
+  		{% for region in site.data.stitch.regions %}
+  			<option value="{{ region.id | remove: "-" }}">
+  				{{ region.name }}
+  			</option>
+  		{% endfor %}
+  	</select>
+	</div>
+</div>

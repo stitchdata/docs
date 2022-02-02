@@ -41,6 +41,7 @@ attributes:
   - name: "createdBy"
     type: "string"
     description: "The login ID of the user who created the external asset."
+    foreign-key-id: "user-id"
 
   - name: "currentStatus"
     type: "string"
@@ -62,6 +63,7 @@ attributes:
   - name: "folderId"
     type: "string"
     description: "The ID of the folder that contains the external asset."
+    foreign-key-id: "folder-id"
 
   - name: "name"
     type: "string"

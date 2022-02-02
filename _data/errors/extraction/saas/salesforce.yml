@@ -1,0 +1,182 @@
+# -------------------------- #
+#      Salesforce Errors     #
+# -------------------------- #
+
+## This file contains extraction errors and how to (potentially)
+## fix them for the Salesforce integration.
+
+## An object containing raw error messages
+raw-error:
+  no-bulk-permissions: &no-bulk-permissions | # critical
+    This client does not have Bulk API permissions, received "API_DISABLED_FOR_ORG" error code
+
+  total-api-quota-limit: &total-api-quota-limit | # critical
+    Salesforce has reported [number] ([number]%) total {{ error.api-type }} quota used across all Salesforce Applications. Terminating replication to not continue past configured percentage of [number]% total quota.
+
+  quota-per-job-limit: &quota-per-job-limit | # critical
+    This replication job has made [number] {{ error.api-type }} ([number]% of total quota). Terminating replication due to allotted quota of [number]% per replication.
+
+  unsupported-bulk-api-field: &unsupported-bulk-api-field | #critical
+    ('EntityDefinition', 'RecordTypesSupported'): "this field is unsupported by the Bulk API."
+
+  unsupported-fields: &unsupported-fields | #info
+    Not syncing the following unsupported fields for object [name]s: [fields]
+
+  no-id-field: &no-id-field | #info
+    Skipping Salesforce Object [name], as it has no Id field
+
+  bulk-custom-tags-unsupported: &bulk-custom-tags-unsupported | #info
+    Skipping the following Tag objects, Tags on Custom Settings Salesforce objects are not supported by the Bulk API: [tag_objects]
+
+  operation-too-large: &operation-too-large | # critical
+    OPERATION_TOO_LARGE: exceeded 100000 distinct who/what's. Consider asking your Salesforce System Administrator to provide you with the `View All Data` profile permission. (Stream: [stream])
+
+documentation:
+  api-quota: &api-quota
+    category: "Salesforce API quota usage"
+    category-doc: |
+      {% assign salesforce-doc = site.saas-integrations | where:"key","salesforce-setup" %}
+      {% assign api-quota-doc = salesforce-doc | find:"this-version",error.version %}
+
+      {{ api-quota-doc.url | prepend: site.baseurl | append: "#configure-standard-api-quota-usage" }}
+
+all:
+## No Bulk API permissions
+  - message: *no-bulk-permissions
+    id: "no-bulk-permissions"
+    applicable-to: "Salesforce v1 integrations"
+    level: "critical"
+    category: "User/organization permissions"
+    version: "1" 
+    summary: "Insufficient Bulk API permissions"
+    cause: |
+      This error can have different causes:
+      - The Salesforce organization associated with the integration doesn't have access to the Bulk API.
+      - The user does not have the **View Setup and Configuration** permission.
+    fix-it: |
+      Contact a Salesforce administrator or Salesforce support to inquire about obtaining the required permissions. Once access is granted, you'll be able to use the Bulk API.
+
+      Otherwise, create a new Salesforce integration in Stitch and select **REST** for the integration's Extraction API.
+
+## Bulk API total quota limit
+  - message: *total-api-quota-limit
+    id: "bulk-total-api-quota-limit"
+    api-type: "Bulk API"
+    applicable-to: "Salesforce v1 integrations"
+    level: "critical"
+    <<: *api-quota
+    version: "1" 
+    summary: "Total Bulk API quota reached"
+    cause: &total-api-quota-cause |
+      Stitch reached the limit for the total API quota the integration is configured to use. This is controlled by the integration's **Max Percentage of total standard API quota** setting.
+    fix-it: &api-quota-fix |
+      Review your overall Salesforce API usage and adjust either the integration's settings or your usage in other applications.
+
+      **Note**: While encountering this error will end the Extraction job, Stitch will resume replication when additional quota becomes available.
+
+## REST API total quota limit
+  - message: *total-api-quota-limit
+    id: "rest-total-api-quota-limit"
+    api-type: "REST API"
+    applicable-to: "Salesforce v1 integrations"
+    level: "critical"
+    <<: *api-quota
+    version: "1" 
+    summary: "Total REST API quota reached"
+    cause: *total-api-quota-cause
+    fix-it: *api-quota-fix
+
+## Bulk API per job quota limit
+  - message: *quota-per-job-limit
+    id: "bulk-quota-per-job-limit"
+    api-type: "Bulk API jobs"
+    applicable-to: "Salesforce v1 integrations"
+    level: "critical"
+    <<: *api-quota
+    version: "1" 
+    summary: "Per job Bulk API quota reached"
+    cause: &job-api-quota-cause |
+      The current replication job used the total amount of API quota the integration is configured to use. This is controlled by the integration's **Max Percentage of standard API quota per job** setting.
+    fix-it: *api-quota-fix
+
+## REST API per job quota limit
+  - message: *quota-per-job-limit
+    id: "rest-quota-per-job-limit"
+    api-type: "REST API requests"
+    applicable-to: "Salesforce v1 integrations"
+    level: "critical"
+    <<: *api-quota
+    version: "1" 
+    summary: "Per job REST API quota reached"
+    cause: &job-api-quota-cause |
+      The current replication job used the total amount of API quota the integration is configured to use. This is controlled by the integration's **Max Percentage of standard API quota per job** setting.
+    fix-it: *api-quota-fix
+
+## Unsupported Bulk API fields
+  # - message: *unsupported-bulk-api-field
+  #   id: "unsupported-bulk-api-field"
+  #   applicable-to: "Salesforce v1 integrations"
+  #   level: "critical"
+  #   category: ""
+  #   version: "1" 
+  #   summary: ""
+  #   cause: |
+  #     dd
+  #   fix-it: |
+  #     dd
+
+## Operation too large
+  - message: *operation-too-large
+    id: "operation-too-large"
+    applicable-to: "Salesforce v1 integrations"
+    level: "critical"
+    category: "Salesforce user permissions"
+    version: "1" 
+    summary: "Request result set is too large for Salesforce"
+    cause: |
+      The user who authorized the integration in Stitch doesn't have the **View All Data** permission, which is required to successfully query a large number of Activity records.
+
+      From [Salesforce's documentation](https://help.salesforce.com/articleView?id=000334313&type=1&mode=1){:target="new"}:
+
+      > When a user without the **View All Data** permission tries to run a report on Activities which queries a large number of related records, the user may receive an error message saying `Operation too Large` or `Exceeded 100000 distinct who/what's in a Report`.
+    fix-it: |
+      The user who authorized the integration in Stitch should reach out to a Salesforce System Administrator and request the **View All Data** permission. This should allow replication to complete successfully.
+
+## Unsupported fields
+  # - message: *unsupported-fields
+  #   id: "unsupported-fields"
+  #   applicable-to: "Salesforce v1 integrations"
+  #   level: "info"
+  #   category: "Object selection"
+  #   version: "1" 
+  #   summary: ""
+  #   cause: |
+  #     dd
+  #   fix-it: |
+  #     dd
+
+## Bulk API custom tags
+  # - message: *bulk-custom-tags-unsupported
+  #   id: "bulk-custom-tags-unsupported"
+  #   applicable-to: "Salesforce v1 integrations"
+  #   level: "info"
+  #   category: ""
+  #   version: "1" 
+  #   summary: ""
+  #   cause: |
+  #     dd
+  #   fix-it: |
+  #     dd
+
+## No ID field
+  # - message: *no-id-field
+  #   id: "no-id-field"
+  #   applicable-to: "Salesforce v1 integrations"
+  #   level: "info"
+  #   category: ""
+  #   version: "1" 
+  #   summary: ""
+  #   cause: |
+  #     dd
+  #   fix-it: |
+  #     dd

@@ -2,16 +2,24 @@
 #      POSTGRES VERSIONS     #
 # -------------------------- #
 
-latest-version: "1"
+latest-version: "2"
 
 tap-name: "PostgreSQL"
 
 released-versions:
-  - number: "1"
+  - number: "2"
     status: "released"
-    date-released: "July 31, 2018"
+    date-released: "March 5, 2021"
+    # full-release-date: "June 2, 2021"
     # date-last-connection:
     deprecation-date: ""
+    sunset-date: ""
+
+  - number: "1"
+    status: "deprecated"
+    date-released: "July 31, 2018"
+    date-last-connection: "June 2, 2021"
+    deprecation-date: "June 2, 2021"
     sunset-date: ""
 
   - number: "15-10-2015"
@@ -20,33 +28,3 @@ released-versions:
     date-last-connection: "July 30, 2018"
     deprecation-date: "September 6, 2019"
     sunset-date: "December 1, 2019"
-
-# -------------------------- #
-#     POSTGRES CHANGELOG     #
-# -------------------------- #
-
-# Changelog entry types:
-# - new-release
-# - version-deprecation
-# - schema-change
-# - maintenance
-# - new-data
-
-# Depending on the entry type, some initial copy and a pre-defined
-# Summary heading might display. See:
-# _includes/shared/versioning/changelog.html
-
-changelog-entries:
-  # - date: "July 28, 2018"
-  #   version: "15-10-2015"
-  #   type: "version-deprecation"
-
-  - date: "July 31, 2018"
-    version: "1"
-    type: "new-version"
-    content: |
-      Highlights include:
-
-      - Additional data type support
-      - Support for logical replication
-      - Support for Extraction Logs, Loading Reports, and Anchor Scheduling

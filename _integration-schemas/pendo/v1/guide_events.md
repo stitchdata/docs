@@ -12,14 +12,12 @@ description: |
   {{ event-replication-note }}
 
 replication-method: "Key-based Incremental"
-replication-key:
-  name: "day or hour"
 
 attribution-window: true
 
 api-method:
   name: "Aggregation"
-  doc-link: "https://api/v1/aggregation"
+  doc-link: "https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation"
 
 attributes:
   - name: "account_id"
@@ -37,6 +35,11 @@ attributes:
     type: "string"
     primary-key: true
     description: ""
+
+  - name: "browser_time"
+    type: "date-time"
+    description: ""
+    replication-key: true  
 
   - name: "visitor_id"
     type: "string"
@@ -56,10 +59,6 @@ attributes:
     type: "string"
     description: ""
     foreign-key-id: "app-id"
-
-  - name: "browser_time"
-    type: "date-time"
-    description: ""
 
   - name: "country"
     type: "string"

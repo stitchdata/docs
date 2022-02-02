@@ -40,31 +40,33 @@
 <!-- For Certified SaaS integrations -->
             {% when 'certified' %}
                 {% assign all-saas-integrations = site.saas-integrations | where:"input",true %}
-                {% assign integrations = all-saas-integrations | where:"certified",true | sort: "title" %}
+                {% assign integrations = all-saas-integrations | where:"certified",true | sort_natural: "title" %}
 
 <!-- For Community SaaS integrations -->
             {% when 'community' %}
                 {% assign all-saas-integrations = site.saas-integrations | where:"input",true %}
-                {% assign integrations = all-saas-integrations | where:"certified",false | sort: "title" %}
+                {% assign integrations = all-saas-integrations | where:"certified",false | sort_natural: "title" %}
         {% endcase %}
 
 <!-- For database integrations -->
     {% when 'databases' %}
-        {% assign integrations = site.database-integrations | where:"show-in-menus",true | sort:"title" %}
+        {% assign integrations = site.database-integrations | where:"show-in-menus",true | sort_natural:"title" %}
 
 <!-- For webhook integrations -->
     {% when 'webhooks' %}
-        {% assign integrations = site.webhook-integrations | where:"input",true | sort:"title" %}
+        {% assign integrations = site.webhook-integrations | where:"input",true | sort_natural:"title" %}
 
 <!-- For all integrations -->
     {% when 'all-integrations' %}
-        {% assign databases = site.database-integrations | where:"show-in-menus",true | sort:"title" %}
-        {% assign saas = site.saas-integrations | where:"input",true | sort:"title" %}
-        {% assign webhooks = site.webhook-integrations | where:"input",true | sort:"title" %}
+        {% assign databases = site.database-integrations | where:"show-in-menus",true | sort_natural:"title" %}
+        {% assign saas = site.saas-integrations | where:"input",true | sort_natural:"title" %}
+        {% assign webhooks = site.webhook-integrations | where:"input",true | sort_natural:"title" %}
 
-        {% assign integrations = databases | concat: saas | concat: webhooks | sort:"title" %}
+        {% assign integrations = databases | concat: saas | concat: webhooks | sort_natural:"title" %}
 {% endcase %}
 
+<!-- Get all the changelogs for the given set of integrations -->
+    {% assign all-integration-changelogs = site.documents | where:"content-type","changelog-entry-list" %}
 
 <!-- Generate the tiles for the integrations using the variables assigned by include.type -->
 <ul class="tiles three-columns">
@@ -99,6 +101,13 @@
 
                     {% if integration.permalink contains "saas" or integration.permalink contains "webhooks" %}
                         | <a href="{{ integration.url | prepend: site.baseurl | append: "#schema" }}">Schema</a>
+                    {% endif %}
+                
+                <!-- Get the changelog for the integration, if there is one -->
+                    {% assign integration-changelog = all-integration-changelogs | find:"name",integration.name %}
+
+                    {% if integration-changelog %}
+                        | <a href="{{ integration-changelog.url | prepend: site.baseurl }}">Changelog</a>
                     {% endif %}
             {% endif %}
          </li>

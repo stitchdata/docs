@@ -38,6 +38,10 @@ attributes:
     type: "boolean"
     description: "Indicates if the customer has consented to receive marketing emails."
 
+  - name: "accepts_marketing_updated_at"
+    type: "date-time"
+    description: "An ISO 8601-formated date of when the customer consented to receive marketing emails."
+
   - name: "addresses"
     type: "array"
     description: "A list of the 10 most recently updated addresses for the customer."

@@ -9,6 +9,8 @@ layout: general
 toc: false
 feedback: false
 
+key: "troubleshooting-destinations"
+
 intro: |
   {{ page.summary }}
 

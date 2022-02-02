@@ -9,7 +9,12 @@ singer-schema: "https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_li
 description: |
   The `{{ table.name }}` table contains analytics data for ads, segmented by campaign.
 
+  To replicate data from this table, you must also select the parent `campaigns` table.
+
+  **Note**: This table is replicated using an attribution window of {{ integration.attribution-window }}. Refer to the [Replication](#replication) section for more info.
+
 replication-method: "Key-based Incremental"
+attribution-window: true
 
 api-method:
   name: "Analytics Finder; Creative"
@@ -39,6 +44,10 @@ attributes:
   - name: "ad_unit_clicks"
     type: "integer"
     description: "The count of clicks on the ad unit alongside the Sponsored InMail."
+
+  - name: "approximate_unique_impressions"
+    type: "integer"
+    description: "The approximate reach of the campaign. The number of unique member accounts with at least one impression."  
  
   - name: "campaign"
     type: "string"

@@ -20,7 +20,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The call disposition ID."
-    #foreign-key-id: "disposition-id"
+    foreign-key-id: "call-disposition-id"
 
   - name: "updatedAt"
     type: "date-time"
@@ -30,15 +30,20 @@ attributes:
   - name: "createdAt"
     type: "date-time"
     description: ""
+
   - name: "creatorId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
+
   - name: "name"
     type: "string"
     description: ""
+
   - name: "order"
     type: "integer"
     description: ""
+
   - name: "outcome"
     type: "string"
     description: ""

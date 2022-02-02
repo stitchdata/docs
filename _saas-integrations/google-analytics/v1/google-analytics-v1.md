@@ -56,6 +56,9 @@ api-type: "platform.google-analytics"
 anchor-scheduling: true
 cron-scheduling: true
 
+extraction-logs: true
+loading-reports: true
+
 table-selection: true
 column-selection: true
 select-all: false
@@ -63,9 +66,6 @@ select-all-reason: |
   The APIs used by this integration ({{ integration.api-name }}) don't support selecting all fields due to compatibility rules.
 
 table-level-reset: true
-
-extraction-logs: true
-loading-reports: true
 
 
 # -------------------------- #
@@ -79,7 +79,7 @@ feature-summary: |
 
   - Supports creating multiple custom reports
   - Supports [custom metrics and dimensions](#custom-metrics-dimensions)
-  - Supports Lifetime Values and Cohorts
+  - Doesn't currently support Lifetime Values and Cohorts
   - Doesn't currently support Filters or Segments
 
 

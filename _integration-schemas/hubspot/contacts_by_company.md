@@ -1,6 +1,7 @@
 ---
 tap: "hubspot"
 version: "2"
+key: "contact-by-company"
 
 name: "contacts_by_company"
 doc-link: 
@@ -9,9 +10,6 @@ description: |
   The `{{ table.name }}` table contains contact and company ID pairs, allowing you to join contacts to relevant company data.
 
 replication-method: "Full Table"
-api-method:
-  name: 
-  doc-link: 
 
 attributes:
   - name: "contact-id"

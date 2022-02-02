@@ -33,11 +33,12 @@
 
 field-names:
   replication-method: |
-    Replication Method {{ info-icon | replace:"TOOLTIP","Test" | flatify }}
+    Replication Method {{ info-icon | flatify }}
   primary-key: "Primary Key {{ ui-icon.primary-key | flatify }}"
   replication-key: "Replication Key {{ ui-icon.replication-key | flatify }}"
   loading-behavior: "Loading Behavior"
   api-endpoint: "API endpoint {{ info-icon | flatify }}"
+  parent-table: "Parent table {{ info-icon | flatify }}"
   doc-link: "Official docs {{ info-icon | flatify }}"
 
 
@@ -56,10 +57,15 @@ field-values:
     <a href="{{ link.destinations.storage.loading-behavior | prepend: site.baseurl | append: "#loading-behavior-types--" | append: loading-behavior }}">{{ table.loading-behavior }}</a>
 
   api-endpoint: |
-    <a href="{{ table.api-method.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} API documentation" target="new">{{ table.api-method.name }}</a>
+    <a href="{{ table.api-method.doc-link | flatify }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} API documentation" target="new">{{ table.api-method.name }}</a>
+
+  parent-table: |
+    {% assign parent-table = schema | find:"key",table.dependent-table-key %}
+
+    <a href="#{{ parent-table.name | slugify }}">{{ parent-table.name }}</a>
 
   doc-link: |
-    <a href="{{ table.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} documentation" target="new">Official Docs</a>
+    <a href="{{ table.doc-link | flatify }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} documentation" target="new">Official Docs</a>
 
 
 full-table:
@@ -76,6 +82,9 @@ loading-field:
 
 api-field:
   - name: "api-endpoint"
+
+parent-table:
+  - name: "parent-table"
 
 doc-link-field:
   - name: "doc-link"

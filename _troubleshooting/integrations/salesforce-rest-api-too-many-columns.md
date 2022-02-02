@@ -2,11 +2,12 @@
 title: Salesforce Replication & Selecting Too Many Columns
 keywords: troubleshooting, integration, saas integration, trouble, issue, help, syncing columns, salesforce columns, too many columns, object, salesforce
 permalink: /troubleshooting/salesforce-replication-too-many-columns
-tags: [troubleshooting_integrations, saas_integrations, error_notifications]
 
 summary: "If a single Salesforce object has a large number of columns set to replicate, issues with replication may arise."
 type: "saas-integration, replication, error"
 category: "extraction-errors"
+
+key: "salesforce-too-many-columns"
 ---
 {% include misc/data-files.html %}
 

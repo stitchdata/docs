@@ -1,6 +1,7 @@
 ---
 tap: "klaviyo"
 version: "1"
+key: "global-exclusion"
 
 name: "global_exclusions"
 doc-link: ""
@@ -11,15 +12,14 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "Lists in Accounts"
-    doc-link: "https://www.klaviyo.com/docs/api/lists#lists"
+  name: "Get global exclusions"
+  doc-link: "https://apidocs.klaviyo.com/reference/lists-segments#get-global-exclusions"
 
 attributes:
   - name: "email"
     type: "string"
     primary-key: true
-    description: "This is the of the globally excluded emails."
-#    foreign-key-id: "exclusion-id"
+    description: ""
   
   - name: "object"
     type: "string"

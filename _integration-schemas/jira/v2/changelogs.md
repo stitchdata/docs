@@ -9,11 +9,13 @@ singer-schema: "https://github.com/singer-io/tap-jira/blob/master/tap_jira/schem
 description: |
   The `{{ table.name }}` table contains info about the changelogs associated with an issue.
 
+  **Note**: Due to a {{ integration.display_name }} limitation in the endpoint Stitch uses to replicate changelogs, only the 100 most recent changelogs for any individual issue can be replicated. Refer to [{{ integration.display_name }}'s documentation](https://confluence.atlassian.com/jirakb/jira-cloud-rest-api-limits-the-number-of-changelogs-returned-938840277.html){:target="new"} for more info.
+
   #### Replication requirements {#replication-requirements-changelogs}
 
   To replicate this data:
 
-  1. The [`issues`](#issues) table must also be set to replicate. **Note**: When an issue is updated, all the changelogs for that issue will also be replicated.
+  1. The [`issues`](#issues) table must also be set to replicate. **Note**: When an issue is updated, all available changelogs for that issue will also be replicated.
 
   2. The `Browse Projects` [project {{ integration.display_name }} permission]({{ integration.project-permissions-doc }}){:target="new"} is required. Refer to [{{ integration.display_name }}'s API documentation]({{ table.doc-link }}){:target="new"} for more info.
 

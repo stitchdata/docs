@@ -1,8 +1,6 @@
 ---
-# 10/21/20: Commenting out as per Brian due to a bug. Team will address before initial beta.
-
-# tap: "pendo"
-# version: "1"
+tap: "pendo"
+version: "1"
 key: "visitor-history"
 
 name: "visitor_history"
@@ -15,7 +13,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "Aggregation"
-  doc-link: "https://api/v1/aggregation"
+  doc-link: "https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation"
 
 attributes:
   - name: "visitor_id"
@@ -24,9 +22,13 @@ attributes:
     description: "The visitor ID."
     foreign-key-id: "visitor-id"
 
-  - name: "last_ts"
+  - name: "modified_ts"
     type: "date-time"
     replication-key: true
+    description: "The time the visitor was last modified."
+
+  - name: "last_ts"
+    type: "date-time"
     description: ""
 
   - name: "app_id"

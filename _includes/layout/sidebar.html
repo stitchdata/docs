@@ -1,6 +1,8 @@
 {% include misc/data-files.html %}
 
 {% case page.layout %}
+    {% when 'changelog' %}
+        {% include layout/sidebars/changelog-sidebar.html %}
     {% when 'developer' %}
         {% include layout/sidebars/developer-sidebar.html %}
     {% when 'tutorial' %}

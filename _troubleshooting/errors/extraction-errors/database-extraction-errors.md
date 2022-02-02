@@ -1,7 +1,6 @@
 ---
 title: Database Integration Extraction Error Reference
 keywords: troubleshooting, integration, database integration, extraction error, common errors, 6 hour limit, table limit
-tags: [database_integrations, troubleshooting_integrations, troubleshooting_errors]
 layout: general
 
 permalink: /troubleshooting/integrations/database-extraction-error-reference
@@ -19,6 +18,8 @@ top-level: "replication"
 category: "extraction-errors"
 type: "database-integration, error, replication"
 popular: true
+
+key: "database-extraction-errors"
 
 # Used to create a callout box that lists the applicable integrations for the section.
 applicable-integrations-note: |
@@ -82,11 +83,11 @@ sections:
 
   - title: "MongoDB extraction errors"
     anchor: "mongodb-error-reference"
-    db-type: "mongo"
+    db-type: "mongodb"
     content: |
       {{ page.applicable-integrations-note | flatify }}
 
-      {% assign errors = site.data.errors.extraction.databases.mongo.all | sort_natural:"message" %}
+      {% assign errors = site.data.errors.extraction.databases.mongodb.all | sort_natural:"message" %}
 
       {% include troubleshooting/error-messages.html  top-anchor="mongodb-error-reference" display-name="MongoDB" %}
 
@@ -109,5 +110,15 @@ sections:
       {% assign errors = site.data.errors.extraction.databases.oracle.all | sort_natural:"message" %}
 
       {% include troubleshooting/error-messages.html top-anchor="oracle-error-reference" display-name="Oracle" %}
+
+  - title: "PostgreSQL extraction errors"
+    anchor: "postgresql-error-reference"
+    db-type: "postgres"
+    content: |
+      {{ page.applicable-integrations-note | flatify }}
+
+      {% assign errors = site.data.errors.extraction.databases.postgres.all | sort_natural:"message" %}
+
+      {% include troubleshooting/error-messages.html top-anchor="postgresql-error-reference" display-name="PostgreSQL" %}
 ---
 {% include misc/data-files.html %}

@@ -13,7 +13,7 @@ show-in-menus: true
 has-versions: true
 has-specific-data-types: false
 
-db-type: "mongo"
+db-type: "mongodb"
 name: "mongodb"
 display_name: "MongoDB"
 
@@ -23,10 +23,22 @@ sections:
     content: |
       {% include shared/versioning/integration-version-tiles.html %}
 
-  - title: "{{ integration.display_name }} version history"
-    anchor: "version-history"
+  - title: "{{ integration.display_name }} updates"
+    anchor: "integration-updates"
     content: |
-      {% include shared/versioning/version-history.html %}
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title | flatify }}](#{{ subsection.anchor }})
+      {% endfor %}
+    subsections:
+      - title: "{{ integration.display_name }} version history"
+        anchor: "version-history"
+        content: |
+          {% include shared/versioning/version-history.html %}
+
+      - title: "{{ integration.display_name }} changelog"
+        anchor: "integration-changelog"
+        content: |
+          {% include changelog/entry-list.html type="connection-overview" %}
 
   - title: "{{ integration.display_name }} version features"
     anchor: "version-features"

@@ -2,7 +2,7 @@
 
 
 {% when 'verify-compatibility' %}
-{% include note.html type="single-line" content="**Note**: THE `SELECT` from `sys.databases` and `ALTER DATABASE` privileges are required to complete this step." %}
+{% include note.html type="single-line" content="**Note**: The `SELECT` from `sys.databases` and `ALTER DATABASE` privileges are required to complete this step." %}
 
 In this step, you'll verify the database's [database's compatibility level]({{ site.data.taps.links.mssql.compatibility-level }}){:target="new"}. This setting sets some database behaviors to be compatible with a specified version of SQL Server. To use Change Tracking, your database must have a compatibility level greater than `90`.
 

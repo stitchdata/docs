@@ -44,6 +44,7 @@ foreign-keys:
     attribute: "deal_id"
     table: "deals"
     all-foreign-keys:
+      - table: "activities"
       - table: "deals"
         join-on: "id"
       - table: "deal_products"

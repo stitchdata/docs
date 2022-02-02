@@ -30,7 +30,7 @@
     {% endif %}
 
     {% for section in page.sections %}
-		{% if section.subsections %}
+		{% if section.subsections or section.insert-subsections %}
             <li class="subfolders">
                 <a data-toggle="collapse" href="#{{ section.anchor | append: "--menu" }}" aria-expanded="false" aria-controls="{{ section.anchor | append: "--menu" }}">
                     {{ section.title | flatify }}
@@ -45,33 +45,40 @@
                         <a href="#{{ section.anchor }}">{{ section.title | flatify }}</a>
                     </li>
 
-               		{% for subsection in section.subsections %}
-                        {% if subsection.sub-subsections %}
-                            <li class="subfolders">
-                                <a data-toggle="collapse" href="#{{ subsection.anchor | append: "--menu" }}" aria-expanded="false" aria-controls="{{ subsection.anchor | append: "--menu" }}">
-                                    {{ subsection.title | flatify }} 
-                                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
-                                </a>
+                    {% if section.insert-subsections %}
 
-                                <ul class="collapse" id="{{ subsection.anchor | append: "--menu" }}">
-                                <!-- Same as above - this is the item that actually links
-                                    to the section. -->
-                                    <li>
-                                        <a href="#{{ subsection.anchor }}">{{ subsection.title | flatify }}</a>
-                                    </li>
+                        {{ section.insert-subsections | flatify }}
 
-                                    {% for sub-subsection in subsection.sub-subsections %}
+                    {% else %}
+
+                   		{% for subsection in section.subsections %}
+                            {% if subsection.sub-subsections %}
+                                <li class="subfolders">
+                                    <a data-toggle="collapse" href="#{{ subsection.anchor | append: "--menu" }}" aria-expanded="false" aria-controls="{{ subsection.anchor | append: "--menu" }}">
+                                        {{ subsection.title | flatify }} 
+                                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                                    </a>
+
+                                    <ul class="collapse" id="{{ subsection.anchor | append: "--menu" }}">
+                                    <!-- Same as above - this is the item that actually links
+                                        to the section. -->
                                         <li>
-                                            <a href="#{{ sub-subsection.anchor }}">{{ sub-subsection.title | flatify }}</a>
+                                            <a href="#{{ subsection.anchor }}">{{ subsection.title | flatify }}</a>
                                         </li>
-                                    {% endfor %}
-                                </ul>
-                        {% else %}
-                    		<li>
-                                <a href="#{{ subsection.anchor }}">{{ subsection.title | flatify }}</a>
-                            </li>
-                        {% endif %}
-                	{% endfor %}
+
+                                        {% for sub-subsection in subsection.sub-subsections %}
+                                            <li>
+                                                <a href="#{{ sub-subsection.anchor }}">{{ sub-subsection.title | flatify }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                            {% else %}
+                        		<li>
+                                    <a href="#{{ subsection.anchor }}">{{ subsection.title | flatify }}</a>
+                                </li>
+                            {% endif %}
+                    	{% endfor %}
+                    {% endif %}
                 </ul>
 
             {% else %}

@@ -19,6 +19,32 @@ layout: page
 	{% endif %}
 {% endunless %}
 
+<!-- CHANGELOG NOTICE -->
+    {% assign all-integration-changelogs = site[integration.collection] | where:"content-type","changelog-entry-list" %}
+        {% assign integration-changelog = all-integration-changelogs | find:"name",integration.name %}
+
+        {% if integration-changelog %}
+            {% include notifications/integration-changelog-notice.html %}
+        {% endif %}
+
+
+<!-- INTEGRATION FEATURE SUMMARY -->
+{% if integration.feature-summary %}
+    <h2 id="feature-summary">{{ integration.display_name }} integration summary</h2>
+
+    {{ integration.feature-summary | flatify | markdownify }}
+{% endif %}
+
+<!-- INTEGRATION VERSION INFO -->
+{% if integration.version-information-copy %}
+    {% capture version-information %}
+        {{ integration.version-information-copy | flatify | markdownify }}
+	{% endcapture %}
+
+	{% include note.html first-line=integration.version-information-first-line content=version-information %}
+
+{% endif %}
+
 
 <!-- INTEGRATION SNAPSHOT -->
     {% include shared/versioning/integration-supported-features.html type="integration-snapshot" feature-type="databases" %}

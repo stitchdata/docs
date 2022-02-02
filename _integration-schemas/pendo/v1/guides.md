@@ -13,7 +13,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "Aggregation"
-  doc-link: "https://api/v1/aggregation"
+  doc-link: "https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation"
 
 attributes:
   - name: "id"
@@ -24,8 +24,8 @@ attributes:
 
   - name: "last_updated_at"
     type: "date-time"
-    replication-key: true
     description: ""
+    replication-key: true
 
   - name: "attributes"
     type: "object"

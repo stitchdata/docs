@@ -1,3 +1,4 @@
+
 # -------------------------- #
 #     CONNECT API CLIENT     #
 # -------------------------- #
@@ -91,7 +92,7 @@ core-objects:
       anchor: "#create-a-destination"
       short: "Creates a new destination."
       description: |
-        {{ site.data.connect.api.core-objects.destinations.create.short }} Only a single destination is supported per Stitch client account.
+        {{ site.data.connect.api.core-objects.destinations.create.short }} Only a single destination is supported per Stitch client account on a {{ site.data.stitch.subscription-plans.standard.name }} plan.
 
     update:
       name: "{{ site.data.connect.api.core-objects.destinations.base | flatify }}/{destination_id}"
@@ -517,14 +518,14 @@ data-structures:
 #       FORM PROPERTIES      #
 # -------------------------- #
 form-properties:
-  section: "#form-properties"
+  section: &form-properties "#form-properties"
 
 # -------------------------- #
 #     Destination Forms      #
 # -------------------------- #
 
   destination-forms:
-    section: "#destination-form-properties"
+    section: *form-properties
 
     postgresql:
       title: "PostgreSQL"
@@ -545,4 +546,4 @@ form-properties:
 #        Source Forms        #
 # -------------------------- #
   source-forms:
-    section: "#source-form-properties"
+    section: *form-properties

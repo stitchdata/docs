@@ -12,19 +12,19 @@ tap-reference: "typeform"
 version: "1"
 
 foreign-keys:
-# Forms doesn't currently have its own table, but it might some day
-  # - id: "form-id"
-  #   table: ""
-  #   attribute: "form_id"
-  #   all-foreign-keys:
-  #     - table: "forms"
+  - id: "form-id"
+    table: "forms"
+    attribute: "form_id"
+    all-foreign-keys:
+      - table: "forms"
+      - table: "questions"
 
   - id: "landing-id"
     table: "landings"
     attribute: "landing_id"
     all-foreign-keys:
-      - table: "landings"
       - table: "answers"
+      - table: "landings"
 
   - id: "question-id"
     table: "questions"

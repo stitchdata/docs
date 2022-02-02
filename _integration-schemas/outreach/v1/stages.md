@@ -20,7 +20,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The stage ID."
-    #foreign-key-id: "stage-id"
+    foreign-key-id: "stage-id"
 
   - name: "updatedAt"
     type: "date-time"
@@ -30,19 +30,26 @@ attributes:
   - name: "color"
     type: "string"
     description: ""
+
   - name: "createdAt"
     type: "date-time"
     description: ""
+
   - name: "creatorId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
+
   - name: "name"
     type: "string"
     description: ""
+
   - name: "order"
     type: "integer"
     description: ""
+
   - name: "updaterId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 ---

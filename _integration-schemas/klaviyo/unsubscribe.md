@@ -1,27 +1,31 @@
 ---
 tap: "klaviyo"
 version: "1"
+key: "unsubscribe"
 
 name: "unsubscribe"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/unsubscribe.json"
-description: ""
+description: |
+  The `{{ table.name }}` table contains metrics related to `Unsubscribed` events.
 
 replication-method: "Key-based Incremental"
 
-replication key: "since"
-
 api-method:
-    name: "Metrics API"
-    doc-link: "https://www.klaviyo.com/docs/api/metrics"
+  name: "Get metrics info"
+  doc-link: "https://www.klaviyo.com/docs/api/metrics"
 
 attributes:
   - name: "id"
     type: "string"
     primay-key: true
-    description: "The unsubscribe ID."
-#    foreign-key-id: "unsubscribe-id"
-  
+    description: "The unsubscribe event ID."
+
+  - name: "timestamp"
+    type: "integer"
+    replication-key: true
+    description: ""
+
   - name: "datetime"
     type: "string"
     description: ""
@@ -48,10 +52,6 @@ attributes:
   
   - name: "statistic_id"
     type: "string"
-    description: ""
-  
-  - name: "timestamp"
-    type: "integer"
     description: ""
   
   - name: "uuid"

@@ -35,7 +35,7 @@ repo-url: https://github.com/singer-io/tap-typeform
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} Responses API](https://developer.typeform.com/responses/){:target="new"}
+  [{{ integration.display_name }} Create](https://developer.typeform.com/create/){:target="new"} and [Responses](https://developer.typeform.com/responses/){:target="new"} APIs
 
 # -------------------------- #
 #       Stitch Details       #

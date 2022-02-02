@@ -342,37 +342,9 @@ Include files are stored in the `_includes` folder at the root of the `/docs` di
 ```
 {% include note.html %}                               // file location is _includes/note.html
 
-{% include shared/whitelist-stitch-ips.html %}       // file location is _includes/shared/whitelist-stitch-ips.html
+{% include layout/code-snippet.html %}               // file location is _includes/layout/code-snippet.html
 ```
 
-For example: If you needed to include instructions for whitelisting Stitch's IP addresses in a setup guide, you could do this:
-
-```
-## _includes/shared/whitelist-stitch-ips.html:
-
-For the connection to be successful, you'll need to configure your firewall to allow access from our IP addresses. Whitelist the following IPs before continuing onto the next step:
-
-{% for ip-address in ip-addresses %}
-- {{ ip-address.ip }}
-{% endfor %}
-
-
-## some-file.html:
-
-{% include shared/whitelist-stitch-ips.html %}
-
-
-## Output:
-
-For the connection to be successful, you'll need to configure your firewall to allow access from our IP addresses. Whitelist the following IPs before continuing onto the next step:
-
-- Stitch IP address 1
-- Stitch IP address 2
-...
-
-```
-
-If you needed to make a change to this copy, you'd need to change the include file (`_includes/shared/whitelist-stitch-ips.html`), not the file where it's referenced.
 
 ### Callout Boxes and Include Parameters
 

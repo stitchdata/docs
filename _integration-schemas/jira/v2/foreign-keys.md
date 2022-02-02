@@ -11,6 +11,13 @@ foreign-keys:
       - table: "changelogs"
         join-on: "id"
 
+  - id: "component-id"
+    attribute: ""
+    table: "components"
+    all-foreign-keys:
+      - table: "component"
+        join-on: "id"
+
   - id: "issue-comment-id"
     attribute: "issueCommentId"
     table: "issue_comments"
@@ -57,6 +64,9 @@ foreign-keys:
     attribute: "projectId"
     table: "projects"
     all-foreign-keys:
+      - table: "components"
+        subattribute: "componentBean"
+      - table: "components"
       - table: "projects"
         join-on: "id"
       - table: "versions"
@@ -81,6 +91,18 @@ foreign-keys:
     all-foreign-keys:
       - table: "changelogs"
         subattribute: "author"
+      - table: "components"
+        subattribute: "assignee"
+      - table: "components"
+        subattribute: "componentBean.assignee"
+      - table: "components"
+        subattribute: "componentBean.lead"
+      - table: "components"
+        subattribute: "componentBean.realAssignee"
+      - table: "components"
+        subattribute: "lead"
+      - table: "components"
+        subattribute: "realAssignee"
       - table: "issue_comments"
         subattribute: "author"
       - table: "issue_comments"

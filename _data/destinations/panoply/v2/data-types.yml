@@ -105,7 +105,7 @@ string:
   destination-type: "string"
   suffix: "st"
   description: |
-    Values that exceed {{ site.data.destinations.redshift.data-types.string.range }} in size will not be rejected, but truncated to {{ destination.display_name }}'s maximum width
+    Values that exceed {{ site.data.destinations.redshift.v2.data-types.string.range }} in size will not be rejected, but truncated to {{ destination.display_name }}'s maximum width
   doc-link: "https://docs.aws.amazon.com/redshift/latest/dg/r_Character_types.html#r_Character_types-varchar-or-character-varying"
   range: "65535 bytes (64K -1)"
 

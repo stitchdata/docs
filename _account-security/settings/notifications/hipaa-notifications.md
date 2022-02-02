@@ -1,22 +1,38 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Managing Notification Content for HIPAA Compliance
 permalink: /account-security/notifications/hipaa-compliant-notifications
 keywords: notifications, hipaa, hipaa compliance, hipaa-compliant, blank emails, blank error emails
 summary: "Suppress plain-text error messages in email notifications as part of making your Stitch account HIPAA-compliant."
 
-layout: general
 key: "hipaa-notifications"
+
+layout: general
 toc: true
 
 type: "notifications"
 weight: 3
 
-enterprise: true
-enterprise-cta:
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "unlimited"
+
+minimum-plan-cta:
   feature: "HIPAA compliance "
-  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.enterprise-cta.feature }}"
+  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
   copy: |
-    {{ page.enterprise-cta.feature | flatify }} is an Enterprise feature. Before replicating any sensitive data, contact Stitch Sales to ensure all requirements for HIPAA compliance are completed.
+    Before replicating any sensitive data, contact Stitch Sales to ensure all requirements for HIPAA compliance are completed.
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
 
 intro: |
   {% include misc/data-files.html %}
@@ -28,6 +44,11 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
   {% endfor %}
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "Plain-text error suppression basics"
@@ -51,7 +72,7 @@ sections:
         content: |
           **No**. Activating this setting will not, by itself, make your Stitch account HIPAA compliant. There are other requirements that must be in place before your account is compliant with HIPAA.
 
-          HIPAA compliance is available for Enterprise plans. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
+          HIPAA compliance is available for {{ site.data.stitch.subscription-plans.unlimited.name }} and {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plans. [Contact Stitch Sales for more info]({{ site.sales | append: page.minimum-plan-cta.url }}).
 
       - title: "Who can use the plain-text error suppression feature?"
         anchor: "who-can-use-the-feature"

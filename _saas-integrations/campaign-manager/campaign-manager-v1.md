@@ -29,7 +29,7 @@ repo-url: https://github.com/singer-io/tap-doubleclick-campaign-manager
 this-version: "1"
 
 api: |
-  [DCM/DFA Reporting and Trafficking API](https://developers.google.com/doubleclick-advertisers/getting_started){:target="new"}
+  [Campaign Manager 360 API](https://developers.google.com/doubleclick-advertisers/getting_started){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -49,6 +49,8 @@ cron-scheduling: false
 
 table-selection: true
 column-selection: false
+
+integration-level-reset: false
 table-level-reset: false
 
 extraction-logs: true

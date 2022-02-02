@@ -2,11 +2,12 @@
 title: Non-Replicating Data & Unsupported Data Types
 keywords: troubleshooting, trouble, issue, help, data discrepancy, discrepancies, not replicating, no replication
 permalink: /troubleshooting/non-replicating-data-unsupported-data-types
-tags: [data_discrepancy, replication, nonreplicating_data]
 
 summary: "If a table isn't replicating into your data warehouse, it may be because one or more of the columns in the table contains an unsupported data type."
 toc: true
 type: "replication-all, discrepancy"
+
+key: "non-replicating-unsupported-data-types"
 ---
 
 {% include misc/data-files.html %}

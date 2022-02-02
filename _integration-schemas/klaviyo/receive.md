@@ -1,27 +1,31 @@
 ---
 tap: "klaviyo"
 version: "1"
+key: "receive"
 
 name: "receive"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/receive.json"
-description: ""
+description: |
+  The `{{ table.name }}` table contains metrics related to `Received Email` events.
 
 replication-method: "Key-based Incremental"
 
-replication key: "since"
-
 api-method:
-    name: "Metrics API"
-    doc-link: "https://www.klaviyo.com/docs/api/metrics"
+  name: "Get metrics info"
+  doc-link: "https://www.klaviyo.com/docs/api/metrics"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: "This is the receive ID."
-#    foreign-key-id: "receive-id"
-  
+    description: "The received email event ID."
+
+  - name: "timestamp"
+    type: "integer"
+    replication-key: true
+    description: ""
+
   - name: "datetime"
     type: "string"
     description: ""
@@ -48,10 +52,6 @@ attributes:
   
   - name: "statistic_id"
     type: "string"
-    description: ""
-  
-  - name: "timestamp"
-    type: "integer"
     description: ""
   
   - name: "uuid"

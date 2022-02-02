@@ -3,10 +3,10 @@
 #        Page Controls       #
 # -------------------------- #
 
-title: Databricks Delta (v1) Destination Reference
+title: Databricks Delta on AWS (v1) Destination Reference
 permalink: /destinations/databricks-delta/reference
 keywords: delta, databricks delta, delta data warehouse, databricks delta etl, etl to databricks delta
-summary: "Reference documentation for Stitch's Databricks Delta destination, including info about Stitch features, replication, and transformations."
+summary: "Reference documentation for Stitch's Databricks Delta on AWS destination, including info about Stitch features, replication, and transformations."
 
 content-type: "destination-overview"
 key: "databricks-delta-reference"
@@ -33,7 +33,7 @@ related:
 #    Destination Details     #
 # -------------------------- #
 
-display_name: "Databricks Delta"
+display_name: "Databricks Delta Lake (AWS)"
 name: "databricks-delta"
 type: "databricks-delta"
 

@@ -4,14 +4,22 @@
 # -------------------------- #
 
 title: Setting up an SSH Tunnel for a database in Amazon Web Services
-permalink: /account-security/data-encryption/setting-up-ssh-tunnel-for-amazon-web-services
+permalink: /security/data-encryption/setting-up-ssh-tunnel-for-amazon-web-services
+redirect_from: /account-security/data-encryption/setting-up-ssh-tunnel-for-amazon-web-services
 summary: "If a database is in private subnet in your Amazon Web Services account, you can use an SSH tunnel to connect Stitch. This tutorial will walk you through setting up an SSH server and configuring access for an Amazon RDS or Amazon Redshift connection to Stitch."
+
+key: "ssh-setup-amazon-web-services"
+type: "security"
+content-type: "encryption"
 
 input: false
 layout: tutorial
+weight: 3
+
 use-tutorial-sidebar: false
 
 hosting-type: "amazon"
+
 
 # -------------------------- #
 #       Introduction         #
@@ -58,10 +66,15 @@ requirements:
 # -------------------------- #
 
 steps:
+  - title: "Verify your Stitch account's data pipeline region"
+    anchor: "verify-stitch-account-region"
+    content: |
+      {% include shared/whitelisting-ips/locate-region-ip-addresses.html first-step=true %}
+
   - title: "Verify the database's VPC"
     anchor: "verify-database-vpc"
     content: |
-      First, you'll log into AWS and verify the Virtual Private Cloud (VPC) the database is in. The SSH server you'll create in Step 2 must reside in the same VPC as the database.
+      Next, you'll log into AWS and verify the Virtual Private Cloud (VPC) the database is in. The SSH server you'll create in Step 2 must reside in the same VPC as the database.
 
       First, log into your AWS account. Then use the instructions below for the type of database you're connecting to locate the VPC.
 
@@ -114,6 +127,7 @@ steps:
         anchor: "configure-ssh-server"
         content: |
           The first part of creating an SSH server in your VPC is configuring the instance.
+          
           1. Navigate to the EC2 Management Console in AWS. If you use the **Services** menu (top left corner), click the **EC2** option under the **Compute** section.
           2. On the EC2 Dashboard, click the **Launch Instance** button.
           3. Next, you’ll be asked to select the Amazon Machine Image, or AMI, that will be used to launch the instance. For this tutorial, we'll be using a Linux-based AMI.
@@ -150,18 +164,14 @@ steps:
              - **Port Range**: This is the number of the SSH port associated with the server. **If you selected SSH as the Type**, this will default to `22`.
 
                 **If you selected Custom TCP Rule**, enter the number of the SSH port in this field.
-             - **Source**: This should default to **Custom**. In the field next to the Source drop-down menu, paste one of the following IP addresses:
-
-                {% for ip-address in ip-addresses %}
-                - {{ ip-address.ip }}
-                {% endfor %}
+             - **Source**: This should default to **Custom**. In the field next to the Source drop-down menu, paste one of the [Stitch regional IP addresses you retrieved in Step 1](#verify-stitch-account-region).
 
           4. Click the **Add Rule** button to add another rule.
-          5. Repeat steps 3 and 4 until all of Stitch's IP addresses have been added to the Security Group.
+          5. Repeat steps 3 and 4 until all of the [Stitch IP addresses for your region](#verify-stitch-account-region) have been added to the Security Group.
 
-             Here's what the Security Group rules should look like:
+             For example: This is the Security Group with Stitch's North America region IP addresses:
 
-             ![Configuring the EC2 Instance Security Group]({{ site.baseurl }}/images/shared/ssh/amazon-ec2-security-group.png)
+             ![Configuring the EC2 Instance Security Group using Stitch's North America region IP addresses]({{ site.baseurl }}/images/shared/ssh/amazon-ec2-security-group.png)
           6. When finished, click the **Review and Launch** button in the lower right corner of the page.
 
       - title: "Review and launch the SSH server"

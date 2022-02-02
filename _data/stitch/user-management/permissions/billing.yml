@@ -1,0 +1,48 @@
+# ---------------------------- #
+#     BILLING PERMISSIONS      #
+# ---------------------------- #
+
+name: "Billing"
+description: ""
+
+manage-payment-info: &manage-payment-info
+  id: "manage-payment-info"
+  name: "Manage payment info"
+  description: |
+    Enter and modify [payment info]({{ link.billing.billing-faq | prepend: site.baseurl }}) for the account.
+
+manage-plan-details: &manage-plan-details
+  id: "manage-plan-details"
+  name: "Manage plan details"
+  description: |
+    Select the plan details for the account.
+
+view-invoices: &view-invoices
+  id: "view-invoices"
+  name: "View past invoices"
+  description: |
+    View and download past invoices for the account.
+
+receive-invoices: &receive-invoices
+  id: "receive-invoices"
+  name: "Receive email invoices"
+  description: |
+    Receive an email copy of the current month's invoice for the account.
+
+cancel-account: &cancel-account
+  id: "cancel-account"
+  name: "Cancel account"
+  description: |
+    [Cancel]({{ link.account.cancel-account | prepend: site.baseurl }}) the account.
+
+
+# --------------------------- #
+#        ALL PERMISSIONS      #
+# --------------------------- #
+
+all:
+  - *manage-payment-info
+  - *manage-plan-details
+  - *view-invoices
+  - *receive-invoices
+  - *cancel-account

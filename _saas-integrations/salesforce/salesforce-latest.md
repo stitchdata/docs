@@ -21,7 +21,7 @@ status-url: "https://trust.salesforce.com/trust/instances"
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} Lightning Platform REST API (v41.0)](https://developer.salesforce.com/docs/atlas.en-us.210.0.api_rest.meta/api_rest/intro_what_is_rest_api.htm){:target="new"}
+  [{{ integration.display_name }} Lightning Platform REST API (v41.0)](https://developer.salesforce.com/docs/atlas.en-us.210.0.api_rest.meta/api_rest/intro_what_is_rest_api.htm){:target="new"} and [{{ integration.display_name }} Bulk API (v41.0)](https://developer.salesforce.com/docs/atlas.en-us.210.0.api_asynch.meta/api_asynch/asynch_api_intro.htm){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -39,19 +39,27 @@ api-type: "platform.salesforce"
 anchor-scheduling: true
 cron-scheduling: true
 
-table-selection: true
-column-selection: true
-define-replication-methods: true
-
 extraction-logs: true
 loading-reports: true
+
+table-selection: true
+column-selection: true
+table-level-reset: true
+define-replication-methods: true
+
 
 # -------------------------- #
 #      Feature Summary       #
 # -------------------------- #
 
 feature-summary: |
-  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+  Stitch's {{ integration.display_name }} integration replicates data from your {{ integration.display_name }} account. When setting up a {{ integration.display_name }} integration in Stitch, you can select one of the following {{ integration.display_name }} APIs to replicate your data:
+
+  - [{{ integration.display_name }} Lightning Platform REST API (v41.0)](https://developer.salesforce.com/docs/atlas.en-us.210.0.api_rest.meta/api_rest/intro_what_is_rest_api.htm){:target="new"}
+  - [{{ integration.display_name }} Bulk API (v41.0)](https://developer.salesforce.com/docs/atlas.en-us.210.0.api_asynch.meta/api_asynch/asynch_api_intro.htm){:target="new"}
+
+  Each API has its own advantages and disadvantages, such as support for compound fields and specific objects. Learn more [in the setup guide](#bulk-vs-rest-api).
+  
 
 
 # -------------------------- #
@@ -74,15 +82,26 @@ setup-steps:
     content: |
       Depending on how your {{ integration.display_name }} instance is set up, you may need to whitelist Stitch's IP addresses. In {{ integration.display_name }}, this is referred to as "setting trusted IPs".
 
-      [The instructions in this {{ integration.display_name }} article](https://help.salesforce.com/articleView?id=security_networkaccess.htm&type=0) will walk you through how to do this in {{ integration.display_name }}. **Note**: Because these are exact IP addresses and not ranges, the same IP address must be entered in the **Start IP Address** and **End IP Address** fields in {{ integration.display_name }}.
+      Complete this step before proceeding with the rest of the setup, or you may encounter connection issues.
 
-      Add the following IP addresses to the trusted list:
-
-      {% for ip-address in ip-addresses %}
-      - {{ ip-address.ip }}
+      {% for substep in step.substeps %}
+      - [Step 1.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
       {% endfor %}
 
-      Complete this step before proceeding with the rest of the setup, or you may encounter connection issues.
+    substeps:
+      - title: "Verify your Stitch account's data pipeline region"
+        anchor: "verify-stitch-account-region"
+        content: |
+          {% include shared/whitelisting-ips/locate-region-ip-addresses.html %}
+
+          Keep this list handy - you'll need it in the next step.
+
+      - title: "Set Stitch's IP addresses as trusted IPs"
+        anchor: "set-trusted-ips"
+        content: |
+          Next, you'll add the IP addresses you retrieved in the [previous step](#verify-stitch-account-region) to your {{ integration.display_name }} instance's trusted IP list. [The instructions in this {{ integration.display_name }} article](https://help.salesforce.com/articleView?id=security_networkaccess.htm&type=0) will walk you through how to do this in {{ integration.display_name }}.
+
+          **Note**: Because Stitch's IPs are exact IP addresses and not ranges, the same IP address must be entered in the **Start IP Address** and **End IP Address** fields in {{ integration.display_name }}.
 
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"

@@ -3,22 +3,29 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Integrating Stitch Notifications with Datadog
+title: Integrating Datadog with Stitch Notifications 
 permalink: /account-security/notifications/integrate-notifications-with-datadog
 summary: "Integrate Stitch notifications with Datadog using Stitch's Custom email notification list feature."
+
+key: "datadog-email-notifications"
 
 input: false
 layout: tutorial
 
-key: "datadog-email-notifications"
 type: "notifications"
 weight: 6
 
-enterprise: true{:target="new"}
-enterprise-cta:
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "unlimited"
+
+minimum-plan-cta:
   feature: "The custom notification list "
-  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.enterprise-cta.feature }}"
-  copy: "{{ site.data.strings.enterprise.copy.is-an | prepend: page.enterprise-cta.feature | flatify }}"
+  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
+  copy: "{{ site.data.strings.enterprise.copy.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
 
 
 # -------------------------- #
@@ -60,8 +67,6 @@ intro: |
 # -------------------------- #
 
 requirements:
-  - item: |
-      **A Stitch Enterprise plan.** The Custom email notification list is available only on a Stitch Enterprise plan.
   - item: |
       **An existing Datadog account.**
 

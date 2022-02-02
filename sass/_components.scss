@@ -538,6 +538,21 @@ a[data-toggle="tooltip"] {
 	}
 }
 
+#top-page-notice {
+	position: fixed;
+	display: block;
+	width: 100%;
+	left: 0;
+	z-index: 999;
+}
+
+#notice-message {
+	padding: 10px 5px 5px 5px;
+	text-align: center;
+	font-weight: 700;
+}
+
+
 /* CODE BLOCKS */
 pre {
 	border: 1px solid $gallery;
@@ -706,8 +721,9 @@ $green: $rio-grande;
 	}
 }
 
+/* LISTS */
 
-/* TILES */
+/* LISTS > TILES */
 ul.tiles {
 	list-style: none;
 	text-align: center;
@@ -771,6 +787,14 @@ ul.tiles {
 		text-align: left;
 	}
 
+	.category-page {
+		text-align: left;
+
+		&:hover {
+			box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25) !important;
+		}
+	}
+
 	li.category-version-toggle {
 		border: none;
 		display: list-item;
@@ -794,7 +818,6 @@ ul.link-tiles {
 	border: 0px;
 
 	li {
-
 		a {
 			display: inline-block;
 			color: $black;
@@ -827,12 +850,12 @@ ul.link-tiles {
 	}
 
 blockquote {
-	border-left: 3px solid #ED4040;
+	border-left: 3px solid $protocol-black;
 	margin: 1rem 0;
 
 	 p {
 	 	font-size: 1rem;
-	 	color: #ED4040;
+	 	color: $protocol-black;
 	 	line-height: 1.5rem;
 	 	font-weight: 400;
 	 }
@@ -842,8 +865,8 @@ blockquote {
 
 .div-flag {
 	float: left;
-	margin-left: -15px;
-	margin-top: -15px;
+	margin-left: -21px;
+	margin-top: -21px;
 	padding: 5px 10px;
 	font-size: small;
 	font-weight: 600;
@@ -853,7 +876,7 @@ blockquote {
 	background-color: $scooter;
 }
 
-.concept, .all-plans, .released {
+.concept, .all-plans, .released, .unlimited {
 	background-color: $rio-grande;
 }
 
@@ -861,7 +884,7 @@ blockquote {
 	background-color: $lochmara;
 }
 
-.troubleshooting {
+.troubleshooting, .deprecated {
 	background-color: $chestnut-rose;
 }
 
@@ -869,13 +892,10 @@ blockquote {
 	background-color: $lochmara;
 }*/
 
-.deprecated, .sunset {
+.sunset {
 	background-color: $gray;
 }
 
-.enterprise {
-	background-color: $rio-grande;
-}
 
 
 /* API/JS HEADINGS */
@@ -937,6 +957,7 @@ blockquote {
 	h4 {
 		margin-bottom: 1em;
 		line-height: 1em;
+		padding-top: 10px;
 	}
 }
 

@@ -12,7 +12,7 @@ column-table-limit:
   heading: "a table contains more columns than the destination allows?"
   if: "A table arrives with more columns than {{ destination.display_name }} allows."
   then: "{{ destination.display_name }} will reject all data for the table."
-  fix-it: "If possible, deselect some columns to allow Stitch to load data into {{ destination.display_name }} for the table. {{ destination.display_name }} has a limit of {{ destination-reference.table-limit-info.max-columns-per-table }} columns per table."
+  fix-it: "If possible, deselect some columns to allow Stitch to load data into {{ destination.display_name }} for the table. {{ destination.display_name }} has a limit of {{ destination-reference.destination-details.max-columns-per-table  }} columns per table."
 
 # -------------------------------------------- #
 #                                              #

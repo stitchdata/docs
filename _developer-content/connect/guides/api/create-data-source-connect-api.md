@@ -37,6 +37,9 @@ related:
   - title: "Destination and source API availability"
     link: "{{ link.connect.guides.connection-reference | prepend: site.baseurl }}"
 
+  - title: "Create a destination with the Connect API"
+    link: "{{ link.connect.guides.create-configure-a-destination | prepend: site.baseurl }}"
+
   - title: "Replication scheduling for sources using the Connect API"
     link: "{{ link.connect.guides.replication-scheduling-for-sources | prepend: site.baseurl }}"
 
@@ -65,7 +68,7 @@ intro: |
 
 requirements:
   - item: |
-      **Access to Stitch Connect and valid Connect API credentials.** Connect access is a Stitch Enterprise feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
+      **Access to Stitch Connect and valid Connect API credentials.** Connect access is a Stitch {{ site.data.stitch.subscription-plans.pro.name }} or {{ site.data.stitch.subscription-plans.pro-plus.name }} feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
 
 
 # -------------------------- #
@@ -287,7 +290,7 @@ steps:
          "display_name":"Recurly",
          "properties":{
             "start_date":"2018-01-10T00:00:00Z",
-            "api_key":"<RECURLY_API_KEY>",
+            "api_key":"[RECURLY_API_KEY]",
             "frequency_in_minutes":"60",
             "quota_limit":"30",
             "subdomain":"stitchdata"
@@ -298,7 +301,8 @@ steps:
  
       The response will be a [Source object]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.object }}) containing the source's ID, [report card]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.report-cards.source.section }}), and current configuration status (`report_card.current_step_type`):
 
-      {% capture code %}
+      {% capture 
+        notecode %}
       {
         "properties": {
           "frequency_in_minutes": "60",

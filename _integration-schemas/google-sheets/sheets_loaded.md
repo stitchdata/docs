@@ -28,13 +28,15 @@ attributes:
     description: "The ID of the spreadsheet."
     foreign-key-id: "spreadsheet-id"
 
+  - name: "loadDate"
+    type: "date-time"
+    primary-key: true
+    description: "The date the sheets were loaded."
+#   foreign-key-id: "load-date"
+
   - name: "lastRowNumber"
     type: "integer"
     description: "The number of the last row."
-
-  - name: "loadDate"
-    type: "date-time"
-    description: "The date the sheets were loaded."
 
   - name: "title"
     type: "string"

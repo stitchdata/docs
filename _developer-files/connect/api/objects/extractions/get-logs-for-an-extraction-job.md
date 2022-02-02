@@ -22,8 +22,6 @@ full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ site.data.connect.core-objects.extractions.get-job-logs.short | flatify }}"
 description: |
-  {% include note.html type="single-line" content="**This endpoint is in beta.**" %}
-  
   {{ site.data.connect.core-objects.extractions.get-job-logs.description | flatify }} If successful, Stitch will redirect you to the Amazon S3 bucket where logs are stored, at which point you can download the logs for the provided extraction `job_name`.
   
 

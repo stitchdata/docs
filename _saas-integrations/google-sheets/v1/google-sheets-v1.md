@@ -39,6 +39,7 @@ this-version: "1"
 api: |
   [Google Sheets v4 AP1](https://developers.google.com/sheets/api){:target="new"}
 
+file-system: true
 
 # -------------------------- #
 #       Stitch Details       #
@@ -117,6 +118,13 @@ setup-steps:
     anchor: "define-rep-frequency"
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
+  
+  - title: "Authorize Stitch"
+    anchor: "authorize-stitch"
+    content: |
+      1. Next, you’ll be prompted to log into your Google account and approve Stitch’s access to your {{ integration.display_name }} data. **Note that we will only ever read your data.**
+      2. Select the **See all your Google Sheets spreadsheets** access.
+      3. Click **Continue**.
 
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
@@ -179,7 +187,19 @@ replication-sections:
             content: |
               To determine data types, Stitch will analyze the first two rows in the [files included in object discovery](#discovery--objects).
 
-              If a column has been specified as a `STRING`, Stitch will attempt to parse the value as a string. If this fails, the column will be loaded as a nullable `STRING`.
+              If a column contains non-standard boolean language, Stitch will intentionally coerce those values into boolean. The following values are to be expected to be replicated as `True`:
+              - `YES`/`yes`
+              - `Y`/`y`
+              - `1`
+              - `true` (the string "true" prefixed with a tick [`])
+
+              The following values are expected to be replicated as `False`:
+              - `NO`/`no`
+              - `N`/`n`
+              - `0`
+              - `false` (the string "false" prefixed with a tick [`])
+
+              If a column has been specified as a `STRING`, Stitch will attempt to parse the value as a string, unless the column contains non-stantadard boolean language.  If this fails, the column will be loaded as a nullable `STRING`.
 
               For all other columns, Stitch will perform the following to determine the column's data type:
 

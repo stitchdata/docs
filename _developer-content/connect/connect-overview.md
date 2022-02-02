@@ -9,6 +9,8 @@ layout: developer
 product-type: "connect"
 content-type: "overview"
 
+key: "connect-overview"
+
 toolkit:
   - title: "{{ api.name }}"
     icon: "{{ api.icon }}"

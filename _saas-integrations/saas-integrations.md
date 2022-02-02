@@ -10,10 +10,11 @@ input: false
 feedback: false
 
 content-type: "category"
+key: "saas-integrations-category"
 
 sections:
   - content: |
-      With Stitch, you can consolidate data from a variety of SaaS apps and services into a [single destination]({{ site.baseurl }}/destinations).
+      With Stitch, you can consolidate data from a variety of SaaS apps and services into [destinations]({{ site.baseurl }}/destinations).
   - title: "Destination and integration compatibility"
     anchor: "destination-integration-compatibility"
     content: |

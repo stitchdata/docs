@@ -31,8 +31,6 @@ description: "{{ api.core-objects.destinations.list.description | flatify }}"
 returns: |
   If successful, the API will return a status of `200 OK` and an array of [Destination objects]({{ api.core-objects.destinations.object }}), one for each destination connected to the account.
 
-  **Note**: Stitch currently supports only one destination per account.
-
 # ------------------------------ #
 #   EXAMPLE REQUEST & RESPONSES  #
 # ------------------------------ #

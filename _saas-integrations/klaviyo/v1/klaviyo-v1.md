@@ -18,6 +18,8 @@ keywords: klaviyo, integration, schema, etl klaviyo, klaviyo etl, klaviyo schema
 layout: singer
 # input: true
 
+key: "klaviyo-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -51,7 +53,7 @@ extraction-logs: true
 loading-reports: true
 
 table-selection: true
-column-selection: false
+column-selection: true
 
 # -------------------------- #
 #      Setup Instructions    #

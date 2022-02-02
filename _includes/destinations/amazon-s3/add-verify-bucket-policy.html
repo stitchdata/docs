@@ -15,36 +15,10 @@
 {% endcase %}
 
 
-Next, Stitch will display a **Grant & Verify Access** page. This page contains the info you need to configure bucket access for Stitch, which is accomplished via a bucket policy. [A bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) is JSON-based access policy language to manage privileges to bucket resources.
+Next, Stitch will display a **Grant & Verify Access** page. This page contains the info you need to configure bucket access for Stitch, which is accomplished via a bucket policy. [A bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html){:target="new"} is JSON-based access policy language to manage privileges to bucket resources.
 
-**Note**: The policy Stitch provides is an auto-generated policy unique to the specific bucket you entered in the setup page. It allows Stitch to assume a role and access the bucket. An example might look like this:
+**Note**: The policy Stitch provides is an auto-generated policy unique to the specific bucket you entered in the setup page. It allows Stitch to assume a role and access the bucket.
 
-```json
-{
-  "Version": "2012-10-17",
-  "Id": "",
-  "Statement": [
-    {
-      "Sid": "{{ sid }}",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": [
-          "arn:aws:iam::{{ principal }}"
-        ]
-      },
-      "Action": [
-        "s3:PutObject",
-        "s3:GetObject",
-        "s3:ListBucket"
-      ],
-      "Resource": [
-        "arn:aws:s3:::<YOUR_S3_BUCKET_NAME>",
-        "arn:aws:s3:::<YOUR_S3_BUCKET_NAME>/*"
-      ]
-    }
-  ]
-}
-```
 
 {% when 'add-bucket-policy' %}
 

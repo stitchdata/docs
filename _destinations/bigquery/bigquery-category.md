@@ -31,6 +31,8 @@ layout: general
 #     Destination Details    #
 # -------------------------- #
 
+connection-type: "destination"
+
 display_name: "Google BigQuery"
 type: "bigquery"
 
@@ -56,10 +58,10 @@ sections:
 
       **Interested in migrating from v1 to v2?** [Here's how]({{ link.destinations.setup.bigquery-v1-migration | prepend: site.baseurl }}). 
 
-  - title: "Version history and changelog"
+  - title: "Version history"
     anchor: "version-history-comparison"
     content: |
-      {% include shared/versioning/history-and-changelog.html connection-type="destination" %}
+      {% include shared/versioning/version-history.html %}
 
   - title: "Version comparison"
     anchor: "version-comparison"

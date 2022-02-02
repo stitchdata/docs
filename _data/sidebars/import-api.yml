@@ -44,12 +44,16 @@ api:
         new-page: true
         url: *overview
 
+      - title: Quick start
+        url: "{{ link.import-api.guides.quick-start }}"
+        drop-down: false
+
       - title: Introduction
         url: "{{ link.import-api.api }}#introduction"
         drop-down: false
 
-      - title: Quick start
-        url: "{{ link.import-api.guides.quick-start }}"
+      - title: "Base URLs"
+        url: "{{ link.import-api.api }}#base-urls"
         drop-down: false
 
       - title: "Authentication"

@@ -18,6 +18,8 @@ keywords: linkedin ads, integration, schema, etl linkedin ads, linkedin ads etl,
 layout: singer
 input: true
 
+key: "linkedin-ads-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -51,6 +53,13 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+
+
+# -------------------------- #
+#        API Details         #
+# -------------------------- #
+
+attribution-window: "7 days"
 
 
 # -------------------------- #
@@ -93,6 +102,31 @@ setup-steps:
     anchor: "setting-data-to-replicate"
     content: |
       {% include integrations/shared-setup/data-selection/object-selection.html %}
+
+
+# -------------------------- #
+#      Replication Info      #
+# -------------------------- #
+
+replication-sections:
+  - content: |
+      {% assign window = "Attribution Window" %}
+      {% assign table = "ad_analytics_by_campaign" %}
+      {% assign replication-key = "end_at" %}
+      {% assign start-date ="06/03/2017" %}
+      {% assign start-date-value = "June 3, 2017" %}
+      {% assign replication-key-historical = "2017-06-03 00:00:00" %}
+      {% assign replication-key-ongoing = "2017-09-24 00:00:00" %}
+
+      {% include integrations/saas/attribution-windows.html %}
+
+      Refer to the documentation for each of these tables in the next section for more info.
+
+      ### Attribution window examples
+
+      In the tabs below are examples of attribution windows behave during historical (initial) and ongoing replication jobs.
+
+      {% include integrations/saas/attribution-window-examples.html %}
 
 # -------------------------- #
 #     Integration Tables     #

@@ -66,3 +66,24 @@ column-name-limit:
   then: "{{ destination.display_name }} will reject columns with names that exceed the column character limit. Other columns in the table will persist to {{ destination.display_name }}."
   fix-it: |
     If possible, change the column name in the source to be less than {{ destination.display_name }}'s character limit of {{ destination-reference.destination-details.column-name-length }}.
+
+## Column name is a reserved word
+column-name-reserved-word:
+   heading: "a column name is a reserved word?"
+   anchor: "column-name-reserved-word"
+   if: "A column name is equal to a reserved word in {{ destination.display_name }}."
+   #then:
+
+## Column name begins with a non-letter character
+column-name-starts-special-char:
+   heading: "a column name starts with a special character?"
+   anchor: "column-name-starts-special-char"
+   if: "A column name starts with a special character."
+   #then:
+
+## Column names with leading or trailing spaces
+column-name-leading-trailing-spaces:
+   heading: "a column name contains leading or trailing spaces?"
+   anchor: "column-name-leading-trailing-spaces"
+   if: "A column name contains leading or trailing spaces."
+   #then:

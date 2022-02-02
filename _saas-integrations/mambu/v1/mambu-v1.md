@@ -13,10 +13,12 @@
 # -------------------------- #
 
 title: Mambu (v1)
-permalink: /integrations/saas/mambu
+permalink: /integrations/saas/mambu/v1
 keywords: mambu, integration, schema, etl mambu, mambu etl, mambu schema
 layout: singer
-# input: false
+input: false
+
+key: "mambu-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -44,6 +46,8 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Standard"
 status-url: "https://status.mambu.com/"
+
+api-type: "platform.mambu"
 
 anchor-scheduling: true
 cron-scheduling: true

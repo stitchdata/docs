@@ -1,6 +1,7 @@
 ---
 tap: "hubspot"
 version: "2"
+key: "subscription-change"
 
 name: "subscription_changes"
 doc-link: https://developers.hubspot.com/docs/methods/timeline/timeline-overview
@@ -9,6 +10,9 @@ description: |
   The `{{ table.name }}` table contains info about changes made subscriptions.
 
 replication-method: "Key-based Incremental"
+replication-key:
+  name: "startTimestamp"
+
 api-method:
   name: "Get subscriptions timeline"
   doc-link: https://developers.hubspot.com/docs/methods/email/get_subscriptions_timeline
@@ -29,7 +33,6 @@ attributes:
   - name: "timestamp"
     type: "date-time"
     primary-key: true
-    replication-key: true
     description: "The time that the subscription change event occurred."
 
   - name: "changes"

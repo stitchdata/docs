@@ -152,6 +152,10 @@ setup-steps:
     content: |
       Stitch uses an SSH tunnel to securely connect to your {{ integration.display_name }} SFTP server. This means that to connect successfully, you'll need to add Stitch's Public Key to your server.
 
+      {% for substep in step.substeps %}
+      - [Step 1.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %} 
+
     substeps:
       - title: "Retrieve your Stitch public key"
         anchor: "retrieve-stitch-public-key"

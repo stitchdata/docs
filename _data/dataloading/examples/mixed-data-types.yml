@@ -33,6 +33,9 @@ example-jobs:
 ## Boilerplate copy that explains what the end result is in the destination.
 ## Used in: _includes/replication/templates/table-schema-change-tabs.html
 
+## NOTE: destination here refers to the destinations list in this file, not
+## an actual destination page in the _destinations collection
+
 example-tab-copy: |
   When mixed data types are detected in the same column in {{ destination.name }} destinations:
 

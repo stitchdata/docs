@@ -1,9 +1,12 @@
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-stitch-details-data-file/
+
 # ----------------------------------- #
-# [DESTINATION[ STITCH DETAILS #
+#   DESTINATION-NAME STITCH DETAILS   #
 # ----------------------------------- #
 
 # Details about Stitch's implementation &
-# requirements for DESTINATION destinations.
+# requirements for DESTINATION-NAME destinations.
 
 
 # ------------------------------ #
@@ -12,12 +15,15 @@
 
 pricing-tier: "Standard"
 
-# stitch-plan-availability: "all"
-
 supported-versions: "n/a"
+
+api-type: ""
 
 available-in-connect: true
 
+stitch-supported-regions:
+  - id: "north-america"
+  - id: "europe"
 
 # ------------------------------ #
 #      CONNECTION METHODS        #

@@ -1,10 +1,11 @@
 ---
-title: Syncing New & Additional Columns on Already-Syncing Tables
+title: Syncing New and Additional Columns on Already-Syncing Tables
 permalink: /replication/syncing-new-additional-columns
 keywords: syncing, sync, replicate, replication, select data, sync data, sync table, sync column, add new columns, sync new column, add additional columns
-tags: [replication]
 
 content-type: "select-data"
+key: "syncing-new-columns"
+
 toc: true
 weight: 3
 
@@ -47,7 +48,7 @@ For tables using Full Table Replication, data in the newly-synced column will be
 
 For tables using Incremental Replication, data in the newly-synced column will be available **only for rows added AFTER the column is synced. Existing rows must be backfilled to make the data available.**
 
-Getting newly-synced column data into existing rows requires a full re-ync of the table. Because this can significantly impact your row count and we don't want to re-replicate data without your say-so, we leave inserting newly-synced column data into existing rows up to you.
+Getting newly-synced column data into existing rows requires a full re-replication of the table. Because this can significantly impact your row count and we don't want to re-replicate data without your say-so, we leave inserting newly-synced column data into existing rows up to you.
 
 ---
 

@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-mixpanel
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} Event Export API & Mixpanel Query API.](https://developer.mixpanel.com/docs/mixpanel-apis){:target="new"}
+  [{{ integration.display_name }} Event Export API and {{ integration.display_name }} Query API](https://developer.mixpanel.com/docs/mixpanel-apis){:target="new"}
 
 
 # -------------------------- #
@@ -68,9 +68,6 @@ row-usage-hog-reasons:
   data-structure: true
   data-volume: true
   lots-of-full-table: false
-
-
-# setup-name: ""
 
 # -------------------------- #
 #      Querying Details      #
@@ -110,7 +107,9 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      **Admin privileges**. Your role in your {{ integration.display_name }} account must be admin in order to be able to retrieve your API secret.
+      **Admin privileges**. These are required to retrieve your API secret in your {{ integration.display_name }} account.
+  - item: |
+      **A US-based {{ integration.display_name }} account**. The Stitch {{ integration.display_name }} integration does not currently support interacting with EU {{ integration.display_name }} domains.
 
 setup-steps:
   - title: "Retrieve your {{ integration.display_name }} project timezone and API secret"
@@ -120,6 +119,7 @@ setup-steps:
       2. In the dropdown menu in the upper left corner of the page, select the project you want to replicate data from.
       3. Hover over the **Settings** icon in the upper right corner. In the **PROJECT SETTINGS** portion of the dropdown menu, click on the link with the name of your project.
       4. Copy the **Project Timezone** and **API Secret**, and paste those values someplace safe to use for the next step.
+
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
@@ -132,7 +132,7 @@ setup-steps:
 
          **Note**: If your project has large volumes of events, you may want to set the number of days to `14`, `7`, or even to `1` or `2` days.
       7. In the **Project Timezone** field, paste the **Project Timezone** you retrieved from [Step 1](#retrieve-timezone-api-secret).
-      8. **Optional**: In the **Select Properties By Default**, enter `true` to capture new properties in the `events` and `engage` tables' records. If set to `false` or left blank, new properties will be ignored.
+      8. **Optional**: To capture new properties automatically in the `events` and `engage` tables, check the **Select Properties By Default** box. Otherwise, new properties will be ignored.
 
 ## Max start date: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/sync.py#L151
   - anchor: "define-historical-sync"

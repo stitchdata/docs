@@ -7,12 +7,16 @@ redirect_from: /integrations/saas/particleio
 keywords: particle.io, integration, schema, etl particle.io, particle.io etl, particle.io schema, stitch webhooks
 summary: "Connect your Particle.io data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
+key: "particleio-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
 name: "particleio"
 display_name: "Particle.io"
+
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #

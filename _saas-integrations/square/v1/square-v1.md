@@ -85,12 +85,30 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
+requirements-list:
+  - item: |
+      **To log into your {{ integration.display_name }} sandbox environment, if you're connecting a sandbox.** To allow Stitch to successfully access the sandbox, you must be logged into it prior to setting up the {{ integration.display_name }} integration in Stitch. 
+      
+      **If you're connecting a production environment**, start with [Step 2](#add-stitch-data-source) of this guide.
+
 setup-steps:
+  - title: "Login to your {{ integration.display_name }} sandbox environment"
+    anchor: "sandbox-environment"
+    content: |
+      {% capture skip-step %}
+      If you're connecting a {{ integration.display_name}} sandbox, this step is required. Skip to [Step 2](#add-stitch-data-source) if you're connecting a production environment.
+      {% endcapture %}
+
+      {% include important.html type="single-line" content=skip-step %}
+
+      To connect to your {{ integration.display_name }} sandbox environment, you'll need to login to your sandbox environment before completing the next step. This is required to grant Stitch authorization to access the sandbox environment. For more info, refer to the [{{ integration.display_name }} documentation](https://developer.squareup.com/docs/oauth-api/walkthrough#33-test-your-authorization-flow){:target="new"}.
+
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      4. Check the **Connect to a sandbox environment** if choosing to connect to your {{ integration.display_name }} sandbox.
+      4. Check the **Connect to a sandbox environment** if choosing to connect to your {{ integration.display_name }} sandbox. **Note**: Make sure you completed [Step 1](#sandbox-environment) before continuing.
+      
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
@@ -109,6 +127,7 @@ setup-steps:
       1. Enter your {{ integration.display_name }} credentials and click **Login**.
       2. After the authorization process successfully completes, you'll be redirected back to Stitch.
       3. Click {{ app.buttons.finish-int-setup }}.
+      
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |

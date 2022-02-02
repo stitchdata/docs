@@ -1,5 +1,4 @@
-For the connection to be successful, you'll need to configure your firewall to allow access from our IP addresses. Whitelist the following IPs before continuing onto the next step:
+For the connection to be successful, you'll need to configure your firewall to allow access from our IP addresses. 
 
-{% for ip-address in ip-addresses %}
-- {{ ip-address.ip }}
-{% endfor %}
+{% include shared/whitelisting-ips/locate-region-ip-addresses.html %}
+4. Whitelist the appropriate IP addresses.

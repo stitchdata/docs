@@ -58,6 +58,58 @@ attributes:
     type: "string"
     description: "The order ID of the transaction."
 
+  - name: "paypal_details"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "authorization_id"
+        type: "string"
+        description: ""
+
+      - name: "capture_id"
+        type: "string"
+        description: ""
+
+      - name: "payer_email"
+        type: "string"
+        description: ""
+
+      - name: "payer_id"
+        type: "string"
+        description: ""
+
+      - name: "payer_status"
+        type: "string"
+        description: ""
+
+      - name: "payment_id"
+        type: "string"
+        description: ""
+
+      - name: "refund_id"
+        type: "string"
+        description: ""
+
+      - name: "seller_protection_status"
+        type: "string"
+        description: ""
+
+      - name: "tax_id"
+        type: "string"
+        description: ""
+
+      - name: "tax_id_type"
+        type: "string"
+        description: ""
+
+      - name: "transaction_fee_amount"
+        type: "string"
+        description: ""
+
+      - name: "transaction_fee_iso_code"
+        type: "string"
+        description: ""
+
   - name: "plan_id"
     type: "string"
     description: "The plan ID."

@@ -2,10 +2,12 @@
 title: Missing Columns & NULL Values
 keywords: troubleshooting, trouble, issue, help, data discrepancy, discrepancies, not replicating, no replication, nulls, null
 permalink: /troubleshooting/missing-columns-and-null-values
-tags: [data_discrepancy, replication, nonreplicating_data]
 
 summary: "If you've noticed some missing columns or data from your data warehouse, the root cause may be `NULL` values."
 type: "discrepancy, replication-all"
+
+key: "missing-columns-null-values"
+
 toc: false
 promote: "false"
 ---

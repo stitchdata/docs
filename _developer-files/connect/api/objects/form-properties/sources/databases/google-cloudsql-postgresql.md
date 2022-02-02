@@ -21,7 +21,9 @@ source-type: "database"
 docs-name: "cloudsql-postgres"
 db-type: "postgres"
 
-description: ""
+deprecated:
+  as-of: "July 8, 2021"
+  use-instead: "platform.hp-cloudsql-pg"
 
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #

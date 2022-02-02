@@ -149,6 +149,8 @@ sections:
         content: |
           Stitch requires Primary Keys to de-dupe incrementally replicated data. When tables are created in the destination, Stitch will apply [Primary Key constraints](https://docs.snowflake.net/manuals/sql-reference/constraints-overview.html){:target="new"} to columns used as Primary Keys. Primary Key constraints require that column values be unique and not null.
 
+          **Note**: Primary Keys cannot be changed in the destination.
+
       - title: "Incompatible sources"
         anchor: "replication--incompatible-sources"
         content: |

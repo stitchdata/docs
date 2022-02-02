@@ -17,7 +17,8 @@ documentation: "{{ link.replication.advanced-scheduling | prepend: site.baseurl 
 description: "Advanced Scheduling allows you to specify granular start times for data extraction using cron expressions."
 
 integration-availability: "MySQL and PostgreSQL integrations"
-plan-availability: "Enterprise"
+plan-availability: |
+  {{ site.data.stitch.subscription-plans.unlimited.name }}, {{ site.data.stitch.subscription-plans.unlimited-plus.name }}
 
 # -------------------------- #
 #     SCHEDULING DETAILS     #

@@ -7,12 +7,16 @@ redirect_from: /integrations/saas/iterable
 keywords: iterable, integration, schema, etl iterable, iterable etl, iterable schema, stitch webhooks
 summary: "Connect your Iterable data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
+key: "iterable-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
 name: "iterable"
 display_name: "Iterable"
+
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #

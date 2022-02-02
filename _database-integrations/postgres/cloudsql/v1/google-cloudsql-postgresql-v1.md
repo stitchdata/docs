@@ -38,6 +38,7 @@ db-type: "postgres"
 
 ## Stitch features
 api-type: "platform.cloudsql_pg"
+
 versions: "9.3+"
 ssh: false
 ssl: false
@@ -101,6 +102,11 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
+  - title: "Verify your Stitch account's data pipeline region"
+    anchor: "verify-stitch-account-region"
+    content: |
+      {% include shared/whitelisting-ips/locate-region-ip-addresses.html first-step=true %}
+      
   - title: "Configure database connection settings"
     anchor: "connect-settings"
     content: |
@@ -117,6 +123,10 @@ setup-steps:
     anchor: "connect-stitch"
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
+
+      {% for substep in step.substeps %}
+      - [Step 4.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
 
     substeps:
       - title: "Locate the database connection details in Google"

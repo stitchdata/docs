@@ -2,9 +2,9 @@
 title: Missing Tables & Columns
 keywords: troubleshooting, integration, trouble, issue, help,
 permalink: /troubleshooting/replication/missing-tables-and-columns
-tags: [replication]
 summary: "If Stitch can't detect databases or tables, you may need to double-check your user's permission settings."
 
+key: "missing-tables-columns"
 ---
 
 > Stitch cannot detect any objects (databases, tables, etc.) at or below this level.

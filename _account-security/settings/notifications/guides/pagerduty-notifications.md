@@ -3,23 +3,30 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Integrating Stitch Notifications with PagerDuty
+title: Integrating PagerDuty with Stitch Notifications 
 permalink: /account-security/notifications/integrate-notifications-with-pagerduty
 summary: "Integrate Stitch notifications with PagerDuty using Stitch's Custom email notification list feature."
+
+key: "pagerduty-email-notifications"
 
 input: false
 layout: tutorial
 use-tutorial-sidebar: true
 
-key: "pagerduty-email-notifications"
 type: "notifications"
 weight: 5
 
-enterprise: true
-enterprise-cta:
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "unlimited"
+
+minimum-plan-cta:
   feature: "The custom notification list "
-  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.enterprise-cta.feature }}"
-  copy: "{{ site.data.strings.enterprise.copy.is-an | prepend: page.enterprise-cta.feature | flatify }}"
+  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
+  copy: "{{ site.data.strings.enterprise.copy.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
 
 
 # -------------------------- #
@@ -27,7 +34,7 @@ enterprise-cta:
 # -------------------------- #
 
 related:
-  - title: "Extend Stitch email notificatons"
+  - title: "Extend Stitch email notifications"
     link: "{{ link.account.customize-notifications | prepend: site.baseurl }}"
 
   - title: "Notifications overview"
@@ -54,8 +61,6 @@ intro: |
 # -------------------------- #
 
 requirements:
-  - item: |
-      **A Stitch Enterprise plan.** The Custom email notification list is available only on a Stitch Enterprise plan.
   - item: |
       **An existing PagerDuty account.**
 

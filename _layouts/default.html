@@ -21,7 +21,14 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXBN5GK"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+
+{% if page.top-page-notice %}
+  {% include layout/top-page-notice.html %}
+{% endif %}
+
 {% include_cached layout/topnav.html %}
+
+
 
 <!-- Page Content -->
 <div id="main">
@@ -44,6 +51,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             {% include shared/versioning/version-menu.html item-name="page" connection-type=page.connection-type %}
                         </div>
                     {% endif %}
+
+                    {% if page.region-selector %}
+                      <div class="version-menu menu-right fouc">
+                        {% include shared/regions/region-selection-menu.html %}
+                      </div>
+                    {% endif %}
                 </div>
             </div>
           {% endunless %}
@@ -58,7 +71,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 <!-- Used for creating heading anchors -->
+<!-- Source: https://github.com/bryanbraun/anchorjs -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script>
+  anchors.add('.anchored');
+</script>
 <script src="//cdn.statuspage.io/se-v2.js"></script>
 
 <script src="{{ "/js/toc.js" | prepend: site.baseurl }}"></script>
@@ -68,6 +85,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script type="text/javascript">
     $(".fouc").removeClass("fouc");
 </script>
+
+{% if page.region-selector %}
+  {% include shared/regions/region-selection-javascript.html %}
+{% endif %}
 
 <!-- Intercom bubble -->
 <script>

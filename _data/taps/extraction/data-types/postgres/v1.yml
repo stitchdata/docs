@@ -28,6 +28,9 @@ array:
 bigint:
   stitch-type: "integer"
 
+bigserial:
+  stitch-type: "integer"
+
 bit:
   stitch-type: "boolean"
 
@@ -71,14 +74,10 @@ integer:
   stitch-type: "integer"
 
 json:
-  stitch-type: "array"
-  tooltip: |
-    JSON is supported, but may be denested depending on the destination you're using. <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}'>Learn more.</a>
+  stitch-type: "string"
 
 jsonb:
-  stitch-type: "array"
-  tooltip: |
-    JSONB is supported, but may be denested depending on the destination you're using. <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}'>Learn more.</a>
+  stitch-type: "string"
 
 longvarchar:
   stitch-type: "string"
@@ -104,7 +103,13 @@ nvarchar:
 real:
   stitch-type: "number"
 
+serial:
+  stitch-type: "integer"
+
 smallint:
+  stitch-type: "integer"
+
+smallserial:
   stitch-type: "integer"
 
 time:

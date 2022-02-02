@@ -54,6 +54,16 @@ current-columns:
   extracted-at-description: &extracted-at-description |
     **Applicable only to certain Singer-backed integrations.** Timestamp indicating when Stitch extracted the record from the source.
 
+  extra: &extra "_sdc_extra"
+  extra-description: &extra-description |
+    {% assign amazon-s3-docs = site.database-integrations | find:"key","amazon-s3-csv-integration" %}
+    **Applicable only to Amazon S3 CSV integrations.** An array of strings containing:
+
+    - Key-value pairs of duplicate columns, and/or
+    - Extra values in a record that aren't associated with a column
+
+    Refer to the [Amazon S3 CSV documentation]({{ amazon-s3-docs.url | prepend: site.baseurl }}#loading--handling-duplicate-column-headers) for more info.
+
 # RECEIVED_AT
   received-at: &received-at "_sdc_received_at"
   received-at-description: &received-at-description |
@@ -62,7 +72,7 @@ current-columns:
 # BATCHED_AT
   batched-at: &batched-at "_sdc_batched_at"
   batched-at-description: &batched-at-description |
-    Timestamp indicating when Stitch loaded the batch the record was a part of into the data warehouse.
+    Timestamp indicating when Stitch loaded the batch the record was a part of into the destination.
 
 # SEQUENCE
   sequence: &sequence "_sdc_sequence"
@@ -72,7 +82,7 @@ current-columns:
 # TABLE_VERSION
   table-version: &table-version "_sdc_table_version"
   table-version-description: &table-version-description |
-    Indicates the version of the table. This column is used to complete a switch-view operation, when necessary.
+    Indicates the version of the table. This column is used to determine when to issue `TRUNCATE` commands during loading, where applicable.
 
 # SOURCE KEY
   source-key: &source-key "_sdc_source_key_"
@@ -229,6 +239,13 @@ databases:
     applicable-to: "All database"
     description: *deleted-at-description
     data: "2019-08-08 14:49:38.593+00"
+
+  - name: *extra
+    type: "string"
+    applicable-to: "Amazon S3 CSV"
+    description: *extra-description
+    data: |
+      [{"name":"Jake the human"},{"no_headers":["16"]}]
 
 saas:
   - name: *customer-id

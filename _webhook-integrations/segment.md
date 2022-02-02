@@ -11,12 +11,16 @@ format: ## controls formatting options in template
   table-desc: true
   list: expand
 
+key: "segment-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
 name: "segment"
 display_name: "Segment"
+
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #

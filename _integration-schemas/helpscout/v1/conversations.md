@@ -26,9 +26,13 @@ attributes:
 
   - name: "user_updated_at"
     type: "date-time"
-    replication-key: true
     description: "The UTC time when the last user update occurred; equal to `customerWaitingSince` if a no user action since the last customer action."
 
+  - name: "updated_at"
+    type: "date-time"
+    replication-key: true
+    description: "The UTC time when the last update occurred; equal to the maximum date between `customerWaitingSince` and `userUpdatedAt`."
+    
   - name: "assignee"
     type: "object"
     description: |
