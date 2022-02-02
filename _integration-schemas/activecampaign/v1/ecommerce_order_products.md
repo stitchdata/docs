@@ -1,22 +1,34 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "ecommerce_order_products"
-doc-link: ""
+doc-link: "https://developers.activecampaign.com/reference#e-commerce-order-products"
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/ecommerce_order_products.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains lists of products for e-commerce orders in your {{ integration.display_name }} account that come from external services. This is a child table of `ecommerce_order_products`.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List EcomOrderProducts for a Specific EcomOrder"
+    doc-link: "https://developers.activecampaign.com/reference#list-products-for-order"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The order products ID."
+    #foreign-key-id: "order-product-id"
+
   - name: "category"
     type: "string"
     description: ""
   - name: "connectionid"
     type: "integer"
-    description: ""
+    description: "The connection ID."
+    foreign-key-id: "connection-id"
   - name: "created_date"
     type: "date-time"
     description: ""
@@ -29,9 +41,7 @@ attributes:
   - name: "externalid"
     type: "string"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "image_url"
     type: "string"
     description: ""
@@ -40,7 +50,8 @@ attributes:
     description: ""
   - name: "orderid"
     type: "integer"
-    description: ""
+    description: "The order ID."
+    foreign-key-id: "order-id"
   - name: "price"
     type: "null"
     description: ""

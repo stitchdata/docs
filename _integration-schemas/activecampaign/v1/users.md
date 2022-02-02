@@ -1,16 +1,27 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "users"
-doc-link: ""
+doc-link: "https://developers.activecampaign.com/reference#users"
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/users.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about users who can login to your {{ integration.display_name }} account.
+  
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all users"
+    doc-link: "https://developers.activecampaign.com/reference#list-all-users"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The user ID."
+    foreign-key-id: "user-id"
+
   - name: "cdate"
     type: "date-time"
     description: ""
@@ -20,9 +31,7 @@ attributes:
   - name: "first_name"
     type: "string"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "last_name"
     type: "string"
     description: ""

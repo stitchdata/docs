@@ -1,19 +1,36 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "deals"
-doc-link: ""
+doc-link: "https://developers.activecampaign.com/reference#deal"
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/deals.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about deals in your {{ integration.display_name }} account.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all deals"
+    doc-link: "https://developers.activecampaign.com/reference#list-all-deals"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The deal ID."
+    foreign-key-id: "deal-id"
+
+  - name: "mdate"
+    type: "date-time"
+    description: "The deal mdate."
+    replication-key: true
+
   - name: "account"
     type: "integer"
-    description: ""
+    description: "The account ID."
+    foreign-key-id: "account-id"
   - name: "activitycount"
     type: "integer"
     description: ""
@@ -22,7 +39,8 @@ attributes:
     description: ""
   - name: "contact"
     type: "integer"
-    description: ""
+    description: "The contact ID."
+    foreign-key-id: "contact-id"
   - name: "currency"
     type: "string"
     description: ""
@@ -37,19 +55,16 @@ attributes:
     description: ""
   - name: "group"
     type: "integer"
-    description: ""
+    description: "The pipeline ID."
+    foreign-key-id: "pipeline-id"
   - name: "hash"
     type: "string"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "is_disabled"
     type: "boolean"
     description: ""
-  - name: "mdate"
-    type: "date-time"
-    description: ""
+
   - name: "next_task"
     type: "integer"
     description: ""
@@ -73,7 +88,8 @@ attributes:
     description: ""
   - name: "stage"
     type: "integer"
-    description: ""
+    description: "The stage ID."
+    foreign-key-id: "stage-id"
   - name: "status"
     type: "integer"
     description: ""

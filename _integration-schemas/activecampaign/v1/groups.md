@@ -1,22 +1,30 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "groups"
-doc-link: ""
+doc-link: "https://developers.activecampaign.com/reference#groups"
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/groups.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about user groups in your {{ integration.display_name }} account.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all groups"
+    doc-link: "https://developers.activecampaign.com/reference#list-all-groups"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The group ID."
+    foreign-key-id: "group-id"
   - name: "descript"
     type: "string"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "optinconfirm"
     type: "integer"
     description: ""

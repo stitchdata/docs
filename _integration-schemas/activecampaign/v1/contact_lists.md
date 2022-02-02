@@ -1,16 +1,31 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "contact_lists"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contact_lists.json"
 description: ""
-replication-method: ""
+
+replication-method: "Key-based Incremental"
+
 api-method:
     name: ""
     doc-link: ""
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The contact list ID."
+    #foreign-key-id: "contact-list-id"
+
+  - name: "updated_timestamp"
+    type: "date-time"
+    description: "The time the contact list was last updated."
+    replication-key: true
+
   - name: "automation"
     type: "integer"
     description: ""
@@ -19,10 +34,12 @@ attributes:
     description: ""
   - name: "campaign"
     type: "integer"
-    description: ""
+    description: "The campaign ID."
+    foreign-key-id: "campaign-id"
   - name: "contact"
     type: "integer"
-    description: ""
+    description: "The contact ID."
+    foreign-key-id: "contact-id"
   - name: "created_by"
     type: "integer"
     description: ""
@@ -34,10 +51,9 @@ attributes:
     description: ""
   - name: "form"
     type: "integer"
-    description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+    description: "The form ID."
+    foreign-key-id: "form-id"
+
   - name: "ip4_last"
     type: "integer"
     description: ""
@@ -52,10 +68,12 @@ attributes:
     description: ""
   - name: "list"
     type: "integer"
-    description: ""
+    description: "The list ID."
+    foreign-key-id: "list-id"
   - name: "message"
     type: "integer"
-    description: ""
+    description: "The message ID."
+    foreign-key-id: "message-id"
   - name: "responder"
     type: "integer"
     description: ""
@@ -85,8 +103,5 @@ attributes:
     description: ""
   - name: "updated_by"
     type: "integer"
-    description: ""
-  - name: "updated_timestamp"
-    type: "date-time"
     description: ""
 ---

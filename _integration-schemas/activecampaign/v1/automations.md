@@ -1,16 +1,32 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "automations"
-doc-link: ""
+doc-link: "https://developers.activecampaign.com/reference#automation"
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/automations.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about automations in your {{ integration.display_name }} account.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all automations"
+    doc-link: "https://developers.activecampaign.com/reference#list-all-automations"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The automation ID."
+    foreign-key-id: "automation-id"
+
+  - name: "mdate"
+    type: "date-time"
+    description: "The date the automation was last modified."
+    replication-key: true
+
   - name: "cdate"
     type: "date-time"
     description: ""
@@ -26,12 +42,7 @@ attributes:
   - name: "hidden"
     type: "integer"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
-  - name: "mdate"
-    type: "date-time"
-    description: ""
+  
   - name: "name"
     type: "string"
     description: ""
@@ -43,5 +54,6 @@ attributes:
     description: ""
   - name: "userid"
     type: "integer"
-    description: ""
+    description: "The user ID."
+    foreign-key-id: "user-id"  
 ---

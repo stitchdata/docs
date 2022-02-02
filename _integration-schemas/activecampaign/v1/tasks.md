@@ -1,16 +1,32 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "tasks"
-doc-link: ""
+doc-link: "https://developers.activecampaign.com/reference#tasks"
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/tasks.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about tasks to do in your {{ integration.display_name }} account.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all tasks"
+    doc-link: "https://developers.activecampaign.com/reference#list-all-tasks"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The task ID."
+    #foreign-key-id: "task-id"
+
+  - name: "udate"
+    type: "date-time"
+    description: "The time the task was last updated."
+    replication-key: true
+
   - name: "assignee"
     type: "integer"
     description: ""
@@ -22,7 +38,8 @@ attributes:
     description: ""
   - name: "deal_task_type"
     type: "integer"
-    description: ""
+    description: "The deal task type ID."
+    foreign-key-id: "task-type-id"
   - name: "done_automation"
     type: "integer"
     description: ""
@@ -32,9 +49,7 @@ attributes:
   - name: "edate"
     type: "date-time"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "note"
     type: "string"
     description: ""
@@ -60,10 +75,9 @@ attributes:
   - name: "title"
     type: "string"
     description: ""
-  - name: "udate"
-    type: "date-time"
-    description: ""
+
   - name: "user"
     type: "integer"
-    description: ""
+    description: "The user ID."
+    foreign-key-id: "user-id"
 ---

@@ -1,16 +1,28 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "tags"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/tags.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about labels that you can apply to contacts in your {{ integration.display_name }} account.
+
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all tags"
+    doc-link: "https://developers.activecampaign.com/reference#retrieve-all-tags"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The tag ID."
+    foreign-key-id: "tag-id"
+
   - name: "cdate"
     type: "date-time"
     description: ""
@@ -23,9 +35,7 @@ attributes:
   - name: "description"
     type: "string"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "tag"
     type: "string"
     description: ""

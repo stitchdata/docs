@@ -1,28 +1,40 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "sms"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/sms.json"
 description: ""
-replication-method: ""
+
+replication-method: "Key-based Incremental"
+
 api-method:
     name: ""
     doc-link: ""
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The SMS ID."
+    #foreign-key-id: "sms-id"
+
+  - name: "ldate"
+    type: "date-time"
+    description: "The SMS ldate."
+    replication-key: true
+
   - name: "automation"
     type: "integer"
-    description: ""
+    description: "The automation ID."
+    foreign-key-id: "automation-id"
+
   - name: "failed"
     type: "integer"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
-  - name: "ldate"
-    type: "date-time"
-    description: ""
+  
   - name: "msg"
     type: "string"
     description: ""
@@ -61,5 +73,6 @@ attributes:
     description: ""
   - name: "userid"
     type: "integer"
-    description: ""
+    description: "The user ID."
+    foreign-key-id: "user-id"
 ---

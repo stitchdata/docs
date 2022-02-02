@@ -1,25 +1,39 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "ecommerce_connections"
-doc-link: ""
+doc-link: "https://developers.activecampaign.com/reference#connections"
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/ecommerce_connections.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about accounts within your {{ integration.display_name }} account that are linked to an external e-commerce service.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all connections"
+    doc-link: "https://developers.activecampaign.com/reference#list-all-connections"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The ecommerce connection ID."
+    foreign-key-id: "connection-id"
+
+  - name: "udate"
+    type: "date-time"
+    description: "The connection udate."
+    replication-key: true
+
   - name: "cdate"
     type: "date-time"
     description: ""
   - name: "externalid"
     type: "string"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "is_internal"
     type: "integer"
     description: ""
@@ -44,7 +58,5 @@ attributes:
   - name: "sync_status"
     type: "integer"
     description: ""
-  - name: "udate"
-    type: "date-time"
-    description: ""
+
 ---

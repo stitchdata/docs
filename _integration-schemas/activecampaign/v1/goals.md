@@ -1,19 +1,30 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "goals"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/goals.json"
 description: ""
-replication-method: ""
+
+replication-method: "Full Table"
+
 api-method:
     name: ""
     doc-link: ""
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The goal ID."
+    #foreign-key-id: "goal-id"
+
   - name: "automation"
     type: "integer"
-    description: ""
+    description: "The automation ID."
+    foreign-key-id: "automation-id"
   - name: "automation_block"
     type: "integer"
     description: ""
@@ -26,9 +37,7 @@ attributes:
   - name: "dirty_stats"
     type: "integer"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "name"
     type: "string"
     description: ""

@@ -1,34 +1,47 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "saved_responses"
-doc-link: ""
+doc-link: "https://developers.activecampaign.com/reference#saved-responses-1"
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/saved_responses.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about email response templates in your {{ integration.display_name }} account.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all saved responses"
+    doc-link: "https://developers.activecampaign.com/reference#list-all-saved-responses"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The saved response ID."
+    #foreign-key-id: "saved-response-id"
+
+  - name: "mdate"
+    type: "date-time"
+    description: "The time the response was last modified."
+    replication-key: true
+
   - name: "body"
     type: "string"
     description: ""
   - name: "cdate"
     type: "date-time"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "last_sent_user_id"
     type: "integer"
-    description: ""
+    description: "The user ID of the last sent response."
+    foreign-key-id: "user-id"
   - name: "ldate"
     type: "date-time"
     description: ""
-  - name: "mdate"
-    type: "date-time"
-    description: ""
+
   - name: "subject"
     type: "string"
     description: ""

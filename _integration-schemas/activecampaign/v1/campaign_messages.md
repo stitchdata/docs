@@ -1,31 +1,40 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "campaign_messages"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/campaign_messages.json"
 description: ""
-replication-method: ""
+
+replication-method: "Full Table"
+
 api-method:
     name: ""
     doc-link: ""
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The campaign message ID."
+    #foreign-key-id: "campaign-message-id"
+
   - name: "campaign"
     type: "integer"
     description: ""
   - name: "campaignid"
     type: "integer"
-    description: ""
+    description: "The campaign ID."
+    foreign-key-id: "campaign-id"
   - name: "forwards"
     type: "integer"
     description: ""
   - name: "hardbounces"
     type: "integer"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "initial_split_percentage"
     type: "null"
     description: ""
@@ -37,7 +46,8 @@ attributes:
     description: ""
   - name: "messageid"
     type: "integer"
-    description: ""
+    description: "The message ID."
+    foreign-key-id: "message-id"
   - name: "opens"
     type: "integer"
     description: ""

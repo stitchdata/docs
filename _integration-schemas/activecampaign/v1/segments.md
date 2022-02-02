@@ -1,16 +1,27 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "segments"
-doc-link: ""
+doc-link: "https://developers.activecampaign.com/reference#segments"
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/segments.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about targeted groups of contacts that meet specified criteria in your {{ integration.display_name }} account.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all segments"
+    doc-link: "https://developers.activecampaign.com/reference#list-all-segments"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The segment ID."
+    #foreign-key-id: "segment-id"
+
   - name: "created_by"
     type: "integer"
     description: ""
@@ -20,9 +31,7 @@ attributes:
   - name: "hidden"
     type: "integer"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "logic"
     type: "string"
     description: ""

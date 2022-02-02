@@ -1,22 +1,36 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "deal_activities"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/deal_activities.json"
 description: ""
-replication-method: ""
+
+replication-method: "Key-based Incremental"
+
 api-method:
     name: ""
     doc-link: ""
+
 attributes:
-  - name: "automation"
+  - name: "id"
     type: "integer"
-    description: ""
+    primary-key: true
+    description: "The deal activity ID."
+    #foreign-key-id: "deal-activity-id"
+
   - name: "cdate"
     type: "date-time"
-    description: ""
+    description: "The date the deal activity was created."
+    replication-key: true
+      
+  - name: "automation"
+    type: "integer"
+    description: "The automation ID."
+    foreign-key-id: "automation-id"
+  
   - name: "d_id"
     type: "integer"
     description: ""
@@ -37,13 +51,12 @@ attributes:
     description: ""
   - name: "deal"
     type: "integer"
-    description: ""
+    description: "The deal ID."
+    foreign-key-id: "deal-id"
   - name: "deleted"
     type: "integer"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "is_addtask"
     type: "integer"
     description: ""
@@ -55,11 +68,13 @@ attributes:
     description: ""
   - name: "stage"
     type: "integer"
-    description: ""
+    description: "The stage ID."
+    foreign-key-id: "stage-id"
   - name: "user"
     type: "integer"
     description: ""
   - name: "userid"
     type: "integer"
-    description: ""
+    description: "The user ID."
+    foreign-key-id: "user-id"
 ---

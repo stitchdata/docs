@@ -1,22 +1,39 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "ecommerce_orders"
-doc-link: ""
+doc-link: "https://developers.activecampaign.com/reference#orders"
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/ecommerce_orders.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about your {{ integration.display_name }} account's customer orders using an external e-commerce service.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all orders"
+    doc-link: "https://developers.activecampaign.com/reference#list-all-orders"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The order ID."
+    foreign-key-id: "order-id"
+
+  - name: "updated_date"
+    type: "date-time"
+    description: "The date the order was last updated."
+    replication-key: true
+
   - name: "connection"
     type: "integer"
     description: ""
   - name: "connectionid"
     type: "integer"
-    description: ""
+    description: "The connection ID."
+    foreign-key-id: "connection-id"
   - name: "created_date"
     type: "date-time"
     description: ""
@@ -25,7 +42,8 @@ attributes:
     description: ""
   - name: "customer"
     type: "integer"
-    description: ""
+    description: "The customer ID."
+    foreign-key-id: "customer-id"
   - name: "discount_amount"
     type: "null"
     description: ""
@@ -41,9 +59,7 @@ attributes:
   - name: "externalid"
     type: "string"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+
   - name: "order_date"
     type: "date-time"
     description: ""
@@ -75,9 +91,6 @@ attributes:
     type: "integer"
     description: ""
   - name: "tstamp"
-    type: "date-time"
-    description: ""
-  - name: "updated_date"
     type: "date-time"
     description: ""
 ---

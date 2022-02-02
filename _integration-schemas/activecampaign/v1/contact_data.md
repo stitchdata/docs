@@ -1,19 +1,35 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "contact_data"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contact_data.json"
 description: ""
-replication-method: ""
+
+replication-method: "Key-based Incremental"
+
 api-method:
     name: ""
     doc-link: ""
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The contact datapoint ID."
+    #foreign-key-id: "contact-data-id"
+
+  - name: "tstamp"
+    type: "date-time"
+    description: "The time the contact data timestamp."
+    replication-key: true
+
   - name: "contact"
     type: "integer"
-    description: ""
+    description: "The contact ID."
+    foreign-key-id: "contact-id"
   - name: "created_by"
     type: "integer"
     description: ""
@@ -86,12 +102,7 @@ attributes:
   - name: "geo_zip"
     type: "string"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
-  - name: "tstamp"
-    type: "date-time"
-    description: ""
+  
   - name: "tw_id"
     type: "integer"
     description: ""

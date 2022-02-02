@@ -1,22 +1,36 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "contact_automations"
-doc-link: ""
+doc-link: "https://developers.activecampaign.com/reference#automations"
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contact_automations.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about automations in your {{ integration.display_name }} account that you can add contacts to.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all automations a contact is in"
+    doc-link: "https://developers.activecampaign.com/reference#list-all-contact-automations"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    description: "The contact automation ID."
+
+  - name: "lastdate"
+    type: "date-time"
+    description: "The date the automation was last updated."
+
   - name: "adddate"
     type: "date-time"
     description: ""
   - name: "automation"
     type: "integer"
-    description: ""
+    description: "The automation ID."
+    foreign-key-id: "automation-id"
   - name: "batchid"
     type: "string"
     description: ""
@@ -31,16 +45,13 @@ attributes:
     description: ""
   - name: "contact"
     type: "integer"
-    description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+    description: "The contact ID."
+    foreign-key-id: "contact-id"
+  
   - name: "lastblock"
     type: "integer"
     description: ""
-  - name: "lastdate"
-    type: "date-time"
-    description: ""
+  
   - name: "lastlogid"
     type: "integer"
     description: ""

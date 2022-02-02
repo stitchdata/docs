@@ -1,16 +1,32 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "forms"
-doc-link: ""
+doc-link: "https://developers.activecampaign.com/reference#forms"
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/forms.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about forms in your {{ integration.display_name }} account.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all forms"
+    doc-link: "https://developers.activecampaign.com/reference#forms-1"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The form ID."
+    foreign-key-id: "form-id"
+
+  - name: "udate"
+    type: "date-time"
+    description: "The form udate."
+    replication-key: true
+
   - name: "action"
     type: "string"
     description: ""
@@ -26,7 +42,8 @@ attributes:
     description: ""
   - name: "addressid"
     type: "integer"
-    description: ""
+    description: "The address ID."
+    foreign-key-id: "address-id"
   - name: "aid"
     type: "integer"
     description: ""
@@ -44,19 +61,19 @@ attributes:
     description: ""
   - name: "contacts"
     type: "integer"
-    description: ""
+    description: "The contact ID."
+    foreign-key-id: "contact-id"
   - name: "deals"
     type: "integer"
-    description: ""
+    description: "The deal ID."
+    foreign-key-id: "deal-id"
   - name: "defaultscreenshot"
     type: "string"
     description: ""
   - name: "entries"
     type: "integer"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "layout"
     type: "string"
     description: ""
@@ -174,13 +191,12 @@ attributes:
   - name: "title"
     type: "string"
     description: ""
-  - name: "udate"
-    type: "date-time"
-    description: ""
+
   - name: "url"
     type: "string"
     description: ""
   - name: "userid"
     type: "integer"
-    description: ""
+    description: "The user ID."
+    foreign-key-id: "user-id"
 ---

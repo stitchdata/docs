@@ -1,16 +1,31 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "ecommerce_order_activities"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/ecommerce_order_activities.json"
 description: ""
-replication-method: ""
+
+replication-method: "Key-based Incremental"
+
 api-method:
     name: ""
     doc-link: ""
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The order activity ID."
+    #foreign-key-id: "order-activity-id"
+
+  - name: "updated_date"
+    type: "date-time"
+    description: "The date the order activity was last updated."
+    replication-key: true
+
   - name: "abandoned_date"
     type: "date-time"
     description: ""
@@ -19,7 +34,8 @@ attributes:
     description: ""
   - name: "connectionid"
     type: "integer"
-    description: ""
+    description: "The connection ID."
+    foreign-key-id: "connection-id"
   - name: "created_date"
     type: "date-time"
     description: ""
@@ -28,7 +44,8 @@ attributes:
     description: ""
   - name: "customerid"
     type: "integer"
-    description: ""
+    description: "The customer ID."
+    foreign-key-id: "customer-id"
   - name: "discount_amount"
     type: "null"
     description: ""
@@ -47,9 +64,7 @@ attributes:
   - name: "externalid"
     type: "string"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "logo_url"
     type: "string"
     description: ""
@@ -64,7 +79,8 @@ attributes:
     description: ""
   - name: "orderid"
     type: "integer"
-    description: ""
+    description: "The order ID."
+    foreign-key-id: "order-id"
   - name: "shipping_amount"
     type: "null"
     description: ""
@@ -89,7 +105,5 @@ attributes:
   - name: "total_products"
     type: "integer"
     description: ""
-  - name: "updated_date"
-    type: "date-time"
-    description: ""
+
 ---

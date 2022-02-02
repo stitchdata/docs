@@ -1,25 +1,36 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "calendars"
-doc-link: ""
+doc-link: "https://developers.activecampaign.com/reference#calendar-feeds"
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/calendars.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about calendar feeds in your {{ integration.display_name }} account.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all calendar feeds"
+    doc-link: "https://developers.activecampaign.com/reference#list-all-calendar-feeds"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The calendar feed ID."
+    #foreign-key-id: "calendar-id"
+
+  - name: "mdate"
+    type: "date-time"
+    description: "The date the calendar feed was last modified."
+    replication-key: true
+
   - name: "cdate"
     type: "date-time"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
-  - name: "mdate"
-    type: "date-time"
-    description: ""
+
   - name: "notification"
     type: "integer"
     description: ""
@@ -34,5 +45,6 @@ attributes:
     description: ""
   - name: "userid"
     type: "integer"
-    description: ""
+    description: "The user ID."
+    foreign-key-id: "user-id"
 ---

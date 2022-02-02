@@ -1,16 +1,27 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "contact_custom_fields"
-doc-link: ""
+doc-link: "https://developers.activecampaign.com/reference#fields"
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contact_custom_fields.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about custom fields for your contacts in your {{ integration.display_name }} account.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all custom fields"
+    doc-link: "https://developers.activecampaign.com/reference#retrieve-fields-1"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The contact custom field ID."
+    #foreign-key-id: "contact-custom-field-id"
+
   - name: "cdate"
     type: "date-time"
     description: ""
@@ -23,9 +34,7 @@ attributes:
   - name: "descript"
     type: "string"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "isrequired"
     type: "integer"
     description: ""

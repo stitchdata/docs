@@ -1,16 +1,30 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "bounce_logs"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/bounce_logs.json"
 description: ""
-replication-method: ""
+
+replication-method: "Key-based Incremental"
+
 api-method:
     name: ""
     doc-link: ""
+
 attributes:
+  - name: "id"
+    type: "integer"
+    description: "The bounce log ID."
+    #foreign-key-id: "bounce-log-id"
+
+  - name: "updated_timestamp"
+    type: "date-time"
+    description: "The time the bounce log was last updated."
+    replication-key: true
+
   - name: "bounce"
     type: "integer"
     description: ""
@@ -22,7 +36,8 @@ attributes:
     description: ""
   - name: "campaignid"
     type: "integer"
-    description: ""
+    description: "The campaign ID."
+    foreign-key-id: "campaign-id"
   - name: "code"
     type: "integer"
     description: ""
@@ -31,7 +46,8 @@ attributes:
     description: ""
   - name: "contact"
     type: "integer"
-    description: ""
+    description: "The contact ID."
+    foreign-key-id: "contact-id"
   - name: "created_by"
     type: "integer"
     description: ""
@@ -44,15 +60,14 @@ attributes:
   - name: "error"
     type: "string"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+
   - name: "message"
     type: "integer"
     description: ""
   - name: "messageid"
     type: "integer"
-    description: ""
+    description: "The message ID."
+    foreign-key-id: "message-id"
   - name: "source"
     type: "string"
     description: ""
@@ -64,8 +79,5 @@ attributes:
     description: ""
   - name: "updated_by"
     type: "integer"
-    description: ""
-  - name: "updated_timestamp"
-    type: "date-time"
     description: ""
 ---

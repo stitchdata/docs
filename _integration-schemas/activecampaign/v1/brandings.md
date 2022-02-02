@@ -1,16 +1,27 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "brandings"
-doc-link: ""
+doc-link: "https://developers.activecampaign.com/reference#branding"
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/brandings.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about existing branding resources in your {{ integration.display_name }} account.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all brandings"
+    doc-link: "https://developers.activecampaign.com/reference#brandings"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The branding resource ID."
+    #foreign-key-id: "branding-id"
+
   - name: "admin_template_css"
     type: "string"
     description: ""
@@ -41,9 +52,7 @@ attributes:
   - name: "help"
     type: "integer"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "license"
     type: "integer"
     description: ""

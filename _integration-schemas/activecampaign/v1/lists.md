@@ -1,16 +1,32 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "lists"
-doc-link: ""
+doc-link: "https://developers.activecampaign.com/reference#lists"
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/lists.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about groups of contacts that campaigns can be sent to in your {{ integration.display_name }} account.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "Retrieve all lists"
+    doc-link: "https://developers.activecampaign.com/reference#retrieve-all-lists"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The list ID."
+    foreign-key-id: "list-id"
+
+  - name: "updated_timestamp"
+    type: "date-time"
+    description: "The time the list was last updated."
+    replication-key: true
+
   - name: "analytics_domains"
     type: "string"
     description: ""
@@ -44,9 +60,7 @@ attributes:
   - name: "get_unsubscribe_reason"
     type: "integer"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "name"
     type: "string"
     description: ""
@@ -143,13 +157,12 @@ attributes:
   - name: "updated_by"
     type: "integer"
     description: ""
-  - name: "updated_timestamp"
-    type: "date-time"
-    description: ""
+
   - name: "user"
     type: "integer"
     description: ""
   - name: "userid"
     type: "integer"
-    description: ""
+    description: "The user ID."
+    foreign-key-id: "user-id"
 ---

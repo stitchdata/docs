@@ -1,16 +1,32 @@
 ---
 tap: "activecampaign"
-version: "0.x"
+version: "1"
 key: ""
+
 name: "campaigns"
-doc-link: ""
+doc-link: "https://developers.activecampaign.com/reference#test-1"
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/campaigns.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about your campaigns in your {{ integration.display_name }} account.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all campaigns"
+    doc-link: "https://developers.activecampaign.com/reference#list-all-campaigns"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The campaign ID."
+    foreign-key-id: "campaign-id"
+
+  - name: "updated_timestamp"
+    type: "date-time"
+    description: "The time the campaign was last updated."
+    replication-key: true
+
   - name: "activerss_interval"
     type: "string"
     description: ""
@@ -22,13 +38,15 @@ attributes:
     description: ""
   - name: "addressid"
     type: "integer"
-    description: ""
+    description: "The address ID."
+    foreign-key-id: "address-id"
   - name: "analytics_campaign_name"
     type: "string"
     description: ""
   - name: "automation"
     type: "integer"
-    description: ""
+    description: "The automation ID."
+    foreign-key-id: "automation-id"
   - name: "basemessageid"
     type: "integer"
     description: ""
@@ -68,9 +86,7 @@ attributes:
   - name: "htmlunsubdata"
     type: "string"
     description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
+  
   - name: "ip4"
     type: "string"
     description: ""
@@ -163,7 +179,8 @@ attributes:
     description: ""
   - name: "segmentid"
     type: "integer"
-    description: ""
+    description: "The segment ID."
+    foreign-key-id: "segment-id"
   - name: "send_amt"
     type: "integer"
     description: ""
@@ -257,9 +274,7 @@ attributes:
   - name: "unsubscribes"
     type: "integer"
     description: ""
-  - name: "updated_timestamp"
-    type: "date-time"
-    description: ""
+  
   - name: "updates"
     type: "integer"
     description: ""
@@ -268,7 +283,8 @@ attributes:
     description: ""
   - name: "userid"
     type: "integer"
-    description: ""
+    description: "The user ID."
+    foreign-key-id: "user-id"
   - name: "waitpreview"
     type: "integer"
     description: ""
