@@ -96,28 +96,20 @@ steps:
             FROM rep_sales.orders
       ```
 
-  - title: "Drop the original table and rename the copy"
+  - title: "Drop the original table and rename the temporary table"
     anchor: "drop-original-and-rename"
     content: |
-      As BigQuery doesn't support renaming tables, you'll have to drop the original table and then copy the temporary table into its place.
-
       1. To drop the original table, run the following from the BigQuery Web UI:
 
           ```sql
           DROP TABLE rep_sales.orders
           ```
-      2. Copy the table via the Web UI. See [BigQuery's documentation](https://cloud.google.com/bigquery/docs/managing-tables#copying_a_single_source_table){:target="new"} for additional instructions.
-
-         In the Copy Table dialog, define the fields as follows:
-
-         - **Destination dataset**: Use the original dataset name. In this example, that's `rep_sales`.
-         - **Destination table**: Use the original table name. In this example, that's `orders`.
-
-         After you've copied the table, move onto the next step.
-      3. To drop the temporary table, run the following from the BigQuery Web UI:
+          You can also rename it and keep it as a backup.
+      2. To rename the temporary table, run the following from the BigQuery Web UI:
 
           ```sql
-          DROP TABLE rep_sales.orders_tmp
+          ALTER TABLE rep_sales.orders_tmp
+          RENAME TO orders
           ```
 
   - title: "Unpause Stitch integrations"
