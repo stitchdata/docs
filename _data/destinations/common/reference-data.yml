@@ -57,6 +57,8 @@ feature-comparisons:
       file: "stitch-details"
     - id: "vpn"
       file: "stitch-details"
+    - id: "static-ip"
+      file: "stitch-details"
 
   replication-loading:
     - id: "default-loading-behavior"
@@ -93,6 +95,7 @@ stitch-details:
   - "ssh"
   - "ssl"
   - "vpn"
+  - "static-ip"
   - "default-loading-behavior"
   - "nested-structure-support"
 
@@ -153,6 +156,12 @@ vpn:
   tooltip: "Indicates if VPN connections are supported for the destination."
   not-supported: |
     Virtual Private Network (VPN) connections may be implemented as part of an {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
+
+static-ip:
+  title: "Static IP addresses" 
+  tooltip: "Indicates if static IP addresses are supported for the destination."
+  supported: "This version of the {{ destination.display_name }} destination has static IP addresses that can be whitelisted."
+  not-supported: "This version of the {{ destination.display_name }} destination does not have static IP addresses that can be whitelisted."
 
 default-loading-behavior:
   tooltip: "The default loading behavior used by the destination."
