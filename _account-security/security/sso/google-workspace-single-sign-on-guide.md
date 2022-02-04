@@ -72,9 +72,9 @@ requirements:
       **SSO Admin privileges in Stitch.** {{ sso-admin }}
 
   - item: |
-      **Super admin privileges in {{ page.display-name }} that allow you to add and configure applications.** If you don't have these privileges, **contact a {{ page.display-name }} admin before continuing**.
+      **Super Admin privileges in {{ page.display-name }} that allow you to add and configure applications.** If you don't have these privileges, **contact a {{ page.display-name }} admin before continuing**.
 
-      Refer to [{{ page.display-name }}'s documentation](https://help.okta.com/en/prod/Content/Topics/Security/administrators-admin-comparison.htm#Applicat){:target="new"} for more info.
+      Refer to [{{ page.display-name }}'s documentation](https://support.google.com/a/answer/2405986#super_admin){:target="new"} for more info.
 
 
 # -------------------------- #
@@ -102,7 +102,7 @@ steps:
       - title: "Create the app in {{ page.display-name }}"
         anchor: "create-app"
         content: |
-          1. Sign into your {{ page.display-name }} account as a user with privileges that allow you to add and configure apps.
+          1. Sign into your [Google Admin Console](https://admin.google.com){:target="new"}.
           2. From the Admin console home page, click **Apps > Web and mobile apps**.
           3. Click **Add App > Add custom SAML app**.
           4. On the **App Details** page, enter the name of the custom app. Optionally, upload an **app icon**.
