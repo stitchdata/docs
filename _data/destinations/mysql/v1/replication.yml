@@ -13,22 +13,22 @@
 #       GENERAL DETAILS          #
 # ------------------------------ #
 
-primary-key-support: true/false
+primary-key-support: true
 
-nested-structure-support: true/false
+nested-structure-support: true
 nested-structure-support-description: |
   Nested data structures will be maintained.
 
-rename-original-column-in-split: true/false
+rename-original-column-in-split: true
 
 
 # ------------------------------ #
 #       LOADING BEHAVIOR         #
 # ------------------------------ #
 
-configurable-loading-behavior: true/false
+configurable-loading-behavior: false
 
-default-loading-behavior: ""
+default-loading-behavior: "Upsert"
 
 loading-behavior-types:
   - "Upsert"

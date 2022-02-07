@@ -35,13 +35,13 @@ type: "mysql"
 display_name: "MySQL"
 name: "mysql"
 
-ssh: true/false
-ssl: true/false
-# port: ## Remove if not needed
+ssh: true
+ssl: true
+port: 3306
 
 hosting-type: "generic" # amazon, generic, microsoft, etc.
 
-api-type: ""
+api-type: "mysql"
 
 this-version: "1"
 

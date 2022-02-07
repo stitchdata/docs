@@ -22,21 +22,15 @@
 #       DATA TYPE MAPPING      #
 # ---------------------------- #
 
-## Data types specific to DESTINATION destinations:
-## REMOVE IF NOT NEEDED.
-specific:
-  - name: ""
-  - name: ""
-
 # ---------------------------- #
 #           BIGINT             #
 # ---------------------------- #
 
 bigint:
-  destination-type: ""
-  suffix: ""
-  doc-link: ""
-  range: ""
+  destination-type: "BIGINT"
+  suffix: "bi"
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/integer-types.html"
+  range: "-9223372036854775808 to 9223372036854775807"
   loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
 
 
@@ -45,21 +39,21 @@ bigint:
 # ---------------------------- #
 
 boolean:
-  destination-type: ""
-  suffix: ""
-  doc-link: ""
+  destination-type: "TINYINT(1)"
+  suffix: "bo"
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/integer-types.html"
 
 
 # ---------------------------- #
 #            DATE              #
 # ---------------------------- #
 
-date:
-  destination-type: ""
-  suffix: ""
+inst:
+  destination-type: "DATETIME"
+  suffix: "dt"
   description: "Stored in UTC"
-  doc-link: ""
-  range: ""
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/datetime.html"
+  range: "1000-01-01 to 9999-12-31"
   loading-error: "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range }}"
   # date-range: &date-range ""
   # timezone-support: &timezone-support "None"
@@ -69,20 +63,17 @@ date:
 #           DOUBLE             #
 # ---------------------------- #
 
-double:
-  destination-type: ""
-  suffix: ""
-  doc-link: ""
+double: &float
+  destination-type: "FLOAT(53)"
+  suffix: "fl"
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/floating-point-types.html"
 
 
 # ---------------------------- #
 #           FLOAT              #
 # ---------------------------- #
 
-float:
-  destination-type: ""
-  suffix: ""
-  doc-link: ""
+float: *float
 
 
 # ---------------------------- #
@@ -90,10 +81,10 @@ float:
 # ---------------------------- #
 
 integer:
-  destination-type: ""
-  suffix: ""
-  doc-link: ""
-  range: ""
+  destination-type: "INT"
+  suffix: "it"
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/integer-types.html"
+  range: "-2147483648 to 2147483647"
   loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
 
 
@@ -102,11 +93,11 @@ integer:
 # ---------------------------- #
 
 number:
-  destination-type: ""
-  suffix: ""
+  destination-type: "DECIMAL"
+  suffix: "de"
   description: ""
-  doc-link: ""
-  range: ""
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/fixed-point-types.html"
+  range: "-99999999999999999999999999999999.999999M to 99999999999999999999999999999999.999999M"
   loading-error: "{{ site.data.destinations.common.loading-errors.decimal-out-of-range }}"
 
 
@@ -115,7 +106,17 @@ number:
 # ---------------------------- #
 
 string:
-  destination-type: ""
-  suffix: ""
+  destination-type: "VARCHAR()"
+  suffix: "st"
   description: ""
-  doc-link: ""
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/char.html"
+
+# ---------------------------- #
+#            JSON              #
+# ---------------------------- #
+
+json:
+  destination-type: "JSON"
+  suffix: "js"
+  description: ""
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/json.html"
