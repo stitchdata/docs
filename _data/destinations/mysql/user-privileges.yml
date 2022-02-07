@@ -1,0 +1,53 @@
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/common-templates/database-user-privileges/
+
+
+# -------------------------------------------------- #
+#     DESTINATION-NAME User Privileges and Setup     #
+# -------------------------------------------------- #
+
+## This file contains info about the privileges and setup steps
+## required to create a Stitch database user for a DESTINATION-NAME destination.
+
+## This file includes info about the permissions required, the
+## commands to grant those permissions, and the descriptions that
+## go along with each step of the user creation process.
+
+defaults:
+  names:
+    [key]: &key-name ""
+
+  doc-links:
+    [key]: &key-doc-link ""
+
+  reasons:
+    [key]: &key-reason "" 
+
+# -------------------------- #
+#  DESTINATION-NAME PRIVILEGES #
+# -------------------------- #
+
+all-permissions:
+  - name: *key-name
+    reason: *key-reason
+    doc-link: *key-doc-link
+
+
+# -------------------------- #
+#         SQL COMMANDS       #
+# -------------------------- #
+
+[command-name-key]: &command-name-key |
+  [COMMAND]
+
+
+# -------------------------- #
+#   STEPS FOR CREATING USER  #
+# -------------------------- #
+
+## The individual steps for creating a DESTINATION user for Stitch.
+
+[destination-name]:
+  - copy: |
+      [Instructions for this step]
+    command: *command-name-key
