@@ -3,11 +3,11 @@
 
 
 # -------------------------------------------------- #
-#     DESTINATION-NAME User Privileges and Setup     #
+#           MySQL User Privileges and Setup          #
 # -------------------------------------------------- #
 
 ## This file contains info about the privileges and setup steps
-## required to create a Stitch database user for a DESTINATION-NAME destination.
+## required to create a Stitch database user for a MySQL destination.
 
 ## This file includes info about the permissions required, the
 ## commands to grant those permissions, and the descriptions that
@@ -24,7 +24,7 @@ defaults:
     [key]: &key-reason "" 
 
 # -------------------------- #
-#  DESTINATION-NAME PRIVILEGES #
+#      MySQL PRIVILEGES      #
 # -------------------------- #
 
 all-permissions:
@@ -47,7 +47,7 @@ all-permissions:
 
 ## The individual steps for creating a DESTINATION user for Stitch.
 
-[destination-name]:
+mysql:
   - copy: |
       [Instructions for this step]
     command: *command-name-key

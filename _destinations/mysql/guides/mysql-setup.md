@@ -12,14 +12,14 @@
 # Page formatting & Controls #
 # -------------------------- #
 
-title: Connecting a DESTINATION-NAME Destination to Stitch
-permalink: /destinations/destination-type/connecting-destination-type-to-stitch
+title: Connecting a MySQL Destination to Stitch
+permalink: /destinations/mysql/connecting-mysql-to-stitch
 
-keywords: destination-type, destination-type data warehouse, destination-type data warehouse, destination-type etl, etl to destination-type, destination-type destination
-summary: "Connect a DESTINATION-NAME destination to your Stitch account."
+keywords: mysql, mysql data warehouse, mysql data warehouse, mysql etl, etl to mysql, mysql destination
+summary: "Connect a MySQL destination to your Stitch account."
 
 content-type: "destination-setup"
-key: "[destination-type]-destination-setup"
+key: "mysql-destination-setup"
 order: 1
 
 toc: true
@@ -31,19 +31,19 @@ use-tutorial-sidebar: false
 #     Destination Details    #
 # -------------------------- #
 
-type: "destination-type"
-display_name: "DESTINATION-NAME"
-name: "destination-name"
+type: "mysql"
+display_name: "MySQL"
+name: "mysql"
 
 ssh: true/false
 ssl: true/false
 # port: ## Remove if not needed
 
-hosting-type: "" # amazon, generic, microsoft, etc.
+hosting-type: "generic" # amazon, generic, microsoft, etc.
 
 api-type: ""
 
-this-version: ""
+this-version: "1"
 
 
 # -------------------------- #
@@ -67,10 +67,6 @@ requirements:
 #     Setup Instructions     #
 # -------------------------- #
 
-steps:
-  - title: ""
-    anchor: ""
-    content: ""
 
 ## The Data pipeline region step is necessary ONLY
 ## if the user needs to whitelist Stitch's IP addresses

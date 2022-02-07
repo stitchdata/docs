@@ -11,13 +11,13 @@
 #        Page Controls       #
 # -------------------------- #
 
-title: DESTINATION-NAME Destination Reference
-permalink: /destinations/destination-type/reference
-keywords: destination-type, destination-type data warehouse, destination-type data warehouse, destination-type etl, etl to destination-type, destination-type destination
-summary: "Reference documentation for Stitch's DESTINATION-NAME destination, including info about Stitch features, replication, and transformations."
+title: MySQL Destination Reference
+permalink: /destinations/mysql/reference
+keywords: mysql, mysql data warehouse, mysql data warehouse, mysql etl, etl to mysql, mysql destination
+summary: "Reference documentation for Stitch's MySQL destination, including info about Stitch features, replication, and transformations."
 
 content-type: "destination-overview"
-key: "destination-type-reference"
+key: "mysql-reference"
 
 layout: general
 sidebar: on-page
@@ -30,10 +30,7 @@ toc: false
 
 related:
   - title: "Connect a {{ page.display_name }} destination"
-    link: "{{ link.destinations.setup.destination-type | prepend: site.baseurl }}"
-
-  - title: ""
-    link: ""
+    link: "{{ link.destinations.setup.mysql | prepend: site.baseurl }}"
 
   - title: "All {{ page.display_name }} docs"
     link: |
@@ -44,22 +41,22 @@ related:
 #    Destination Details     #
 # -------------------------- #
 
-type: "destination-type"
-display_name: "DESTINATION-NAME"
+type: "mysql"
+display_name: "MySQL"
 
-this-version: ""
+this-version: "1"
 
 
 # -------------------------- #
 #           Support          #
 # -------------------------- #
 
-## See _data/destinations/destination-type for
+## See _data/destinations/mysql for
 ## info about connection support, Stitch support,
 ## data limitations, reserved words, etc.
 
 ## Resource links can be found in 
-## _data/destinations/destination-type/resource-links.yml
+## _data/destinations/mysql/resource-links.yml
 
 
 # -------------------------- #
@@ -67,7 +64,7 @@ this-version: ""
 # -------------------------- #
 
 intro: |
-  {{ site.data.destinations.destination-type.destination-details.description | flatify }}
+  {{ site.data.destinations.mysql.destination-details.description | flatify }}
 
   This guide serves as a reference for version {{ destination.this-version }} of Stitch's {{ destination.display_name }} destination.
 
@@ -203,9 +200,9 @@ sections:
         content: |
           Column names in {{ destination.display_name }}:
 
-          {{ site.data.destinations.destination-type.destination-details.column-name-rules | flatify | markdownify }}
+          {{ site.data.destinations.mysql.destination-details.column-name-rules | flatify | markdownify }}
 
-          Stitch will perform the following transformations to ensure column names [adhere to the rules imposed by {{ destination.display_name }}]({{ site.data.destinations.destination-type.resource-links.object-names }}){:target="new"}:
+          Stitch will perform the following transformations to ensure column names [adhere to the rules imposed by {{ destination.display_name }}]({{ site.data.destinations.mysql.resource-links.object-names }}){:target="new"}:
 
           {% include destinations/templates/destination-column-name-transformations.html %}
 
