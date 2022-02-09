@@ -13,35 +13,36 @@
 #       General/Pricing      #
 # -------------------------- #
 
-description: ""
+description: "{{ destination.display_name }} is an open-source relational database management system."
 
 fully-managed: false
 
-free-option: ""
+free-option: "Yes"
 
-pricing-model: ""
+pricing-model: "Annual"
 
-pricing-details: ""
+pricing-details: |
+  Refer to [MySQL's documentation]({{ site.data.destinations.mysql.resource-links.pricing }}){:target="new"} for more info and examples.
 
 
 # -------------------------- #
 #         Table limits       #
 # -------------------------- #
 
-max-columns-per-table: ""
+max-columns-per-table: "4096"
 
-max-tables-per-database: ""
+max-tables-per-database: "None"
 
 
 # -------------------------- #
 #      Object name limits    #
 # -------------------------- #
 
-case-sensitivity: "Sensitive/Insensitive"
+case-sensitivity: "Insensitive"
 
-table-name-length: " characters"
+table-name-length: "64 characters"
 
-column-name-length: " characters"
+column-name-length: "64 characters"
 
 
 # -------------------------- #
