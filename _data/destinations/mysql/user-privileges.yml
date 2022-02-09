@@ -15,39 +15,47 @@
 
 defaults:
   names:
-    [key]: &key-name ""
-
-  doc-links:
-    [key]: &key-doc-link ""
+    all: &all-name "ALL"
 
   reasons:
-    [key]: &key-reason "" 
+    all: &all-reason |
+      Required to create the necessary database objects to load and store your data.
+      
+  doc-links:
+    privileges: &privileges-doc "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html"
 
-# -------------------------- #
-#      MySQL PRIVILEGES      #
-# -------------------------- #
+# ------------------------------- #
+#        MySQL PRIVILEGES         #
+# ------------------------------- #
 
 all-permissions:
-  - name: *key-name
-    reason: *key-reason
-    doc-link: *key-doc-link
 
+  - name: *all-name
+    reason: *all-reason
+    doc-link: *privileges-doc
 
 # -------------------------- #
 #         SQL COMMANDS       #
 # -------------------------- #
 
-[command-name-key]: &command-name-key |
-  [COMMAND]
+create-user-command: &create-user-sql |
+  CREATE USER 'stitch'@'%' IDENTIFIED BY '<STRONG_PASSWORD_HERE>';
 
+
+grant-permissions-to-user: &grant-permissions-sql |
+  GRANT ALL ON DATABASE.<DATABASE_NAME> to stitch;
 
 # -------------------------- #
 #   STEPS FOR CREATING USER  #
 # -------------------------- #
 
-## The individual steps for creating a DESTINATION user for Stitch.
+## The individual steps for creating a MySQL user for Stitch.
 
 mysql:
+  - copy: "If you haven't already, connect to your {{ page.display_name }} instance using your SQL client."
   - copy: |
-      [Instructions for this step]
-    command: *command-name-key
+      Run the following commands to create a login and a user named `stitch`. Replace `<STRONG_PASSWORD_HERE>` with a strong password.:
+    command: *create-user-sql
+  - copy: |
+      Run the following command to grant all privileges to the Stitch user:
+    command: *grant-permissions-sql
