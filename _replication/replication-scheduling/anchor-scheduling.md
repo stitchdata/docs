@@ -127,7 +127,7 @@ sections:
         content: |
           {{ page.example-formatting | flatify }}
 
-          In this example, the job that would have been scheduled for `May 1 04:00:00` was skipped because Job 2 took longer than the Replication Frequency (1 hour/60 minutes) to complete. Replication then resumed on the next recurrence of the Replication Frequency, which was at `May 1 05:00:00`.
+          In this example, the job that would have been scheduled for `May 1 04:30:00` was skipped because Job 2 took longer than the Replication Frequency (1 hour/60 minutes) to complete. Replication then resumed on the next recurrence of the Replication Frequency, which was at `May 1 05:30:00`.
 
           **Note**: Stitch doesn't currently send or display notifications when a job is skipped.
 

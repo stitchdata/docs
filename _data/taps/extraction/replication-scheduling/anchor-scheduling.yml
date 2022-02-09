@@ -89,20 +89,20 @@ examples:
   - name: "long-running-skipped-job"
     description: |
       In this example, we'll look at how a job can be skipped and re-scheduled due to a previously long-running job. This can occur when a job takes longer to run than the selected Replication Frequency.
-    current-date-time: "May 1 @ 1:00 PM (EST), or UTC 17:00"
+    current-date-time: "May 1 @ 1:30 PM (EST), or UTC 17:30"
     replication-frequency: "1 hour"
-    anchor-time: "2:00 PM (EST), or UTC 18:00"
-    schedule-summary: "every hour starting on May 1 at 2:00 PM (EST)"
+    anchor-time: "2:30 PM (EST), or UTC 18:30"
+    schedule-summary: "every hour starting on May 1 at 2:30 PM (EST)"
     jobs:
       - number: 1
-        start-est: "May 1 02:00:00"
-        start-utc: "May 1 18:00:00"
-        end-est: "May 1 02:55:00"
+        start-est: "May 1 02:30:00"
+        start-utc: "May 1 18:30:00"
+        end-est: "May 1 03:25:00"
         duration: "55 minutes"
       - number: 2
-        start-est: "May 1 03:00:00"
-        start-utc: "May 1 19:00:00"
-        end-est: "May 1 04:08:00"
+        start-est: "May 1 03:30:00"
+        start-utc: "May 1 19:30:00"
+        end-est: "May 1 04:38:00"
         duration: "68 minutes"
       - number: 3
         start-est: "Job"
@@ -110,12 +110,12 @@ examples:
         end-est: "skipped"
         duration: "-"
       - number: 4
-        start-est: "May 1 05:00:00"
-        start-utc: "May 1 21:00:00"
-        end-est: "May 1 05:51:00"
+        start-est: "May 1 05:30:00"
+        start-utc: "May 1 21:30:00"
+        end-est: "May 1 06:21:00"
         duration: "51 minutes"
       - number: 5
-        start-est: "May 1 06:00:00"
-        start-utc: "May 1 22:00:00"
-        end-est: "May 1 06:31:00"
+        start-est: "May 1 06:30:00"
+        start-utc: "May 1 22:30:00"
+        end-est: "May 1 07:01:00"
         duration: "31 minutes"
