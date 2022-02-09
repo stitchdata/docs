@@ -9,7 +9,7 @@
 
 tap-reference: "activecampaign"
 
-version: "1"
+version: "0.3"
 
 foreign-keys:
   - id: "custom-field-id"

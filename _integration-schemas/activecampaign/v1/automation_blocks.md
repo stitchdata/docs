@@ -1,6 +1,6 @@
 ---
 tap: "activecampaign"
-version: "1"
+version: "0.3"
 key: ""
 
 name: "automation_blocks"
