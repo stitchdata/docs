@@ -96,13 +96,6 @@ steps:
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
 
     substeps:
-## Remove this section if the user doesn't need to locate connection details in a SaaS app like AWS
-## Check the _includes/shared/connection-details folder for available includes
-      - title: "Locate the {{ destination.display_name }} connection details"
-        anchor: "locate-connection-details-aws"
-        content: |
-          {% include shared/connection-details/amazon.html type="connection-details" %}
-
       - title: "Enter connection details into Stitch"
         anchor: "enter-connection-details-into-stitch"
         content: |
