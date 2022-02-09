@@ -1,0 +1,78 @@
+---
+tap: "activecampaign"
+version: "0.3"
+key: ""
+
+name: "sms"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/sms.json"
+description: ""
+
+replication-method: "Key-based Incremental"
+
+api-method:
+    name: ""
+    doc-link: ""
+
+attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The SMS ID."
+    #foreign-key-id: "sms-id"
+
+  - name: "ldate"
+    type: "date-time"
+    description: "The SMS ldate."
+    replication-key: true
+
+  - name: "automation"
+    type: "integer"
+    description: "The automation ID."
+    foreign-key-id: "automation-id"
+
+  - name: "failed"
+    type: "integer"
+    description: ""
+  
+  - name: "msg"
+    type: "string"
+    description: ""
+  - name: "replies"
+    type: "integer"
+    description: ""
+  - name: "sdate"
+    type: "date-time"
+    description: ""
+  - name: "sent"
+    type: "integer"
+    description: ""
+  - name: "seriesid"
+    type: "integer"
+    description: ""
+  - name: "tf_day"
+    type: "string"
+    description: ""
+  - name: "tf_hr_from"
+    type: "integer"
+    description: ""
+  - name: "tf_hr_to"
+    type: "integer"
+    description: ""
+  - name: "tstamp"
+    type: "date-time"
+    description: ""
+  - name: "uniquereplies"
+    type: "integer"
+    description: ""
+  - name: "unsubscribes"
+    type: "integer"
+    description: ""
+  - name: "user"
+    type: "integer"
+    description: ""
+  - name: "userid"
+    type: "integer"
+    description: "The user ID."
+    foreign-key-id: "user-id"
+---
