@@ -35,8 +35,6 @@ type: "mysql"
 display_name: "MySQL"
 name: "mysql"
 
-ssh: true
-ssl: true
 port: 3306
 
 hosting-type: "generic" # amazon, generic, microsoft, etc.
@@ -59,15 +57,13 @@ intro: |
 requirements:
   - item: |
       {% assign destination = page %}
-      **An up-and-running {{ destination.display_name }} instance.** Instructions for creating a {{ destination.display_name }} destination are outside the scope of this tutorial; our instructions assume that you have an instance up and running. For help getting started with {{ destination.display_name }}, refer to [<PROVIDER>'s documentation](){:target="new"}.
-  - item: ""
-
+      **An up-and-running {{ destination.display_name }} instance.** Instructions for creating a {{ destination.display_name }} destination are outside the scope of this tutorial; our instructions assume that you have an instance up and running. For help getting started with {{ destination.display_name }}, refer to [MySQL's documentation]({{ site.data.destinations.mysql.resource-links.documentation }}){:target="new"}.
 
 # -------------------------- #
 #     Setup Instructions     #
 # -------------------------- #
 
-
+steps:
 ## The Data pipeline region step is necessary ONLY
 ## if the user needs to whitelist Stitch's IP addresses
 ## for setup.
