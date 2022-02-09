@@ -67,10 +67,10 @@ column-name-transformations:
 
   - transformation: "Quote reserved words"
     source-column: "<code>order</code>"
-    destination-column: "<code>\`order\`</code>"
+    destination-column: "<code>`order`</code>"
 
 # ------------------------------- #
-#  Table and schema naming rules  #
+#     Table and naming rules      #
 # ------------------------------- #
 
 table-name-rules: |
@@ -78,17 +78,17 @@ table-name-rules: |
 
 table-name-transformations:
   - transformation: "Trim leading and trailing spaces"
-    source-column: "<code> customerid </code>"
-    destination-column: "<code>customerid</code>"
+    source-table: "<code> customerid </code>"
+    destination-table: "<code>customerid</code>"
 
   - transformation: "Replace characters which are not a-z, A-Z, 0-9, _ or $ with an underscore"
-    source-column: "<code>customer-id</code>"
-    destination-column: "<code>customer_id</code>"
+    source-table: "<code>customer-id</code>"
+    destination-table: "<code>customer_id</code>"
 
   - transformation: "Convert to lowercase"
-    source-column: "<code>CustomerID</code>"
-    destination-column: "<code>customerid</code>"
+    source-table: "<code>CustomerID</code>"
+    destination-table: "<code>customerid</code>"
 
   - transformation: "Quote reserved words"
-    source-column: "<code>order</code>"
-    destination-column: "<code>\`order\`</code>"
+    source-table: "<code>order</code>"
+    destination-table: "<code>`order`</code>"

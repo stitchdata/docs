@@ -206,6 +206,16 @@ sections:
 
           {% include destinations/templates/destination-column-name-transformations.html %}
 
+      - title: "Table names"
+        anchor: "transformations--table-naming"
+        content: |
+          Table and schema names in {{ destination.display_name }}:
+
+          {{ site.data.destinations.mysql.destination-details.table-name-rules | flatify | markdownify }}
+
+          Stitch will perform the following transformations to ensure table and schema names [adhere to the rules imposed by {{ destination.display_name }}]({{ site.data.destinations.mysql.resource-links.object-names }}){:target="new"}:
+
+          {% include destinations/templates/destination-table-name-transformations.html %}
       - title: "Timezones"
         anchor: "transformations--timezones"
         content: |
