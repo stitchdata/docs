@@ -76,7 +76,7 @@ sections:
       To use anchor scheduling, you'll need to:
 
       - **Select a Replication Frequency** greater than an hour. One hour is the minimum frequency required to use anchor scheduling, as using an anchor time with a frequency less than an hour won't affect an integration's replication schedule.
-      - **Define an Anchor Time**. An Anchor Time is the time that the Replication Frequency is "anchored" to, which Stitch will use to create a replication schedule. Anchor times are available in half hour increments. Selecting an Anchor Time is only required when using anchor scheduling.
+      - **Define an Anchor Time**. An Anchor Time is the time that the Replication Frequency is "anchored" to, which Stitch will use to create a replication schedule. Selecting an Anchor Time is only required when using anchor scheduling.
 
       When you select an Anchor Time, Stitch will use it and your selected Replication Frequency to create a replication schedule for the integration.
 
@@ -127,7 +127,7 @@ sections:
         content: |
           {{ page.example-formatting | flatify }}
 
-          In this example, the job that would have been scheduled for `May 1 04:30:00` was skipped because Job 2 took longer than the Replication Frequency (1 hour/60 minutes) to complete. Replication then resumed on the next recurrence of the Replication Frequency, which was at `May 1 05:30:00`.
+          In this example, the job that would have been scheduled for `May 1 04:00:00` was skipped because Job 2 took longer than the Replication Frequency (1 hour/60 minutes) to complete. Replication then resumed on the next recurrence of the Replication Frequency, which was at `May 1 05:00:00`.
 
           **Note**: Stitch doesn't currently send or display notifications when a job is skipped.
 
