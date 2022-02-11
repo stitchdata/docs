@@ -176,7 +176,7 @@ special-characters:
 # -------------------------- #
 
 examples:
-  - translation: "Run at midnight every day"
+  - translation: "Run at midnight UTC every day"
     anchor: "at-midnight-every-day"
     expressions:
       - seconds: "0"
@@ -193,7 +193,7 @@ examples:
         month: "*"
         day-of-week: "?"
 
-  - translation: "Run at midnight every day from Monday through Friday"
+  - translation: "Run at midnight UTC every day from Monday through Friday"
     anchor: "midnight-every-day-mon-fri"
     expressions:
       - seconds: "0"
@@ -210,7 +210,7 @@ examples:
         month: "*"
         day-of-week: "MON-FRI"
 
-  - translation: "Run once a week at 11:00PM on Sunday"
+  - translation: "Run once a week at 11:00PM UTC on Sunday"
     anchor: "sunday-11pm"
     expressions:
       - seconds: "0"
@@ -227,7 +227,7 @@ examples:
         month: "*"
         day-of-week: "SUN"
 
-  - translation: "Run at noon and midnight every day"
+  - translation: "Run at noon and midnight UTC every day"
     anchor: "noon-and-midnight"
     expressions:
       - seconds: "0"
@@ -244,7 +244,7 @@ examples:
         month: "*"
         day-of-week: "*"
 
-  - translation: "Run Tuesday through Thursday every week at 3:00AM"
+  - translation: "Run Tuesday through Thursday every week at 3:00AM UTC"
     anchor: "tue-thur-3am"
     expressions:
       - seconds: "0"
@@ -261,7 +261,7 @@ examples:
         month: "*"
         day-of-week: "TUE-THUR"
 
-  - translation: "Run at midnight every Monday, Wednesday, and Friday"
+  - translation: "Run at midnight UTC every Monday, Wednesday, and Friday"
     anchor: "midnight-mon-wed-fri"
     expressions:
       - seconds: "0"
