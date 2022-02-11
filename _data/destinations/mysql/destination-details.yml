@@ -78,17 +78,17 @@ table-name-rules: |
 
 table-name-transformations:
   - transformation: "Trim leading and trailing spaces"
-    source-table: "<code> customerid </code>"
-    destination-table: "<code>customerid</code>"
+    source-name: "<code> customerid </code>"
+    destination-name: "<code>customerid</code>"
 
   - transformation: "Replace characters which are not a-z, A-Z, 0-9, _ or $ with an underscore"
-    source-table: "<code>customer-id</code>"
-    destination-table: "<code>customer_id</code>"
+    source-name: "<code>customer-id</code>"
+    destination-name: "<code>customer_id</code>"
 
   - transformation: "Convert to lowercase"
-    source-table: "<code>CustomerID</code>"
-    destination-table: "<code>customerid</code>"
+    source-name: "<code>CustomerID</code>"
+    destination-name: "<code>customerid</code>"
 
   - transformation: "Quote reserved words"
-    source-table: "<code>order</code>"
-    destination-table: "<code>`order`</code>"
+    source-name: "<code>order</code>"
+    destination-name: "<code>`order`</code>"

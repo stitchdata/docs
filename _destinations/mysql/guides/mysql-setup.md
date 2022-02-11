@@ -43,6 +43,8 @@ api-type: "mysql"
 
 this-version: "1"
 
+ssh: true
+
 
 # -------------------------- #
 #        Introduction        #
