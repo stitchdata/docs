@@ -117,6 +117,8 @@ sections:
           [seconds] [minute] [hour] [day of month] [month] [day of week]
           ```
 
+          **Note**: The expression uses UTC time. The time zone cannot be customized, but the corresonding local time is displayed in the **Sample schedule (local time)** when creating the expression.
+
           Fields can contain any of the allowed values, along with various combinations of the allowed special characters for that field. **Note**: Entering anything other than a field's allowed values or special characters will result in an error when you try to save the integration's settings. Refer to the [Troubleshooting section](#troubleshooting-cron-errors) for help resolving these errors.
 
           {% assign cron = site.data.ui.cron-scheduling %}
@@ -236,7 +238,7 @@ sections:
 
       1. **You can specify a Day of week OR Day of month value, but not both**. Quartz, the cron implementation used by Stitch, [doesn't currently support specifying values for both fields in an expression](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html#notes){:target="new"}. One of these fields must contain the `?` character for the expression to be considered valid.
 
-      3. **Advanced Scheduling can only be used to whitelist extraction start times**. This means that a job could start during a whitelisted time period but continue running beyond that window, depending on the duration of the extraction.
+      2. **Advanced Scheduling can only be used to whitelist extraction start times**. This means that a job could start during a whitelisted time period but continue running beyond that window, depending on the duration of the extraction.
 
          For example: An integration has a schedule that tells it to run every 20 minutes between the hours of noon and 2:00PM, starting at noon.
 
