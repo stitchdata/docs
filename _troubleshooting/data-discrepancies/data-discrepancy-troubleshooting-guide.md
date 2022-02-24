@@ -251,7 +251,7 @@ If the discrepancy can’t be explained by any of the points above, reach out to
                         <ul>
                             <li>The record's <code>id</code></li>
                             <li>The field with the discrepancy</li>
-                            <li>The <code>updated_at</code> value, if applicable</li>
+                            <li>The replication key value, if applicable</li>
                         </ul>
                     <li><strong>For database integrations:</strong></li>
                         <ul>
