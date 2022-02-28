@@ -5,7 +5,7 @@ version: "1"
 name: "final_url_report"
 doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/gender-performance-report
 description: |
-  The `final_url_report` table contains all statistics aggregated at the final URL level.
+  The `{{ table.name }}` table contains all statistics aggregated at the final URL level.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 

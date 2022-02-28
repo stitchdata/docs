@@ -5,7 +5,7 @@ version: "1"
 name: "criteria_performance_report"
 doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/criteria-performance-report
 description: |
-  The `criteria_performance_report` table contains statistics aggregated at the ad group criteria level.
+  The `{{ table.name }}` table contains statistics aggregated at the ad group criteria level.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 

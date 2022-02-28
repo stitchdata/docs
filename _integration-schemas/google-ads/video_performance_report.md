@@ -5,7 +5,7 @@ version: "1"
 name: "video_performance_report"
 doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/video-performance-report
 description: |
-  The `video_performance_report` table contains statistics for your account's upgraded [AdWords for Video campaigns](https://adwords.googleblog.com/2015/09/trueview-campaigns-now-in-adwords.html){:target="new"}.
+  The `{{ table.name }}` table contains statistics for your account's upgraded [AdWords for Video campaigns](https://adwords.googleblog.com/2015/09/trueview-campaigns-now-in-adwords.html){:target="new"}.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 

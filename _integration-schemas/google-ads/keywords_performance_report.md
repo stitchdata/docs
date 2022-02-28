@@ -5,7 +5,7 @@ version: "1"
 name: "keywords_performance_report"
 doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/keywords-performance-report
 description: |
-  The `keywords_performance_report` table contains all statistics aggregated at the keyword level.
+  The `{{ table.name }}` table contains all statistics aggregated at the keyword level.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
