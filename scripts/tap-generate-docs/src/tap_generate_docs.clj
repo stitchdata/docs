@@ -323,7 +323,7 @@
                              1)))
                    "tap"                (string/replace tap-name "tap-" "")
                    "version"            tap-version
-                   "key"																""
+                   "key"                ""
                    "name"               stream-name
                    "doc-link"           ""
                    "singer-schema"      (format "https://github.com/singer-io/%s/blob/master/%s"
