@@ -268,7 +268,7 @@
   {:pre [(tap-fs? tap-fs)]}
   (let [schema-path        (.relativize (.toPath tap-directory)
                                         (.toPath input-json-schema-file))
-        tap-version        (string/replace (string/trim (:out (sh "python" "setup.py" "--version" :dir tap-directory)))
+        tap-version (string/replace (string/trim (:out (sh "python3" "setup.py" "--version" :dir tap-directory)))
                                            #"^([0-9]+)\..+"
                                            "$1.x")
         stream-name        (string/replace (.getName input-json-schema-file) #".json$" "")
@@ -379,7 +379,7 @@
   [tap-directory]
   {:pre [(.exists tap-directory)]
    :post [(tap-fs? %)]}
-  (let [tap-name             (string/trim (:out (sh "python" "setup.py" "--name" :dir tap-directory)))
+  (let [tap-name             (string/trim (:out (sh "python3" "setup.py" "--name" :dir tap-directory)))
         tap-code-package-dir (io/file tap-directory (string/replace tap-name "-" "_"))
         tap-schema-dir       (let [tap-schema-dir (io/file tap-code-package-dir "schemas")]
                                (if (.exists tap-schema-dir)
