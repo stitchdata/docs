@@ -1,0 +1,30 @@
+---
+tap: "sailthru"
+version: "0.x"
+key: ""
+name: "ad_targeter_plans"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/ad_targeter_plans.json"
+description: ""
+replication-method: ""
+api-method:
+    name: ""
+    doc-link: ""
+attributes:
+  - name: "list"
+    type: "string"
+    description: ""
+  - name: "name"
+    type: "string"
+    description: ""
+  - name: "plan_id"
+    type: "string"
+    description: ""
+  - name: "schedule"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
+---
