@@ -21,7 +21,7 @@ promote: "false"
 The automatic schema evolution feature available for Delta tables can cause issues when loading data to your Databricks Delta destination. It is recommended to disable this option on your destination tables. For more information about this feature, see the [Databricks documentation](https://docs.databricks.com/delta/delta-update.html#automatic-schema-evolution).
 
 To avoid this issue, make sure the `spark.databricks.delta.schema.autoMerge.enabled` is disabled on your table before loading data:
-1. To check if this option is enabled, you can use this SQL query:  `SET spark.databricks.delta.schema.autoMerge.enabled;`.
+1. To check if this option is enabled, you can use this SQL query: `SET spark.databricks.delta.schema.autoMerge.enabled;`.
 2. If the value of this property is `true`, disable it using this query: `SET spark.databricks.delta.schema.autoMerge.enabled=false;`.
 
 
