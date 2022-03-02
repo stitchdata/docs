@@ -430,8 +430,10 @@
     (if (or (get-in parsed-args [:options :help])
             (not= 1 (count (parsed-args :arguments)))
             (not (try (cli-arg->tap-fs (first (parsed-args :arguments)))
-                      (catch Exception e)
-                      (catch Error e))))
+                      (catch Exception e
+                        (println e))
+                      (catch Error e
+                        (println e)))))
       (show-help parsed-args)
       (let [tap-fs       (cli-arg->tap-fs (first (parsed-args :arguments)))
             schema-files (:tap-schemas tap-fs)]
