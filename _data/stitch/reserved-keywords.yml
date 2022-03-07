@@ -200,9 +200,33 @@ microsoft-sql-server:
   - *bigint-suffix
   - *integer-suffix
   - *string-suffix
-  - name: "__js" # For the JSON data type
+  - &js-suffix 
+    name: "__js"  # For the JSON data type
     type: "stitch"
     description: *changed-types
-  - name: "__dt" # For the date data type
+  - &dt-suffix
+    name: "__dt" # For the date data type
     type: "stitch"
     description: *changed-types
+
+# ------------------ #
+#        MySQL       #
+# ------------------ #
+
+mysql:
+  - *sdc-prefix
+  - *rjm-prefix
+  - *boolean-suffix
+  - *decimal-suffix
+  - *float-suffix
+  - *bigint-suffix
+  - *integer-suffix
+  - *string-suffix
+  - *js-suffix
+  - *dt-suffix
+  - name: "__old"
+    type: "stitch"
+    description: "Can't be used as a suffix in table names."
+  - name: "__stg"
+    type: "stitch"
+    description: "Can't be used as a suffix in table names."

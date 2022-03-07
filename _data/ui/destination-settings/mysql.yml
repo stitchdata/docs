@@ -30,10 +30,6 @@ mysql:
     version: "1"
     copy: "{{ site.data.ui.common.database-connections.field-copy.password | flatify }}"
 
-  - name: "{{ site.data.ui.common.database-connections.field-names.database }}"
-    version: "1"
-    copy: "{{ site.data.ui.destination-settings.common.field-copy.destination-database | flatify }}"
-
 # -------------------------- #
 #         SSL FIELDS         #
 # -------------------------- #

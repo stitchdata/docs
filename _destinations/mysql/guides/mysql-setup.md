@@ -60,6 +60,8 @@ requirements:
   - item: |
       {% assign destination = page %}
       **An up-and-running {{ destination.display_name }} instance.** Instructions for creating a {{ destination.display_name }} destination are outside the scope of this tutorial; our instructions assume that you have an instance up and running. For help getting started with {{ destination.display_name }}, refer to [MySQL's documentation]({{ site.data.destinations.mysql.resource-links.documentation }}){:target="new"}.
+  - item: |
+      **A database that uses the InnoDB storage engine.** This is the only storage engine supported by Stitch's {{ destination.display_name }} destination.
 
 # -------------------------- #
 #     Setup Instructions     #
@@ -91,6 +93,30 @@ steps:
       In the following tabs are the instructions for creating a Stitch {{ destination.display_name }} database user and explanations for the permissions Stitch requires.
 
       {% include destinations/templates/destination-user-setup.html %}
+
+  - title: "Enable local data loading"
+    anchor: "enable-local-data-loading"
+    content: |
+      To allow Stitch to stream data from the cloud into your destination, you need to enable the `local_infile` parameter in MySQL.
+
+      1. Check if the feature is already enabled. You can:
+          - Look for the `local_infile` parameter in you `my.cnf` configuration file.
+          - Run the following command from the command line:
+              ```
+              show global variables like 'local_infile';
+              ```
+      1. If the feature is disabled, enable it. To do so, you can:
+          - Add the following line in `my.cnf`:
+              ```
+              local_infile=ON
+              ```
+          - Run the following command while logged in with your root user:
+              ```
+              set global local_infile=true
+              ```
+
+      For more information, see the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/load-data-local-security.html).
+      
 
   - title: "Connect Stitch"
     anchor: "connect-stitch"

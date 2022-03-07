@@ -48,10 +48,10 @@ boolean:
 #            DATE              #
 # ---------------------------- #
 
-inst:
+date:
   destination-type: "DATETIME"
   suffix: "dt"
-  description: "Stored in UTC"
+  description: "Stored in UTC with fractional seconds."
   doc-link: "https://dev.mysql.com/doc/refman/8.0/en/datetime.html"
   range: "1000-01-01 to 9999-12-31"
   loading-error: "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range }}"
@@ -106,10 +106,10 @@ number:
 # ---------------------------- #
 
 string:
-  destination-type: "VARCHAR()"
+  destination-type: "LONGTEXT"
   suffix: "st"
-  description: ""
-  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/char.html"
+  description: "`LONGTEXT` is used for all strings except Primary Keys. If a string is loaded into a Primary Key field, it uses the `VARCHAR` type."
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/blob.html"
 
 # ---------------------------- #
 #            JSON              #

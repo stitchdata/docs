@@ -65,10 +65,6 @@ column-name-transformations:
     source-column: "<code>CustomerID</code>"
     destination-column: "<code>customerid</code>"
 
-  - transformation: "Quote reserved words"
-    source-column: "<code>order</code>"
-    destination-column: "<code>`order`</code>"
-
 # ------------------------------- #
 #     Table and naming rules      #
 # ------------------------------- #
@@ -88,7 +84,3 @@ table-name-transformations:
   - transformation: "Convert to lowercase"
     source-name: "<code>CustomerID</code>"
     destination-name: "<code>customerid</code>"
-
-  - transformation: "Quote reserved words"
-    source-name: "<code>order</code>"
-    destination-name: "<code>`order`</code>"
