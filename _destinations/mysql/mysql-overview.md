@@ -118,6 +118,8 @@ sections:
             content: |
               Stitch loads the data into {{ destination.display_name }}.
 
+              **Note**: With this destination, a new database is created for each integration. The name of the databases created are based on the integration names. To avoid any issues, make sure that you don't create any databases with a name that matches an existing integration.
+
       - title: "Loading behavior"
         anchor: "loading-behavior"
         content: |

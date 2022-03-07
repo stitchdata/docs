@@ -15,24 +15,100 @@
 
 defaults:
   names:
-    all: &all-name "ALL"
+    alter: &alter-name "ALTER"
+    create: &create-name "CREATE"
+    create-temp-tables: &create-temp-tables-name "CREATE TEMPORARY TABLES"
+    delete: &delete-name "DELETE"
+    drop: &drop-name "DROP"
+    execute: &execute-name "EXECUTE"
+    insert: &insert-name "INSERT"
+    select: &select-name "SELECT"
+    update: &update-name "UPDATE"
 
   reasons:
-    all: &all-reason |
-      Required to create the necessary database objects to load and store your data.
+    alter: &alter-reason |
+      Required to edit tables.
+
+    create: &create-reason |
+      Required to create databases and tables.
+
+    create-temp-tables: &create-temp-tables-reason |
+      Required to create temporary tables.
+
+    delete: &delete-reason |
+      Required to delete rows from database tables.
+
+    drop: &drop-reason |
+      Required to delete databases and tables.
+
+    execute: &execute-reason |
+      Required to execute routines.
+
+    insert: &insert-reason |
+      Required to insert rows in database tables.
+
+    select: &select-reason |
+      Required to select rows from database tables.
+
+    update: &update-reason |
+      Required to update rows in database tables.
+      
+
       
   doc-links:
-    privileges: &privileges-doc "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html"
+    alter: &alter-doc "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_alter"
+    create: &create-doc "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create"
+    create-temp-tables: &create-temp-tables-doc "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create-temporary-tables"
+    delete: &delete-doc "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_delete"
+    drop: &drop-doc "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_drop"
+    execute: &execute-doc "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_execute"
+    insert: &insert-doc "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_insert"
+    select: &select-doc "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select"
+    update: &update-doc "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_update"
+
+    
 
 # ------------------------------- #
 #        MySQL PRIVILEGES         #
 # ------------------------------- #
 
 all-permissions:
+  - name: *alter-name
+    reason: *alter-reason
+    doc-link: *alter-doc
 
-  - name: *all-name
-    reason: *all-reason
-    doc-link: *privileges-doc
+  - name: *create-name
+    reason: *create-reason
+    doc-link: *create-doc
+    
+  - name: *create-temp-tables-name
+    reason: *create-temp-tables-reason
+    doc-link: *create-temp-tables-doc
+    
+  - name: *delete-name
+    reason: *delete-reason
+    doc-link: *delete-doc
+    
+  - name: *drop-name
+    reason: *drop-reason
+    doc-link: *drop-doc
+    
+  - name: *execute-name
+    reason: *execute-reason
+    doc-link: *execute-doc
+    
+  - name: *insert-name
+    reason: *insert-reason
+    doc-link: *insert-doc
+    
+  - name: *select-name
+    reason: *select-reason
+    doc-link: *select-doc
+    
+  - name: *update-name
+    reason: *update-reason
+    doc-link: *update-doc
+    
 
 # -------------------------- #
 #         SQL COMMANDS       #
@@ -43,7 +119,7 @@ create-user-command: &create-user-sql |
 
 
 grant-permissions-to-user: &grant-permissions-sql |
-  GRANT ALL ON DATABASE.<DATABASE_NAME> to stitch;
+  GRANT ALTER, CREATE, CREATE TEMPORARY TABLES, DELETE, DROP, EXECUTE, INSERT, SELECT, UPDATE ON DATABASE.<DATABASE_NAME> to stitch;
 
 # -------------------------- #
 #   STEPS FOR CREATING USER  #
@@ -57,5 +133,5 @@ mysql:
       Run the following commands to create a login and a user named `stitch`. Replace `<STRONG_PASSWORD_HERE>` with a strong password.:
     command: *create-user-sql
   - copy: |
-      Run the following command to grant all privileges to the Stitch user:
+      Run the following command to grant the required privileges to the Stitch user:
     command: *grant-permissions-sql
