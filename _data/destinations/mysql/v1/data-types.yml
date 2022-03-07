@@ -95,7 +95,6 @@ integer:
 number:
   destination-type: "DECIMAL"
   suffix: "de"
-  description: ""
   doc-link: "https://dev.mysql.com/doc/refman/8.0/en/fixed-point-types.html"
   range: "-99999999999999999999999999999999.999999M to 99999999999999999999999999999999.999999M"
   loading-error: "{{ site.data.destinations.common.loading-errors.decimal-out-of-range }}"
@@ -118,5 +117,4 @@ string:
 json:
   destination-type: "JSON"
   suffix: "js"
-  description: ""
   doc-link: "https://dev.mysql.com/doc/refman/8.0/en/json.html"

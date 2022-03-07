@@ -87,11 +87,6 @@ sections:
         content: |
           {% include destinations/overviews/destination-reference-table.html category="destination-details" %}
 
-      - title: "{{ page.display_name }} pricing"
-        anchor: "pricing"
-        content: |
-          > INCLUDE IF RELEVANT.
-
   - title: "Replication"
     anchor: "replication"
     content: |
@@ -102,8 +97,6 @@ sections:
       - title: "Replication process overview"
         anchor: "replication-process-overview"
         content: |
-          > IN GENERAL, THIS CONTENT WILL SUFFICE. IF ADDITIONAL INFO IS AVAILABLE ABOUT HOW DATA IS LOADED, INCLUDE IT. EX: HOW BIGQUERY AND AZURE WORK.
-
           A Stitch replication job consists of three stages:
 
           {% for sub-subsection in subsection.sub-subsections %}
