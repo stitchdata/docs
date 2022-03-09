@@ -119,7 +119,7 @@ create-user-command: &create-user-sql |
 
 
 grant-permissions-to-user: &grant-permissions-sql |
-  GRANT ALTER, CREATE, CREATE TEMPORARY TABLES, DELETE, DROP, EXECUTE, INSERT, SELECT, UPDATE ON DATABASE.<DATABASE_NAME> to stitch;
+  GRANT ALTER, CREATE, CREATE TEMPORARY TABLES, DELETE, DROP, EXECUTE, INSERT, SELECT, UPDATE ON *.* TO 'stitch'@'%';
 
 # -------------------------- #
 #   STEPS FOR CREATING USER  #

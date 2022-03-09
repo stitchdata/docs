@@ -61,7 +61,7 @@ requirements:
       {% assign destination = page %}
       **An up-and-running {{ destination.display_name }} instance.** Instructions for creating a {{ destination.display_name }} destination are outside the scope of this tutorial; our instructions assume that you have an instance up and running. For help getting started with {{ destination.display_name }}, refer to [MySQL's documentation]({{ site.data.destinations.mysql.resource-links.documentation }}){:target="new"}.
   - item: |
-      **A database that uses the InnoDB storage engine.** This is the only storage engine supported by Stitch's {{ destination.display_name }} destination.
+      **A database that uses the InnoDB storage engine.** This is the default storage engine for all supported {{ destination.display_name }} versions and the only one supported by Stitch's {{ destination.display_name }} destination.
 
 # -------------------------- #
 #     Setup Instructions     #

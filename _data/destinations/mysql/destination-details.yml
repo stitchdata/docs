@@ -29,9 +29,11 @@ pricing-details: |
 #         Table limits       #
 # -------------------------- #
 
-max-columns-per-table: "4096"
+max-columns-per-table: "1017"
 
 max-tables-per-database: "None"
+
+max-table-size: "Depends on the InnoDB page size"
 
 
 # -------------------------- #
@@ -40,7 +42,7 @@ max-tables-per-database: "None"
 
 case-sensitivity: "Insensitive"
 
-table-name-length: "64 characters"
+table-name-length: "60 characters"
 
 column-name-length: "64 characters"
 
