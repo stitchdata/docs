@@ -90,6 +90,13 @@ When you set a {{ group-type | downcase }} to replicate in Stitch, you can defin
 
 7. Click {{ app.buttons.save-table-settings }} to save your changes.
 
+{% if page.name == 'dynamodb' %}
+
+8. If your projection expression requires expression attributes, enter them in the **Expression Attributes** field.
+
+{% endif %}
+
+
 Stitch will use the {{ group-type | downcase }}'s projection {{ projection-type }} during the next scheduled replication job, even if a job is currently in progress.
 
 
