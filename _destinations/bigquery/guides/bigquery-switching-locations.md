@@ -67,9 +67,12 @@ steps:
       - title: "Define the setting"
         anchor: "define-the-setting"
         content: |
+          {% assign destination = site.destinations | where:"type","bigquery" | first %}
+          {% assign page-settings = site.data.ui.change-destinations-page %}
+
           1. From the {{ app.page-names.dashboard }}, click the {{ app.menu-paths.destination-settings }}.
           2. At the bottom of the page, click the {{ app.buttons.change-destination }} button.
-          3. In the **Historical Data** section, select how you want data to be replicated to the new destination: 
+          3. In the **Connected Source Integrations** section, select how you want data to be replicated to the new destination: 
              {% for field in page-settings.bigquery-historical-data %}
              - {{ field.field }}: {{ field.copy | flatify }}
              {% endfor %}
@@ -77,10 +80,11 @@ steps:
   - title: "Delete the current destination"
     anchor: "delete-current-bigquery-destination"
     content: |
-      1. Click **Continue**. A message will display asking you to confirm the removal of the current destination's settings.
-      2. To complete the switch, Stitch must delete your current destination configuration. **Note**: This will not delete data in the destination itself - it only clears this destination's settings from Stitch.
+      1. In the **Confirm Removal** field, enter the display name of the destination.
+      2. Click **Remove Destination** to confirm. You'll be prompted to confirm the removal of the current destination's settings.
+      3. To continue with the switch, click **Remove** to delete the current destination settings.
 
-         To continue with the switch, click **OK** to delete the current destination settings.
+      **Note**: This will not delete data in the destination itself - it only clears this destination's settings from Stitch.
 
   - title: "Connect the new {{ destination.display_name }} destination"
     anchor: "connect-new-bigquery-destination"
@@ -130,6 +134,5 @@ steps:
 
       Your data will begin replicating according to the historical data option selected in [Step 1](#select-historical-data-setting).
 ---
-{% assign destination = site.destinations | where:"type","bigquery" | first %}
-{% assign page-settings = site.data.ui.change-destinations-page %}
+
 {% include misc/data-files.html %}
