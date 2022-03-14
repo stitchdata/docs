@@ -21,6 +21,12 @@ descriptions:
 # -------------------------- #
 
 snowflake:
+  - name: "{{ site.data.ui.destination-settings.common.field-names.display-name }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.display-name | flatify }}"
+    
+  - name: "{{ site.data.ui.destination-settings.common.field-names.description }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.description | flatify }}"
+
   - name: "{{ site.data.ui.common.database-connections.field-names.host }}"
     copy: |
       Enter the URL of your {{ destination.display_name }} account. For example: `stitch.snowflakecomputing.com`. **Note**: Entering the `http://` or `https://` portion of the URL will prevent a successful connection.
