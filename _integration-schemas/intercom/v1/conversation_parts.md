@@ -11,7 +11,7 @@ description: |
 
   **Note**: When this table is replicated, all conversation parts associated with an updated conversation will be replicated.
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: "Retrieve a conversation"
@@ -120,4 +120,5 @@ attributes:
   - name: "updated_at"
     type: "date-time"
     description: "The time the conversation part was updated."
+    replication-key: true
 ---
