@@ -1,12 +1,19 @@
 ---
 title: Google Ads (v1)
 permalink: /integrations/saas/google-ads
+redirect_from: 
+  - /integrations/saas/google-adwords-v1
+  - /integrations/saas/google-adwords
 tags: [saas_integrations]
-keywords: google ads, google ads data, etl google ads, google ads etl, google ads schema
+keywords: google adwords, google ads, google adwords data, etl google adwords, google adwords etl, google adwords schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Google Ads integration."
 layout: singer
 
 key: "google-ads-setup"
+
+microsites:
+  - title: "{{ page.display_name }} to BigQuery"
+    url: "http://adwords.tobigquery.com/"
 
 # -------------------------- #
 #         Tap Details        #
@@ -17,19 +24,19 @@ display_name: "Google Ads"
 singer: true
 
 tap-name: "Google AdWords"
-repo-url: https://github.com/singer-io/tap-google-ads
+repo-url: https://github.com/singer-io/tap-adwords
 
 this-version: "1"
 
-api-name: "Google Ads API (v9)"
+api-name: "Google AdWords API (v201809)"
 api: |
-  [Google Ads API (v9)](https://developers.google.com/google-ads/api/docs/start#v9){:target='new'}
+  [Google AdWords API (v201809)](https://developers.google.com/adwords/api/docs/guides/start){:target='new'}
 
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
-api-version: ""
+api-version: "v201809"
 
 certified: true
 
@@ -38,7 +45,7 @@ frequency: "24 hours"
 tier: "Standard"
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 
-api-type: "platform.google-ads"
+api-type: "platform.adwords"
 
 anchor-scheduling: true
 cron-scheduling: true
@@ -84,7 +91,7 @@ attribution-window: "30 days"
 feature-summary: |
   Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
-  **Note**: To use the Ads API, an Ads account must be connected to a [My Client Center (MCC) account](#setup-requirements).
+  **Note**: To use the AdWords API, an Ads account must be connected to a [My Client Center (MCC) account](#setup-requirements).
 
 
 # -------------------------- #
@@ -95,11 +102,11 @@ requirements-list:
   - item: "**To pause any ad-blocking software**. Ad blockers can interfere with pop-ups, which are used in Google authorization and may prevent authorization from successfully completing."
   - item: "**Access to the {{ integration.display_name }} data you want to replicate**. Before beginning, verify that the user creating the integration has access to the reports you want to replicate."
   - item: |
-      **To connect your Ads account to a My Client Center (MCC) account.** This will ensure your account has access to the Ads API, thereby allowing Stitch to query for and extract data.
+      **To connect your Ads account to a My Client Center (MCC) account.** This will ensure your account has access to the AdWords API, thereby allowing Stitch to query for and extract data.
 
       An MCC account is an Ads account type that enables you to manage several Ads accounts under a single login. Think of manager accounts as trees: they can branch out to individual accounts or even other manager accounts. [Read more about MCC accounts here](https://support.google.com/adwords/answer/6139186).
 
-      By default, regular advertiser accounts - that is, individual Ads accounts - don't have access to the Ads API. To gain access, they must be linked to an MCC account. If you don't have an MCC account, [create one using these instructions](https://support.google.com/adwords/answer/7459399){:target="new"} and then link it to your Ads account [by following these steps](https://support.google.com/adwords/answer/7459601).
+      By default, regular advertiser accounts - that is, individual Ads accounts - don't have access to the AdWords API. To gain access, they must be linked to an MCC account. If you don't have an MCC account, [create one using these instructions](https://support.google.com/adwords/answer/7459399){:target="new"} and then link it to your Ads account [by following these steps](https://support.google.com/adwords/answer/7459601).
 
 setup-steps:
   - title: "Add {{ integration.display_name }} as a Stitch data source"
@@ -132,7 +139,7 @@ setup-steps:
          - **Selecting a subprofile will also select the parent**, or top-level profile. If you de-select the top-level profile, you will be unable to select any subprofiles.
          - **If multiple profiles are selected, data for all the selected profiles will map to the same table in your destination.** For example: If two profiles are selected and the `accounts` table is tracked, account data for both profiles will be replicated into the `accounts` table. This is applicable to every table selected in the next step.
 
-       1. When finished selecting profiles, click **Continue**.
+       5. When finished selecting profiles, click **Continue**.
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |

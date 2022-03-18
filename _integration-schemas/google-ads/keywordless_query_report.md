@@ -5,7 +5,7 @@ version: "1"
 name: "keywordless_query_report"
 doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/keywordless-query-report
 description: |
-  The `{{ table.name }}` includes keywordless ads (dynamic search ads) statistics based on search terms.
+  The `keywordless_query_report` includes keywordless ads (dynamic search ads) statistics based on search terms.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 

@@ -14,7 +14,7 @@ key: "source-form-properties-google-ads-object"
 # -------------------------- #
 
 title: "Google Ads Source Form Property"
-api-type: "platform.google-ads"
+api-type: "platform.adwords"
 display-name: "Google Ads"
 
 source-type: "saas"
@@ -34,7 +34,7 @@ uses-start-date: true
 #       OAUTH PROPERTIES     #
 # -------------------------- #
 
-oauth-link: "https://developers.google.com/google-ads/api/docs/oauth/overview"
+oauth-link: "https://developers.google.com/adwords/api/docs/guides/authentication"
 
 oauth-description: ""
 

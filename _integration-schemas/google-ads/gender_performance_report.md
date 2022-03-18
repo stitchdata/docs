@@ -5,7 +5,7 @@ version: "1"
 name: "gender_performance_report"
 doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/gender-performance-report
 description: |
-  The `{{ table.name }}` table contains all statistics aggregated by gender.
+  The `gender_performance_report` table contains all statistics aggregated by gender.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
