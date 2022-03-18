@@ -5,7 +5,7 @@ version: "1"
 name: "geo_performance_report"
 doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/geo-performance-report
 description: |
-  The `geo_performance_report` table contains all statistics aggregated at the country/territory level.
+  The `{{ table.name }}` table contains all statistics aggregated at the country/territory level.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 

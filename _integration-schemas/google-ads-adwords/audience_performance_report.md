@@ -1,11 +1,11 @@
 ---
-tap: "google-ads"
+tap: "google-ads-adwords"
 version: "1"
 
-name: "age_range_performance_report"
+name: "audience_performance_report"
 doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/age-range-performance-report
 description: |
-  The `{{ table.name }}` table contains all Display Network and YouTube Network statistics aggregated by age range.
+  The `audience_performance_report` table contains performance data from interests and remarketing lists for Display Network and YouTube Network ads, and remarketing lists for search ads (RLSA), aggregated at the audience level.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 

@@ -1,11 +1,11 @@
 ---
-tap: "google-ads"
+tap: "google-ads-adwords"
 version: "1"
 
-name: "age_range_performance_report"
-doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/age-range-performance-report
+name: "gender_performance_report"
+doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/gender-performance-report
 description: |
-  The `{{ table.name }}` table contains all Display Network and YouTube Network statistics aggregated by age range.
+  The `gender_performance_report` table contains all statistics aggregated by gender.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
@@ -28,7 +28,6 @@ attributes:
   - name: "{{ system-column.customer-id }}"
     type: "integer"
     description: "The ID of the AdWords account that the record belongs to."
-    foreign-key-id: "customer-id"
     foreign-key-id: "customer-id"
 
   - name: "{{ system-column.report-date-time }}"
