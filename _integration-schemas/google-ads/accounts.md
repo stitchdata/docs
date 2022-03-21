@@ -3,10 +3,10 @@ tap: "google-ads"
 version: "1"
 
 name: "accounts"
-doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/ManagedCustomerService.ManagedCustomer
-singer-schema: https://github.com/singer-io/tap-adwords/blob/master/tap_adwords/schemas/accounts.json
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v9/CustomerService
+singer-schema: https://github.com/singer-io/tap-google-ads/blob/main/tap_google_ads/schemas/accounts.json
 description: |
-  The `{{ table.name }}` table contains high-level info about the Google AdWords account(s) you’ve connected to Stitch.
+  The `{{ table.name }}` table contains high-level info about the Google Ads account(s) you’ve connected to Stitch.
 
   [This is a **Core Object** table](#replication).
 
@@ -14,29 +14,101 @@ replication-method: "Full Table"
 attribution-window: true
 
 attributes:
-  - name: "customerId"
-    type: "integer"
-    primary-key: true
-    description: "The ID of the AdWords account that the record belongs to."
-    foreign-key-id: "customer-id"
-
-  - name: "canManageClients"
+  - name: "autoTaggingEnabled"
     type: "boolean"
-    description: "Indicates if the AdWords account can manage clients."
+    description: ""
+
+  - name: "callReportingSetting"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "callConversionAction"
+        type: "string"
+        description: ""
+
+      - name: "callConversionReportingEnabled"
+        type: "boolean"
+        description: ""
+
+      - name: "callReportingEnabled"
+        type: "boolean"
+        description: ""
+
+  - name: "conversionTrackingSetting"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "conversionTrackingId"
+        type: "integer"
+        description: ""
+        
+      - name: "crossAccountConversionTrackingId"
+        type: "integer"
+        description: ""
 
   - name: "currencyCode"
     type: "string"
-    description: "The currency code used by the AdWords account."
+    description: ""
 
-  - name: "dateTimeZone"
+  - name: "descriptiveName"
     type: "string"
-    description: "The local timezone used by the AdWords account."
+    description: ""
 
-  - name: "name"
+  - name: "finalUrlSuffix"
     type: "string"
-    description: "The name used by the manager to refer to the client."
+    description: ""
+
+  - name: "hasPartnersBadge"
+    type: "boolean"
+    description: ""
+
+  - name: "id"
+    type: "integer"
+    description: ""
+    primary-key: true
+    foreign-key-id: "customer_id"
+
+  - name: "manager"
+    type: "boolean"
+    description: ""
+
+  - name: "optimizationScore"
+    type: "string"
+    description: ""
+
+  - name: "optimizationScoreWeight"
+    type: "string"
+    description: ""
+
+  - name: "payPerConversionEligibilityFailureReasons"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "items"
+        type: "string"
+        description: ""
+
+  - name: "remarketingSetting"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "googleGlobalSiteTag"
+        type: "string"
+        description: ""
+
+  - name: "resourceName"
+    type: "string"
+    description: ""
 
   - name: "testAccount"
     type: "boolean"
-    description: "Indicates if the managed customer's account is a test account."
+    description: ""
+
+  - name: "timeZone"
+    type: "string"
+    description: ""
+
+  - name: "trackingUrlTemplate"
+    type: "string"
+    description: ""
 ---

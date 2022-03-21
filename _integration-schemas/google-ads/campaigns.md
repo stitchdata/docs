@@ -3,10 +3,10 @@ tap: "google-ads"
 version: "1"
 
 name: "campaigns"
-doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/CampaignService.Campaign
-singer-schema: https://github.com/singer-io/tap-adwords/blob/master/tap_adwords/schemas/campaigns.json
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v9/CampaignService
+singer-schema: https://github.com/singer-io/tap-google-ads/blob/main/tap_google_ads/schemas/campaigns.json
 description: |
-  The `{{ table.name }}` table contains detailed info about your Google AdWords campaigns.
+  The `{{ table.name }}` table contains detailed info about your Google Ads campaigns.
 
   [This is a **Core Object** table](#replication).
 

@@ -3,10 +3,10 @@ tap: "google-ads"
 version: "1"
 
 name: "ads"
-doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/AdGroupAdService.AdGroupAd
-singer-schema: https://github.com/singer-io/tap-adwords/blob/master/tap_adwords/schemas/ads.json
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v9/AdService
+singer-schema: https://github.com/singer-io/tap-google-ads/blob/main/tap_google_ads/schemas/ads.json
 description: |
-  The `{{ table.name }}` table contains comprehensive info about ads in ad groups in your Google AdWords account.
+  The `{{ table.name }}` table contains comprehensive info about ads in ad groups in your Google Ads account.
 
   [This is a **Core Object** table](#replication).
 
