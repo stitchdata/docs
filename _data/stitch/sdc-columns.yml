@@ -127,7 +127,7 @@ current-columns:
 # RECORD HASH
   record-hash: &record-hash "_sdc_record_hash"
   record-hash-description: &record-hash-description |
-    **Applicable only to Google Analytics (v1) and NetSuite SuiteAnalytics integrations,** this column is a Stitch-generated SHA 256 hash that should be used as a Primary Key. 
+    **Applicable only to Google Analytics (v1), Google Ads (v1) and NetSuite Suite Analytics integrations,** this column is a Stitch-generated SHA 256 hash that should be used as a Primary Key. 
 
     **For Google Analytics integrations**, the hash consists of a UTF-8 encoded JSON list containing:
 
@@ -135,11 +135,15 @@ current-columns:
     - Pairs of `ga:dimension_name` and `dimension_value`
     - The `start_date` and `end_date` values for the record, in `YYYY-mm-dd` format
 
+    **For Google Ads integrations**, the hash consists of a UTF-8 encoded JSON list containing  the names and values of the dimensions in the report.
+
     **For NetSuite Suite Analytics integrations**, the hash consists of the values of the columns designated as Primary Keys by NetSuite for the table.
 
   record-hash-netsuite-suite-analytics: |
     A Stitch-generated SHA 256 hash that should be used as a Primary Key. The hash consists of a UTF-8 encoded JSON list containing the values of the columns designated as the table's Primary Keys by NetSuite.
 
+  record-hash-google-ads: |
+    A Stitch-generated SHA 256 hash that should be used as a Primary Key. The hash consists of a UTF-8 encoded JSON list containing  the names and values of the dimensions in the report.
 
 # REPORT DATE TIME
   report-date-time: &report-date-time "_sdc_report_datetime"
