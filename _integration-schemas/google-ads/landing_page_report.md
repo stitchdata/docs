@@ -2,9 +2,9 @@
 tap: "google-ads"
 version: "1"
 
-name: "ad_performance_report"
+name: "landing_page_report"
 description: |
-  The `{{ table.name }}` table contains all statistics aggregated at the ad level.
+# TO DO The `{{ table.name }}` table contains 
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
@@ -23,11 +23,6 @@ attributes:
     type: "date-time"
     replication-key: true
     description: "The day the record pertains to."
-
-  - name: "customer_id"
-    type: "integer"
-    description: "The ID of the Ads account that the record belongs to."
-    foreign-key-id: "customer_id"
 
   - name: "ad_group_id"
     type: "integer"

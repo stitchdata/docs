@@ -3,9 +3,8 @@ tap: "google-ads"
 version: "1"
 
 name: "video_performance_report"
-doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/video-performance-report
 description: |
-  The `{{ table.name }}` table contains statistics for your account's upgraded [AdWords for Video campaigns](https://adwords.googleblog.com/2015/09/trueview-campaigns-now-in-adwords.html){:target="new"}.
+  The `{{ table.name }}` table contains statistics for your account's videos.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
@@ -29,6 +28,16 @@ attributes:
     type: "integer"
     description: "The ID of the Ads account that the record belongs to."
     foreign-key-id: "customer_id"
+
+  - name: "ad_group_id"
+    type: "integer"
+    description: "The ID of the ad group that the record belongs to."
+    foreign-key-id: "ad_group_id"
+
+  - name: "campaign_id"
+    type: "integer"
+    description: "The ID of the campaign that the record belongs to."
+    foreign-key-id: "campaign_id"
 
   - name: "{{ site.data.taps.extraction.google-ads.custom-fields.name }}"
     description: "{{ site.data.taps.extraction.google-ads.custom-fields.description }}"

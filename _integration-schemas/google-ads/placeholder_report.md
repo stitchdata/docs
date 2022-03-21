@@ -2,9 +2,9 @@
 tap: "google-ads"
 version: "1"
 
-name: "ad_performance_report"
+name: "placeholder_report"
 description: |
-  The `{{ table.name }}` table contains all statistics aggregated at the ad level.
+# TO DO The `{{ table.name }}` table contains 
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 

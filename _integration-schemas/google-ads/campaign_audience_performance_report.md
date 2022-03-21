@@ -2,10 +2,9 @@
 tap: "google-ads"
 version: "1"
 
-name: "call_metrics_call_details_report"
-doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/call-metrics-call-details-report
+name: "campaign_audience_performance_report"
 description: |
-  The `{{ table.name }}` table contains data for call tracking of call-only ads or call extensions.
+  The `{{ table.name }}` table contains all statistics aggregated by default at the campaign level.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 

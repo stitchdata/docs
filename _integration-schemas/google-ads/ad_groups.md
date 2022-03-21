@@ -83,6 +83,7 @@ attributes:
     type: "integer"
     description: ""
     foreign-key-id: "ad_group_id"
+    primary-key: true
 
   - name: "labels"
     type: "array"

@@ -3,7 +3,6 @@ tap: "google-ads"
 version: "1"
 
 name: "gender_performance_report"
-doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/gender-performance-report
 description: |
   The `{{ table.name }}` table contains all statistics aggregated by gender.
 
@@ -29,6 +28,16 @@ attributes:
     type: "integer"
     description: "The ID of the Ads account that the record belongs to."
     foreign-key-id: "customer_id"
+
+  - name: "ad_group_id"
+    type: "integer"
+    description: "The ID of the ad group that the record belongs to."
+    foreign-key-id: "ad_group_id"
+
+  - name: "campaign_id"
+    type: "integer"
+    description: "The ID of the campaign that the record belongs to."
+    foreign-key-id: "campaign_id"
 
   - name: "{{ site.data.taps.extraction.google-ads.custom-fields.name }}"
     description: "{{ site.data.taps.extraction.google-ads.custom-fields.description }}"
