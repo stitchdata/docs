@@ -4,7 +4,7 @@ version: "1"
 
 name: "user_location_performance_report"
 description: |
-# TO DO The `{{ table.name }}` table contains 
+  The `{{ table.name }}` table contains 
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 

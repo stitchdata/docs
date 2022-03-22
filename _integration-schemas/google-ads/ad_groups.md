@@ -120,7 +120,6 @@ attributes:
   - name: "targetRoas"
     type: "string"
     description: ""
-
   - name: "targetingSetting"
     type: "object"
     description: ""
@@ -132,7 +131,6 @@ attributes:
           - name: "operator"
             type: "string"
             description: ""
-
           - name: "targetRestriction"
             type: "object"
             description: ""
@@ -140,11 +138,9 @@ attributes:
               - name: "bidOnly"
                 type: "boolean"
                 description: ""
-                
               - name: "targetingDimension"
                 type: "string"
                 description: ""
-        
       - name: "targetRestrictions"
         type: "array"
         description: ""
@@ -156,11 +152,9 @@ attributes:
                 - name: "bidOnly"
                   type: "boolean"
                   description: ""
-                  
                 - name: "targetingDimension"
                   type: "string"
                   description: ""
-
   - name: "trackingUrlTemplate"
     type: "string"
     description: ""
