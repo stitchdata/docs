@@ -1,0 +1,38 @@
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-replication-data-file/
+
+# ------------------------------------------ #
+#         MYSQL REPLICATION DETAILS          #
+# ------------------------------------------ #
+
+## Details about replication/loading for
+## Stitch's DESTINATION-NAME (v2) destination.
+
+
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
+
+primary-key-support: true
+
+nested-structure-support: true
+nested-structure-support-description: |
+  Nested data structures will be maintained.
+
+rename-original-column-in-split: true
+
+
+# ------------------------------ #
+#       LOADING BEHAVIOR         #
+# ------------------------------ #
+
+configurable-loading-behavior: false
+
+default-loading-behavior: "Upsert"
+
+loading-behavior-types:
+  - "Upsert"
+  - "Append-Only"
+
+loading-behavior-description: |
+  Refer to the [Loading behavior](#loading-behavior) section for more info.
