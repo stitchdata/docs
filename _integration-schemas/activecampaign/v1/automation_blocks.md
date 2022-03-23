@@ -41,8 +41,10 @@ attributes:
     type: "integer"
     description: ""
   - name: "params"
-    type: "object"
+    type: "array, object"
     description: ""
+    subattributes: [
+        ]
   - name: "parent"
     type: "integer"
     description: ""

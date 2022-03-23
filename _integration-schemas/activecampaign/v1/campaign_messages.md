@@ -36,7 +36,7 @@ attributes:
     description: ""
   
   - name: "initial_split_percentage"
-    type: "null"
+    type: "number"
     description: ""
   - name: "linkclicks"
     type: "integer"
@@ -52,7 +52,7 @@ attributes:
     type: "integer"
     description: ""
   - name: "percentage"
-    type: "null"
+    type: "number"
     description: ""
   - name: "replies"
     type: "integer"

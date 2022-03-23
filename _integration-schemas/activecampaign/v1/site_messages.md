@@ -41,8 +41,10 @@ attributes:
       - name: "detailed"
         type: "object"
         description: ""
-
+        subattributes: &id001 [
+            ]
       - name: "initial"
         type: "object"
         description: ""
+        subattributes: *id001
 ---

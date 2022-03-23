@@ -31,7 +31,7 @@ attributes:
     type: "string"
     description: ""
   - name: "avg_revenue_per_order"
-    type: "null"
+    type: "number"
     description: ""
   - name: "connection"
     type: "integer"
@@ -54,7 +54,8 @@ attributes:
     type: "integer"
     description: ""
   - name: "total_revenue"
-    type: "null"
+    type: "number"
+    description: ""
     description: ""
   
 ---
