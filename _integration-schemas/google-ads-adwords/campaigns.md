@@ -1,5 +1,5 @@
 ---
-tap: "google-ads"
+tap: "google-ads-adwords"
 version: "1"
 
 name: "campaigns"
