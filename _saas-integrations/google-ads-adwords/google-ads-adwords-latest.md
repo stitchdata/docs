@@ -1,15 +1,14 @@
 ---
-title: Google Ads (v1)
-permalink: /integrations/saas/google-ads
+title: Google Ads (Adwords)
+permalink: /integrations/saas/google-adwords
 redirect_from: 
   - /integrations/saas/google-adwords-v1
-  - /integrations/saas/google-adwords
 tags: [saas_integrations]
 keywords: google adwords, google ads, google adwords data, etl google adwords, google adwords etl, google adwords schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Google Ads integration."
 layout: singer
 
-key: "google-ads-setup"
+key: "google-ads-adwords-setup"
 
 microsites:
   - title: "{{ page.display_name }} to BigQuery"
@@ -19,11 +18,11 @@ microsites:
 #         Tap Details        #
 # -------------------------- #
 
-name: "google-ads"
-display_name: "Google Ads"
+name: "google-ads-adwords"
+display_name: "Google Ads (Adwords)"
 singer: true
 
-tap-name: "Google AdWords"
+tap-name: "Google Ads (AdWords)"
 repo-url: https://github.com/singer-io/tap-adwords
 
 this-version: "1"

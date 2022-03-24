@@ -1,11 +1,11 @@
 ---
-tap: "google-ads"
+tap: "google-ads-adwords"
 version: "1"
 
-name: "campaign_performance_report"
-doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/campaign-performance-report
+name: "call_metrics_call_details_report"
+doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/call-metrics-call-details-report
 description: |
-  The `campaign_performance_report` table contains all statistics aggregated by default at the campaign level.
+  The `{{ table.name }}` table contains data for call tracking of call-only ads or call extensions.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
@@ -29,6 +29,7 @@ attributes:
     type: "integer"
     description: "The ID of the AdWords account that the record belongs to."
     foreign-key-id: "customer-id"
+    foreign-key-id: "customer-id"
 
   - name: "{{ system-column.report-date-time }}"
     type: "date-time"
@@ -36,5 +37,5 @@ attributes:
 
   - name: "Custom Fields"
     description: |
-      Columns (attributes/segments/metrics) selected by you. For descriptions of available columns, see [Google's documentation](https://developers.google.com/adwords/api/docs/appendix/reports/campaign-performance-report){:target="_blank"}.
+      Columns (attributes/segments/metrics) selected by you. For descriptions of available columns, see [Google's documentation](https://developers.google.com/adwords/api/docs/appendix/reports/ad-performance-report){:target="_blank"}.
 ---

@@ -1,11 +1,11 @@
 ---
-tap: "google-ads"
+tap: "google-ads-adwords"
 version: "1"
 
-name: "click_performance_report"
-doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/click-performance-report
+name: "search_query_performance_report"
+doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/search-query-performance-report
 description: |
-  The `click_performance_report` table contains statistics aggregated at each click level, and includes both valid and invalid clicks.
+  The `search_query_performance_report` table contains all statistics aggregated at the search term level.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
@@ -36,5 +36,5 @@ attributes:
 
   - name: "Custom Fields"
     description: |
-      Columns (attributes/segments/metrics) selected by you. For descriptions of available columns, see [Google's documentation](https://developers.google.com/adwords/api/docs/appendix/reports/click-performance-report){:target="_blank"}.
+      Columns (attributes/segments/metrics) selected by you. For descriptions of available columns, see [Google's documentation](https://developers.google.com/adwords/api/docs/appendix/reports/search-query-performance-report){:target="_blank"}.
 ---
