@@ -69,8 +69,6 @@ attributes:
   - name: "cfields"
     type: "array, object"
     description: ""
-    subattributes: [
-        ]
   - name: "contacts"
     type: "integer"
     description: "The contact ID."

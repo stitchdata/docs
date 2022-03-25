@@ -43,8 +43,7 @@ attributes:
   - name: "params"
     type: "array, object"
     description: ""
-    subattributes: [
-        ]
+    
   - name: "parent"
     type: "integer"
     description: ""
