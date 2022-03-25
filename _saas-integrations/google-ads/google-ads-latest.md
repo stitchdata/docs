@@ -1,5 +1,5 @@
 ---
-title: Google Ads (v1)
+title: Google Ads (v0)
 permalink: /integrations/saas/google-ads
 tags: [saas_integrations]
 keywords: google ads, google ads data, etl google ads, google ads etl, google ads schema
@@ -19,17 +19,17 @@ singer: true
 tap-name: "Google AdWords"
 repo-url: https://github.com/singer-io/tap-google-ads
 
-this-version: "1"
+this-version: "0"
 
-api-name: "Google Ads API (v9)"
+api-name: "Google Ads API (v10)"
 api: |
-  [Google Ads API (v9)](https://developers.google.com/google-ads/api/docs/start#v9){:target='new'}
+  [Google Ads API (v10)](https://developers.google.com/google-ads/api/reference/rpc/v10/overview){:target='new'}
 
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
-api-version: ""
+api-version: "v10"
 
 certified: true
 

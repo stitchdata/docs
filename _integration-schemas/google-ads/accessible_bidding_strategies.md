@@ -1,15 +1,16 @@
 ---
 tap: "google-ads"
-version: "0.x"
-key: ""
+version: "0"
 name: "accessible_bidding_strategies"
-doc-link: ""
-singer-schema: "https://github.com/singer-io/tap-google-ads/blob/master/tap_google_ads/schemas/accessible_bidding_strategies.json"
-description: ""
-replication-method: ""
-api-method:
-    name: ""
-    doc-link: ""
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v9/AccessibleBiddingStrategyService
+description: |
+  The `{{ table.name }}` table contains info about accessible bidding strategies in your Google Ads account.
+
+  [This is a **Core Object** table](#replication).
+
+replication-method: "Full Table"
+attribution-window: true
+
 attributes:
   - name: "customer_id"
     type: "integer"
@@ -17,6 +18,7 @@ attributes:
   - name: "id"
     type: "integer"
     description: ""
+    primary-key: true
   - name: "maximize_conversion_value"
     type: "object"
     description: ""
@@ -43,8 +45,6 @@ attributes:
   - name: "resource_name"
     type: "object, string"
     description: ""
-    subattributes: [
-        ]
   - name: "target_cpa"
     type: "object"
     description: ""

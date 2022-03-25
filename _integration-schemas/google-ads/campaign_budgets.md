@@ -1,15 +1,17 @@
 ---
 tap: "google-ads"
-version: "0.x"
-key: ""
+version: "0"
 name: "campaign_budgets"
-doc-link: ""
-singer-schema: "https://github.com/singer-io/tap-google-ads/blob/master/tap_google_ads/schemas/campaign_budgets.json"
-description: ""
-replication-method: ""
-api-method:
-    name: ""
-    doc-link: ""
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v9/CampaignBudgetService
+description: |
+  The `{{ table.name }}` table contains info about campaign budgets in your Google Ads account.
+
+  [This is a **Core Object** table](#replication).
+
+replication-method: "Full Table"
+attribution-window: true
+
+
 attributes:
   - name: "amount_micros"
     type: "integer"
@@ -32,6 +34,7 @@ attributes:
   - name: "id"
     type: "integer"
     description: ""
+    primary-key: true
   - name: "name"
     type: "string"
     description: ""
@@ -59,8 +62,6 @@ attributes:
   - name: "resource_name"
     type: "object, string"
     description: ""
-    subattributes: [
-        ]
   - name: "status"
     type: "string"
     description: ""

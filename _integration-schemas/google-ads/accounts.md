@@ -1,6 +1,6 @@
 ---
 tap: "google-ads"
-version: "1"
+version: "0"
 
 name: "accounts"
 doc-link: https://developers.google.com/google-ads/api/reference/rpc/v9/CustomerService
@@ -14,101 +14,90 @@ replication-method: "Full Table"
 attribution-window: true
 
 attributes:
-  - name: "autoTaggingEnabled"
+  - name: "auto_tagging_enabled"
     type: "boolean"
     description: ""
-
-  - name: "callReportingSetting"
+  - name: "call_reporting_setting"
     type: "object"
     description: ""
     subattributes:
-      - name: "callConversionAction"
+      - name: "call_conversion_action"
+        type: "object, string"
+        description: ""
+      - name: "call_conversion_reporting_enabled"
+        type: "boolean"
+        description: ""
+      - name: "call_reporting_enabled"
+        type: "boolean"
+        description: ""
+  - name: "conversion_tracking_setting"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "accepted_customer_data_terms"
+        type: "boolean"
+        description: ""
+      - name: "conversion_tracking_id"
+        type: "integer"
+        description: ""
+      - name: "conversion_tracking_status"
         type: "string"
         description: ""
-
-      - name: "callConversionReportingEnabled"
-        type: "boolean"
-        description: ""
-
-      - name: "callReportingEnabled"
-        type: "boolean"
-        description: ""
-
-  - name: "conversionTrackingSetting"
-    type: "object"
-    description: ""
-    subattributes:
-      - name: "conversionTrackingId"
+      - name: "cross_account_conversion_tracking_id"
         type: "integer"
         description: ""
-        
-      - name: "crossAccountConversionTrackingId"
-        type: "integer"
+      - name: "enhanced_conversions_for_leads_enabled"
+        type: "boolean"
         description: ""
-
-  - name: "currencyCode"
+  - name: "currency_code"
     type: "string"
     description: ""
-
-  - name: "descriptiveName"
+  - name: "descriptive_name"
     type: "string"
     description: ""
-
-  - name: "finalUrlSuffix"
+  - name: "final_url_suffix"
     type: "string"
     description: ""
-
-  - name: "hasPartnersBadge"
+  - name: "has_partners_badge"
     type: "boolean"
     description: ""
-
   - name: "id"
     type: "integer"
-    description: ""
     primary-key: true
     foreign-key-id: "customer_id"
-
+    description: ""
   - name: "manager"
     type: "boolean"
     description: ""
-
-  - name: "optimizationScore"
+  - name: "optimization_score"
+    type: "singer.decimal"
+    description: ""
+  - name: "optimization_score_weight"
+    type: "singer.decimal"
+    description: ""
+  - name: "pay_per_conversion_eligibility_failure_reasons"
     type: "string"
     description: ""
-
-  - name: "optimizationScoreWeight"
-    type: "string"
-    description: ""
-
-  - name: "payPerConversionEligibilityFailureReasons"
-    type: "array"
-    description: ""
-    subattributes:
-      - name: "items"
-        type: "string"
-        description: ""
-
-  - name: "remarketingSetting"
+  - name: "remarketing_setting"
     type: "object"
     description: ""
     subattributes:
-      - name: "googleGlobalSiteTag"
+      - name: "google_global_site_tag"
         type: "string"
         description: ""
-
-  - name: "resourceName"
+  - name: "resource_name"
+    type: "object, string"
+    description: ""
+  - name: "status"
     type: "string"
     description: ""
-
-  - name: "testAccount"
+  - name: "test_account"
     type: "boolean"
     description: ""
-
-  - name: "timeZone"
+  - name: "time_zone"
     type: "string"
     description: ""
-
-  - name: "trackingUrlTemplate"
+  - name: "tracking_url_template"
     type: "string"
     description: ""
 ---
