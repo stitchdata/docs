@@ -2,46 +2,42 @@
 ## https://docs-about-stitch-docs.netlify.com/reference/common-templates/database-connection-settings/
 
 
-# ------------------------------------ #
-#         MySQL CONNECTION UI          #
-# ------------------------------------ #
+# -------------------------- #
+#    [NAME] CONNECTION UI    #
+# -------------------------- #
 
 ## This file contains the properties required to successfully set up
-## a microsoft-sql-server connection in Stitch.
+## a [NAME] connection in Stitch.
+
 
 # -------------------------- #
-#            MySQL           #
+#            [NAME]           #
 # -------------------------- #
 
-mysql:
+[database-name]:
+## DESTINATION NAME AND DESCRIPTION
   - name: "{{ site.data.ui.destination-settings.common.field-names.display-name }}"
     copy: "{{ site.data.ui.destination-settings.common.field-copy.display-name | flatify }}"
     
   - name: "{{ site.data.ui.destination-settings.common.field-names.description }}"
     copy: "{{ site.data.ui.destination-settings.common.field-copy.description | flatify }}"
-
+    
+## HOST/ENDPOINT
   - name: "{{ site.data.ui.common.database-connections.field-names.host }}"
-    version: "1"
     copy: "{{ site.data.ui.common.database-connections.field-copy.host | flatify }}"
 
+## PORT
   - name: "{{ site.data.ui.common.database-connections.field-names.port }}"
-    version: "1"
     copy: "{{ site.data.ui.common.database-connections.field-copy.port | flatify }}"
 
+## USERNAME
   - name: "{{ site.data.ui.common.database-connections.field-names.username }}"
-    version: "1"
     copy: "{{ site.data.ui.common.database-connections.field-copy.username | flatify }}"
 
+## PASSWORD
   - name: "{{ site.data.ui.common.database-connections.field-names.password }}"
-    version: "1"
     copy: "{{ site.data.ui.common.database-connections.field-copy.password | flatify }}"
 
-# -------------------------- #
-#         SSL FIELDS         #
-# -------------------------- #
-
-ssl:
-  - name: "{{ site.data.ui.destination-settings.common.field-names.ssl-certificate | flatify }}"
-    connect: "ssl_ca"
-    version: "1"
-    copy: "{{ site.data.ui.destination-settings.common.field-copy.ssl-certificate | flatify }}"
+## DATABASE
+  - name: "{{ site.data.ui.common.database-connections.field-names.database }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.destination-database | flatify }}"

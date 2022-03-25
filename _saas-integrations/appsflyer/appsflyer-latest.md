@@ -20,7 +20,7 @@ display_name: "AppsFlyer"
 repo-url: https://github.com/singer-io/tap-appsflyer
 
 api: |
-  [{{ integration.display_name }} Raw Data Reports V5 API](https://help.fullstory.com/develop-rest/data-export-api){:target="new"}
+  [{{ integration.display_name }} Raw Data Reports V5 API](https://support.appsflyer.com/hc/en-us/articles/360007530258-Using-Pull-API-raw-data){:target="new"}
 
 this-version: "1"
 

@@ -7,6 +7,12 @@
 
 
 databricks-delta:
+  - name: "{{ site.data.ui.destination-settings.common.field-names.display-name }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.display-name | flatify }}"
+    
+  - name: "{{ site.data.ui.destination-settings.common.field-names.description }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.description | flatify }}"
+
   - name: "Access Token"
     copy: |
       Paste the access token you generated in [Step 2.4](generate-databricks-api-access-token).
