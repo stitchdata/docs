@@ -8,7 +8,6 @@ layout: singer
 
 key: "google-ads-setup"
 
-
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -24,7 +23,7 @@ this-version: "0"
 
 api-name: "Google Ads API (v10)"
 api: |
-  [Google Ads API (v10)](https://developers.google.com/adwords/api/docs/guides/start){:target='new'}
+  [Google Ads API (v10)](https://developers.google.com/google-ads/api/reference/rpc/v10/overview){:target='new'}
 
 # -------------------------- #
 #     Integration Details    #
@@ -39,7 +38,7 @@ frequency: "24 hours"
 tier: "Standard"
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 
-api-type: "platform.ads"
+api-type: "platform.google-ads"
 
 anchor-scheduling: true
 cron-scheduling: true
