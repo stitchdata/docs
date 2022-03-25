@@ -187,7 +187,12 @@ replication-sections:
 
           To reduce your row usage and replicating redundant data, consider setting the integration to replicate less frequently. For example: every 12 or 24 hours.
 
+  - title: "Hidden fields in Mixpanel"
+    anchor: "hidden-fields"
+    content: |
+      The Stitch {{ integration.display_name }} integration is not able to discover fields marked as hidden in your {{ integration.display_name }} account. To ensure the fields you want replicated will be available in Stitch, double-check that they aren't hidden in your {{ integration.display_name }} account.
 
+      
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #

@@ -35,7 +35,7 @@ attributes:
   - name: "last_name"
     type: "string"
     description: ""
-  - name: "local_zone_id"
+  - name: "local_zoneid"
     type: "string"
     description: ""
   - name: "mfa_enabled"

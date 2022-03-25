@@ -64,7 +64,7 @@ attributes:
   - name: "tracked"
     type: "integer"
     description: ""
-  - name: "uniqueclicks"
+  - name: "uniquelinkclicks"
     type: "integer"
     description: ""
   - name: "updated_by"

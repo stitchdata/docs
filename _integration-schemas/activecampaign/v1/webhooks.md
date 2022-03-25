@@ -26,7 +26,12 @@ attributes:
     type: "date-time"
     description: ""
   - name: "events"
-    type: "null"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
     description: ""
  
   - name: "listid"
@@ -37,8 +42,12 @@ attributes:
     type: "string"
     description: ""
   - name: "sources"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
   - name: "url"
     type: "string"
     description: ""
