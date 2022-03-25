@@ -30,7 +30,7 @@ attributes:
   - name: "categoryid"
     type: "integer"
     description: ""
-  - name: "contant"
+  - name: "content"
     type: "string"
     description: ""
   - name: "ed_instanceid"

@@ -41,8 +41,9 @@ attributes:
     type: "integer"
     description: ""
   - name: "params"
-    type: "object"
+    type: "array, object"
     description: ""
+    
   - name: "parent"
     type: "integer"
     description: ""

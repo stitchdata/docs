@@ -32,7 +32,7 @@ attributes:
   - name: "currency"
     type: "string"
     description: ""
-  - name: "enforce_limit"
+  - name: "enforcelimit"
     type: "integer"
     description: ""
   
