@@ -3,6 +3,7 @@ tap: "google-ads"
 version: "0"
 
 name: "campaign_performance_report"
+doc-link: https://developers.google.com/google-ads/api/fields/v10/overview
 description: |
   The `{{ table.name }}` table contains all statistics aggregated by default at the campaign level.
 

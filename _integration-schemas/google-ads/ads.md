@@ -3,7 +3,7 @@ tap: "google-ads"
 version: "0"
 
 name: "ads"
-doc-link: https://developers.google.com/google-ads/api/reference/rpc/v9/AdService
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v10/AdService
 singer-schema: https://github.com/singer-io/tap-google-ads/blob/main/tap_google_ads/schemas/ads.json
 description: |
   The `{{ table.name }}` table contains comprehensive info about ads in ad groups in your Google Ads account.

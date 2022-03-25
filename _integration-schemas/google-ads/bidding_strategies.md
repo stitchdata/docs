@@ -2,7 +2,7 @@
 tap: "google-ads"
 version: "0"
 name: "bidding_strategies"
-doc-link: https://developers.google.com/google-ads/api/reference/rpc/v9/BiddingStrategyService
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v10/BiddingStrategyService
 description: |
   The `{{ table.name }}` table contains info about bidding strategies in your Google Ads account.
 

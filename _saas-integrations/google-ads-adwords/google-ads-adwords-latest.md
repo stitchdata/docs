@@ -5,7 +5,7 @@ redirect_from:
   - /integrations/saas/google-adwords-v1
   - /integrations/saas/google-adwords
 tags: [saas_integrations]
-keywords: google adwords, google ads, google adwords data, etl google adwords, google adwords etl, google adwords schema
+keywords: google adwords, google adwords data, etl google adwords, google adwords etl, google adwords schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Google Ads (Adwords) integration."
 layout: singer
 
@@ -90,6 +90,8 @@ attribution-window: "30 days"
 
 feature-summary: |
   Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
+  A newer version of the Google Ads integration, using the Google Ads API is available. For more information, refer to the [Google Ads integration documentation](https://www.stitchdata.com/docs/integrations/saas/google-ads).
 
   **Note**: To use the AdWords API, an Ads account must be connected to a [My Client Center (MCC) account](#setup-requirements).
 

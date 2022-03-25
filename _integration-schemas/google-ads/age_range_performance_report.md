@@ -3,6 +3,7 @@ tap: "google-ads"
 version: "0"
 
 name: "age_range_performance_report"
+doc-link: https://developers.google.com/google-ads/api/fields/v10/overview
 description: |
   The `{{ table.name }}` table contains all Display Network and YouTube Network statistics aggregated by age range.
 

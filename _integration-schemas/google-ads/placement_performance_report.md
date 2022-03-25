@@ -3,6 +3,7 @@ tap: "google-ads"
 version: "0"
 
 name: "placement_performance_report"
+doc-link: https://developers.google.com/google-ads/api/fields/v10/overview
 description: |
   The `{{ table.name }}` table contains 
   

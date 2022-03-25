@@ -3,6 +3,7 @@ tap: "google-ads"
 version: "0"
 
 name: "ad_group_audience_performance_report"
+doc-link: https://developers.google.com/google-ads/api/fields/v10/overview
 description: |
   The `{{ table.name }}` table contains all statistics aggregated at the ad group level.
 
