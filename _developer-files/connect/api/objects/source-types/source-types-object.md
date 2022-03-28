@@ -271,7 +271,9 @@ examples:
           "default_start_date": "-30 days",
           "default_scheduling_interval": 30,
           "protocol": "platform.hubspot",
-          "access": true
-        }
+          "access": true,
+          "image_version": "2.latest"
+        },
+        "upgrade_available": null
       }
 ---
