@@ -170,11 +170,9 @@ replication-sections:
   - title: "Report tables: Edit report dimensions and segments"
     anchor: "edit-report-attributes"
     content: |
-      In report tables, a Primary Key `_sdc_record_hash` is built using the dimensions selected when creating the report.
+      In report tables, a Primary Key `_sdc_record_hash` is built using the segments and attributes selected when creating the report.
 
-      Modifying segments and dimensions after the report is created and data has already been replicated may cause data quality issues. For example, if you add a new dimension, some records might be replicated again with a different primary key, and would therefore be duplicated in the destination.
-
-      To avoid this issue, it is recommended to truncate your destination table before editing a report. You can then start replicating the updated report and recover the truncated records by configuring the **Sync Historical Data** option.
+      Modifying segments and attributes after the report is created and data has already been replicated may cause data quality issues. To avoid this, it is recommended to truncate your destination table before editing a report. You can then start replicating the updated report and recover the truncated records by configuring the **Sync Historical Data** option.
       
 
 
