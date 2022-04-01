@@ -136,7 +136,7 @@ setup-steps:
          If you don't see the profile(s) you want to connect, verify that you have completed the [setup requirements](#setup-requirements).
       4. When selecting profiles, keep the following in mind:
 
-         - **You cannot select more than 1000 profiles per Google Ads integration**. Selcting a large number of profiles can reduce performance, so it is recommended to select fewer profiles if possible. You can select more profiles by adding additional {{ integration.display_name }} integrations in your Stitch account.
+         - **You cannot select more than 1000 profiles per Google Ads integration**. Selecting a large number of profiles can reduce performance, so it is recommended to select fewer profiles if possible. You can select more profiles by adding additional {{ integration.display_name }} integrations in your Stitch account.
          - **Selecting a subprofile will also select the parent**, or top-level profile. If you de-select the top-level profile, you will be unable to select any subprofiles.
          - **If multiple profiles are selected, data for all the selected profiles will map to the same table in your destination.** For example: If two profiles are selected and the `accounts` table is tracked, account data for both profiles will be replicated into the `accounts` table. This is applicable to every table selected in the next step. To distinguish different profiles, make sure to select the `customer_id` field in your tables.
 
