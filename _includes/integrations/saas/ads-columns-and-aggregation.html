@@ -22,6 +22,29 @@
 
     {% assign network2 = "SEARCH" %}
 
+  {% when "google-ads-adwords" %}
+    {% assign replication-key = "day" %}
+
+    {% assign account-id = system-column.customer-id %}
+
+    {% assign account-id-data = "1585293495" %}
+
+    {% assign device = "device" %}
+
+    {% assign computer = "DESKTOP" %}
+
+    {% assign mobile = "HIGH_END_MOBILE" %}
+
+    {% assign tablet = "TABLET" %}
+
+    {% assign unknown = "UNKNOWN" %}
+
+    {% assign network = "adNetworkType1" %}
+
+    {% assign network1 = "YOUTUBE_SEARCH" %}
+
+    {% assign network2 = "SEARCH" %}
+
   {% when "bing-ads" %}
     {% assign replication-key = "gregorianDate" %}
 
