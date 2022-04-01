@@ -2,7 +2,7 @@
   {% when "google-ads" %}
     {% assign replication-key = "day" %}
 
-    {% assign account-id = system-column.customer-id %}
+    {% assign account-id = "customer_id" %}
 
     {% assign account-id-data = "1585293495" %}
 
@@ -16,11 +16,13 @@
 
     {% assign unknown = "UNKNOWN" %}
 
-    {% assign network = "adNetworkType1" %}
+    {% assign network = "ad_network_type" %}
 
     {% assign network1 = "YOUTUBE_SEARCH" %}
 
     {% assign network2 = "SEARCH" %}
+
+    {% assign campaign-id = "campaign_id" %}
 
   {% when "google-ads-adwords" %}
     {% assign replication-key = "day" %}
@@ -44,6 +46,9 @@
     {% assign network1 = "YOUTUBE_SEARCH" %}
 
     {% assign network2 = "SEARCH" %}
+    
+    {% assign campaign-id = "campaignId" %}
+
 
   {% when "bing-ads" %}
     {% assign replication-key = "gregorianDate" %}
@@ -67,14 +72,18 @@
     {% assign network1 = "AOL Search" %}
 
     {% assign network2 = "Bing and Yahoo! search" %}
+    
+    {% assign campaign-id = "campaignId" %}
   {% endcase %}
+
+
 
 
 The dimension columns selected for replication in Report tables can impact how performance statistics are aggregated. Additionally, this can also affect the number of rows replicated and loaded into your destination.
 
-For example: if `{{ replication-key }}`, `{{ account-id }}`, `campaignId`, `{{ device }}`, and `impressions` were selected, the `impressions` column would contain the total number of impressions for the device type for that date:
+For example: if `{{ replication-key }}`, `{{ account-id }}`, `{{ campaign-id }}`, `{{ device }}`, and `impressions` were selected, the `impressions` column would contain the total number of impressions for the device type for that date:
 
-| {{ replication-key }} | {{ account-id }} | campaignId | {{ device }} | impressions |
+| {{ replication-key }} | {{ account-id }} | {{ campaign-id }} | {{ device }} | impressions |
 |------------------------+-------------+-----------+------------+-----------|
 | 2018-01-05 00:00:00 | {{ account-id-data }} | 240531207 | {{ computer }} | 4 |
 | 2018-01-05 00:00:00 | {{ account-id-data }} | 240531207 | {{ mobile }} | 3 |
@@ -83,7 +92,7 @@ For example: if `{{ replication-key }}`, `{{ account-id }}`, `campaignId`, `{{ d
 
 If the `{{ network }}` column were also selected, a row for every unique combination of `{{ device }}` and `{{ network }}` would be created and `impressions` would be aggregated accordingly:
 
-| {{ replication-key }} | {{ account-id }} | campaignId | {{ device }} | {{ network }} | impressions |
+| {{ replication-key }} | {{ account-id }} | {{ campaign-id }} | {{ device }} | {{ network }} | impressions |
 |------------------------+-------------+-----------+------------+------------+---------|
 | 2018-01-05 00:00:00 | {{ account-id-data }} | 240531207 | {{ computer }} | {{ network1 }} | 3 |
 | 2018-01-05 00:00:00 | {{ account-id-data }} | 240531207 | {{ mobile }} | {{ network1 }} | 1 |
