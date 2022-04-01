@@ -1,6 +1,6 @@
 ---
 tap: "google-ads"
-version: "0"
+version: "1"
 
 name: "ads"
 doc-link: https://developers.google.com/google-ads/api/reference/rpc/v10/AdService

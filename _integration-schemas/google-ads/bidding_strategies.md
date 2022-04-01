@@ -1,6 +1,6 @@
 ---
 tap: "google-ads"
-version: "0"
+version: "1"
 name: "bidding_strategies"
 doc-link: https://developers.google.com/google-ads/api/reference/rpc/v10/BiddingStrategyService
 description: |

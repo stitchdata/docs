@@ -1,6 +1,6 @@
 ---
 tap: "google-ads"
-version: "0"
+version: "1"
 
 name: "placement_performance_report"
 doc-link: https://developers.google.com/google-ads/api/fields/v10/overview

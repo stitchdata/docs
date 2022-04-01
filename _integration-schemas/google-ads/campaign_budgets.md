@@ -1,6 +1,6 @@
 ---
 tap: "google-ads"
-version: "0"
+version: "1"
 name: "campaign_budgets"
 doc-link: https://developers.google.com/google-ads/api/reference/rpc/v9/CampaignBudgetService
 description: |
