@@ -167,8 +167,8 @@ replication-sections:
     content: |
       {% include integrations/saas/ads-append-only-replication.html type="report-tables" %}
 
-  - title: "Report tables: Edit report dimensions and segments"
-    anchor: "edit-report-attributes"
+  - title: "Report tables: Edit report segments and attributes"
+    anchor: "edit-report-segments-and-attributes"
     content: |
       In report tables, a Primary Key `_sdc_record_hash` is built using the segments and attributes selected when creating the report.
 
