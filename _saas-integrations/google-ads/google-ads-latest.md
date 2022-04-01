@@ -172,7 +172,7 @@ replication-sections:
     content: |
       In report tables, a Primary Key `_sdc_record_hash` is built using the segments and attributes selected when creating the report.
 
-      Modifying segments and attributes after the report is created and data has already been replicated may cause data quality issues. To avoid this, it is recommended to truncate your destination table before editing a report. You can then start replicating the updated report and recover the truncated records by configuring the **Sync Historical Data** option.
+      Modifying segments and attributes after the report is created and data has already been replicated may cause data quality issues. To avoid this, it is recommended to truncate your destination table before editing a report. You can then replicate the historical data from the updated report by resetting it from its **Table Settings** page.
       
 
 
