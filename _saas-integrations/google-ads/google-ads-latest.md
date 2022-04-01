@@ -108,6 +108,14 @@ setup-steps:
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
+  - title: "Define the conversion window"
+    anchor: "define-conversion-window"
+    content: |
+      The conversion window is the period of time after a customer clicks an ad that a conversion (ex: a purchase) is recorded in {{ integration.display_name }}.
+
+      You can configure the number of days in this window using in the **Conversion Window** field. The value can be any number between 1 and 30, 60 or 90. For more information about conversion windows, refer to the [{{ integration.display_name }} documentation](https://support.google.com/google-ads/answer/3123169?hl=en){:target="new"}.
+
+      If you don't enter a value, the conversion window is set to 30 days by default.
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
@@ -121,8 +129,6 @@ setup-steps:
   - title: "Authorize Stitch & Select {{ integration.display_name }} Profiles"
     anchor: "auth-select-ga-profiles"
     content: |
-      {% include layout/inline_image.html type="right" file="integrations/select-adwords-profiles.png" alt="Selecting Google Ads profiles." max-width="400px" %}
-
       1. Next, you’ll be prompted to log into your Google account and to approve Stitch’s access to your Google Ads data. **Note: We will only ever read your data.**
       2. Click **Authorize** to continue.
       3. After your credentials are validated, you’ll be prompted to select the {{ integration.display_name }} profile(s) you want to connect to Stitch.
@@ -134,7 +140,7 @@ setup-steps:
          - **Selecting a subprofile will also select the parent**, or top-level profile. If you de-select the top-level profile, you will be unable to select any subprofiles.
          - **If multiple profiles are selected, data for all the selected profiles will map to the same table in your destination.** For example: If two profiles are selected and the `accounts` table is tracked, account data for both profiles will be replicated into the `accounts` table. This is applicable to every table selected in the next step. To distinguish different profiles, make sure to select the `customer_id` field in your tables.
 
-       5. When finished selecting profiles, click **Continue**.
+       1. When finished selecting profiles, click **Continue**.
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |
@@ -160,16 +166,16 @@ replication-sections:
     anchor: "data-extraction-conversion-window"
     content: |
       {% include integrations/saas/ads-append-only-replication.html type="report-tables" %}
-      
-  - title: "Report tables: Data loading and Append-Only Replication"
-    anchor: "data-loading-append-only"
-    content: |
-      {% include integrations/saas/ads-append-only-replication.html type="data-loading" %}
 
-  - title: "Report tables: Query for the latest data"
-    anchor: "query-for-the-latest-data"
+  - title: "Report tables: Edit report dimensions and segments"
+    anchor: "edit-report-attributes"
     content: |
-      {% include integrations/saas/ads-append-only-replication.html type="append-only-query" %}
+      In report tables, a Primary Key `_sdc_record_hash` is built using the dimensions selected when creating the report.
+
+      Modifying segments and dimensions after the report is created and data has already been replicated may cause data quality issues. For example, if you add a new dimension, some records might be replicated again with a different primary key, and would therefore be duplicated in the destination.
+
+      To avoid this issue, it is recommended to truncate your destination table before editing a report. You can then start replicating the updated report and recover the truncated records by configuring the **Sync Historical Data** option.
+      
 
 
 # -------------------------- #
