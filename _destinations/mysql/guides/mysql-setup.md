@@ -93,20 +93,35 @@ steps:
       To allow Stitch to stream data from the cloud into your destination, you need to enable the `local_infile` parameter in MySQL.
 
       1. Check if the feature is already enabled. You can:
-          - Look for the `local_infile` parameter in you `my.cnf` configuration file.
+          - Look for the `local_infile` parameter in your `my.cnf` configuration file.
           - Run the following command from the command line:
               ```
               show global variables like 'local_infile';
               ```
       1. If the feature is disabled, enable it. To do so, you can:
-          - Add the following line in `my.cnf`:
+          - Append the following line in `my.cnf`, after the `[mysqld]` tag. If this tag does not exist, create it. It should look like this:
               ```
-              local_infile=ON
+              [mysqld]
+              local_infile=true
               ```
           - Run the following command while logged in with your root user:
               ```
               set global local_infile=true
               ```
+      1. If you are using a {{ destination.display_name }} version between `5.7.8` and `5.7.37`, you may run into errors stating that you are loading invalid UTF-8 characters. To avoid this issue, append the following lines in `my.cnf`:
+            ```
+            [mysql]
+            default-character-set=utf8mb4
+
+            [mysqld]
+            character-set-server=utf8mb4
+            collation-server=utf8mb4_general_ci
+            ```
+
+            If the `[mysql]` and `[mysqld]` tags already exist in the file, add the the values after each tag, otherwise add both the tags and values.
+      
+      1. Restart your database server to apply the changes.
+          
 
       For more information, see the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/load-data-local-security.html).
       
