@@ -108,7 +108,7 @@ steps:
               ```
               set global local_infile=true
               ```
-      1. If you are using a {{ destination.display_name }} version between `5.7.8` and `5.7.37`, you may run into errors stating that you are loading invalid UTF-8 characters. To avoid this issue, append the following lines in `my.cnf`:
+      1. If you are using a supported {{ destination.display_name }} version older than `8.0` (from `5.7.8` to `5.7.37`), you may run into errors stating that you are loading invalid UTF-8 characters. To avoid this issue, append the following lines in `my.cnf`:
             ```
             [mysql]
             default-character-set=utf8mb4
