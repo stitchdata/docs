@@ -6,19 +6,19 @@
 product-type: "connect"
 content-type: "api-form"
 form-type: "source"
-key: "source-form-properties-google-ads-object"
+key: "source-form-properties-google-ads-adwords-object"
 
 
 # -------------------------- #
 #        OBJECT INFO         #
 # -------------------------- #
 
-title: "Google Ads Source Form Property"
-api-type: "platform.google-ads"
-display-name: "Google Ads"
+title: "Google Ads (Adwords) Source Form Property"
+api-type: "platform.adwords"
+display-name: "Google Ads (Adwords)"
 
 source-type: "saas"
-docs-name: "google-ads"
+docs-name: "google-ads-adwords"
 
 description: ""
 
@@ -34,7 +34,7 @@ uses-start-date: true
 #       OAUTH PROPERTIES     #
 # -------------------------- #
 
-oauth-link: "https://developers.google.com/google-ads/api/docs/oauth/overview"
+oauth-link: "https://developers.google.com/adwords/api/docs/guides/authentication"
 
 oauth-description: ""
 
@@ -52,7 +52,7 @@ oauth-attributes:
     required: true
     credential: true
     description: |
-      Your {{ form-property.display-name }} developer token, which identifies your app to the AdWords API. Refer to [Google's documentation](https://developers.google.com/google-ads/api/docs/first-call/dev-token){:target="new"} for more info.
+      Your {{ form-property.display-name }} developer token, which identifies your app to the AdWords API. Refer to [Google's documentation](https://developers.google.com/adwords/api/docs/guides/first-api-call#request_a_developer_token){:target="new"} for more info.
     value: "<YOUR_DEVELOPER_TOKEN>"
 
   - name: "oauth_client_id"
@@ -60,7 +60,7 @@ oauth-attributes:
     required: true
     credential: true
     description: |
-      Your {{ form-property.display-name }} OAuth application's client ID, obtained when you create an OAuth app with Google. Refer to [Google's documentation](https://developers.google.com/google-ads/api/docs/first-call/oauth-cloud-project#create_a_client_id_and_client_secret){:target="new"} for more info.
+      Your {{ form-property.display-name }} OAuth application's client ID, obtained when you create an OAuth app with Google. Refer to [Google's documentation](https://developers.google.com/adwords/api/docs/guides/authentication#create_a_client_id_and_client_secret){:target="new"} for more info.
     value: "<YOUR_OAUTH_CLIENT_ID>"
 
   - name: "oauth_client_secret"
@@ -68,7 +68,7 @@ oauth-attributes:
     required: true
     credential: true
     description: |
-      Your {{ form-property.display-name }} OAuth application's client secret, obtained when you create an OAuth app with Google. Refer to [Google's documentation](https://developers.google.com/google-ads/api/docs/first-call/oauth-cloud-project#create_a_client_id_and_client_secret){:target="new"} for more info.
+      Your {{ form-property.display-name }} OAuth application's client secret, obtained when you create an OAuth app with Google. Refer to [Google's documentation](https://developers.google.com/adwords/api/docs/guides/authentication#create_a_client_id_and_client_secret){:target="new"} for more info.
     value: "<YOUR_OAUTH_CLIENT_SECRET>"
 
   - name: "refresh_token"

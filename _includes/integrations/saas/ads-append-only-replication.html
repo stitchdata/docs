@@ -22,20 +22,35 @@
     {% assign replication-key-historical = "2017-06-05 00:00:00" %}
     {% assign replication-key-ongoing = "2017-09-03 00:00:00" %}
 
-<!-- For Google AdWords -->
+<!-- For Google Ads -->
   {% when "google-ads" %}
     {% assign window = "Conversion Window" %}
     {% assign table = "ad_performance_report" %}
-    {% assign replication-key = "day" %}
+    {% assign replication-key = "date" %}
     {% assign start-date = "July 3, 2017" %}
     {% assign start-date-value = "2017-07-03 00:00:00" %}
     {% assign replication-key-historical = "2017-06-03 00:00:00" %}
     {% assign replication-key-ongoing = "2017-09-01 00:00:00" %}
-    {% assign account-id = system-column.customer-id %}
+    {% assign account-id = "customer_id" %}
     {% assign account-id-data = "1585293495" %}
     {% assign device = "device" %}
     {% assign core-object-replication = "These tables are replicated using **Full Table Replication**." %}
-    {% assign customerid = "customerid" %}
+    {% assign customerid = "customer_id" %}
+  
+<!-- For Google AdWords -->
+  {% when "google-ads-adwords" %}
+  {% assign window = "Conversion Window" %}
+  {% assign table = "ad_performance_report" %}
+  {% assign replication-key = "day" %}
+  {% assign start-date = "July 3, 2017" %}
+  {% assign start-date-value = "2017-07-03 00:00:00" %}
+  {% assign replication-key-historical = "2017-06-03 00:00:00" %}
+  {% assign replication-key-ongoing = "2017-09-01 00:00:00" %}
+  {% assign account-id = system-column.customer-id %}
+  {% assign account-id-data = "1585293495" %}
+  {% assign device = "device" %}
+  {% assign core-object-replication = "These tables are replicated using **Full Table Replication**." %}
+  {% assign customerid = "customerid" %}
 
   {% when "campaign-manager" %}
     {% assign table = "ad_performance_report" %}
@@ -75,17 +90,40 @@
 
 
 <!-- For table types -->
+
+{% case integration.name %}
+
+<!-- For Google Ads -->
+  {% when "google-ads" %}
+  {% assign report-replication-method = "Upsert" %}
+  {% assign core-objects = "[`accounts`](#accounts), [`ad_groups`](#ad-groups), [`ads`](#ads), [`campaigns`](#campaigns), [`accessible_bidding_strategies`](#accessible-bidding-strategies), [`bidding_strategies`](#bidding-strategies) and [`campaign_budgets`](#campaign-budgets)" %}
+<!-- For Google AdWords -->
+  {% else %}
+    {% assign core-objects = "[`accounts`](#accounts), [`ad_groups`](#ad-groups), [`ads`](#ads), and [`campaigns`](#campaigns)" %}
+    {% assign report-replication-method = "Append-Only" %}
+
+
+  {% endcase %}
+
 {% if include.type == "table-types" %}
 There are two types of tables in Stitch's {{ integration.display_name }} integration: Core Object and Report.
 
-- **Core Object** tables contain foundational data that's useful for analysis. These are the [`accounts`](#accounts), [`ad_groups`](#ad_groups), [`ads`](#ads), and [`campaigns`](#campaigns) tables. {{ core-object-replication }}
+
+- **Core Object** tables contain foundational data that's useful for analysis. These are the {{ core-objects }} tables. {{ core-object-replication }}
 
 - **Report** tables are the various {{ integration.display_name }} reports. The replication process for these tables is a bit unlike that of other tables:
-  - **Extraction**: Data is extracted using a {{ window }}. A {{ window }} is a period of time after a customer clicks an ad that a conversion (ex: a purchase) is recorded in {{ integration.display_name }}. Stitch currently uses a {{ window }} of **{{ integration.attribution-window }}**.
+  - **Extraction**: Data is extracted using a {{ window }}. A {{ window }} is a period of time after a customer clicks an ad that a conversion (ex: a purchase) is recorded in {{ integration.display_name }}. 
+  {% if integration.name == "google-ads"%}
+  The {{ window }} can be configured when creating the integration and can be edited in the integration settings at any time. 
+
+  {% else %}
+  Stitch currently uses a {{ window }} of **{{ integration.attribution-window }}**.
 
      This means that data from the past {{ integration.attribution-window }} will be replicated during every replication job.
-  - **Loading**: Data is loaded into your data warehouse using Append-Only Replication.
+  {% endif %}
+  - **Loading**: Data is loaded into your data warehouse using {{ report-replication-method }} Replication.
 
+{% unless integration.name == "google-ads"%}
 For **Report** tables, this means that:
 
 1. **Due to the {{ window }}, a high Replication Frequency may not be necessary.** Because Stitch will replicate data from the past {{ integration.attribution-window }} during every replication job, recent data will be re-replicated and count towards your row quota.
@@ -93,7 +131,7 @@ For **Report** tables, this means that:
    To reduce your row usage and replicating redundant data, consider setting the integration to replicate less frequently. For example: every 12 or 24 hours.
 
 2. **Querying for the latest data in Report tables will require a different strategy than you might usually use**. Stitch will add a column named `{{ system-column.report-date-time }}` to Report tables to help you identify the most recent records in a table. [See the Query for the Latest Data section for more info and a sample query](#query-for-the-latest-data).
-
+{% endunless %}
 Each part of the replication process for **Report** tables is explained below.
 {% endif %}
 
@@ -101,7 +139,7 @@ Each part of the replication process for **Report** tables is explained below.
 
 <!-- For Report Tables -->
 {% if include.type == "report-tables" %}
-{% unless integration.name == "facebook-ads" %}
+{% unless integration.name == "facebook-ads" or integration.name == "google-ads"%}
 Every time Stitch runs a replication job for {{ integration.display_name }}, the last {{ integration.attribution-window }}' worth of data will be replicated for any [**Report** tables](#schema) currently being tracked.
 
 Stitch replicates data in this way to account for updates made during the {{ window }}.

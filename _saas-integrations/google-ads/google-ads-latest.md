@@ -1,42 +1,35 @@
 ---
-title: Google Ads (Adwords)
-permalink: /integrations/saas/google-ads-adwords
-redirect_from: 
-  - /integrations/saas/google-adwords-v1
-  - /integrations/saas/google-adwords
+title: Google Ads (v1)
+permalink: /integrations/saas/google-ads
 tags: [saas_integrations]
-keywords: google adwords, google adwords data, etl google adwords, google adwords etl, google adwords schema
-summary: "Connection instructions, replication info, and schema details for Stitch's Google Ads (Adwords) integration."
+keywords: google ads, google ads data, etl google ads, google ads etl, google ads schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Google Ads integration."
 layout: singer
 
-key: "google-ads-adwords-setup"
-
-microsites:
-  - title: "{{ page.display_name }} to BigQuery"
-    url: "http://adwords.tobigquery.com/"
+key: "google-ads-setup"
 
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
 
-name: "google-ads-adwords"
-display_name: "Google Ads (AdWords)"
+name: "google-ads"
+display_name: "Google Ads"
 singer: true
 
-tap-name: "Google AdWords"
-repo-url: https://github.com/singer-io/tap-adwords
+tap-name: "Google Ads"
+repo-url: https://github.com/singer-io/tap-google-ads
 
 this-version: "1"
 
-api-name: "Google AdWords API (v201809)"
+api-name: "Google Ads API (v10)"
 api: |
-  [Google AdWords API (v201809)](https://developers.google.com/adwords/api/docs/guides/start){:target='new'}
+  [Google Ads API (v10)](https://developers.google.com/google-ads/api/reference/rpc/v10/overview){:target='new'}
 
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
-api-version: "v201809"
+api-version: "v10"
 
 certified: true
 
@@ -45,7 +38,7 @@ frequency: "24 hours"
 tier: "Standard"
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 
-api-type: "platform.adwords"
+api-type: "platform.google-ads"
 
 anchor-scheduling: true
 cron-scheduling: true
@@ -91,9 +84,9 @@ attribution-window: "30 days"
 feature-summary: |
   Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
-  A newer version of the Google Ads integration, using the Google Ads API is available. For more information, refer to the [Google Ads integration documentation](https://www.stitchdata.com/docs/integrations/saas/google-ads).
+  This integration will eventually replace the Google Ads (Adwords) integration.
 
-  **Note**: To use the AdWords API, an Ads account must be connected to a [My Client Center (MCC) account](#setup-requirements).
+  **Note**: To use the Ads API, an Ads account must be connected to a [manager account](#setup-requirements).
 
 
 # -------------------------- #
@@ -104,17 +97,25 @@ requirements-list:
   - item: "**To pause any ad-blocking software**. Ad blockers can interfere with pop-ups, which are used in Google authorization and may prevent authorization from successfully completing."
   - item: "**Access to the {{ integration.display_name }} data you want to replicate**. Before beginning, verify that the user creating the integration has access to the reports you want to replicate."
   - item: |
-      **To connect your Ads account to a My Client Center (MCC) account.** This will ensure your account has access to the AdWords API, thereby allowing Stitch to query for and extract data.
+      **To connect your Ads account to a manager account.** This will ensure your account has access to the Ads API, thereby allowing Stitch to query for and extract data.
 
-      An MCC account is an Ads account type that enables you to manage several Ads accounts under a single login. Think of manager accounts as trees: they can branch out to individual accounts or even other manager accounts. [Read more about MCC accounts here](https://support.google.com/adwords/answer/6139186).
+      An manager account is an Ads account type that enables you to manage several Ads accounts under a single login. Think of manager accounts as trees: they can branch out to individual accounts or even other manager accounts. [Read more about manager accounts here](https://support.google.com/google-ads/answer/6139186).
 
-      By default, regular advertiser accounts - that is, individual Ads accounts - don't have access to the AdWords API. To gain access, they must be linked to an MCC account. If you don't have an MCC account, [create one using these instructions](https://support.google.com/adwords/answer/7459399){:target="new"} and then link it to your Ads account [by following these steps](https://support.google.com/adwords/answer/7459601).
+      By default, regular advertiser accounts - that is, individual Ads accounts - don't have access to the Ads API. To gain access, they must be linked to an manager account. If you don't have an manager account, [create one using these instructions](https://support.google.com/google-ads/answer/7459399){:target="new"} and then link it to your Ads account [by following these steps](https://support.google.com/google-ads/answer/7459601).
 
 setup-steps:
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
+  - title: "Define the conversion window"
+    anchor: "define-conversion-window"
+    content: |
+      The conversion window is the period of time after a customer clicks an ad that a conversion (ex: a purchase) is recorded in {{ integration.display_name }}.
+
+      You can configure the number of days in this window using in the **Conversion Window** field. The value can be any number between 1 and 30, 60 or 90. For more information about conversion windows, refer to the [{{ integration.display_name }} documentation](https://support.google.com/google-ads/answer/3123169?hl=en){:target="new"}.
+
+      If you don't enter a value, the conversion window is set to 30 days by default.
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
@@ -128,8 +129,6 @@ setup-steps:
   - title: "Authorize Stitch & Select {{ integration.display_name }} Profiles"
     anchor: "auth-select-ga-profiles"
     content: |
-      {% include layout/inline_image.html type="right" file="integrations/select-adwords-profiles.png" alt="Selecting Google Ads profiles." max-width="400px" %}
-
       1. Next, you’ll be prompted to log into your Google account and to approve Stitch’s access to your Google Ads data. **Note: We will only ever read your data.**
       2. Click **Authorize** to continue.
       3. After your credentials are validated, you’ll be prompted to select the {{ integration.display_name }} profile(s) you want to connect to Stitch.
@@ -137,11 +136,11 @@ setup-steps:
          If you don't see the profile(s) you want to connect, verify that you have completed the [setup requirements](#setup-requirements).
       4. When selecting profiles, keep the following in mind:
 
-         - **You can select up to 400 profiles per Google Ads integration**. If you need to replicate data from more than 400 profiles, you should create additional {{ integration.display_name }} integrations in your Stitch account.
+         - **You cannot select more than 1000 profiles per Google Ads integration**. Selecting a large number of profiles can reduce performance, so it is recommended to select fewer profiles if possible. You can select more profiles by adding additional {{ integration.display_name }} integrations in your Stitch account.
          - **Selecting a subprofile will also select the parent**, or top-level profile. If you de-select the top-level profile, you will be unable to select any subprofiles.
-         - **If multiple profiles are selected, data for all the selected profiles will map to the same table in your destination.** For example: If two profiles are selected and the `accounts` table is tracked, account data for both profiles will be replicated into the `accounts` table. This is applicable to every table selected in the next step.
+         - **If multiple profiles are selected, data for all the selected profiles will map to the same table in your destination.** For example: If two profiles are selected and the `accounts` table is tracked, account data for both profiles will be replicated into the `accounts` table. This is applicable to every table selected in the next step. To distinguish different profiles, make sure to select the `customer_id` field in your tables.
 
-       5. When finished selecting profiles, click **Continue**.
+       1. When finished selecting profiles, click **Continue**.
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |
@@ -167,16 +166,14 @@ replication-sections:
     anchor: "data-extraction-conversion-window"
     content: |
       {% include integrations/saas/ads-append-only-replication.html type="report-tables" %}
-      
-  - title: "Report tables: Data loading and Append-Only Replication"
-    anchor: "data-loading-append-only"
-    content: |
-      {% include integrations/saas/ads-append-only-replication.html type="data-loading" %}
 
-  - title: "Report tables: Query for the latest data"
-    anchor: "query-for-the-latest-data"
+  - title: "Report tables: Edit report segments and attributes"
+    anchor: "edit-report-segments-and-attributes"
     content: |
-      {% include integrations/saas/ads-append-only-replication.html type="append-only-query" %}
+      In report tables, a Primary Key `_sdc_record_hash` is built using the segments and attributes selected when creating the report.
+
+      Modifying segments and attributes after the report is created and data has already been replicated may cause data quality issues. To avoid this, it is recommended to truncate your destination table before editing a report. You can then replicate the historical data from the updated report by resetting it from its **Table Settings** page.
+      
 
 
 # -------------------------- #
@@ -184,13 +181,6 @@ replication-sections:
 # -------------------------- #
 
 schema-sections:
-  - title: "Report tables: Values for money fields"
-    anchor: "values-for-money-fields"
-    content: |
-      When conducting analyses on Report tables, you might notice that values in money fields - like a `cost` field, for example - look higher than usual. This is because [Google Ads' API sends Stitch money data in micro currency units](https://developers.google.com/adwords/api/docs/guides/reporting#money_fields_in_reports). Micro amounts always refer to your account's local currency.
-
-      For example: The value of $2.25USD will be recorded as `2250000`. To represent this value as `2.25` in a report, divide by one million: `2250000 / 1000000 = 2.25`.
-
   - title: "Report tables: Column selection and statistic aggregation"
     anchor: "column-selection-statistic-aggregation"
     content: |
