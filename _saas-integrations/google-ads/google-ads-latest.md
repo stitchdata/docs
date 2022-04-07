@@ -84,7 +84,7 @@ attribution-window: "30 days"
 feature-summary: |
   Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
-  This integration will eventually replace the Google Ads (Adwords) integration.
+  This integration replaces the Google Ads (Adwords) integration.
 
   **Note**: To use the Ads API, an Ads account must be connected to a [manager account](#setup-requirements).
 
