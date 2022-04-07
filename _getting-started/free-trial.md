@@ -5,7 +5,7 @@
 
 title: Free Trial
 permalink: /getting-started/free-trial
-keywords: free trial, trial, test, talk to sales, demo, sales, signup, sign up,
+keywords: free trial, trial, test, talk to sales, demo, sales, signup, sign up
 summary: "Are you interested in trying out Stitch for yourself? Do you have any sales-related questions? [Sign up for your free trial or talk to an expert](https://www.stitchdata.com/signup/)!"
 feedback: false
 
@@ -13,7 +13,7 @@ layout: general
 sidebar: stitch
 toc: false
 
-key: "free-trial"
+key: "trial"
 weight: 5
 type: "all"
 
