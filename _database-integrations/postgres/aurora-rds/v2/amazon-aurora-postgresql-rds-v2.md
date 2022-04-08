@@ -17,7 +17,7 @@ display_name: "Amazon Aurora PostgreSQL RDS"
 singer: true
 
 tap-name: "Postgres"
-repo-url: "Not applicable"
+
 
 this-version: "2"
 override-version-status: "in-testing"

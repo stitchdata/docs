@@ -35,7 +35,7 @@ display_name: "MySQL"
 
 singer: true
 tap-name: "MySQL"
-repo-url: "Not Applicable"
+
 
 this-version: "2"
 

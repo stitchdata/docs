@@ -18,7 +18,7 @@ display_name: "Amazon PostgreSQL RDS"
 
 singer: true
 tap-name: "Postgres"
-repo-url: "Not Applicable"
+
 
 hosting-type: "amazon"
 
