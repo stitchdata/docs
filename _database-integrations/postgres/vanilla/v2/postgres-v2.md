@@ -19,7 +19,7 @@ display_name: "PostgreSQL"
 singer: true
 
 tap-name: "Postgres"
-repo-url: "Not applicable"
+
 
 hosting-type: "generic"
 

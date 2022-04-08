@@ -16,7 +16,7 @@ display_name: "Google CloudSQL PostgreSQL"
 singer: true
 
 tap-name: "Postgres"
-repo-url: "Not applicable"
+
 
 this-version: "2"
 
