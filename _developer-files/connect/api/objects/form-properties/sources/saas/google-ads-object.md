@@ -31,7 +31,7 @@ uses-start-date: true
 
 object-attributes:  
   - name: "conversion_window"
-    type: "integer"
+    type: "string"
     required: false
     description: |
       The number of days for the conversion window. The value can be any number between 1 and 30, 60 or 90.  
@@ -100,12 +100,22 @@ oauth-attributes:
     required: true
     credential: false
     description: |
-      An array of objects containing the Ads account's customer ID and the manager account's customer ID.
+      An array of objects, each containing a pair of customer IDs.
     value: |
       [
-          {
-            "customerId": "<CUSTOMER_ID>",
-            "loginCustomerId": "<MANAGER_ACCOUNT_CUSTOMER_ID>"
-          }
-      ]
+           {
+              "customerId":"<CUSTOMER_ID>",
+              "loginCustomerId":"<MANAGER_ACCOUNT_CUSTOMER_ID>"
+           }
+         ]
+    subattributes:
+      - name: "customerId"
+        type: "string"
+        required: true
+        description: "The Ads account's customer ID"
+
+      - name: "loginCustomerId"
+        type: "string"
+        required: true
+        description: "The manager account's customer ID."
 ---
