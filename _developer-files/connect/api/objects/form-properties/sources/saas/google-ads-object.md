@@ -103,9 +103,9 @@ oauth-attributes:
       An array of objects containing the Ads account's customer ID and the manager account's customer ID.
     value: |
       [
-        {
-          "customerId": "<CUSTOMER_ID>",
-          "loginCustomerId": "<MANAGER_ACCOUNT_CUSTOMER_ID>"
-        }
+          {
+            "customerId": "<CUSTOMER_ID>",
+            "loginCustomerId": "<MANAGER_ACCOUNT_CUSTOMER_ID>"
+          }
       ]
 ---
