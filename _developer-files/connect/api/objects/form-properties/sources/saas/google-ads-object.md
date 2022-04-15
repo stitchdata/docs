@@ -29,6 +29,14 @@ description: ""
 
 uses-start-date: true
 
+object-attributes:  
+  - name: "conversion_window"
+    type: "string"
+    required: false
+    description: |
+      The number of days for the conversion window. The value can be any number between 1 and 30, 60 or 90.  
+    value: "30"
+
 
 # -------------------------- #
 #       OAUTH PROPERTIES     #
@@ -86,4 +94,28 @@ oauth-attributes:
     description: |
       The ID of the Google user authorizing the connection.
     value: "<USER_ID>"
+
+  - name: "login_customer_ids"
+    type: "array"
+    required: true
+    credential: false
+    description: |
+      An array of objects, each containing a pair of customer IDs.
+    value: |
+      [
+           {
+              "customerId":"<CUSTOMER_ID>",
+              "loginCustomerId":"<MANAGER_ACCOUNT_CUSTOMER_ID>"
+           }
+         ]
+    subattributes:
+      - name: "customerId"
+        type: "string"
+        required: true
+        description: "The Ads account's customer ID"
+
+      - name: "loginCustomerId"
+        type: "string"
+        required: true
+        description: "The manager account's customer ID."
 ---
