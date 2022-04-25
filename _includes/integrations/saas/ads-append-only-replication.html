@@ -96,7 +96,7 @@
 <!-- For Google Ads -->
   {% when "google-ads" %}
   {% assign report-replication-method = "Upsert" %}
-  {% assign core-objects = "[`accounts`](#accounts), [`ad_groups`](#ad-groups), [`ads`](#ads), [`campaigns`](#campaigns), [`accessible_bidding_strategies`](#accessible-bidding-strategies), [`bidding_strategies`](#bidding-strategies) and [`campaign_budgets`](#campaign-budgets)" %}
+  {% assign core-objects = "[`accounts`](#accounts), [`ad_groups`](#ad-groups), [`ads`](#ads), [`campaigns`](#campaigns), [`accessible_bidding_strategies`](#accessible-bidding-strategies), [`bidding_strategies`](#bidding-strategies), [`campaign_budgets`](#campaign-budgets) and [`call_details`](#call-details)" %}
 <!-- For Google AdWords -->
   {% else %}
     {% assign core-objects = "[`accounts`](#accounts), [`ad_groups`](#ad-groups), [`ads`](#ads), and [`campaigns`](#campaigns)" %}
