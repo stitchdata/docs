@@ -22,7 +22,7 @@ attributes:
     type: "integer"
     description: ""  
   - name: "resource_name"
-    type: "integer"
+    type: "string"
     description: ""
     primary-key: true
   - name: "caller_country_code"
