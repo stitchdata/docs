@@ -23,7 +23,7 @@ name: "google-ads-adwords"
 display_name: "Google Ads (AdWords)"
 singer: true
 
-tap-name: "Google AdWords"
+tap-name: "Google Ads (AdWords)"
 repo-url: https://github.com/singer-io/tap-adwords
 
 this-version: "1"
@@ -90,8 +90,6 @@ attribution-window: "30 days"
 
 feature-summary: |
   Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
-
-  A newer version of the Google Ads integration, using the Google Ads API is available. For more information, refer to the [Google Ads integration documentation](https://www.stitchdata.com/docs/integrations/saas/google-ads).
 
   **Note**: To use the AdWords API, an Ads account must be connected to a [My Client Center (MCC) account](#setup-requirements).
 

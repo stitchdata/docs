@@ -14,7 +14,7 @@ name: "mariadb"
 display_name: "MariaDB"
 
 singer: true
-repo-url: "Not Applicable"
+
 
 hosting-type: "generic"
 

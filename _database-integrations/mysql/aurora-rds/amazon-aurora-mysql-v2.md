@@ -31,7 +31,7 @@ driver: |
 # -------------------------- #
 
 singer: true
-repo-url: "Not Applicable"
+
 certified: true
 setup-name: "Amazon Aurora"
 

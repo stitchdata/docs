@@ -14,7 +14,7 @@ name: "cloudsql-mysql"
 display_name: "Google CloudSQL MySQL"
 singer: true
 
-repo-url: "Not Applicable"
+
 
 this-version: "2"
 
