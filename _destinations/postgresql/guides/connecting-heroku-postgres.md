@@ -39,8 +39,6 @@ setup-name: "PostgreSQL"
 ssh: false
 ssl: true
 
-api-type: "postgres"
-
 this-version: "1"
 
 

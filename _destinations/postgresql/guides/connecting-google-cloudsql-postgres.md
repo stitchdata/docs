@@ -47,8 +47,6 @@ port: 5432
 
 this-version: "1"
 
-api-type: "postgres"
-
 # -------------------------- #
 #        Introduction        #
 # -------------------------- #

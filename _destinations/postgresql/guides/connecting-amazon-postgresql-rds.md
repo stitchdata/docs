@@ -42,8 +42,6 @@ ssh: true
 ssl: true
 port: 5432
 
-api-type: "postgres"
-
 this-version: "1"
 
 
