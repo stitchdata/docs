@@ -260,28 +260,37 @@ frequently-asked-questions:
       - question: "Where do I manage my payment details?"
         anchor: "manage-payment-details"
         answer: |
-          {% include note.html type="single-line" content="**Note**: The user who initially enters the payment info is the user who will receive your account's monthly invoice in their email." %}
+          {% include note.html type="single-line" content="**Note**: Until contact addresses are updated, the user who initially enters the payment info will receive your account's monthly invoice in their email." %}
 
-          You can enter and manage your credit card details in the {{ app.page-names.billing }} page, accessed by clicking {{ app.menu-paths.billing }}.
+          You can enter and manage your credit card, addresses and contact details in the {{ app.page-names.billing }} page, accessed by clicking {{ app.menu-paths.billing }}.
 
-          When you enter the cardholder's name, **make sure that a valid last name is entered**. Though Stitch does validate these fields, we've seen replication issues arise when the Last Name field is blank.
+          When you enter the cardholder's name, **make sure that a valid last name is entered**. Though Stitch does validate these fields, we've seen replication issues arise when the Last Name field is blank.  
 
       - question: "What types of payment does Stitch accept?"
         anchor: "accepted-payment-types"
         answer: |
-          Stitch accepts all major credit cards. Additional options are available for Enterprise customers.
+          Stitch accepts all major credit cards. Additional options are available for Enterprise and Unlimited customers.
 
       - question: "Where can I see my past payments?"
         anchor: "view-past-payments"
         answer: |
           You can view your past payments, including the payment amount and associated invoice number, in the **Past Payments** section of the {{ app.page-names.billing }} page.
 
+      - question: "Can I change my billing address?"
+        anchor: "change-bill-to-address"
+        answer: |
+          When a user subscribes to a paid plan, the "Bill to" address is overwritten by the "Sold to" address because a billing address is required. 
+
+          To change either of these addresses, head to the {{ app.page-names.billing }} page, accessed by clicking {{ app.menu-paths.billing }}.
+
+          Please note that a "Sold to" address can only be updated when changing payment methods. When the "Sold to" address is updated, Stitch will begin to charge the appropriate sales tax in the next invoice.
+
       - question: "Who receives a copy of the monthly invoice?"
         anchor: "copy-monthly-invoice"
         answer: |
-          The user who initially adds the payment information to the account will receive a copy of the monthly invoice in their email.
+          The user who initially adds the payment information to the account, and any user-provided email addresses, will receive a copy of the monthly invoice in their email. Additionally, everyone can also view the Past Payments details in the {{ app.page-names.billing }} page.
 
-          Additionally, everyone can also view the Past Payments details in the {{ app.page-names.billing }} page.
+          There is a hard limit of 38 additional email addresses per account. These emails are not restricted to just Stitch users. Any email address added will begin receiving invoices as soon as the next invoice is issued.
 
 
 # -------------------------- #
