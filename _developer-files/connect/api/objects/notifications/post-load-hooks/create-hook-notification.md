@@ -39,17 +39,19 @@ arguments:
     example-value: |
       post_load
 
+  - name: "destination_id"
+    required: true
+    type: "string"
+    description: "The Stitch destination that will trigger the hook notification."
+    example-value: |
+      destination_12345
+
   - name: "config"
     required: true
     type: "object"
     description: "The configuration details of the hook."
     subattributes:
-      - name: "destination_id"
-        required: true
-        type: "string"
-        description: "The Stitch destination that will trigger the hook notification."
-        example-value: |
-          destination_12345
+
       - name: "url"
         required: true
         type: "string"
