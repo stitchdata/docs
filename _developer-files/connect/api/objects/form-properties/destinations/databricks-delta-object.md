@@ -141,7 +141,7 @@ object-attributes:
         description: |
           The name of the Amazon S3 bucket.
 
-          **Note**: This must be a pre-existing bucket. Refer to the [{{ form-property.display-name }} documentation]({{ link.destinations.setup.databricks-delta | prepend: site.baseurl) }} for instructions on configuring access to the bucket for Stitch and {{ form-property.display-name }}.
+          **Note**: This must be a pre-existing bucket. Refer to the [{{ form-property.display-name }} documentation]({{ link.destinations.setup.databricks-delta | prepend: site.baseurl }}) for instructions on configuring access to the bucket for Stitch and {{ form-property.display-name }}.
         value: |
           "stitch-databricks-delta-bucket"
 ---
