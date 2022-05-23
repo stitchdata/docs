@@ -39,7 +39,7 @@ port: 3306
 
 hosting-type: "generic" # amazon, generic, microsoft, etc.
 
-api-type: "mysql"
+api-type: "mysql_destination"
 
 this-version: "1"
 

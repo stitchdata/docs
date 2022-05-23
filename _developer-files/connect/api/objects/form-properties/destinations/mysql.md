@@ -26,7 +26,7 @@ key: "destination-form-properties-mysql-object"
 # -------------------------- #
 
 title: "MySQL Destination Form Property"
-api-type: "mysql"
+api-type: "mysql_destination"
 display-name: "MySQL"
 
 docs-name: "mysql"

@@ -40,6 +40,8 @@ ssl: true
 
 this-version: "1"
 
+api-type: "dataworld"
+
 # -------------------------- #
 #        Introduction        #
 # -------------------------- #
