@@ -49,7 +49,7 @@ all:
         response-body: |
           `GET may only include the params: source_id and/or destination_id`
 
-  - code: "502"
+  - code: "404"
     responses:
       - method: "delete"
         condition: "Destination ID not provided"
