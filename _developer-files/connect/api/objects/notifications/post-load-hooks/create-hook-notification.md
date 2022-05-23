@@ -79,8 +79,8 @@ examples:
     code: |
       '{
          "type":"post_load",
+         "destination_id":"destination_12345",  
          "config":{
-            "destination_id":"destination_12345"  
             "url":"https://hooks.zapier.com/hooks/catch/some/webhook/id"
          }
        }'
