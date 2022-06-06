@@ -102,6 +102,10 @@ attributes:
     type: "boolean"
     description: "Indicates whether the customer wants to receive email updates from the shop."
 
+  - name: "buyer_accepts_sms_marketing"
+    type: "boolean"
+    description: "Indicates whether the customer wants to receive SMS updates from the shop."
+
   - name: "cart_token"
     type: "string"
     description: "The ID of the cart that is attached to the checkout."
@@ -730,6 +734,10 @@ attributes:
         type: "string"
         description: ""
 
+  - name: "sms_marketing_phone"
+    type: "string"
+    description: "The phone number used to opt in to SMS marketing during checkout."
+
   - name: "source"
     type: "string"
     description: "The channel where the checkout originated."
@@ -772,6 +780,10 @@ attributes:
   - name: "total_discounts"
     type: "number"
     description: "The total amount of discounts to be applied."
+
+  - name: "total_duties"
+    type: "string"
+    description: "The total duties of the checkout in presentment currency."
 
   - name: "total_line_items_price"
     type: "number"

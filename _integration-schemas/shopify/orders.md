@@ -1447,4 +1447,104 @@ attributes:
   - name: "user_id"
     type: "integer"
     description: "The ID of th euser logged into the {{ integration.display_name }} POS that processed the order, if applicable."
+
+  - name: "current_subtotal_price_set"
+    type: "object"
+    description: "The current subtotal price of the order in shop and presentment currencies."
+
+  - name: "current_total_duties_set"
+    type: "object"
+    description: "The current total duties charged on the order in shop and presentment currencies."
+
+  - name: "current_total_discounts_set"
+    type: "object"
+    description: "The current total discounts on the order in shop and presentment currencies."
+
+  - name: "current_total_price_set"
+    type: "object"
+    description: "The current total price of the order in shop and presentment currencies."
+
+  - name: "current_total_tax_set"
+    type: "object"
+    description: "The current total taxes charged on the order in shop and presentment currencies."
+
+  - name: "original_total_duties_set"
+    type: "object"
+    description: "The original total duties charged on the order in shop and presentment currencies."
+
+  - name: "current_subtotal_price"
+    type: "string"
+    description: "The current subtotal price of the order in the shop currency."
+
+  - name: "current_total_discounts"
+    type: "string"
+    description: "The current total discounts on the order in the shop currency."
+
+  - name: "current_total_price"
+    type: "string"
+    description: "The current total price of the order in the shop currency."
+
+  - name: "current_total_tax"
+    type: "string"
+    description: "The current total taxes charged on the order in the shop currency."
+
+  - name: "total_outstanding"
+    type: "string"
+    description: "The total outstanding amount of the order in the shop currency."
+
+  - name: "payment_terms"
+    type: "string"
+    description: "The terms and conditions under which a payment should be processed."
+    subattributes:
+      - name: "amount"
+        type: "integer, string"
+        description: "The amount that is owed according to the payment terms."
+
+      - name: "currency"
+        type: "string"
+        description: "The presentment currency for the payment."
+        
+      - name: "due_in_days"
+        type: "integer"
+        description: "The number of days between the invoice date and due date."
+        
+      - name: "payment_schedules"
+        type: "array"
+        description: "An array of schedules associated to the payment terms."
+        subattributes:
+          - name: "amount"
+            type: "integer, string"
+            description: "The amount that is owed according to the payment terms."
+            
+          - name: "due_at"
+            type: "string"
+            description: "The date and time when the payment is due."
+            
+          - name: "currency"
+            type: "string"
+            description: "The presentment currency for the payment."
+            
+          - name: "issued_at"
+            type: "string"
+            description: "The date and time when the payment terms were initiated."
+            
+          - name: "completed_at"
+            type: "string"
+            description: "The date and time when the purchase is completed."
+            
+          - name: "expected_payment_method"
+            type: "string"
+            description: "The name of the payment method gateway."
+        
+      - name: "payment_terms_name"
+        type: "string"
+        description: "The name of the selected payment terms template for the order."
+        
+      - name: "payment_terms_type"
+        type: "string"
+        description: "The type of selected payment terms template for the order."
+
+  - name: "estimated_taxes"
+    type: "boolean"
+    description: "Whether taxes on the order are estimated."
 ---

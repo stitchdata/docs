@@ -72,6 +72,10 @@ attributes:
       - `Order`
       - `Product`
 
+  - name: "type"
+    type: "string"
+    description: "The type of data that the metafield stores."
+
   - name: "value"
     type: "integer, object, string"
     description: "The information to be stored as metadata."
