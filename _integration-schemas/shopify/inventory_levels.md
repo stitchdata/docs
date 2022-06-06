@@ -12,7 +12,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Retrieve a list of inventory levels"
-    doc-link: https://shopify.dev/api/admin-rest/2022-01/resources/inventorylevel#get-inventory-levels"
+    doc-link: "https://shopify.dev/api/admin-rest/2022-01/resources/inventorylevel#get-inventory-levels"
 
 date-time: |
   The date and time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} when the [ITEM] was [ACTION].

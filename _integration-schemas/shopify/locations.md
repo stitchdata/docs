@@ -35,7 +35,6 @@ attributes:
 
   - name: "created_at"
     type: "string"
-    replication-key: true
     description: |
       {{ table.date-time | replace: "[ITEM]","location" | replace: "[ACTION]","created" }}
 
