@@ -27,7 +27,7 @@ attributes:
     type: "date-time"
     replication-key: true
     description: |
-      {{ table.date-time | replace: "[ITEM]","inventory item" | replace: "[ACTION]","updated" }}
+      {{ table.date-time | replace: "[ITEM]","inventory item" | replace: "[ACTION]","last updated" }}
 
   - name: "admin_graphql_api_id"
     type: "string"
