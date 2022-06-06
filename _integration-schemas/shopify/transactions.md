@@ -151,7 +151,8 @@ attributes:
 
   - name: "processed_at"
     type: "object"
-    description: "The date and time, in ISO 8601, when a transaction was processed."
+    description: |
+      {{ table.date-time | replace: "[ITEM]","transaction" | replace: "[ACTION]","processed" }}
 
   - name: "receipt"
     type: "object"
