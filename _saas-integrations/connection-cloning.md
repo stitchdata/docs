@@ -46,7 +46,9 @@ sections:
         content: |
           **You have multiple destinations**. You may have more than one destination that needs to be loaded with data from the same source. Use the source cloning feature to do this without having to create another connection and re-enter the same information.
 
-          **You need several of the same sources, but with different table and field selections**. In the source's integration setup, you can choose whether or not you want to keep the same table and field selection. Make sure you choose not to keep the same selection when cloning, and then you will be able to select your tables and fields for replication.
+          **You need several of the same sources, but with different table and field selections**. In the source's integration setup, you can choose whether or not you want to keep the same table and field selection. Make sure you choose not to keep the same selection when cloning, and then you will be able to select your tables and fields for replication. Keep in mind this feature will not be available if:
+            1. The original connection has incomplete table or field selection.
+            2. The source doesn't support table selection.
 
       - title: "Which sources are available to clone?"
         anchor: "basics--which-sources-are-available"
