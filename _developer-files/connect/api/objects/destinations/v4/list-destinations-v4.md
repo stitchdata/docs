@@ -45,6 +45,7 @@ examples:
     code: |
       [
          {
+            "description": "Postgres database for the staging environment.",
             "properties":{
                "database":"demni2mf59dt10",
                "encryption_type":"none",
@@ -55,7 +56,7 @@ examples:
                "username":"stitch"
             },
             "updated_at":"2019-05-24T18:04:08Z",
-            "name":"Default Warehouse",
+            "name":"Staging",
             "type":"postgres",
             "deleted_at":null,
             "system_paused_at":null,
