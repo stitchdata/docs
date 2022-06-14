@@ -9,13 +9,14 @@ keywords: destination, destinations, data warehouse, data warehouses, warehouse,
 
 summary: "If you're looking to map your Stitch integrations to more than one destination, this guide will help you set them up."
 
+destination: false
+content-type: "destination-general"
+type: "all"
+key: "multiple-destinations"
+
 layout: general
 toc: true
 
-key: "multiple-destinations"
-
-type: "all"
-destination: false
 
 # -------------------------- #
 #         GUIDE INTRO        #
