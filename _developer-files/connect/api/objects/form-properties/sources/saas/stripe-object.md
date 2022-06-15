@@ -38,6 +38,19 @@ description: ""
 uses-start-date: true
 
 object-attributes:
+  - name: "lookback_window"
+    type: "integer"
+    required: false
+    description: |
+      The number of historical days' worth of data to replicate from the `start_date` value for each replication job for your streams. The maximum lookback window is `600` days."
+    value: "600"
+
+  - name: "request_timeout"
+    type: "string"
+    required: true
+    description: "**Internal field.**"
+    value: ""  
+
   - name: "date_window_size"
     type: "string"
     required: false
