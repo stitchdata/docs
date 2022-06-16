@@ -5,7 +5,7 @@ on:
 
 jobs:
   generate-changelog:
-    runs-on: [self-hosted, docker-in-docker]
+    runs-on: ubuntu-latest
     steps:
       - name: Get current date
         run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
