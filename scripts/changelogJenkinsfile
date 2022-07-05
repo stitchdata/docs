@@ -40,8 +40,8 @@ pipeline {
                 container('runtime') {
                     script {
                         sh 'python3 --version'
-                        sh 'pip3 install --upgrade pip3'
-                        sh 'pip3 install --upgrade --user requests snowflake-connector-python pandas'
+                        sh 'pip3 install --user --upgrade pip'
+                        sh 'pip3 install --user --upgrade requests snowflake-connector-python pandas'
                     }
                 }
             }
