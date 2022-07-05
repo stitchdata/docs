@@ -1,0 +1,89 @@
+pipeline {
+    agent {
+        kubernetes {
+            yaml """
+            apiVersion: v1
+            kind: Pod
+            spec:
+              containers:
+                - name: runtime
+                  image: artifactory.datapwn.com/tlnd-docker-prod/talend/common/tsbi/jdk11-builder-base:2.3.0-20200824113419
+                  command:
+                  - cat
+                  tty: true
+                  volumeMounts:
+                  - name: docker
+                    mountPath: /var/run/docker.sock
+                  - name: m2
+                    mountPath: /root/.m2/repository
+              volumes:
+              - name: docker
+                hostPath:
+                  path: /var/run/docker.sock
+              - name: m2
+                hostPath:
+                  path: /tmp/jenkins/all/m2
+              imagePullSecrets:
+              - talend-registry
+            """
+        }
+    }
+
+    environment {
+        currentDate = sh(returnStdout: true, script: 'date +%Y-%m-%d').trim()
+    }
+
+    stages {
+
+        stage('Install dependencies') {
+            steps {
+                container('runtime') {
+                    script {
+                        sh 'python3 --version'
+                        sh 'pip3 install --upgrade --user requests snowflake-connector-python pandas'
+                    }
+                }
+            }
+        }
+
+        stage('Checkout project source') {
+            steps {
+                container('runtime') {
+                    script {
+                        withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                            sh """
+                            mkdir -p workspace
+                            cd workspace
+                            git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/stitchdata/docs.git
+                            git checkout changelog-tests
+                            """
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Run changelog script') {
+            steps {
+                container('runtime') {
+                    script {
+                        withCredentials([usernamePassword(credentialsId: 'snowflake-credentials', passwordVariable: 'SNOWFLAKE_PASSWORD', usernameVariable: 'SNOWFLAKE_USERNAME'), string(credentialsId: 'GITHUB_TOKEN_DOC', variable: 'GITHUB_TOKEN')], [usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                        sh """
+                        cd workspace/docs
+                        git branch changelog-${currentDate}
+                        git checkout changelog-${currentDate}
+                        cd workspace/docs/scripts
+                        python3 changelog.py ${GITHUB_TOKEN} ${SNOWFLAKE_USERNAME} ${SNOWFLAKE_PASSWORD}
+                        cd workspace/docs
+                        git config --global user.email "build-talend-doc@talend.com"
+                        git config --global user.name ${GIT_USERNAME}
+                        git commit -am "Create changelog files"
+                        git push
+                        """
+                        }
+                    }
+                }
+            }
+		}
+    }
+}
