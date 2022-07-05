@@ -68,7 +68,7 @@ pipeline {
             steps {
                 container('runtime') {
                     script {
-                        withCredentials([usernamePassword(credentialsId: 'snowflake-credentials', passwordVariable: 'SNOWFLAKE_PASSWORD', usernameVariable: 'SNOWFLAKE_USERNAME'), string(credentialsId: 'GITHUB_TOKEN_DOC', variable: 'GITHUB_TOKEN')], [usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                        withCredentials([usernamePassword(credentialsId: 'snowflake-credentials', passwordVariable: 'SNOWFLAKE_PASSWORD', usernameVariable: 'SNOWFLAKE_USERNAME'), string(credentialsId: 'GITHUB_TOKEN_DOC', variable: 'GITHUB_TOKEN'), usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         sh """
                         cd workspace/docs
                         git branch changelog-${currentDate}
