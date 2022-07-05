@@ -73,9 +73,9 @@ pipeline {
                         cd workspace/docs
                         git branch changelog-${currentDate}
                         git checkout changelog-${currentDate}
-                        cd workspace/docs/scripts
+                        cd scripts
                         python3 changelog.py ${GITHUB_TOKEN} ${SNOWFLAKE_USERNAME} ${SNOWFLAKE_PASSWORD}
-                        cd workspace/docs
+                        cd ../
                         git config --global user.email "build-talend-doc@talend.com"
                         git config --global user.name ${GIT_USERNAME}
                         git commit -am "Create changelog files"
