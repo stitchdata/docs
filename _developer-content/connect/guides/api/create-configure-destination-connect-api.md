@@ -284,6 +284,8 @@ steps:
       {% assign description = "POST " | append: request-url %}
       {% capture code %}'{
         "type": "postgres",
+        "name": "Staging",
+        "description": "Postgres database for the staging environment.",
         "properties": {
           "database": "[DATABASE]",
           "encryption_type": "none",
@@ -301,6 +303,7 @@ steps:
 
       {% capture code %}
       {
+        "description": "Postgres database for the staging environment.",
         "properties": {
           "database": "[DATABASE]",
           "encryption_type": "none",
@@ -311,7 +314,7 @@ steps:
         },
         "updated_at": "2021-06-03T16:11:03Z",
         "check_job_name": "116078.337658.check.8934a4cd-4d60-48c9-85e4-e95cab6d4cae",
-        "name": "Default Warehouse",
+        "name": "Staging",
         "type": "postgres",
         "deleted_at": null,
         "system_paused_at": null,
@@ -485,6 +488,7 @@ steps:
 
       {% capture code %}
       {
+        "description": "Postgres database for the staging environment.",
         "properties": {
           "database": "[DATABASE]",
           "encryption_type": "none",
@@ -495,7 +499,7 @@ steps:
         },
         "updated_at": "2021-06-03T16:11:03Z",
         "check_job_name": "116078.337658.check.8934a4cd-4d60-48c9-85e4-e95cab6d4cae",
-        "name": "Default Warehouse",
+        "name": "Staging",
         "type": "postgres",
         "deleted_at": null,
         "system_paused_at": null,
