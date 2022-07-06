@@ -50,7 +50,7 @@ arguments:
   - name: "name"
     required: false
     type: "string"
-    description: "{{ connect.common.attributes.destination-name | flatify }} If no name is provided, a name will be generated using the destination type."
+    description: "{{ connect.common.attributes.destination-name | flatify }} This field is optional, but it is recommended to use it. If no name is provided, one will be generated using the destination type."
 
   - name: "description"
     required: false
