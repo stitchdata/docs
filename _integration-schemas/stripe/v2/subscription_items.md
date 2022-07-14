@@ -1,19 +1,20 @@
 ---
 tap: "stripe"
 version: "2"
+key: ""
 
 name: "subscription_items"
 doc-link: "https://stripe.com/docs/api/subscription_items"
-singer-schema: "https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/subscription_items.json"
-description: |
-  The `{{ table.name }}` table contains info about subscription items. In {{ integration.display_name }}, subscription items are used to create customer subscriptions with more than one plan.
+singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/subscription_items.json
+description: The `{{ table.name }}` table contains info about subscription items. In {{ integration.display_name }}, subscription items are used to create customer subscriptions with more than one plan.
+
 
 replication-method: "Key-based Incremental"
 
 api-method:
     name: "List subscription items"
     doc-link: "https://stripe.com/docs/api/subscription_items/list"
-    
+
 attributes:
   - name: "id"
     type: "string"
@@ -22,38 +23,38 @@ attributes:
     foreign-key-id: "subscription-item-id"
 
   - name: "created"
-    type: "date-time"
+    type: "string"
     replication-key: true
     description: "The time at which the subscription item was created. Measured in seconds since the Unix epoch."
 
   - name: "application_fee_percent"
     type: "number"
-    doc-link: "https://stripe.com/docs/connect/subscriptions#creating-subscriptions"
-    description: "The percentage {{ integration.display_name }} should take off the final invoice amount each billing period."
+    description: ""
 
   - name: "billing_thresholds"
     type: "object"
     description: ""
     subattributes:
-      - name: "usage_gte"
-        type: "integer"
-        description: ""
+    - name: "usage_gte"
+      type: "integer"
+      description: ""
+
 
   - name: "cancel_at_period_end"
     type: "boolean"
-    description: "Indicates if the subscription item is canceled at period end."
+    description: ""
 
   - name: "canceled_at"
-    type: "date-time"
-    description: "The date the subscription was canceled."
+    type: "string"
+    description: ""
 
   - name: "current_period_end"
-    type: "date-time"
-    description: "The time the current usage period is set to end."
+    type: "string"
+    description: ""
 
   - name: "current_period_start"
-    type: "date-time"
-    description: "The time the current usage period started."
+    type: "string"
+    description: ""
 
   - name: "customer"
     type: "string"
@@ -62,236 +63,283 @@ attributes:
 
   - name: "discount"
     type: "object"
-    description: "Describes the current discount active on the subscription item."
-    subattributes:
-      - name: "coupon"
-        type: "object"
-        description: "Details about the coupon applied to the subscription item."
-        subattributes:
-          - name: "id"
-            type: "string"
-            description: "The coupon ID."
-            foreign-key-id: "coupon-id"
-
-          - name: "amount_off"
-            type: "integer"
-            description: "The amount (in the `currency` specified) that will be taken off the subtotal of any invoices for this customer."
-
-          - name: "created"
-            type: "date-time"
-            description: "The time at which the coupon was created. Measured in seconds since the Unix epoch."
-
-          - name: "currency"
-            type: "string"
-            description: |
-              The three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html){:target="new"} of the amount to take off (`amount_off`).
-
-          - name: "duration"
-            type: "string"
-            description: |
-              Indicates how long a customer who applies this coupon will get the discount. Possible values are:
-
-              - `forever`
-              - `once`
-              - `repeating`
-
-          - name: "duration_in_months"
-            type: "integer"
-            description: "Indicates the number of months the coupon applies if `duration: repeating`."
-
-          - name: "livemode"
-            type: "boolean"
-            description: "Indicates if the coupon exists in live mode (`true`) or in test mode (`false`)."
-
-          - name: "max_redemptions"
-            type: "integer"
-            description: "The maximum number of times this coupon can be redeemed in total across all customers before it is no longer valid."
-
-          - name: "metadata"
-            type: "object"
-            description: ""
-            anchor-id: 1
-            subattributes: &metadata
-              - name: "ANYTHING"
-                type: "ANYTHING"
-                description: "This info will vary."
-
-          - name: "name"
-            type: "string"
-            description: "The name of the coupon as it is displayed to customers."
-
-          - name: "object"
-            type: "string"
-            description: "The type of {{ integration.display_name }} object. This will be `coupon`."
-
-          - name: "percent_off"
-            type: "integer"
-            description: "The percent that will be taken off the subtotal of any invoices for this customer for the duration of the coupon."
-
-          - name: "percent_off_precise"
-            type: "number"
-            description: ""
-
-          - name: "redeem_by"
-            type: "date-time"
-            description: "The date afer which the coupon can no longer be redeemed."
-
-          - name: "times_redeemed"
-            type: "integer"
-            description: "The number of times this coupon has been applied to a customer."
-
-          - name: "valid"
-            type: "boolean"
-            description: "Taking into account all of the other coupon properties, indicates whether this coupon can still be applied to a customer."
+    description: ""
 
   - name: "ended_at"
-    type: "date-time"
-    description: "If the subscription has ended, the date the subscription ended."
+    type: "string"
+    description: ""
 
   - name: "livemode"
     type: "boolean"
-    description: "Indicates if the object exists in live mode (`true`) or in test mode (`false`)."
+    description: ""
 
   - name: "metadata"
     type: "object"
     description: ""
-    anchor-id: 2
-    subattributes: *metadata
 
   - name: "object"
     type: "string"
-    description: "The type of {{ integration.display_name }} object. This will be `subscription_item`."
+    description: ""
 
   - name: "plan"
-    type: "object"
-    description: "Details about the plan the customer subscribed to."
+    type: "object, string"
+    description: ""
     subattributes:
-      - name: "active"
-        type: "boolean"
-        description: "Indicates if the plan is currently available for new subscriptions."
+    - name: "nickname"
+      type: "string"
+      description: ""
 
+    - name: "updated_by_event_type"
+      type: "string"
+      description: "Description of the event"
+
+    - name: "amount_decimal"
+      type: "string"
+      description: ""
+
+    - name: "tiers"
+      type: "array"
+      description: ""
+      subattributes:
+      - name: "flat_amount"
+        type: "integer"
+        description: ""
+
+      - name: "unit_amount"
+        type: "integer"
+        description: ""
+
+      - name: "up_to"
+        type: "integer"
+        description: ""
+
+
+    - name: "object"
+      type: "string"
+      description: ""
+
+    - name: "aggregate_usage"
+      type: "string"
+      description: ""
+
+    - name: "created"
+      type: "string"
+      description: ""
+
+    - name: "statement_description"
+      type: "string"
+      description: ""
+
+    - name: "product"
+      type: "string"
+      description: "The product whose pricing this plan determines."
+      foreign-key-id: "product-id"
+
+    - name: "statement_descriptor"
+      type: "string"
+      description: ""
+
+    - name: "interval_count"
+      type: "integer"
+      description: ""
+
+    - name: "transform_usage"
+      type: "object"
+      description: ""
+
+    - name: "name"
+      type: "string"
+      description: ""
+
+    - name: "amount"
+      type: "integer"
+      description: ""
+
+    - name: "interval"
+      type: "string"
+      description: ""
+
+    - name: "id"
+      type: "string"
+      description: "The plan ID."
+      foreign-key-id: "plan-id"
+
+    - name: "trial_period_days"
+      type: "integer"
+      description: ""
+
+    - name: "usage_type"
+      type: "string"
+      description: ""
+
+    - name: "active"
+      type: "boolean"
+      description: ""
+
+    - name: "tiers_mode"
+      type: "string"
+      description: ""
+
+    - name: "billing_scheme"
+      type: "string"
+      description: ""
+
+    - name: "livemode"
+      type: "boolean"
+      description: ""
+
+    - name: "currency"
+      type: "string"
+      description: ""
+
+    - name: "metadata"
+      type: "object"
+      description: ""
+
+    - name: "updated"
+      type: "string"
+      description: ""
+
+
+  - name: "price"
+    type: "object"
+    description: "The price of the line item."
+    subattributes:
+    - name: "id"
+      type: "string"
+      description: "Unique identifier for the object."
+
+    - name: "object"
+      type: "string"
+      description: "String representing the object’s type. Objects of the same type share the same value."
+
+    - name: "active"
+      type: "boolean"
+      description: "Whether the price can be used for new purchases."
+
+    - name: "billing_scheme"
+      type: "string"
+      description: "Describes how to compute the price per period."
+
+    - name: "created"
+      type: "string"
+      description: "Time at which the object was created."
+
+    - name: "currency"
+      type: "string"
+      description: "Three-letter ISO currency code, in lowercase. Must be a supported currency."
+
+    - name: "lookup_key"
+      type: "string"
+      description: "A lookup key used to retrieve prices dynamically from a static string."
+
+    - name: "nickname"
+      type: "string"
+      description: "A brief description of the price, hidden from customers."
+
+    - name: "product"
+      type: "string"
+      description: "The ID of the product this price is associated with."
+
+    - name: "recurring"
+      type: "object"
+      description: "The recurring components of a price such as interval and usage_type."
+      subattributes:
       - name: "aggregate_usage"
         type: "string"
-        description: |
-          Indicates a usage aggregation strategy for plans of `usage_type: metered`. Possible values are:
-
-          - `sum` - Sums up all usage during a period
-          - `last_during_period` - Selects the last usage record reported within a period
-          - `last_ever` - Selects the last usage record ever (across period bounds)
-          - `max` - Selects the usage record with the maximum reported usage during a period
-
-      - name: "amount"
-        type: "integer"
-        description: "The amount (in cents) to be charged on the interval specified."
-
-      - name: "billing_scheme"
-        type: "string"
-        description: |
-          Indicates how the price per period should be computed. Possible values are:
-
-          - `per_unit` - Indicates that the fixed `amount` will be charged per unit (`quantity`) for plans with `usage_type: licensed`, or per unit of total usage for plans with `usage_type: metered`.
-          - `tiered` - Indicates that unit pricing will be computed using a tiering strategy as defined using `tiers` and `tiers_mode`.
-
-      - name: "created"
-        type: "date-time"
-        description: "Time at which the object was created. Measured in seconds since the Unix epoch."
-
-      - name: "currency"
-        type: "string"
-        description: The three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html){:target="new"}, in lowercase.
-
-      - name: "id"
-        type: "string"
-        description: "The plan ID."
-        foreign-key-id: "plan-id"
+        description: "Specifies a usage aggregation strategy for prices of usage_type=metered"
 
       - name: "interval"
         type: "string"
-        description: |
-          The frequency with which a subscription should be billed. Possible values are `day`, `week`, `month`, or `year`.
+        description: "The frequency at which a subscription is billed. One of day, week, month or year."
 
       - name: "interval_count"
         type: "integer"
-        description: |
-          The number of intervals (specified by `interval`) between subscription billings.
-
-          For example: `interval: month` and `interval_count: 3` would bill every three months.
-
-      - name: "livemode"
-        type: "boolean"
-        description: "Indicates if the object exists in live mode (`true`) or in test mode (`false`)."
-
-      - name: "metadata"
-        type: "object"
-        description: "Additional information attached to the plan."
-        anchor-id: 3
-        subattributes: *metadata
-
-      - name: "nickname"
-        type: "string"
-        description: "A brief description of the plan, not visible to customers."
-
-      - name: "object"
-        type: "string"
-        description: "The type of {{ integration.display_name }} object. This will be `plan`."
-
-      - name: "product"
-        type: "string"
-        description: "The product whose pricing this plan determines."
-        foreign-key-id: "product-id"
-
-      - name: "tiers"
-        type: "array"
-        description: "The pricing tiers associated with the plan."
-        subattributes:
-          - name: "value"
-            type: "integer"
-            description: "The pricing tier."
-
-      - name: "tiers_mode"
-        type: "string"
-        description: |
-          Indicates if the pricing tier should be `graduated` or `volume`- based.
-
-          - `volume` - The maximum quantity within a period determines the per unit price
-          - `graduated` - Pricing can successively change as the quantity grows
-
-      - name: "transform_usage"
-        type: "string"
-        description: "Applies a transformation to the reported usage or set quantity before computing the billed price."
-
-      - name: "trial_period_days"
-        type: "integer"
-        description: "The default number of trial days when subscribing a customer to this plan."
+        description: "The number of intervals (specified in the interval attribute) between subscription billings."
 
       - name: "usage_type"
         type: "string"
-        description: |
-          Indicates how the quantity per period should be determined. Possible values are:
+        description: "Configures how the quantity per period should be determined. Can be either metered or licensed"
 
-          - `metered` - Aggregates total usage based on usage records.
-          - `licensed` - Automtaically bills the `quantity` set for a plan when it's added to a subscription.
+
+    - name: "tax_behavior"
+      type: "string"
+      description: "Specifies whether the price is considered inclusive of taxes or exclusive of taxes"
+
+    - name: "tiers"
+      type: "array"
+      description: "Each element represents a pricing tier"
+      subattributes:
+      - name: "flat_amount"
+        type: "integer"
+        description: "Price for the entire tier."
+
+      - name: "flat_amount_decimal"
+        type: "string"
+        description: "Same as flat_amount, but contains a decimal value with at most 12 decimal places."
+
+      - name: "unit_amount"
+        type: "integer"
+        description: "Per unit price for units relevant to the tier."
+
+      - name: "unit_amount_decimal"
+        type: "string"
+        description: "Same as unit_amount, but contains a decimal value with at most 12 decimal places."
+
+      - name: "up_to"
+        type: "integer"
+        description: "Up to and including to this quantity will be contained in the tier."
+
+
+    - name: "tiers_mode"
+      type: "string"
+      description: "Defines if the tiering price should be graduated or volume based."
+
+    - name: "transform_quantity"
+      type: "object"
+      description: "Apply a transformation to the reported usage or set quantity before computing the amount billed"
+      subattributes:
+      - name: "divide_by"
+        type: "integer"
+        description: "Divide usage by this number."
+
+      - name: "round"
+        type: "string"
+        description: "After division, either round the result up or down."
+
+
+    - name: "type"
+      type: "string"
+      description: "One of one_time or recurring depending on whether the price is for a one-time purchase or a recurring (subscription) purchase."
+
+    - name: "unit_amount"
+      type: "integer"
+      description: "The unit amount in cents to be charged, represented as a whole integer if possible. Only set if billing_scheme=per_unit."
+
+    - name: "unit_amount_decimal"
+      type: "string"
+      description: "The unit amount in cents to be charged, represented as a decimal string with at most 12 decimal places. Only set if billing_scheme=per_unit."
+
+    - name: "livemode"
+      type: "boolean"
+      description: "The unit amount in cents to be charged, represented as a decimal string with at most 12 decimal places. Only set if billing_scheme=per_unit."
+
+    - name: "metadata"
+      type: "object"
+      description: "Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format."
+
 
   - name: "quantity"
     type: "integer"
-    description: "The quantity of the plan to which the subscription should be subscribed."
+    description: ""
 
   - name: "start"
-    type: "date-time"
-    description: "The date the most recent update to this subscription started."
+    type: "string"
+    description: ""
 
   - name: "status"
     type: "string"
-    description: |
-      The status of the subscription. Possible values are:
-
-      - `trialing` - The subscription is still in its trial period
-      - `active` - The subscription is active and no longer in its trial period
-      - `past_due` - The subscription is past due, either because payment to renew has failed or the subscription's invoice's due date has passed.
-      - `canceled` - The subscription has been canceled. This status may also occur when:
-         - A subscription is `past_due` and {{ integration.display_name }} has exhausted all payment retry attempts
-         - A subscription is `past_due` and an invoice is sent and not paid by its due date, or an additional deadline after the original due date.
-      - `unpaid` - The subscription is unpaid.
+    description: ""
 
   - name: "subscription"
     type: "string"
@@ -300,13 +348,74 @@ attributes:
 
   - name: "tax_percent"
     type: "number"
-    description: "The tax rate applied to each invoice created by this subscription."
+    description: ""
+
+  - name: "tax_rates"
+    type: "array"
+    description: "The tax rates which apply to the line item."
+    subattributes:
+    - name: "id"
+      type: "string"
+      description: "Unique identifier for the object."
+
+    - name: "object"
+      type: "string"
+      description: "String representing the object’s type. Objects of the same type share the same value."
+
+    - name: "active"
+      type: "boolean"
+      description: "Defaults to true. When set to false, this tax rate cannot be used with new applications or Checkout Sessions, but will still work for subscriptions and invoices that already have it set."
+
+    - name: "country"
+      type: "string"
+      description: "Two-letter country code"
+
+    - name: "created"
+      type: "string"
+      description: "Time at which the object was created. "
+
+    - name: "description"
+      type: "string"
+      description: "An arbitrary string attached to the tax rate for your internal use only. It will not be visible to your customers."
+
+    - name: "display_name"
+      type: "string"
+      description: "The display name of the tax rates as it will appear to your customer on their receipt email, PDF, and the hosted invoice page."
+
+    - name: "inclusive"
+      type: "boolean"
+      description: "This specifies if the tax rate is inclusive or exclusive."
+
+    - name: "jurisdiction"
+      type: "string"
+      description: "This specifies if the tax rate is inclusive or exclusive."
+
+    - name: "livemode"
+      type: "boolean"
+      description: "Has the value true if the object exists in live mode or the value false if the object exists in test mode."
+
+    - name: "percentage"
+      type: "string"
+      description: "This represents the tax rate percent out of 100."
+
+    - name: "state"
+      type: "string"
+      description: "ISO 3166-2 subdivision code, without country prefix."
+
+    - name: "tax_type"
+      type: "boolean"
+      description: "The high-level tax type, such as vat or sales_tax."
+
+    - name: "metadata"
+      type: "object"
+      description: "Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format."
+
 
   - name: "trial_end"
-    type: "date-time"
-    description: "The time the trial associated with the subscription item ends."
+    type: "string"
+    description: ""
 
   - name: "trial_start"
-    type: "date-time"
-    description: "The time the trial associated with the subscription item started."
+    type: "string"
+    description: ""
 ---

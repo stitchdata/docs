@@ -1,18 +1,18 @@
 ---
 tap: "stripe"
 version: "2"
+key: ""
 
 name: "balance_transactions"
 doc-link: "https://stripe.com/docs/api/balance/balance_transaction"
-singer-schema: "https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/balance_transactions.json"
-description: |
-  The `{{ table.name }}` table contains info about transactions have have contributed to your Stripe account balance, including charges, transfers, etc.
+singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/balance_transactions.json
+description: "The `{{ table.name }}` table contains info about transactions have have contributed to your Stripe account balance, including charges, transfers, etc."
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "List all balance history"
-    doc-link: "https://stripe.com/docs/api/balance/balance_history"
+  name: "List all balance history"
+  doc-link: "https://stripe.com/docs/api/balance/balance_history"
 
 attributes:
   - name: "id"
@@ -22,17 +22,17 @@ attributes:
     foreign-key-id: "balance-transaction-id"
 
   - name: "created"
-    type: "date-time"
+    type: "string"
     replication-key: true
-    description: "The time at which the object was created. Measured in seconds since the Unix epoch."
+    description: "The time at which the object was created."  
 
   - name: "amount"
     type: "integer"
-    description: "The gross amount of the transaction, in cents."
+    description: ""
 
   - name: "available_on"
     type: "integer"
-    description: "The date the transaction’s net funds will become available in the {{ integration.display_name }} balance."
+    description: ""
 
   - name: "currency"
     type: "string"
@@ -46,40 +46,35 @@ attributes:
 
   - name: "exchange_rate"
     type: "number"
-    description: "The exchange rate for the `currency`."
+    description: ""
 
   - name: "fee"
     type: "integer"
-    description: "The fees (in cents) paid for this transaction."
+    description: ""
 
   - name: "fee_details"
     type: "array"
     description: "Detailed breakdown of fees (in cents) paid for this transaction."
     subattributes:
-      - name: "amount"
-        type: "integer"
-        description: "Amount of the fee, in cents."
-
       - name: "application"
         type: "string"
         description: ""
 
-      - name: "currency"
+      - name: "type"
         type: "string"
-        description: *currency
+        description: ""
 
       - name: "description"
         type: "string"
         description: *description
 
-      - name: "type"
-        type: "string"
-        description: |
-          The type of the fee. Possible values are:
+      - name: "amount"
+        type: "integer"
+        description: "Amount of the fee, in cents."
 
-          - `application_fee`
-          - `stripe_fee`
-          - `tax`
+      - name: "currency"
+        type: "string"
+        description: *currency
 
   - name: "net"
     type: "integer"
@@ -98,8 +93,8 @@ attributes:
     type: "array"
     description: ""
     subattributes:
-      - name: "value"
-        type: "anything"
+      - name: "items"
+        type: ""
         description: ""
 
   - name: "status"
@@ -112,6 +107,6 @@ attributes:
       The type of the transaction. Refer to [{{ integration.display_name }}'s documentation](https://stripe.com/docs/reporting/balance-transaction-types){:target="new} for a list of possible values.
 
   - name: "updated"
-    type: "date-time"
+    type: "string"
     description: "The time at which the balance transaction was last updated."
 ---

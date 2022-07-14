@@ -1,10 +1,11 @@
 ---
 tap: "stripe"
 version: "2"
+key: ""
 
 name: "transfers"
-doc-link: ""
-singer-schema: "https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/transfers.json"
+doc-link: 
+singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/transfers.json
 description: |
   The `{{ table.name }}` table contains info about transfers sent to connected accounts.
 
@@ -20,23 +21,23 @@ attributes:
     primary-key: true
     description: "The transfer ID."
     foreign-key-id: "transfer-id"
-
+    
   - name: "created"
-    type: "date-time"
+    type: "string"
     replication-key: true
     description: "The time the transfer was created. Measured in seconds since the Unix epoch."
 
   - name: "amount"
     type: "integer"
-    description: "The amount (in cents) to be transferred."
+    description: ""
 
   - name: "amount_reversed"
     type: "integer"
-    description: "The amount (in cents) reversed."
+    description: ""
 
   - name: "arrival_date"
-    type: "date-time"
-    description: "The date the transfer arrived."
+    type: "string"
+    description: ""
 
   - name: "automatic"
     type: "boolean"
@@ -49,20 +50,19 @@ attributes:
 
   - name: "currency"
     type: "string"
-    description: |
-      The three-letter [ISO code](https://www.iso.org/iso-4217-currency-codes.html){:target="new"} of the currency the transfer is in.
+    description: ""
 
   - name: "date"
-    type: "date-time"
+    type: "string"
     description: ""
 
   - name: "description"
     type: "string"
-    description: "The description of the transfer."
+    description: ""
 
   - name: "destination"
     type: "string"
-    description: "The ID of the {{ integration.display_name }} account the transfer was sent to."
+    description: ""
 
   - name: "failure_balance_transaction"
     type: "string"
@@ -71,58 +71,58 @@ attributes:
 
   - name: "livemode"
     type: "boolean"
-    description: "Indicates if the object exists in live mode (`true`) or in test mode (`false`)."
+    description: ""
 
   - name: "metadata"
     type: "object"
     description: ""
-    subattributes: &metadata
-      - name: "ANYTHING"
-        type: "ANYTHING"
-        description: "This info will vary."
+    subattributes:
 
   - name: "object"
     type: "string"
-    description: "The type of {{ integration.display_name }} object. This will be `transfer`."
+    description: ""
 
   - name: "recipient"
     type: "string"
     description: ""
 
-  # - name: "reversals"
-  #   type: "array"
-  #   description: ""
+  - name: "reversals"
+    type: "array"
+    description: ""
+    subattributes:
+    - name: "items"
+      type: "object"
+      description: ""
 
   - name: "reversed"
     type: "boolean"
-    description: "Indicates whether the transfer has been fully reversed. If the transfer was only partially reversed, this will still be `false`."
+    description: ""
 
   - name: "source_transaction"
     type: "string"
-    description: "The ID of the charge or payment that was used to fund the transfer."
+    description: ""
 
   - name: "source_type"
     type: "string"
-    description: |
-      The source balance the transfer came from. Possible values are:
-
-      - `card`
-      - `bank_account`
-      - `alipay_account`
+    description: ""
 
   - name: "statement_description"
     type: "string"
-    description: "**Deprecated by {{ integration.display_name }}**."
+    description: ""
 
   - name: "statement_descriptor"
     type: "string"
-    description: "Additional information that displays on the statment."
+    description: ""
 
   - name: "transfer_group"
     type: "string"
-    description: "A string that identifies the transfer as part of a group."
+    description: ""
 
   - name: "updated"
-    type: "date-time"
-    description: "The time the transfer was last updated."
+    type: "string"
+    description: ""
+
+  - name: "updated_by_event_type"
+    type: "string"
+    description: "Description of the event"
 ---

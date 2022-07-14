@@ -1,46 +1,48 @@
 ---
 tap: "stripe"
 version: "2"
+key: ""
 
 name: "payouts"
 doc-link: "https://stripe.com/docs/api/payouts"
-singer-schema: "https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/payouts.json"
+singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/payouts.json
 description: |
   The `{{ table.name }}` table contains info about payouts, which occur when you receive funds from {{ integration.display_name }} or initiate a payout to a bank account of the debit card of a connected {{ integration.display_name }} account.
+
 
 replication-method: "Key-based Incremental"
 
 api-method:
     name: "List all payouts"
     doc-link: "https://stripe.com/docs/api/payouts/list"
-    
+
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The payout ID."
     foreign-key-id: "payout-id"
-  
+     
   - name: "created"
-    type: "date-time"
+    type: "string"
     replication-key: true
     description: "The time at which the payout was created. Measured in seconds since the Unix epoch."
 
   - name: "amount"
     type: "integer"
-    description: "The amount (in cents) to be transferred to your bank account or debit card."
+    description: ""
 
   - name: "amount_reversed"
     type: "integer"
     description: ""
 
   - name: "arrival_date"
-    type: "date-time"
-    description: "The date the payout is expected to arrive in the bank."
+    type: "string"
+    description: ""
 
   - name: "automatic"
     type: "boolean"
-    description: "Indicates if the payout was created by an automated payout schedule (`true`) or if it was requested manually (`false`)."
+    description: ""
 
   - name: "balance_transaction"
     type: "string"
@@ -49,87 +51,76 @@ attributes:
 
   - name: "bank_account"
     type: "object"
-    description: "Details about the bank account the payout is being sent to."
-    doc-link: "https://stripe.com/docs/api/customer_bank_accounts/object"
+    description: ""
     subattributes:
-      - name: "account_holder_name"
-        type: "string"
-        description: "The name of the person or business that owns the bank account."
+    - name: "metadata"
+      type: "object"
+      description: ""
+      subattributes:
 
-      - name: "account_holder_type"
-        type: "string"
-        description: "The type of entity that holds the account. Possible values are `individual` or `company`."
+    - name: "routing_number"
+      type: "string"
+      description: ""
 
-      - name: "bank_name"
-        type: "string"
-        description: "The name of the bank associated with the routing number. For example: `WELLS FARGO`"
+    - name: "account_holder_type"
+      type: "string"
+      description: ""
 
-      - name: "country"
-        type: "string"
-        description: "The two-letter ISO code representing the country the bank account is located in."
+    - name: "name"
+      type: "string"
+      description: ""
 
-      - name: "currency"
-        type: "string"
-        description: |
-          The three-letter [ISO  code](https://www.iso.org/iso-4217-currency-codes.html){:target="new"} for the currency paid out to the bank account.
+    - name: "id"
+      type: "string"
+      description: ""
 
-      - name: "fingerprint"
-        type: "string"
-        description: "Uniquely identifies the bank account."
+    - name: "bank_name"
+      type: "string"
+      description: ""
 
-      - name: "id"
-        type: "string"
-        description: "The bank account ID in {{ integration.display_name }}."
-        # foreign-key-id: "bank-account-id"
+    - name: "last4"
+      type: "string"
+      description: ""
 
-      - name: "last4"
-        type: "string"
-        description: "The last four digits associated with the bank account."
+    - name: "fingerprint"
+      type: "string"
+      description: ""
 
-      - name: "metadata"
-        type: "object"
-        description: ""
-        subattributes:
+    - name: "account_holder_name"
+      type: "string"
+      description: ""
 
-      - name: "name"
-        type: "string"
-        description: "**Deprecated by {{ integration.display_name }}.**"
+    - name: "object"
+      type: "string"
+      description: ""
 
-      - name: "object"
-        type: "string"
-        description: "The type of {{ integration.display_name }} object. This will be `bank_account`."
+    - name: "status"
+      type: "string"
+      description: ""
 
-      - name: "routing_number"
-        type: "string"
-        description: "The routing transit number for the bank account."
+    - name: "currency"
+      type: "string"
+      description: ""
 
-      - name: "status"
-        type: "string"
-        description: |
-          The status of the bank account. Possible values are:
-
-          - `new` - Indicates the bank account hasn't been validated or had any activity.
-          - `validated` - Indicates that {{ integration.display_name }} has determined the bank account exists.
-          - `verified` - Indicates that bank account verification has succeeded.
-          - `verification_failed` - Indicates that verfication failed.
-          - `errored` - Indicates that a transfer sent to the bank account failed. Transfers will not be sent to the account until its details are updated.
+    - name: "country"
+      type: "string"
+      description: ""
 
   - name: "currency"
     type: "string"
-    description: |
-      The three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html){:target="new"}.
+    description: ""
 
   - name: "date"
-    type: "date-time"
+    type: "string"
     description: ""
 
   - name: "description"
     type: "string"
-    description: "The description of the payout."
+    description: ""
 
   - name: "destination"
     type: "string"
-    description: "The ID of the bank account of card the payout was sent to."
+    description: ""
 
   - name: "failure_balance_transaction"
     type: "string"
@@ -138,36 +129,28 @@ attributes:
 
   - name: "failure_code"
     type: "string"
-    description: |
-      The error code explaining the reason for payout failure. Refer to [{{ integration.display_name }}'s documentation](https://stripe.com/docs/api#payout_failures){:target="new"} for a list of possible codes.
+    description: ""
 
   - name: "failure_message"
     type: "string"
-    description: "The message displaying to the user that further explains the reason for payout failure."
+    description: ""
 
   - name: "livemode"
     type: "boolean"
-    description: "Indicates if the object exists in live mode (`true`) or in test mode (`false`)."
+    description: ""
 
   - name: "metadata"
     type: "object"
     description: ""
     subattributes:
-      - name: "ANYTHING"
-        type: "ANYTHING"
-        description: "This info will vary."
 
   - name: "method"
     type: "string"
-    description: |
-      The method used to send the payout. Possible values are:
-
-      - `standard`
-      - `instant`
+    description: ""
 
   - name: "object"
     type: "string"
-    description: "The type of {{ integration.display_name }} object. This will be `payout`."
+    description: ""
 
   - name: "original_payout"
     type: "string"
@@ -183,45 +166,37 @@ attributes:
 
   - name: "source_transaction"
     type: "string"
-    description: "The ID of the charge or payment used to fund the payout."
+    description: ""
 
   - name: "source_type"
     type: "string"
-    description: |
-      The source balance the payout came from. Possible values are:
-
-      - `card`
-      - `bank_account`
-      - `alipay_account`
+    description: ""
 
   - name: "statement_description"
     type: "string"
-    description: "**Deprecated by {{ integration.display_name }}**."
+    description: ""
 
   - name: "statement_descriptor"
     type: "string"
-    description: "Additional info about a payout to be displayed on the user's bank statement."
+    description: ""
 
   - name: "status"
     type: "string"
-    description: |
-      The status of the payout. Possible values are:
-
-      - `paid`
-      - `pending`
-      - `in_transit`
-      - `canceled`
-      - `failed`
+    description: ""
 
   - name: "transfer_group"
     type: "string"
-    description: "A string that identifies the payout as part of a group."
+    description: ""
 
   - name: "type"
     type: "string"
-    description: "The type of the payout. Possible values are `bank_account` or `card`."
+    description: ""
 
   - name: "updated"
-    type: "date-time"
-    description: "The time the payout was last updated."
+    type: "string"
+    description: ""
+
+  - name: "updated_by_event_type"
+    type: "string"
+    description: "Description of the event"
 ---

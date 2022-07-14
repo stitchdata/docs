@@ -1,10 +1,11 @@
 ---
 tap: "stripe"
 version: "2"
+key: ""
 
 name: "invoices"
-doc-link: "https://stripe.com/docs/api/invoices"
-singer-schema: "https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/invoices.json"
+doc-link: "https://stripe.com/docs/api/invoices" 
+singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/invoices.json
 description: |
   The `{{ table.name }}` table contains info about invoices. Invoices are statements of amounts owed by customers, which can be one-off charges or generated periodically from a subscription.
 
@@ -25,6 +26,15 @@ attributes:
     description: "The invoice ID."
     foreign-key-id: "invoice-id"
 
+  - name: "created"
+    type: "string"
+    replication-key: true
+    description: "The time at which the invoice was created. Measured in seconds since the Unix epoch."
+
+  - name: "account_country"
+    type: "string"
+    description: ""
+
   - name: "account_name"
     type: "string"
     description: ""
@@ -33,61 +43,62 @@ attributes:
     type: "array"
     description: ""
     subattributes:
-      - name: "value"
-        type: "string"
-        description: ""
-
-  - name: "date"
-    type: "date-time"
-    description: "The time at which the invoice was created. Measured in seconds since the Unix epoch."
+    - name: "items"
+      type: "string"
+      description: ""
 
   - name: "amount_due"
     type: "integer"
-    description: |
-      The final amount due at the time of the invoice.
+    description: ""
 
   - name: "amount_paid"
     type: "integer"
-    description: "The amount (in cents) that was paid."
+    description: ""
 
   - name: "amount_remaining"
     type: "integer"
-    description: "The amount remaining (in cents) that is due."
+    description: ""
 
   - name: "application_fee"
     type: "integer"
-    description: "The fee (in cents) that will be applied to the invoice and transfered to the application owner's {{ integration.display_name }} account when the invoice is paid."
+    description: ""
+
+  - name: "application_fee_amount"
+    type: "integer"
+    description: "The fee in cents that will be applied to the invoice and transferred to the application owner’s Stripe account when the invoice is paid."
 
   - name: "attempt_count"
     type: "integer"
-    description: "The number of payment attempts made for this invoice, from the perspective of the payment retry schedule."
+    description: ""
 
   - name: "attempted"
     type: "boolean"
-    description: "Indicates whether an attempt has been made to pay the invoice."
+    description: ""
 
   - name: "auto_advance"
     type: "boolean"
-    description: "Indicates whether {{ integration.display_name }} will perform automatic collection of the invoice."
+    description: ""
+
+  - name: "automatic_tax"
+    type: "object"
+    description: "Settings and latest results for automatic tax lookup for this invoice."
+    subattributes:
+    - name: "enabled"
+      type: "boolean"
+      description: "Whether Stripe automatically computes tax on this invoice."
+
+    - name: "status"
+      type: "string"
+      description: "The status of the most recent automated tax calculation for this invoice."
+
 
   - name: "billing"
     type: "string"
-    description: |
-      The type of billing action performed by {{ integration.display_name }} to pay the invoice. Possible values are:
-
-      - `charge_automatically` - {{ integration.display_name }} will attempt to pay the invoice using the default source attached to the customer.
-      - `send_invoice` - {{ integration.display_name }} will email this invoice to the customer with payment instructions.
+    description: ""
 
   - name: "billing_reason"
     type: "string"
-    description: |
-      Indicates why the invoice was created. Possible values are:
-
-      - `subscription_cycle` - Indicates an invoice was created by a subscription advancing into a new period.
-      - `subscription_update` - Indicates an invoice was created due to creating or updating a subscription.
-      - `subscription` - Set for all old invoices to indicate either a change to a subscription or a period advancement.
-      - `manual` - Set for all invoices unrelated to a subscription.
-      - `upcoming` - Reserved for simulated invoices.
+    description: ""
 
   - name: "charge"
     type: "string"
@@ -96,21 +107,28 @@ attributes:
 
   - name: "closed"
     type: "boolean"
-    description: "**Deprecated by {{ integration.display_name }}**."
+    description: ""
 
   - name: "collection_method"
     type: "string"
     description: ""
 
-  - name: "created"
-    type: "date-time"
-    replication-key: true
-    description: "Time at which the product was created. Measured in seconds since the Unix epoch."
-
   - name: "currency"
     type: "string"
-    description: |
-      The three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html){:target="new"}.
+    description: ""
+
+  - name: "custom_fields"
+    type: "array"
+    description: "Custom fields displayed on the invoice."
+    subattributes:
+    - name: "name"
+      type: "string"
+      description: "The name of the custom field."
+
+    - name: "value"
+      type: "string"
+      description: "The value of the custom field."
+
 
   - name: "customer"
     type: "string"
@@ -121,24 +139,30 @@ attributes:
     type: "object"
     description: ""
     subattributes:
-      - name: "city"
-        type: "string"
-        description: ""
-      - name: "country"
-        type: "string"
-        description: ""
-      - name: "line1"
-        type: "string"
-        description: ""
-      - name: "line2"
-        type: "string"
-        description: ""
-      - name: "postal_code"
-        type: "string"
-        description: ""
-      - name: "state"
-        type: "string"
-        description: ""
+    - name: "city"
+      type: "string"
+      description: ""
+
+    - name: "country"
+      type: "string"
+      description: ""
+
+    - name: "line1"
+      type: "string"
+      description: ""
+
+    - name: "line2"
+      type: "string"
+      description: ""
+
+    - name: "postal_code"
+      type: "string"
+      description: ""
+
+    - name: "state"
+      type: "string"
+      description: ""
+
 
   - name: "customer_email"
     type: "string"
@@ -156,52 +180,63 @@ attributes:
     type: "object"
     description: ""
     subattributes:
-      - name: "address"
-        type: "object"
-        description: ""
-        subattributes:
-          - name: "city"
-            type: "string"
-            description: ""
-          - name: "country"
-            type: "string"
-            description: ""
-          - name: "line1"
-            type: "string"
-            description: ""
-          - name: "line2"
-            type: "string"
-            description: ""
-          - name: "postal_code"
-            type: "string"
-            description: ""
-          - name: "state"
-            type: "string"
-            description: ""
-      - name: "name"
-        type: "string"
-        description: ""
-      - name: "phone"
+    - name: "address"
+      type: "object"
+      description: ""
+      subattributes:
+      - name: "city"
         type: "string"
         description: ""
 
-  - name: "customer_tax_ids"
-    type: "array"
-    description: ""
-    subattributes:
-      - name: "type"
+      - name: "country"
         type: "string"
         description: ""
-      - name: "value"
+
+      - name: "line1"
         type: "string"
         description: ""
+
+      - name: "line2"
+        type: "string"
+        description: ""
+
+      - name: "postal_code"
+        type: "string"
+        description: ""
+
+      - name: "state"
+        type: "string"
+        description: ""
+
+
+    - name: "name"
+      type: "string"
+      description: ""
+
+    - name: "phone"
+      type: "string"
+      description: ""
+
 
   - name: "customer_tax_exempt"
     type: "string"
     description: ""
 
+  - name: "customer_tax_ids"
+    type: "array"
+    description: ""
+    subattributes:
+    - name: "type"
+      type: "string"
+      description: ""
+
+    - name: "value"
+      type: "string"
+      description: ""
+
+
   - name: "date"
-    type: "date-time"
+    type: "string"
     description: ""
 
   - name: "default_payment_method"
@@ -216,250 +251,287 @@ attributes:
     type: "array"
     description: ""
     subattributes:
-      - name: "active"
-        type: "boolean"
-        description: ""
-      - name: "country"
-        type: "string"
-        description: ""
-      - name: "created"
-        type: "date-time"
-        description: ""
-      - name: "description"
-        type: "string"
-        description: ""
-      - name: "display_name"
-        type: "string"
-        description: ""
-      - name: "id"
-        type: "string"
-        description: ""
-      - name: "inclusive"
-        type: "boolean"
-        description: ""
-      - name: "jurisdiction"
-        type: "string"
-        description: ""
-      - name: "livemode"
-        type: "boolean"
-        description: ""
-      - name: "metadata"
-        type: "string"
-        description: ""
-      - name: "object"
-        type: "string"
-        description: ""
-      - name: "percentage"
-        type: "decimal"
-        description: ""
-      - name: "state"
-        type: "string"
-        description: ""
+    - name: "id"
+      type: "string"
+      description: ""
+
+    - name: "object"
+      type: "string"
+      description: ""
+
+    - name: "active"
+      type: "boolean"
+      description: ""
+
+    - name: "country"
+      type: "string"
+      description: ""
+
+    - name: "created"
+      type: "string"
+      description: ""
+
+    - name: "description"
+      type: "string"
+      description: ""
+
+    - name: "display_name"
+      type: "string"
+      description: ""
+
+    - name: "inclusive"
+      type: "boolean"
+      description: ""
+
+    - name: "jurisdiction"
+      type: "string"
+      description: ""
+
+    - name: "livemode"
+      type: "boolean"
+      description: ""
+
+    - name: "metadata"
+      type: "object"
+      description: ""
+
+    - name: "percentage"
+      type: "string"
+      description: ""
+
+    - name: "state"
+      type: "string"
+      description: ""
+
 
   - name: "description"
     type: "string"
-    description: "A description of the invoice."
+    description: ""
 
   - name: "discount"
     type: "object"
-    description: "Describes the current discount active on the invoice."
+    description: ""
     subattributes:
-      - name: "coupon"
+    - name: "end"
+      type: "string"
+      description: ""
+
+    - name: "coupon"
+      type: "object"
+      description: ""
+      subattributes:
+      - name: "metadata"
         type: "object"
-        description: "Details about the coupon applied to the invoice."
+        description: ""
         subattributes:
-          - name: "id"
-            type: "string"
-            description: "The coupon ID."
-            foreign-key-id: "coupon-id"
 
-          - name: "amount_off"
-            type: "integer"
-            description: "The amount (in the `currency` specified) that will be taken off the subtotal of any invoices for this customer."
+      - name: "valid"
+        type: "boolean"
+        description: ""
 
-          - name: "created"
-            type: "date-time"
-            description: ""
+      - name: "livemode"
+        type: "boolean"
+        description: ""
 
-          - name: "currency"
-            type: "string"
-            description: |
-              The three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html){:target="new"} of the amount to take off (`amount_off`).
+      - name: "amount_off"
+        type: "integer"
+        description: ""
 
-          - name: "duration"
-            type: "string"
-            description: |
-              Indicates how long a customer who applies this coupon will get the discount. Possible values are:
-
-              - `forever`
-              - `once`
-              - `repeating`
-
-          - name: "duration_in_months"
-            type: "integer"
-            description: "Indicates the number of months the coupon applies if `duration: repeating`."
-
-          - name: "livemode"
-            type: "boolean"
-            description: "Indicates if the coupon exists in live mode (`true`) or in test mode (`false`)."
-
-          - name: "max_redemptions"
-            type: "integer"
-            description: "The maximum number of times this coupon can be redeemed in total across all customers before it is no longer valid."
-
-          - name: "metadata"
-            type: "object"
-            description: ""
-            anchor-id: 1
-            subattributes: &metadata
-              - name: "ANYTHING"
-                type: "ANYTHING"
-                description: "This info will vary."
-
-          - name: "name"
-            type: "string"
-            description: "The name of the coupon as it is displayed to customers."
-
-          - name: "object"
-            type: "string"
-            description: "The type of {{ integration.display_name }} object. This will be `coupon`."
-
-          - name: "percent_off"
-            type: "integer"
-            description: "The percent that will be taken off the subtotal of any invoices for this customer for the duration of the coupon."
-
-          - name: "percent_off_precise"
-            type: "number"
-            description: ""
-
-          - name: "redeem_by"
-            type: "date-time"
-            description: "The date afer which the coupon can no longer be redeemed."
-
-          - name: "times_redeemed"
-            type: "integer"
-            description: "The number of times this coupon has been applied to a customer."
-
-          - name: "valid"
-            type: "boolean"
-            description: "Taking into account all of the other coupon properties, indicates whether this coupon can still be applied to a customer."
-
-      - name: "customer"
+      - name: "redeem_by"
         type: "string"
-        description: "The ID of the customer the discount applies to."
-        foreign-key-id: "customer-id"
+        description: ""
 
-      - name: "end"
-        type: "date-time"
-        description: "If the coupon has a `duration` of `repeating`, the date that this discount will end. If the coupon has a `duration` of `once` or `forever`, this attribute will be null."
+      - name: "duration_in_months"
+        type: "integer"
+        description: ""
+
+      - name: "percent_off_precise"
+        type: "number"
+        description: ""
+
+      - name: "max_redemptions"
+        type: "integer"
+        description: ""
+
+      - name: "currency"
+        type: "string"
+        description: ""
+
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "times_redeemed"
+        type: "integer"
+        description: ""
+
+      - name: "id"
+        type: "string"
+        description: "The coupon ID."
+        foreign-key-id: "coupon-id"
+
+      - name: "duration"
+        type: "string"
+        description: ""
 
       - name: "object"
         type: "string"
-        description: "The type of {{ integration.display_name }} object. This will be `discount`."
+        description: ""
 
-      - name: "start"
-        type: "date-time"
-        description: "Date that the coupon was applied."
+      - name: "percent_off"
+        type: "number"
+        description: ""
 
-      - name: "subscription"
+      - name: "created"
         type: "string"
-        description: "The subscription that this coupon is applied to, if it is applied to a particular subscription."
-        foreign-key-id: "subscription-id"
+        description: ""
+
+
+    - name: "customer"
+      type: "string"
+      description: "The ID of the customer the discount applies to."
+      foreign-key-id: "customer-id"
+
+    - name: "start"
+      type: "string"
+      description: ""
+
+    - name: "object"
+      type: "string"
+      description: ""
+
+    - name: "subscription"
+      type: "string"
+      description: "The subscription that this coupon is applied to, if it is applied to a particular subscription."
+      foreign-key-id: "subscription-id"
+
+    - name: "checkout_session"
+      type: "string"
+      description: "The Checkout session that this coupon is applied to, if it is applied to a particular session in payment mode. Will not be present for subscription mode."
+
+    - name: "id"
+      type: "string"
+      description: "The ID of the discount object."
+
+    - name: "invoice"
+      type: "string"
+      description: "The invoice that the discount’s coupon was applied to, if it was applied directly to a particular invoice."
+
+    - name: "invoice_item"
+      type: "string"
+      description: "The invoice item id (or invoice line item id for invoice line items of type=‘subscription’) that the discount’s coupon was applied to, if it was applied directly to a particular invoice item or invoice line item."
+
+    - name: "promotion_code"
+      type: "string"
+      description: "The promotion code applied to create this discount."
+
 
   - name: "discounts"
     type: "array"
     description: ""
     subattributes:
-      - name: "value"
-        type: "string"
-        description: ""
-        
+    - name: "items"
+      type: "string"
+      description: ""
+
   - name: "due_date"
-    type: "date-time"
-    description: "The date on which payment for the invoice is due."
+    type: "string"
+    description: ""
 
   - name: "ending_balance"
     type: "integer"
-    description: "The ending customer balance after the invoice is finalized."
-
-  - name: "finalized_at"
-    type: "integer"
     description: ""
 
-  - name: "forgiven"
-    type: "boolean"
+  - name: "finalized_at"
+    type: "string"
     description: ""
 
   - name: "footer"
     type: "string"
     description: ""
 
+  - name: "forgiven"
+    type: "boolean"
+    description: ""
+
   - name: "hosted_invoice_url"
     type: "string"
-    description: "The URL for the hosted invoice page, which allows customers to view and pay the invoice."
+    description: ""
 
   - name: "invoice_pdf"
     type: "string"
-    description: "The link to download the PDF for the invoice."
+    description: ""
 
   - name: "last_finalization_error"
     type: "object"
     description: ""
     subattributes:
-      - name: "code"
-        type: "string"
-        description: ""
-      - name: "doc_url"
-        type: "string"
-        description: ""
-      - name: "message"
-        type: "string"
-        description: ""
-      - name: "param"
-        type: "string"
-        description: ""
-      - name: "payment_method_type"
-        type: "string"
-        description: ""
-      - name: "type"
-        type: "string"
-        description: ""
+    - name: "code"
+      type: "string"
+      description: ""
+
+    - name: "doc_url"
+      type: "string"
+      description: ""
+
+    - name: "message"
+      type: "string"
+      description: ""
+
+    - name: "param"
+      type: "string"
+      description: ""
+
+    - name: "payment_method_type"
+      type: "string"
+      description: ""
+
+    - name: "type"
+      type: "string"
+      description: ""
+
 
   - name: "lines"
-    type: "array"
-    description: "The IDs of the line items that make up the invoice. Full details for these records are in the [`invoice_line_items`](#invoice_line_items) table."
+    type: "array, object"
+    description: ""
     subattributes:
-      - name: "value"
-        type: "string"
-        primary-key: true
-        description: "The ID of the line item."
-        foreign-key-id: "invoice-line-item-id"
+    - name: "items"
+      type: "string"
+      description: ""
 
   - name: "livemode"
     type: "boolean"
-    description: "Indicates if the object exists in live mode (`true`) or in test mode (`false`)."
+    description: ""
 
   - name: "metadata"
     type: "object"
-    description: "Additional information attached to the invoice."
-    anchor-id: 2
-    subattributes: *metadata
+    description: ""
+    subattributes:
 
   - name: "next_payment_attempt"
-    type: "date-time"
-    description: "The time at which the next payment will be attempted."
+    type: "string"
+    description: ""
 
   - name: "number"
     type: "string"
-    description: "A unique ID that appears on email sent to the customer for the invoice. This value begins with the customer's unique `invoice_prefix`, if specified."
+    description: ""
 
   - name: "object"
     type: "string"
-    description: "The type of {{ integration.display_name }} object. This will be `invoice`."
+    description: ""
+
+  - name: "on_behalf_of"
+    type: "string, object"
+    description: "The account (if any) for which the funds of the invoice payment are intended. If set, the invoice will be presented with the branding and support information of the specified account."
+    subattributes:
 
   - name: "paid"
     type: "boolean"
-    description: "Indicates whether payment was successfully collected for this invoice."
+    description: ""
+
+  - name: "paid_out_of_band"
+    type: "boolean"
+    description: "Returns true if the invoice was manually marked paid, returns false if the invoice hasn’t been paid yet or was paid on Stripe."
 
   - name: "payment"
     type: "string"
@@ -469,13 +541,67 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "payment_settings"
+    type: "object"
+    description: "Configuration settings for the PaymentIntent that is generated when the invoice is finalized."
+    subattributes:
+    - name: "payment_method_options"
+      type: "object"
+      description: "Payment-method-specific configuration to provide to the invoice’s PaymentIntent."
+      subattributes:
+      - name: "acss_debit"
+        type: "object"
+        description: ""
+        subattributes:
+        - name: "mandate_options"
+          type: "object"
+          description: ""
+          subattributes:
+          - name: "transaction_type"
+            type: "string"
+            description: ""
+
+
+        - name: "verification_method"
+          type: "string"
+          description: ""
+
+
+      - name: "bancontact"
+        type: "object"
+        description: ""
+        subattributes:
+        - name: "preferred_language"
+          type: "string"
+          description: ""
+
+
+      - name: "card"
+        type: "object"
+        description: ""
+        subattributes:
+        - name: "request_three_d_secure"
+          type: "string"
+          description: ""
+
+
+
+    - name: "payment_method_types"
+      type: "array"
+      description: "The list of payment method types (e.g. card) to provide to the invoice’s PaymentIntent"
+      subattributes:
+      - name: "items"
+        type: "string"
+        description: ""
+
+
   - name: "period_end"
-    type: "date-time"
-    description: "The end of the usage period during which invoice items were added to this invoice."
+    type: "string"
+    description: ""
 
   - name: "period_start"
-    type: "date-time"
-    description: "The start of the usage period during which invoice items were added to this invoice."
+    type: "string"
+    description: ""
 
   - name: "post_payment_credit_notes_amount"
     type: "integer"
@@ -485,38 +611,51 @@ attributes:
     type: "integer"
     description: ""
 
+  - name: "quote"
+    type: "object, string"
+    description: "The quote this invoice was generated from."
+    subattributes:
+
   - name: "receipt_number"
     type: "string"
-    description: "The transaction number that appears on email receipts sent for this invoice."
+    description: ""
 
   - name: "starting_balance"
     type: "integer"
-    description: "The starting customer balance before the invoice is finalized."
+    description: ""
 
   - name: "statement_description"
     type: "string"
-    description: "**Deprecated by {{ integration.display_name }}**."
+    description: ""
 
   - name: "statement_descriptor"
     type: "string"
-    description: "Additional information about the invoice. This appears on the customer's credit card statement."
+    description: ""
+
+  - name: "status"
+    type: "string"
+    description: ""
 
   - name: "status_transitions"
     type: "object"
     description: ""
     subattributes:
-      - name: "finalized_at"
-        type: "date-time"
-        description: ""
-      - name: "marked_uncollectible_at"
-        type: "date-time"
-        description: ""
-      - name: "paid_at"
-        type: "date-time"
-        description: ""
-      - name: "voided_at"
-        type: "date-time"
-        description: ""
+    - name: "finalized_at"
+      type: "string"
+      description: ""
+
+    - name: "marked_uncollectible_at"
+      type: "string"
+      description: ""
+
+    - name: "paid_at"
+      type: "string"
+      description: ""
+
+    - name: "voided_at"
+      type: "string"
+      description: ""
+
 
   - name: "subscription"
     type: "string"
@@ -525,61 +664,72 @@ attributes:
 
   - name: "subtotal"
     type: "integer"
-    description: "The total of all subscriptions, invoice items, and prorations on the invoice before any discount is applied."
+    description: ""
 
   - name: "tax"
     type: "integer"
-    description: "The amount of tax included in the total, calculated from `tax_percent` and the `subtotal`."
+    description: ""
 
   - name: "tax_percent"
     type: "number"
-    description: "The percentage of the subtotal that has been added to the total amount of the invoice, including invoice line items and discounts. This field is inheirited from the `subscription`'s `tax_percent` attribute."
+    description: ""
 
   - name: "total"
     type: "integer"
-    description: "The total of the invoice after any discounts."
+    description: ""
 
   - name: "total_discount_amounts"
     type: "array"
     description: ""
     subattributes:
-      - name: "amount"
-        type: "integer"
-        description: ""
-      - name: "discount"
-        type: "string"
-        description: ""
+    - name: "amount"
+      type: "integer"
+      description: ""
+
+    - name: "discount"
+      type: "string"
+      description: ""
+
 
   - name: "total_tax_amounts"
     type: "array"
     description: ""
     subattributes:
-      - name: "amount"
-        type: "integer"
-        description: ""
-      - name: "inclusive"
-        type: "boolean"
-        description: ""
-      - name: "tax_rate"
-        type: "string"
-        description: ""
+    - name: "amount"
+      type: "integer"
+      description: ""
+
+    - name: "inclusive"
+      type: "boolean"
+      description: ""
+
+    - name: "tax_rate"
+      type: "string"
+      description: ""
+
 
   - name: "transfer_data"
     type: "object"
     description: ""
     subattributes:
-      - name: "amount"
-        type: "integer"
-        description: ""
-      - name: "destination"
-        type: "string"
-        description: ""
+    - name: "amount"
+      type: "integer"
+      description: ""
+
+    - name: "destination"
+      type: "string"
+      description: ""
+
 
   - name: "updated"
-    type: "date-time"
-    description: "The time the invoice was last updated."
+    type: "string"
+    description: ""
+
+  - name: "updated_by_event_type"
+    type: "string"
+    description: "Description of the event"
 
   - name: "webhooks_delivered_at"
-    type: "date-time"
-    description: "The time at which webhooks for this invoice were successfully delivered."
+    type: "string"
+    description: ""
 ---
