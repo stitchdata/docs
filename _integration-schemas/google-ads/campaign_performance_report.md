@@ -33,6 +33,10 @@ attributes:
     type: "integer"
     description: "The ID of the campaign that the record belongs to."
     foreign-key-id: "campaign_id"
+    
+  - name: "campaign_labels"
+    type: "string"
+    description: ""  
 
   - name: "absolute_top_impression_percentage"
     type: "singer.decimal"
