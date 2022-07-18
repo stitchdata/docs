@@ -85,7 +85,7 @@ attributes:
                 description: ""
     
   - name: "origin"
-    type: ""
+    type: "string"
     description: ""
     
   - name: "status"
