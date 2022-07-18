@@ -4,6 +4,10 @@ from datetime import datetime as dt
 github_token = sys.argv[1]
 snowflake_user = sys.argv[2]
 snowflake_password = sys.argv[3]
+snowflake_account = sys.argv[4]
+snowflake_wh = sys.argv[5]
+snowflake_db = sys.argv[6]
+snowflake_role = sys.argv[7]
 
 github_headers = {'Authorization': 'token ' + github_token, 'Accept': 'application/vnd.github.v3+json'}
 
@@ -12,10 +16,10 @@ pr_list = []
 con = snowflake.connector.connect(
     user=snowflake_user,
     password=snowflake_password,
-    account='TALENDCDW',
-    warehouse='STITCH_WH',
-    database='STITCHCDW',
-    role= "STITCH_READONLY"
+    account=snowflake_account,
+    warehouse=snowflake_wh,
+    database=snowflake_db,
+    role=snowflake_role
 )
 
 today = dt.today().date()
@@ -25,9 +29,17 @@ changelog_prs = []
 documented = []
 all_prs = []
 to_document = []
+to_ignore = []
+
+def getPRsToIgnore():
+    with open('ignore.txt', 'r') as f:
+        ignore = f.readlines()
+        for item in ignore:
+            item = item.strip()
+            to_ignore.append(item)
 
 def getDocumentedPRs():
-    for root, dirs, files in os.walk('../_changelog-files'):
+    for root, dirs, files in os.walk('../../_changelog-files'):
         for file in files:
             if file.endswith('.md'):
                 changelog_file = os.path.join(root, file)
@@ -79,7 +91,7 @@ def getLatestPRs():
                     pattern = re.compile(r'https\://github.com/singer-io/[^/]+/pull/\d+')
                     pulls = re.findall(pattern, text)
                     for pull in pulls:
-                        if pull in documented:
+                        if pull in documented or pull in to_ignore:
                             pass
                         else:
                             target = prs.loc[prs['pr_url'] == pull]
@@ -94,12 +106,13 @@ def getLatestPRs():
                                     pr_url = pr[3]
                                     pr_date = pr[4].strftime('%Y-%m-%d')
                                     to_document.append(pr)
-                                    md_filename = '../_changelog-files/drafts/' + pr_date + '-' + tap + '-' + pr_number + '.md'
+                                    md_filename = '../../_changelog-files/drafts/' + pr_date + '-' + tap + '-' + pr_number + '.md'
                                     md_text = '---\ntitle: "' + pr_title + '"\ncontent-type: ""\ndate: ' + pr_date + '\nentry-type: \nentry-category: integration\nconnection-id: \nconnection-version: \npull-request: "' + pr_url + '"\n---'
 
                                     with open(md_filename, 'w') as out:
                                         out.write(md_text)
 
 getDocumentedPRs()
+getPRsToIgnore()
 getAllPRs()
 getLatestPRs()
