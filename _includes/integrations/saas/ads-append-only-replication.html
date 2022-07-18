@@ -96,7 +96,7 @@
 <!-- For Google Ads -->
   {% when "google-ads" %}
   {% assign report-replication-method = "Upsert" %}
-  {% assign core-objects = "accounts|ad_groups|ads|campaigns|accessible_bidding_strategies|bidding_strategies|campaign_budgets|call_details|ad_group_criterion|campaign_criterion|campaign_labels|carrier_constant|feed|feed_item|language_constant|mobile_app_category_constant|mobile_device_constant|operating_system_verison_constant|topic_constant|user_interest|user_list" | split:"|" %}
+  {% assign core-objects = "accounts|ad_groups|ads|campaigns|accessible_bidding_strategies|bidding_strategies|campaign_budgets|call_details|ad_group_criterion|campaign_criterion|campaign_labels|carrier_constant|feed|feed_item|labels|language_constant|mobile_app_category_constant|mobile_device_constant|operating_system_verison_constant|topic_constant|user_interest|user_list" | split:"|" %}
 <!-- For other integrations -->
   {% else %}
     {% assign core-objects = "account|ad_groups|ads|campaigns" | split:"|" %}}
