@@ -1,32 +1,38 @@
-import requests, re, base64, json, datetime, os, pandas, sys
+import snowflake.connector, requests, re, base64, json, datetime, os, pandas, sys
 from datetime import datetime as dt
 
 github_token = sys.argv[1]
-
-host = 'https://api.github.com'
+snowflake_user = sys.argv[2]
+snowflake_password = sys.argv[3]
+snowflake_account = sys.argv[4]
+snowflake_wh = sys.argv[5]
+snowflake_db = sys.argv[6]
+snowflake_role = sys.argv[7]
 
 github_headers = {'Authorization': 'token ' + github_token, 'Accept': 'application/vnd.github.v3+json'}
 
-repo_list = []
 pr_list = []
 
+con = snowflake.connector.connect(
+    user=snowflake_user,
+    password=snowflake_password,
+    account=snowflake_account,
+    warehouse=snowflake_wh,
+    database=snowflake_db,
+    role=snowflake_role
+)
+
+today = dt.today().date()
 last_week = (dt.today() - datetime.timedelta(days=8)).date()
 
 changelog_prs = []
 documented = []
+all_prs = []
 to_document = []
 to_ignore = []
 
-path = '../../_changelog-files/drafts'
-
-def createDir():
-    if os.path.exists(path) == False:
-        os.makedirs(path)
-    else: 
-        pass
-
 def getPRsToIgnore():
-    with open('ignore.txt', 'r', encoding='utf8') as f:
+    with open('ignore.txt', 'r') as f:
         ignore = f.readlines()
         for item in ignore:
             item = item.strip()
@@ -44,64 +50,24 @@ def getDocumentedPRs():
                             link = re.search('^pull-request\:\s\"(.*)\"$', line).group(1)
                             documented.append(link)
 
-def getRepoList():
+def getAllPRs():
+    cur = con.cursor()
 
-    page = 0
-    length = 100
+    cur.execute('select REPOSITORY:name::string, PULL_REQUEST:number, PULL_REQUEST:title::string, PULL_REQUEST:html_url::string, TO_DATE(PULL_REQUEST:merged_at) as DATE FROM "STITCHCDW"."SINGER_GITHUB_EVENTS"."DATA" WHERE PULL_REQUEST:merged = true AND (PULL_REQUEST:base:ref = \'master\' OR PULL_REQUEST:base:ref = \'main\') AND REPOSITORY:name ILIKE \'tap-%\'')
 
-    while length == 100:
-        page += 1
-        api = host + '/orgs/singer-io/repos'
-        params = '?per_page=100&page=' + str(page) + '&type=public'
-        r = json.loads(requests.get(api + params, headers=github_headers).content)
-        length = len(r)
-        for repo in r:
-            name = repo['name']
-            pushed = repo['pushed_at']
-            base = repo['default_branch']
-            push_date = dt.strptime(pushed, "%Y-%m-%dT%H:%M:%SZ").date()
-            if name.startswith('tap-') and push_date > last_week:
-                repo_list.append([name, base])
-            else:
-                pass
+    for (name, number, title, url, date) in cur:
+        if [name, number, title, url, date] not in all_prs:
+            all_prs.append([name, number, title, url, date])
 
-def getPRList():
 
-    for repo in repo_list:
 
-        name = repo[0]
-        base = repo[1]
 
-        page = 0
-        length = 100
+def getLatestPRs():
+    prs = pandas.DataFrame(all_prs, columns=['repository', 'pr_number', 'pr_title', 'pr_url', 'pr_merge_date'])
 
-        while length == 100:
-            page += 1
+    latest = prs.loc[(prs['pr_merge_date'] < today) & (prs['pr_merge_date'] > last_week)]
 
-            api = host + '/repos/singer-io/' + name + '/pulls'
-
-            params = '?state=closed&base=' + base + '&page=' + str(page)
-
-            r = json.loads(requests.get(api + params, headers=github_headers).content)
-
-            length = len(r)
-
-            for pull in r:
-                number = pull['number']
-                title = pull['title']
-                url = pull['html_url']
-                merged = pull['merged_at']
-
-                if merged != None:
-                    date = dt.strptime(merged, "%Y-%m-%dT%H:%M:%SZ").date()
-                    if date > last_week:
-                        pr_list.append([name, number, title, url, date])
-
-def getPRsToDocument():
-
-    prs = pandas.DataFrame(pr_list, columns=['repository', 'pr_number', 'pr_title', 'pr_url', 'pr_merge_date'])
-
-    for index, row in prs.iterrows():
+    for index, row in latest.iterrows():
         
         name = row[0]
         number = row[1]
@@ -109,7 +75,7 @@ def getPRsToDocument():
         url = row[3]
         date = row[4]
 
-        api = 'https://api.github.com/repos/singer-io/' + name + '/pulls/' + str(number) + '/files'
+        api = 'https://api.github.com/repos/singer-io/' + name + '/pulls/' + number + '/files'
 
         r = requests.get(api, headers=github_headers)
         if r.status_code == 200:
@@ -140,16 +106,13 @@ def getPRsToDocument():
                                     pr_url = pr[3]
                                     pr_date = pr[4].strftime('%Y-%m-%d')
                                     to_document.append(pr)
-                                    md_filename = path + '/' + pr_date + '-' + tap + '-' + pr_number + '.md'
+                                    md_filename = '../../_changelog-files/drafts/' + pr_date + '-' + tap + '-' + pr_number + '.md'
                                     md_text = '---\ntitle: "' + pr_title + '"\ncontent-type: ""\ndate: ' + pr_date + '\nentry-type: \nentry-category: integration\nconnection-id: \nconnection-version: \npull-request: "' + pr_url + '"\n---'
 
                                     with open(md_filename, 'w') as out:
                                         out.write(md_text)
 
-
-createDir()
 getDocumentedPRs()
 getPRsToIgnore()
-getRepoList()
-getPRList()
-getPRsToDocument()
+getAllPRs()
+getLatestPRs()
