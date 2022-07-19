@@ -39,15 +39,10 @@ jobs:
         with:
           packages: |
             requests
-            re
-            base64
-            json
-            datetime
-            os
             pandas
 
       - name: Generate draft changelog files
-        run: python changelog.py ${{ secrets.GH_TOKEN }} ${{ secrets.SNOWFLAKE_USER }} ${{ secrets.SNOWFLAKE_PASSWORD }}
+        run: python changelog.py ${{ secrets.GITHUB_TOKEN }}
         working-directory: ./scripts/changelog
 
       - name: Check for changes
