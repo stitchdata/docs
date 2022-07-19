@@ -10,7 +10,7 @@ github_headers = {'Authorization': 'token ' + github_token, 'Accept': 'applicati
 repo_list = []
 pr_list = []
 
-last_week = (dt.today() - datetime.timedelta(days=8)).date()
+last_week = (dt.today() - datetime.timedelta(days=15)).date()
 
 changelog_prs = []
 documented = []
