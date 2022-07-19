@@ -1,6 +1,8 @@
 name: Get new changelog entries
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 5 * * 1'
 
 jobs:
   generate-changelog:
@@ -31,36 +33,39 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.9.1'
-          
+
       - name: Install Python modules
         uses: BSFishy/pip-action@v1
         with:
           packages: |
-            snowflake-connector-python
             requests
-            re
-            base64
-            json
-            datetime
-            os
             pandas
 
       - name: Generate draft changelog files
-        run: python changelog.py ${{ secrets.GH_TOKEN }} ${{ secrets.SNOWFLAKE_USER }} ${{ secrets.SNOWFLAKE_PASSWORD }}
-        working-directory: ./scripts
+        run: python changelog.py ${{ secrets.GITHUB_TOKEN }}
+        working-directory: ./scripts/changelog
+
+      - name: Check for changes
+        id: get_changes
+        run: echo "::set-output name=changed::$(git status --porcelain | wc -l)"
       
       - name: Commit changes
+        if: steps.get_changes.outputs.changed != 0
         run: |
           git config --global user.email "lmilan@talend.com"
-          git commit --allow-empty -am "Create changelog files"
+          git config --global user.name "Lucie Milan"
+          git add -A 
+          git commit -am "Automated commit: Create changelog files"
       
       - name: Push changes
+        if: steps.get_changes.outputs.changed != 0
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ env.branch }}
 
       - name: Create pull request
+        if: steps.get_changes.outputs.changed != 0
         uses: repo-sync/pull-request@v2
         with:
           source_branch: ${{ env.branch }}
