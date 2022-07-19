@@ -53,6 +53,7 @@ jobs:
         if: steps.get_changes.outputs.changed != 0
         run: |
           git config --global user.email "lmilan@talend.com"
+          git config --global user.name "Lucie Milan"
           git commit -am "Automated commit: Create changelog files"
       
       - name: Push changes
