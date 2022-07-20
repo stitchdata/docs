@@ -75,6 +75,10 @@ attributes:
     type: "boolean"
     description: ""
 
+  - name: "list_id"
+    type: "string"
+    description: ""
+
   - name: "lists"
     type: "array"
     description: ""
@@ -115,6 +119,22 @@ attributes:
   - name: "subject"
     type: "string"
     description: ""
+  
+  - name: "template"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "object"
+        type: "string"
+        description: ""
+        
+      - name: "id"
+        type: "string"
+        description: ""
+        
+      - name: "html"
+        type: "string"
+        description: ""
   
   - name: "template_id"
     type: "string"
