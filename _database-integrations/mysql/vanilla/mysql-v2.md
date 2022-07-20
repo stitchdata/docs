@@ -59,7 +59,7 @@ db-type: "mysql"
 
 api-type: "platform.hp-mysql"
 override-api-type: true
-versions: "n/a"
+versions: "5.6 and later"
 ssh: true
 ssl: true
 
