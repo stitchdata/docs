@@ -20,9 +20,9 @@ sections:
           <span class="h3" style="margin-top: 30px;">{{ category.title }}</span>
           
           {% case category.plan %}
-          {% when 'unlimited' %}
+          {% when 'upgraded' %}
       {% capture notice %}
-      **This is a Stitch {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} feature.** 
+      **This is a Stitch {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} feature.** 
       {% endcapture %}
           {{ category.description |  prepend:notice | flatify | markdownify }} 
 

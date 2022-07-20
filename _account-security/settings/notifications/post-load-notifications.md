@@ -67,7 +67,7 @@ sections:
     anchor: "post-load-hooks-access"
     summary: "How to access post-load hooks"
     content: |
-      The post-load hook feature is available during the Free Trial or on an {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info about these plans.
+      The post-load hook feature is available during the Free Trial or on an {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info about these plans.
 
       {% capture post-load-setup %}
       To use post-load hooks, you must already have a destination set up in your Stitch account.

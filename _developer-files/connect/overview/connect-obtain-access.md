@@ -7,7 +7,7 @@ order: 2
 sections:
   - content: |
       {% capture access-notice %}
-      **Note**: For individual Stitch users, access to the API is available during the Free Trial or as part of an {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan. 
+      **Note**: For individual Stitch users, access to the API is available during the Free Trial or as part of an {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan. 
       {% endcapture %}
 
       {% include note.html type="single-line" content=access-notice %}
