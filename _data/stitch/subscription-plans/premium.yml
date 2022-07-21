@@ -1,8 +1,10 @@
 # ------------------------------------- #
-#   STITCH UNLIMITED PLUS PLAN DETAILS  #
+#       STITCH PREMIUM PLAN DETAILS     #
 # ------------------------------------- #
 
-name: "Unlimited Plus"
+name: "Premium"
+
+trial-description: "During the Free Trial, you'll have access to all of Stitch's integrations and 1 billion rows for 14 days. The trial begins when you successfully connect and replicate data to a destination."
 
 paid: true
 type: "sales-led"
@@ -11,7 +13,7 @@ integrations: "all"
 total-integrations: "Unlimited"
 
 users: "Unlimited"
-rows: "Unlimited*"
+rows: "1B"
 logs: "60 days"
 reports: "60 days"
 
@@ -21,7 +23,7 @@ post-load-notifications: true
 cron-scheduling: true
 single-sign-on: true
 multiple-destinations: true
-advanced-connectivity: false
+advanced-connectivity: true
 
 # -------------------------- #
 #     ADDITIONAL FEATURES    #

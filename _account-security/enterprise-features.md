@@ -3,11 +3,11 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Stitch Features for Unlimited Plans
-permalink: /account-security/stitch-unlimited-features
+title: Stitch Features for Upgraded Plans
+permalink: /account-security/stitch-upgraded-features
 redirect_from: /account-security/stitch-enterprise-features
-keywords: enterprise stitch enterprise mission-critical ent unlimited unlimited plus
-summary: "Guides for the features included in Unlimited and Unlimited Plus plans."
+keywords: enterprise stitch enterprise mission-critical ent upgraded advanced premium
+summary: "Guides for the features included in Advanced and Premium plans."
 
 layout: general
 toc: true
@@ -22,11 +22,11 @@ type: "enterprise"
 #  Stitch Plan Requirements  #
 # -------------------------- #
 
-minimum-plan: "unlimited"
+minimum-plan: "advanced"
 
 minimum-plan-cta:
-  title: "Stitch {{ site.data.stitch.subscription-plans.unlimited.name }} features"
-  copy: "The features listed in this guide are available during the free trial or for customers on an {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan."
+  title: "Stitch {{ site.data.stitch.subscription-plans.advanced.name }} features"
+  copy: "The features listed in this guide are available during the free trial or for customers on an {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan."
 
 
 # -------------------------- #
@@ -36,7 +36,7 @@ minimum-plan-cta:
 intro: |
   {% include misc/data-files.html %}
 
-  For mission-critical applications, Stitch offers {{ site.data.stitch.subscription-plans.unlimited.name }} and {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plans. These plans can include the features listed below, along with custom integrations and row volumes, priority support, and more.
+  For mission-critical applications, Stitch offers {{ site.data.stitch.subscription-plans.advanced.name }} and {{ site.data.stitch.subscription-plans.premium.name }} plans. These plans can include the features listed below, along with custom integrations and row volumes, priority support, and more.
 
 
 # -------------------------- #
@@ -86,25 +86,25 @@ feature-table: |
   </table>
 
 sections:
-  - title: "Unlimited plan features"
-    anchor: "unlimited-plan-feature-list"
-    plan: "unlimited"
+  - title: "Advanced plan features"
+    anchor: "advanced-plan-feature-list"
+    plan: "advanced"
     content: |
-      {% assign stitch-unlimited = site.data.stitch.subscription-plans.unlimited %}
+      {% assign stitch-advanced = site.data.stitch.subscription-plans.advanced %}
 
-      The features listed below are available during the free trial or to accounts on an {{ stitch-unlimited.name }} plan. Unless noted, all features are available during the free trial.
+      The features listed below are available during the free trial or to accounts on an {{ stitch-advanced.name }} plan. Unless noted, all features are available during the free trial.
 
       **Note**: After the free trial ends, access to these features will be revoked.
 
       {{ page.feature-table | flatify }}
 
-  - title: "Unlimited Plus plan features"
-    anchor: "unlimitedl-plus-plan-feature-list"
-    plan: "unlimited-plus"
+  - title: "Premium plan features"
+    anchor: "premium-plan-feature-list"
+    plan: "premium"
     content: |
-      {% assign stitch-unlimited-plus = site.data.stitch.subscription-plans.unlimited-plus %}
+      {% assign stitch-premium = site.data.stitch.subscription-plans.premium %}
 
-      In addition to the [{{ stitch-unlimited.name }} plan features](#unlimited-plan-feature-list), accounts on an {{ stitch-unlimited-plus.name }} plan will also have access to the features listed below.
+      In addition to the [{{ stitch-advance.name }} plan features](#unlimited-plan-feature-list), accounts on a {{ stitch-premium.name }} plan will also have access to the features listed below.
 
       {{ page.feature-table | flatify }}
 

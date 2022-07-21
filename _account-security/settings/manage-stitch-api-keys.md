@@ -20,7 +20,7 @@ weight: 4
 #  Stitch Plan Requirements  #
 # -------------------------- #
 
-minimum-plan: "unlimited"
+minimum-plan: "advanced"
 
 minimum-plan-cta:
   feature: "API access "
@@ -81,7 +81,7 @@ sections:
       - title: "What Stitch plans include API access?"
         anchor: "plans-with-api-access"
         content: |
-          Only {{ site.data.stitch.subscription-plans.unlimited.name }} and {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plans include access to the Stitch API. 
+          Only {{ site.data.stitch.subscription-plans.advanced.name }} and {{ site.data.stitch.subscription-plans.premium.name }} plans include access to the Stitch API. 
 
       - title: "What happens if I downgrade to a plan without API access?"
         anchor: "plan-downgrade"

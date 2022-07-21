@@ -20,12 +20,12 @@ weight: 2
 #  Stitch Plan Requirements  #
 # -------------------------- #
 
-minimum-plan: "unlimited"
+minimum-plan: "advanced"
 
 minimum-plan-cta:
-  title: "Get {{ site.data.stitch.subscription-plans.pro.logs }} of Extraction Logs"
+  title: "Get {{ site.data.stitch.subscription-plans.advanced.logs }} of Extraction Logs"
   utm: "?utm_medium=docs&utm_campaign=extraction-log-retention"
-  copy: "{{ site.data.stitch.subscription-plans.unlimited.name }} and {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plans come with {{ site.data.stitch.subscription-plans.unlimited.logs }} of Extraction Logs, allowing you to view an integration's extraction behavior over time, identify patterns, and quickly resolve errors when they arise."
+  copy: "{{ site.data.stitch.subscription-plans.advanced.name }} and {{ site.data.stitch.subscription-plans.premium.name }} plans come with {{ site.data.stitch.subscription-plans.unlimited.logs }} of Extraction Logs, allowing you to view an integration's extraction behavior over time, identify patterns, and quickly resolve errors when they arise."
 
 
 # -------------------------- #
@@ -73,8 +73,8 @@ sections:
         content: |
           Changing your plan can impact logs currently available to you.
 
-          {% assign unlimited = site.data.stitch.subscription-plans.unlimited %}
-          {% assign unlimited-logs = unlimited.logs | remove: " days" %}
+          {% assign advanced = site.data.stitch.subscription-plans.advanced %}
+          {% assign advanced-logs = advanced.logs | remove: " days" %}
 
           {% assign standard = site.data.stitch.subscription-plans.standard %}
           {% assign standard-logs = standard.logs | remove: " days" %}
@@ -85,14 +85,14 @@ sections:
             content: |
               If you downgrade to a plan that offers fewer days' logs, you'll **lose** access to the difference between your current plan and your new plan.
 
-              For example: If you downgrade to {{ standard.name }} from the {{ unlimited.name }} plan, you'll lose access to {{ unlimited-logs | minus: standard-logs }} days' worth of logs.
+              For example: If you downgrade to {{ standard.name }} from the {{ advanced.name }} plan, you'll lose access to {{ advanced-logs | minus: standard-logs }} days' worth of logs.
 
           - title: "Plan upgrades"
             anchor: "plan-upgrades"
             content: |
               Likewise, if you upgrade to a plan that offers more days' logs, you'll immediately **gain** access to the difference.
 
-              For example: If you upgrade to {{ unlimited.name }} from the {{ standard.name }} plan, you'll gain access to an additional {{ unlimited-logs | minus: standard-logs }} days' worth of logs.
+              For example: If you upgrade to {{ advanced.name }} from the {{ standard.name }} plan, you'll gain access to an additional {{ advanced-logs | minus: standard-logs }} days' worth of logs.
 
   - title: "Log composition"
     anchor: "log-composition"

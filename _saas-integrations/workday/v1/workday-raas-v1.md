@@ -25,7 +25,7 @@ key: "workday-raas-setup"
 #  Stitch Plan Requirements  #
 # -------------------------- #
 
-minimum-plan: "unlimited"
+minimum-plan: "advanced"
 minimum-plan-cta:
   feature: "Workday RaaS integrations "
   title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.minimum-plan-cta.feature | flatify }}"

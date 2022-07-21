@@ -1,10 +1,10 @@
 # --------------------------------- #
-#   STITCH UNLIMITED PLAN DETAILS   #
+#   STITCH ADVANCED PLAN DETAILS    #
 # --------------------------------- #
 
-name: "Unlimited"
+name: "Advanced"
 
-trial-description: "During the Free Trial, you'll have access to all of Stitch's integrations and unlimited rows for 14 days. The trial begins when you successfully connect and replicate data to a destination."
+trial-description: "During the Free Trial, you'll have access to all of Stitch's integrations and 100 million rows for 14 days. The trial begins when you successfully connect and replicate data to a destination."
 
 paid: true
 type: "sales-led"
@@ -13,7 +13,7 @@ integrations: "all"
 total-integrations: "Unlimited"
 
 users: "Unlimited"
-rows: "Unlimited*"
+rows: "100M"
 logs: "60 days"
 reports: "60 days"
 
@@ -41,12 +41,12 @@ features:
     guides:
       - key: "destinations"
 
-  #- category: "Destinations"
-    #guides:
-      #- title: "Multiple destinations"
-        #summary: |
-          #Configure Stitch to route different data sources to different destinations based on your needs. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
-        #free-trial-available: false
+  - category: "Destinations"
+    guides:
+      - title: "Multiple destinations"
+        summary: |
+          Configure Stitch to route different data sources to different destinations based on your needs. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
+        free-trial-available: false
 
   - category: "Notifications"
     guides:
