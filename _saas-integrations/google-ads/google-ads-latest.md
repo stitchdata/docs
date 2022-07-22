@@ -181,6 +181,13 @@ replication-sections:
 # -------------------------- #
 
 schema-sections:
+  - title: "Report tables: Values for money fields"
+    anchor: "values-for-money-fields"
+    content: |
+      When conducting analyses on Report tables, you might notice that values in money fields - like a `cost` field, for example - look higher than usual. This is because Google Ads' API sends Stitch money data in micro currency units. Micro amounts always refer to your account's local currency.
+
+      For example: The value of $2.25USD will be recorded as `2250000`. To represent this value as `2.25` in a report, divide by one million: `2250000 / 1000000 = 2.25`.
+
   - title: "Report tables: Column selection and statistic aggregation"
     anchor: "column-selection-statistic-aggregation"
     content: |
