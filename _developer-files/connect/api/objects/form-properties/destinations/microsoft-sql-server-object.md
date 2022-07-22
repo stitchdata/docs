@@ -46,7 +46,7 @@ description: ""
 uses-common-fields: true
 ## See these fields in _data/connect/common/destination-forms.yml > all-destinations
 
- object-attributes:
+object-attributes:
   - name: "ssl"
     required: false
     internal: false
