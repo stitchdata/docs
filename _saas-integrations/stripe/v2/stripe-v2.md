@@ -7,12 +7,12 @@
 ## https://docs-about-stitch-docs.netlify.com/reference/integration-templates/saas/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
-title: Stripe (v1)
-permalink: /integrations/saas/stripe/v1
+title: Stripe (v2)
+permalink: /integrations/saas/stripe
 keywords: stripe, integration, schema, etl stripe, stripe etl, stripe schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Stripe integration."
 layout: singer
-input: false
+# input: false
 
 key: "stripe-setup"
 
@@ -27,7 +27,7 @@ singer: true
 tap-name: "Stripe"
 repo-url: https://github.com/singer-io/tap-stripe
 
-this-version: "1"
+this-version: "2"
 
 api: |
   [{{ integration.display_name }} REST API](https://stripe.com/docs/api){:target="new"}
@@ -53,6 +53,9 @@ column-selection: true
 
 extraction-logs: true
 loading-reports: true
+
+attribution-window: "600 days"
+attribution-is-configurable: true
 
 ## Row usage details
 
@@ -94,6 +97,8 @@ setup-steps:
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
+      4. In the **Lookback window** field, enter the number of historical days' worth of data you would like to replicate from the start date. The maximum lookback period is 600 days. This field is optional. Head to the [Lookback windows and data extraction](#lookback-windows-extraction) section to learn more about this.
+      
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
@@ -150,6 +155,18 @@ replication-sections:
           In the image below is an example of how records for the `events` and `invoices` tables will look as an invoice changes over time. **Click the image to enlarge.**
 
           [![Example showing how event and invoice records are replicated as an invoice changes over time]({{ site.baseurl }}/images/integrations/stripe-events.svg)]({{ site.baseurl }}/images/integrations/stripe-events.svg){:target="new"}
+
+  - title: "Lookback windows and data extraction"
+    anchor: "lookback-windows-extraction"
+    content: |
+      When Stitch runs a replication job for {{ integration.display_name }}, you can use a configurable lookback window of up to 600 days to query and extract data for your tables. A lookback window is a period of time for attributing shared files and the lookback period after those actions occur.
+
+      While Stitch replicates data in this way to account for updates to records made during the lookback window, it can have a [substantial impact on your overall row usage](#lookback-window-row-count-impact).
+
+      In the sections below are examples of how lookback windows impact how Stitch extracts data during historical and ongoing replication jobs.
+
+      {% include integrations/saas/ads-append-only-replication.html %}
+      {% include integrations/saas/attribution-window-examples.html %}      
 
 
 # -------------------------- #
