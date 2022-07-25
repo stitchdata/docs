@@ -163,7 +163,7 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
 
                                     # Create the filename and content of the changelog file and create it
                                     md_filename = path + '/' + pr_date + '-' + tap + '-' + pr_number + '.md'
-                                    md_text = '---\ntitle: "' + pr_title + '"\ncontent-type: ""\ndate: ' + pr_date + '\nentry-type: \nentry-category: integration\nconnection-id: \nconnection-version: \npull-request: "' + pr_url + '"\n---'
+                                    md_text = '---\ntitle: "' + pr_title + '"\ncontent-type: "changelog-entry"\ndate: ' + pr_date + '\nentry-type: \nentry-category: integration\nconnection-id: \nconnection-version: \npull-request: "' + pr_url + '"\n---\n{{ site.data.changelog.metadata.single-integration | flatify }}'
                                     with open(md_filename, 'w') as out:
                                         out.write(md_text)
 
