@@ -85,7 +85,7 @@ sections:
         anchor: "connectivity"
         content: |
           - **All plans** include [SSH tunnels]({{ link.security.encryption | prepend: site.baseurl | append: "#ssh-tunnel-connections" }}) and [IP whitelisting]({{ link.security.ip-addresses | prepend: site.baseurl }}) for integrations and destinations that support these features.
-          - **For {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plans**, additional [advanced connectivity options]({{ link.security.encryption | prepend: site.baseurl | append: "#advanced-connectivity" }}) - such as VPNs, reverse SSH tunneling, and Amazon Web Services Private Link - may be available.
+          - **For {{ site.data.stitch.subscription-plans.premium.name }} plans**, additional [advanced connectivity options]({{ link.security.encryption | prepend: site.baseurl | append: "#advanced-connectivity" }}) - such as VPNs, reverse SSH tunneling, and Amazon Web Services Private Link - may be available.
 
       - title: "Permissions for integrations and destinations"
         anchor: "permissions"
@@ -181,7 +181,7 @@ sections:
       - Stitch offers several secure options for creating connections to integrations and destinations:
 
          - **All plans** include [SSL/TLS]({{ link.security.encryption | prepend: site.baseurl | append: "#ssl-connections" }}), [SSH tunnels]({{ link.security.encryption | prepend: site.baseurl | append: "#ssh-tunnel-connections" }}), and [IP whitelisting]({{ link.security.ip-addresses | prepend: site.baseurl }}) for integrations and destinations that support these features.
-         - **For {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plans**, additional [advanced connectivity options]({{ link.security.encryption | prepend: site.baseurl | append: "#advanced-connectivity" }}) - such as VPNs, reverse SSH tunneling, and Amazon Web Services Private Link - may be available.
+         - **For {{ site.data.stitch.subscription-plans.premium.name }} plans**, additional [advanced connectivity options]({{ link.security.encryption | prepend: site.baseurl | append: "#advanced-connectivity" }}) - such as VPNs, reverse SSH tunneling, and Amazon Web Services Private Link - may be available.
       
       Refer to the [Data encryption guide]({{ link.security.encryption | prepend: site.baseurl }}) for more info.
 

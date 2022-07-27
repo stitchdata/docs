@@ -84,7 +84,17 @@
     {% assign start-date = "July 15, 2017" %}
     {% assign start-date-value = "2017-07-15 00:00:00" %}
     {% assign replication-key-historical = "2017-07-01 00:00:00" %}
-    {% assign replication-key-ongoing = "2017-09-15 00:00:00" %}        
+    {% assign replication-key-ongoing = "2017-09-15 00:00:00" %} 
+
+<!-- For Stripe -->
+  {% when "stripe" %}
+    {% assign window = "Lookback Window" %}
+    {% assign table = "charges" %}
+    {% assign replication-key = "created" %}
+    {% assign start-date = "July 3, 2017" %}
+    {% assign start-date-value = "2017-07-03 00:00:00" %}
+    {% assign replication-key-historical = "2015-11-11 00:00:00" %}
+    {% assign replication-key-ongoing = "2016-02-09 00:00:00" %}            
 
   {% endcase %}
 
@@ -96,20 +106,29 @@
 <!-- For Google Ads -->
   {% when "google-ads" %}
   {% assign report-replication-method = "Upsert" %}
-  {% assign core-objects = "[`accounts`](#accounts), [`ad_groups`](#ad-groups), [`ads`](#ads), [`campaigns`](#campaigns), [`accessible_bidding_strategies`](#accessible-bidding-strategies), [`bidding_strategies`](#bidding-strategies), [`campaign_budgets`](#campaign-budgets) and [`call_details`](#call-details)" %}
-<!-- For Google AdWords -->
+  {% assign core-objects = "accounts|ad_groups|ads|campaigns|accessible_bidding_strategies|bidding_strategies|campaign_budgets|call_details|ad_group_criterion|campaign_criterion|campaign_labels|carrier_constant|feed|feed_item|labels|language_constant|mobile_app_category_constant|mobile_device_constant|operating_system_verison_constant|topic_constant|user_interest|user_list" | split:"|" %}
+<!-- For other integrations -->
   {% else %}
-    {% assign core-objects = "[`accounts`](#accounts), [`ad_groups`](#ad-groups), [`ads`](#ads), and [`campaigns`](#campaigns)" %}
+    {% assign core-objects = "account|ad_groups|ads|campaigns" | split:"|" %}}
     {% assign report-replication-method = "Append-Only" %}
-
-
   {% endcase %}
 
 {% if include.type == "table-types" %}
 There are two types of tables in Stitch's {{ integration.display_name }} integration: Core Object and Report.
 
 
-- **Core Object** tables contain foundational data that's useful for analysis. These are the {{ core-objects }} tables. {{ core-object-replication }}
+- **Core Object** tables contain foundational data that's useful for analysis. These are the following tables: 
+  <ul>
+    {% for object in core-objects %}
+    {% assign object-link = object | prepend: "#" | replace: "_","-" %}
+    {% assign object-name = object %}
+
+    <li><code><a href="{{ object-link }}">{{ object-name }}</a></code></li>
+
+    {% endfor %}
+  </ul>
+
+  {{ core-object-replication }}
 
 - **Report** tables are the various {{ integration.display_name }} reports. The replication process for these tables is a bit unlike that of other tables:
   - **Extraction**: Data is extracted using a {{ window }}. A {{ window }} is a period of time after a customer clicks an ad that a conversion (ex: a purchase) is recorded in {{ integration.display_name }}. 

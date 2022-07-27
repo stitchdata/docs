@@ -38,6 +38,10 @@ attributes:
     type: "integer"
     description: "The ID of the campaign that the record belongs to."
     foreign-key-id: "campaign_id"
+    
+  - name: "campaign_labels"
+    type: "string"
+    description: ""  
 
   - name: "ad_group_ad_resource_name"
     type: "object, string"
@@ -127,6 +131,42 @@ attributes:
     type: "string"
     description: ""
   - name: "customer_time_zone"
+    type: "string"
+    description: ""
+  - name: "feed_attributes"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "attribute"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "type"
+            type: "string"
+            description: ""
+            
+          - name: "id"
+            type: "integer"
+            description: ""
+            
+          - name: "name"
+            type: "string"
+            description: ""
+            
+          - name: "is_part_of_key"
+            type: "boolean"
+            description: ""
+
+  - name: "feed_id"
+    type: "integer"
+    description: ""
+  - name: "feed_origin"
+    type: "string"
+    description: ""
+  - name: "feed_status"
+    type: "string"
+    description: ""
+  - name: "feed_name"
     type: "string"
     description: ""
   - name: "day_of_week"

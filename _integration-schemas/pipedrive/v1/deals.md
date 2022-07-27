@@ -92,6 +92,14 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "group_id"
+    type: "integer"
+    description: ""
+
+  - name: "group_name"
+    type: "string"
+    description: ""
+
   - name: "last_activity_date"
     type: "string"
     description: ""
@@ -198,6 +206,10 @@ attributes:
 
   - name: "reference_activities_count"
     type: "integer"
+    description: ""
+
+  - name: "renewal_type"
+    type: "string"
     description: ""
 
   - name: "rotten_time"

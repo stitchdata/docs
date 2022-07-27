@@ -253,7 +253,7 @@ sections:
         anchor: "advanced-scheduling"
         content: |
           {% capture access-notice %}
-          **Note**: Advanced Scheduling using cron is only available to Stitch client accounts with a Stitch {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan.
+          **Note**: Advanced Scheduling using cron is only available to Stitch client accounts with a Stitch {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan.
           {% endcapture %}
 
           {% include note.html type="single-line" content=access-notice %}

@@ -38,6 +38,10 @@ attributes:
     type: "integer"
     description: "The ID of the campaign that the record belongs to."
     foreign-key-id: "campaign_id"
+    
+  - name: "campaign_labels"
+    type: "string"
+    description: ""  
 
   - name: "active_view_cpm"
     type: "singer.decimal"
