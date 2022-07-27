@@ -91,12 +91,16 @@ feature-summary: |
 # -------------------------- #
 
 setup-steps:
-  - title: "Retrieve Dixa API token"
-    anchor: "retrieve-api-token"
+  - title: "Generate a Dixa API token"
+    anchor: "generate-api-token"
     content: |
       1. Log into your {{ integration.display_name }} account.
-      2. Go to  **Settings > Integrations > Configure API Tokens**.
-      3. Copy your API token, store it somewhere safe, and have it readily available for the next step.
+      2. Go to  **Settings** page.
+      3. Scroll to the **Manage** section and then click **Integrations".
+      4. In the **API Tokens** card, click **Configure API tokens**.
+      5. Click **Add API Token**.
+      6. Give the API token a name, like `Stitch Integration`, to make it easy to find in your list of tokens. Choose **Dixa API** as the API version. Click **Add API Token**.
+      7. Copy the API token, and have it readily available for the next step.
 
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"

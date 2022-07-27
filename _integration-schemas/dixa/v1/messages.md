@@ -22,10 +22,10 @@ attributes:
     description: "The message ID."
     foreign-key-id: "message-id"
 
-  - name: "created_at_datestring"
+  - name: "created_at"
     type: "integer"
     replication-key: true
-    description: "The date the message was created"
+    description: "The date the message was created. Measured in seconds since the Unix epoch."
 
   - name: "attached_files"
     type: "array"
@@ -71,7 +71,7 @@ attributes:
     type: "string"
     description: ""
 
-  - name: "created_at"
+  - name: "created_at_datestring"
     type: "integer"
     description: ""
 

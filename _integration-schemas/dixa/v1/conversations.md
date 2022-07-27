@@ -22,10 +22,10 @@ attributes:
     description: "The conversation ID."
     foreign-key-id: "conversation-id"
 
-  - name: "updated_at_datestring"
+  - name: "updated_at"
     type: "integer"
     replication-key: true
-    description: "The date the conversation was last updated."
+    description: "The date the conversation was last updated. Measured in seconds since the Unix epoch."  
 
   - name: "anonymized_at"
     type: "integer"
@@ -259,9 +259,9 @@ attributes:
     type: "string"
     description: ""
 
-  - name: "updated_at"
+  - name: "updated_at_datestring"
     type: "integer"
-    description: ""
+    description: ""  
 
   - name: "widget_id"
     type: "string"
