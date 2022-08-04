@@ -23,9 +23,9 @@
 - id: "hipaa"
   name: "HIPAA"
   level: "full"
-  tier: "unlimited"
+  tier: "advanced"
   description: |
-    **Stitch can replicate data in a HIPAA-compliant manner as part of an {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan**. To learn more about replicating data subject to Health Insurance Portability and Accountability Act (HIPAA) regulations with Stitch, refer to the [Operating Stitch in Compliance with HIPAA]({{ link.account.hipaa-compliance | prepend: site.baseurl }}) doc or contact the [Stitch Sales team]({{ site.sales | append: page.enterprise-utm.url }}).
+    **Stitch can replicate data in a HIPAA-compliant manner as part of an {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan**. To learn more about replicating data subject to Health Insurance Portability and Accountability Act (HIPAA) regulations with Stitch, refer to the [Operating Stitch in Compliance with HIPAA]({{ link.account.hipaa-compliance | prepend: site.baseurl }}) doc or contact the [Stitch Sales team]({{ site.sales | append: page.enterprise-utm.url }}).
 
     **Note**: There are requirements outside of Stitch configuration that must be completed to ensure compliance. Reach out to [Stitch Sales]({{ site.sales | append: page.enterprise-utm.hipaa-url }}) before replicating any sensitive data.
   

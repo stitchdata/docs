@@ -78,4 +78,11 @@ object-attributes:
     description: "The username of the database user."
     value: |
       "<USERNAME>"
+
+  - name: "ssl"
+    required: false
+    internal: false
+    type: "boolean"
+    description: "If `true`, SSL will be used to connect to the database."
+    value: "true"
 ---

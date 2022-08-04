@@ -21,7 +21,7 @@ all:
         condition: "Missing or prohibited arguments"
         version: "4"
         response-body: |
-          `POST body may only include a type and map of properties`
+          `POST body may only include a type, a name, a description, map of properties, and boolean for unmapped sources`
 
       - method: "put"
         condition: "Modifications to `type` are unsupported"

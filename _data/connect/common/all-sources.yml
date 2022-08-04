@@ -72,7 +72,7 @@ fields:
     order: 3
     description: |
       {% if cron-scheduling == false %}
-      **Note: Advanced Scheduling using Cron is not yet supported for this source.** A value may be submitted for this property if the account is on an {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan, but Stitch will not use the expression submitted.
+      **Note: Advanced Scheduling using Cron is not yet supported for this source.** A value may be submitted for this property if the account is on an {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan, but Stitch will not use the expression submitted.
       {% endif %}
 
       A valid Quartz cron expression representing the replication schedule for the integration. Refer to the [Advanced Scheduling documentation]({{ link.replication.advanced-scheduling | prepend: site.baseurl }}) for more info.
@@ -81,7 +81,7 @@ fields:
 
       {{ site.data.connect.common.all-sources.guide-callout | flatify }}
     short: |
-      A valid Quartz cron expression representing the replication schedule for the integration. This feature is only available to users on a Stitch {{ site.data.stitch.subscription-plans.unlimited.name }} or {{ site.data.stitch.subscription-plans.unlimited-plus.name }} plan.
+      A valid Quartz cron expression representing the replication schedule for the integration. This feature is only available to users on a Stitch {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan.
 
       **Note**: If neither a `cron_expression` or `frequency_in_minutes` property is provided, Stitch will use the source's default `frequency_in_minutes` value.
     value: "0 0 12 ? * MON-FRI *"
