@@ -1,7 +1,7 @@
 ---
 title: "New feature: New Upgraded Plans!"
 content-type: "changelog-entry"
-date: 2021-07-21
+date: 2022-07-21
 entry-type: new-feature
 entry-category: "account"
 ---
