@@ -1,7 +1,7 @@
 ---
 title: "Dixa (v1) update: Extend the `activity_logs` schema"
 content-type: "changelog-entry"
-date: 2022-07-29
+date: 2022-07-30
 entry-type: improvement
 entry-category: integration
 connection-id: dixa
