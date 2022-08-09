@@ -13,7 +13,7 @@
 # -------------------------- #
 
 title: ReCharge (v1)
-permalink: /integrations/saas/recharge
+permalink: /integrations/saas/recharge/v1
 keywords: recharge, integration, schema, etl recharge, recharge etl, recharge schema
 layout: singer
 # input: false
