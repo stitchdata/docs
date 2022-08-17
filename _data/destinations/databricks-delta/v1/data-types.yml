@@ -34,18 +34,6 @@ json array: &string
     Used to store nested JSON structures (objects and arrays). JSON is loaded intact into the column, which will have a comment (`"json"`) specifying that the column contains JSON data.
 
 
-
-# ---------------------------- #
-#           BIGINT             #
-# ---------------------------- #
-
-bigint: &integer
-  destination-type: "bigint"
-  suffix: "it"
-  # range: ""
-  # loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
-
-
 # ---------------------------- #
 #           BOOLEAN            #
 # ---------------------------- #
