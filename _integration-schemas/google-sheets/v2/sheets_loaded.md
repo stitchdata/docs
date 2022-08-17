@@ -16,28 +16,28 @@ api-method:
     doc-link: "https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/sheets#top_of_page"
 
 attributes:
-	- name: "sheetId"
-	  type: "integer"
-	  primary-key: true
-	  description: "The ID of the sheet."
-	  foreign-key-id: "sheet-id"
+  - name: "sheetId"
+    type: "integer"
+    primary-key: true
+    description: "The ID of the sheet."
+    foreign-key-id: "sheet-id"
 
-	- name: "spreadsheetId"
-	  type: "string"
-	  primary-key: true
-	  description: "The ID of the spreadsheet."
-	  foreign-key-id: "spreadsheet-id"
+  - name: "spreadsheetId"
+    type: "string"
+    primary-key: true
+    description: "The ID of the spreadsheet."
+    foreign-key-id: "spreadsheet-id"
 
-	- name: "loadDate"
-	  type: "date-time"
-	  primary-key: true
-	  description: "The date the sheets were loaded."
+  - name: "loadDate"
+    type: "date-time"
+    primary-key: true
+    description: "The date the sheets were loaded."
 
-	- name: "lastRowNumber"
-	  type: "integer"
-	  description: "The number of the last row."
+  - name: "lastRowNumber"
+    type: "integer"
+    description: "The number of the last row."
 
-	- name: "title"
-	  type: "string"
-	  description: "The title of the spreadsheet."
+  - name: "title"
+    type: "string"
+    description: "The title of the spreadsheet."
 ---

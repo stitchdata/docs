@@ -19,18 +19,18 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-	description: "The file ID."
+	  description: "The file ID."
 
   - name: "modifiedTime"
     type: "string"
-	format: "date-time"
-	description: "The date and time the file was last modified."
-	replication-key: true
+	  format: "date-time"
+	  description: "The date and time the file was last modified."
+	  replication-key: true
 
   - name: "createdTime"
-	type: "string"
-	format: "date-time"
-	description: "The date the file was created."
+	  type: "string"
+	  format: "date-time"
+	  description: "The date the file was created."
 
   - name: "driveId"
     type: "string"
@@ -41,16 +41,16 @@ attributes:
     description: "The user who last modified the file."
     subattributes:
     - name: "kind"
-	  type: "string"
-	  description: "The type of user."
+	    type: "string"
+	    description: "The type of user."
 
     - name: "displayName"
-	  type: "string"
-	  description: "The user's display name."
+	    type: "string"
+	    description: "The user's display name."
 
     - name: "emailAddress"
-	  type: "string"
-	  description: "The user's email address."
+	    type: "string"
+	    description: "The user's email address."
 
   - name: "name"
     type: "string"
