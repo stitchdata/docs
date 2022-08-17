@@ -40,17 +40,17 @@ attributes:
     type: "object"
     description: "The user who last modified the file."
     subattributes:
-    - name: "kind"
-	    type: "string"
-	    description: "The type of user."
+      - name: "kind"
+	      type: "string"
+	      description: "The type of user."
 
-    - name: "displayName"
-	    type: "string"
-	    description: "The user's display name."
+      - name: "displayName"
+	      type: "string"
+	      description: "The user's display name."
 
-    - name: "emailAddress"
-	    type: "string"
-	    description: "The user's email address."
+      - name: "emailAddress"
+	      type: "string"
+	      description: "The user's email address."
 
   - name: "name"
     type: "string"
