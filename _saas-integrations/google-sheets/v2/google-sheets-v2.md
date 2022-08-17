@@ -177,7 +177,7 @@ replication-sections:
               1. Column headers with unique values in the first row. If there are duplicate column names, Stitch will skip the sheet and surface a [duplicate column name error]({{ link.troubleshooting.google-sheets-extraction-errors | prepend: site.baseurl }}#duplicate-column-names).
 
                  For example: Two columns in the header row can't be named `customer_id`. Uniqueness must not rely on case. While `customer_id` and `Customer_ID` may be unique due to case differences, this may still cause errors during extraction and loading. For this reason, column names must be completely unique.
-              2. A full row of data in the second row. If any column in this row contains a `NULL` value, Stitch will skip the sheet and surface a [malformed sheet message during extraction]({{ link.troubleshooting.google-sheets-extraction-errors | prepend: site.baseurl }}#malformed-sheet).
+              2. A full row of data in the second row. If any column in this row is empty but has a format (currency or datetime for example), the type will be determined using the format. If a cell is empty and has no format, the column type will be set to string by default.
 
               If the sheet doesn't contain a header row and a second row of data, Stitch will skip the sheet and surface an [empty sheet message during extraction]({{ link.troubleshooting.google-sheets-extraction-errors | prepend: site.baseurl }}#empty-sheet).
       
@@ -199,16 +199,17 @@ replication-sections:
               - `0`
               - `false` (the string "false" prefixed with a tick [`])
 
-              If a column has been specified as a `STRING`, Stitch will attempt to parse the value as a string, unless the column contains non-stantadard boolean language.  If this fails, the column will be loaded as a nullable `STRING`.
+              If a column has been specified as a `STRING`, Stitch will attempt to parse the value as a string, unless the column contains non-standard boolean language.  If this fails, the column will be loaded as a nullable `STRING`.
 
               For all other columns, Stitch will perform the following to determine the column's data type:
 
-              1. Attempt to parse the value as a `BOOLEAN` value
-              2. If that fails, attempt to parse the value as an `INTEGER`
-              3. If that fails, attempt to parse the value as a `DATE-TIME` value
-              4. If that fails, attempt to parse the value as a `DATE` date
-              5. If that fails, attempt to parse the value as a `TIME` value
-              6. If that fails, type the column as a `STRING` 
+              1. Check the format of the column and parse the value based on that format.
+              2. If that fails, attempt to parse the value as a `BOOLEAN` value
+              3. If that fails, attempt to parse the value as an `INTEGER`
+              4. If that fails, attempt to parse the value as a `DATE-TIME` value
+              5. If that fails, attempt to parse the value as a `DATE` date
+              6. If that fails, attempt to parse the value as a `TIME` value
+              7. If that fails, type the column as a `STRING` 
 
       - title: "Data replication"
         anchor: "extraction--data-replication"

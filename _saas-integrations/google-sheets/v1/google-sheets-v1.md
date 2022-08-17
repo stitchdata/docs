@@ -199,7 +199,7 @@ replication-sections:
               - `0`
               - `false` (the string "false" prefixed with a tick [`])
 
-              If a column has been specified as a `STRING`, Stitch will attempt to parse the value as a string, unless the column contains non-stantadard boolean language.  If this fails, the column will be loaded as a nullable `STRING`.
+              If a column has been specified as a `STRING`, Stitch will attempt to parse the value as a string, unless the column contains non-standard boolean language.  If this fails, the column will be loaded as a nullable `STRING`.
 
               For all other columns, Stitch will perform the following to determine the column's data type:
 
