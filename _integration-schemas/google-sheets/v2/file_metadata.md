@@ -9,7 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-google-sheets/blob/master/tap_g
 description: |
   The `{{ table.name }}` table contains metadata about the spreadsheet defined in the integration's settings.
 
-replication-method: "Key-Based Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: "getSheets"
