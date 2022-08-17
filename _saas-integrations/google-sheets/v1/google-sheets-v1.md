@@ -16,7 +16,7 @@ title: Google Sheets (v1)
 permalink: /integrations/saas/google-sheets/v1
 keywords: google-sheeets, integration, schema, etl google-sheeets, google-sheeets etl, google-sheeets schema
 layout: singer
-# input: false
+input: false
 
 key: "google-sheets-setup"
 
