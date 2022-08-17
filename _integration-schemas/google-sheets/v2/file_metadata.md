@@ -23,13 +23,11 @@ attributes:
 
   - name: "modifiedTime"
     type: "string"
-	  format: "date-time"
 	  description: "The date and time the file was last modified."
 	  replication-key: true
 
   - name: "createdTime"
 	  type: "string"
-	  format: "date-time"
 	  description: "The date the file was created."
 
   - name: "driveId"

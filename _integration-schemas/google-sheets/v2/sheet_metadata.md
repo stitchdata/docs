@@ -51,8 +51,8 @@ attributes:
         description: ""
         subattributes:
           - name: "items"
-          type: "string"
-          description: ""
+            type: "string"
+            description: ""
 
       - name: "format"
         type: "string"
