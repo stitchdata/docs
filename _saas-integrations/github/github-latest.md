@@ -86,7 +86,7 @@ setup-steps:
   - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "authorize-stitch-access"
     content: |
-      1. Once you've configured the integration parameters, click **Check and Save**. You will be prompted to grant Stitch access to your {{ integration.display_name }} account.
+      1. Once you've configured the integration parameters, click **Authorize**. You will be prompted to grant Stitch access to your {{ integration.display_name }} account.
       2. Sign in to {{ integration.display_name }}.
       3. If you want to replicate data from private repositories, click **Request** next to the name of your {{ integration.display_name }} organization, then click **Request approval from owners**. The owners of the repository will then receive an email prompting them to approve or deny the request.
       4. Click **Authorize singer-bot**.
