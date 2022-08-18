@@ -89,7 +89,8 @@ setup-steps:
       1. Once you've configured the integration parameters, click **Authorize**. You will be prompted to grant Stitch access to your {{ integration.display_name }} account.
       2. Sign in to {{ integration.display_name }}.
       3. If you want to replicate data from private repositories, click **Request** next to the name of the relevant {{ integration.display_name }} organization, then click **Request approval from owners**. The owners of the repository will then receive an email prompting them to approve or deny the request.
-      **Note**: This step is not needed if you only want to access public repositories. Any public repository, even within your work organization, should be available without approval from the owners.
+      
+          **Note**: This step is not needed if you only want to access public repositories. Any public repository, even within your work organization, should be available without approval from the owners.
       4. Click **Authorize singer-bot**.
 
       Once the authorization process is completed, you will be redirected to Stitch. You will be able to start replicating data from public repositories. The extraction from private repositories will fail until the owner has approved the access request.
