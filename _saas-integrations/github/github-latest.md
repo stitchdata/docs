@@ -62,30 +62,13 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      **Access to the projects you want to replicate data from.** Stitch will only be able to access the same projects as the user who creates the access token.
+      **Access to the projects you want to replicate data from.** Stitch will only be able to access the same projects as the user who authorizes the connection in Stitch.
 
 setup-steps:
-  - title: "Create a {{ integration.display_name }} token"
-    anchor: "create-access-token"
-    content: |
-      1. Sign into your {{ integration.display_name }} account.
-      2. Click the **User menu (your icon) > Settings**.
-      3. Click **Developer settings** in the navigation on the left side of the page.
-      4. Click **Personal access tokens**.
-      5. On the Personal access tokens page, click the **Generate new token** button. If prompted, enter your password.
-      7. In the **Description** field, enter `stitch`. This will allow you to easily idenfiy what application is using the token.
-      8. In the **Select Scopes** section, check the **repo** option:
-
-         ![Highlighted repo scopes on the GitHub Personal Access Tokens page]({{ site.baseurl }}/images/integrations/github-token-scopes.png)
-
-         **Note**: While these are full permissions, Stitch will only ever read your data. The **repo** scope is required due to how {{ integration.display_name }} structures permissions.
-      9. Click the **Generate token** button.
-      10. The new access token will display on the next page. **Copy the token before navigating away from the page** - {{ integration.display_name }} won't display it again.
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      4. In the **GitHub Access Token** field, paste the access token you created in [Step 1](#create-access-token).
       5. In the **GitHub Repository Name** field, enter the paths of the repositories you want to track. The path is relative to `https://github.com`. For example: The path for the Stitch Docs repository is `stitchdata/docs`
 
          To track multiple repositories, enter a space delimited list of the repository paths. For example: `stitchdata/docs stitchdata/docs-about-docs`
@@ -100,6 +83,19 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
 
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
+    anchor: "authorize-stitch-access"
+    content: |
+      1. Once you've configured the integration parameters, click **Authorize**. You will be prompted to grant Stitch access to your {{ integration.display_name }} account.
+      2. Sign in to {{ integration.display_name }}.
+      3. If you want to replicate data from private repositories, click **Request** next to the name of the relevant {{ integration.display_name }} organization, then click **Request approval from owners**. The owners of the repository will then receive an email prompting them to approve or deny the request.
+      
+          **Note**: This step is not needed if you only want to access public repositories. Any public repository, even within your work organization, should be available without approval from the owners.
+
+          ![GitHub authorization screen]({{ site.baseurl }}/images/integrations/github-oauth.png)
+      4. Click **Authorize singer-bot**.
+
+      Once the authorization process is completed, you will be redirected to Stitch. You will be able to start replicating data from public repositories. The extraction from private repositories will fail until the owner has approved the access request.
 
 # -------------------------- #
 #     Integration Tables     #
