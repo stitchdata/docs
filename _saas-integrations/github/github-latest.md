@@ -84,7 +84,7 @@ setup-steps:
       {% include integrations/shared-setup/replication-frequency.html %}
 
   - title: "Authorize Stitch to access {{ integration.display_name }}"
-    anchor: "add-stitch-data-source"
+    anchor: "authorize-stitch-access"
     content: |
       1. Once you've configured the integration parameters, click **Check and Save**. You will be prompted to grant Stitch access to your {{ integration.display_name }} account.
       2. Sign in to {{ integration.display_name }}.
