@@ -1,0 +1,62 @@
+---
+tap: "recharge"
+version: "2"
+key: ""
+
+name: "metafields_store"
+doc-link: https://developer.rechargepayments.com/2021-11/metafields/metafields_list
+singer-schema: https://github.com/singer-io/tap-recharge/tree/master/tap_recharge/schemas/metafields_store.json
+description: |
+  The `{{ table.name }}` table contains info about metafields related to stores.
+
+replication-method: "Key-based Incremental"
+
+api-method:
+  name: "List store metafields"
+  doc-link: "https://developer.rechargepayments.com/2021-11/metafields/metafields_list"
+
+attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The store metafield ID."
+    #foreign-key-id: "store-metafield-id"
+
+  - name: "updated_at"
+    format: "date-time"
+    type: "string"
+    description: "The date and time the store metafield was last updated."
+
+  - name: "created_at"
+    format: "date-time"
+    type: "string"
+    description: ""
+
+  - name: "description"
+    type: "string"
+    description: ""
+
+  - name: "key"
+    type: "string"
+    description: ""
+
+  - name: "namespace"
+    type: "string"
+    description: ""
+
+  - name: "owner_id"
+    type: "string"
+    description: ""
+
+  - name: "owner_resource"
+    type: "string"
+    description: ""
+
+  - name: "value"
+    type: "string"
+    description: ""
+
+  - name: "value_type"
+    type: "string"
+    description: ""
+---
