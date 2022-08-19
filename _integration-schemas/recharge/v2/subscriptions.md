@@ -23,8 +23,7 @@ attributes:
     foreign-key-id: "subscription-id"
 
   - name: "updated_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     replication-key: true
     description: "The date and time the subscription was created."
 
@@ -78,8 +77,7 @@ attributes:
     description: ""
 
   - name: "cancelled_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "charge_interval_frequency"
@@ -87,8 +85,7 @@ attributes:
     description: ""
 
   - name: "created_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "customer_id"
@@ -139,8 +136,7 @@ attributes:
     description: ""
 
   - name: "next_charge_scheduled_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "order_day_of_month"

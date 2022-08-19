@@ -31,8 +31,7 @@ attributes:
     description: ""
 
   - name: "created_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "currency"
@@ -109,8 +108,7 @@ attributes:
 
 
   - name: "updated_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "weight_unit"

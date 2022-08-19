@@ -23,14 +23,12 @@ attributes:
     foreign-key-id: "collection-id"
 
   - name: "updated_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     replication-key: true
     description: "The date and time when the collection was last updated."
 
   - name: "created_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "description"

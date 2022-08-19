@@ -7,9 +7,9 @@ name: "customers"
 doc-link: https://developer.rechargepayments.com/2021-11/customers/customers_list
 singer-schema: https://github.com/singer-io/tap-recharge/tree/master/tap_recharge/schemas/customers.json
 description: |
-  The `{{ table.name }}` table contains info about customer accounts with a shop.
+  The `{{ table.name }}` table contains info about customer accounts with a store.
 
-replication-method: "INCREMENTAL"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: "List customers"
@@ -23,10 +23,9 @@ attributes:
     foreign-key-id: "customer-id"
 
   - name: "updated_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     replication-key: true
-    description: "The date and time when the customer was last updated."
+    description: "The date and time the customer was last updated."
 
   - name: "analytics_data"
     type: "object"
@@ -103,8 +102,7 @@ attributes:
     description: ""
 
   - name: "created_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "email"
@@ -121,8 +119,7 @@ attributes:
 
 
   - name: "first_charge_processed_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "first_name"

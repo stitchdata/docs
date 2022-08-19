@@ -23,13 +23,12 @@ attributes:
     #foreign-key-id: "store-metafield-id"
 
   - name: "updated_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
+    replication-key: true
     description: "The date and time the store metafield was last updated."
 
   - name: "created_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "description"

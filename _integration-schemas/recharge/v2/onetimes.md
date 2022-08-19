@@ -26,8 +26,7 @@ attributes:
     #foreign-key-id: "onetime-id"
 
   - name: "updated_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     replication-key: true
     description: "The date and time the one time product was last updated."
 
@@ -37,8 +36,7 @@ attributes:
     foreign-key-id: "address-id"
 
   - name: "created_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "customer_id"
@@ -65,8 +63,7 @@ attributes:
 
 
   - name: "next_charge_scheduled_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "price"

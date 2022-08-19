@@ -13,7 +13,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "List products"
-  doc-link: "https://developer.rechargepayments.com/2021-11/products/products_list"
+  doc-link: "https://developer.rechargepayments.com/2021-01/products/products_list"
 
 attributes:
   - name: "id"
@@ -23,8 +23,7 @@ attributes:
     foreign-key-id: "product-id"
 
   - name: "updated_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     replication-key: true
     description: "The date and time the product was last updated."
 
@@ -34,8 +33,7 @@ attributes:
     foreign-key-id: "collection-id"
 
   - name: "created_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "discount_amount"

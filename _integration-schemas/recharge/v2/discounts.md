@@ -23,8 +23,7 @@ attributes:
     foreign-key-id: "discount-id"
 
   - name: "updated_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     replication-key: true
     description: "The date and time the discount was created."
 
@@ -107,8 +106,7 @@ attributes:
     description: ""
 
   - name: "created_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "duration"
@@ -120,8 +118,7 @@ attributes:
     description: ""
 
   - name: "ends_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "external_discount_id"
@@ -146,8 +143,7 @@ attributes:
     description: ""
 
   - name: "starts_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "status"

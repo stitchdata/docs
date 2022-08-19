@@ -13,7 +13,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "List charges"
-  doc-link: "ttps://developer.rechargepayments.com/2021-11/charges/charge_list"
+  doc-link: "https://developer.rechargepayments.com/2021-11/charges/charge_list"
 
 attributes:
   - name: "id"
@@ -23,8 +23,7 @@ attributes:
     foreign-key-id: "charge-id"
 
   - name: "updated_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     replication-key: true
     description: "The date time at which the order was most recently updated."
 
@@ -138,8 +137,7 @@ attributes:
 
 
   - name: "created_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "currency"
@@ -439,8 +437,7 @@ attributes:
     description: ""
 
   - name: "processed_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "processor_name"
@@ -448,13 +445,11 @@ attributes:
     description: ""
 
   - name: "retry_date"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "scheduled_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "shipments_count"

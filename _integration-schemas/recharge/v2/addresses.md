@@ -23,8 +23,7 @@ attributes:
     foreign-key-id: "address-id"
 
   - name: "updated_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     replication-key: true
     description: "The date and time the address was last updated."
 
@@ -71,8 +70,7 @@ attributes:
     description: ""
 
   - name: "created_at"
-    format: "date-time"
-    type: "string"
+    type: "date-time"
     description: ""
 
   - name: "customer_id"
