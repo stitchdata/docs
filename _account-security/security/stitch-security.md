@@ -60,6 +60,21 @@ sections:
       - Stitch monitors application, system, and data access logs within its production environment for anomalous behavior.
       - Stitch will never access data in your destination without your explicit permission. We'll ask every time this is required and notify you when it's happening.
 
+  - title: "PII stored by Stitch"
+    anchor: "stitch-pii-stored"
+    content: |
+        Stitch stores some PII (Personal Identifiable Information) related to your account. This PII is provided during signup and includes:
+          - First and last name
+          - Email address
+          - Company name
+          - Country and state
+          - Phone number
+          - Billing address
+        
+        The only PII that goes through Stitch is the data sent from your source. This data is not stored outside of our [retention window](#data-retention).
+
+
+
   - title: "Access control"
     anchor: "access-control"
     content: |
