@@ -39,9 +39,10 @@ json array: &string
 #           BIGINT             #
 # ---------------------------- #
 
-bigint: &integer
-  destination-type: "bigint"
-  suffix: "it"
+bigint:
+  destination-type: "unsupported"
+  description: "The `BIGINT` type is not supported for this destination. If a record contains a `BIGINT` value, it will be sent to the `_sdc_rejected` table."
+  # suffix: ""
   # range: ""
   # loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
 
@@ -97,7 +98,11 @@ float:
 #           INTEGER            #
 # ---------------------------- #
 
-integer: *integer
+integer:
+  destination-type: "int"
+  suffix: "it"
+  # range: ""
+  # loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
 
 
 # ---------------------------- #
