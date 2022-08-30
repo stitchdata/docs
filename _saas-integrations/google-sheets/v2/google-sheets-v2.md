@@ -101,7 +101,7 @@ setup-steps:
     content: |
       1. Go to [{{ integration.display_name }}](http://sheets.google.com){:target="new"} and log into the Google account associated with the spreadsheet you are looking to integrate.
       2. Open the spreadsheet that you want to use in the integration.
-      3. The Spreadsheet ID is within the URL to the webpage. In the image below, the portion of the URL within the blue box is the Spreadsheet ID. Keep this readily available to continue with the integration. **Note**: The file should be stored in **My Drive** and not a shared drive or you'll receive a [File Not Found error](https://github.com/singer-io/tap-google-sheets/issues/7){:target="new"}.
+      3. The Spreadsheet ID is within the URL to the webpage. In the image below, the portion of the URL within the blue box is the Spreadsheet ID. Keep this readily available to continue with the integration.
         {% include layout/image.html file="/integrations/google-sheets-spreadsheet-id.png" alt="Google Sheets URL containing the Spreadsheet ID." enlarge=true max-width="850" %}
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
