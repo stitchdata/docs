@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: GitHub (v1)
+title: GitHub (v2)
 permalink: /integrations/saas/github
 keywords: github, integration, schema, etl github, github etl, github schema
 summary: "Connection instructions, replication info, and schema details for Stitch's GitHub integration."
@@ -21,7 +21,7 @@ display_name: "GitHub"
 singer: true
 repo-url: https://github.com/singer-io/tap-github
 
-this-version: "1"
+this-version: "2"
 
 api: |
   [{{ integration.display_name }} REST API v3](https://developer.github.com/v3/){:target="new"}
@@ -69,9 +69,11 @@ setup-steps:
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      5. In the **GitHub Repository Name** field, enter the paths of the repositories you want to track. The path is relative to `https://github.com`. For example: The path for the Stitch Docs repository is `stitchdata/docs`
+      5. In the **Base Url** field, enter the {{ integration.display_name }} URL to use. This is required only if you are using a custom base URL, such as `https://git.your-company.example.com`. The default value is `https://github.com`.
+      6. In the **GitHub Repository Name** field, enter the paths of the repositories you want to track. The path is relative to the base URL. For example: The path for the Stitch Docs repository is `stitchdata/docs`.
 
-         To track multiple repositories, enter a space delimited list of the repository paths. For example: `stitchdata/docs stitchdata/docs-about-docs`
+         - To track multiple repositories, enter a space delimited list of the repository paths. For example: `stitchdata/docs stitchdata/docs-about-docs`
+         - To track all repositories in an organization, use `*` to replace the repository name in the path. For example: `singer-io/*`
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"

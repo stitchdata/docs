@@ -4,14 +4,14 @@
 # -------------------------- #
 
 tap: "github"
-version: "1"
-key: "pull-request-review"
+version: "2"
+key: "commit-comment"
 
-name: "pull_request_reviews"
+name: "commit_comments"
 doc-link: ""
-singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/pull_request_reviews.json"
+singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/commit_comments.json"
 description: |
-  The `{{ table.name }}` table contains info about pull request reviews in repositories specified for the integration.
+  The `{{ table.name }}` table contains info about the commit comments in the repositories specified for the integration.
 
 
 # -------------------------- #
@@ -19,8 +19,8 @@ description: |
 # -------------------------- #
 
 api-method:
-  name: "List reviews for a pull request"
-  doc-link: "https://docs.github.com/en/rest/reference/pulls#list-reviews-for-a-pull-request"
+  name: "List commit comments for a repository"
+  doc-link: "https://docs.github.com/en/rest/reference/repos#list-commit-comments-for-a-repository"
 
 replication-method: "Key-based Incremental"
 replication-key:
@@ -37,28 +37,13 @@ attributes:
   - name: "id"
     type: "number"
     primary-key: true
-    description: "The pull request review ID."
-    foreign-key-id: "pull-request-review-id"
+    description: "The commit comment ID."
+    foreign-key-id: "commit-comment-id"
 
-  - name: "_links"
-    type: "object"
+  - name: "updated_at"
+    type: "date-time"
+    replication-key: true
     description: ""
-    subattributes:
-      - name: "html"
-        type: "object"
-        description: ""
-        subattributes:
-          - name: "href"
-            type: "string"
-            description: ""
-
-      - name: "pull_request"
-        type: "object"
-        description: ""
-        subattributes:
-          - name: "href"
-            type: "string"
-            description: ""
 
   - name: "body"
     type: "string"
@@ -69,24 +54,32 @@ attributes:
     description: ""
     foreign-key-id: "commit-id"
 
+  - name: "created_at"
+    type: "date-time"
+    description: ""
+
   - name: "html_url"
     type: "string"
+    description: ""
+
+  - name: "line"
+    type: "number"
     description: ""
 
   - name: "node_id"
     type: "string"
     description: ""
 
-  - name: "pull_request_url"
+  - name: "path"
     type: "string"
     description: ""
 
-  - name: "state"
-    type: "string"
+  - name: "position"
+    type: "number"
     description: ""
 
-  - name: "submitted_at"
-    type: "date-time"
+  - name: "url"
+    type: "string"
     description: ""
 
   - name: "user"
