@@ -81,7 +81,6 @@ feature-summary: |
 
   - Currently, the {{ integration.display_name }} integration replicates one spreadsheet at a time. To replicate another spreadsheet, you will need to create another {{ integration.display_name }} integration in Stitch.
   - The `IMPORTRANGE()` function in {{ integration.display_name }} isn't currently supported. This integration identifies new and updated data using a spreadsheet's last `updated_at` value, which the `IMPORTRANGE()` doesn't update when used.
-  - Spreadsheets from shared **Team Drives** aren't currently supported. Permission and/or `File Not Found` errors will surface during extraction if you connect a spreadsheet from a shared Team Drive.
 
 
 # -------------------------- #
@@ -90,7 +89,7 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      **A spreadsheet in your Google Drive (My Drive)**. Stitch's {{ integration.display_name }} integration doesn't currently support replicating spreadsheets from shared Team Drives.
+      **A spreadsheet in your Google Drive**.
   - item: |
       **A header row with unique column values in the first row of every sheet you want to replicate.** If there are multiple headers not in the first row, your worksheet data may not be replicated correctly. Headers that aren't in the first row may be extracted as column data.
   - item: |
