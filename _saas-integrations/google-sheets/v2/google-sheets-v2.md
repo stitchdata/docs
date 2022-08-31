@@ -108,7 +108,6 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Spreadsheet ID** field, enter your Spreadsheet ID you obtained from the [previous step](#obtain-spreadsheet-id). **Note**: To integrate another spreadsheet, you'll need to repeat these steps over again with another {{ integration.display_name }} integration.
-      5. **Optional**: Check **Supports all drives** to get data from spreadsheets in all available drives, including shared drives.
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
