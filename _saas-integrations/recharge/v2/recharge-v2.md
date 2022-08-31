@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Recharge (v2)
+title: ReCharge (v2)
 permalink: /integrations/saas/recharge/
 keywords: recharge, integration, schema, etl recharge, recharge etl, recharge schema
 layout: singer
@@ -26,7 +26,7 @@ key: "recharge-setup"
 # -------------------------- #
 
 name: "recharge"
-display_name: "Recharge"
+display_name: "ReCharge"
 
 singer: true
 status-url: ""

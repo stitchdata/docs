@@ -1,5 +1,5 @@
 ---
-title: "Recharge integration: New version (v2) now available!"
+title: "ReCharge integration: New version (v2) now available!"
 content-type: "changelog-entry"
 date: 2022-08-30
 entry-type: new-feature
