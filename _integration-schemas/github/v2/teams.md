@@ -86,4 +86,28 @@ attributes:
   - name: "url"
     type: "string"
     description: ""
+
+  - name: "permissions"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "pull"
+        type: "boolean"
+        description: ""
+
+      - name: "triage"
+        type: "boolean"
+        description: ""
+
+      - name: "push"
+        type: "boolean"
+        description: ""
+
+      - name: "maintain"
+        type: "boolean"
+        description: ""
+
+      - name: "admin"
+        type: "boolean"
+        description: ""
 ---

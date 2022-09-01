@@ -53,4 +53,89 @@ attributes:
   - name: "url"
     type: "string"
     description: "The profile URL associated with the collaborator."
+
+  - name: "node_id"
+    type: "string"
+    description: ""
+
+  - name: "avatar_url"
+    type: "string"
+    description: ""
+
+  - name: "gravatar_id"
+    type: "string"
+    description: ""
+
+  - name: "html_url"
+    type: "string"
+    description: ""
+
+  - name: "followers_url"
+    type: "string"
+    description: ""
+
+  - name: "following_url"
+    type: "string"
+    description: ""
+
+  - name: "gists_url"
+    type: "string"
+    description: ""
+
+  - name: "starred_url"
+    type: "string"
+    description: ""
+
+  - name: "subscriptions_url"
+    type: "string"
+    description: ""
+
+  - name: "organizations_url"
+    type: "string"
+    description: ""
+
+  - name: "repos_url"
+    type: "string"
+    description: ""
+
+  - name: "events_url"
+    type: "string"
+    description: ""
+
+  - name: "received_events_url"
+    type: "string"
+    description: ""
+
+  - name: "site_admin"
+    type: "boolean"
+    description: ""
+
+  - name: "permissions"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "pull"
+        type: "boolean"
+        description: ""
+
+      - name: "triage"
+        type: "boolean"
+        description: ""
+
+      - name: "push"
+        type: "boolean"
+        description: ""
+
+      - name: "maintain"
+        type: "boolean"
+        description: ""
+
+      - name: "admin"
+        type: "boolean"
+        description: ""
+
+  - name: "role_name"
+    type: "string"
+    description: ""
+
 ---

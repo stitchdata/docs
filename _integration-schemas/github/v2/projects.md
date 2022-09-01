@@ -95,4 +95,12 @@ attributes:
   - name: "url"
     type: "string"
     description: ""
+
+  - name: "organization_permission"
+    type: "string"
+    description: ""
+
+  - name: "private"
+    type: "boolean"
+    description: ""
 ---

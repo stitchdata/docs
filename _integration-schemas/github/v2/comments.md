@@ -48,6 +48,14 @@ attributes:
     type: "string"
     description: "The body of the comment."
 
+  - name: "body_text"
+    type: "string"
+    description: "."
+
+  - name: "body_html"
+    type: "string"
+    description: ""
+
   - name: "created_at"
     type: "date-time"
     description: "The time the comment was created."
@@ -83,34 +91,42 @@ attributes:
   - name: "user"
     type: "object"
     description: "Details about the user who created the comment."
-    subattributes:
+    subattributes: &user-attributes
+      - name: "name"
+        type: "string"
+        description: "The name of the user."
+        
+      - name: "email"
+        type: "string"
+        description: "The email address of the user."
+
       - name: "login"
         type: "string"
-        description: "The login name of the user who created the comment."
+        description: "The login name of the user."
 
       - name: "id"
         type: "string"
-        description: "The ID of the user who created the comment."
+        description: "The ID of the user."
 
       - name: "node_id"
         type: "string"
-        description: "The node ID of the user who created the comment."
+        description: "The node ID of the user."
 
       - name: "avatar_url"
         type: "string"
-        description: "The URL of the avatar of the user who created the comment."
+        description: "The URL of the avatar of the user."
 
       - name: "gravatar_id"
         type: "string"
-        description: "The URL of the Gravatar of the user who created the comment."
+        description: "The URL of the Gravatar of the user."
 
       - name: "url"
         type: "string"
-        description: "The API URL of the user who created the comment."
+        description: "The API URL of the user."
 
       - name: "html_url"
         type: "string"
-        description: "The GitHub URL of the user who created the comment."
+        description: "The GitHub URL of the user."
 
       - name: "followers_url"
         type: "string"
@@ -155,4 +171,151 @@ attributes:
       - name: "site_admin"
         type: "string"
         description: "Indicates if the user is a site administrator."
+        
+      - name: "starred_at"
+        type: "string"
+        description: ""
+
+  - name: "performed_via_github_app"
+    type: "object, string"
+    description: ""
+    subattributes:
+      - name: "id"
+        type: "integer"
+        description: ""
+        
+      - name: "slug"
+        type: "string"
+        description: ""
+        
+      - name: "node_id"
+        type: "string"
+        description: ""
+        
+      - name: "owner"
+        type: "object"
+        description: ""
+        subattributes: *user-attributes
+        
+      - name: "name"
+        type: "string"
+        description: ""
+        
+      - name: "description"
+        type: "string"
+        description: ""
+        
+      - name: "external_url"
+        type: "string"
+        description: ""
+        
+      - name: "html_url"
+        type: "string"
+        description: ""
+        
+      - name: "created_at"
+        type: "string"
+        description: ""
+        
+      - name: "updated_at"
+        type: "string"
+        description: ""
+        
+      - name: "permissions"
+        type: "object"
+        description: ""
+        subattributes:
+        
+      - name: "events"
+        type: "array"
+        description: ""
+        subattributes:
+          - name: "item"
+            type: "string"
+            description: ""
+        
+      - name: "installations_count"
+        type: "integer"
+        description: ""
+        subattributes:
+          - name: "issues"
+            type: "string"
+            description: ""
+            
+          - name: "checks"
+            type: "string"
+            description: ""
+            
+          - name: "metadata"
+            type: "string"
+            description: ""
+            
+          - name: "contents"
+            type: "string"
+            description: ""
+            
+          - name: "deployments"
+            type: "string"
+            description: ""
+        
+      - name: "client_id"
+        type: "string"
+        description: ""
+        
+      - name: "client_secret"
+        type: "string"
+        description: ""
+        
+      - name: "webhook_secret"
+        type: "string"
+        description: ""
+        
+      - name: "pem"
+        type: "string"
+        description: ""
+
+  - name: "reactions"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "url"
+        type: "string"
+        description: ""
+        
+      - name: "total_count"
+        type: "integer"
+        description: ""
+        
+      - name: "+1"
+        type: "integer"
+        description: ""
+        
+      - name: "-1"
+        type: "integer"
+        description: ""
+        
+      - name: "laugh"
+        type: "integer"
+        description: ""
+        
+      - name: "confused"
+        type: "integer"
+        description: ""
+        
+      - name: "heart"
+        type: "integer"
+        description: ""
+        
+      - name: "hooray"
+        type: "integer"
+        description: ""
+        
+      - name: "eyes"
+        type: "integer"
+        description: ""
+        
+      - name: "rocket"
+        type: "integer"
+        description: ""
+
 ---

@@ -71,17 +71,140 @@ attributes:
   - name: "submitted_at"
     type: "date-time"
     description: ""
+    
+  - name: "_links"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "html"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "href"
+            type: "string"
+            description: ""
+            
+          
+        
+      - name: "pull_request"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "href"
+            type: "string"
+            description: ""
+            
+          
+        
+      
+    
+  - name: "body_html"
+    type: "string"
+    description: ""
+    
+  - name: "body_text"
+    type: "string"
+    description: ""
+    
+  - name: "node_id"
+    type: "string"
+    description: ""
+    
+  - name: "author_association"
+    type: "string"
+    description: ""
 
   - name: "user"
     type: "object"
     description: "Details about the user who submitted the review."
     subattributes:
-      - name: "id"
-        type: "integer"
-        description: "The user ID."
-        foreign-key-id: "collaborator-id"
+       - name: "name"
+         type: "string"
+         description: "The name of the user."
+         
+       - name: "email"
+         type: "string"
+         description: "The email address of the user."
 
-      - name: "login"
-        type: "string"
-        description: "The user's GitHub username."
+       - name: "login"
+         type: "string"
+         description: "The login name of the user."
+
+       - name: "id"
+         type: "string"
+         description: "The ID of the user."
+
+       - name: "node_id"
+         type: "string"
+         description: "The node ID of the user."
+
+       - name: "avatar_url"
+         type: "string"
+         description: "The URL of the avatar of the user."
+
+       - name: "gravatar_id"
+         type: "string"
+         description: "The URL of the Gravatar of the user."
+
+       - name: "url"
+         type: "string"
+         description: "The API URL of the user."
+
+       - name: "html_url"
+         type: "string"
+         description: "The GitHub URL of the user."
+
+       - name: "followers_url"
+         type: "string"
+         description: "The URL to the user's followers page."
+
+       - name: "following_url"
+         type: "string"
+         description: "The URL to the user's following page."
+
+       - name: "gists_url"
+         type: "string"
+         description: "The URL to the user's gists page."
+
+       - name: "starred_url"
+         type: "string"
+         description: "The URL to the user's starred page."
+
+       - name: "subscriptions_url"
+         type: "string"
+         description: "The URL to the user's subscriptions page."
+
+       - name: "organizations_url"
+         type: "string"
+         description: "The URL to the user's organizations page."
+
+       - name: "repos_url"
+         type: "string"
+         description: "The URL to the user's repositories page."
+
+       - name: "events_url"
+         type: "string"
+         description: "The URL to the user's events page."
+
+       - name: "received_events_url"
+         type: "string"
+         description: "The URL to the user's received events page."
+
+       - name: "type"
+         type: "string"
+         description: "The type of the user."
+
+       - name: "site_admin"
+         type: "string"
+         description: "Indicates if the user is a site administrator."
+         
+       - name: "starred_at"
+         type: "string"
+         description: ""
+    
+  - name: "pr_id"
+    type: "string"
+    description: ""
+
+
 ---

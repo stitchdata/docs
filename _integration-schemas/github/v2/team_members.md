@@ -110,4 +110,16 @@ attributes:
   - name: "url"
     type: "string"
     description: ""
+         
+  - name: "name"
+    type: "string"
+    description: ""
+         
+  - name: "email"
+    type: "string"
+    description: ""
+         
+  - name: "starred_at"
+    type: "string"
+    description: ""
 ---
