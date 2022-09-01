@@ -448,9 +448,10 @@ attributes:
           - name: "topics"
             type: "array"
             description: ""
-            - name: "items"
-              type: "string"
-              description: ""
+            subattributes:
+              - name: "items"
+                type: "string"
+                description: ""
               
             
           - name: "has_issues"

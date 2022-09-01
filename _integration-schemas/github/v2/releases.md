@@ -253,7 +253,6 @@ attributes:
         - name: "browser_download_url"
           type: "string"
           description: ""
-            "format": "uri"
           
         - name: "id"
           type: "integer"

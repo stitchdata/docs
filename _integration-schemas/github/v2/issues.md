@@ -269,10 +269,11 @@ attributes:
   - name: "assignees"
     type: "array"
     description: ""
-    - name: "items"
-      type: "object"
-      description: ""
-      subattributes: *user-attributes  
+    subattributes:
+      - name: "items"
+        type: "object"
+        description: ""
+        subattributes: *user-attributes  
       
     
   - name: "milestone"
