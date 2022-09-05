@@ -265,7 +265,7 @@ attributes:
         description: ""
         subattributes:
           - name: "closed_at"
-            type: "string"
+            type: "date-time"
             description: ""
 
           - name: "closed_issues"
@@ -376,17 +376,36 @@ attributes:
             description: ""
             
           - name: "created_at"
-            type: "string"
+            type: "date-time"
             description: ""
             
           - name: "updated_at"
-            type: "string"
+            type: "date-time"
             description: ""
             
           - name: "permissions"
             type: "object"
             description: ""
             subattributes:
+              - name: "issues"
+                type: "string"
+                description: ""
+            
+              - name: "checks"
+                type: "string"
+                description: ""
+            
+              - name: "metadata"
+                type: "string"
+                description: ""
+            
+              - name: "contents"
+                type: "string"
+                description: ""
+            
+              - name: "deployments"
+                type: "string"
+                description: ""
             
           - name: "events"
             type: "array"
@@ -399,26 +418,6 @@ attributes:
           - name: "installations_count"
             type: "integer"
             description: ""
-            subattributes:
-              - name: "issues"
-                type: "string"
-                description: ""
-                
-              - name: "checks"
-                type: "string"
-                description: ""
-                
-              - name: "metadata"
-                type: "string"
-                description: ""
-                
-              - name: "contents"
-                type: "string"
-                description: ""
-                
-              - name: "deployments"
-                type: "string"
-                description: ""
             
           - name: "client_id"
             type: "string"
@@ -855,11 +854,11 @@ attributes:
             description: ""
           
           - name: "created_at"
-            type: "string"
+            type: "date-time"
             description: ""
           
           - name: "updated_at"
-            type: "string"
+            type: "date-time"
             description: ""
           
           - name: "allow_rebase_merge"
@@ -1156,11 +1155,11 @@ attributes:
                 description: ""
               
               - name: "created_at"
-                type: "string"
+                type: "date-time"
                 description: ""
               
               - name: "updated_at"
-                type: "string"
+                type: "date-time"
                 description: ""
               
               - name: "permissions"

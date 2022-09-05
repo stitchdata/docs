@@ -46,9 +46,17 @@ attributes:
     type: "string"
     description: ""
 
-  - name: "type"
+  - name: "name"
     type: "string"
     description: "The collaborator's type."
+
+  - name: "email"
+    type: "string"
+    description: "The collaborator's name."
+
+  - name: "type"
+    type: "string"
+    description: "The collaborator's email address."
 
   - name: "url"
     type: "string"

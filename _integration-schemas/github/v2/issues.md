@@ -330,15 +330,15 @@ attributes:
           description: ""
           
         - name: "created_at"
-          type: "string"
+          type: "date-time"
           description: ""
           
         - name: "updated_at"
-          type: "string"
+          type: "date-time"
           description: ""
           
         - name: "closed_at"
-          type: "string"
+          type: "date-time"
           description: ""
           
         - name: "due_on"
@@ -437,28 +437,15 @@ attributes:
         description: ""
         
       - name: "created_at"
-        type: "string"
+        type: "date-time"
         description: ""
         
       - name: "updated_at"
-        type: "string"
+        type: "date-time"
         description: ""
         
       - name: "permissions"
         type: "object"
-        description: ""
-        subattributes:
-        
-      - name: "events"
-        type: "array"
-        description: ""
-        subattributes:
-          - name: "item"
-            type: "string"
-            description: ""
-        
-      - name: "installations_count"
-        type: "integer"
         description: ""
         subattributes:
           - name: "issues"
@@ -480,6 +467,18 @@ attributes:
           - name: "deployments"
             type: "string"
             description: ""
+        
+      - name: "events"
+        type: "array"
+        description: ""
+        subattributes:
+          - name: "item"
+            type: "string"
+            description: ""
+        
+      - name: "installations_count"
+        type: "integer"
+        description: ""
         
       - name: "client_id"
         type: "string"

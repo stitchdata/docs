@@ -287,11 +287,11 @@ attributes:
           description: ""
           
         - name: "created_at"
-          type: "string"
+          type: "date-time"
           description: ""  
           
         - name: "updated_at"
-          type: "string"
+          type: "date-time"
           description: ""  
           
         - name: "uploader"

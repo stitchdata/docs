@@ -28,8 +28,6 @@ replication-key:
   based-on: "updated_at"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
-dependent-table-key: "pull-request"
-
 
 # -------------------------- #
 #       Table Attributes     #

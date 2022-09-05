@@ -20,9 +20,9 @@ description: |
 
 api-method:
   name: "List teams"
-  doc-link: "https://docs.github.com/en/rest/reference/teams#list-teams"
+  doc-link: "https://docs.github.com/en/rest/reference/teams#list-team-members"
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 replication-key:
   name: "since"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."

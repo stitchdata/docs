@@ -69,7 +69,7 @@ attributes:
         description: ""
 
   - name: "created_at"
-    type: "string"
+    type: "date-time"
     description: "The date the event was created."
   
   - name: "distinct_size"

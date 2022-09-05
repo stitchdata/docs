@@ -22,7 +22,7 @@ api-method:
   name: "Get team membership for a user"
   doc-link: "https://docs.github.com/en/rest/reference/teams#get-team-membership-for-a-user"
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 replication-key:
   name: "since"
   tooltip: "This is a query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
@@ -47,6 +47,10 @@ attributes:
     description: ""
 
   - name: "state"
+    type: "string"
+    description: ""
+
+  - name: "login"
     type: "string"
     description: ""
 ---

@@ -204,6 +204,7 @@ attributes:
               - name: "pull"
                 type: "boolean"
                 description: ""
+
               - name: "triage"
                 type: "boolean"
                 description: ""
@@ -453,7 +454,6 @@ attributes:
                 type: "string"
                 description: ""
               
-            
           - name: "has_issues"
             type: "boolean"
             description: ""
@@ -492,14 +492,12 @@ attributes:
               "format": "date-time"
             
           - name: "created_at"
-            type: "string"
+            type: "date-time"
             description: ""
-              "format": "date-time"
             
           - name: "updated_at"
-            type: "string"
+            type: "date-time"
             description: ""
-              "format": "date-time"
             
           - name: "allow_rebase_merge"
             type: "boolean"
@@ -753,9 +751,10 @@ attributes:
               - name: "topics"
                 type: "array"
                 description: ""
-                - name: "items"
-                  type: "string"
-                  description: ""
+                subattributes:
+                  - name: "items"
+                    type: "string"
+                    description: ""
                   
                 
               - name: "has_issues"
@@ -795,11 +794,11 @@ attributes:
                 description: ""
                 
               - name: "created_at"
-                type: "string"
+                type: "date-time"
                 description: ""
                 
               - name: "updated_at"
-                type: "string"
+                type: "date-time"
                 description: ""
                 
               - name: "permissions"
@@ -917,11 +916,11 @@ attributes:
     description: "The description of the pull request."
 
   - name: "closed_at"
-    type: "string"
+    type: "date-time"
     description: "The time the pull request was closed."
 
   - name: "created_at"
-    type: "string"
+    type: "date-time"
     description: "The time the pull request was created."
 
   - name: "labels"
@@ -1036,7 +1035,7 @@ attributes:
   - name: "head"
     type: "object"
     description: ""
-  subattributes:
+    subattributes:
       - name: "label"
         type: "string"
         description: ""
@@ -1422,9 +1421,10 @@ attributes:
           - name: "topics"
             type: "array"
             description: ""
-            - name: "items"
-              type: "string"
-              description: ""
+            subattributes:
+              - name: "items"
+                type: "string"
+                description: ""
               
             
           - name: "has_issues"
@@ -1465,14 +1465,13 @@ attributes:
               "format": "date-time"
             
           - name: "created_at"
-            type: "string"
+            type: "date-time"
             description: ""
               "format": "date-time"
             
           - name: "updated_at"
-            type: "string"
+            type: "date-time"
             description: ""
-              "format": "date-time"
             
           - name: "allow_rebase_merge"
             type: "boolean"
@@ -1726,9 +1725,10 @@ attributes:
               - name: "topics"
                 type: "array"
                 description: ""
-                - name: "items"
-                  type: "string"
-                  description: ""
+                subattributes:
+                  - name: "items"
+                    type: "string"
+                    description: ""
                   
                 
               - name: "has_issues"
@@ -1768,11 +1768,11 @@ attributes:
                 description: ""
                 
               - name: "created_at"
-                type: "string"
+                type: "date-time"
                 description: ""
                 
               - name: "updated_at"
-                type: "string"
+                type: "date-time"
                 description: ""
                 
               - name: "permissions"
@@ -1925,10 +1925,11 @@ attributes:
   - name: "assignees"
     type: "array"
     description: ""
-    - name: "items"
-      type: "object"
-      description: ""
-      subattributes: *user-attributes
+    subattributes:
+      - name: "items"
+        type: "object"
+        description: ""
+        subattributes: *user-attributes
       
     
   - name: "issues_url"
@@ -1989,15 +1990,15 @@ attributes:
         description: ""
         
       - name: "created_at"
-        type: "string"
+        type: "date-time"
         description: ""
         
       - name: "updated_at"
-        type: "string"
+        type: "date-time"
         description: ""
 
       - name: "closed_at"
-        type: "string"
+        type: "date-time"
         description: ""
         
       - name: "due_on"
