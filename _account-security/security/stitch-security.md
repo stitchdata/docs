@@ -72,6 +72,7 @@ sections:
           - Billing address
         
         The only PII that goes through Stitch is the data sent from your source. This data is not stored outside of our [retention window](#data-retention).
+        Additionally, Stitch collects performance metrics, but these do not include any customer-provided information.
 
 
 
