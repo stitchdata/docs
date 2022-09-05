@@ -348,7 +348,7 @@ attributes:
       
     
   - name: "reactions"
-    type: "object, string"
+    type: "object"
     description: ""
     subattributes:
       - name: "url"
@@ -494,7 +494,7 @@ attributes:
         
       - name: "pem"
         type: "string"
-        description: ""s
+        description: ""
     
   - name: "timeline_url"
     type: "string"

@@ -103,91 +103,89 @@ attributes:
                 type: "string"
                 description: ""
                 
-              
-            
           - name: "organization"
             type: "object"
             description: ""
             subattributes: &user-attributes
               - name: "name"
                 type: "string"
-                description: "The name of the user."
+                description: ""
                 
               - name: "email"
                 type: "string"
-                description: "The email address of the user."
+                description: "."
 
               - name: "login"
                 type: "string"
-                description: "The login name of the user."
+                description: ""
 
               - name: "id"
                 type: "string"
-                description: "The ID of the user."
+                description: ""
 
               - name: "node_id"
                 type: "string"
-                description: "The node ID of the user."
+                description: ""
 
               - name: "avatar_url"
                 type: "string"
-                description: "The URL of the avatar of the user."
+                description: ""
 
               - name: "gravatar_id"
                 type: "string"
-                description: "The URL of the Gravatar of the user."
+                description: ""
 
               - name: "url"
                 type: "string"
-                description: "The API URL of the user."
+                description: ""
 
               - name: "html_url"
                 type: "string"
-                description: "The GitHub URL of the user."
+                description: ""
 
               - name: "followers_url"
                 type: "string"
-                description: "The URL to the user's followers page."
+                description: ""
 
               - name: "following_url"
                 type: "string"
-                description: "The URL to the user's following page."
+                description: ""
 
               - name: "gists_url"
                 type: "string"
-                description: "The URL to the user's gists page."
+                description: ""
 
               - name: "starred_url"
                 type: "string"
-                description: "The URL to the user's starred page."
+                description: ""
 
               - name: "subscriptions_url"
                 type: "string"
-                description: "The URL to the user's subscriptions page."
+                description: ""
 
               - name: "organizations_url"
                 type: "string"
-                description: "The URL to the user's organizations page."
+                description: ""
 
               - name: "repos_url"
                 type: "string"
-                description: "The URL to the user's repositories page."
+                description: ""
 
               - name: "events_url"
                 type: "string"
-                description: "The URL to the user's events page."
+                description: ""
 
               - name: "received_events_url"
                 type: "string"
-                description: "The URL to the user's received events page."
+                description: ""
 
               - name: "type"
                 type: "string"
-                description: "The type of the user."
+                description: ""
 
               - name: "site_admin"
                 type: "string"
-                description: "Indicates if the user is a site administrator."
+                description: ""
                 
               - name: "starred_at"
                 type: "string"
@@ -487,9 +485,8 @@ attributes:
             description: ""
             
           - name: "pushed_at"
-            type: "string"
+            type: "date-time"
             description: ""
-              "format": "date-time"
             
           - name: "created_at"
             type: "date-time"
@@ -1460,14 +1457,12 @@ attributes:
             description: ""
             
           - name: "pushed_at"
-            type: "string"
+            type: "date-time"
             description: ""
-              "format": "date-time"
             
           - name: "created_at"
             type: "date-time"
             description: ""
-              "format": "date-time"
             
           - name: "updated_at"
             type: "date-time"
