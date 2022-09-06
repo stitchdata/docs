@@ -38,7 +38,7 @@ attributes:
   - name: "attachment"
     type: "object"
     description: ""
-    subattributes: &attachement
+    subattributes: &attachment
       - name: "type"
         type: "string"
         description: ""
@@ -79,10 +79,10 @@ attributes:
         type: "string"
         description: ""
         
-      - name: "attachement"
+      - name: "attachment"
         type: "object"
         description: ""
-        subattributes: *attachement
+        subattributes: *attachment
     
   - name: "name"
     type: "string"
@@ -120,10 +120,10 @@ attributes:
         type: "array"
         description: ""
         subattributes:
-          - name: "attachement"
+          - name: "attachment"
             type: "object"
             description: ""
-            subattributes: *attachement
+            subattributes: *attachment
           
           - name: "label"
             type: "string"
@@ -148,6 +148,7 @@ attributes:
       - name: "fields"
         type: "array"
         description: ""
+        subattributes:
           - name: "items"
             type: "object"
             description: ""
@@ -159,6 +160,7 @@ attributes:
       - name: "labels"
         type: "object"
         description: ""
+        subattributes:
           - name: "center"
             type: "string"
             description: ""
@@ -174,6 +176,7 @@ attributes:
       - name: "price"
         type: "object"
         description: ""
+        subattributes:
           - name: "type"
             type: "string"
             description: ""

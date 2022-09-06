@@ -8,7 +8,7 @@ singer-schema: "https://github.com/singer-io/tap-typeform/blob/master/tap_typefo
 description: |
   The `{{ table.name }}` table contains info about submitted form landings.
 
-  **Note**: Data related to a form landing can be retrieved twice, once in `suunbmitted_landings` when it is unsubmitted and once in `submitted_landings` when it is submitted. In this case, they will have different bookmarks.
+  **Note**: Data related to a form landing can be retrieved twice, once in `unsubmitted_landings` when it is unsubmitted and once in `submitted_landings` when it is submitted. In this case, they will have different bookmarks.
 
 
 replication-method: "Key-based Incremental"
