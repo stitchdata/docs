@@ -27,13 +27,11 @@
 		      - name: "id"
 		      - name: "city"
 		      - name: "state" -->
-		
+
 		{% for attribute in include.table %}
 			<tr>
 				<td>
 					{% if attribute.name %}
-					
-					{% assign parent-id = attribute.name %}
 						<p>
 							<strong>
 								{% if attribute.doc-link %}
