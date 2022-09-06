@@ -113,7 +113,7 @@ attributes:
                 
               - name: "email"
                 type: "string"
-                description: "."
+                description: ""
 
               - name: "login"
                 type: "string"
@@ -753,7 +753,6 @@ attributes:
                     type: "string"
                     description: ""
                   
-                
               - name: "has_issues"
                 type: "boolean"
                 description: ""
@@ -999,7 +998,6 @@ attributes:
     description: ""
     subattributes: *user-attributes
           
-    
   - name: "merge_commit_sha"
     type: "string"
     description: ""
@@ -1089,8 +1087,6 @@ attributes:
                 type: "string"
                 description: ""
                 
-              
-            
           - name: "organization"
             type: "object"
             description: ""
@@ -1179,8 +1175,6 @@ attributes:
                 type: "string"
                 description: ""
                 
-              
-            
           - name: "forks"
             type: "integer"
             description: ""
@@ -1423,7 +1417,6 @@ attributes:
                 type: "string"
                 description: ""
               
-            
           - name: "has_issues"
             type: "boolean"
             description: ""
@@ -1725,7 +1718,6 @@ attributes:
                     type: "string"
                     description: ""
                   
-                
               - name: "has_issues"
                 type: "boolean"
                 description: ""
@@ -1815,8 +1807,6 @@ attributes:
                 type: "integer"
                 description: ""
                 
-              
-            
           - name: "temp_clone_token"
             type: "string"
             description: ""
@@ -1873,8 +1863,6 @@ attributes:
             type: "string"
             description: ""
             
-          
-        
       - name: "sha"
         type: "string"
         description: ""
@@ -1884,8 +1872,6 @@ attributes:
         description: ""
         subattributes: *user-attributes
         
-      
-    
   - name: "commits_url"
     type: "string"
     description: ""
@@ -1911,8 +1897,6 @@ attributes:
         type: "string"
         description: ""
         
-      
-    
   - name: "locked"
     type: "boolean"
     description: ""
@@ -1926,7 +1910,6 @@ attributes:
         description: ""
         subattributes: *user-attributes
       
-    
   - name: "issues_url"
     type: "string"
     description: ""
@@ -1997,7 +1980,7 @@ attributes:
         description: ""
         
       - name: "due_on"
-        type: "string"
+        type: "date-time"
         description: ""
 
   - name: "_links"

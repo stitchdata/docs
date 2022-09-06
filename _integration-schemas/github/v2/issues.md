@@ -342,7 +342,7 @@ attributes:
           description: ""
           
         - name: "due_on"
-          type: "string"
+          type: "date-time"
           description: ""
           
       
