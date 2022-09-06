@@ -31,6 +31,7 @@ display_name: "Typeform"
 singer: true 
 tap-name: "Typeform"
 repo-url: https://github.com/singer-io/tap-typeform
+input: false
 
 this-version: "1"
 

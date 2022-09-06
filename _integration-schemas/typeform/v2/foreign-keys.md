@@ -27,14 +27,6 @@ foreign-keys:
       - table: "submitted_landings"
       - table: "unsubmitted_landings"
 
-  - id: "landing-id"
-    table: "unsubmitted_landings"
-    attribute: "landing_id"
-    all-foreign-keys:
-      - table: "answers"
-      - table: "submitted_landings"
-      - table: "unsubmitted_landings"
-
   - id: "question-id"
     table: "questions"
     attribute: "question_id"
