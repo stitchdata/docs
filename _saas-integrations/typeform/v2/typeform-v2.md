@@ -12,8 +12,8 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Typeform (v1)
-permalink: /integrations/saas/typeform/v1
+title: Typeform (v2)
+permalink: /integrations/saas/typeform
 keywords: typeform, integration, schema, etl typeform, typeform etl, typeform schema
 summary: "Connections instructions, replication info, and schema details for Stitch's Typeform integration."
 layout: singer
@@ -32,7 +32,7 @@ singer: true
 tap-name: "Typeform"
 repo-url: https://github.com/singer-io/tap-typeform
 
-this-version: "1"
+this-version: "2"
 
 api: |
   [{{ integration.display_name }} Create](https://developer.typeform.com/create/){:target="new"} and [Responses](https://developer.typeform.com/responses/){:target="new"} APIs
@@ -111,10 +111,6 @@ setup-steps:
       5. In the **Forms** field, enter a comma-separated list of the form IDs you retrieved in [Step 2](#retrieve-{{ integration.name }}-form-ids). For example:
          - **Single form**: `FrZ6iD`
          - **Multiple forms**: `FrZ6iD,f8nzFM`
-      6. In the **Incremental Range** dropdown, select the type of data aggregation you want Stitch to use:
-
-         - **Daily**: Data will be aggregated by day.
-         - **Hourly**: Data will be aggregated by hour.
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
