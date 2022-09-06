@@ -27,11 +27,13 @@
 		      - name: "id"
 		      - name: "city"
 		      - name: "state" -->
-
+		
 		{% for attribute in include.table %}
 			<tr>
 				<td>
 					{% if attribute.name %}
+					
+					{% assign parent-id = attribute.name %}
 						<p>
 							<strong>
 								{% if attribute.doc-link %}
@@ -87,8 +89,7 @@
                 	file for an example) -->
 
 					{% if attribute.subattributes %}
-						{% if attribute.anchor-id %}
-							{% capture attribute-id %}{{ forloop.index | plus: attribute.anchor-id | random_number }}{% endcapture %}{% else %}{% capture attribute-id %}{{ forloop.index }}{% endcapture %}{% endif %}
+						{% capture attribute-id %}{% increment counter %}{% endcapture %}
 
 						{% assign full-id = table.name | append: "--" | append: attribute.name | append: "--" | append: attribute-id %}
 
