@@ -507,7 +507,6 @@ attributes:
           - name: "destination_location"
             type: "object"
             description: "Details about the line item's destination location."
-            anchor-id: 1
             subattributes: &default-address-fields
               - name: "address1"
                 type: "string"
@@ -549,7 +548,6 @@ attributes:
           - name: "discount_allocations"
             type: "array"
             description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular appliction."
-            anchor-id: 1
             subattributes: &discount-allocations
               - name: "amount"
                 type: "number"
@@ -603,7 +601,6 @@ attributes:
           - name: "origin_location"
             type: "object"
             description: "Details about the origin location associated with the refund line item."
-            anchor-id: 1
             subattributes: *default-address-fields
 
           - name: "origin_location_id"
@@ -630,7 +627,6 @@ attributes:
           - name: "properties"
             type: "array"
             description: "Details about custom info for the item."
-            anchor-id: 1
             subattributes: &properties
               - name: "name"
                 type: "string"
@@ -659,7 +655,6 @@ attributes:
           - name: "tax_lines"
             type: "array"
             description: "Details about the line item's tax lines, each of which details a tax applicable to this line item."
-            anchor-id: 1
             subattributes: &tax-lines
               - name: "compare_at"
                 type: "string"
@@ -809,7 +804,6 @@ attributes:
       - name: "destination_location"
         type: "object"
         description: "Details about the line item's destination location."
-        anchor-id: 2
         subattributes: *default-address-fields
 
       - name: "destination_location_id"
@@ -819,7 +813,6 @@ attributes:
       - name: "discount_allocations"
         type: "array"
         description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular appliction."
-        anchor-id: 2
         subattributes: *discount-allocations
 
       - name: "fulfillable_quantity"
@@ -866,7 +859,6 @@ attributes:
       - name: "origin_location"
         type: "object"
         description: "Details about the origin location associated with the refund line item."
-        anchor-id: 2
         subattributes: *default-address-fields
 
       - name: "origin_location_id"
@@ -893,7 +885,6 @@ attributes:
       - name: "properties"
         type: "array"
         description: "Details about custom info for the item."
-        anchor-id: 3
         subattributes: *properties
 
       - name: "quantity"
@@ -915,7 +906,6 @@ attributes:
       - name: "tax_lines"
         type: "array"
         description: "Details about the line item's tax lines, each of which details a tax applicable to this line item."
-        anchor-id: 2
         subattributes: *tax-lines
 
       - name: "taxable"
@@ -1138,7 +1128,6 @@ attributes:
               - name: "destination_location"
                 type: "object"
                 description: "Details about the line item's destination location."
-                anchor-id: 3
                 subattributes: *default-address-fields
 
               - name: "destination_location_id"
@@ -1148,7 +1137,6 @@ attributes:
               - name: "discount_allocations"
                 type: "array"
                 description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular appliction."
-                anchor-id: 3
                 subattributes: *discount-allocations
 
               - name: "fulfillable_quantity"
@@ -1195,7 +1183,6 @@ attributes:
               - name: "origin_location"
                 type: "object"
                 description: "Details about the origin location associated with the refund line item."
-                anchor-id: 3
                 subattributes: *default-address-fields
 
               - name: "origin_location_id"
@@ -1222,7 +1209,6 @@ attributes:
               - name: "properties"
                 type: "array"
                 description: "Details about custom info for the item."
-                anchor-id: 4
                 subattributes: *properties
 
               - name: "quantity"
@@ -1244,7 +1230,6 @@ attributes:
               - name: "tax_lines"
                 type: "array"
                 description: "Details about the line item's tax lines, each of which details a tax applicable to this line item."
-                anchor-id: 5
                 subattributes: *tax-lines
 
               - name: "taxable"
@@ -1346,7 +1331,6 @@ attributes:
       - name: "discount_allocations"
         type: "array"
         description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular appliction."
-        anchor-id: 4
         subattributes: *discount-allocations
 
       - name: "discounted_price"
@@ -1372,7 +1356,6 @@ attributes:
       - name: "tax_lines"
         type: "array"
         description: "Details about the shipping line's tax lines, each of which details a tax applicable to this shipping line."
-        anchor-id: 6
         subattributes: *tax-lines
 
       - name: "title"

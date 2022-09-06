@@ -176,7 +176,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information attached to the card."
-        anchor-id: 1
         subattributes: &metadata
           - name: "ANYTHING"
             type: "ANYTHING"
@@ -272,7 +271,6 @@ attributes:
           - name: "metadata"
             type: "object"
             description: ""
-            anchor-id: 2
             subattributes: *metadata
 
           - name: "name"
@@ -370,7 +368,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    anchor-id: 3
     subattributes: *metadata
 
   - name: "next_invoice_sequence"
@@ -655,7 +652,6 @@ attributes:
           - name: "metadata"
             type: "object"
             description: "Additional information attached to the card."
-            anchor-id: 4
             subattributes: &metadata
               - name: "ANYTHING"
                 type: "ANYTHING"
@@ -759,7 +755,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: ""
-        anchor-id: 5
         subattributes: *metadata
 
       - name: "multibanco"
@@ -783,7 +778,6 @@ attributes:
           - name: "address"
             type: "object"
             description: "The owner's address."
-            anchor-id: 1
             subattributes:
               - name: "city"
                 type: "string"
