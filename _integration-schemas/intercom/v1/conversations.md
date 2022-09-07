@@ -291,7 +291,6 @@ attributes:
       - name: "author"
         type: "object"
         description: ""
-        anchor-id: 2
         subattributes:
           - name: "email"
             type: "string"

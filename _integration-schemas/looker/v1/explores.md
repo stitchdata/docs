@@ -165,7 +165,6 @@ attributes:
           - name: "enumerations"
             type: "array"
             description: ""
-            anchor-id: 1
             subattributes: &enumerations
               - name: "label"
                 type: "string"
@@ -238,7 +237,6 @@ attributes:
           - name: "map_layer"
             type: "object"
             description: ""
-            anchor-id: 1
             subattributes: &map-layer
               - name: "extents_json_url"
                 type: "string"
@@ -331,7 +329,6 @@ attributes:
           - name: "sql_case"
             type: "array"
             description: ""
-            anchor-id: 1
             subattributes: &sql-case
               - name: "condition"
                 type: "string"
@@ -360,7 +357,6 @@ attributes:
           - name: "suggestions"
             type: "array"
             description: ""
-            anchor-id: 1
             subattributes: &suggestions
               - name: "value"
                 type: "string"
@@ -369,7 +365,6 @@ attributes:
           - name: "tags"
             type: "array"
             description: ""
-            anchor-id: 1
             subattributes: &tags
               - name: "value"
                 type: "string"
@@ -378,7 +373,6 @@ attributes:
           - name: "time_interval"
             type: "object"
             description: ""
-            anchor-id: 1
             subattributes: &time-interval
               - name: "count"
                 type: "string"
@@ -395,7 +389,6 @@ attributes:
           - name: "user_attribute_filter_types"
             type: "array"
             description: ""
-            anchor-id: 1
             subattributes: &user-attribute-filter-type
               - name: "value"
                 type: "string"
@@ -452,7 +445,6 @@ attributes:
           - name: "enumerations"
             type: "array"
             description: ""
-            anchor-id: 2
             subattributes: *enumerations
 
           - name: "error"
@@ -518,8 +510,7 @@ attributes:
           - name: "map_layer"
             type: "object"
             description: ""
-            anchor-id: 2
-            subattributes: *anchor-id
+            subattributes: *map-layer
 
           - name: "measure"
             type: "boolean"
@@ -572,7 +563,6 @@ attributes:
           - name: "sql_case"
             type: "array"
             description: ""
-            anchor-id: 2
             subattributes: *sql-case
 
           - name: "strict_value_format"
@@ -594,19 +584,16 @@ attributes:
           - name: "suggestions"
             type: "array"
             description: ""
-            anchor-id: 2
             subattributes: *suggestions
 
           - name: "tags"
             type: "array"
             description: ""
-            anchor-id: 2
             subattributes: *tags
 
           - name: "time_interval"
             type: "object"
             description: ""
-            anchor-id: 2
             subattributes: *time-interval
 
           - name: "type"
@@ -616,7 +603,6 @@ attributes:
           - name: "user_attribute_filter_types"
             type: "array"
             description: ""
-            anchor-id: 2
             subattributes: *user-attribute-filter-type
 
           - name: "value_format"
@@ -670,7 +656,6 @@ attributes:
           - name: "enumerations"
             type: "array"
             description: ""
-            anchor-id: 3
             subattributes: *enumerations
 
           - name: "error"
@@ -736,8 +721,7 @@ attributes:
           - name: "map_layer"
             type: "object"
             description: ""
-            anchor-id: 3
-            subattributes: *anchor-id
+            subattributes: *map-layer
 
           - name: "measure"
             type: "boolean"
@@ -790,7 +774,6 @@ attributes:
           - name: "sql_case"
             type: "array"
             description: ""
-            anchor-id: 3
             subattributes: *sql-case
 
           - name: "strict_value_format"
@@ -812,19 +795,16 @@ attributes:
           - name: "suggestions"
             type: "array"
             description: ""
-            anchor-id: 3
             subattributes: *suggestions
 
           - name: "tags"
             type: "array"
             description: ""
-            anchor-id: 3
             subattributes: *tags
 
           - name: "time_interval"
             type: "object"
             description: ""
-            anchor-id: 3
             subattributes: *time-interval
 
           - name: "type"
@@ -834,7 +814,6 @@ attributes:
           - name: "user_attribute_filter_types"
             type: "array"
             description: ""
-            anchor-id: 3
             subattributes: *user-attribute-filter-type
 
           - name: "value_format"
@@ -888,7 +867,6 @@ attributes:
           - name: "enumerations"
             type: "array"
             description: ""
-            anchor-id: 4
             subattributes: *enumerations
 
           - name: "error"
@@ -954,8 +932,7 @@ attributes:
           - name: "map_layer"
             type: "object"
             description: ""
-            anchor-id: 4
-            subattributes: *anchor-id
+            subattributes: *map-layer
 
           - name: "measure"
             type: "boolean"
@@ -1008,7 +985,6 @@ attributes:
           - name: "sql_case"
             type: "array"
             description: ""
-            anchor-id: 4
             subattributes: *sql-case
 
           - name: "strict_value_format"
@@ -1030,19 +1006,16 @@ attributes:
           - name: "suggestions"
             type: "array"
             description: ""
-            anchor-id: 4
             subattributes: *suggestions
 
           - name: "tags"
             type: "array"
             description: ""
-            anchor-id: 4
             subattributes: *tags
 
           - name: "time_interval"
             type: "object"
             description: ""
-            anchor-id: 4
             subattributes: *time-interval
 
           - name: "type"
@@ -1052,7 +1025,6 @@ attributes:
           - name: "user_attribute_filter_types"
             type: "array"
             description: ""
-            anchor-id: 4
             subattributes: *user-attribute-filter-type
 
           - name: "value_format"
@@ -1242,7 +1214,6 @@ attributes:
   - name: "tags"
     type: "array"
     description: ""
-    anchor-id: 5
     subattributes: *tags
 
   - name: "view_name"

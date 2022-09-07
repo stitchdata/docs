@@ -562,12 +562,10 @@ attributes:
           - name: "name_key"
             type: "object"
             description: ""
-            anchor-id: 1
             subattributes:
               - name: "customer_identifier"
                 type: "object"
                 description: ""
-                anchor-id: 1
                 subattributes: *customer-identifier
 
               - name: "name"
