@@ -29,7 +29,6 @@ attributes:
 
   - name: "account"
     type: "object"
-    anchor-id: 1
     description: "Details about the account associated with the invoice."
     subattributes: &account
       - name: "bill_to"
@@ -144,7 +143,6 @@ attributes:
     subattributes:
       - name: "account"
         type: "object"
-        anchor-id: 2
         description: "Details about the account associated with the credit payment."
         subattributes: &mini-account
           - name: "code"
@@ -262,7 +260,6 @@ attributes:
 
           - name: "account"
             type: "object"
-            anchor-id: 3
             description: "Details about the account associated with the refund transaction."
             subattributes: *mini-account
 
@@ -273,7 +270,6 @@ attributes:
           - name: "billing_address"
             type: "object"
             description: "The billing address detail for the account."
-            anchor-id: 1
             subattributes: &billing-address
               - name: "city"
                 type: "string"
@@ -379,7 +375,6 @@ attributes:
           - name: "invoice"
             type: "object"
             description: &invoice-details "Details about the invoice associated with the transaction."
-            anchor-id: 1
             subattributes: *mini-invoice
 
           - name: "ip_address_country"
@@ -422,7 +417,6 @@ attributes:
           - name: "payment_gateway"
             type: "object"
             description: &payment_gateway_desc "Details about the payment gateway used to process the transaction."
-            anchor-id: 1
             subattributes: &payment_gateway
               - name: "id"
                 type: "string"
@@ -443,7 +437,6 @@ attributes:
           - name: "payment_method"
             type: "object"
             description: &payment_method_desc "The payment method used in the transaction."
-            anchor-id: 1
             subattributes: &payment_method
               - name: "card_type"
                 type: "string"
@@ -511,7 +504,6 @@ attributes:
 
           - name: "subscription_ids"
             type: "array"
-            anchor-id: 1
             description: &subscription_ids_desc "If the transaction refunds one or more subscriptions, this will be a list of the subscription IDs that were refunded."
             subattributes: &subscription_ids
               - name: "value"
@@ -544,7 +536,6 @@ attributes:
 
           - name: "voided_by_invoice"
             type: "object"
-            anchor-id: 1
             description: &voided_by_invoice "Details about the invoice that voided the transaction."
             subattributes: *mini-invoice
 
@@ -590,7 +581,6 @@ attributes:
 
           - name: "account"
             type: "object"
-            anchor-id: 4
             description: "Details about the account associated with the line item."
             subattributes: *account
 
@@ -979,13 +969,11 @@ attributes:
 
       - name: "account"
         type: "object"
-        anchor-id: 4
         description: "Details about the account associated with the transaction."
         subattributes: *account
 
       - name: "billing_address"
         type: "object"
-        anchor-id: 2
         description: "The billing address associated with the transaction."
         subattributes: *billing-address
 
@@ -1048,7 +1036,6 @@ attributes:
 
       - name: "invoice"
         type: "object"
-        anchor-id: 2
         description: "Details about the invoice associated with the transaction."
         subattributes: *mini-invoice
 
@@ -1074,13 +1061,11 @@ attributes:
 
       - name: "payment_gateway"
         type: "object"
-        anchor-id: 2
         description: *payment_gateway_desc
         subattributes: *payment_gateway
 
       - name: "payment_method"
         type: "object"
-        anchor-id: 2
         description: *payment_method_desc
         subattributes: *payment_method
 
@@ -1102,7 +1087,6 @@ attributes:
 
       - name: "subscription_ids"
         type: "array"
-        anchor-id: 2
         description: *subscription_ids_desc
         subattributes: *subscription_ids
 
@@ -1124,7 +1108,6 @@ attributes:
 
       - name: "voided_by_invoice"
         type: "object"
-        anchor-id: 2
         description: *voided_by_invoice
         subattributes: *mini-invoice
 

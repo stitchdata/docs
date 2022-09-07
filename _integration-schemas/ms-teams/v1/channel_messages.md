@@ -168,7 +168,6 @@ attributes:
           - name: "user"
             type: "object"
             description: ""
-            anchor-id: 2
             subattributes: &user
               - name: "id"
                 type: "string"
@@ -206,7 +205,6 @@ attributes:
       - name: "user"
         type: "object"
         description: ""
-        anchor-id: 12
         subattributes:
           - name: "application"
             type: "string"
@@ -222,7 +220,6 @@ attributes:
 
           - name: "user"
             type: "object"
-            anchor-id: 4
             description: ""
             subattributes: *user
 

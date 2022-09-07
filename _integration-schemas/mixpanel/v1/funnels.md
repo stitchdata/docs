@@ -102,7 +102,6 @@ attributes:
           - name: "buckets"
             type: "array"
             description: ""
-            anchor-id: 1
             subattributes:
               - name: "value"
                 type: "integer"
@@ -123,7 +122,6 @@ attributes:
           - name: "buckets"
             type: "array"
             description: ""
-            anchor-id: 2
             subattributes:
               - name: "value"
                 type: "integer"

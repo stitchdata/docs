@@ -80,7 +80,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    anchor-id: 1
     subattributes:
       - name: "ANYTHING"
         type: "ANYTHING"

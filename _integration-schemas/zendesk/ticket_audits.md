@@ -350,7 +350,6 @@ attributes:
       - name: "via"
         type: "object"
         description: "Details about how the event was created."
-        anchor-id: 1
         subattributes:
           - name: "channel"
             type: "string"
@@ -359,14 +358,12 @@ attributes:
           - name: "source"
             type: "object"
             description: "Additional details about how the event was created. Only available for some channels."
-            anchor-id: 1
             subattributes:
 
           # START TO OBJECT
               - name: "to"
                 type: "object"
                 description: "If the source was an email, Twitter message/mention, phone call, etc., details about the recipient."
-                anchor-id: 1
                 subattributes:
                   - name: "address"
                     type: "string"
@@ -381,7 +378,6 @@ attributes:
               - name: "from"
                 type: "object"
                 description: "Details about the source that created the event."
-                anchor-id: 1
                 subattributes:
                   - name: "id"
                     type: "integer"
@@ -433,7 +429,6 @@ attributes:
   - name: "via"
     type: "object"
     description: "Details about how the audit record was created."
-    anchor-id: 2
     subattributes:
       - name: "channel"
         type: "string"
@@ -442,14 +437,12 @@ attributes:
       - name: "source"
         type: "object"
         description: "Additional details about how the audit record was created. Only available for some channels."
-        anchor-id: 2
         subattributes:
 
       # START TO OBJECT
           - name: "to"
             type: "object"
             description: "If the source was an email, Twitter message/mention, phone call, etc., details about the recipient."
-            anchor-id: 2
             subattributes:
               - name: "address"
                 type: "string"
@@ -464,7 +457,6 @@ attributes:
           - name: "from"
             type: "object"
             description: "Details about the source that created the audit record."
-            anchor-id: 2
             subattributes:
               - name: "id"
                 type: "integer"

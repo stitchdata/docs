@@ -63,7 +63,6 @@ attributes:
         description: ""
 
       - <<: *avatarUrls
-        anchor-id: 1
         
       - name: "displayName"
         type: "string"
@@ -95,7 +94,6 @@ attributes:
             description: ""
 
           - <<: *avatarUrls
-            anchor-id: 2
 
           - name: "displayName"
             type: "string"
@@ -135,7 +133,6 @@ attributes:
             description: ""
 
           - <<: *avatarUrls
-            anchor-id: 3
 
           - name: "displayName"
             type: "string"
@@ -172,7 +169,6 @@ attributes:
             description: ""
 
           - <<: *avatarUrls
-            anchor-id: 4
 
           - name: "displayName"
             type: "string"
@@ -216,7 +212,6 @@ attributes:
         description: ""
 
       - <<: *avatarUrls
-        anchor-id: 5
 
       - name: "displayName"
         type: "string"
@@ -253,7 +248,6 @@ attributes:
         description: ""
 
       - <<: *avatarUrls
-        anchor-id: 6
 
       - name: "displayName"
         type: "string"

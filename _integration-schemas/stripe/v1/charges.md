@@ -219,7 +219,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information attached to the card."
-        anchor-id: 1
         subattributes:
           - name: "ANYTHING"
             type: "ANYTHING"
@@ -306,7 +305,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: "Additional information attached to the charge."
-    anchor-id: 2
     subattributes:
       - name: ""
         type: 
@@ -1092,7 +1090,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information attached to the card."
-        anchor-id: 3
         subattributes:
           - name: "ANYTHING"
             type: "ANYTHING"
