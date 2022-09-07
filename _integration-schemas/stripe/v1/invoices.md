@@ -310,7 +310,6 @@ attributes:
           - name: "metadata"
             type: "object"
             description: ""
-            anchor-id: 1
             subattributes: &metadata
               - name: "ANYTHING"
                 type: "ANYTHING"
@@ -442,7 +441,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: "Additional information attached to the invoice."
-    anchor-id: 2
     subattributes: *metadata
 
   - name: "next_payment_attempt"

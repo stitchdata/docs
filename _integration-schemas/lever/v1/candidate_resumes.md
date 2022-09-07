@@ -76,7 +76,6 @@ attributes:
           - name: "start"
             type: "object"
             description: "The start date of the position."
-            anchor-id: 1
             subattributes: &month-year
               - name: "month"
                 type: "integer"
@@ -89,7 +88,6 @@ attributes:
           - name: "end"
             type: "object"
             description: "The end date of the position."
-            anchor-id: 1
             subattributes: *month-year
 
       - name: "school"
@@ -115,12 +113,10 @@ attributes:
           - name: "start"
             type: "object"
             description: "The date the candidate started studying at the school."
-            anchor-id: 2
             subattributes: *month-year
 
           - name: "end"
             type: "object"
             description: "The date the candidate left the school."
-            anchor-id: 2
             subattributes: *month-year
 ---

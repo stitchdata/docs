@@ -33,7 +33,6 @@ attributes:
 
   - name: "account"
     type: "object"
-    anchor-id: 1
     description: "Details about the account associated with the subscription."
     subattributes: &account
       - name: "bill_to"
@@ -363,7 +362,6 @@ attributes:
         subattributes:
           - name: "add_on"
             type: "object"
-            anchor-id: 2
             description: "Details about the add-on associated with the subscription change."
             subattributes: *mini-add-on
 

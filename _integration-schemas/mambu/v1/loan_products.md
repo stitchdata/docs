@@ -231,7 +231,6 @@ attributes:
 
               - name: "roles"
                 type: "array"
-                anchor-id: "1"
                 description: ""
                 subattributes:
                   - name: "value"
@@ -252,7 +251,6 @@ attributes:
 
               - name: "roles"
                 type: "array"
-                anchor-id: "2"
                 description: ""
                 subattributes:
                   - name: "value"
