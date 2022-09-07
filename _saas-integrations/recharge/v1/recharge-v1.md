@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: ReCharge (v1)
+title: Recharge (v1)
 permalink: /integrations/saas/recharge/v1
 keywords: recharge, integration, schema, etl recharge, recharge etl, recharge schema
 layout: singer
@@ -26,7 +26,7 @@ key: "recharge-setup"
 # -------------------------- #
 
 name: "recharge"
-display_name: "ReCharge"
+display_name: "Recharge"
 
 singer: true
 status-url: ""
@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-recharge
 this-version: "1"
 
 api: |
-  [ReCharge Payments API](https://developer.rechargepayments.com/){:target="new"}
+  [Recharge Payments API](https://developer.rechargepayments.com/){:target="new"}
 
 
 # -------------------------- #
