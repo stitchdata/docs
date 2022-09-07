@@ -123,7 +123,18 @@ attributes:
           - name: "attachment"
             type: "object"
             description: ""
-            subattributes: *attachment
+            subattributes: 
+              - name: "type"
+                type: "string"
+                description: ""
+        
+              - name: "href"
+                type: "string"
+                description: ""
+
+          - name: "description"
+            type: "string"
+            description: ""
           
           - name: "label"
             type: "string"
