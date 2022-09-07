@@ -12,11 +12,11 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Google Sheets (v1)
-permalink: /integrations/saas/google-sheets/v1
+title: Google Sheets (v2)
+permalink: /integrations/saas/google-sheets
 keywords: google-sheeets, integration, schema, etl google-sheeets, google-sheeets etl, google-sheeets schema
 layout: singer
-input: false
+# input: false
 
 key: "google-sheets-setup"
 
@@ -34,7 +34,7 @@ status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 tap-name: "Google Sheets"
 repo-url: https://github.com/singer-io/tap-google-sheets
 
-this-version: "1"
+this-version: "2"
 
 api: |
   [Google Sheets v4 AP1](https://developers.google.com/sheets/api){:target="new"}
@@ -81,7 +81,6 @@ feature-summary: |
 
   - Currently, the {{ integration.display_name }} integration replicates one spreadsheet at a time. To replicate another spreadsheet, you will need to create another {{ integration.display_name }} integration in Stitch.
   - The `IMPORTRANGE()` function in {{ integration.display_name }} isn't currently supported. This integration identifies new and updated data using a spreadsheet's last `updated_at` value, which the `IMPORTRANGE()` doesn't update when used.
-  - Spreadsheets from shared **Team Drives** aren't currently supported. Permission and/or `File Not Found` errors will surface during extraction if you connect a spreadsheet from a shared Team Drive.
 
 
 # -------------------------- #
@@ -90,7 +89,7 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      **A spreadsheet in your Google Drive (My Drive)**. Stitch's {{ integration.display_name }} integration doesn't currently support replicating spreadsheets from shared Team Drives.
+      **A spreadsheet in your Google Drive**.
   - item: |
       **A header row with unique column values in the first row of every sheet you want to replicate.** If there are multiple headers not in the first row, your worksheet data may not be replicated correctly. Headers that aren't in the first row may be extracted as column data.
   - item: |
@@ -102,7 +101,7 @@ setup-steps:
     content: |
       1. Go to [{{ integration.display_name }}](http://sheets.google.com){:target="new"} and log into the Google account associated with the spreadsheet you are looking to integrate.
       2. Open the spreadsheet that you want to use in the integration.
-      3. The Spreadsheet ID is within the URL to the webpage. In the image below, the portion of the URL within the blue box is the Spreadsheet ID. Keep this readily available to continue with the integration. **Note**: The file should be stored in **My Drive** and not a shared drive or you'll receive a [File Not Found error](https://github.com/singer-io/tap-google-sheets/issues/7){:target="new"}.
+      3. The Spreadsheet ID is within the URL to the webpage. In the image below, the portion of the URL within the blue box is the Spreadsheet ID. Keep this readily available to continue with the integration.
         {% include layout/image.html file="/integrations/google-sheets-spreadsheet-id.png" alt="Google Sheets URL containing the Spreadsheet ID." enlarge=true max-width="850" %}
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
@@ -177,7 +176,7 @@ replication-sections:
               1. Column headers with unique values in the first row. If there are duplicate column names, Stitch will skip the sheet and surface a [duplicate column name error]({{ link.troubleshooting.google-sheets-extraction-errors | prepend: site.baseurl }}#duplicate-column-names).
 
                  For example: Two columns in the header row can't be named `customer_id`. Uniqueness must not rely on case. While `customer_id` and `Customer_ID` may be unique due to case differences, this may still cause errors during extraction and loading. For this reason, column names must be completely unique.
-              2. A full row of data in the second row. If any column in this row contains a `NULL` value, Stitch will skip the sheet and surface a [malformed sheet message during extraction]({{ link.troubleshooting.google-sheets-extraction-errors | prepend: site.baseurl }}#malformed-sheet).
+              2. A full row of data in the second row. If any column in this row is empty but has a format (currency or datetime for example), the type will be determined using the format. If a cell is empty and has no format, the column type will be set to string by default.
 
               If the sheet doesn't contain a header row and a second row of data, Stitch will skip the sheet and surface an [empty sheet message during extraction]({{ link.troubleshooting.google-sheets-extraction-errors | prepend: site.baseurl }}#empty-sheet).
       
@@ -203,12 +202,13 @@ replication-sections:
 
               For all other columns, Stitch will perform the following to determine the column's data type:
 
-              1. Attempt to parse the value as a `BOOLEAN` value
-              2. If that fails, attempt to parse the value as an `INTEGER`
-              3. If that fails, attempt to parse the value as a `DATE-TIME` value
-              4. If that fails, attempt to parse the value as a `DATE` date
-              5. If that fails, attempt to parse the value as a `TIME` value
-              6. If that fails, type the column as a `STRING` 
+              1. Check the format of the column and parse the value based on that format.
+              2. If that fails, attempt to parse the value as a `BOOLEAN` value
+              3. If that fails, attempt to parse the value as an `INTEGER`
+              4. If that fails, attempt to parse the value as a `DATE-TIME` value
+              5. If that fails, attempt to parse the value as a `DATE` date
+              6. If that fails, attempt to parse the value as a `TIME` value
+              7. If that fails, type the column as a `STRING` 
 
       - title: "Data replication"
         anchor: "extraction--data-replication"
