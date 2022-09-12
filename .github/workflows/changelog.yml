@@ -1,13 +1,31 @@
 name: Get new changelog entries
 on:
   workflow_dispatch:
+    inputs:
+      range:
+        type: number
+        description: 'Number of days in the date range (default: 8)'
+        required: false
   schedule:
     - cron: '0 5 * * 1'
+    - cron: '30 5 1 * *'
 
 jobs:
   generate-changelog:
     runs-on: ubuntu-latest
     steps:
+      - name: Get weekly date range
+        if: github.event.schedule == '0 5 * * 1' || (github.event.inputs.range == null && github.event.schedule != '30 5 1 * *')
+        run: echo "range=8" >> $GITHUB_ENV
+
+      - name: Get input date range
+        if: github.event.inputs.range != null
+        run: echo "range=${{ github.event.inputs.range }}" >> $GITHUB_ENV
+
+      - name: Get monthly date range
+        if: github.event.schedule == '30 5 1 * *'
+        run: echo "range=31" >> $GITHUB_ENV
+      
       - name: Get current date
         run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
@@ -42,7 +60,7 @@ jobs:
             pandas
 
       - name: Generate draft changelog files
-        run: python changelog.py ${{ secrets.GITHUB_TOKEN }}
+        run: python changelog.py ${{ secrets.GITHUB_TOKEN }} ${{ env.range }}
         working-directory: ./scripts/changelog
 
       - name: Check for changes
