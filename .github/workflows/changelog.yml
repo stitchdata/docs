@@ -14,17 +14,13 @@ jobs:
   generate-changelog:
     runs-on: ubuntu-latest
     steps:
-      - name: Get default date range
-        if: github.event.inputs.range == null && github.event.schedule != '0 5 * * 1' && github.event.schedule != '30 5 1 * *'
+      - name: Get weekly date range
+        if: github.event.schedule == '0 5 * * 1' || (github.event.inputs.range == null && github.event.schedule != '30 5 1 * *')
         run: echo "range=8" >> $GITHUB_ENV
 
       - name: Get input date range
         if: github.event.inputs.range != null
         run: echo "range=${{ github.event.inputs.range }}" >> $GITHUB_ENV
-
-      - name: Get weekly date range
-        if: github.event.schedule == '0 5 * * 1'
-        run: echo "range=8" >> $GITHUB_ENV
 
       - name: Get monthly date range
         if: github.event.schedule == '30 5 1 * *'
