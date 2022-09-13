@@ -12,7 +12,7 @@ description: |
 replication-method: "Key-based Incremental"
 
 replication-key:
-  name: "hs_lastmodifieddate"
+  name: "property_hs_lastmodifieddate"
 
 api-method:
   name: "Get a company"
