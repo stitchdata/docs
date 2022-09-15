@@ -196,6 +196,42 @@ attributes:
     type: "string"
     description: "The name of the lead."
 
+  - name: "notes"
+    type: "object"
+    description: "The notes that have been added to the contact."
+    subattributes:
+      - name: "data"
+        type: "array"
+        description: "The notes that have been added to the contact."
+        subattributes:
+          - name: "id"
+            type: "string"
+            description: "The note ID."
+
+          - name: "type"
+            type: "string"
+            description: "This will be `note`."
+
+          - name: "url"
+            type: "string"
+            description: ""
+
+      - name: "has_more"
+        type: "boolean"
+        description: ""
+
+      - name: "total_count"
+        type: "integer"
+        description: ""
+
+      - name: "type"
+        type: "string"
+        description: "This will be `list`."
+
+      - name: "url"
+        type: "string"
+        description: ""
+
   - name: "os"
     type: "string"
     description: "The operating system the contact is using."
@@ -216,6 +252,30 @@ attributes:
   - name: "signed_up_at"
     type: "date-time"
     description: "The time when a contact signed up, as a Unix timestamp."
+
+  - name: "social_profiles"
+    type: "object"
+    description: "Details about the social profiles the lead is associated with."
+    subattributes:
+      - name: "data"
+        type: "array"
+        description: ""
+        subattributes:
+          - name: "name"
+            type: "string"
+            description: "The name of the social service. Ex: `facebook`"
+
+          - name: "type"
+            type: "string"
+            description: "This will be `social_profile`."
+
+          - name: "url"
+            type: "string"
+            description: "The URL of the social profile."
+
+      - name: "type"
+        type: "string"
+        description: ""
 
   - name: "tags"
     type: "array"
@@ -262,7 +322,7 @@ attributes:
             type: "string"
             description: ""
 
-  - name: "social_profiles"
+  - name: "social_profile"
     type: "array"
     description: ""
     subattributes: *notes

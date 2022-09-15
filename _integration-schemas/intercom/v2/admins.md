@@ -23,7 +23,7 @@ attributes:
     foreign-key-id: "admin-id"
 
   - name: "avatar"
-    type: "url"
+    type: "string"
     description: "The URL to the admin's avatar."
   
   - name: "away_mode_enabled"
