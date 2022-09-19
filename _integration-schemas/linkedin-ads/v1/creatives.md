@@ -13,7 +13,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Search For Creatives"
-    doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-creatives#search-for-creatives"
+    doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-creatives?view=li-lms-unversioned&tabs=http&viewFallbackFrom=li-lms-2022-07#search-for-creatives"
 
 attributes:
   - name: "id"
@@ -130,6 +130,34 @@ attributes:
     description: ""
     subattributes:
       - name: "version_tag"
+        type: "string"
+        description: ""
+
+  - name: "processing_state"
+    type: "string"
+    description: ""
+
+  - name: "review"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "rejection_reason"
+        type: "array"
+        description: ""
+        subattributes:
+          - name: "items"
+            type: "string"
+            description: ""
+
+  - name: "test"
+    type: "boolean"
+    description: ""
+
+  - name: "serving_statuses"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "items"
         type: "string"
         description: ""
 ---

@@ -13,7 +13,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Search For Campaigns"
-    doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaigns#search-for-campaigns"
+    doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaigns?view=li-lms-2022-07&tabs=http#search-for-campaigns"
 
 attributes:
   - name: "id"
@@ -211,4 +211,72 @@ attributes:
       - name: "version_tag"
         type: "string"
         description: "Each entity has a version tag associated with it. The version tag is initiated to 1 when the entity is created. Each single update to the entity increases its version tag by 1."
+  
+  - name: "total_budget"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "currency_code"
+        type: "string"
+        description: ""
+
+      - name: "amount"
+        type: "decimal"
+        description: ""
+  
+  - name: "version_tag"
+    type: "string"
+    description: ""
+  
+  - name: "objective_type"
+    type: "string"
+    description: ""
+  
+  - name: "offsite_preferences"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "iab_categories"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "exclude"
+            type: "array"
+            description: ""
+            subattributes:
+              - name: "items"
+                type: "string"
+                description: ""
+            
+          - name: "include"
+            type: "array"
+            description: ""
+            subattributes:
+              - name: "items"
+                type: "string"
+                description: ""
+
+      - name: "publisher_restriction_files"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "exclude"
+            type: "array"
+            description: ""
+            subattributes:
+              - name: "items"
+                type: "string"
+                description: ""
+  
+  - name: "test"
+    type: "boolean"
+    description: ""
+  
+  - name: "format"
+    type: "string"
+    description: ""
+  
+  - name: "pacing_strategy"
+    type: "string"
+    description: ""
 ---

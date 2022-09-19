@@ -9,8 +9,6 @@ singer-schema: "https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_li
 description: |
   The `{{ table.name }}` table contains analytics data for ads, segmented by campaign.
 
-  To replicate data from this table, you must also select the parent `campaigns` table.
-
   **Note**: This table is replicated using an attribution window of {{ integration.attribution-window }}. Refer to the [Replication](#replication) section for more info.
 
 replication-method: "Key-based Incremental"
@@ -18,7 +16,7 @@ attribution-window: true
 
 api-method:
   name: "Analytics Finder; Creative"
-  doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads-reporting/ads-reporting#analytics-finder"
+  doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads-reporting/ads-reporting?view=li-lms-2022-07&tabs=http#analytics-finder"
 
 attributes:
   - name: "campaign_id"
@@ -291,4 +289,168 @@ attributes:
   - name: "viral_video_views"
     type: "integer"
     description: "A viral video ad playing for at least 2 continuous seconds 50% in-view, or a click on the CTA, whichever comes first. An interaction with the video (like going to full screen mode) does not count as a view."
+  
+  - name: "average_daily_reach_metrics"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "approximate_cost_in_currency_per_thousand_members_reached"
+        type: "decimal"
+        description: ""
+        
+      - name: "approximate_reach"
+        type: "decimal"
+        description: ""
+        
+      - name: "approximate_frequency"
+        type: "decimal"
+        description: ""
+  
+  - name: "average_previous_seven_day_reach_metrics"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "approximate_cost_in_currency_per_thousand_members_reached"
+        type: "decimal"
+        description: ""
+        
+      - name: "approximate_reach"
+        type: "decimal"
+        description: ""
+        
+      - name: "approximate_frequency"
+        type: "decimal"
+        description: ""
+  
+  - name: "average_previous_thirty_day_reach_metrics"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "approximate_cost_in_currency_per_thousand_members_reached"
+        type: "decimal"
+        description: ""
+        
+      - name: "approximate_reach"
+        type: "decimal"
+        description: ""
+        
+      - name: "approximate_frequency"
+        type: "decimal"
+        description: ""
+  
+  - name: "document_completions"
+    type: "integer"
+    description: ""
+  
+  - name: "document_first_quartile_completions"
+    type: "integer"
+    description: ""
+  
+  - name: "document_midpoint_completions"
+    type: "integer"
+    description: ""
+  
+  - name: "document_third_quartile_completions"
+    type: "integer"
+    description: ""
+  
+  - name: "download_clicks"
+    type: "integer"
+    description: ""
+  
+  - name: "job_applications"
+    type: "decimal"
+    description: ""
+  
+  - name: "job_apply_clicks"
+    type: "decimal"
+    description: ""
+  
+  - name: "post_click_job_applications"
+    type: "decimal"
+    description: ""
+  
+  - name: "post_click_job_apply_clicks"
+    type: "decimal"
+    description: ""
+  
+  - name: "post_click_registrations"
+    type: "decimal"
+    description: ""
+  
+  - name: "post_view_job_applications"
+    type: "decimal"
+    description: ""
+  
+  - name: "post_view_job_apply_clicks"
+    type: "decimal"
+    description: ""
+  
+  - name: "post_view_registrations"
+    type: "decimal"
+    description: ""
+  
+  - name: "registrations"
+    type: "decimal"
+    description: ""
+  
+  - name: "talent_leads"
+    type: "integer"
+    description: ""
+  
+  - name: "viral_document_completions"
+    type: "integer"
+    description: ""
+  
+  - name: "viral_document_first_quartile_completions"
+    type: "integer"
+    description: ""
+  
+  - name: "viral_document_midpoint_completions"
+    type: "integer"
+    description: ""
+  
+  - name: "viral_document_third_quartile_completions"
+    type: "integer"
+    description: ""
+  
+  - name: "viral_download_clicks"
+    type: "integer"
+    description: ""
+  
+  - name: "viral_job_applications"
+    type: "decimal"
+    description: ""
+  
+  - name: "viral_job_apply_clicks"
+    type: "decimal"
+    description: ""
+  
+  - name: "viral_post_click_job_applications"
+    type: "decimal"
+    description: ""
+  
+  - name: "viral_post_click_job_apply_clicks"
+    type: "decimal"
+    description: ""
+  
+  - name: "viral_post_click_registrations"
+    type: "decimal"
+    description: ""
+  
+  - name: "viral_post_view_job_applications"
+    type: "decimal"
+    description: ""
+  
+  - name: "viral_post_view_job_apply_clicks"
+    type: "decimal"
+    description: ""
+  
+  - name: "viral_post_view_registrations"
+    type: "decimal"
+    description: ""
+  
+  - name: "viral_registrations"
+    type: "decimal"
+    description: ""
 ---
