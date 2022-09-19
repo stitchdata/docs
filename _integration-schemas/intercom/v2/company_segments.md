@@ -42,4 +42,8 @@ attributes:
   - name: "type"
     type: "string"
     description: "The value of this field will be `segment`."
+
+  - name: "person_type"
+    type: "string"
+    description: "Type of the record: `user` or `lead`."
 ---
