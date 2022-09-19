@@ -4,7 +4,7 @@ version: "2"
 key: "contact"
 
 name: "contacts"
-doc-link: "https://developers.intercom.com/intercom-api-reference/reference/contacts-model"
+doc-link: "https://developers.intercom.com/intercom-api-reference/v2.5/reference/contacts-model"
 singer-schema: "https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/contacts.json"
 description: |
   The `{{ table.name }}` table contains info about users and leads in your {{ integration.display_name }} account.
@@ -17,7 +17,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "List all contacts"
-  doc-link: "https://developers.intercom.com/intercom-api-reference/reference/list-contacts"
+  doc-link: "https://developers.intercom.com/intercom-api-reference/v2.5/reference/list-contacts"
 
 attributes:
   - name: "id"

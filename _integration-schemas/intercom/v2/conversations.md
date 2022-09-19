@@ -4,7 +4,7 @@ version: "2"
 key: "conversation"
 
 name: "conversations"
-doc-link: "https://developers.intercom.com/intercom-api-reference/reference/conversation-model"
+doc-link: "https://developers.intercom.com/intercom-api-reference/v2.5/reference/conversation-model"
 singer-schema: "https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/conversations.json"
 description: |
   The `{{ table.name }}` table contains info about user conversations in your {{ integration.display_name }} account.
@@ -13,7 +13,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "List all conversations"
-  doc-link: "https://developers.intercom.com/intercom-api-reference/reference/list-conversations"
+  doc-link: "https://developers.intercom.com/intercom-api-reference/v2.5/reference/list-conversations"
 
 attributes:
   - name: "id"

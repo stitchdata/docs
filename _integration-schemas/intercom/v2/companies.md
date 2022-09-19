@@ -4,7 +4,7 @@ version: "2"
 key: "company"
 
 name: "companies"
-doc-link: "https://developers.intercom.com/intercom-api-reference/reference/company-model"
+doc-link: "https://developers.intercom.com/intercom-api-reference/v2.5/reference/company-model"
 singer-schema: "https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/companies.json"
 description: |
   The `{{ table.name }}` table contains info about companies that use your {{ integration.display_name }} product.
@@ -27,7 +27,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "Scroll over all companies"
-  doc-link: "https://developers.intercom.com/intercom-api-reference/reference/iterating-over-all-companies"
+  doc-link: "https://developers.intercom.com/intercom-api-reference/v2.5/reference/iterating-over-all-companies"
 
 attributes:
   - name: "id"

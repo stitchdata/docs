@@ -4,7 +4,7 @@ version: "2"
 key: "contact-attribute"
 
 name: "contact_attributes"
-doc-link: "https://developers.intercom.com/intercom-api-reference/reference/data-attribute-model"
+doc-link: "https://developers.intercom.com/intercom-api-reference/v2.5/reference/data-attribute-model"
 singer-schema: "https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/contact_attributes.json"
 description: |
   The `{{ table.name }}` table contains information about contact attributes in your {{ integration.display_name }} account.
@@ -13,7 +13,7 @@ replication-method: "Full Table"
 
 api-method:
   name: "List all data attributes"
-  doc-link: "https://developers.intercom.com/intercom-api-reference/reference/list-data-attributes"
+  doc-link: "https://developers.intercom.com/intercom-api-reference/v2.5/reference/list-data-attributes"
 
 attributes:
   - name: "_sdc_record_hash"

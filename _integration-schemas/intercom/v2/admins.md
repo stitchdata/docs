@@ -4,7 +4,7 @@ version: "2"
 key: "admin"
 
 name: "admins"
-doc-link: "https://developers.intercom.com/intercom-api-reference/reference/admin-model"
+doc-link: "https://developers.intercom.com/intercom-api-reference/v2.5/reference/admin-model"
 singer-schema: "https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/admins.json"
 description: |
   The `{{ table.name }}` table lists info about the admins in your {{ integration.display_name }} account. An admin is a user, or teammate, in your {{ integration.display_name }} account.
@@ -13,7 +13,7 @@ replication-method: "Full Table"
 
 api-method:
   name: "List all admins"
-  doc-link: "https://developers.intercom.com/intercom-api-reference/reference/list-admins"
+  doc-link: "https://developers.intercom.com/intercom-api-reference/v2.5/reference/list-admins"
 
 attributes:
   - name: "id"

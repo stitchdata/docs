@@ -4,7 +4,7 @@ version: "2"
 key: "conversation-part"
 
 name: "conversation_parts"
-doc-link: "https://developers.intercom.com/intercom-api-reference/reference/conversation-model"
+doc-link: "https://developers.intercom.com/intercom-api-reference/v2.5/reference/conversation-model"
 singer-schema: "https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/conversation_parts.json"
 description: |
   The `{{ table.name }}` table lists the individual parts of conversations in your {{ integration.display_name }} account.
@@ -15,7 +15,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "Retrieve a conversation"
-  doc-link: "https://developers.intercom.com/intercom-api-reference/reference/retrieve-a-conversation"
+  doc-link: "https://developers.intercom.com/intercom-api-reference/v2.5/reference/retrieve-a-conversation"
 
 attributes:
   - name: "id"

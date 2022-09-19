@@ -4,7 +4,7 @@ version: "2"
 key: "team"
 
 name: "teams"
-doc-link: "https://developers.intercom.com/intercom-api-reference/reference/teams-model"
+doc-link: "https://developers.intercom.com/intercom-api-reference/v2.5/reference/teams-model"
 singer-schema: "https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/teams.json"
 description: |
   The `{{ table.name }}` table contains information about teams in your {{ integration.display_name }} account.
@@ -13,7 +13,7 @@ replication-method: "Full Table"
 
 api-method:
   name: "List all teams"
-  doc-link: "https://developers.intercom.com/intercom-api-reference/reference/list-teams"
+  doc-link: "https://developers.intercom.com/intercom-api-reference/v2.5/reference/list-teams"
 
 attributes:
   - name: "id"
