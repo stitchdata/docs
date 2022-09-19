@@ -176,9 +176,17 @@ attributes:
         type: "string"
         description: "The contact's city."
 
+      - name: "continent_code"
+        type: "string"
+        description: "The contact's continent code."
+
       - name: "country"
         type: "string"
         description: "The contact's country."
+
+      - name: "country_code"
+        type: "string"
+        description: "The contact's country code."
 
       - name: "region"
         type: "string"
@@ -301,29 +309,4 @@ attributes:
   - name: "workspace_id"
     type: "string"
     description: "The ID of the workspace the contact is associated with."
-
-  - name: "notes"
-    type: "array"
-    description: ""
-    subattributes: &notes
-      - name: "data"
-        type: "object"
-        description: ""
-        subattributes:
-          - name: "id"
-            type: "string"
-            description: ""
-        
-          - name: "type"
-            type: "string"
-            description: ""
-        
-          - name: "url"
-            type: "string"
-            description: ""
-
-  - name: "social_profile"
-    type: "array"
-    description: ""
-    subattributes: *notes
 ---
