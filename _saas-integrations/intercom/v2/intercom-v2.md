@@ -35,7 +35,7 @@ repo-url: https://github.com/singer-io/tap-intercom
 this-version: "2"
 
 api: |
-  [{{ integration.display_name }} API (V2.5)](https://developers.intercom.com/intercom-api-reference/reference/introduction){:target="new"}
+  [{{ integration.display_name }} API (V2.5)](https://developers.intercom.com/intercom-api-reference/v2.5/reference){:target="new"}
 
 
 # -------------------------- #
