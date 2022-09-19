@@ -300,6 +300,10 @@ attributes:
         type: "string"
         description: ""
 
+      - name: "redacted"
+        type: "boolean"
+        description: ""
+
       - name: "subject"
         type: "string"
         description: ""
@@ -368,6 +372,26 @@ attributes:
       - name: "last_close_at"
         type: "date-time"
         description: ""
+
+      - name: "last_closed_by"
+        type: ""
+        description: ""
+        subattributes:
+          - name: "id"
+            type: "string"
+            description: ""
+
+          - name: "name"
+            type: "string"
+            description: ""
+
+          - name: "email"
+            type: "string"
+            description: ""
+
+          - name: "type"
+            type: "string"
+            description: ""
 
       - name: "last_closed_by_id"
         type: "integer"
@@ -498,54 +522,5 @@ attributes:
         
       - name: "priority"
         type: "string"
-        description: ""
-
-  - name: "source"
-    type: "object"
-    description: ""
-    subattributes:
-      - name: "redacted"
-        type: "boolean"
-        description: ""
-
-  - name: "conversation_rating"
-    type: "object"
-    description: ""
-    subattributes:
-      - name: "contact"
-        type: "object"
-        description: ""
-        subattributes:
-          - name: "id"
-            type: "string"
-            description: ""
-
-          - name: "type"
-            type: "string"
-            description: ""
-
-  - name: "statistics"
-    type: "object"
-    description: ""
-    subattributes:
-      - name: "last_closed_by"
-        type: ""
-        description: ""
-        subattributes:
-          - name: "id"
-            type: "string"
-            description: ""
-
-          - name: "name"
-            type: "string"
-            description: ""
-
-          - name: "email"
-            type: "string"
-            description: ""
-
-          - name: "type"
-            type: "string"
-            description: ""
-  
+        description: ""  
 ---
