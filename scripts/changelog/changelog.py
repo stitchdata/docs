@@ -7,7 +7,7 @@ host = 'https://api.github.com'
 github_headers = {'Authorization': 'token ' + github_token, 'Accept': 'application/vnd.github.v3+json'}
 
 # Date range parameter
-nb_days = sys.argv[2]
+nb_days = int(sys.argv[2])
 
 
 # Folder for new files
