@@ -2,7 +2,7 @@ import requests, re, base64, json, datetime, os, pandas, sys
 from datetime import datetime as dt
 
 # GitHub info
-github_token = sys.argv[1]
+github_token = int(sys.argv[1])
 host = 'https://api.github.com'
 github_headers = {'Authorization': 'token ' + github_token, 'Accept': 'application/vnd.github.v3+json'}
 
