@@ -67,13 +67,13 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "id"
+    type: "integer"
+    description: ""
+
   - name: "label"
     type: "string"
     description: "The name of the attribute."
-
-  - name: "model"
-    type: "string"
-    description: "The model of the attribute."
 
   - name: "options"
     type: "array"
