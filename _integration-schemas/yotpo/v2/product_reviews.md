@@ -4,7 +4,7 @@ version: "2"
 key: ""
 
 name: "product_reviews"
-doc-link: https://apidocs.yotpo.com/reference#section-what-are-reviews
+doc-link: https://apidocs.yotpo.com/reference/about-storefront-reviews
 singer-schema: https://github.com/singer-io/tap-yotpo/tree/master/tap_yotpo/schemas/product_reviews.json
 description: |
   The `{{ table.name }}` table contains data about reviews for a certain product.
@@ -14,8 +14,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: Reviews for a Product
-  doc-link: https://apidocs.yotpo.com/v1.0/reference#retrieve-reviews-for-a-specific-product
+  name: Retrieve reviews for a Product
+  doc-link: https://apidocs.yotpo.com/reference/retrieve-reviews-for-a-product
 
 attributes:
   - name: "id"

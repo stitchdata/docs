@@ -4,15 +4,16 @@ version: "2"
 key: ""
 
 name: "orders"
-doc-link: 
+doc-link: https://core-api.yotpo.com/reference/orders
 singer-schema: https://github.com/singer-io/tap-yotpo/tree/master/tap_yotpo/schemas/orders.json
-description: ""
+description: |
+  The `{{ table.name }}` table contains data about orders in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: 
-  doc-link: 
+  name: Retrieve orders
+  doc-link: https://core-api.yotpo.com/reference/retrieve-orders
 
 attributes:
   - name: "yotpo_id"

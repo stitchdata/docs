@@ -4,15 +4,16 @@ version: "2"
 key: ""
 
 name: "order_fulfillments"
-doc-link: 
+doc-link: https://core-api.yotpo.com/reference/order-fulfillments
 singer-schema: https://github.com/singer-io/tap-yotpo/tree/master/tap_yotpo/schemas/order_fulfillments.json
-description: ""
+description: |
+  The `{{ table.name }}` table contains data about fulfilled store orders in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: 
-  doc-link: 
+  name: Retried order fulfillments
+  doc-link: https://core-api.yotpo.com/reference/retrieve-order-fulfillments
 
 attributes:
   - name: "id"

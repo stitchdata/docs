@@ -4,16 +4,16 @@ version: "2"
 key: ""
 
 name: "product_variants"
-doc-link: https://apidocs.yotpo.com/reference#introduction-to-products
+doc-link: https://core-api.yotpo.com/reference/product-variants
 singer-schema: https://github.com/singer-io/tap-yotpo/tree/master/tap_yotpo/schemas/product_variants.json
 description: |
-  The `{{ table.name }}` table contains data about product variants in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains data about product variations in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: Retrieve All Products
-  doc-link: https://apidocs.yotpo.com/reference#retrieve-all-products
+  name: Retrieve product variants
+  doc-link: https://core-api.yotpo.com/reference/retrieve-product-variants
 
 attributes:
   - name: "yotpo_id"

@@ -4,19 +4,16 @@ version: "2"
 key: ""
 
 name: "collections"
-doc-link: 
+doc-link: https://core-api.yotpo.com/reference/collections
 singer-schema: https://github.com/singer-io/tap-yotpo/tree/master/tap_yotpo/schemas/collections.json
-description: ""
+description: |
+  The `{{ table.name }}` table contains data about your store's product groupings - collections -  in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: 
-  doc-link:
-
-api-method:
-  name: Product collections
-  doc-link: 
+  name: Retrieve collections
+  doc-link: https://core-api.yotpo.com/reference/retrieve-collections
 
 attributes:
   - name: "yotpo_id"
