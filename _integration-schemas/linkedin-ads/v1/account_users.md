@@ -39,7 +39,7 @@ attributes:
 
   - name: "campaign_contact"
     type: "boolean"
-    description: "" 
+    description: "The list of emails registered to receive campaign-related events." 
 
   - name: "change_audit_stamps"
     type: "object"

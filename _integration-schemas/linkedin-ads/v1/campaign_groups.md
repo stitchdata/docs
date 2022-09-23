@@ -104,21 +104,26 @@ attributes:
     subattributes:
       - name: "currency_code"
         type: "string"
-        description: ""
+        description: "The ISO currency code."
 
       - name: "amount"
         type: "decimal"
-        description: ""
+        description: "The maximum amount to spend across all associated campaigns and creatives for duration of the campaign group."
   
   - name: "test"
     type: "boolean"
-    description: ""
+    description: "Indicates whether this campaign group is a test campaign group."
   
   - name: "allowed_campaign_types"
     type: "array"
-    description: ""
+    description: "Array of enums that indicates allowed campaign types within the specific campaign group."
     subattributes:
       - name: "items"
         type: "string"
-        description: ""
+        description: |
+          The campaign type. The value can be: 
+          - `TEXT_AD`
+          - `SPONSORED_UPDATES`
+          - `SPONSORED_INMAILS`
+          - `DYNAMIC`"
 ---

@@ -218,31 +218,39 @@ attributes:
     subattributes:
       - name: "currency_code"
         type: "string"
-        description: ""
+        description: "The ISO currency code."
 
       - name: "amount"
         type: "decimal"
-        description: ""
+        description: "The maximum amount to spend over the life of the campaign."
   
   - name: "version_tag"
     type: "string"
-    description: ""
+    description: "The version tag associated with the entity."
   
   - name: "objective_type"
     type: "string"
-    description: ""
+    description: |
+      The Campaign Objective type values. The value can be:
+      - `BRAND_AWARENESS`
+      - `ENGAGEMENT`
+      - `JOB_APPLICANTS`
+      - `LEAD_GENERATION`
+      - `WEBSITE_CONVERSIONS`
+      - `WEBSITE_VISITS`
+      - `VIDEO_VIEWS`
   
   - name: "offsite_preferences"
     type: "object"
-    description: ""
+    description: "The offsite preferences that an advertiser specifies for this campaign."
     subattributes:
       - name: "iab_categories"
         type: "object"
-        description: ""
+        description: "The set of IAB (Interactive Advertising Bureau) categories that this campaign may be served/excluded from, based on where the ad request is from. Mobile Apps, Mobile Web, and Desktop Inventory are all classified into one or more of these categories."
         subattributes:
           - name: "exclude"
             type: "array"
-            description: ""
+            description: "The excluded list of IAB categories."
             subattributes:
               - name: "items"
                 type: "string"
@@ -250,7 +258,7 @@ attributes:
             
           - name: "include"
             type: "array"
-            description: ""
+            description: "The included list of IAB categories."
             subattributes:
               - name: "items"
                 type: "string"
@@ -258,11 +266,11 @@ attributes:
 
       - name: "publisher_restriction_files"
         type: "object"
-        description: ""
+        description: "This field contains one or more files that have been uploaded by an advertiser. Each file contains a list of web domains/app store URLs."
         subattributes:
           - name: "exclude"
             type: "array"
-            description: ""
+            description: "The list of publisher file IDs to whom ad requests may not be served."
             subattributes:
               - name: "items"
                 type: "string"
@@ -270,13 +278,24 @@ attributes:
   
   - name: "test"
     type: "boolean"
-    description: ""
+    description: "Indicates whether this campaign is a test campaign."
   
   - name: "format"
     type: "string"
-    description: ""
+    description: |
+      The ad format on campaign level. The value can be:
+      - `CAROUSEL`
+      - `FOLLOW_COMPANY`
+      - `JOBS`
+      - `SINGLE_VIDEO`
+      - `SPONSORED_INMAIL`
+      - `SPONSORED_MESSAGE`
+      - `SPOTLIGHT`
+      - `STANDARD_UPDATE`
+      - `TEXT_AD`
+      - `UNSUPPORTED`
   
   - name: "pacing_strategy"
     type: "string"
-    description: ""
+    description: "The pacing option used for the campaign."
 ---

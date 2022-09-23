@@ -292,165 +292,165 @@ attributes:
   
   - name: "average_daily_reach_metrics"
     type: "object"
-    description: ""
+    description: "The reach metrics corresponding to the day relative to the date range."
     subattributes:
       - name: "approximate_cost_in_currency_per_thousand_members_reached"
         type: "decimal"
-        description: ""
+        description: "The average reach, or unique member accounts with at least one impression."
         
       - name: "approximate_reach"
         type: "decimal"
-        description: ""
+        description: "The average of impressions shown to each member account that received at least one impression."
         
       - name: "approximate_frequency"
         type: "decimal"
-        description: ""
+        description: "The average of spend (in the ad account currency) on your ads, divided by member accounts reached, multiplied by 1,000."
   
   - name: "average_previous_seven_day_reach_metrics"
     type: "object"
-    description: ""
+    description: "The reach metrics corresponding to the last 7 days based on the date range."
     subattributes:
       - name: "approximate_cost_in_currency_per_thousand_members_reached"
         type: "decimal"
-        description: ""
+        description: "The average reach, or unique member accounts with at least one impression."
         
       - name: "approximate_reach"
         type: "decimal"
-        description: ""
+        description: "The average of impressions shown to each member account that received at least one impression."
         
       - name: "approximate_frequency"
         type: "decimal"
-        description: ""
+        description: "The average of spend (in the ad account currency) on your ads, divided by member accounts reached, multiplied by 1,000."
   
   - name: "average_previous_thirty_day_reach_metrics"
     type: "object"
-    description: ""
+    description: "The reach metrics corresponding to the last 30 days based on the date range."
     subattributes:
       - name: "approximate_cost_in_currency_per_thousand_members_reached"
         type: "decimal"
-        description: ""
+        description: "The average reach, or unique member accounts with at least one impression."
         
       - name: "approximate_reach"
         type: "decimal"
-        description: ""
+        description: "The average of impressions shown to each member account that received at least one impression."
         
       - name: "approximate_frequency"
         type: "decimal"
-        description: ""
+        description: "The average of spend (in the ad account currency) on your ads, divided by member accounts reached, multiplied by 1,000."
   
   - name: "document_completions"
     type: "integer"
-    description: ""
+    description: "The number of times users reached 100% of the document’s length, including those that skipped to this point."
   
   - name: "document_first_quartile_completions"
     type: "integer"
-    description: ""
+    description: "The number of times users reached the first quartile of the document’s length, including those that skipped to this point."
   
   - name: "document_midpoint_completions"
     type: "integer"
-    description: ""
+    description: "The number of times users reached the second quartile of the document’s length, including those that skipped to this point."
   
   - name: "document_third_quartile_completions"
     type: "integer"
-    description: ""
+    description: "The number of times users reached the third quartile of the document’s length, including those that skipped to this point."
   
   - name: "download_clicks"
     type: "integer"
-    description: ""
+    description: "The number of times users have indicated the intent to download the media in an ad by clicking the download icon."
   
   - name: "job_applications"
     type: "decimal"
-    description: ""
+    description: "The number of times a member completed a job application after viewing or clicking on an ad."
   
   - name: "job_apply_clicks"
     type: "decimal"
-    description: ""
+    description: "The number of times a member clicked on the job’s apply button on an LinkedIn jobs page after viewing or clicking on an ad which has a LinkedIn job landing page."
   
   - name: "post_click_job_applications"
     type: "decimal"
-    description: ""
+    description: "The number of times a member completed a job application after clicking on an ad."
   
   - name: "post_click_job_apply_clicks"
     type: "decimal"
-    description: ""
+    description: "The number of times a member clicked on the job’s apply button on an LinkedIn jobs page after clicking on an ad which has a LinkedIn job landing page."
   
   - name: "post_click_registrations"
     type: "decimal"
-    description: ""
+    description: "The number of times a member has registered for an event or seminar after clicking on an ad which has a LinkedIn landing page."
   
   - name: "post_view_job_applications"
     type: "decimal"
-    description: ""
+    description: "The number of times a member completed a job application after viewing an ad."
   
   - name: "post_view_job_apply_clicks"
     type: "decimal"
-    description: ""
+    description: "The number of times a member clicked on the job’s apply button on an LinkedIn jobs page after clicking an ad which has a LinkedIn job landing page."
   
   - name: "post_view_registrations"
     type: "decimal"
-    description: ""
+    description: "The number of times a member has registered for an event or seminar after viewing an ad which has a LinkedIn event landing page."
   
   - name: "registrations"
     type: "decimal"
-    description: ""
+    description: "The number of times a member has registered for an event or seminar after viewing or clicking on an ad which has a LinkedIn event landing page."
   
   - name: "talent_leads"
     type: "integer"
-    description: ""
+    description: "The number of leads captured through a talent media campaign."
   
   - name: "viral_document_completions"
     type: "integer"
-    description: ""
+    description: "The number of times users reached 100% of the document’s length on a viral post, including those that skipped to this point."
   
   - name: "viral_document_first_quartile_completions"
     type: "integer"
-    description: ""
+    description: "The number of times users reached the first quartile of the document’s length on a viral post, including those that skipped to this point."
   
   - name: "viral_document_midpoint_completions"
     type: "integer"
-    description: ""
+    description: "The number of times users reached the second quartile of the document’s length on a viral post, including those that skipped to this point."
   
   - name: "viral_document_third_quartile_completions"
     type: "integer"
-    description: ""
+    description: "The number of times users reached the third quartile of the document’s length on a viral post, including those that skipped to this point."
   
   - name: "viral_download_clicks"
     type: "integer"
-    description: ""
+    description: "The number of times users have indicated the intent to download the media in a viral ad by clicking the download icon."
   
   - name: "viral_job_applications"
     type: "decimal"
-    description: ""
+    description: "The number of times a member completed a job application after viewing or clicking on a viral ad."
   
   - name: "viral_job_apply_clicks"
     type: "decimal"
-    description: ""
+    description: "The number of times a member clicked on the job’s apply button on an LinkedIn jobs page after viewing or clicking on a viral ad which has a LinkedIn job landing page during the date range."
   
   - name: "viral_post_click_job_applications"
     type: "decimal"
-    description: ""
+    description: "The number of times a member completed a job application after clicking on a viral ad."
   
   - name: "viral_post_click_job_apply_clicks"
     type: "decimal"
-    description: ""
+    description: "The number of times a member clicked on the job’s apply button on an LinkedIn jobs page after clicking on a viral ad which has a LinkedIn job landing page."
   
   - name: "viral_post_click_registrations"
     type: "decimal"
-    description: ""
+    description: "The number of times a member has registered for an event or seminar after clicking on a viral ad which has a LinkedIn landing page."
   
   - name: "viral_post_view_job_applications"
     type: "decimal"
-    description: ""
+    description: "The number of times a member completed a job application after viewing a viral ad."
   
   - name: "viral_post_view_job_apply_clicks"
     type: "decimal"
-    description: ""
+    description: "The number of times a member clicked on the job’s apply button on an LinkedIn jobs page after viewing a viral ad which has a LinkedIn job landing page."
   
   - name: "viral_post_view_registrations"
     type: "decimal"
-    description: ""
+    description: "The number of times a member has registered for an event or seminar after viewing a viral ad which has a LinkedIn event landing page."
   
   - name: "viral_registrations"
     type: "decimal"
-    description: ""
+    description: "The number of times a member has registered for an event or seminar after viewing or clicking on a viral ad which has a LinkedIn event landing page."
 ---

@@ -135,7 +135,11 @@ attributes:
 
   - name: "processing_state"
     type: "string"
-    description: ""
+    description: |
+      The processing state of the creative. The value can be:
+      - `PROCESSING`: The creative is currently being processed.
+      - `PROCESSING_FAILED`: The creative processing has failed.
+      - `PROCESSING_SUCCEEDED`: The creative processing was completed successfully.
 
   - name: "review"
     type: "object"
@@ -143,7 +147,7 @@ attributes:
     subattributes:
       - name: "rejection_reason"
         type: "array"
-        description: ""
+        description: "An array of reasons for rejecting creatives."
         subattributes:
           - name: "items"
             type: "string"
@@ -151,13 +155,24 @@ attributes:
 
   - name: "test"
     type: "boolean"
-    description: ""
+    description: "Indicates whether this creative is a test creative."
 
   - name: "serving_statuses"
     type: "array"
-    description: ""
+    description: "Array of enums that determine whether or not a creative may be served. Unlike status, which is user-managed, the values are controlled by the service."
     subattributes:
       - name: "items"
         type: "string"
-        description: ""
+        description: |
+          The value can be:
+          - `RUNNABLE`
+          - `STOPPED`
+          - `UNDER_REVIEW`
+          - `REJECTED`
+          - `FORM_HOLD`
+          - `PROCESSING`
+          - `PROCESSING_FAILED`
+          - `REFERRED_CONTENT_QUALITY_HOLD`
+          - `JOB_POSTING_ON_HOLD`
+          - `JOB_POSTING_INVALID`
 ---
