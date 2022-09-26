@@ -125,5 +125,5 @@ attributes:
           - `TEXT_AD`
           - `SPONSORED_UPDATES`
           - `SPONSORED_INMAILS`
-          - `DYNAMIC`"
+          - `DYNAMIC`
 ---
