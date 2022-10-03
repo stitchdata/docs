@@ -1,5 +1,5 @@
 ---
-title: "Pipedrive (v1) bug fix: Transformation and tyope issues"
+title: "Pipedrive (v1) bug fix: Transformation and type issues"
 content-type: "changelog-entry"
 date: 2022-09-02
 entry-type: bug-fix
