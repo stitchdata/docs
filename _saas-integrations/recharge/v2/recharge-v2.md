@@ -44,7 +44,7 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-certified: false
+certified: true
 
 api-type: "platform.recharge"
 
