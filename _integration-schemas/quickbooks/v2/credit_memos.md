@@ -61,7 +61,27 @@ attributes:
         type: "string"
         description: ""
 
+      - name: "Line5"
+        type: "string"
+        description: ""
+
       - name: "Long"
+        type: "string"
+        description: ""
+
+      - name: "City"
+        type: "string"
+        description: ""
+
+      - name: "Country"
+        type: "string"
+        description: ""
+
+      - name: "CountrySubDivisionCode"
+        type: "string"
+        description: ""
+
+      - name: "PostalCode"
         type: "string"
         description: ""
 
@@ -76,28 +96,19 @@ attributes:
   - name: "ClassRef"
     type: "object"
     description: "Details about the class associated with the credit memo."
-    subattributes:
+    subattributes: &name-value
       - name: "name"
         type: "string"
         description: ""
 
       - name: "value"
         type: "string"
-        description: "The class ID."
-        foreign-key-id: "class-id"
+        description: ""
 
   - name: "CurrencyRef"
     type: "object"
     description: "Details about the currency used in the credit memo."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: "The currency ID."
-        foreign-key-id: "currency-id"
+    subattributes: *name-value
 
   - name: "CustomField"
     type: "array"
@@ -126,17 +137,18 @@ attributes:
   - name: "CustomerRef"
     type: "object"
     description: "Details about the customer associated with the credit memo."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
+    subattributes: *name-value
 
-      - name: "value"
-        type: "string"
-        description: "The customer ID."
-        foreign-key-id: "customer-id"
+  - name: "DepartmentRef"
+    type: "object"
+    description: ""
+    subattributes: *name-value
 
   - name: "DocNumber"
+    type: "string"
+    description: ""
+
+  - name: "domain"
     type: "string"
     description: ""
 
@@ -148,9 +160,22 @@ attributes:
     type: "decimal"
     description: ""
 
+  - name: "GlobalTaxCalculation"
+    type: "string"
+    description: ""
+
+  - name: "HomeBalance"
+    type: "decimal"
+    description: ""
+
   - name: "HomeTotalAmt"
     type: "decimal"
     description: ""
+
+  - name: "InvoiceRef"
+    type: "object"
+    description: ""
+    subattributes: *name-value
 
   - name: "Line"
     type: "array"
@@ -163,6 +188,136 @@ attributes:
       - name: "Description"
         type: "string"
         description: ""
+
+      - name: "DescriptionLineDetail"
+        type: "object"
+        description: ""
+        subattributes: ""
+          - name: "ServiceData"
+            type: "date-time"
+            description: ""
+            
+          - name: "TaxCodeRef"
+            type: "object"
+            description: ""
+            subattributes: *name-value
+
+      - name: "GroupLineDetail"
+        type: "object"
+        description: ""
+        subattributes: ""
+          - name: "GroupItemRef"
+            type: "object"
+            description: ""
+            subattributes: *name-value
+            
+          - name: "Line"
+            type: "object"
+            description: ""
+            subattributes:
+             - name: "Amount"
+               type: "decimal"
+               description: ""
+               
+             - name: "Description"
+               type: "string"
+               description: ""
+
+             - name: "Detailtype"
+               type: "string"
+               description: ""
+
+             - name: "Id"
+               type: "string"
+               description: ""
+
+             - name: "LineNum"
+               type: "decimal"
+               description: ""
+
+             - name: "SalesItemLineDetail"
+               type: "object"
+               description: ""
+               subattributes:
+                 - name: "ClassRef"
+                   type: "object"
+                   description: ""
+                   subattributes: *name-value
+                   
+                 - name: "DiscountAmt"
+                   type: "decimal"
+                   description: ""
+                   
+                 - name: "DiscountRate"
+                   type: "decimal"
+                   description: ""
+                   
+                 - name: "ItemAccountRef"
+                   type: "object"
+                   description: ""
+                   subattributes: *name-value
+                   
+                 - name: "ItemRef"
+                   type: "object"
+                   description: ""
+                   subattributes: *name-value
+                   
+                 - name: "MarkupInfo"
+                   type: "object"
+                   description: ""
+                   subattributes:
+                     - name: "MarkupIncomeAccountRef"
+                       type: "object"
+                       description: ""
+                       
+                     - name: "Percent"
+                       type: "decimal"
+                       description: ""
+                       subattributes: *name-value
+                       
+                     - name: "PriceLevelRef"
+                       type: "object"
+                       description: ""
+                       subattributes: *name-value
+                   
+                 - name: "Qty"
+                   type: "integer"
+                   description: ""
+                   
+                 - name: "ServiceDate"
+                   type: "date-time"
+                   description: ""
+                   
+                 - name: "TaxClassificationRef"
+                   type: "object"
+                   description: ""
+                   subattributes: *name-value
+                   
+                 - name: "TaxCodeRef"
+                   type: "object"
+                   description: ""
+                   subattributes: *name-value
+                   
+                 - name: "TaxInclusiveAmt"
+                   type: "decimal"
+                   description: ""
+                   
+                 - name: "UnitPrice"
+                   type: "decimal"
+                   description: ""
+            
+          - name: "Quantity"
+            type: "decimal"
+            description: ""
+
+      - name: "SubtotalLineDetail"
+        type: "object"
+        description: ""
+        subattributes: ""
+          - name: "ItemRef"
+            type: "object"
+            description: ""
+            subattributes: *name-value
 
       - name: "DetailType"
         type: "string"
@@ -183,15 +338,7 @@ attributes:
           - name: "ItemRef"
             type: "object"
             description: "Details about the item associated with the line item."
-            subattributes:
-              - name: "name"
-                type: "string"
-                description: ""
-
-              - name: "value"
-                type: "string"
-                description: "The item ID."
-                foreign-key-id: "item-id"
+            subattributes: *name-value
 
           - name: "Qty"
             type: "integer"
@@ -221,10 +368,23 @@ attributes:
       - name: "LastUpdatedTime"
         type: "date-time"
         description: ""
+  
+  - name: "PaymentMethodRef"
+    type: "string"
+    description: ""
 
   - name: "PrintStatus"
     type: "string"
     description: ""
+
+  - name: "PrivateNote"
+    type: "string"
+    description: ""
+
+  - name: "RecurDataRef"
+    type: "object"
+    description: ""
+    subattributes: *name-value
 
   - name: "RemainingCredit"
     type: "integer"
@@ -233,15 +393,7 @@ attributes:
   - name: "SalesTermRef"
     type: "object"
     description: "Details about the term associated with the credit memo."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: "The term ID."
-        foreign-key-id: "term-id"
+    subattributes: *name-value
 
   - name: "ShipAddr"
     type: "object"
@@ -267,6 +419,22 @@ attributes:
         type: "string"
         description: ""
 
+      - name: "Line2"
+        type: "string"
+        description: ""
+
+      - name: "Line3"
+        type: "string"
+        description: ""
+
+      - name: "Line4"
+        type: "string"
+        description: ""
+
+      - name: "Line5"
+        type: "string"
+        description: ""
+
       - name: "Long"
         type: "string"
         description: ""
@@ -275,12 +443,25 @@ attributes:
         type: "string"
         description: ""
 
+      - name: "Country"
+        type: "string"
+        description: ""
+
   - name: "SyncToken"
     type: "string"
     description: ""
 
+  - name: "TaxExemptionRef"
+    type: "object"
+    description: ""
+    subattributes: *name-value
+
   - name: "TotalAmt"
     type: "decimal"
+    description: ""
+
+  - name: "TransactionLocationType"
+    type: "string"
     description: ""
 
   - name: "TxnDate"
@@ -294,6 +475,48 @@ attributes:
       - name: "TotalTax"
         type: "integer"
         description: ""
+
+      - name: "TaxLine"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "Amount"
+            type: "string"
+            description: ""
+            
+          - name: "DetailType"
+            type: "string"
+            description: ""
+
+          - name: "TaxLineDetail"
+            type: "object"
+            description: ""
+            subattributes:
+              - name: "OverrideDeltaAmount"
+                type: "decimal"
+                description: ""
+                
+              - name: "PercentBased"
+                type: "boolean"
+                description: ""
+                
+              - name: "TaxInclusiveAmount"
+                type: "decimal"
+                description: ""
+                
+              - name: "TaxPercent"
+                type: "decimal"
+                description: ""
+                
+              - name: "TaxRateRef"
+                type: "object"
+                description: ""
+                subattributes: *name-value
+
+      - name: "TxnTaxCodeRef"
+        type: "object"
+        description: ""
+        subattributes: *name-value
 
   - name: "domain"
     type: "string"
