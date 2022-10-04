@@ -32,15 +32,14 @@ attributes:
       - name: "AccountRef"
         type: "object"
         description: "Details about the account associated with the deposit."
-        subattributes:
+        subattributes: &name-value
           - name: "name"
             type: "string"
             description: ""
 
           - name: "value"
             type: "string"
-            description: "The account ID."
-            foreign-key-id: "account-id"
+            description: ""
 
       - name: "Amount"
         type: "decimal"
@@ -53,47 +52,31 @@ attributes:
   - name: "CurrencyRef"
     type: "object"
     description: "Details about the currency the deposit is in."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: "The currency ID."
-        foreign-key-id: "currency-id"
+    subattributes: *name-value
 
   - name: "DepartmentRef"
     type: "object"
     description: "Details about the department associated with the deposit."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: "The department ID."
-        foreign-key-id: "department-id"
+    subattributes: *name-value
 
   - name: "DepositToAccountRef"
     type: "object"
     description: "Details about the account to which the deposit was made."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: "The account ID."
-        foreign-key-id: "account-id"
+    subattributes: *name-value
 
   - name: "domain"
     type: "string"
     description: ""
 
   - name: "ExchangeRate"
+    type: "decimal"
+    description: ""
+
+  - name: "GlobalTaxCalculation"
+    type: "string"
+    description: ""
+
+  - name: "HomeTotalAmt"
     type: "decimal"
     description: ""
 
@@ -105,6 +88,26 @@ attributes:
         type: "decimal"
         description: ""
 
+      - name: "CustomField"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "DefinitionId"
+            type: "string"
+            description: ""
+            
+          - name: "Name"
+            type: "string"
+            description: ""
+            
+          - name: "StringValue"
+            type: "string"
+            description: ""
+            
+          - name: "Type"
+            type: "string"
+            description: ""
+
       - name: "DepositLineDetail"
         type: "object"
         description: ""
@@ -112,15 +115,7 @@ attributes:
           - name: "AccountRef"
             type: "object"
             description: "Details about the account associated with the line item."
-            subattributes:
-              - name: "name"
-                type: "string"
-                description: ""
-
-              - name: "value"
-                type: "string"
-                description: "The account ID."
-                foreign-key-id: "account-id"
+            subattributes: *name-value
 
           - name: "CheckNum"
             type: "string"
@@ -196,6 +191,11 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "RecurDateRef"
+    type: "object"
+    description: ""
+    subattributes: *name-value
+
   - name: "SyncToken"
     type: "string"
     description: ""
@@ -204,7 +204,60 @@ attributes:
     type: "decimal"
     description: ""
 
+  - name: "TransactionLocationType"
+    type: "string"
+    description: ""
+
   - name: "TxnDate"
     type: "date-time"
     description: ""
+
+  - name: "TxnSource"
+    type: "object"
+    description: ""
+
+  - name: "TxnTaxDetail"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "TotalTax"
+        type: "integer"
+        description: ""
+
+      - name: "TaxLine"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "Amount"
+            type: "string"
+            description: ""
+            
+          - name: "DetailType"
+            type: "string"
+            description: ""
+
+          - name: "TaxLineDetail"
+            type: "object"
+            description: ""
+            subattributes:
+              - name: "OverrideDeltaAmount"
+                type: "decimal"
+                description: ""
+                
+              - name: "PercentBased"
+                type: "boolean"
+                description: ""
+                
+              - name: "TaxInclusiveAmount"
+                type: "decimal"
+                description: ""
+                
+              - name: "TaxPercent"
+                type: "decimal"
+                description: ""
+                
+              - name: "TaxRateRef"
+                type: "object"
+                description: ""
+                subattributes: *name-value
 ---
