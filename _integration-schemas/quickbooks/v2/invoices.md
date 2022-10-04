@@ -85,7 +85,15 @@ attributes:
         type: "string"
         description: ""
 
+      - name: "Line5"
+        type: "string"
+        description: ""
+
       - name: "Long"
+        type: "string"
+        description: ""
+
+      - name: "Country"
         type: "string"
         description: ""
 
@@ -101,18 +109,25 @@ attributes:
         type: "string"
         description: ""
 
+  - name: "BillEmailBcc"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "Address"
+        type: "string"
+        description: ""
+
   - name: "CurrencyRef"
     type: "object"
     description: "Details about the currency the invoice is in."
-    subattributes:
+    subattributes: &name-value
       - name: "name"
         type: "string"
         description: ""
 
       - name: "value"
         type: "string"
-        description: "The currency ID."
-        foreign-key-id: "currency-id"
+        description: ""
 
   - name: "CustomField"
     type: "array"
@@ -145,28 +160,12 @@ attributes:
   - name: "CustomerRef"
     type: "object"
     description: "Details about the customer associated with the invoice."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: "The customer ID."
-        foreign-key-id: "customer-id"
+    subattributes: *name-value
 
   - name: "ClassRef"
     type: "object"
     description: "Details about the class associated with the invoice."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: "The class ID."
-        foreign-key-id: "class-id"
+    subattributes: *name-value
 
   - name: "DeliveryInfo"
     type: "object"
@@ -175,32 +174,24 @@ attributes:
       - name: "DeliveryType"
         type: "string"
         description: ""
+        
+      - name: "DeliveryTime"
+        type: "date-time"
+        description: ""
 
   - name: "DepartmentRef"
     type: "object"
     description: "Details about the department the invoice is in."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
+    subattributes: *name-value
 
-      - name: "value"
-        type: "string"
-        description: "The department ID."
-        foreign-key-id: "department-id"
+  - name: "Deposit"
+    type: "decimal"
+    description: ""
 
   - name: "DepositToAccountRef"
     type: "object"
     description: "Details about the deposit account associated with the invoice."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: "The account ID."
-        foreign-key-id: "account-id"
+    subattributes: *name-value
 
   - name: "domain"
     type: "string"
@@ -222,8 +213,24 @@ attributes:
     type: "decimal"
     description: ""
 
+  - name: "FreeFormAddress"
+    type: "boolean"
+    description: ""
+
+  - name: "GlobalTaxCalculation"
+    type: "string"
+    description: ""
+
+  - name: "HomeBalance"
+    type: "decimal"
+    description: ""
+
   - name: "HomeTotalAmt"
     type: "decimal"
+    description: ""
+
+  - name: "InvoiceLink"
+    type: "string"
     description: ""
 
   - name: "Line"
@@ -238,34 +245,139 @@ attributes:
         type: "string"
         description: ""
 
+      - name: "DescriptionLineDetail"
+        type: "object"
+        description: ""
+        subattributes: ""
+          - name: "ServiceData"
+            type: "date-time"
+            description: ""
+            
+          - name: "TaxCodeRef"
+            type: "object"
+            description: ""
+            subattributes: *name-value
+
+      - name: "GroupLineDetail"
+        type: "object"
+        description: ""
+        subattributes: ""
+          - name: "GroupItemRef"
+            type: "object"
+            description: ""
+            subattributes: *name-value
+            
+          - name: "Line"
+            type: "object"
+            description: ""
+            subattributes:
+             - name: "Amount"
+               type: "decimal"
+               description: ""
+               
+             - name: "Description"
+               type: "string"
+               description: ""
+
+             - name: "Detailtype"
+               type: "string"
+               description: ""
+
+             - name: "Id"
+               type: "string"
+               description: ""
+
+             - name: "LineNum"
+               type: "decimal"
+               description: ""
+
+             - name: "SalesItemLineDetail"
+               type: "object"
+               description: ""
+               subattributes:
+                 - name: "ClassRef"
+                   type: "object"
+                   description: ""
+                   subattributes: *name-value
+                   
+                 - name: "DiscountAmt"
+                   type: "decimal"
+                   description: ""
+                   
+                 - name: "DiscountRate"
+                   type: "decimal"
+                   description: ""
+                   
+                 - name: "ItemAccountRef"
+                   type: "object"
+                   description: ""
+                   subattributes: *name-value
+                   
+                 - name: "ItemRef"
+                   type: "object"
+                   description: ""
+                   subattributes: *name-value
+                   
+                 - name: "MarkupInfo"
+                   type: "object"
+                   description: ""
+                   subattributes:
+                     - name: "MarkupIncomeAccountRef"
+                       type: "object"
+                       description: ""
+                       
+                     - name: "Percent"
+                       type: "decimal"
+                       description: ""
+                       subattributes: *name-value
+                       
+                     - name: "PriceLevelRef"
+                       type: "object"
+                       description: ""
+                       subattributes: *name-value
+                   
+                 - name: "Qty"
+                   type: "integer"
+                   description: ""
+                   
+                 - name: "ServiceDate"
+                   type: "date-time"
+                   description: ""
+                   
+                 - name: "TaxClassificationRef"
+                   type: "object"
+                   description: ""
+                   subattributes: *name-value
+                   
+                 - name: "TaxCodeRef"
+                   type: "object"
+                   description: ""
+                   subattributes: *name-value
+                   
+                 - name: "TaxInclusiveAmt"
+                   type: "decimal"
+                   description: ""
+                   
+                 - name: "UnitPrice"
+                   type: "decimal"
+                   description: ""
+            
+          - name: "Quantity"
+            type: "decimal"
+            description: ""
+
+      - name: "SubtotalLineDetail"
+        type: "object"
+        description: ""
+        subattributes: ""
+          - name: "ItemRef"
+            type: "object"
+            description: ""
+            subattributes: *name-value
+
       - name: "DetailType"
         type: "string"
         description: ""
-
-      - name: "DiscountLineDetail"
-        type: "object"
-        description: ""
-        subattributes:
-          - name: "DiscountAccountRef"
-            type: "object"
-            description: "Details about the account associated with the discount."
-            subattributes:
-              - name: "name"
-                type: "string"
-                description: ""
-
-              - name: "value"
-                type: "string"
-                description: "The account ID."
-                foreign-key-id: "account-id"
-
-          - name: "DiscountPercent"
-            type: "integer"
-            description: ""
-
-          - name: "PercentBased"
-            type: "boolean"
-            description: ""
 
       - name: "Id"
         type: "string"
@@ -275,59 +387,22 @@ attributes:
         type: "integer"
         description: ""
 
-      - name: "LinkedTxn"
-        type: "array"
-        description: ""
-        subattributes:
-          - name: "TxnId"
-            type: "string"
-            description: ""
-
-          - name: "TxnType"
-            type: "string"
-            description: ""
-
       - name: "SalesItemLineDetail"
         type: "object"
         description: ""
         subattributes:
-          - name: "ClassRef"
-            type: "object"
-            description: "Details about the class associated with the sales line item."
-            subattributes:
-              - name: "name"
-                type: "string"
-                description: ""
-
-              - name: "value"
-                type: "string"
-                description: "The class ID."
-                foreign-key-id: "class-id"
-
           - name: "ItemRef"
             type: "object"
-            description: "Details about the item associated with the sales line item."
-            subattributes:
-              - name: "name"
-                type: "string"
-                description: ""
-
-              - name: "value"
-                type: "string"
-                description: "The item ID."
-                foreign-key-id: "item-id"
+            description: "Details about the item associated with the line item."
+            subattributes: *name-value
 
           - name: "Qty"
-            type: "decimal"
-            description: ""
-
-          - name: "ServiceDate"
-            type: "date-time"
+            type: "integer"
             description: ""
 
           - name: "TaxCodeRef"
             type: "object"
-            description: "Details about the tax code associated with the sales line item."
+            description: "Details about the tax code associated with the line item."
             subattributes:
               - name: "value"
                 type: "string"
@@ -335,13 +410,17 @@ attributes:
                 foreign-key-id: "tax-code-id"
 
           - name: "UnitPrice"
-            type: "decimal"
+            type: "integer"
             description: ""
 
   - name: "LinkedTxn"
     type: "array"
     description: "Details about the transactions associated with the invoice."
     subattributes:
+      - name: "TxnLineId"
+        type: "string"
+        description: ""
+
       - name: "TxnId"
         type: "string"
         description: |
@@ -385,14 +464,17 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "RecurDateRef"
+    type: "object"
+    description: ""
+    subattributes: *name-value
+
   - name: "SalesTermRef"
     type: "object"
     description: "Details about the sales term associated with the invoice."
-    subattributes:
-      - name: "value"
-        type: "string"
-        description: "The term ID."
-        foreign-key-id: "term-id"
+    ubattributes: *name-value
+
+  
 
   - name: "ShipAddr"
     type: "object"
@@ -418,6 +500,22 @@ attributes:
         type: "string"
         description: ""
 
+      - name: "Line2"
+        type: "string"
+        description: ""
+
+      - name: "Line3"
+        type: "string"
+        description: ""
+
+      - name: "Line4"
+        type: "string"
+        description: ""
+
+      - name: "Line5"
+        type: "string"
+        description: ""
+
       - name: "Long"
         type: "string"
         description: ""
@@ -426,23 +524,81 @@ attributes:
         type: "string"
         description: ""
 
+      - name: "Country"
+        type: "string"
+        description: ""
+
   - name: "ShipDate"
     type: "date-time"
     description: ""
 
-  - name: "ShipMethodRef"
+  - name: "ShipFromAddr"
     type: "object"
-    description: "Details about the shipping method associated with the invoice."
+    description: ""
     subattributes:
-      - name: "name"
+      - name: "Id"
         type: "string"
         description: ""
 
-      - name: "value"
+      - name: "Lat"
         type: "string"
-        description: "The shipping method ID."
+        description: ""
+
+      - name: "Line1"
+        type: "string"
+        description: ""
+
+      - name: "Line2"
+        type: "string"
+        description: ""
+
+      - name: "Line3"
+        type: "string"
+        description: ""
+
+      - name: "Line4"
+        type: "string"
+        description: ""
+
+      - name: "Line5"
+        type: "string"
+        description: ""
+
+      - name: "Long"
+        type: "string"
+        description: ""
+
+      - name: "City"
+        type: "string"
+        description: ""
+
+      - name: "Country"
+        type: "string"
+        description: ""
+
+      - name: "CountrySubDivisionCode"
+        type: "string"
+        description: ""
+
+      - name: "PostalCode"
+        type: "string"
+        description: ""
+
+  - name: "ShipMethodRef"
+    type: "object"
+    description: "Details about the shipping method associated with the invoice."
+    subattributes: *name-value
 
   - name: "SyncToken"
+    type: "string"
+    description: ""
+
+  - name: "TaxExemptionRef"
+    type: "object"
+    description: ""
+    subattributes: *name-value
+
+  - name: "TransactionLocationType"
     type: "string"
     description: ""
 
