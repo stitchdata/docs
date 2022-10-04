@@ -29,6 +29,26 @@ attributes:
     type: "boolean"
     description: ""
 
+  - name: "AlternatePhone"
+    type: "object"
+    description: ""
+    subattributes: &freeform-number
+      - name: "FreeFormNumber"
+        type: "string"
+        description: ""
+
+  - name: "ARAccountRef"
+    type: "object"
+    description: ""
+    subattributes: &name-value
+     - name: "name"
+       type: "string"
+       description: ""
+       
+     - name: "value"
+       type: "string"
+       description: ""
+
   - name: "Balance"
     type: "decimal"
     description: ""
@@ -65,6 +85,22 @@ attributes:
         type: "string"
         description: ""
 
+      - name: "Line2"
+        type: "string"
+        description: ""
+
+      - name: "Line3"
+        type: "string"
+        description: ""
+
+      - name: "Line4"
+        type: "string"
+        description: ""
+
+      - name: "Line5"
+        type: "string"
+        description: ""
+
       - name: "Long"
         type: "string"
         description: ""
@@ -77,6 +113,10 @@ attributes:
     type: "boolean"
     description: ""
 
+  - name: "BusinessNumber"
+    type: "string"
+    description: ""
+
   - name: "CompanyName"
     type: "string"
     description: ""
@@ -84,28 +124,20 @@ attributes:
   - name: "CurrencyRef"
     type: "object"
     description: "Details about the currency used by the customer."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
+    subattributes: *name-value
 
+  - name: "CustomerTypeRef"
+    type: "object"
+    description: ""
+    subattributes:
       - name: "value"
         type: "string"
-        description: "The currency ID."
-        foreign-key-id: "currency-id"
+        description: ""
 
   - name: "DefaultTaxCodeRef"
     type: "object"
     description: "Details about the default tax code used for the customer."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: "The tax code ID."
-        foreign-key-id: "tax-code-id"
+    subattributes: *name-value
 
   - name: "DisplayName"
     type: "string"
@@ -122,10 +154,7 @@ attributes:
   - name: "Fax"
     type: "object"
     description: ""
-    subattributes:
-      - name: "FreeFormNumber"
-        type: "string"
-        description: ""
+    subattributes: *freeform-number
 
   - name: "FullyQualifiedName"
     type: "string"
@@ -135,7 +164,19 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "GSTIN"
+    type: "string"
+    description: ""
+
+  - name: "GSTRegistrationType"
+    type: "string"
+    description: ""
+
   - name: "Job"
+    type: "boolean"
+    description: ""
+
+  - name: "IsProject"
     type: "boolean"
     description: ""
 
@@ -162,10 +203,11 @@ attributes:
   - name: "Mobile"
     type: "object"
     description: ""
-    subattributes:
-      - name: "FreeFormNumber"
-        type: "string"
-        description: ""
+    subattributes: *freeform-number
+
+  - name: "Notes"
+    type: "string"
+    description: ""
 
   - name: "ParentRef"
     type: "object"
@@ -179,15 +221,7 @@ attributes:
   - name: "PaymentMethodRef"
     type: "object"
     description: "Details about the payment method used for the customer."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: "The payment method ID."
-        foreign-key-id: "payment-method-id"
+    subattributes: *name-value
 
   - name: "PreferredDeliveryMethod"
     type: "string"
@@ -204,10 +238,11 @@ attributes:
   - name: "PrimaryPhone"
     type: "object"
     description: ""
-    subattributes:
-      - name: "FreeFormNumber"
-        type: "string"
-        description: ""
+    subattributes: *freeform-number
+
+  - name: "PrimaryTaxIdentifier"
+    type: "string"
+    description: ""
 
   - name: "PrintOnCheckName"
     type: "string"
@@ -220,15 +255,11 @@ attributes:
   - name: "SalesTermRef"
     type: "object"
     description: "Details about the sales term associated with the customer."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
+    subattributes: *name-value
 
-      - name: "value"
-        type: "string"
-        description: "The term ID."
-        foreign-key-id: "term-id"
+  - name: "SecondaryTaxIdentifier"
+    type: "string"
+    description: ""
 
   - name: "ShipAddr"
     type: "object"
@@ -266,12 +297,28 @@ attributes:
         type: "string"
         description: ""
 
+  - name: "Source"
+    type: "string"
+    description: ""
+
+  - name: "Suffyx"
+    type: "string"
+    description: ""
+
   - name: "SyncToken"
     type: "string"
     description: ""
 
   - name: "Taxable"
     type: "boolean"
+    description: ""
+
+  - name: "TaxExemptionReasonId"
+    type: "integer"
+    description: ""
+
+  - name: "Title"
+    type: "string"
     description: ""
 
   - name: "WebAddr"
