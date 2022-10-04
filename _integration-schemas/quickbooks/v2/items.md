@@ -25,6 +25,10 @@ attributes:
     description: "The item ID."
     foreign-key-id: "item-id"
 
+  - name: "AbatementRate"
+    type: "decimal"
+    description: ""
+
   - name: "Active"
     type: "boolean"
     description: ""
@@ -32,29 +36,19 @@ attributes:
   - name: "AssetAccountRef"
     type: "object"
     description: "Details about the asset account associated with the item."
-    subattributes: &account-attributes
+    subattributes: &name-value
       - name: "name"
         type: "string"
         description: ""
 
-      - &account-id
         name: "value"
         type: "string"
-        description: "The account ID."
-        foreign-key-id: "account-id"
+        description: ""
 
   - name: "ClassRef"
     type: "object"
     description: ""
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: ""
-        foreign-key-id: "class-id"
+    subattributes: *name-value
 
   - name: "Description"
     type: "string"
@@ -67,7 +61,7 @@ attributes:
   - name: "ExpenseAccountRef"
     type: "object"
     description: ""
-    subattributes: *account-attributes
+    subattributes: *name-value
 
   - name: "FullyQualifiedName"
     type: "string"
@@ -76,10 +70,14 @@ attributes:
   - name: "IncomeAccountRef"
     type: "object"
     description: ""
-    subattributes: *account-attributes
+    subattributes: *name-value
 
   - name: "InvStartDate"
     type: "date-time"
+    description: ""
+
+  - name: "ItemCategoryType"
+    type: "string"
     description: ""
 
   - name: "Level"
@@ -105,28 +103,12 @@ attributes:
   - name: "ParentRef"
     type: "object"
     description: ""
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: ""
-        foreign-key-id: "item-id"
+    subattributes: *name-value
 
   - name: "PrefVendorRef"
     type: "object"
     description: ""
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: ""
-        foreign-key-id: "vendor-id"
+    subattributes: *name-value
 
   - name: "PurchaseCost"
     type: "integer, decimal"
@@ -139,15 +121,7 @@ attributes:
   - name: "PurchaseTaxCodeRef"
     type: "object"
     description: ""
-    subattributes: &tax-code-attributes
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: ""
-        foreign-key-id: "tax-code-id"
+    subattributes: *name-value
 
   - name: "PurchaseTaxIncluded"
     type: "boolean"
@@ -161,6 +135,10 @@ attributes:
     type: "number"
     description: ""
 
+  - name: "ReverseChargeRate"
+    type: "decimal"
+    description: ""
+
   - name: "SalesTaxIncluded"
     type: "boolean"
     description: ""
@@ -168,7 +146,23 @@ attributes:
   - name: "SalesTaxCodeRef"
     type: "object"
     description: ""
-    subattributes: *tax-code-attributes
+    subattributes: *name-value
+
+  - name: "ServiceType"
+    type: "string"
+    description: ""
+
+  - name: "Sku"
+    type: "string"
+    description: ""
+
+  - name: "Source"
+    type: "string"
+    description: ""
+
+  - name: "SubItem"
+    type: "boolean"
+    description: ""
 
   - name: "SyncToken"
     type: "string"
@@ -177,6 +171,11 @@ attributes:
   - name: "Taxable"
     type: "boolean"
     description: ""
+
+  - name: "TaxClassificationRef"
+    type: "object"
+    description: ""
+    subattributes: *name-value
 
   - name: "TrackQtyOnHand"
     type: "boolean"
@@ -188,5 +187,13 @@ attributes:
 
   - name: "UnitPrice"
     type: "integer"
+    description: ""
+
+  - name: "UQCDisplayText"
+    type: "string"
+    description: ""
+
+  - name: "UQCId"
+    type: "string"
     description: ""
 ---
