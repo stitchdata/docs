@@ -188,4 +188,16 @@ attributes:
         type: "string"
         description: "The ID of the vendor."
         foreign-key-id: "vendor-id"
+
+  - name: "PrivateNote"
+    type: "string"
+    description: ""
+
+  - name: "ProcessBillPayment"
+    type: "boolean"
+    description: ""
+
+  - name: "TranscationLocationType"
+    type: "string"
+    description: ""
 ---

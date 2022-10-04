@@ -104,4 +104,24 @@ attributes:
   - name: "SyncToken"
     type: "string"
     description: ""
+
+  - name: "TxnLocationType"
+    type: "string"
+    description: ""
+
+  - name: "TaxCodeRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+        
+      - name: "value"
+        type: "string"
+        description: ""
+
+  - name: "AccountAlias"
+    type: "string"
+    description: ""
 ---
