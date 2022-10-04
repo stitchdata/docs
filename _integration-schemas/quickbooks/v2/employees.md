@@ -41,6 +41,10 @@ attributes:
     type: "date-time"
     description: ""
 
+  - name: "CostRate"
+    type: "decimal"
+    description: ""
+
   - name: "DisplayName"
     type: "string"
     description: ""
@@ -169,6 +173,10 @@ attributes:
     type: "date-time"
     description: ""
 
+  - name: "SSN"
+    type: "string"
+    description: ""
+
   - name: "Suffix"
     type: "string"
     description: ""
@@ -178,6 +186,10 @@ attributes:
     description: ""
 
   - name: "Title"
+    type: "string"
+    description: ""
+
+  - name: "V4IDPseudonym"
     type: "string"
     description: ""
 ---
