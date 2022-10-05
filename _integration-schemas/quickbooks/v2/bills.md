@@ -196,34 +196,37 @@ attributes:
       - name: "LineNum"
         type: "integer"
         description: ""
-
-  - name: "LinkedTxn"
-    type: "array"
-    description: |
-      A list of transactions associated with the bill.
-    subattributes:
-      - name: "TxnId"
-        type: "string"
+      
+      - &linkedtxn
+        name: "LinkedTxn"
+        type: "array"
         description: |
-          The ID of the linked transaction.
+          A list of transactions associated with the bill.
+        subattributes:
+          - name: "TxnId"
+            type: "string"
+            description: |
+              The ID of the linked transaction.
 
-          Depending on the `TxnType` value, this may be a foreign key to the following tables:
+              Depending on the `TxnType` value, this may be a foreign key to the following tables:
 
-          - [bill_payments.Id](#bill_payments) (`TxnType: BillPaymentCheck`)
-          - [purchase_orders.Id](#purchase_orders) (`TxnType: PurchaseOrder`)
-        foreign-key-id: "transaction-bill-id"
+              - [bill_payments.Id](#bill_payments) (`TxnType: BillPaymentCheck`)
+              - [purchase_orders.Id](#purchase_orders) (`TxnType: PurchaseOrder`)
+            foreign-key-id: "transaction-bill-id"
 
-      - name: "TxnType"
-        type: "string"
-        description: |
-          The type of the linked transaction. Possible values are:
+          - name: "TxnType"
+            type: "string"
+            description: |
+              The type of the linked transaction. Possible values are:
 
-          - `BillPaymentCheck`
-          - `PurchaseOrder`
+              - `BillPaymentCheck`
+              - `PurchaseOrder`
 
-      - name: "TxnLineId"
-        type: "string"
-        description: ""
+          - name: "TxnLineId"
+            type: "string"
+            description: ""
+
+  - *linkedtxn
 
   - name: "MetaData"
     type: "object"
