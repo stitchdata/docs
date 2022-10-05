@@ -598,12 +598,12 @@ attributes:
     description: ""
     subattributes: *name-value
 
-  - name: "TransactionLocationType"
-    type: "string"
-    description: ""
-
   - name: "TotalAmt"
     type: "decimal"
+    description: ""
+
+  - name: "TransactionLocationType"
+    type: "string"
     description: ""
 
   - name: "TrackingNum"
