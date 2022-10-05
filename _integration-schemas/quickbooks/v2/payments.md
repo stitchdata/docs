@@ -28,7 +28,7 @@ attributes:
   - name: "ARAccountRef"
     type: "object"
     description: ""
-    subattributes:
+    subattributes: &name-value
       - name: "name"
         type: "string"
         description: ""
@@ -36,33 +36,75 @@ attributes:
       - name: "value"
         type: "string"
         description: ""
-        foreign-key-id: "account-id"
+
+  - name: "CreditCardPayment"
+    type: "object"
+    description: ""
+    subattributes: 
+      - name: "CreditChargeInfo"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "Amount"
+            type: "string"
+            description: ""
+
+          - name: "BillAddrStreet"
+            type: "string"
+            description: ""
+
+          - name: "CcExpiryMonth"
+            type: "string"
+            description: ""
+
+          - name: "CcExpiryYear"
+            type: "string"
+            description: ""
+
+          - name: "NameOnAcct"
+            type: "string"
+            description: ""
+
+          - name: "PostalCode"
+            type: "string"
+            description: ""
+
+          - name: "ProcessPayment"
+            type: "boolean"
+            description: ""
+
+          - name: "Type"
+            type: "string"
+            description: ""
+
+      - name: "CreditChargeResponse"
+        type: "object"
+        description: ""
+          - name: "AuthCode"
+            type: "string"
+            description: ""
+
+          - name: "CCTransId"
+            type: "string"
+            description: ""
+
+          - name: "Status"
+            type: "string"
+            description: ""
+
+          - name: "TxnAuthorization"
+            type: "date-time"
+            description: ""
 
   - name: "CurrencyRef"
     type: "object"
     description: "Details about the currency the payment is in."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: "The currency ID."
-        foreign-key-id: "currency-id"
+    subattributes: *name-value
 
   - name: "CustomerRef"
     type: "object"
     description: "Details about the customer associated with the payment."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: "The customer ID."
-        foreign-key-id: "customer-id"
+    subattributes: *name-value
 
   - name: "DepositToAccountRef"
     type: "object"
@@ -209,8 +251,17 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "TaxExemptionRef"
+    type: "object"
+    description: ""
+    subattributes: *name-value
+
   - name: "TotalAmt"
     type: "decimal"
+    description: ""
+
+  - name: "TransactionLocationType"
+    type: "string"
     description: ""
 
   - name: "TxnDate"
