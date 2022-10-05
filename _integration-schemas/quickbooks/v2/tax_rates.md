@@ -82,6 +82,10 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "OriginalTaxRate"
+    type: "string"
+    description: ""
+
   - name: "RateValue"
     type: "decimal"
     description: ""
@@ -93,4 +97,16 @@ attributes:
   - name: "SyncToken"
     type: "string"
     description: ""
+
+  - name: "TaxReturnLineRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+        
+      - name: "value"
+        type: "string"
+        description: ""
 ---
