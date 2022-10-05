@@ -29,6 +29,14 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "BreakHours"
+    type: "integer"
+    description: ""
+
+  - name: "BreakMinutes"
+    type: "integer"
+    description: ""
+
   - name: "ClassRef"
     type: "object"
     description: ""
@@ -41,6 +49,10 @@ attributes:
         type: "string"
         description: ""
         foreign-key-id: "class-id"
+
+  - name: "CostRate"
+    type: "decimal"
+    description: ""
 
   - name: "CustomerRef"
     type: "object"
@@ -134,6 +146,18 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "PayrollItemRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+        
+      - name: "value"
+        type: "string"
+        description: ""
+
   - name: "StartTime"
     type: "date-time"
     description: ""
@@ -144,6 +168,10 @@ attributes:
 
   - name: "Taxable"
     type: "boolean"
+    description: ""
+
+  - name: "TransactionLocationType"
+    type: "string"
     description: ""
 
   - name: "TxnDate"
