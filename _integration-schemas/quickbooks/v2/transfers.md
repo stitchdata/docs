@@ -79,6 +79,18 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "RecurDateRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+        
+      - name: "value"
+        type: "string"
+        description: ""
+
   - name: "SyncToken"
     type: "string"
     description: ""
@@ -87,6 +99,10 @@ attributes:
     type: "object"
     description: ""
     subattributes: *account-attributes
+
+  - name: "TransactionLocationType"
+    type: "string"
+    description: ""
 
   - name: "TxnDate"
     type: "date-time"
