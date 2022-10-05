@@ -41,6 +41,18 @@ attributes:
         type: "string"
         description: ""
 
+  - name: "APAccountRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+        
+      - name: "value"
+        type: "string"
+        description: ""
+
   - name: "Balance"
     type: "decimal"
     description: ""
@@ -85,8 +97,16 @@ attributes:
     type: "number"
     description: ""
 
+  - name: "BusinessNumber"
+    type: "string"
+    description: ""
+
   - name: "CompanyName"
     type: "string"
+    description: ""
+
+  - name: "CostRate"
+    type: "decimal"
     description: ""
 
   - name: "CurrencyRef"
@@ -123,6 +143,18 @@ attributes:
         description: ""
 
   - name: "GivenName"
+    type: "string"
+    description: ""
+
+  - name: "GSTIN"
+    type: "string"
+    description: ""
+
+  - name: "GSTRegistrationType"
+    type: "string"
+    description: ""
+
+  - name: "HasTPAR"
     type: "string"
     description: ""
 
@@ -182,6 +214,10 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "Source"
+    type: "string"
+    description: ""
+
   - name: "Suffix"
     type: "string"
     description: ""
@@ -190,7 +226,19 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "T4Eligible"
+    type: "boolean"
+    description: ""
+
+  - name: "T5018Eligible"
+    type: "boolean"
+    description: ""
+
   - name: "TaxIdentifier"
+    type: "string"
+    description: ""
+
+  - name: "TaxReportingBasis"
     type: "string"
     description: ""
 
@@ -198,6 +246,10 @@ attributes:
     type: "object"
     description: "Details about the sales term associated with the vendor."
     subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
       - name: "value"
         type: "string"
         description: "The term ID."
@@ -210,6 +262,26 @@ attributes:
   - name: "Vendor1099"
     type: "boolean"
     description: ""
+
+  - name: "VendorPaymentBankDetail"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "BankAccountName"
+        type: "string"
+        description: ""
+        
+      - name: "BankAccountNumber"
+        type: "string"
+        description: ""
+        
+      - name: "BankBranchIdentifier"
+        type: "string"
+        description: ""
+        
+      - name: "StatementText"
+        type: "string"
+        description: ""
 
   - name: "WebAddr"
     type: "object"
