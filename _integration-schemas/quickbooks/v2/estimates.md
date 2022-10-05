@@ -203,7 +203,7 @@ attributes:
       - name: "DescriptionLineDetail"
         type: "object"
         description: ""
-        subattributes: ""
+        subattributes:
           - name: "ServiceDate"
             type: "date-time"
             description: ""
@@ -216,7 +216,7 @@ attributes:
       - name: "GroupLineDetail"
         type: "object"
         description: ""
-        subattributes: ""
+        subattributes:
           - name: "GroupItemRef"
             type: "object"
             description: ""
@@ -324,7 +324,7 @@ attributes:
       - name: "SubtotalLineDetail"
         type: "object"
         description: ""
-        subattributes: ""
+        subattributes:
           - name: "ItemRef"
             type: "object"
             description: ""
