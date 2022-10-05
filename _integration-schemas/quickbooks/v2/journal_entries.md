@@ -36,15 +36,14 @@ attributes:
   - name: "CurrencyRef"
     type: "object"
     description: "Details about the currency the journal entry is in."
-    subattributes:
+    subattributes: &name-value
       - name: "name"
         type: "string"
         description: ""
 
       - name: "value"
         type: "string"
-        description: "The currency ID."
-        foreign-key-id: "currency-id"
+        description: ""
 
   - name: "DocNumber"
     type: "string"
@@ -57,10 +56,19 @@ attributes:
   - name: "ExchangeRate"
     type: "decimal"
     description: ""
+  
+  - name: "GlobalTaxCalculation"
+    type: "string"
+    description: ""
 
   - name: "HomeTotalAmt"
     type: "number"
     description: ""
+
+  - name: "JournalCodeRef"
+    type: "object"
+    description: ""
+    subattributes: *name-value
 
   - name: "Line"
     type: "array"
@@ -73,6 +81,19 @@ attributes:
       - name: "Description"
         type: "string"
         description: ""
+
+      - name: "DescriptionLineDetail"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "ServiceData"
+            type: "date-time"
+            description: ""
+            
+          - name: "TaxCodeRef"
+            type: "object"
+            description: ""
+            subattributes: *name-value
 
       - name: "DetailType"
         type: "string"
@@ -89,15 +110,32 @@ attributes:
           - name: "AccountRef"
             type: "object"
             description: "Details about the account associated with the journal entry line item."
+            subattributes: *name-value
+            
+          - name: "Entity"
+            type: "object"
+            description: ""
             subattributes:
-              - name: "name"
-                type: "string"
+              - name: "EntityRef"
+                type: "object"
                 description: ""
+                subattributes: *name-value
 
               - name: "value"
                 type: "string"
-                description: "The account ID."
-                foreign-key-id: "account-id"
+                description: ""
+
+          - name: "TaxApplicableOn"
+            type: "string"
+            description: ""
+
+          - name: "TaxInclusiveAmt"
+            type: "decimal"
+            description: ""
+
+          - name: "LineNum"
+            type: "decimal"
+            description: ""
 
           - name: "PostingType"
             type: "string"
@@ -119,6 +157,11 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "RecurDate"
+    type: "object"
+    description: ""
+    subattributes: *name-value
+
   - name: "SyncToken"
     type: "string"
     description: ""
@@ -126,18 +169,14 @@ attributes:
   - name: "TaxRateRef"
     type: "object"
     description: ""
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: ""
-        foreign-key-id: "tax-rate-id"
+    subattributes: *name-value
 
   - name: "TotalAmt"
     type: "number"
+    description: ""
+
+  - name: "TransactionLocationType"
+    type: "string"
     description: ""
 
   - name: "TxnDate"
