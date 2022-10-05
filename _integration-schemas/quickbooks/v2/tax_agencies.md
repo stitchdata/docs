@@ -33,6 +33,10 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "LastFileData"
+    type: "date-time"
+    description: ""
+
   - name: "MetaData"
     type: "object"
     description: ""
@@ -46,6 +50,10 @@ attributes:
         description: ""
 
   - name: "SyncToken"
+    type: "string"
+    description: ""
+
+  - name: "TaxAgencyConfig"
     type: "string"
     description: ""
 
