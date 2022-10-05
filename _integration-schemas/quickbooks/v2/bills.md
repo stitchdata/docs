@@ -80,6 +80,18 @@ attributes:
     type: "decimal"
     description: ""
 
+  - name: "GlobalTaxCalculation"
+    type: "string"
+    description: ""
+
+  - name: "HomeBalance"
+    type: "decimal"
+    description: ""
+
+  - name: "IncludeInAnnualTPAR"
+    type: "boolean"
+    description: ""
+
   - name: "Line"
     type: "array"
     description: ""
@@ -225,6 +237,18 @@ attributes:
         type: "date-time"
         description: ""
 
+  - name: "RecurDataRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+        
+      - name: "value"
+        type: "string"
+        description: ""
+
   - name: "PrivateNote"
     type: "string"
     description: ""
@@ -250,6 +274,10 @@ attributes:
     type: "decimal"
     description: ""
 
+  - name: "TransactionLocationType"
+    type: "string"
+    description: ""
+
   - name: "TxnDate"
     type: "date-time"
     description: ""
@@ -266,53 +294,4 @@ attributes:
         type: "string"
         description: "The ID of the vendor."
         foreign-key-id: "vendor-id"
-
-  - name: "HomeBalance"
-    type: "decimal"
-    description: ""
-
-  - name: "IncludeInAnnualTPAR"
-    type: "boolean"
-    description: ""
-
-  - name: "TransactionLocationType"
-    type: "string"
-    description: ""
-
-  - name: "RecurDataRef"
-    type: "object"
-    description: ""
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-        
-      - name: "value"
-        type: "string"
-        description: ""
-
-  - name: "GlobalTaxCalculation"
-    type: "string"
-    description: ""
-
-  - name: "Line"
-    type: "array"
-    description: ""
-    subattributes:
-      - name: "LinkedTxn"
-        type: "object"
-        description: ""
-        subattributes:
-          - name: "TxnId"
-            type: "string"
-            description: ""
-            
-          - name: "TxnLineId"
-            type: "string"
-            description: ""
-            
-          - name: "TxnType"
-            type: "string"
-            description: ""
-
 ---

@@ -517,8 +517,4 @@ attributes:
         type: "object"
         description: ""
         subattributes: *name-value
-
-  - name: "domain"
-    type: "string"
-    description: ""
 ---

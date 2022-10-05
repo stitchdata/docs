@@ -24,10 +24,6 @@ attributes:
     description: ""
     primary-key: true
 
-  - name: "Type"
-    type: "string"
-    description: ""
-
   - name: "domain"
     type: "string"
     description: ""
@@ -39,4 +35,8 @@ attributes:
       - name: "LastUpdatedTime"
         type: "date-time"
         description: ""
+
+  - name: "Type"
+    type: "string"
+    description: ""
 ---

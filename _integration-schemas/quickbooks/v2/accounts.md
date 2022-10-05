@@ -27,6 +27,10 @@ attributes:
     description: "The account ID."
     foreign-key-id: "account-id"
 
+  - name: "AccountAlias"
+    type: "string"
+    description: ""
+
   - name: "AccountSubType"
     type: "string"
     description: ""
@@ -105,10 +109,6 @@ attributes:
     type: "string"
     description: ""
 
-  - name: "TxnLocationType"
-    type: "string"
-    description: ""
-
   - name: "TaxCodeRef"
     type: "object"
     description: ""
@@ -121,7 +121,7 @@ attributes:
         type: "string"
         description: ""
 
-  - name: "AccountAlias"
+  - name: "TxnLocationType"
     type: "string"
     description: ""
 ---

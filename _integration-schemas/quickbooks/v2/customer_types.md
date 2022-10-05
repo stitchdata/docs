@@ -24,9 +24,21 @@ attributes:
     description: ""
     primary-key: true
 
-  - name: "SyncToken"
+  - name: "Active"
+    type: "boolean"
+    description: ""
+
+  - name: "domain"
     type: "string"
     description: ""
+    
+  - name: "MetaData"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "LastUpdatedTime"
+        type: "date-time"
+        description: ""
 
   - name: "Name"
     type: "string"
@@ -36,19 +48,7 @@ attributes:
     type: "string"
     description: ""
 
-  - name: "Active"
-    type: "boolean"
-    description: ""
-
-  - name: "domain"
+  - name: "SyncToken"
     type: "string"
     description: ""
-
-  - name: "MetaData"
-    type: "object"
-    description: ""
-    subattributes:
-      - name: "LastUpdatedTime"
-        type: "date-time"
-        description: ""
 ---

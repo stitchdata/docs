@@ -164,12 +164,20 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "ProcessBillPayment"
+    type: "boolean"
+    description: ""
+
   - name: "SyncToken"
     type: "string"
     description: ""
 
   - name: "TotalAmt"
     type: "decimal"
+    description: ""
+
+  - name: "TranscationLocationType"
+    type: "string"
     description: ""
 
   - name: "TxnDate"
@@ -190,14 +198,6 @@ attributes:
         foreign-key-id: "vendor-id"
 
   - name: "PrivateNote"
-    type: "string"
-    description: ""
-
-  - name: "ProcessBillPayment"
-    type: "boolean"
-    description: ""
-
-  - name: "TranscationLocationType"
     type: "string"
     description: ""
 ---
