@@ -166,14 +166,6 @@ attributes:
             type: "string"
             description: ""
 
-  - name: "CustomField"
-    type: "array"
-    description: ""
-    subattributes:
-      - name: "StringValue"
-        type: "string"
-        description: ""
-
   - name: "CurrencyRef"
     type: "object"
     description: "Details about the currency the sales receipt is in."
@@ -196,6 +188,10 @@ attributes:
         description: ""
 
       - name: "Name"
+        type: "string"
+        description: ""
+        
+      - name: "StringValue"
         type: "string"
         description: ""
 
@@ -604,7 +600,7 @@ attributes:
     description: ""
     subattributes:
       - name: "TotalTax"
-        type: "integer"
+        type: "decimal"
         description: ""
 
       - name: "TaxLine"

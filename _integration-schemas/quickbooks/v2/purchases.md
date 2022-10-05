@@ -162,27 +162,6 @@ attributes:
                 description: "The customer ID."
                 foreign-key-id: "customer-id"
 
-          - name: "LineNum"
-            type: "decimal"
-            description: ""
-
-          - &linkedtxn
-            name: "LinkedTxn"
-            type: "object"
-            description: ""
-            subattributes:
-              - name: "TxnId"
-                type: "string"
-                description: ""
-                
-              - name: "TxnLineId"
-                type: "string"
-                description: ""
-                
-              - name: "TxnType"
-                type: "string"
-                description: ""
-
           - name: "TaxAmount"
             type: "number"
             description: ""
@@ -248,6 +227,27 @@ attributes:
 
           - name: "UnitPrice"
             type: "decimal"
+            description: ""
+
+      - name: "LineNum"
+        type: "decimal"
+        description: ""
+
+      - &linkedtxn
+        name: "LinkedTxn"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "TxnId"
+            type: "string"
+            description: ""
+                
+          - name: "TxnLineId"
+            type: "string"
+            description: ""
+                
+          - name: "TxnType"
+            type: "string"
             description: ""
 
   - *linkedtxn
@@ -418,7 +418,7 @@ attributes:
     description: ""
     subattributes:
       - name: "TotalTax"
-        type: "integer"
+        type: "decimal"
         description: ""
 
       - name: "TaxLine"

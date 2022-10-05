@@ -58,6 +58,10 @@ attributes:
       - name: "Name"
         type: "string"
         description: ""
+        
+      - name: "StringValue"
+        type: "string"
+        description: ""
 
       - name: "Type"
         type: "string"
@@ -210,22 +214,25 @@ attributes:
         type: "integer"
         description: ""
 
-  - name: "LinkedTxn"
-    type: "array"
-    description: "Details about the transactions associated with the purchase order."
-    subattributes:
-      - name: "TxnId"
-        type: "string"
-        description: "The ID of the bill associated with the purchase order."
-        foreign-key-id: "bill-id"
+      - &linkedtxn
+        name: "LinkedTxn"
+        type: "array"
+        description: "Details about the transactions associated with the purchase order."
+        subattributes:
+          - name: "TxnId"
+            type: "string"
+            description: "The ID of the bill associated with the purchase order."
+            foreign-key-id: "bill-id"
 
-      - name: "TxnLineId"
-        type: "string"
-        description: ""
+          - name: "TxnLineId"
+            type: "string"
+            description: ""
 
-      - name: "TxnType"
-        type: "string"
-        description: "This will be `Bill`."
+          - name: "TxnType"
+            type: "string"
+            description: "This will be `Bill`."
+
+  - *linkedtxn*
 
   - name: "Memo"
     type: "string"
@@ -322,10 +329,6 @@ attributes:
     type: "object"
     description: ""
     subattributes:
-      - name: "TotalTax"
-        type: "integer"
-        description: ""
-
       - name: "TaxLine"
         type: "object"
         description: ""
@@ -342,6 +345,10 @@ attributes:
             type: "object"
             description: ""
             subattributes:
+              - name: "NetAmountTaxable"
+                type: "decimal"
+                description: ""
+
               - name: "OverrideDeltaAmount"
                 type: "decimal"
                 description: ""
@@ -363,11 +370,18 @@ attributes:
                 description: ""
                 subattributes: *name-value
 
-      - name: "TxnTaxCodeRef"
-        type: "object"
+          - name: "TotalTax"
+            type: "decimal"
+            description: ""
+
+          - name: "TxnTaxCodeRef"
+            type: "object"
+            description: ""
+            subattributes: *name-value
+
+      - name: "value"
+        type: "string"
         description: ""
-        subattributes: *name-value
-    description: ""
 
   - name: "VendorAddr"
     type: "object"

@@ -131,23 +131,6 @@ attributes:
                 description: "The customer ID."
                 foreign-key-id: "customer-id"
 
-          - &linkedtxn
-            name: "LinkedTxn"
-            type: "object"
-            description: ""
-            subattributes:
-              - name: "TxnId"
-                type: "string"
-                description: ""
-
-              - name: "TxnLineId"
-                type: "string"
-                description: ""
-
-              - name: "TxnType"
-                type: "string"
-                description: ""
-
           - name: "TaxCodeRef"
             type: "object"
             description: "Details about the tax code associated with the line item."
@@ -176,6 +159,23 @@ attributes:
       - name: "LineNum"
         type: "integer"
         description: ""
+
+      - &linkedtxn
+        name: "LinkedTxn"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "TxnId"
+            type: "string"
+            description: ""
+
+          - name: "TxnLineId"
+            type: "string"
+            description: ""
+
+          - name: "TxnType"
+            type: "string"
+            description: ""
   
   - *linkedtxn
 

@@ -221,7 +221,7 @@ attributes:
     description: ""
     subattributes:
       - name: "TotalTax"
-        type: "integer"
+        type: "decimal"
         description: ""
 
       - name: "TaxLine"

@@ -41,7 +41,7 @@ attributes:
         type: "string"
         description: ""
 
-        name: "value"
+      - name: "value"
         type: "string"
         description: ""
 

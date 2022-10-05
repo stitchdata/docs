@@ -258,6 +258,42 @@ attributes:
             description: ""
             subattributes: *name-value
 
+      - name: "DetailType"
+        type: "string"
+        description: ""
+
+      - name: "DiscountLineDetail"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "ClassRef"
+            type: "object"
+            description: ""
+            subattributes: *name-value
+            
+          - name: "DiscountAccountRef"
+            type: "object"
+            description: ""
+            subattributes: *name-value
+            
+          - name: "DiscountPercent"
+            type: "object"
+            description: ""
+            subattributes: *name-value
+            
+          - name: "PercentBased"
+            type: "boolean"
+            description: ""
+            
+          - name: "TaxCodeRef"
+            type: "object"
+            description: ""
+            subattributes: *name-value
+
+      - name: "Id"
+        type: "string"
+        description: ""
+
       - name: "GroupLineDetail"
         type: "object"
         description: ""
@@ -295,20 +331,24 @@ attributes:
                type: "object"
                description: ""
                subattributes:
-                 - name: "ClassRef"
+                 - &salesitemlinedetail-classref
+                   name: "ClassRef"
                    type: "object"
                    description: ""
                    subattributes: *name-value
                    
-                 - name: "DiscountAmt"
+                 - &salesitemlinedetail-discountamt
+                   name: "DiscountAmt"
                    type: "decimal"
                    description: ""
                    
-                 - name: "DiscountRate"
+                 - &salesitemlinedetail-discountrate
+                   name: "DiscountRate"
                    type: "decimal"
                    description: ""
                    
-                 - name: "ItemAccountRef"
+                 - &salesitemlinedetail-itemaccountref
+                   name: "ItemAccountRef"
                    type: "object"
                    description: ""
                    subattributes: *name-value
@@ -318,18 +358,19 @@ attributes:
                    description: ""
                    subattributes: *name-value
                    
-                 - name: "MarkupInfo"
+                 - &salesitemlinedetail-markupinfo
+                   name: "MarkupInfo"
                    type: "object"
                    description: ""
                    subattributes:
                      - name: "MarkupIncomeAccountRef"
                        type: "object"
                        description: ""
+                       subattributes: *name-value
                        
                      - name: "Percent"
                        type: "decimal"
                        description: ""
-                       subattributes: *name-value
                        
                      - name: "PriceLevelRef"
                        type: "object"
@@ -340,11 +381,13 @@ attributes:
                    type: "integer"
                    description: ""
                    
-                 - name: "ServiceDate"
+                 - &salesitemlinedetail-servicedate
+                   name: "ServiceDate"
                    type: "date-time"
                    description: ""
                    
-                 - name: "TaxClassificationRef"
+                 - &salesitemlinedetail-taxclassificationref
+                   name: "TaxClassificationRef"
                    type: "object"
                    description: ""
                    subattributes: *name-value
@@ -354,7 +397,8 @@ attributes:
                    description: ""
                    subattributes: *name-value
                    
-                 - name: "TaxInclusiveAmt"
+                 - &salesitemlinedetail-taxinclusiveamt
+                   name: "TaxInclusiveAmt"
                    type: "decimal"
                    description: ""
                    
@@ -366,23 +410,6 @@ attributes:
             type: "decimal"
             description: ""
 
-      - name: "SubtotalLineDetail"
-        type: "object"
-        description: ""
-        subattributes:
-          - name: "ItemRef"
-            type: "object"
-            description: ""
-            subattributes: *name-value
-
-      - name: "DetailType"
-        type: "string"
-        description: ""
-
-      - name: "Id"
-        type: "string"
-        description: ""
-
       - name: "LineNum"
         type: "integer"
         description: ""
@@ -391,27 +418,30 @@ attributes:
         type: "object"
         description: ""
         subattributes:
+          - *salesitemlinedetail-classref
+          
+          - *salesitemlinedetail-discountamt
+          
+          - *salesitemlinedetail-discountrate
+          
+          - *salesitemlinedetail-itemaccountref
+          
+          - *salesitemlinedetail-markupinfo
+          
+          - *salesitemlinedetail-servicedate
+          
+          - *salesitemlinedetail-taxclassificationref
+          
+          - *salesitemlinedetail-taxinclusiveamt
+
+      - name: "SubtotalLineDetail"
+        type: "object"
+        description: ""
+        subattributes:
           - name: "ItemRef"
             type: "object"
-            description: "Details about the item associated with the line item."
+            description: ""
             subattributes: *name-value
-
-          - name: "Qty"
-            type: "integer"
-            description: ""
-
-          - name: "TaxCodeRef"
-            type: "object"
-            description: "Details about the tax code associated with the line item."
-            subattributes:
-              - name: "value"
-                type: "string"
-                description: "The tax code ID."
-                foreign-key-id: "tax-code-id"
-
-          - name: "UnitPrice"
-            type: "decimal"
-            description: ""
 
   - name: "LinkedTxn"
     type: "array"
@@ -472,9 +502,7 @@ attributes:
   - name: "SalesTermRef"
     type: "object"
     description: "Details about the sales term associated with the invoice."
-    ubattributes: *name-value
-
-  
+    subattributes: *name-value
 
   - name: "ShipAddr"
     type: "object"

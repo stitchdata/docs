@@ -301,7 +301,7 @@ attributes:
     type: "string"
     description: ""
 
-  - name: "Suffyx"
+  - name: "Suffix"
     type: "string"
     description: ""
 

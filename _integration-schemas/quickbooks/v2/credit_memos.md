@@ -121,6 +121,10 @@ attributes:
       - name: "Name"
         type: "string"
         description: ""
+        
+      - name: "StringValue"
+        type: "string"
+        description: ""
 
       - name: "Type"
         type: "string"
@@ -269,11 +273,11 @@ attributes:
                      - name: "MarkupIncomeAccountRef"
                        type: "object"
                        description: ""
+                       subattributes: *name-value
                        
                      - name: "Percent"
                        type: "decimal"
                        description: ""
-                       subattributes: *name-value
                        
                      - name: "PriceLevelRef"
                        type: "object"
@@ -473,7 +477,7 @@ attributes:
     description: ""
     subattributes:
       - name: "TotalTax"
-        type: "integer"
+        type: "decimal"
         description: ""
 
       - name: "TaxLine"

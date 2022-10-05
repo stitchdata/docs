@@ -190,14 +190,6 @@ attributes:
             type: "string"
             description: ""
 
-  - name: "CustomField"
-    type: "array"
-    description: ""
-    subattributes:
-      - name: "StringValue"
-        type: "string"
-        description: ""
-
   - name: "CurrencyRef"
     type: "object"
     description: "Details about the currency the refund receipt is in."
@@ -220,6 +212,10 @@ attributes:
         description: ""
 
       - name: "Name"
+        type: "string"
+        description: ""
+        
+      - name: "StringValue"
         type: "string"
         description: ""
 
@@ -454,6 +450,10 @@ attributes:
                     type: "object"
                     description: "Details about the tax code associated with the sales line item."
                     subattributes:
+                      - name: "name"
+                        type: "string"
+                        descripion: ""
+
                       - name: "value"
                         type: "string"
                         description: "The tax code ID."
@@ -587,7 +587,7 @@ attributes:
     description: ""
     subattributes:
       - name: "TotalTax"
-        type: "integer"
+        type: "decimal"
         description: ""
 
       - name: "TaxLine"

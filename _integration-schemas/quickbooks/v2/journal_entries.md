@@ -133,13 +133,13 @@ attributes:
             type: "decimal"
             description: ""
 
-          - name: "LineNum"
-            type: "decimal"
-            description: ""
-
           - name: "PostingType"
             type: "string"
             description: ""
+
+      - name: "LineNum"
+        type: "decimal"
+        description: ""
 
   - name: "MetaData"
     type: "object"
