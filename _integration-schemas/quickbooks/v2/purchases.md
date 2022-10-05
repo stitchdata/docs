@@ -109,6 +109,14 @@ attributes:
     type: "decimal"
     description: ""
 
+  - name: "GlobalTaxCalculation"
+    type: "string"
+    description: ""
+
+  - name: "IncludeInAnnualTPAR"
+    type: "boolean"
+    description: ""
+
   - name: "Line"
     type: "array"
     description: ""
@@ -153,6 +161,27 @@ attributes:
                 type: "string"
                 description: "The customer ID."
                 foreign-key-id: "customer-id"
+
+          - name: "LineNum"
+            type: "decimal"
+            description: ""
+
+          - &linkedtxn
+            name: "LinkedTxn"
+            type: "object"
+            description: ""
+            subattributes:
+              - name: "TxnId"
+                type: "string"
+                description: ""
+                
+              - name: "TxnLineId"
+                type: "string"
+                description: ""
+                
+              - name: "TxnType"
+                type: "string"
+                description: ""
 
           - name: "TaxAmount"
             type: "number"
@@ -220,6 +249,8 @@ attributes:
           - name: "UnitPrice"
             type: "decimal"
             description: ""
+
+  - *linkedtxn
 
   - name: "MetaData"
     type: "object"
@@ -302,11 +333,27 @@ attributes:
                 type: "string"
                 description: ""
 
+  - name: "RecurDateRef"
+    type: "object"
+    description: ""
+    subattributes: &name-value
+      - name: "name"
+        type: "string"
+        description: ""
+        
+      - name: "value"
+        type: "string"
+        description: ""
+
   - name: "RemitToAddr"
     type: "object"
     description: ""
     subattributes:
       - name: "City"
+        type: "string"
+        description: ""
+
+      - name: "Country"
         type: "string"
         description: ""
 
@@ -326,6 +373,22 @@ attributes:
         type: "string"
         description: ""
 
+      - name: "Line2"
+        type: "string"
+        description: ""
+
+      - name: "Line3"
+        type: "string"
+        description: ""
+
+      - name: "Line4"
+        type: "string"
+        description: ""
+
+      - name: "Line5"
+        type: "string"
+        description: ""
+
       - name: "Long"
         type: "string"
         description: ""
@@ -342,9 +405,63 @@ attributes:
     type: "decimal"
     description: ""
 
+  - name: "TransactionLocationType"
+    type: "string"
+    description: ""
+
   - name: "TxnDate"
     type: "date-time"
     description: ""
+
+  - name: "TxnTaxDetail"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "TotalTax"
+        type: "integer"
+        description: ""
+
+      - name: "TaxLine"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "Amount"
+            type: "string"
+            description: ""
+            
+          - name: "DetailType"
+            type: "string"
+            description: ""
+
+          - name: "TaxLineDetail"
+            type: "object"
+            description: ""
+            subattributes:
+              - name: "OverrideDeltaAmount"
+                type: "decimal"
+                description: ""
+                
+              - name: "PercentBased"
+                type: "boolean"
+                description: ""
+                
+              - name: "TaxInclusiveAmount"
+                type: "decimal"
+                description: ""
+                
+              - name: "TaxPercent"
+                type: "decimal"
+                description: ""
+                
+              - name: "TaxRateRef"
+                type: "object"
+                description: ""
+                subattributes: *name-value
+
+      - name: "TxnTaxCodeRef"
+        type: "object"
+        description: ""
+        subattributes: *name-value
 
   - name: "TxnSource"
     type: "string"
