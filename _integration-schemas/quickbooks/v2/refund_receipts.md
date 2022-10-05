@@ -45,6 +45,18 @@ attributes:
         type: "string"
         description: ""
 
+      - name: "City"
+        type: "string"
+        description: ""
+
+      - name: "Country"
+        type: "string"
+        description: ""
+
+      - name: "CountrySubDivisionCode"
+        type: "string"
+        description: ""
+
       - name: "Line1"
         type: "string"
         description: ""
@@ -61,7 +73,15 @@ attributes:
         type: "string"
         description: ""
 
+      - name: "Line5"
+        type: "string"
+        description: ""
+
       - name: "Long"
+        type: "string"
+        description: ""
+
+      - name: "PostalCode"
         type: "string"
         description: ""
 
@@ -170,6 +190,14 @@ attributes:
             type: "string"
             description: ""
 
+  - name: "CustomField"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "StringValue"
+        type: "string"
+        description: ""
+
   - name: "CurrencyRef"
     type: "object"
     description: "Details about the currency the refund receipt is in."
@@ -258,6 +286,18 @@ attributes:
     type: "decimal"
     description: ""
 
+  - name: "FreeFormAddress"
+    type: "boolean"
+    description: ""
+
+  - name: "GlobalTaxCalculation"
+    type: "string"
+    description: ""
+
+  - name: "HomeBalance"
+    type: "decimal"
+    description: ""
+
   - name: "HomeTotalAmt"
     type: "decimal"
     description: ""
@@ -266,59 +306,205 @@ attributes:
     type: "array"
     description: ""
     subattributes:
-      - name: "Amount"
+      - &line-amount
+        name: "Amount"
         type: "decimal"
         description: ""
 
-      - name: "Description"
+      - &line-desc
+        name: "Description"
         type: "string"
         description: ""
 
-      - name: "DetailType"
+      - name: "DescriptionLineDetail"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "ServiceDate"
+            type: "date-time"
+            description: ""
+            
+          - name: "TaxCodeRef"
+            type: "object"
+            description: ""
+            subattributes: &name-value
+              - name: "name"
+                type: "string"
+                description: ""
+                
+              - name: "value"
+                type: "string"
+                description: ""
+
+      - &line-detailtype
+        name: "DetailType"
         type: "string"
         description: ""
 
-      - name: "Id"
-        type: "string"
+      - name: "DiscountLineDetail"
+        type: "object"
         description: ""
+        subattributes: *name-value
+            
 
-      - name: "LineNum"
-        type: "integer"
+      - name: "GroupLineDetail"
+        type: "object"
         description: ""
+        subattributes:
+          - name: "GroupItemRef"
+            type: "object"
+            description: ""
+            subattributes: *name-value
+
+          - name: "Line"
+            type: "object"
+            description: ""
+            subattributes:
+              - *line-amount
+
+              - *line-desc
+
+              - *line-detailtype
+
+              - &line-id
+                name: "Id"
+                type: "string"
+                description: ""
+
+              
+              - &line-linenum
+                name: "LineNum"
+                type: "integer"
+                description: ""
+
+              - name: "SalesItemLineDetail"
+                type: "object"
+                description: ""
+                subattributes:
+                  - &salesitemlinedetail-classref
+                    name: "ClassRef"
+                    type: "object"
+                    description: ""
+                    subattributes: *name-value
+
+                  - &salesitemlinedetail-discountamt
+                    name: "DiscountAmt"
+                    type: "decimal"
+                    description: ""
+
+                  - &salesitemlinedetail-discountrate
+                    name: "DiscountRate"
+                    type: "decimal"
+                    description: ""
+
+                  - &salesitemlinedetail-itemaccountref
+                    name: "ItemAccountRef"
+                    type: "object"
+                    description: ""
+                    subattributes: *name-value
+
+                  - name: "ItemRef"
+                    type: "object"
+                    description: "Details about the item associated with the sales line item."
+                    subattributes:
+                      - name: "name"
+                        type: "string"
+                        description: ""
+ 
+                      - name: "value"
+                        type: "string"
+                        description: "The item ID."
+                        foreign-key-id: "item-id"
+
+                  - &salesitemlinedetail-markupinfo
+                    name: "MarkupInfo"
+                    type: "object"
+                    description: ""
+                    subattributes: 
+                      - name: "MarkupIncomeAccountRef"
+                        type: "object"
+                        description: ""
+                        subattributes: *name-value
+
+                      - name: "Percent"
+                        type: "decimal"
+                        description: ""
+
+                      - name: "PriceLevelRef"
+                        type: "object"
+                        description: ""
+                        subattributes: *name-value
+
+                  - name: "Qty"
+                    type: "decimal"
+                    description: ""
+
+                  - &salesitemlinedetail-servicedate
+                    name: "ServiceDate"
+                    type: "date-time"
+                    description: ""
+
+                  - &salesitemlinedetail-taxclassificationref
+                    name: "TaxClassificationRef"
+                    type: "object"
+                    description: ""
+                    subattributes: *name-value
+
+                  - name: "TaxCodeRef"
+                    type: "object"
+                    description: "Details about the tax code associated with the sales line item."
+                    subattributes:
+                      - name: "value"
+                        type: "string"
+                        description: "The tax code ID."
+                        foreign-key-id: "tax-code-id"
+
+                  - &salesitemlinedetail-taxinclusiveamt
+                    name: "TaxInclusiveAmt"
+                    type: "decimal"
+                    description: ""
+
+                  - name: "UnitPrice"
+                    type: "decimal"
+                    description: ""
+
+          - name: "Quantity"
+            type: "decimal"
+            description: ""
+
+      - *line-id
+
+      - *line-linenum
 
       - name: "SalesItemLineDetail"
         type: "object"
         description: ""
         subattributes:
+          - *salesitemlinedetail-classref
+          
+          - *salesitemlinedetail-discountamt
+
+          - *salesitemlinedetail-discountrate
+          
+          - *salesitemlinedetail-itemaccountref
+          
+          - *salesitemlinedetail-markupinfo
+          
+          - *salesitemlinedetail-servicedate
+          
+          - *salesitemlinedetail-taxclassificationref
+          
+          - *salesitemlinedetail-taxinclusiveamt
+
+
+      - name: "SubtotalLineDetail"
+        type: "object"
+        description: ""
+        subattributes:
           - name: "ItemRef"
             type: "object"
-            description: "Details about the item associated with the sales line item."
-            subattributes:
-              - name: "name"
-                type: "string"
-                description: ""
-
-              - name: "value"
-                type: "string"
-                description: "The item ID."
-                foreign-key-id: "item-id"
-
-          - name: "Qty"
-            type: "decimal"
             description: ""
-
-          - name: "TaxCodeRef"
-            type: "object"
-            description: "Details about the tax code associated with the sales line item."
-            subattributes:
-              - name: "value"
-                type: "string"
-                description: "The tax code ID."
-                foreign-key-id: "tax-code-id"
-
-          - name: "UnitPrice"
-            type: "integer"
-            description: ""
+            subattributes: *name-value
 
   - name: "MetaData"
     type: "object"
@@ -345,6 +531,10 @@ attributes:
         description: "The payment method ID."
         foreign-key-id: "payment-method-id"
 
+  - name: "PaymentRefNum"
+    type: "string"
+    description: ""
+
   - name: "PaymentType"
     type: "string"
     description: ""
@@ -357,17 +547,35 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "RecurDateRef"
+    type: "object"
+    description: ""
+    subattributes: *name-value
+
   - name: "ShipAddr"
     type: "object"
     description: ""
-    subattributes: &address-attributes
+    subattributes: *address-attributes
 
   - name: "SyncToken"
     type: "string"
     description: ""
 
+  - name: "TaxExemptionRef"
+    type: "object"
+    description: ""
+    subattributes: *name-value
+
+  - name: "TaxSource"
+    type: "string"
+    description: ""
+
   - name: "TotalAmt"
     type: "decimal"
+    description: ""
+
+  - name: "TransactionLocationType"
+    type: "string"
     description: ""
 
   - name: "TxnDate"
@@ -381,4 +589,46 @@ attributes:
       - name: "TotalTax"
         type: "integer"
         description: ""
+
+      - name: "TaxLine"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "Amount"
+            type: "string"
+            description: ""
+            
+          - name: "DetailType"
+            type: "string"
+            description: ""
+
+          - name: "TaxLineDetail"
+            type: "object"
+            description: ""
+            subattributes:
+              - name: "OverrideDeltaAmount"
+                type: "decimal"
+                description: ""
+                
+              - name: "PercentBased"
+                type: "boolean"
+                description: ""
+                
+              - name: "TaxInclusiveAmount"
+                type: "decimal"
+                description: ""
+                
+              - name: "TaxPercent"
+                type: "decimal"
+                description: ""
+                
+              - name: "TaxRateRef"
+                type: "object"
+                description: ""
+                subattributes: *name-value
+
+      - name: "TxnTaxCodeRef"
+        type: "object"
+        description: ""
+        subattributes: *name-value
 ---
