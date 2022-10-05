@@ -38,6 +38,10 @@ attributes:
         description: "The account ID."
         foreign-key-id: "account-id"
 
+  - name: "Balance"
+    type: "decimal"
+    description: ""
+
   - name: "CurrencyRef"
     type: "object"
     description: "Details about the currency the vendor credit is in."
@@ -74,6 +78,14 @@ attributes:
 
   - name: "ExchangeRate"
     type: "decimal"
+    description: ""
+
+  - name: "GlobalTaxCalculation"
+    type: "string"
+    description: ""
+
+  - name: "IncludeInAnnualTPAR"
+    type: "boolean"
     description: ""
 
   - name: "Line"
@@ -119,6 +131,23 @@ attributes:
                 description: "The customer ID."
                 foreign-key-id: "customer-id"
 
+          - &linkedtxn
+            name: "LinkedTxn"
+            type: "object"
+            description: ""
+            subattributes:
+              - name: "TxnId"
+                type: "string"
+                description: ""
+
+              - name: "TxnLineId"
+                type: "string"
+                description: ""
+
+              - name: "TxnType"
+                type: "string"
+                description: ""
+
           - name: "TaxCodeRef"
             type: "object"
             description: "Details about the tax code associated with the line item."
@@ -147,6 +176,8 @@ attributes:
       - name: "LineNum"
         type: "integer"
         description: ""
+  
+  - *linkedtxn
 
   - name: "MetaData"
     type: "object"
@@ -160,12 +191,28 @@ attributes:
         type: "date-time"
         description: ""
 
+  - name: "RecurDateRef"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+        
+      - name: "value"
+        type: "string"
+        description: ""
+
   - name: "SyncToken"
     type: "string"
     description: ""
 
   - name: "TotalAmt"
     type: "decimal"
+    description: ""
+
+  - name: "TransactionLocationType"
+    type: "string"
     description: ""
 
   - name: "TxnDate"
