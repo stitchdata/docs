@@ -80,6 +80,7 @@ attributes:
       - name: "CreditChargeResponse"
         type: "object"
         description: ""
+        subattributes:
           - name: "AuthCode"
             type: "string"
             description: ""
