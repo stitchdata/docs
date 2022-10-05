@@ -95,6 +95,10 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "TaxCodeConfigType"
+    type: "string"
+    description: ""
+
   - name: "TaxGroup"
     type: "boolean"
     description: ""
