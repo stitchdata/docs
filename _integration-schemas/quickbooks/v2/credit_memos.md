@@ -30,7 +30,7 @@ attributes:
     description: ""
 
   - name: "Balance"
-    type: "integer"
+    type: "decimal"
     description: ""
 
   - name: "BillAddr"
@@ -354,7 +354,7 @@ attributes:
                 foreign-key-id: "tax-code-id"
 
           - name: "UnitPrice"
-            type: "integer"
+            type: "decimal"
             description: ""
 
   - name: "MetaData"

@@ -94,7 +94,7 @@ attributes:
         description: ""
 
   - name: "BillRate"
-    type: "number"
+    type: "decimal"
     description: ""
 
   - name: "BusinessNumber"

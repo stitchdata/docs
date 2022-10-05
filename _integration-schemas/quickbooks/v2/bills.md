@@ -178,7 +178,7 @@ attributes:
                 foreign-key-id: "tax-code-id"
 
           - name: "UnitPrice"
-            type: "integer"
+            type: "decimal"
             description: ""
 
       - name: "LineNum"

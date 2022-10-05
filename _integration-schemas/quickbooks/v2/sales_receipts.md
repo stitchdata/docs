@@ -30,7 +30,7 @@ attributes:
     description: ""
 
   - name: "Balance"
-    type: "integer"
+    type: "decimal"
     description: ""
 
   - name: "BillAddr"
@@ -295,7 +295,7 @@ attributes:
     description: ""
 
   - name: "Line"
-    type: "array"
+    type: "object"
     description: ""
     subattributes:
       - &line-amount

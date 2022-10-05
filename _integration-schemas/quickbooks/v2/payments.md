@@ -273,6 +273,6 @@ attributes:
     description: ""
 
   - name: "UnappliedAmt"
-    type: "integer"
+    type: "decimal"
     description: ""
 ---

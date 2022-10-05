@@ -30,7 +30,7 @@ attributes:
     description: ""
 
   - name: "Balance"
-    type: "integer"
+    type: "decimal"
     description: ""
 
   - name: "BillAddr"

@@ -186,7 +186,7 @@ attributes:
     description: ""
 
   - name: "UnitPrice"
-    type: "integer"
+    type: "decimal"
     description: ""
 
   - name: "UQCDisplayText"
