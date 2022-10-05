@@ -193,7 +193,7 @@ attributes:
         type: "object"
         description: ""
         subattributes: ""
-          - name: "ServiceData"
+          - name: "ServiceDate"
             type: "date-time"
             description: ""
             
