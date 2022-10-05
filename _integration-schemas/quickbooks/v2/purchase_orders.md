@@ -28,41 +28,24 @@ attributes:
   - name: "APAccountRef"
     type: "object"
     description: "Details about the AP account associated with the purchase order."
-    subattributes:
+    subattributes: &name-value
       - name: "name"
         type: "string"
         description: ""
 
       - name: "value"
         type: "string"
-        description: "The account ID."
-        foreign-key-id: "account-id"
+        description: ""
 
   - name: "ClassRef"
     type: "object"
     description: ""
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: ""
-        foreign-key-id: "class-id"
+    subattributes: *name-value
 
   - name: "CurrencyRef"
     type: "object"
     description: "Details about the currency the purchase order is in."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: "The currency ID."
-        foreign-key-id: "currency-id"
+    subattributes: *name-value
 
   - name: "CustomField"
     type: "array"
@@ -83,15 +66,7 @@ attributes:
   - name: "DepartmentRef"
     type: "object"
     description: "Details about the department associated with the purchase order."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: "The department ID."
-        foreign-key-id: "department-id"
+    subattributes: *name-value
 
   - name: "DocNumber"
     type: "string"
@@ -113,10 +88,68 @@ attributes:
     type: "decimal"
     description: ""
 
+  - name: "GlobalTaxCalculation"
+    type: "string"
+    description: ""
+
   - name: "Line"
     type: "array"
     description: ""
     subattributes:
+      - name: "AccountBasedExpenseLineDetail"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "AccountRef"
+            type: "object"
+            description: ""
+            subattributes: *name-value
+            
+          - name: "BillableStatus"
+            type: "string"
+            description: ""
+            
+          - name: "ClassRef"
+            type: "object"
+            description: ""
+            subattributes: *name-value
+            
+          - name: "CustomerRef"
+            type: "object"
+            description: ""
+            subattributes: *name-value
+            
+          - name: "MarkupInfo"
+            type: "object"
+            description: ""
+            subattributes:
+              - name: "MarkupIncomeAccountRef"
+                type: ""
+                description: ""
+                subattributes: *name-value
+                
+              - name: "Percent"
+                type: "decimal"
+                description: ""
+                
+              - name: "PriceLevelRef"
+                type: ""
+                description: ""
+                subattributes: *name-value
+            
+          - name: "TaxAmount"
+            type: "decimal"
+            description: ""
+            
+          - name: "TaxCodeRef"
+            type: "object"
+            description: ""
+            subattributes: *name-value
+            
+          - name: "TacInclusiveAmt"
+            type: "decimal"
+            description: ""
+
       - name: "Amount"
         type: "decimal"
         description: ""
@@ -144,41 +177,17 @@ attributes:
           - name: "ClassRef"
             type: "object"
             description: "Details about the class associated with the line item."
-            subattributes:
-              - name: "name"
-                type: "string"
-                description: ""
-
-              - name: "value"
-                type: "string"
-                description: "The class ID."
-                foreign-key-id: "class-id"
+            subattributes: *name-value
 
           - name: "CustomerRef"
             type: "object"
             description: "Details about the customer associated with the line item."
-            subattributes:
-              - name: "name"
-                type: "string"
-                description: ""
-
-              - name: "value"
-                type: "string"
-                description: "The customer ID."
-                foreign-key-id: "customer-id"
+            subattributes: *name-value
 
           - name: "ItemRef"
             type: "object"
             description: "Details about the item associated with the line item."
-            subattributes:
-              - name: "name"
-                type: "string"
-                description: ""
-
-              - name: "value"
-                type: "string"
-                description: "The item ID."
-                foreign-key-id: "item-id"
+            subattributes: *name-value
 
           - name: "Qty"
             type: "integer"
@@ -210,6 +219,10 @@ attributes:
         description: "The ID of the bill associated with the purchase order."
         foreign-key-id: "bill-id"
 
+      - name: "TxnLineId"
+        type: "string"
+        description: ""
+
       - name: "TxnType"
         type: "string"
         description: "This will be `Bill`."
@@ -230,6 +243,14 @@ attributes:
         type: "date-time"
         description: ""
 
+  - name: "POEmail"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "Address"
+        type: "string"
+        description: ""
+
   - name: "POStatus"
     type: "string"
     description: ""
@@ -238,18 +259,15 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "RecurDateRef"
+    type: "object"
+    description: ""
+    subattributes: *name-value
+
   - name: "SalesTermRef"
     type: "object"
     description: ""
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: ""
-        foreign-key-id: "term-id"
+    subattributes: *name-value
 
   - name: "ShipAddr"
     type: "object"
@@ -279,17 +297,15 @@ attributes:
         type: "string"
         description: ""
 
+  - name: "ShipMethodRef"
+    type: "object"
+    description: ""
+    subattributes: *name-value
+
   - name: "ShipTo"
     type: "object"
     description: ""
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: ""
+    subattributes: *name-value
 
   - name: "SyncToken"
     type: "string"
@@ -301,6 +317,56 @@ attributes:
 
   - name: "TxnDate"
     type: "date-time"
+
+  - name: "TxnTaxDetail"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "TotalTax"
+        type: "integer"
+        description: ""
+
+      - name: "TaxLine"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "Amount"
+            type: "string"
+            description: ""
+            
+          - name: "DetailType"
+            type: "string"
+            description: ""
+
+          - name: "TaxLineDetail"
+            type: "object"
+            description: ""
+            subattributes:
+              - name: "OverrideDeltaAmount"
+                type: "decimal"
+                description: ""
+                
+              - name: "PercentBased"
+                type: "boolean"
+                description: ""
+                
+              - name: "TaxInclusiveAmount"
+                type: "decimal"
+                description: ""
+                
+              - name: "TaxPercent"
+                type: "decimal"
+                description: ""
+                
+              - name: "TaxRateRef"
+                type: "object"
+                description: ""
+                subattributes: *name-value
+
+      - name: "TxnTaxCodeRef"
+        type: "object"
+        description: ""
+        subattributes: *name-value
     description: ""
 
   - name: "VendorAddr"
@@ -346,13 +412,5 @@ attributes:
   - name: "VendorRef"
     type: "object"
     description: "Details about the vendor associated with the purchase order."
-    subattributes:
-      - name: "name"
-        type: "string"
-        description: ""
-
-      - name: "value"
-        type: "string"
-        description: "The vendor ID."
-        foreign-key-id: "vendor-id"
+    subattributes: *name-value
 ---
