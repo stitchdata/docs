@@ -13,7 +13,7 @@
 # -------------------------- #
 
 title: QuickBooks (v1)
-permalink: /integrations/saas/quickbooks
+permalink: /integrations/saas/quickbooks/v1
 keywords: quickbooks, integration, schema, etl quickbooks, quickbooks etl, quickbooks schema
 layout: singer
 input: false
