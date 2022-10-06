@@ -40,6 +40,10 @@ attributes:
         type: "date-time"
         description: ""
 
+      - name: "CreateTime"
+        type: "date-time"
+        description: ""
+
   - name: "Name"
     type: "string"
     description: ""

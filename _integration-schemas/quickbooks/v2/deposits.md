@@ -260,4 +260,9 @@ attributes:
                 type: "object"
                 description: ""
                 subattributes: *name-value
+
+      - name: "TxnTaxCodeRef"
+        type: "object"
+        description: ""
+        subattributes: *name-value
 ---
