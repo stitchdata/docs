@@ -13,7 +13,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Search For Creatives"
-    doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-creatives#search-for-creatives"
+    doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-creatives?view=li-lms-unversioned&tabs=http&viewFallbackFrom=li-lms-2022-07#search-for-creatives"
 
 attributes:
   - name: "id"
@@ -132,4 +132,47 @@ attributes:
       - name: "version_tag"
         type: "string"
         description: ""
+
+  - name: "processing_state"
+    type: "string"
+    description: |
+      The processing state of the creative. The value can be:
+      - `PROCESSING`: The creative is currently being processed.
+      - `PROCESSING_FAILED`: The creative processing has failed.
+      - `PROCESSING_SUCCEEDED`: The creative processing was completed successfully.
+
+  - name: "review"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "rejection_reason"
+        type: "array"
+        description: "An array of reasons for rejecting creatives."
+        subattributes:
+          - name: "items"
+            type: "string"
+            description: ""
+
+  - name: "test"
+    type: "boolean"
+    description: "Indicates whether this creative is a test creative."
+
+  - name: "serving_statuses"
+    type: "array"
+    description: "Array of enums that determine whether or not a creative may be served. Unlike status, which is user-managed, the values are controlled by the service."
+    subattributes:
+      - name: "items"
+        type: "string"
+        description: |
+          The value can be:
+          - `RUNNABLE`
+          - `STOPPED`
+          - `UNDER_REVIEW`
+          - `REJECTED`
+          - `FORM_HOLD`
+          - `PROCESSING`
+          - `PROCESSING_FAILED`
+          - `REFERRED_CONTENT_QUALITY_HOLD`
+          - `JOB_POSTING_ON_HOLD`
+          - `JOB_POSTING_INVALID`
 ---

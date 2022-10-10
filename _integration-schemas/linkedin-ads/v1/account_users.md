@@ -13,7 +13,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "Find Ad Account Users by Accounts"
-  doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-account-users#find-ad-account-users-by-accounts"
+  doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-account-users?view=li-lms-2022-07&tabs=http#find-ad-account-users-by-accounts"
 
 attributes:
   - name: "account_id"
@@ -36,6 +36,10 @@ attributes:
   - name: "account"
     type: "string"
     description: "The advertising account's URN." 
+
+  - name: "campaign_contact"
+    type: "boolean"
+    description: "The list of emails registered to receive campaign-related events." 
 
   - name: "change_audit_stamps"
     type: "object"

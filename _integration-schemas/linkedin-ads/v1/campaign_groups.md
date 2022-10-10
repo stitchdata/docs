@@ -13,7 +13,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Search For Campaign Groups"
-    doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaign-groups#search-for-campaign-groups"
+    doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaign-groups?view=li-lms-2022-07&tabs=http#search-for-campaign-groups"
 
 attributes:
   - name: "id"
@@ -97,4 +97,33 @@ attributes:
       - `CANCELED` - Denotes that the campaign group has been permanently canceled and cannot be reactivated.
       - `DRAFT` - Denotes that the campaign group is in a preliminary state and should temporarily not be served.
       - `PAUSED` - Denotes that the campaign group meets all requirements to be served, but temporarily should not be.
+  
+  - name: "total_budget"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "currency_code"
+        type: "string"
+        description: "The ISO currency code."
+
+      - name: "amount"
+        type: "decimal"
+        description: "The maximum amount to spend across all associated campaigns and creatives for duration of the campaign group."
+  
+  - name: "test"
+    type: "boolean"
+    description: "Indicates whether this campaign group is a test campaign group."
+  
+  - name: "allowed_campaign_types"
+    type: "array"
+    description: "Array of enums that indicates allowed campaign types within the specific campaign group."
+    subattributes:
+      - name: "items"
+        type: "string"
+        description: |
+          The campaign type. The value can be: 
+          - `TEXT_AD`
+          - `SPONSORED_UPDATES`
+          - `SPONSORED_INMAILS`
+          - `DYNAMIC`
 ---
