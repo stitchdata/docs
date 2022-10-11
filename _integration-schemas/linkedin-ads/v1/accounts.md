@@ -13,7 +13,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "Search for Accounts"
-  doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts?view=li-lms-2022-07&tabs=http#search-for-accounts"
+  doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts#search-for-accounts"
 
 attributes:
   - name: "id"
@@ -74,10 +74,6 @@ attributes:
     type: "boolean"
     description: "Indicates if the campaign contact has been notified about the end of a campaign."
   
-  - name: "notified_on_new_features_enabled"
-    type: "boolean"
-    description: "Indicates if the account owner is notified about new features."
-  
   - name: "reference"
     type: "string"
     description: "The entity on whose behalf the account advertises."
@@ -113,10 +109,6 @@ attributes:
   - name: "status"
     type: "string"
     description: "The account's active status."
-  
-  - name: "test"
-    type: "boolean"
-    description: "Indicates whether this account is a test account."
   
   - name: "total_budget"
     type: "object"

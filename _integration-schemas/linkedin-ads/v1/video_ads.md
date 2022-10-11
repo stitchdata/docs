@@ -13,7 +13,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Account Finder; Sponsored Contents"
-    doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/advertising-targeting/create-and-manage-video?view=li-lms-unversioned&tabs=http&viewFallbackFrom=li-lms-2022-07#finders"
+    doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/advertising-targeting/create-and-manage-video#finders"
 
 attributes:
   - name: "content_reference"
