@@ -14,7 +14,7 @@ type: "invite-your-team"
 intro: |
   You can now control what users have access to within the Stitch app based on an assigned role! In this guide, you will learn everything you need to know on how to fully utilize this feature.
   {% capture notice %}
-  **Note**: If you are not on an SSO enabled account, every user will have an Administrator role by default, and then you can downgrade roles to General User. If you are on an SSO enabled account, SSO Admins will become the Administrators by default and all other users will become General Users. Refer to the [SSO Doccumentation]({{ link.account.manage-api-keys | prepend: site.baseurl }}) for more information.
+  **Note**: If you are not on an SSO enabled account, every user will have an Administrator role by default, and then you can downgrade roles to General User. If you are on an SSO enabled account, SSO Admins will become the Administrators by default and all other users will become General Users. Refer to the [SSO Doccumentation]({{ link.security.single-sign-on | prepend: site.baseurl }}) for more information.
   {% endcapture %}
 
   {% include note.html type="single-line" content=notice %}
@@ -30,11 +30,13 @@ sections:
     anchor: "stitch-roles"
     summary: "The roles that currently exist within Stitch"
     content: |
-      There are currently two roles that a user can have: **Administrator** and **General User**.
+      There are currently two manually assignable roles that a user can have: **Administrator** and **General User**.
 
-      **Administrator**: An Administrator is a person responsible for ensuring the Stitch account is set up as needed and is therefore the ultimate owner of the Stitch account. They have total control over every possible action a user can take on Stitch. They also have some exclusive privileges that no other role has.
+      **Administrator**: An Administrator is a person responsible for ensuring the Stitch account is set up as needed and is therefore the ultimate owner of the Stitch account. They have total control over every possible action a user can take on Stitch. They also have some exclusive privileges that no other role has. Keep in mind all [{{ user-roles.sso-admin.name | append: "s" }}]({{ link.security.single-sign-on | prepend: site.baseurl }}) are also {{ user-roles.administrator.name | append: "s" }}.
 
       **General User**: A General User is responsible for ensuring data is correctly ingested and available for consumers. Their primary responsibility within Stitch is to create and manage the necessary connections and configurations to ingest data. They have the ability to take any action except the ones exclusive to the Administrator.
+
+      For a list of all existing roles and permissions, visit our [team member permissions]({{ link.account.team-members#team-member-roles-permissions | prepend: site.baseurl }}) documentation.
 
   - title: "Role-Based Access Control FAQ"
     anchor: "faq"
@@ -72,20 +74,4 @@ sections:
       #  anchor: "faq-role-changes"
       #  content: |
       #    You will receive an in-app notification if there are any changes to your role in your account.
-
-  - title: "How to update team member's role"
-    anchor: "updating-roles"
-    content: |
-      **Note**: Only users with the Administrator role can make changes the roles of other users in your account.
-      1. Log into your Stitch account and navigate to **Settings > Members**.
-      2. On the **Members** tab, you will see a list of all team members in your Stitch account and their account information. In the **Role** column, select what role you would like a user to have from the dropdown menu.
-
-      You can also update the roles of members who have not yet accepted their invitations following the same steps.
-  
 ---
-
-docs/account-security/managing-team-members#team-member-roles-permissions
-make sure URLs are correct and 
-add links to docs mentioned
-update sso stuff everywhere
-create the markup changes
