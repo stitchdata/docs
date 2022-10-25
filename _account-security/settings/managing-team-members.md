@@ -280,6 +280,7 @@ sections:
 
   - title: "Update a team member's role"
     anchor: "update-team-member-role"
+    summary: "How to update a team member's role"
     content: |
       {% capture rbac-notice-role-updates %}
       **Role-Based Access Control (RBAC) impacts this feature**: Only users with the [{{ user-roles.administrator.name }} role]({{ link.account.role-based-access-control | prepend: site.baseurl }}) can make changes to the roles of other users in an account.
