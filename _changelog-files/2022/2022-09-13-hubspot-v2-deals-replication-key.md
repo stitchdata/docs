@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-hubspot/pull/195"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've updated the `deals` table of our {{ this-connection.display_name }} by changing its replication method to `INCREMENTAL` and updating the replication key to `property_hs_lastmodifieddate`.
+We've updated the `deals` table of our {{ this-connection.display_name }} integration by changing its replication method to `INCREMENTAL` and updating the replication key to `property_hs_lastmodifieddate`.
