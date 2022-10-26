@@ -40,6 +40,22 @@ attributes:
         type: "string"
         description: "This will be `user`."
 
+  - name: "assignee_section"
+    type: "array"
+    description: "A subdivision of a project that groups tasks together in the assignee's task list."
+    subattributes:
+      - name: "gid"
+        type: "string"
+        description: "The section's GID."
+
+      - name: "name"
+        type: "string"
+        description: "The name of the section."
+
+      - name: "resource_type"
+        type: "string"
+        description: "This will be `section`."
+
   - name: "assignee_status"
     type: "string"
     description: "The scheduling status of the task for the user it is assigned to."
@@ -229,9 +245,13 @@ attributes:
         type: "string"
         description: "This will be `project`."
 
+  - name: "start_at"
+    type: "string"
+    description: "The day that work begins for the task."    
+
   - name: "start_on"
     type: "string"
-    description: "The day that work begins for the task."      
+    description: "The date and time that work begins for the task."      
 
   - name: "workspace"
     type: "object"
