@@ -13,6 +13,8 @@ Log-based Replication for {{ integration.display_name }}-based databases require
 2. **A connection to the master instance.** Log-based replication will only work on master instances due to a feature gap in PostgreSQL 10. [Based on their forums](https://commitfest.postgresql.org/12/788/){:target="new"}, PostgreSQL is working on adding support for using logical replication on a read replica to a future version.
 
    Until this feature is released, you can connect Stitch to the master instance and use Log-based Replication, **or** connect to a read replica and use Key-based Incremental Replication.
-{% endcapture %}
+
+3. **The `REPLICA IDENTITY` parameter set to `FULL` in your source table.**  This is needed to capture all changes as well as unchanged keys in the Write-Ahead Logging.
+   {% endcapture %}
 
 {% include important.html first-line="**Log-based Replication requirements**" content=logical-replication-limitations %}
