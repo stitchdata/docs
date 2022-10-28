@@ -142,7 +142,6 @@ requirements-list:
           2. Inaccurate data replication. 
 
           Refer to the [{{ integration.display_name }} documentation](https://www.postgresql.org/docs/9.5/storage-toast.html){:target="new"} for more information on what TOAST is and how to identify TOASTed tables and columns in your database.
-      - **The `REPLICA IDENTITY` parameter set to `FULL` in your source table.**  This is needed to capture all changes as well as unchanged keys in the Write-Ahead Logging.
   - item: |
       **If you're not using Log-based Replication**, you'll need:
 
