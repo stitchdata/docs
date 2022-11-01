@@ -173,6 +173,13 @@ setup-steps:
          - **Metric and dimension combinations are subject to Google's compatibility rules.** When you select a metric or dimension, all other metrics and dimensions incompatible with the selection will be greyed out. To test your combos before selecting them in Stitch, use [Google's Dimensions & Metrics Explorer](https://ga-dev-tools.web.app/ga4/dimensions-metrics-explorer/){:target="new"}.
          - **Custom metrics and dimensions** will display as either `ga:metric` or `ga:dimension`.
 
+           How a custom dimension will look in your {{ integration.display_name }} console:
+           ![A custom dimension in your Google Analytics 4 console.]({{ site.baseurl }}/images/integrations/ga4-custom-dimension.png){:style="max-width: 800px;"}
+
+           How the custom dimension above would be displayed in Stitch:
+           ![How your Google Analytics 4 custom dimension will be named in Stitch.]({{ site.baseurl }}/images/integrations/ga4-custom-dimension-stitch.png){:style="max-width: 800px;"}
+
+
       4. Repeat this process for your remaining reports.
       5. When finished, click the **Finalize Your Selections** button at the bottom of the screen to save your selections.
 
