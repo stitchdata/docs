@@ -56,30 +56,26 @@ sections:
   - title: "Managing your team"
     anchor: "manage-your-team-category"
     type: "invite-your-team"
-    additional-guides:
-      - title: "Role-Based Access Control (RBAC)"
-        url: "{{ link.account.role-based-access-control }}"
-        weight: 2
-        
+    additional-guides:       
       - title: "Adding a team member"
         url: "{{ link.account.team-members }}#invite-team-member"
-        weight: 3
+        weight: 2
 
       - title: "Adding a team member to multiple accounts"
         url: "{{ link.account.team-members }}#add-to-multiple-accounts"
-        weight: 4
+        weight: 3
 
       - title: "Update a team member's role"
         url: "{{ link.account.team-members }}#update-team-member-role"
-        weight: 5 
+        weight: 4 
 
       - title: "Deactivating a team member"
         url: "{{ link.account.team-members }}#deactivate-team-member"
-        weight: 6
+        weight: 5
 
       - title: "Troubleshooting account lockout"
         url: "{{ link.troubleshooting.troubleshoot-account-lockout }}"
-        weight: 7
+        weight: 6
     content: |
       {% assign guides = this-collection | where_exp:"guide","guide.type contains section.type" | concat: section.additional-guides | sort:"weight" %}
 

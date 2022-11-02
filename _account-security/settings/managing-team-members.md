@@ -90,6 +90,17 @@ sections:
       - [{{ subsection.title | flatify }}](#{{ subsection.anchor }})
       {% endfor %}
     subsections:
+      - title: "Role-Based Access Control (RBAC)"
+        anchor: "role-based-access-control"
+        content: |
+          You can now control what users have access to within the Stitch app based on an assigned role! Head to the next session to learn about the role types and their permissions.
+
+          {% capture rbac-notice %}
+          If you are not on an SSO enabled account, every user will have an Administrator role by default, and then you can downgrade roles to General User. If you are on an SSO enabled account, SSO Admins will become the Administrators by default and all other users will become General Users. Refer to the [SSO Doccumentation]({{ link.security.single-sign-on | prepend: site.baseurl }}) for more information.
+          {% endcapture %}
+
+          {% include note.html first-line="**For accounts created before Role-Based Access Control was enabled:**" content=rbac-notice %}
+
       - title: "Team member user roles"
         anchor: "team-member-user-roles"
         content: |
@@ -101,13 +112,12 @@ sections:
           - title: "User role assignment"
             anchor: "team-member-user-role--assignment"
             content: |
-              Currently, Stitch automatically assigns the **{{ user-roles.administrator.name }}** role to initial account creators and all {{ user-roles.sso-admin.name | append: "s" }}. {{ user-roles.administrator.name | append: "s" }} can add additional team members to the account and assign their role before they accept the invitation.
+              Currently, Stitch automatically assigns the **{{ user-roles.administrator.name }}** role to initial account creator. {{ user-roles.administrator.name | append: "s" }} can add additional team members to the account and assign their role before they accept the invitation.
 
               When inviting and managing team members, keep the following in mind:
 
               - Every account has an **{{ user-roles.invoice-admin.name }}**. This is the team member who initially enters payment info for the account.
-              - If [single sign-on (SSO)]({{ link.security.single-sign-on | prepend: site.baseurl }}) is enabled, every account will have an **{{ user-roles.sso-admin.name }}**. This is the team member who initially enables SSO for the account. Additional {{ user-roles.sso-admin.name | append: "s" }} can be added by making other team members {{ user-roles.administrator.name | append: "s" }}.
-              - It's possible for a team member to be an {{ user-roles.invoice-admin.name }}, {{ user-roles.sso-admin.name }} and {{ user-roles.administrator.name }} at the same time.
+              - It's possible for a team member to be an {{ user-roles.invoice-admin.name }} and an {{ user-roles.administrator.name }} at the same time.
 
           - title: "User role types"
             anchor: "team-member-user-role--types"
@@ -144,7 +154,7 @@ sections:
 
           - {{ supported | replace:"TOOLTIP","[USER ROLE] users can perform this action" }} indicates that the user role has the permission to perform the described action
 
-          - {{ support-exception | replace:"TOOLTIP","[USER ROLE] users can perform this action, but there may be exceptions" }} indicates that the user role has the permission to perform the described action, but there may be exceptions. For example: All users can reset their own passwords, but if SSO is enabled for the account, only the SSO Admin can reset their own password.
+          - {{ support-exception | replace:"TOOLTIP","[USER ROLE] users can perform this action, but there may be exceptions" }} indicates that the user role has the permission to perform the described action, but there may be exceptions. For example: All users can reset their own passwords, but if SSO is enabled for the account, only the Administrator can reset their own password.
 
           - {{ not-supported | replace:"TOOLTIP","[USER ROLE] users can't perform this action" }} indicates that the user role doesn't have the permission to perform the described action
 
@@ -218,12 +228,9 @@ sections:
     summary: "How to invite a team member"
     content: |
       {% capture rbac-notice-invitations %}
-      With [RBAC]({{ link.account.role-based-access-control | prepend: site.baseurl }}):
-
-      - Only the {{ user-roles.administrator.name }} will have the ability to invite new users or update their own email address
-      - All pending invitations will be invalidated
+      Only the **{{ user-roles.administrator.name }}** will have the ability to invite new users. All pending invitations will be invalidated.
       {% endcapture %}
-      {% include note.html first-line="**Role-Based Access Control (RBAC) impacts this feature**" content=rbac-notice-invitations %}
+      {% include note.html type="single-line" content=rbac-notice-invitations %}
 
       When inviting a team member to your account, keep the following in mind:
 
@@ -250,7 +257,7 @@ sections:
         summary: "How to add a team member to multiple accounts"
         content: |
           {% capture rbac-notice-update-email %}
-          **Role-Based Access Control (RBAC) impacts this feature**: Only users with the [{{ user-roles.administrator.name }} role]({{ link.account.role-based-access-control | prepend: site.baseurl }}) will have the ability to update their own email address. Contact the {{ user-roles.administrator.name }} if you need to be added to multiple Stitch accounts.
+          Only users with the **{{ user-roles.administrator.name }}** role will have the ability to take this action. Contact the {{ user-roles.administrator.name }} if you need to be added to multiple Stitch accounts.
           {% endcapture %}
           {% include note.html type="single-line" content=rbac-notice-update-email %}
 
@@ -283,7 +290,7 @@ sections:
     summary: "How to update a team member's role"
     content: |
       {% capture rbac-notice-role-updates %}
-      **Role-Based Access Control (RBAC) impacts this feature**: Only users with the [{{ user-roles.administrator.name }} role]({{ link.account.role-based-access-control | prepend: site.baseurl }}) can make changes to the roles of other users in an account.
+      Only users with the **{{ user-roles.administrator.name }}** role can make changes to the roles of other users in an account.
       {% endcapture %}
           {% include note.html type="single-line" content=rbac-notice-role-updates %}
       
@@ -298,7 +305,7 @@ sections:
     summary: "How to deactivate a team member"
     content: |
       {% capture rbac-notice-deactivations %}
-      **Role-Based Access Control (RBAC) impacts this feature**: Only users with the [{{ user-roles.administrator.name }} role]({{ link.account.role-based-access-control | prepend: site.baseurl }}) will have the ability to deactivate and reactivate team members.
+      Only users with the **{{ user-roles.administrator.name }}** role will have the ability to deactivate and reactivate team members.
       {% endcapture %}
       {% include note.html type="single-line" content=rbac-notice-deactivations %}
 
