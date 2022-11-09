@@ -47,6 +47,11 @@ common:
       {% for destination-form in destination-forms %}
       - `{{ destination-form.api-type }}`
       {% endfor %}
+    
+    destination-name: A descriptive name for the destination.
+
+    destination-description: A description for the destination.
+
 
 
 # -------------------------- #

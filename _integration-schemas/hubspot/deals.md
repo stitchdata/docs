@@ -10,7 +10,7 @@ description: |
   The `{{ table.name }}` table contains info about the deals in a {{ integration.display_name }} portal.
 
 replication-key:
-  name: "hs_lastmodifieddate"
+  name: "property_hs_lastmodifieddate"
 
 replication-method: "Key-based Incremental"
 api-method:

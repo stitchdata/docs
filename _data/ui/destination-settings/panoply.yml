@@ -6,6 +6,12 @@
 ## Destination Settings page for a Panoply-backed destination.
 
 panoply:
+  - name: "{{ site.data.ui.destination-settings.common.field-names.display-name }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.display-name | flatify }}"
+    
+  - name: "{{ site.data.ui.destination-settings.common.field-names.description }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.description | flatify }}"
+
   - name: "{{ site.data.ui.common.database-connections.field-names.host }}"
     copy: "Paste the **Host** value from the {{ destination.display_name }} Connect page."
 

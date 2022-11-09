@@ -34,19 +34,29 @@ weight: 4
 
 
 # -------------------------- #
-#      CONTENT SECTIONS      #
+#  Stitch Plan Requirements  #
 # -------------------------- #
 
-enterprise-cta:
+minimum-plan-cta:
   title: "Need multiple destinations?"
   url: "?utm_medium=docs&utm_campaign=multiple-destinations"
   copy: |
-    As part of an Enterprise plan, you can configure Stitch to route different data sources to different destinations based on your needs. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
+    As part of a Stitch {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan, you can configure Stitch to route different data sources to different destinations based on your needs. [Contact Stitch Sales for more info]({{ site.sales | append: page.minimum-plan-cta.url }}).
+
+
+# -------------------------- #
+#        Introduction        #
+# -------------------------- #
 
 intro: |
   When Stitch replicates your data, it'll load it into the destination - or data warehouse - of your choosing. A data warehouse is a central repository of integrated data from disparate sources.
 
   It's important to note that Stitch itself is **not** a data warehouse. Stitch is a data pipeline (or ETL tool) that enables you to replicate data from various sources and consolidate it into a single location. **A destination is required to use Stitch.**
+
+
+# -------------------------- #
+#           Content          #
+# -------------------------- #
 
 sections:
   - title: "Compare destinations"
@@ -61,9 +71,7 @@ sections:
   - title: "Supported destinations"
     anchor: "supported-destinations"
     content: |
-      Stitch currently allows you to connect **one destination per account**. In addition, data will not begin replicating until you've successfully connected a destination and at least one integration.
-
-      {% include enterprise-cta.html %}
+      Data will not begin replicating until you've successfully connected a destination and at least one integration.
 
       {% include destinations/destination-tiles.html %}
 

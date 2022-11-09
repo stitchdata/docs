@@ -76,7 +76,7 @@ sections:
         content: |
           The [Advanced Scheduler feature]({{ link.replication.advanced-scheduling | prepend: site.baseurl }}) allows you to specify granular start times for data extraction. Using cron expressions, you can specify the exact times, days of the week, or even days of the month data extraction should begin. Refer to the [Advanced Scheduling documentation]({{ link.replication.advanced-scheduling | prepend: site.baseurl }}) for more info and examples.
 
-          **Note**: This feature is only available on Enterprise plans.
+          **Note**: This feature is only available on {{ site.data.stitch.subscription-plans.advanced.name }} and {{ site.data.stitch.subscription-plans.premium.name }} plans.
 
   - title: "Compare Replication Scheduling types"
     anchor: "compare-replication-scheduling-types"
@@ -120,7 +120,7 @@ sections:
       {% if attribute == "documentation" %}
       <a href="{{ data-about[method][attribute] | flatify }}">Documentation</a>
       {% else %}
-      {{ data-about[method][attribute] }}
+      {{ data-about[method][attribute] | flatify }}
       {% endif %}
       {% endcase %}
       </td>

@@ -19,7 +19,7 @@ display_name: "PostgreSQL"
 singer: true
 
 tap-name: "Postgres"
-repo-url: "Not applicable"
+
 
 hosting-type: "generic"
 
@@ -252,6 +252,7 @@ setup-steps:
         anchor: "ssh-connection-details"
         content: |
           {% include shared/database-connection-settings.html type="ssh" %}
+      
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |

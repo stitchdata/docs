@@ -1,0 +1,13 @@
+<div class="alert alert-success" role="alert">
+	<p><i class="fas fa-bell"></i>
+		<strong>{{ page.minimum-plan-cta.title | flatify }}</strong>
+	</p>
+
+	{{ page.minimum-plan-cta.copy | flatify | markdownify }}
+
+	{% if site.data.stitch.subscription-plans[page.minimum-plan]type == "sales-led" %}
+		<p>
+			For more info about Stitch {{ site.data.stitch.subscription-plans.advanced.name }}, contact the <a href="{{ site.sales | append: page.minimum-plan-cta.utm }}" target="new">Stitch Sales team</a>.
+		</p>
+	{% endif %}
+</div>

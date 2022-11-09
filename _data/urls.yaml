@@ -66,7 +66,7 @@ account:
   hipaa-compliance: /assets/pdfs/operating-stitch-in-compliance-with-hipaa.pdf
   cancel-account: /account-security/cancelling-your-stitch-account
 
-  enterprise-features: /account-security/stitch-enterprise-features
+  enterprise-features: /account-security/stitch-upgraded-features
 
 billing:
   billing-faq: /account-security/billing-faq
@@ -98,6 +98,7 @@ security:
   sso-onelogin: /account-security/single-sign-on/enabling-onelogin
   sso-azure-ad: /account-security/single-sign-on/enabling-azure-active-directory-saml
   sso-pingfederate: /account-security/single-sign-on/enabling-pingfederate-saml
+  sso-google-workspace: /account-security/single-sign-on/enabling-google-workspace-saml
 
 
 # -------------------------- #
@@ -106,6 +107,7 @@ security:
 destinations:
   main: /destinations
   switch-destinations: /destinations/switching-destinations
+  multiple-destinations: /destinations/mulitple-destinations
 
 ## Overviews
 ## used as link.destinations.overviews.[id]
@@ -126,6 +128,8 @@ destinations:
     databricks-delta: /destinations/databricks-delta/reference
     data-world: /destinations/data-world/reference
     azure: /destinations/microsoft-azure-sql-data-warehouse/reference
+    microsoft-sql-server: /destinations/microsoft-sql-server/reference
+    mysql: /destinations/mysql/reference
     postgres: /destinations/postgresql/reference
     panoply: /destinations/panoply/reference
     snowflake: /destinations/snowflake/reference
@@ -143,6 +147,8 @@ destinations:
     
     databricks-delta: /destinations/databricks-delta/connecting-a-databricks-delta-destination-to-stitch
     data-world: /destinations/data-world/connecting-a-data-world-data-warehouse-to-stitch
+
+    microsoft-sql-server: /destinations/microsoft-sql-server/connecting-a-microsoft-sql-server-destination-to-stitch
     
     panoply-new: /destinations/panoply/connecting-a-new-panoply-data-warehouse-to-stitch
     panoply-ex: /destinations/panoply/connecting-an-existing-panoply-data-warehouse-to-stitch
@@ -169,6 +175,7 @@ destinations:
     bigquery-v1: /replication/loading/destination-guides/google-bigquery/v1
     bigquery-v2: /replication/loading/destination-guides/google-bigquery
     databricks-delta: /replication/loading/destination-guides/databricks-delta
+    microsoft-sql-server: /replication/loading/destination-guides/microsoft-sql-server
     panoply: /replication/loading/destination-guides/panoply
     postgres: /replication/loading/destination-guides/postgresql
     redshift: /replication/loading/destination-guides/amazon-redshift
@@ -180,7 +187,7 @@ destinations:
 ## used as link.destinations.storage.[id]
   storage:
     ## GENERAL
-    loading-data: /replication/loading/reference
+    loading-data: /replication/loading
     loading-behavior: /replication/loading/understanding-loading-behavior
 
     ## SYSTEM COLUMNS AND TABLES
@@ -209,6 +216,7 @@ destinations:
       bigquery-v2: /replication/loading/reserved-keywords#bigquery-v2-reserved-keywords
       databricks-delta-v1: /replication/loading/reserved-keywords#databricks-delta-v1-reserved-keywords
       azure-v1: /replication/loading/reserved-keywords#microsoft-azure-v1-reserved-keywords
+      microsoft-sql-server-v1: /replication/loading/reserved-keywords#microsoft-sql-server-v1-reserved-keywords
       postgres-v1: /replication/loading/reserved-keywords#postgres-v1-reserved-keywords
       panoply-v2: /replication/loading/reserved-keywords#panoply-v2-reserved-keywords
       snowflake-v1: /replication/loading/reserved-keywords#snowflake-v1-reserved-keywords
@@ -229,6 +237,8 @@ integrations:
   other-data-sources: /integrations/connecting-other-data-sources-to-stitch
 
   identify-integration-version: /integrations/identify-an-integration-version
+
+  connection-cloning: /integrations/connection-cloning
 
   ## Use a filter to replace INTEGRATION with the integration's name to
   ## create the URL.

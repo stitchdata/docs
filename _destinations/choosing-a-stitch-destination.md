@@ -23,7 +23,7 @@ intro: |
 
   When Stitch replicates your data, we'll load it into the destination of your choosing.
 
-  **As Stitch currently only allows you to connect one destination to your account**, we recommend asking yourself the questions below before making your selection. By fully assessing each choice first, you'll decrease the likelihood of needing to switch destinations or re-replicate all of your data at a later date.
+  We recommend asking yourself the questions below before making your selection. By fully assessing each choice first, you'll decrease the likelihood of needing to switch destinations or re-replicate all of your data at a later date.
 
   In this guide, we'll cover:
 
@@ -285,4 +285,4 @@ sections:
       {% include destinations/destination-tiles.html %}
 ---
 {% include misc/data-files.html %}
-{% assign destinations = site.destinations | where:"destination",true | sort: "display_name" %}
+{% assign destinations = site.destinations | where:"destination",true | sort_natural: "display_name" %}

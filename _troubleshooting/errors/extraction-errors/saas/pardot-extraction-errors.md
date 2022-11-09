@@ -16,6 +16,8 @@ top-level: "replication"
 category: "extraction-errors"
 integration-type: "saas"
 
+key: "pardot-extraction-error-reference"
+
 type: "saas-integration, error, replication"
 
 

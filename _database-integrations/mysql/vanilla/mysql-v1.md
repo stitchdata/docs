@@ -79,6 +79,9 @@ full-table-replication: true
 
 view-replication: true
 
+# -------------------------- #
+#    Version information     #
+# -------------------------- #
 
 # -------------------------- #
 #      Setup Requirements    #

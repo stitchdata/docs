@@ -78,12 +78,12 @@
   # if: uses default
   then:
     v1: &column-name-spaces |
-      {{ destination.display_name }} will remove spaces. For example:
+      {{ destination.display_name }} will replace spaces with underscores. For example:
 
       | Columns in Source | Columns in {{ destination.display_name }} |
       |-------------------+--------------------------|
-      | `customer id`     | `CUSTOMERID`            |
-      | `CUSTOMER ID`     | `CUSTOMERID`            |
+      | `customer id`     | `CUSTOMER_ID`            |
+      | `CUSTOMER ID`     | `CUSTOMER_ID`            |
     v2: *column-name-spaces
 
 

@@ -19,7 +19,7 @@ keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, big
 summary: "Connect a Google BigQuery database to your Stitch account as a destination."
 
 content-type: "destination-setup"
-key: "bigquery-setup"
+key: "bigquery-destination-setup"
 
 order: 2
 

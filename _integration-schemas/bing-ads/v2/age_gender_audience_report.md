@@ -43,6 +43,22 @@ attributes:
     description: "The ID of the campaign."
     foreign-key-id: "campaign-id"
 
+  - name: "AccountName"
+    type: "string"
+    description: "The account name."
+
+  - name: "AdGroupName"
+    type: "string"
+    description: "The ad group name."
+
+  - name: "AgeGroup"
+    type: "string"
+    description: "The age group of the audience who might have viewed the ad."
+
+  - name: "Gender"
+    type: "string"
+    description: "The gender of the audience who might have viewed the ad."
+
   - name: "Custom Fields"
     description: |
       Columns selected by you. For descriptions of available columns, refer to [Microsoft's documentation]({{ table.doc-link }}).

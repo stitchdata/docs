@@ -9,6 +9,8 @@ layout: changelog
 content-type: "changelog-entry-list"
 connection-type: "integration"
 
+key: "facebook-ads-integration-changelog"
+
 name: "facebook-ads"
 display_name: "Facebook Ads"
 ---

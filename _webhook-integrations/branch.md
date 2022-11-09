@@ -7,6 +7,8 @@ redirect_from: /integrations/saas/branch
 keywords: branch, integration, schema, etl branch, branch etl, branch schema, stitch webhooks
 summary: "Connect your Branch data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
+key: "branch-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

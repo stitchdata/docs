@@ -18,8 +18,8 @@ description: "This table contains information about Loan Accounts."
 # -------------------------- #
 
 api-method:
-  name: "Get all loan accounts (v2)"
-  doc-link: "https://api.mambu.com/?http#loanaccounts-getall"
+  name: "search (v2)"
+  doc-link: "https://api.mambu.com/?http#loan-accounts-search"
 
 replication-method: "Key-based Incremental"
 
@@ -706,4 +706,8 @@ attributes:
           - name: "disbursement_transaction_key"
             type: "string"
             description: ""
+
+  - name: "original_account_key"
+    type: "string"
+    description: ""
 ---

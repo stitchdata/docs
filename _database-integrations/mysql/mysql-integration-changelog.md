@@ -9,6 +9,8 @@ layout: changelog
 content-type: "changelog-entry-list"
 connection-type: "integration"
 
+key: "mysql-integration-changelog"
+
 name: "mysql"
 display_name: "MySQL"
 ---

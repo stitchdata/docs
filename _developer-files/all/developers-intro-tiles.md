@@ -20,8 +20,11 @@ sections:
           <span class="h3" style="margin-top: 30px;">{{ category.title }}</span>
           
           {% case category.plan %}
-          {% when 'enterprise' %}
-          {{ category.description | flatify | append:" **This is a Stitch Enterprise feature.**" | markdownify }} 
+          {% when 'upgraded' %}
+      {% capture notice %}
+      **This is a Stitch {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} feature.** 
+      {% endcapture %}
+          {{ category.description |  prepend:notice | flatify | markdownify }} 
 
           {% else %}
           {{ category.description | flatify | markdownify }} 

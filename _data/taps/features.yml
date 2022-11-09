@@ -97,7 +97,14 @@ stitch-plan: &stitch-plan
   display-name: "Stitch plan"
   name: "tier"
   tooltip: "{{ site.data.tooltips.integration-availability }}"
-  field-value: "{{ integration.tier }}"
+  field-value: |
+    {% if integration.minimum-plan %}
+    {{ site.data.stitch.subscription-plans[integration.minimum-plan]name }}
+
+    {% else %}
+    {{ site.data.stitch.subscription-plans.standard.name }}
+
+    {% endif %}
 
 supported-versions: &supported-versions
   display-name: "Supported versions"

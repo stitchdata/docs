@@ -68,7 +68,7 @@
   # if: uses default
   then:
     v1: &column-name-spaces |
-      {{ destination.display_name }} will convert spaces to undersocres. For example:
+      {{ destination.display_name }} will convert spaces to underscores. For example:
 
       | Columns in source | Columns in {{ destination.display_name }} |
       |-------------------+--------------------------|

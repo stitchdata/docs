@@ -4,6 +4,8 @@ permalink: /replication/replication-keys
 keywords: replicate, replication, replication key, keys, stitch replicates data, rp
 
 content-type: "replication-keys"
+key: "rep-keys"
+
 toc: true
 weight: 1
 

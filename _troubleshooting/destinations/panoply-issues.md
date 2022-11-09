@@ -5,6 +5,9 @@ permalink: /troubleshooting/destinations/panoply-connection-issues
 
 summary: "If you’re having trouble with setting up or connecting to your Panoply data warehouse in Stitch, try these troubleshooting steps before reaching out to support."
 type: "panoply-destination, connection, error"
+
+key: "panoply-issues"
+
 category: "connection-errors"
 promote: "false"
 ---

@@ -31,8 +31,6 @@ description: "{{ api.core-objects.destinations.list.description | flatify }}"
 returns: |
   If successful, the API will return a status of `200 OK` and an array of [Destination objects]({{ api.core-objects.destinations.object }}), one for each destination connected to the account.
 
-  **Note**: Stitch currently supports only one destination per account.
-
 # ------------------------------ #
 #   EXAMPLE REQUEST & RESPONSES  #
 # ------------------------------ #
@@ -47,6 +45,7 @@ examples:
     code: |
       [
          {
+            "description": "Postgres database for the staging environment.",
             "properties":{
                "database":"demni2mf59dt10",
                "encryption_type":"none",
@@ -57,7 +56,7 @@ examples:
                "username":"stitch"
             },
             "updated_at":"2019-05-24T18:04:08Z",
-            "name":"Default Warehouse",
+            "name":"Staging",
             "type":"postgres",
             "deleted_at":null,
             "system_paused_at":null,

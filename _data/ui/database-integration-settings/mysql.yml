@@ -21,7 +21,7 @@
 ssl:
   - name: "SSL Certificate"
     connect: "ssl_ca"
-    version: "1"
+    version: "all"
     copy: |
       The certificate (typically a CA or server certificate) Stitch should verify the SSL connection against. The connection will succeed only if the server's certifcate verifies against the certificate provided.
 
@@ -47,38 +47,38 @@ ssl:
 mysql: &standard-fields
   - &integration-name
     name: &host-name "{{ site.data.ui.common.database-connections.field-names.integration-name }}"
-    version: "1"
+    version: "all"
     copy: |
       {{ site.data.ui.common.database-connections.field-copy.integration-name | flatify }}
 
   - &host
     name: "{{ site.data.ui.common.database-connections.field-names.host }}"
-    version: "1"
+    version: "all"
     copy: "{{ site.data.ui.common.database-connections.field-copy.host | flatify }}"
 
   - &port
     name: "{{ site.data.ui.common.database-connections.field-names.port }}"
-    version: "1"
+    version: "all"
     copy: "{{ site.data.ui.common.database-connections.field-copy.port | flatify }}"
 
   - &username
     name: "{{ site.data.ui.common.database-connections.field-names.username }}"
-    version: "1"
+    version: "all"
     copy: "{{ site.data.ui.common.database-connections.field-copy.username | flatify }}"
 
   - &password
     name: "{{ site.data.ui.common.database-connections.field-names.password }}"
-    version: "1"
+    version: "all"
     copy: "{{ site.data.ui.common.database-connections.field-copy.password | flatify }}"
 
   - &database
     name: &database-name "{{ site.data.ui.common.database-connections.field-names.database }}"
-    version: "1"
+    version: "all"
     copy: "{{ site.data.ui.common.database-connections.field-copy.optional-database | flatify }}"
 
   - &server-id
     name: &server-id-name "Server ID"
-    version: "1"
+    version: "all"
     copy: &server-id-copy |
       **Optional**: Enter the unique server ID of instance you're connecting to Stitch.
 
@@ -92,13 +92,13 @@ mysql: &standard-fields
 aurora-rds: &rds-fields
   - *integration-name
   - name: *host-name
-    version: "1"
+    version: "all"
     copy: "{{ site.data.ui.common.database-connections.field-copy.host-rds | flatify }}"
   - *port
   - *username
   - *password
   - name: *database-name
-    version: "1"
+    version: "all"
     copy: |
       Enter the name of the {{ integration.display_name }} database. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to complete the connection.
 
@@ -137,7 +137,7 @@ mysql-rds: *rds-fields
 cloudsql-mysql:
   - *integration-name
   - name: *host-name
-    version: "1"
+    version: "all"
     copy: |
       {{ site.data.ui.common.database-connections.field-copy.host-cloudsql | flatify | replace:"[STEP]","the [previous step](#locate-database-connection-details)" }}
   - *port
@@ -154,7 +154,7 @@ cloudsql-mysql:
 microsoft-azure-mysql:
   - *integration-name
   - name: *host-name
-    version: "1"
+    version: "all"
     copy: |
       Paste the **Server name** you retrieved in the [previous step](#locate-connection-details). This should be similar to `<database-name>.mysql.database.azure.com`.
   - *port

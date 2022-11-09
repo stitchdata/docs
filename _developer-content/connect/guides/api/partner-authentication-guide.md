@@ -103,12 +103,12 @@ sections:
 
           {% assign request-url = site.data.connect.core-objects.accounts.create.name %}
           {% capture code %}'{
-            "partner_id": "<YOUR_PARTNER_ID>",
-            "partner_secret": "<YOUR_PARTNER_SECRET>",
-            "first_name": "<USER'S_FIRST_NAME>",
-            "last_name": "<USER'S_LAST_NAME>",
-            "company": "<USER'S_COMPANY>",
-            "email": "<USER'S_EMAIL>@<DOMAIN>"
+            "partner_id": "[YOUR_PARTNER_ID]",
+            "partner_secret": "[YOUR_PARTNER_SECRET]",
+            "first_name": "[USER'S_FIRST_NAME]",
+            "last_name": "[USER'S_LAST_NAME]",
+            "company": "[USER'S_COMPANY]",
+            "email": "[USER'S_EMAIL]@[DOMAIN]"
           }'
           {% endcapture %}
           {% assign description = subsection.endpoint %}
@@ -120,8 +120,8 @@ sections:
           When successful, this endpoint returns a status of `200 OK` and an object with `access_token` and `stitch_account_id` properties:
 
           {% capture code %}{
-            "access_token": "<ACCESS_TOKEN>",
-            "stitch_account_id": <STITCH_CLIENT_ID>
+            "access_token": "[ACCESS_TOKEN]",
+            "stitch_account_id": [STITCH_CLIENT_ID]
           }
           {% endcapture %}
 
@@ -235,8 +235,8 @@ sections:
           Lastly, when your application receives the user's request to the callback URL, it should make a request to the Stitch OAuth endpoint to exchange the temporary authorization code for a permanent access token:
 
           {% capture code %}curl {{ site.data.connect.api.base-url }}/oauth/token 
-               -d client_secret=<CLIENT_SECRET>
-               -d code=<STITCH_AUTHORIZATION_CODE>
+               -d client_secret=[CLIENT_SECRET]
+               -d code=[STITCH_AUTHORIZATION_CODE]
                -d grant_type=authorization_code
           {% endcapture %}
 
@@ -246,8 +246,8 @@ sections:
 
           {% capture code %}{
             "token_type": "bearer",
-            "access_token": "<ACCESS_TOKEN>",
-            "stitch_account_id": <STITCH_ACCOUNT_ID>
+            "access_token": "[ACCESS_TOKEN]",
+            "stitch_account_id": [STITCH_ACCOUNT_ID]
           }
           {% endcapture %}
 

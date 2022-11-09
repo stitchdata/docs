@@ -42,6 +42,21 @@ arguments:
     type: "object"
     description: "A [Connection property object]({{ api.form-properties.destination-forms.section }}) corresponding to the value of `type`."
 
+  - name: "ignore_unmapped_sources"
+    required: false
+    type: "boolean"
+    description: "Not providing this key or passing `false` will map all unmapped sources to the destination. If `true` no sources will be mapped to the destination."
+
+  - name: "name"
+    required: false
+    type: "string"
+    description: "{{ connect.common.attributes.destination-name | flatify }} This field is optional, but it is recommended to use it. If no name is provided, one will be generated using the destination type."
+
+  - name: "description"
+    required: false
+    type: "string"
+    description: "{{ connect.common.attributes.destination-description | flatify }}"
+
 
 # -------------------------- #
 #           RETURNS          #
@@ -64,6 +79,8 @@ examples:
     code: |
       '{
         "type":"postgres",
+        "name": "Staging",
+        "description": "Postgres database for the staging environment.",
         "properties": {
           "host":"<HOST>",
           "port":"5432",
@@ -78,6 +95,7 @@ examples:
   - type: "Response"
     code: |
       {
+        "description": "Postgres database for the staging environment.",
         "properties": {
           "database": "demni2mf59dt10",
           "encryption_type": "none",
@@ -88,7 +106,7 @@ examples:
           "username": "stitch"
         },
         "updated_at": "2019-05-24T18:04:08Z",
-        "name": "Default Warehouse",
+        "name": "Staging",
         "type": "postgres",
         "deleted_at": null,
         "system_paused_at": null,

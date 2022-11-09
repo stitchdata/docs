@@ -68,7 +68,7 @@
 
                                         {% if section.type %}
 
-                                            {% assign integrations = site[section.type] | where:section.filter,true | sort: "display_name" %}
+                                            {% assign integrations = site[section.type] | where:section.filter,true | sort_natural: "display_name" %}
 
                                             {% for integration in integrations %}
                                                 <li>

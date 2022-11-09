@@ -19,6 +19,8 @@ category: "extraction-errors"
 type: "database-integration, error, replication"
 popular: true
 
+key: "database-extraction-errors"
+
 # Used to create a callout box that lists the applicable integrations for the section.
 applicable-integrations-note: |
   {% assign database-integrations = site.database-integrations | where:"show-in-menus",true | sort_natural:"display_name" %}

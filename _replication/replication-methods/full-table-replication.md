@@ -2,10 +2,11 @@
 title: Full Table Replication
 permalink: /replication/replication-methods/full-table
 keywords: replicate, replication, replication method, stitch replicates data
-tags: [replication]
 layout: general
 
 content-type: "replication-methods"
+key: "full-table"
+
 toc: true
 weight: 2
 

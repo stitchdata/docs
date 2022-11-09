@@ -1,8 +1,11 @@
 ---
+# -------------------------- #
+#      Page & Formatting     #
+# -------------------------- #
+
 title: Loading Reports
 permalink: /replication/integration-loading-reports
 keywords: replication, load, loading, report
-tags: [replication]
 summary: "Loading reports provide detail about the loading portion of the replication process for a given integration." 
 layout: general
 
@@ -11,12 +14,22 @@ content-type: "replication-progress"
 toc: true
 weight: 3
 
-enterprise: true
 
-enterprise-cta:
-  title: "Get {{ site.data.stitch.subscription-plans.enterprise.reports }} of Loading Reports with Stitch Enterprise"
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "advanced"
+
+minimum-plan-cta:
+  title: "Get {{ site.data.stitch.subscription-plans.advanced.reports }} of Loading Reports"
   utm: "?utm_medium=docs&utm_campaign=loading-report-retention"
-  copy: "Enterprise plans come with {{ site.data.stitch.subscription-plans.enterprise.reports }} of Loading Reports, allowing you to view an integration's loading behavior over time, identify high volume tables, and quickly resolve errors if they arise."
+  copy: "{{ site.data.stitch.subscription-plans.advanced.name }} and {{ site.data.stitch.subscription-plans.premium.name }} plans come with {{ site.data.stitch.subscription-plans.advanced.reports }} of Loading Reports, allowing you to view an integration's loading behavior over time, identify high volume tables, and quickly resolve errors if they arise."
+
+
+# -------------------------- #
+#        Introduction        #
+# -------------------------- #
 
 intro: |
   {% include misc/data-files.html %}
@@ -30,6 +43,11 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
   {% endfor %}
+
+
+# -------------------------- #
+#           Content          #
+# -------------------------- #
 
 sections:
   - title: "Report retention"
@@ -45,11 +63,16 @@ sections:
       {% for plan in all-plans %}
       {% if plan.key %}
       {% assign this-plan = site.data.stitch.subscription-plans[plan.key] %}
+      {% assign plan-name = plan.name | capitalize | replace:"-"," " %}
       {% else %}
       {% assign this-plan = site.data.stitch.subscription-plans[plan.name] %}
+      {% assign plan-name = this-plan.name %}
       {% endif %}
-
-      - **{{ plan.name | capitalize | replace:"-"," " }}**: {{ this-plan.reports }}
+      {% if plan.name == "free-trial" %}
+      - **{{ plan-name }}**: 7 days
+      {% else %}
+      - **{{ plan-name }}**: {{ this-plan.logs }}
+      {% endif %}
       {% endfor %}
 
     subsections:
@@ -58,8 +81,11 @@ sections:
         content: |
           Changing your plan can impact reports currently available to you.
 
-          {% assign enterprise-reports = site.data.stitch.subscription-plans.enterprise.reports | remove: " days" %}
-          {% assign standard-reports = site.data.stitch.subscription-plans.standard.reports | remove: " days" %}
+          {% assign advanced = site.data.stitch.subscription-plans.advanced %}
+          {% assign advanced-reports = advanced.reports | remove: " days" %}
+
+          {% assign standard = site.data.stitch.subscription-plans.standard %}
+          {% assign standard-reports = standard.reports | remove: " days" %}
 
         sub-subsections:
           - title: "Plan downgrades"
@@ -67,16 +93,14 @@ sections:
             content: |
               If you downgrade to a plan that offers fewer days' reports, you'll **lose** access to the difference between your current plan and your new plan.
 
-              For example: If you downgrade to Standard from the Enterprise plan, you'll lose access to {{ enterprise-reports | minus: standard-reports }} days' worth of reports.
+              For example: If you downgrade to {{ standard.name }} from the {{ advanced.name }} plan, you'll lose access to {{ advanced-reports | minus: standard-reports }} days' worth of reports.
 
           - title: "Plan upgrades"
             anchor: "plan-upgrades"
             content: |
               Likewise, if you upgrade to a plan that offers more days' reports, you'll immediately **gain** access to the difference.
 
-              For example: If you upgrade to Enterprise from the Standard plan, you'll gain access to an additional {{ enterprise-reports | minus: standard-reports }} days' worth of reports.
-
-              {% include enterprise-cta.html %}
+              For example: If you upgrade to {{ advanced.name }} from the {{ standard.name }} plan, you'll gain access to an additional {{ advanced-reports | minus: standard-reports }} days' worth of reports.
 
   - title: "Loading Report composition"
     anchor: "all-loading-reports"

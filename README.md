@@ -48,7 +48,7 @@ Stitch will not merge a pull request made against the Stitch Docs project until 
 
 # Authors
 
-Erin ([@erinkcochran87](https://github.com/erinkcochran87)) - [**Stitch**](https://www.stitchdata.com) - Technical Documentation Manager, Repo Owner
+Jazmin ([@jazsmi](https://github.com/jazsmi)) - [**Stitch**](https://www.stitchdata.com) - Technical Documentation Engineer, Repo Owner
 
 Check out the other [contributors](https://github.com/stitchdata/docs/graphs/contributors) to the Stitch Docs.
 

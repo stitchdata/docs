@@ -7,3 +7,4 @@ gem 'jekyll-contentblocks'
 gem 'jekyll-include-cache'
 gem 'jekyll-random'
 gem 'kramdown-parser-gfm'
+gem "webrick", "~> 1.7"

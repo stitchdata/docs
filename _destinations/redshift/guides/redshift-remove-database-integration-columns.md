@@ -12,6 +12,7 @@ summary: "Want to tidy up your Amazon Redshift destination by removing columns y
 type: "redshift"
 
 layout: tutorial
+key: "redshift-remove-columns"
 use-tutorial-sidebar: false
 
 content-type: "destination-general"

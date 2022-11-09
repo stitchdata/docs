@@ -9,6 +9,8 @@ layout: developer
 product-type: "connect"
 content-type: "js-doc"
 
+key: "connect-js-reference"
+
 top-page-notice:
   type: "deprecated"
   copy: |

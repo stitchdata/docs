@@ -145,7 +145,6 @@ attributes:
           - name: "metadata"
             type: "object"
             description: ""
-            anchor-id: 1
             subattributes: &metadata
               - name: "ANYTHING"
                 type: "ANYTHING"
@@ -212,7 +211,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    anchor-id: 2
     subattributes: *metadata
 
   - name: "next_pending_invoice_item_invoice"
@@ -311,7 +309,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information attached to the plan."
-        anchor-id: 3
         subattributes: *metadata
 
       - name: "nickname"

@@ -80,11 +80,11 @@ sections:
         content: |
           You can build a Singer tap by:
 
-          - **Taking the do-it-yourself/community approach**. If you're the hands-on type, consider building your own Singer tap. This approach ensures that your data extraction logic functions exactly as you need and intend it to. Community integrations are data sources built and maintained by the Singer community, and commercial support is available for Community integrations as part of an Enterprise plan.
+          - **Taking the do-it-yourself/community approach**. If you're the hands-on type, consider building your own Singer tap. This approach ensures that your data extraction logic functions exactly as you need and intend it to. Community integrations are data sources built and maintained by the Singer community, and commercial support is available for Community integrations as part of an {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan.
 
           - **Using a Stitch implementation partner.** Stitch has a large and growing network of [implementation partners](https://www.stitchdata.com/partners/#implementation){:target="new"} who are experienced at writing and supporting Singer taps. If you can't or are unable to build the tap yourself, one of our implementation partners can help.
 
-          - **Contracting a Stitch build**. As part of an Enterprise contract, Stitch can build and commercially support custom integrations for your team. We’ll work with you to establish requirements, ensuring the deliverable is to your exact specifications. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
+          - **Contracting a Stitch build**. As part of an {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} contract, Stitch can build and commercially support custom integrations for your team. We’ll work with you to establish requirements, ensuring the deliverable is to your exact specifications. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
 
   - title: "Use the Import API"
     anchor: "use-import-api"

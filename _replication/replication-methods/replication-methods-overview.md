@@ -2,10 +2,11 @@
 title: Replication Methods
 permalink: /replication/replication-methods/
 keywords: replicate, replication, replication method, stitch replicates data
-tags: [replication]
 layout: general
 
 content-type: "replication-methods"
+key: "rep-methods"
+
 toc: true
 weight: 1
 

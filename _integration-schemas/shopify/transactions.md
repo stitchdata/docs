@@ -135,6 +135,25 @@ attributes:
         description: |
           The response code from the credit card company indicating whether the customer entered the card security code or card verification value (CVV) correctly. Refer to [Electronic Merchant System's documentation](http://www.emsecommerce.net/avs_cvv2_response_codes.htm){:target="new"} for a list of possible codes and defintions.
 
+  - name: "payments_refund_attributes"
+    type: "object"
+    description: "The attributes associated with a Shopify Payments refund."
+    subattributes:
+      - name: "acquirer_reference_number"
+        type: "string"
+        description: |
+          A unique number associated with the transaction that can be used to track the refund.
+
+      - name: "status"
+        type: "string"
+        description: |
+          The current status of the refund.
+
+  - name: "processed_at"
+    type: "object"
+    description: |
+      {{ table.date-time | replace: "[ITEM]","transaction" | replace: "[ACTION]","processed" }}
+
   - name: "receipt"
     type: "object"
     description: "A transaction receipt attached to the transaction by the gateway."

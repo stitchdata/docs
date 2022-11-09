@@ -13,7 +13,7 @@
 # -------------------------- #
 
 title: Typeform (v1)
-permalink: /integrations/saas/typeform
+permalink: /integrations/saas/typeform/v1
 keywords: typeform, integration, schema, etl typeform, typeform etl, typeform schema
 summary: "Connections instructions, replication info, and schema details for Stitch's Typeform integration."
 layout: singer
@@ -31,6 +31,7 @@ display_name: "Typeform"
 singer: true 
 tap-name: "Typeform"
 repo-url: https://github.com/singer-io/tap-typeform
+input: false
 
 this-version: "1"
 

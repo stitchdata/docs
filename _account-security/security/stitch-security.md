@@ -60,6 +60,22 @@ sections:
       - Stitch monitors application, system, and data access logs within its production environment for anomalous behavior.
       - Stitch will never access data in your destination without your explicit permission. We'll ask every time this is required and notify you when it's happening.
 
+  - title: "PII stored by Stitch"
+    anchor: "stitch-pii-stored"
+    content: |
+        Stitch stores some PII (Personal Identifiable Information) related to your account. This PII is provided during signup and includes:
+          - First and last name
+          - Email address
+          - Company name
+          - Country and state
+          - Phone number
+          - Billing address
+        
+        The only PII that goes through Stitch is the data sent from your source. This data is not stored outside of our [retention window](#data-retention).
+        Additionally, Stitch collects performance metrics, but these do not include any customer-provided information. Stitch also stores table names for functional reasons.
+
+
+
   - title: "Access control"
     anchor: "access-control"
     content: |
@@ -85,7 +101,7 @@ sections:
         anchor: "connectivity"
         content: |
           - **All plans** include [SSH tunnels]({{ link.security.encryption | prepend: site.baseurl | append: "#ssh-tunnel-connections" }}) and [IP whitelisting]({{ link.security.ip-addresses | prepend: site.baseurl }}) for integrations and destinations that support these features.
-          - **For Enterprise plans**, additional [advanced connectivity options]({{ link.security.encryption | prepend: site.baseurl | append: "#advanced-connectivity" }}) - such as VPNs, reverse SSH tunneling, and Amazon Web Services Private Link - may be available.
+          - **For {{ site.data.stitch.subscription-plans.premium.name }} plans**, additional [advanced connectivity options]({{ link.security.encryption | prepend: site.baseurl | append: "#advanced-connectivity" }}) - such as VPNs, reverse SSH tunneling, and Amazon Web Services Private Link - may be available.
 
       - title: "Permissions for integrations and destinations"
         anchor: "permissions"
@@ -181,7 +197,7 @@ sections:
       - Stitch offers several secure options for creating connections to integrations and destinations:
 
          - **All plans** include [SSL/TLS]({{ link.security.encryption | prepend: site.baseurl | append: "#ssl-connections" }}), [SSH tunnels]({{ link.security.encryption | prepend: site.baseurl | append: "#ssh-tunnel-connections" }}), and [IP whitelisting]({{ link.security.ip-addresses | prepend: site.baseurl }}) for integrations and destinations that support these features.
-         - **For Enterprise plans**, additional [advanced connectivity options]({{ link.security.encryption | prepend: site.baseurl | append: "#advanced-connectivity" }}) - such as VPNs, reverse SSH tunneling, and Amazon Web Services Private Link - may be available.
+         - **For {{ site.data.stitch.subscription-plans.premium.name }} plans**, additional [advanced connectivity options]({{ link.security.encryption | prepend: site.baseurl | append: "#advanced-connectivity" }}) - such as VPNs, reverse SSH tunneling, and Amazon Web Services Private Link - may be available.
       
       Refer to the [Data encryption guide]({{ link.security.encryption | prepend: site.baseurl }}) for more info.
 

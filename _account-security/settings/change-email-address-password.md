@@ -7,6 +7,8 @@ summary: "Manage your user profile, email address, and update your password on t
 layout: general
 toc: true
 
+key: "email-password"
+
 type: "account-settings"
 weight: 1
 

@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#      Page & Formatting     #
+# -------------------------- #
+
 title: Managing Your Stitch API Keys
 permalink: /account-security/managing-stitch-api-keys
 keywords: api keys, create api key, stitch connect access
@@ -11,11 +15,22 @@ key: "manage-api-keys"
 type: "account-settings"
 weight: 4
 
-enterprise: true
-enterprise-cta:
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "advanced"
+
+minimum-plan-cta:
   feature: "API access "
-  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.enterprise-cta.feature }}"
-  copy: "{{ site.data.strings.enterprise.copy.is-an |  prepend: page.enterprise-cta.feature | flatify }}"
+  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
+  copy: "{{ site.data.strings.enterprise.copy.is-an |  prepend: page.minimum-plan-cta.feature | flatify }}"
+
+
+# -------------------------- #
+#        Introduction        #
+# -------------------------- #
 
 intro: |
   {% include misc/data-files.html %}
@@ -27,6 +42,11 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
   {% endfor %}
+
+
+# -------------------------- #
+#           Content          #
+# -------------------------- #
 
 sections:
   - title: "API key basics"
@@ -61,7 +81,7 @@ sections:
       - title: "What Stitch plans include API access?"
         anchor: "plans-with-api-access"
         content: |
-          Only the Stitch Enterprise plan includes access to the Stitch API. 
+          Only {{ site.data.stitch.subscription-plans.advanced.name }} and {{ site.data.stitch.subscription-plans.premium.name }} plans include access to the Stitch API. 
 
       - title: "What happens if I downgrade to a plan without API access?"
         anchor: "plan-downgrade"

@@ -54,6 +54,8 @@ all-docs:
 
     - title: "Manage your team"
       subsections:
+        - title: "Role-Based Access Control (RBAC)"
+          url: "{{ link.account.team-members }}#role-based-access-control"
         - title: "Team member basics"
           url: "{{ link.account.team-members }}#team-member-basics"
 
@@ -65,6 +67,9 @@ all-docs:
 
         - title: "Add a team member to multiple accounts"
           url: "{{ link.account.team-members }}#add-to-multiple-accounts"
+
+        - title: "Update a team member's role"
+          url: "{{ link.account.team-members }}#update-team-member-role"  
 
         - title: "Deactivate a team member"
           url: "{{ link.account.team-members }}#deactivate-team-member"
@@ -127,7 +132,7 @@ all-docs:
         - title: Cancel your account
           url: "{{ link.account.cancel-account }}"
 
-    - title: Enterprise
+    - title: Upgraded plans
       url: "{{ link.account.enterprise-features }}"
 
     - title: All Account management
@@ -140,6 +145,9 @@ all-docs:
 
       - title: "Data access policies"
         url: "{{ link.security.faq }}#stitch-access"
+
+      - title: "PII stored by Stitch"
+        url: "{{ link.security.faq }}#stitch-pii-stored"
 
       - title: "Access control"
         subsections:
@@ -204,6 +212,12 @@ all-docs:
     - title: "Microsoft Azure Synapse Analytics"
       url: "/destinations/microsoft-azure-synapse-analytics"
 
+    - title: "Microsoft SQL Server"
+      url: "/destinations/microsoft-sql-server"
+
+    - title: "MySQL"
+      url: "/destinations/mysql"
+
     - title: Panoply
       url: "/destinations/panoply"
 
@@ -224,6 +238,9 @@ all-docs:
 
         - title: Change destinations
           url: "{{ link.destinations.switch-destinations }}"
+
+        - title: Multiple destinations
+          url: "{{ link.destinations.multiple-destinations }}"  
 
   - title: Integrations
     sections:
@@ -250,6 +267,9 @@ all-docs:
 
       - title: All integrations
         url: "{{ link.integrations.main }}"
+
+      - title: "Connection cloning"
+        url: "{{ link.integrations.connection-cloning }}"  
 
       - title: "Connect other data sources"
         url: "{{ link.integrations.other-data-sources }}"
@@ -380,6 +400,9 @@ all-docs:
 
           - title: "Google BigQuery v2"
             url: "{{ link.destinations.loading.bigquery-v2 }}"
+
+          - title: "Microsoft SQL Server"
+            url: "{{ link.destinations.loading.microsoft-sql-server }}"
 
           - title: "Panoply"
             url: "{{ link.destinations.loading.panoply }}"

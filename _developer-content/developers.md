@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#      Page & Formatting     #
+# -------------------------- #
+
 title: Stitch Developers
 permalink: /developers
 
@@ -10,6 +14,7 @@ content-type: "overview"
 
 level: "category"
 
+key: "developers"
 
 # -------------------------- #
 #       HOME PAGE DATA       #
@@ -45,9 +50,8 @@ dev-categories:
         url: "{{ link.import-api.guides.category | prepend: site.baseurl }}"
 
   - title: "Post-load webhooks"
-    description: |
-      Stay informed with post-load webhooks, which fire each time data is loaded into your destination.
-    plan: "enterprise"
+    description: "Stay informed with post-load webhooks, which fire each time data is loaded into your destination."
+    plan: "upgraded"
     links:
       - name: "Post-load webhooks guide"
         url: "{{ link.account.post-load-notifications | prepend: site.baseurl }}"
@@ -63,7 +67,7 @@ dev-categories:
 
   - title: "Connect API"
     description: "Programmatically manage your Stitch account or integrate Stitch with other applications with our REST API."
-    plan: "enterprise"
+    plan: "upgraded"
     links:
       # - name: "Quick start"
       #   url: "{{ link.connect.api | prepend: site.baseurl }} TODO"

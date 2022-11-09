@@ -9,6 +9,8 @@ layout: general
 toc: false
 feedback: false
 
+key: "troubleshooting-destinations"
+
 intro: |
   {{ page.summary }}
 
@@ -32,6 +34,18 @@ sections:
     content: |
       {% for page in sorted-docs %}
       {% if page.type contains "redshift-destination" or page.type contains "panoply-destination" %}
+      <span class="h4">
+      <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+      </span>
+      {{ page.summary }}
+      {% endif %}
+      {% endfor %}
+
+  - title: "Databrick Delta issues"
+    anchor: "databricks-delta-issues"
+    content: |
+      {% for page in sorted-docs %}
+      {% if page.type contains "databricks-delta-destination" %}
       <span class="h4">
       <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
       </span>

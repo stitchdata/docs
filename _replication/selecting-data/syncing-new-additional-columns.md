@@ -1,10 +1,11 @@
 ---
-title: Syncing New & Additional Columns on Already-Syncing Tables
+title: Syncing New and Additional Columns on Already-Syncing Tables
 permalink: /replication/syncing-new-additional-columns
 keywords: syncing, sync, replicate, replication, select data, sync data, sync table, sync column, add new columns, sync new column, add additional columns
-tags: [replication]
 
 content-type: "select-data"
+key: "syncing-new-columns"
+
 toc: true
 weight: 3
 

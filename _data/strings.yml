@@ -10,17 +10,20 @@ search_placeholder_text: What can we help you find?
 search_no_results_text: No results found.
 
 enterprise:
-  general: "available during the free trial or for customers on an Enterprise plan."
+  general: "available during the free trial or for customers on an {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan."
 
   title:
-    is-an: " is an Enterprise feature"
-    are-an: " are an Enterprise feature"
-    multiple: " are Enterprise features"
+    is-an: " is an upgraded
+ feature"
+    are-an: " are an upgraded
+ feature"
+    multiple: " are upgraded
+ features"
 
   copy:
     is-an: |
-      {{ site.data.strings.enterprise.title.is-an | append: " that's " | append: site.data.strings.enterprise.general }}
+      {{ site.data.strings.enterprise.title.is-an | append: " that's " | append: site.data.strings.enterprise.general | flatify }}
     are-an: |
-      {{ site.data.strings.enterprise.title.are-an | append: " that's " | append: site.data.strings.enterprise.general }}
+      {{ site.data.strings.enterprise.title.are-an | append: " that's " | append: site.data.strings.enterprise.general | flatify }}
     multiple: |
-      {{ site.data.strings.enterprise.title.multiple | append: " that are " | append: site.data.strings.enterprise.general }}
+      {{ site.data.strings.enterprise.title.multiple | append: " that are " | append: site.data.strings.enterprise.general | flatify }}

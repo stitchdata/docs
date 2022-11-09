@@ -89,7 +89,7 @@ example-table:
 
 requirements:
   - item: |
-      **Access to Stitch Connect and valid Connect API credentials.** Connect access is a Stitch Enterprise feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
+      **Access to Stitch Connect and valid Connect API credentials.** Connect access is a Stitch {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
 
 
 # -------------------------- #
@@ -200,7 +200,7 @@ steps:
 
       {% capture code %}{
         "id": 828792559,
-        "access_token": "<IMPORT_API_ACCESS_TOKEN>"
+        "access_token": "[IMPORT_API_ACCESS_TOKEN]"
       }
       {% endcapture %}
 

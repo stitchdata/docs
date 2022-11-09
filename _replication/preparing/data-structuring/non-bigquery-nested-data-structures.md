@@ -32,7 +32,7 @@ intro: |
     - Microsoft Azure Synapse Analytics
     - Panoply
     - PostgreSQL
-  - **PostgreSQL `JSON` & `JSONB` datatypes:** The info in this article is not applicable to PostgreSQL `JSON` and `JSONB` data types. These data types will be stored as strings in your destination.{% endcapture %}
+  - **PostgreSQL `JSON` & `JSONB` datatypes:** The info in this article is not applicable to PostgreSQL `JSON` and `JSONB` data types from the PostgreSQL (v1) integration. These data types will be stored as strings in your destination. In the PostgreSQL (HP) (v2) integration, these data types are stored as JSON objects.{% endcapture %}
 
   {% include important.html first-line="**Not applicable to all destinations and data types**" content=callout %}
 

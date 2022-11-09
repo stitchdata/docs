@@ -56,8 +56,6 @@ intro: |
 
   {{ page.summary }}
 
-  **Note**: Stitch currently supports one destination per account.
-
 
 # -------------------------- #
 #     GUIDE REQUIREMENTS     #
@@ -65,9 +63,9 @@ intro: |
 
 requirements:
   - item: |
-      **Access to Stitch Connect and valid Connect API credentials.** Connect access is a Stitch Enterprise feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
+      **Access to Stitch Connect and valid Connect API credentials.** Connect access is a Stitch {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
   - item: |
-      **A Stitch account that doesn't currently have a destination.** Stitch currently supports one destination per account. If you already have a destination connected to your account, you'll need to [delete it]({{ link.connect.api | prepend: site.baseurl | append: api.core-objects.destinations.delete.anchor }}) before continuing. **Note**: Replication will be paused until a new destination is created and configured.
+      **A Stitch account.**
 
 
 # -------------------------- #
@@ -286,6 +284,8 @@ steps:
       {% assign description = "POST " | append: request-url %}
       {% capture code %}'{
         "type": "postgres",
+        "name": "Staging",
+        "description": "Postgres database for the staging environment.",
         "properties": {
           "database": "[DATABASE]",
           "encryption_type": "none",
@@ -303,6 +303,7 @@ steps:
 
       {% capture code %}
       {
+        "description": "Postgres database for the staging environment.",
         "properties": {
           "database": "[DATABASE]",
           "encryption_type": "none",
@@ -313,7 +314,7 @@ steps:
         },
         "updated_at": "2021-06-03T16:11:03Z",
         "check_job_name": "116078.337658.check.8934a4cd-4d60-48c9-85e4-e95cab6d4cae",
-        "name": "Default Warehouse",
+        "name": "Staging",
         "type": "postgres",
         "deleted_at": null,
         "system_paused_at": null,
@@ -487,6 +488,7 @@ steps:
 
       {% capture code %}
       {
+        "description": "Postgres database for the staging environment.",
         "properties": {
           "database": "[DATABASE]",
           "encryption_type": "none",
@@ -497,7 +499,7 @@ steps:
         },
         "updated_at": "2021-06-03T16:11:03Z",
         "check_job_name": "116078.337658.check.8934a4cd-4d60-48c9-85e4-e95cab6d4cae",
-        "name": "Default Warehouse",
+        "name": "Staging",
         "type": "postgres",
         "deleted_at": null,
         "system_paused_at": null,

@@ -35,7 +35,7 @@ display_name: "MySQL"
 
 singer: true
 tap-name: "MySQL"
-repo-url: "Not Applicable"
+
 
 this-version: "2"
 
@@ -59,7 +59,7 @@ db-type: "mysql"
 
 api-type: "platform.hp-mysql"
 override-api-type: true
-versions: "n/a"
+versions: "5.6 and later"
 ssh: true
 ssl: true
 
@@ -114,10 +114,6 @@ feature-summary: |
 
   - **New column (field) naming rules.** Avro has specific rules that dictate how columns can be named. As a result, column names will be canonicalized to adhere to Avro rules and persisted to your destination using the Avro-friendly name. Refer to the [Column name transformations section](#data-replication--column-name-transformations) for more info.
   - **Improved handling of `JSON` data types**. In previous versions, these data types were treated as strings. This version will send them to your destination as JSON objects, which may result in [de-nesting]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
-  
-  **Note**: The following features aren't currently supported, but will be before the integration leaves beta:
-  
-  - Custom SSL certificates and certificate authorities
 
   To get a look at how this version compares to the previous version of {{ integration.display_name }}, refer to the [{{ integration.display_name }} version comparison documentation]({{ mysql-overview.url | prepend: site.baseurl | append: "#supported-features" }}).
 
@@ -204,6 +200,15 @@ setup-steps:
         anchor: "ssl-connection-details"
         content: |
           {% include shared/database-connection-settings.html type="ssl" ssl-fields=true %}
+      
+      - title: "Select databases to discover"
+        anchor: "filter-databases"
+        content: |
+          {% include note.html type="single-line" content="**Note**: Skip this step if you don't need to filter databases." %}
+
+          Enter a database name in the field under **Filter databases in the source** to select the database that Stitch can discover. You can add multiple database names by clicking **Add another database**.
+
+          If no database is specified, Stitch will discover all databases on the host.
 
       - title: "Define the Log-based Replication setting"
         anchor: "define-default-replication-method"

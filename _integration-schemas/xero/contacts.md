@@ -227,7 +227,6 @@ attributes:
       - name: "Options"
         type: "array"
         description: "Details about the tracking option."
-        anchor-id: 1
         subattributes: &options
           - name: "IsActive"
             type: "boolean"
@@ -281,7 +280,6 @@ attributes:
       - name: "Options"
         type: "array"
         description: "Details about the tracking option."
-        anchor-id: 2
         subattributes: *options
 
   - name: "TrackingCategoryName"
