@@ -5,6 +5,7 @@ keywords: zopim, integration, schema, etl zopim, zopim etl, zopim schema, zendes
 summary: "Connection instructions and schema details for Stitch's Zendesk Chat integration."
 layout: singer
 old-schema-template: true
+input: false
 
 key: "zendesk-chat-setup"
 
