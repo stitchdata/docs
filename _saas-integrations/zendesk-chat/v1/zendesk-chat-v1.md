@@ -31,7 +31,7 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-certified: false
+certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
@@ -74,7 +74,7 @@ setup-steps:
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      4. In the **Zendesk Subdomain** field, enter the only the subdomain of your Zendesk site. For example, the subdomain of `stitchdata.zendesk.com` would be `stitchdata`.
+      4. In the **Zendesk Subdomain** field, enter the subdomain of your Zendesk site. For example, the subdomain of `stitchdata.zendesk.com` would be `stitchdata`.
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
