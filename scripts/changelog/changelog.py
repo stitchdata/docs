@@ -6,11 +6,14 @@ github_token = sys.argv[1]
 host = 'https://api.github.com'
 github_headers = {'Authorization': 'token ' + github_token, 'Accept': 'application/vnd.github.v3+json'}
 
+# Date range parameter
+nb_days = int(sys.argv[2])
+
 
 # Folder for new files
 path = '../../_changelog-files/drafts'
 
-last_week = (dt.today() - datetime.timedelta(days=8)).date()
+start_date = (dt.today() - datetime.timedelta(days=nb_days)).date()
 
 repo_list = []
 pr_list = []
@@ -69,7 +72,7 @@ def getRepoList(): # Get the list of all tap repositories in the singer-io organ
             push_date = dt.strptime(pushed, "%Y-%m-%dT%H:%M:%SZ").date()
 
             # If the repository is a tap repo and if the last commit was done in the past week, add the repo to the list or repos to check for new PRs
-            if name.startswith('tap-') and push_date > last_week:
+            if name.startswith('tap-') and push_date > start_date:
                 repo_list.append([name, base])
             else:
                 pass
@@ -104,7 +107,7 @@ def getPRList(): # Get a list of PRs merged in the past week on all repos
                     date = dt.strptime(merged, "%Y-%m-%dT%H:%M:%SZ").date()
 
                     # If a PR was merged in the past week, add it to the list of PRs to check
-                    if date > last_week:
+                    if date > start_date:
                         pr_list.append([name, number, title, url, date])
 
 def getPRsToDocument(): # Find PRs that need to be documented and create draft changelog files
