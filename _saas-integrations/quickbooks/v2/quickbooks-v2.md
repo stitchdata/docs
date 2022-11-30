@@ -12,11 +12,11 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: QuickBooks (v1)
-permalink: /integrations/saas/quickbooks/v1
+title: QuickBooks (v2)
+permalink: /integrations/saas/quickbooks
 keywords: quickbooks, integration, schema, etl quickbooks, quickbooks etl, quickbooks schema
 layout: singer
-input: false
+# input: false
 
 key: "quickbooks-setup"
 
@@ -34,7 +34,7 @@ status-url: "http://status.developer.intuit.com/"
 tap-name: "QuickBooks" ## Ex: Intercom, not intercom
 repo-url: https://github.com/singer-io/tap-quickbooks
 
-this-version: "1"
+this-version: "2"
 
 api: |
   [{{ integration.display_name }} Online API](https://developer.intuit.com/app/developer/qbo/docs/develop){:target="new"}
