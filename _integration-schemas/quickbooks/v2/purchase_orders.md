@@ -232,7 +232,7 @@ attributes:
             type: "string"
             description: "This will be `Bill`."
 
-  - *linkedtxn*
+  - *linkedtxn
 
   - name: "Memo"
     type: "string"
