@@ -59,7 +59,7 @@ sections:
         anchor: "basics--how-sso-works"
         content: |
           {% capture sso-admin %}
-          SSO can be enabled by any team member of a Stitch account. The team member who initially enables SSO becomes an {{ user-roles.sso-admin.name }} user. To request that other users are added or removed as {{ user-roles.sso-admin.name | append: "s" }}, the {{ user-roles.sso-admin.name }} should contact support.
+          SSO can be enabled by any team member of a Stitch account with an Administrator role. The team member who initially enables SSO becomes an {{ user-roles.sso-admin.name }} user. To request that other users are added or removed as {{ user-roles.sso-admin.name | append: "s" }}, the {{ user-roles.sso-admin.name }} should contact support.
           {% endcapture %}
 
           When SSO is enabled in Stitch, non-{{ user-roles.sso-admin.name }} users must sign into Stitch using your organization's Identity Provider (IdP).
