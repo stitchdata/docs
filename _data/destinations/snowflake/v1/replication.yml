@@ -23,17 +23,20 @@ rename-original-column-in-split: false
 #       LOADING BEHAVIOR         #
 # ------------------------------ #
 
-configurable-loading-behavior: false
+configurable-loading-behavior: true
 
 default-loading-behavior: "Upsert"
 
 loading-behavior-types:
   - "Upsert"
+  - "Historical"
 
 loading-behavior-description: |
+  Loading behavior can be configured for {{ destination.display_name }} destinations.
+
   The following loading behavior types are supported for {{ destination.display_name }} destinations:
 
-  {% for loading-behavior-type in site.data.destinations.microsoft-azure.v1.replication.loading-behavior-types %}
+  {% for loading-behavior-type in site.data.destinations.snowflake.v1.replication.loading-behavior-types %}
   - {{ loading-behavior-type }}
   {% endfor %}
 

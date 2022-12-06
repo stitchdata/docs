@@ -76,10 +76,11 @@ sections:
         content: |
           Loading behavior determines how data is loaded into your destination. Specifically, how updates are made to existing rows in the destination.
 
-          Stitch supports two loading behavior types:
+          Stitch supports three loading behavior types:
 
           - **Upsert**: {{ site.data.tooltips.upsert }}
           - **Append-Only**: {{ site.data.tooltips.append-only }}
+          - **Historical**: {{ site.data.tooltips.historical }}
 
           The table below lists the default loading behavior for each destination and whether it can be configured.
 

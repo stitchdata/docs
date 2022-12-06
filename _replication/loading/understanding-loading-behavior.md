@@ -58,6 +58,15 @@ sections:
         content: |
           {{ site.data.tooltips.append-only }}
 
+      - title: "Historical"
+        anchor: "loading-behavior-types--historical"
+        content: |
+          {{ site.data.tooltips.historical }}
+          
+          When a record is added, the `_sdc_start_date` column is set to the loading date, and the `sdc_end_date` column is set to `9999-12-31`. 
+          When a new verson of the same record is added, the `_sdc_end_date` value of the previous version is updated to the loading date of the new version. 
+          This allows you to create a query that returns the version of the record for a specific date or date range.
+
   - title: "Determining loading behavior"
     anchor: "loading-behavior-determined"
     summary: "How loading behavior is determined"
@@ -88,6 +97,11 @@ sections:
           - The destination only supports or is configured to use Append-Only loading, **or**
           - The data doesn't have defined Primary Keys in the source **or** destination, **or**
           - The integration or table is pre-configured to use Append-Only loading
+
+      - title: "Historical loading"
+        anchor: "historical-conditions"
+        content: |
+          Historical loading is used when the destination only supports or is configured to use Historical loading.
 
   - title: "Examples"
     anchor: "examples"

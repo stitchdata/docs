@@ -194,6 +194,11 @@ steps:
         content: |
           {% include shared/database-connection-settings.html type="general" %}
 
+      - title: "Define loading behavior"
+        anchor: "define-loading-behavior"
+        content: |
+          {% include destinations/historical-mode.html %}
+
       - title: "Save the destination"
         anchor: "save-destination"
         content: |
