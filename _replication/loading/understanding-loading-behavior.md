@@ -63,10 +63,12 @@ sections:
         content: |
           When data is loaded using the Historical behavior, records are appended to the end of the table as new rows.
 
-          When a record is added, the `_sdc_start_date` column is set to the loading date, and the `sdc_end_date` column is set to `9999-12-31 0:00 +00:00`. 
+          When a record is added, the `_sdc_start_date` column is set to the loading date, and the `sdc_end_date` column is set to `9999-12-31` (UTC time). 
           When a new verson of the same record is added, the `_sdc_end_date` value of the previous version is updated to the loading date of the new version. 
           
           Multiple versions of a row can exist in a table, creating a log of how a record has changed over time. This means you can create a query that returns the version of the record for a specific date or date range.
+
+          **Note**: Since this loading type adds two system columns in the destination table, it will decrease the maximum number of columns available for your data if the destination has a limited number of columns per table.
 
   - title: "Determining loading behavior"
     anchor: "loading-behavior-determined"
