@@ -61,11 +61,12 @@ sections:
       - title: "Historical"
         anchor: "loading-behavior-types--historical"
         content: |
-          {{ site.data.tooltips.historical }}
-          
-          When a record is added, the `_sdc_start_date` column is set to the loading date, and the `sdc_end_date` column is set to `9999-12-31`. 
+          When data is loaded using the Historical behavior, records are appended to the end of the table as new rows.
+
+          When a record is added, the `_sdc_start_date` column is set to the loading date, and the `sdc_end_date` column is set to `9999-12-31 0:00 +00:00`. 
           When a new verson of the same record is added, the `_sdc_end_date` value of the previous version is updated to the loading date of the new version. 
-          This allows you to create a query that returns the version of the record for a specific date or date range.
+          
+          Multiple versions of a row can exist in a table, creating a log of how a record has changed over time. This means you can create a query that returns the version of the record for a specific date or date range.
 
   - title: "Determining loading behavior"
     anchor: "loading-behavior-determined"
@@ -101,7 +102,7 @@ sections:
       - title: "Historical loading"
         anchor: "historical-conditions"
         content: |
-          Historical loading is used when the destination only supports or is configured to use Historical loading.
+          Historical loading is only used when the destination is configured to use Historical loading.
 
   - title: "Examples"
     anchor: "examples"
