@@ -78,6 +78,10 @@ sections:
       - title: "Querying Append-Only Tables"
         url: "{{ link.replication.append-only-querying }}"
         weight: 4
+
+      - title: "Querying Historical Tables"
+        url: "{{ link.replication.historical-querying }}"
+        weight: 5
     content: |
       Resources and tutorials for interacting with data loaded by Stitch into your destination.
 
