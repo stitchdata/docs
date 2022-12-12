@@ -117,7 +117,7 @@ sections:
       - The system `{{ system-column.prefix }}` columns added by Stitch, and
       - Other order attribute columns
 
-      If you wanted to get versions of a record with the id `694` valid in all of December 2022, you could use the following query:
+      If you wanted to get the version of a record with the ID `694` valid in all of December 2022, you could use the following query:
 
       {% capture code %}
           SELECT * FROM orders
