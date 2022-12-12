@@ -24,6 +24,7 @@ content-type: "guide"
 intro: |
   {% capture note %}
   - [Destinations configured to use Historical Loading]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl | append:"#reference--destinations-loading-behavior" }})
+  {% endcapture %}
 
   {% include note.html first-line="**This guide is applicable to:**" content=note %}
 
@@ -64,6 +65,21 @@ sections:
       - The system `{{ system-column.prefix }}` columns added by Stitch, and
       - Other order attribute columns
 
+      If you wanted to get all current records, you could use the following query:
+
+          {% capture code %}
+              SELECT * FROM orders
+              WHERE
+                _sdc_end_date = "9999-12-31 0:00 +00:00"
+          {% endcapture %}
+
+          {% assign description = "Querying all current records" %}
+
+          {% include layout/code-snippet.html code=code code-description=description %}
+      
+      {% include note.html type="single-line" content="**Note**: Since the `_sdc_end_date` value for current records is set to `9999-12-31` UTC, it is recommended to use `9999-12-31 0:00 +00:00` in your queries to make sure you get the correct result regardless of your local time." %}
+
+
   - title: "Retrieving the version of every record for a specific date"
     anchor: "specific-date"
     summary: "A querying strategy that retrieves the version of every record for a specific date"
@@ -76,6 +92,19 @@ sections:
       - The system `{{ system-column.prefix }}` columns added by Stitch, and
       - Other order attribute columns
 
+      If you wanted to get all records valid on December 1st 2022, you could use the following query:
+
+          {% capture code %}
+              SELECT * FROM orders
+              WHERE
+                _sdc_start_date <= "2022-12-01"
+                AND _sdc_end_date > "2022-12-01"
+          {% endcapture %}
+
+          {% assign description = "Querying all records for a specific date" %}
+
+          {% include layout/code-snippet.html code=code code-description=description %}
+
   - title: "Retrieving the version of a specific record for a date range"
     anchor: "date-range"
     summary: "A querying strategy that retrieves the version of a specific record for a date range"
@@ -87,6 +116,20 @@ sections:
       - A Primary Key of `id`,
       - The system `{{ system-column.prefix }}` columns added by Stitch, and
       - Other order attribute columns
+
+      If you wanted to get versions of a record with the id `694` valid in all of December 2022, you could use the following query:
+
+          {% capture code %}
+              SELECT * FROM orders
+              WHERE
+                id = 694
+                AND _sdc_start_date <= "2022-12-01"
+                AND _sdc_end_date >= "2022-12-31"
+          {% endcapture %}
+
+          {% assign description = "Querying the version of a specific record valid for a date range" %}
+
+          {% include layout/code-snippet.html code=code code-description=description %}
 
   - title: "Create views in your destination"
     anchor: "create-destination-views"
