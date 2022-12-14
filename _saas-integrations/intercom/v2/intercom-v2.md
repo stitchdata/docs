@@ -12,11 +12,11 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Intercom (v1)
-permalink: /integrations/saas/intercom/v1
+title: Intercom (v2)
+permalink: /integrations/saas/intercom
 keywords: intercom, integration, schema, etl intercom, intercom etl, intercom schema
 layout: singer
-input: false
+# input: false
 
 key: "intercom-setup"
 
@@ -32,10 +32,10 @@ singer: true
 tap-name: "Intercom"
 repo-url: https://github.com/singer-io/tap-intercom
 
-this-version: "1"
+this-version: "2"
 
 api: |
-  [{{ integration.display_name }} API (V2.0)](https://developers.intercom.com/intercom-api-reference/v2.0/reference){:target="new"}
+  [{{ integration.display_name }} API (V2.5)](https://developers.intercom.com/intercom-api-reference/v2.5/reference){:target="new"}
 
 
 # -------------------------- #

@@ -76,7 +76,12 @@ table-level-reset: true
 #      Feature Summary       #
 # -------------------------- #
 
+youtubeId: U0MhJEo2hWU
+
 feature-summary: |
+  {% include youtube-player.html id=page.youtubeId %}
+
+
   Stitch's {{ integration.display_name }} integration allows you to create custom reports by selecting the metrics and dimension you want to replicate. You can create multiple reports and configure each of them individually. Refer to the [Schema](#schema) section for more info and an example table schema.
 
   This integration:
