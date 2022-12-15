@@ -154,20 +154,16 @@ sections:
         content: |
           In this example, the destination is configured to use Historical loading. The `id` column is the table's Primary Key.
 
-          The following records are added to the destination table in a first replication job. The `_sdc_end_date` column is set to `9999-12-31` to indicate that these are the latest versions of these records:
-
+          The following record is added to the destination table in a first replication job. The `_sdc_end_date` column is set to `9999-12-31` to indicate that this is the latest version of this record:
           |id|status|_sdc_start_date|_sdc_end_date|
           |---|---|---|---|
           |abc-123|Pending|2022-10-21|**9999-12-31**|
-          |def-456|Pending|2022-06-25|**9999-12-31**|
 
           
-          One of the records is then updated in the source. A second replication job creates a new version of the existing record on December 14, 2022. The previous version's `_sdc_end_date` value is updated and the new version is added to the table. The destination table now looks like this:
-
+          The record is then updated in the source. A second replication job creates a new version of the existing record on December 14, 2022. The previous version's `_sdc_end_date` value is updated and the new version is added to the table. The destination table now looks like this:
           |id|status|_sdc_start_date|_sdc_end_date|
           |---|---|---|---|
           |abc-123|Pending|2022-10-21|**2022-12-14**|
-          |def-456|Pending|2022-06-25|9999-12-31|
           |abc-123|In progress|**2022-12-14**|9999-12-31|
 
   - title: "Reference"
