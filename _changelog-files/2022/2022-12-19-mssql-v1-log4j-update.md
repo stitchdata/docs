@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-mssql/pull/84"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've updated the Log4j version in our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) due to the vulnerability in [CVE-2020-9493](https://github.com/advisories/GHSA-prp9-9gxw-38j8).
+We've updated the Log4j version in our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration due to the vulnerability in [CVE-2020-9493](https://github.com/advisories/GHSA-prp9-9gxw-38j8).
