@@ -16,6 +16,7 @@ toc: false
 key: "trial"
 weight: 5
 type: "all"
+youtubeId: ma_zRadotOM
 
 # -------------------------- #
 #         PAGE  INTRO        #
@@ -23,6 +24,8 @@ type: "all"
 
 intro: |
   Are you interested in giving Stitch a try? Do you have any sales-related questions? [Sign up for your free trial or talk to an expert](https://www.stitchdata.com/signup)!
+
+  {% include youtube-player.html id=page.youtubeId %}  
 
 
 # -------------------------- #
