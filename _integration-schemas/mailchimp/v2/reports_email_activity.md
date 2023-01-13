@@ -22,7 +22,7 @@ attributes:
   - name: "_sdc_record_hash"
     type: "string"
     primary-key: true
-	  description: ""
+    description: ""
 
  - name: "action"
     type: "string"
@@ -39,7 +39,7 @@ attributes:
     foreign-key-id: "campaign-id"
 
   - name: "timestamp"
-	  type: "date-time"
+    type: "date-time"
     description: "The date and time recorded for the action in ISO 8601 format."
     replication-key: true
 
