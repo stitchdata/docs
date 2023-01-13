@@ -20,7 +20,7 @@ api-method:
 
 attributes:
   - name: "_sdc_record_hash"
-	  type: "string"
+    type: "string"
     primary-key: true
 	  description: ""
 

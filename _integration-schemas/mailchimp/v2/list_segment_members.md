@@ -148,11 +148,11 @@ attributes:
       - `transactional`
 
   - name: "timestamp_opt"
-	  type: "date-time"
+    type: "date-time"
     description: "The date and time the subscribe confirmed their opt-in status in ISO 8601 format."
 
   - name: "timestamp_signup"
-	  type: "date-time"
+    type: "date-time"
     description: "The date and time the subscriber signed up for the list in ISO 8601 format."
 
   - name: "unique_email_id"
