@@ -1,7 +1,6 @@
 ---
 tap: "mailchimp"
-version: "1"
-
+version: "2"
 key: "list"
 name: "lists"
 doc-link: ""
@@ -10,6 +9,9 @@ description: |
   The `{{ table.name }}` table contains info about all the lists in your {{ integration.display_name }} account. A list is also known as an audience, and is where all contacts are stored and managed in {{ integration.display_name }}.
 
 replication-method: "Full Table"
+
+table-key-properties: "id"
+valid-replication-keys: ""
 
 api-method:
     name: "Get information about all lists"
@@ -202,6 +204,10 @@ attributes:
       - name: "unsubscribe_count_since_send"
         type: "integer"
         description: "The number of members who have unsubscribed since the last campaign was sent."
+
+      - name: "total_contacts"
+        type: "integer"
+        description: ""
 
   - name: "subscribe_url_long"
     type: "string"

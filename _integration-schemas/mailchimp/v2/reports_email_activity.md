@@ -1,6 +1,6 @@
 ---
 tap: "mailchimp"
-version: "1"
+version: "2"
 
 key: "report-email-activity"
 name: "reports_email_activity"
@@ -11,17 +11,21 @@ description: |
 
 replication-method: "Key-based Incremental"
 
-replication-key:
-  name: "dateTime of email activity"
+table-key-properties: "_sdc_record_hash"
+valid-replication-keys: "timestamp"
 
 api-method:
     name: "Use batch operation"
     doc-link: "https://developer.mailchimp.com/documentation/mailchimp/guides/how-to-use-batch-operations/"
 
 attributes:
-  - name: "action"
-    type: "string"
+	- name: "_sdc_record_hash"
+	  type: "string"
     primary-key: true
+	  description: ""
+
+ - name: "action"
+    type: "string"
     description: |
       The action performed on the email. Possible values are:
 
@@ -31,23 +35,21 @@ attributes:
 
   - name: "campaign_id"
     type: "string"
-    primary-key: true
     description: "The campaign ID."
     foreign-key-id: "campaign-id"
 
-  - name: "email_id"
-    type: "string"
-    primary-key: true
-    description: "The MD5 hash of the lowercase version of the list member’s email address."
-
   - name: "timestamp"
-    type: "date-time"
-    primary-key: true
+	  type: "date-time"
     description: "The date and time recorded for the action in ISO 8601 format."
+    replication-key: true
 
   - name: "email_address"
     type: "string"
     description: "Email address for a subscriber."
+
+  - name: "email_id"
+    type: "string"
+    description: "The MD5 hash of the lowercase version of the list member’s email address."
 
   - name: "ip"
     type: "string"

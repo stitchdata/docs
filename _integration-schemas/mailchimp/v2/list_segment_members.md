@@ -1,6 +1,6 @@
 ---
 tap: "mailchimp"
-version: "1"
+version: "2"
 
 key: "list-segment-member"
 name: "list_segment_members"
@@ -10,6 +10,9 @@ description: |
   The `{{ table.name }}` table contains info about members in a [saved segment](https://mailchimp.com/help/save-and-manage-segments/){:target="new"}
 
 replication-method: "Full Table"
+
+table-key-properties: "id"
+valid-replication-keys: ""
 
 api-method:
     name: "Get information about all members in a list segment"
@@ -39,7 +42,7 @@ attributes:
       - `text`
 
   - name: "interests"
-    type: "anything"
+    type: "object"
     description: "The key of this object’s properties is the ID of the interest in question."
 
   - name: "ip_opt"
@@ -56,13 +59,33 @@ attributes:
     doc-link: "https://mailchimp.com/help/view-and-edit-contact-languages/?_ga=2.133440206.1967669071.1563545438-786188311.1561484332"
 
   - name: "last_changed"
-    type: "date-time"
+	  type: "date-time"
     description: ""
 
   - name: "list_id"
     type: "string"
     description: "The list ID."
     foreign-key-id: "list-id"
+
+  - name: "last_note"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "note_id"
+        type: "integer"
+        description: ""
+
+      - name: "created_at"
+        type: "date-time"
+        description: ""
+
+      - name: "created_by"
+        type: "string"
+        description: ""
+
+      - name: "note"
+        type: "string"
+        description: ""
 
   - name: "location"
     type: "object"
@@ -125,11 +148,11 @@ attributes:
       - `transactional`
 
   - name: "timestamp_opt"
-    type: "date-time"
+	  type: "date-time"
     description: "The date and time the subscribe confirmed their opt-in status in ISO 8601 format."
 
   - name: "timestamp_signup"
-    type: "date-time"
+	  type: "date-time"
     description: "The date and time the subscriber signed up for the list in ISO 8601 format."
 
   - name: "unique_email_id"

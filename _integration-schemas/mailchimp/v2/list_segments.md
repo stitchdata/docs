@@ -1,6 +1,6 @@
 ---
 tap: "mailchimp"
-version: "1"
+version: "2"
 
 key: "list-segment"
 name: "list_segments"
@@ -11,6 +11,9 @@ description: |
 
 replication-method: "Full Table"
 
+table-key-properties: "id"
+valid-replication-keys: ""
+
 api-method:
     name: "Get information about all segments in a list"
     doc-link: "https://developer.mailchimp.com/documentation/mailchimp/reference/lists/segments/#read-get_lists_list_id_segments"
@@ -20,11 +23,9 @@ attributes:
     type: "string"
     primary-key: true
     description: "The unique ID for the segment."
-    #foreign-key-id: "list-segment-id"
 
   - name: "updated_at"
     type: "date-time"
-    replication-key: true
     description: "The date and time the segment was last updated in ISO 8601 format."
 
   - name: "created_at"

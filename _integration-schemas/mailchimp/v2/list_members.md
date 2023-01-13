@@ -1,6 +1,6 @@
 ---
 tap: "mailchimp"
-version: "1"
+version: "2"
 
 key: "list-member"
 name: "list_members"
@@ -11,8 +11,8 @@ description: |
 
 replication-method: "Key-based Incremental"
 
-replication-key:
-  name: "last_modified"
+table-key-properties: "id, list_id"
+valid-replication-keys: "last_changed"
 
 api-method:
     name: "Get information about members in a list"
@@ -31,10 +31,13 @@ attributes:
     description: "The list ID."
     foreign-key-id: "list-id"
 
-  - name: "last_changed"
-    type: "date-time"
-    replication-key: true
-    description: "The date and time the member’s info was last changed in ISO 8601 format."
+  - name: "consents_to_one_to_one_messaging"
+    type: "boolean"
+    description: ""
+
+  - name: "contact_id"
+    type: "string"
+    description: ""
 
   - name: "email_address"
     type: "string"
@@ -52,6 +55,15 @@ attributes:
       - `html`
       - `text`
 
+  - name: "full_name"
+    type: "string"
+    description: ""
+
+  - name: "interests"
+    type: "object"
+    description: ""
+    subattributes:
+
   - name: "ip_opt"
     type: "string"
     description: "The IP address the subscriber used to confirm their opt-in status."
@@ -65,22 +77,35 @@ attributes:
     description: "If set/detected, the subscriber’s language."
     doc-link: "https://mailchimp.com/help/view-and-edit-contact-languages/?_ga=2.133440206.1967669071.1563545438-786188311.1561484332"
 
+  - name: "last_changed"
+    type: "date-time"
+    description: "The date and time the member’s info was last changed in ISO 8601 format."
+    replication-key: true
+
+  - name: "last_note"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "note_id"
+        type: "integer"
+        description: ""
+
+      - name: "created_at"
+        type: "date-time"
+        description: ""
+
+      - name: "created_by"
+        type: "string"
+        description: ""
+
+      - name: "note"
+        type: "string"
+        description: ""
+
   - name: "location"
     type: "object"
     description: "Subscriber location information."
     subattributes:
-      - name: "country_code"
-        type: "string"
-        description: "The unique code for the location country."
-
-      - name: "dstoff"
-        type: "integer"
-        description: "The offset for timezones where daylight saving time is observed."
-
-      - name: "gmtoff"
-        type: "integer"
-        description: "The time difference in hours from GMT."
-
       - name: "latitude"
         type: "number"
         description: "The location latitude."
@@ -89,16 +114,48 @@ attributes:
         type: "number"
         description: "  The location longitude."
 
+      - name: "gmtoff"
+        type: "integer"
+        description: "The time difference in hours from GMT."
+
+      - name: "dstoff"
+        type: "integer"
+        description: "The offset for timezones where daylight saving time is observed."
+
+      - name: "region"
+        type: "string"
+        description: ""
+
+      - name: "country_code"
+        type: "string"
+        description: "The unique code for the location country."
+
       - name: "timezone"
         type: "string"
         description: "The timezone for the location."
+
+  - name: "marketing_permissions"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "marketing_permission_id"
+        type: "string"
+        description: ""
+
+      - name: "text"
+        type: "string"
+        description: ""
+
+      - name: "enabled"
+        type: "boolean"
+        description: ""
 
   - name: "member_rating"
     type: "number"
     description: "Star rating for this member, between `1` and `5`."
 
   - name: "merge_fields"
-    type: "anything"
+    type: "object"
     description: "An individual merge var and value for a member."
 
   - name: "source"
@@ -116,6 +173,22 @@ attributes:
       - name: "avg_open_rate"
         type: "number"
         description: "The subscriber’s average open rate."
+
+      - name: "ecommerce_data"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "total_revenue"
+            type: "number"
+            description: ""
+
+          - name: "number_of_orders"
+            type: "number"
+            description: ""
+
+          - name: "currency_code"
+            type: "string"
+            description: ""
 
   - name: "status"
     type: "string"

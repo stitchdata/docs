@@ -1,6 +1,6 @@
 ---
 tap: "mailchimp"
-version: "1"
+version: "2"
 
 key: "automation"
 name: "automations"
@@ -14,6 +14,9 @@ replication-method: "Full Table"
 api-method:
     name: "Get a list of automations"
     doc-link: "https://developer.mailchimp.com/documentation/mailchimp/reference/automations/#read-get_automations"
+
+table-key-properties: "id"
+valid-replication-keys: ""
 
 attributes:
   - name: "id"
@@ -29,16 +32,15 @@ attributes:
 
   - name: "emails_sent"
     type: "integer"
-    description: ""
+    description: "The total number of emails sent for the Automation."
 
-  - name: "recipients"
-    type: "object"
-    description: "The list settings for the automation."
-    subattributes:
+    - name: "recipients"
+      type: "object"
+      description: "The list settings for the automation"
+      subattributes:
       - name: "list_id"
         type: "string"
         description: "The list ID."
-        foreign-key-id: "list-id"
 
       - name: "list_is_active"
         type: "boolean"
@@ -56,10 +58,8 @@ attributes:
             type: "string"
             description: |
               The segment match type. Possible values are:
-
               - `any`
               - `all`
-
           - name: "saved_segment_id"
             type: "integer"
             description: "The ID for an existing saved segment."
@@ -127,15 +127,12 @@ attributes:
       - name: "auto_footer"
         type: "boolean"
         description: "Indicates whether {{ integration.display_name }}'s default footer is automatically appended to the automation."
-
       - name: "from_name"
         type: "string"
         description: "The `from` name for the automation."
-
       - name: "inline_css"
         type: "boolean"
         description: "Indicates whether the CSS included with the automation content is automatically inlined."
-
       - name: "reply_to"
         type: "string"
         description: "The reply-to email address for the automation."
@@ -197,10 +194,6 @@ attributes:
         type: "boolean"
         description: "Indicates whether clicks in the HTML version of the automation are tracked."
 
-      - name: "opens"
-        type: "boolean"
-        description: "Indicates whether opens are tracked."
-
       - name: "salesforce"
         type: "object"
         description: "Salesforce tracking options for an automation."
@@ -217,14 +210,32 @@ attributes:
         type: "boolean"
         description: "Indicates whether clicks are tracked in the plain-text version of the automation."
 
+      - name: "opens"
+        type: "boolean"
+        description: "Whether to track opens. Defaults to true"
+
   - name: "trigger_settings"
     type: "object"
     description: "Available triggers for automation workflows."
     subattributes:
       - name: "runtime"
-        type: "string"
-        description: |
-          A workflow's runtime settings for an automation.
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "hours"
+            type: "object"
+            description: ""
+            subattributes:
+              - name: "type"
+                type: "string"
+                description: ""
+          - name: "days"
+            type: "array"
+            description: ""
+            subattributes:
+              - name: "items"
+                type: "string"
+                description: ""
 
       - name: "workflow_emails_count"
         type: "integer"
@@ -232,11 +243,9 @@ attributes:
 
       - name: "workflow_title"
         type: "string"
-        description: |
-          The title of the workflow type.
+        description: "The title of the workflow type."
 
       - name: "workflow_type"
         type: "string"
-        description: |
-          The type of the workflow.
+        description: "The type of the workflow."
 ---

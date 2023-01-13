@@ -1,15 +1,17 @@
 ---
 tap: "mailchimp"
-version: "1"
-
+version: "2"
 key: "unsubscribe"
 name: "unsubscribes"
-doc-link: ""
+doc-link: "https://mailchimp.com/developer/marketing/api/unsub-reports/"
 singer-schema: "https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailchimp/schemas/unsubscribes.json"
 description: |
   The `{{ table.name }}` table contains info about members who have unsubscribed from a specific campaign.
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
+
+table-key-properties: "campaign_id, email_id"
+valid-replication-keys: "timestamp"
 
 api-method:
     name: "Get unsubscribed list members"
@@ -41,7 +43,7 @@ attributes:
     description: "The status of the list used, namely if it’s deleted or disabled."
 
   - name: "merge_fields"
-    type: "anything"
+    type: "object"
     description: "An individual merge var and value for a member."
 
   - name: "reason"
@@ -51,6 +53,7 @@ attributes:
   - name: "timestamp"
     type: "date-time"
     description: "The date and time the member opted-out in ISO 8601 format."
+    replication-key: true
 
   - name: "vip"
     type: "boolean"
