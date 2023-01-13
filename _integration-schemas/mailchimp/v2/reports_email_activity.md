@@ -19,7 +19,7 @@ api-method:
     doc-link: "https://developer.mailchimp.com/documentation/mailchimp/guides/how-to-use-batch-operations/"
 
 attributes:
-	- name: "_sdc_record_hash"
+  - name: "_sdc_record_hash"
 	  type: "string"
     primary-key: true
 	  description: ""

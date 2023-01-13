@@ -34,59 +34,59 @@ attributes:
     type: "integer"
     description: "The total number of emails sent for the Automation."
 
-    - name: "recipients"
+  - name: "recipients"
+    type: "object"
+    description: "The list settings for the automation"
+    subattributes:
+    - name: "list_id"
+      type: "string"
+      description: "The list ID."
+
+    - name: "list_is_active"
+      type: "boolean"
+      description: "The status of the list used, namely if it's deleted or disabled."
+
+    - name: "list_name"
+      type: "string"
+      description: "The name of the list."
+
+    - name: "segment_opts"
       type: "object"
-      description: "The list settings for the automation"
+      description: "Details about segmentation options."
       subattributes:
-      - name: "list_id"
-        type: "string"
-        description: "The list ID."
+        - name: "match"
+          type: "string"
+          description: |
+            The segment match type. Possible values are:
+            - `any`
+            - `all`
+        - name: "saved_segment_id"
+          type: "integer"
+          description: "The ID for an existing saved segment."
 
-      - name: "list_is_active"
-        type: "boolean"
-        description: "The status of the list used, namely if it's deleted or disabled."
+        - name: "conditions"
+          type: "array"
+          description: "Details about segment conditions."
+          subattributes:
+            - name: "condition_type"
+              type: "string"
+              description: "The type of the segment."
 
-      - name: "list_name"
-        type: "string"
-        description: "The name of the list."
+            - name: "field"
+              type: "string"
+              description: "The segment field."
 
-      - name: "segment_opts"
-        type: "object"
-        description: "Details about segmentation options."
-        subattributes:
-          - name: "match"
-            type: "string"
-            description: |
-              The segment match type. Possible values are:
-              - `any`
-              - `all`
-          - name: "saved_segment_id"
-            type: "integer"
-            description: "The ID for an existing saved segment."
+            - name: "op"
+              type: "string"
+              description: "The operator."
 
-          - name: "conditions"
-            type: "array"
-            description: "Details about segment conditions."
-            subattributes:
-              - name: "condition_type"
-                type: "string"
-                description: "The type of the segment."
+            - name: "value"
+              type: "string"
+              description: "The value."
 
-              - name: "field"
-                type: "string"
-                description: "The segment field."
-
-              - name: "op"
-                type: "string"
-                description: "The operator."
-
-              - name: "value"
-                type: "string"
-                description: "The value."
-
-      - name: "store_id"
-        type: "string"
-        description: "The ID of the store."
+    - name: "store_id"
+      type: "string"
+      description: "The ID of the store."
 
   - name: "report_summary"
     type: "object"

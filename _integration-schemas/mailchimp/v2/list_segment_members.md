@@ -59,7 +59,7 @@ attributes:
     doc-link: "https://mailchimp.com/help/view-and-edit-contact-languages/?_ga=2.133440206.1967669071.1563545438-786188311.1561484332"
 
   - name: "last_changed"
-	  type: "date-time"
+    type: "date-time"
     description: ""
 
   - name: "list_id"
