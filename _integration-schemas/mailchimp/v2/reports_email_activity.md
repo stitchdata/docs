@@ -24,7 +24,7 @@ attributes:
     primary-key: true
     description: ""
 
- - name: "action"
+  - name: "action"
     type: "string"
     description: |
       The action performed on the email. Possible values are:
