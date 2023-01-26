@@ -35,16 +35,6 @@ layout: page
     {{ integration.feature-summary | flatify | markdownify }}
 {% endif %}
 
-<!-- INTEGRATION VERSION INFO -->
-{% if integration.version-information-copy %}
-    {% capture version-information %}
-        {{ integration.version-information-copy | flatify | markdownify }}
-	{% endcapture %}
-
-	{% include note.html first-line=integration.version-information-first-line content=version-information %}
-
-{% endif %}
-
 
 <!-- INTEGRATION SNAPSHOT -->
     {% include shared/versioning/integration-supported-features.html type="integration-snapshot" feature-type="databases" %}

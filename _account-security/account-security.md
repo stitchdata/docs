@@ -56,7 +56,7 @@ sections:
   - title: "Managing your team"
     anchor: "manage-your-team-category"
     type: "invite-your-team"
-    additional-guides:
+    additional-guides:       
       - title: "Adding a team member"
         url: "{{ link.account.team-members }}#invite-team-member"
         weight: 2
@@ -65,13 +65,17 @@ sections:
         url: "{{ link.account.team-members }}#add-to-multiple-accounts"
         weight: 3
 
+      - title: "Update a team member's role"
+        url: "{{ link.account.team-members }}#update-team-member-role"
+        weight: 4 
+
       - title: "Deactivating a team member"
         url: "{{ link.account.team-members }}#deactivate-team-member"
-        weight: 4
+        weight: 5
 
       - title: "Troubleshooting account lockout"
         url: "{{ link.troubleshooting.troubleshoot-account-lockout }}"
-        weight: 5
+        weight: 6
     content: |
       {% assign guides = this-collection | where_exp:"guide","guide.type contains section.type" | concat: section.additional-guides | sort:"weight" %}
 

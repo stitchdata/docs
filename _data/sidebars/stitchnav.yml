@@ -54,6 +54,8 @@ all-docs:
 
     - title: "Manage your team"
       subsections:
+        - title: "Role-Based Access Control (RBAC)"
+          url: "{{ link.account.team-members }}#role-based-access-control"
         - title: "Team member basics"
           url: "{{ link.account.team-members }}#team-member-basics"
 
@@ -65,6 +67,9 @@ all-docs:
 
         - title: "Add a team member to multiple accounts"
           url: "{{ link.account.team-members }}#add-to-multiple-accounts"
+
+        - title: "Update a team member's role"
+          url: "{{ link.account.team-members }}#update-team-member-role"  
 
         - title: "Deactivate a team member"
           url: "{{ link.account.team-members }}#deactivate-team-member"
@@ -140,6 +145,9 @@ all-docs:
 
       - title: "Data access policies"
         url: "{{ link.security.faq }}#stitch-access"
+
+      - title: "PII stored by Stitch"
+        url: "{{ link.security.faq }}#stitch-pii-stored"
 
       - title: "Access control"
         subsections:
