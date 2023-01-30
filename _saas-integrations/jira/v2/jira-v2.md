@@ -71,6 +71,22 @@ requirements-list:
   - item: |
       **Access to the issues, projects, worklogs, etc. that you want to replicate.** Stitch is only able to access the same objects that the user authenticating the integration has access to. If this user doesn't have access to specific datasets or records, Stitch will be unable to replicate them from {{ integration.display_name }}. Refer to [{{ integration.display_name }}'s documentation](https://confluence.atlassian.com/adminjiracloud/managing-project-permissions-776636362.html#Managingprojectpermissions-permission_schemes){:target="new"} for more info about permissions in {{ integration.display_name }}.
 
+  - item: |
+      **Certain date formats are not supported by this integration**. Records with date formats from the following locales will be skipped during replication:
+        - Hungarian (Hungary)   : Magyar
+        - Italian (Italy)       : Italiano   
+        - Japanese (Japan)      : 日本語 (日本)
+        - Korean (South Korea)  : 한국어 (대한민국)
+        - Polish (Poland)       : Polski
+        - Thai (Thailand)       : ภาษาไทย
+        - Turkish (Turkey)      : Türkçe
+        - Chinese (China)       : 中文 (简体)
+        - Chinese (Taiwan)      : 中文 (繁體)
+        - Portuguese (Brazil)   : português (Brasil)
+        - Portuguese (Portugal) : Português (Portugal)
+        - Vietnamese (Vietnam)  : Tiếng Việt
+
+
 setup-steps:
   - title: "Verify self-managed configuration"
     anchor: "verify-self-managed-configuration"
@@ -140,6 +156,19 @@ setup-steps:
     anchor: "define-rep-frequency"
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
+      **Please note that certain date formats are not supported by this integration**. Records with date formats from the following locales will be skipped during replication:
+        - Hungarian (Hungary)   : Magyar
+        - Italian (Italy)       : Italiano   
+        - Japanese (Japan)      : 日本語 (日本)
+        - Korean (South Korea)  : 한국어 (대한민국)
+        - Polish (Poland)       : Polski
+        - Thai (Thailand)       : ภาษาไทย
+        - Turkish (Turkey)      : Türkçe
+        - Chinese (China)       : 中文 (简体)
+        - Chinese (Taiwan)      : 中文 (繁體)
+        - Portuguese (Brazil)   : português (Brasil)
+        - Portuguese (Portugal) : Português (Portugal)
+        - Vietnamese (Vietnam)  : Tiếng Việt
 
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
