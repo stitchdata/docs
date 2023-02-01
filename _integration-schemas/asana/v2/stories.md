@@ -150,7 +150,7 @@ attributes:
   - name: "new_dates"
     type: "object"
     description: ""
-    *date-attributes
+    subattributes: *date-attributes
   - name: "new_enum_value"
     type: "object"
     description: ""
@@ -225,11 +225,11 @@ attributes:
   - name: "old_date_value"
     type: "object"
     description: ""
-    *date-attributes
+    subattributes: *date-attributes
   - name: "old_dates"
     type: "object"
     description: ""
-    *date-attributes
+    subattributes: *date-attributes
   - name: "old_enum_value"
     type: "object"
     description: ""
@@ -258,7 +258,7 @@ attributes:
   - name: "old_people_value"
     type: "array"
     description: ""
-    *people-attributes
+    subattributes: *people-attributes
   - name: "old_resource_subtype"
     type: "string"
     description: ""
