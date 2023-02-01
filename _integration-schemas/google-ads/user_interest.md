@@ -2,7 +2,7 @@
 tap: "google-ads"
 version: "1"
 name: "user_interest"
-doc-link: https://developers.google.com/google-ads/api/reference/rpc/v10/UserInterest
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/UserInterest
 dependent-on: "campaign_criterion|ad_group_criterion"
 description: |
   The `{{ table.name }}` table contains info about user interests to be targeted.

@@ -2,7 +2,7 @@
 tap: "google-ads"
 version: "1"
 name: "feed"
-doc-link: https://developers.google.com/google-ads/api/reference/rpc/v10/Feed
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/Feed
 dependent-on: "campaign_criterion"
 description: |
   The `{{ table.name }}` table contains info about feeds.
@@ -98,6 +98,6 @@ attributes:
     
   - name: "system_feed_generation_data"
     type: "object"
-    description: "The system data for the feed. It is one of the objects listed under system_feed_generation_data in the [Google Ads API documentation](https://developers.google.com/google-ads/api/reference/rpc/v10/Feed#system_feed_generation_data)."
+    description: "The system data for the feed. It is one of the objects listed under system_feed_generation_data in the [Google Ads API documentation](https://developers.google.com/google-ads/api/reference/rpc/v12/Feed#system_feed_generation_data)."
 
 ---

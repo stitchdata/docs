@@ -2,7 +2,7 @@
 tap: "google-ads"
 version: "1"
 name: "feed_item"
-doc-link: https://developers.google.com/google-ads/api/reference/rpc/v10/FeedItem
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/FeedItem
 description: |
   The `{{ table.name }}` table contains infor about a feed item.
 
@@ -163,7 +163,7 @@ attributes:
                     subattributes:
                       - name: "value"
                         type: "object"
-                        description: "Additional information that explains a policy finding. It is one of the objects listed under value in the [Google Ads API documentation](https://developers.google.com/google-ads/api/reference/rpc/v10/PolicyTopicEvidence#value)."
+                        description: "Additional information that explains a policy finding. It is one of the objects listed under value in the [Google Ads API documentation](https://developers.google.com/google-ads/api/reference/rpc/v12/PolicyTopicEvidence#value)."
                     
                   - name: "constraints"
                     type: "array"
@@ -171,7 +171,7 @@ attributes:
                     subattributes:
                       - name: "value"
                         type: "object"
-                        description: "Describes the effect on serving that a policy topic entry will have. It is one of the objects listed under value in the [Google Ads API documentation](https://developers.google.com/google-ads/api/reference/rpc/v10/PolicyTopicConstraint#value)."
+                        description: "Describes the effect on serving that a policy topic entry will have. It is one of the objects listed under value in the [Google Ads API documentation](https://developers.google.com/google-ads/api/reference/rpc/v12/PolicyTopicConstraint#value)."
                     
                   - name: "topic"
                     type: "string"
