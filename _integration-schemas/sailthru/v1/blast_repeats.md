@@ -1,16 +1,32 @@
 ---
 tap: "sailthru"
-version: "0.x"
+version: "0.2"
 key: ""
+
 name: "blast_repeats"
-doc-link: ""
+doc-link: "https://getstarted.sailthru.com/developers/api/blast_repeat/"
 singer-schema: "https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/blast_repeats.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains information about recurring campaigns in your {{ integration.display_name }} account.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "get BlastRepeat"
+    doc-link: "https://getstarted.sailthru.com/developers/api/blast_repeat/"
+
 attributes:
+  - name: "repeat_id"
+    type: "string"
+    primary-key: true
+    description: "The repeat ID."
+    #foreign-key-id: "repeat-id"
+
+  - name: "modify_time"
+    type: "date-time"
+    description: "The time the recurring campaign was last modified."
+    replication-key: true
+      
   - name: "create_time"
     type: "date-time"
     description: ""
@@ -52,13 +68,12 @@ attributes:
     description: ""
   - name: "list"
     type: "string"
-    description: ""
+    description: "The list ID."
+    foreign-key-id: "list-id"
   - name: "message_criteria"
     type: "string"
     description: ""
-  - name: "modify_time"
-    type: "date-time"
-    description: ""
+  
   - name: "modify_user"
     type: "string"
     description: ""
@@ -68,9 +83,7 @@ attributes:
   - name: "previous_blast_id"
     type: "integer"
     description: ""
-  - name: "repeat_id"
-    type: "string"
-    description: ""
+  
   - name: "report_email"
     type: "string"
     description: ""

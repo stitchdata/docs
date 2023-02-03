@@ -1,16 +1,27 @@
 ---
 tap: "sailthru"
-version: "0.x"
+version: "0.2"
 key: ""
+
 name: "blast_save_list"
-doc-link: ""
+doc-link: "https://getstarted.sailthru.com/developers/api/job/#blast-save-list"
 singer-schema: "https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/blast_save_list.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains a list of users that received a specific campaign from your {{ integration.display_name }} account. This is a child table of `lists`.
+
+replication-method: "Full Table"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "get BlastSaveList"
+    doc-link: "https://getstarted.sailthru.com/developers/api/job/#blast-save-list"
+
 attributes:
+  - name: "profile_id"
+    type: "string"
+    primary-key: true
+    description: "The profile ID."
+    #foreign-key-id: "profile-id" 
+
   - name: "clicks"
     type: "string"
     description: ""
@@ -64,7 +75,8 @@ attributes:
     description: ""
   - name: "lists"
     type: "string"
-    description: ""
+    description: "The list IDs."
+    foreign-key-id: "list-id"
   - name: "opens"
     type: "string"
     description: ""
@@ -77,9 +89,7 @@ attributes:
   - name: "profile_created_date"
     type: "date-time"
     description: ""
-  - name: "profile_id"
-    type: "string"
-    description: ""
+  
   - name: "purchase_count"
     type: "string"
     description: ""
