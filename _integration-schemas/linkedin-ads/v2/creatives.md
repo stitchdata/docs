@@ -7,9 +7,9 @@ name: "creatives"
 doc-link: "https://learn.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-creatives?view=li-lms-2023-01&tabs=http#search-for-creatives"
 singer-schema: "https://github.com/singer-io/tap-linkedin-ads/tree/master/tap_linkedin_ads/schemas/creatives.json"
 description: "The Creatives API contains all the data and information for visually rendering an ad."
-​
+
 replication-method: "Key-based Incremental"
-​
+
 attributes:
   - name: "account"
     type: "string"
@@ -22,7 +22,7 @@ attributes:
   - name: "campaign"
     type: "string"
     description: "URN identifying the campaign associated with the creative"
-    
+
   - name: "campaign_id"
     type: "integer"
     description: "ID identifying the campaign associated with the creative"
