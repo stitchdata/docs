@@ -60,7 +60,7 @@ attributes:
 
   - name: "industry"
     type: "string"
-    description: "Advertiser industry category. See [Appendix-Industries](https://ads.tiktok.com/marketing_api/docs?id=1739357589575681)"
+    description: "Advertiser industry category. See [Appendix-Industries](https://ads.tiktok.com/marketing_api/docs?id=1739357589575681)."
 
   - name: "language"
     type: "string"
@@ -100,11 +100,11 @@ attributes:
 
   - name: "role"
     type: "string"
-    description: "Advertiser role, see [Enumeration - Advertiser Role](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138)"
+    description: "Advertiser role, see [Enumeration - Advertiser Role](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138)."
 
   - name: "status"
     type: "string"
-    description: "Advertiser status, see [Enumeration - Advertiser Status](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138)"
+    description: "Advertiser status, see [Enumeration - Advertiser Status](https://ads.tiktok.com/marketing_api/docs?id=1737174886619138)."
 
   - name: "telephone"
     type: "string"

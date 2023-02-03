@@ -51,7 +51,7 @@ attributes:
 
   - name: "call_to_action"
     type: "string"
-    description: "For call-to-action text, see [Enumeration - Call-to-action](https://ads.tiktok.com/marketing_api/docs?id=1701890985340929)"
+    description: "For call-to-action text, see [Enumeration - Call-to-action](https://ads.tiktok.com/marketing_api/docs?id=1701890985340929)."
 
   - name: "campaign_id"
     type: "integer"
