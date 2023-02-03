@@ -143,7 +143,7 @@ attributes:
     type: string"
     format: "date-time"
     description: "Time at which the ad was Modified."
-	  replication-key: true
+    replication-key: true
     primary-key: true
 
   - name: "open_url"

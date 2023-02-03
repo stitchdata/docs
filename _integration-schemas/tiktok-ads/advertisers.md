@@ -111,6 +111,6 @@ attributes:
     description: "Fixed phone number, desensitised data"
 
   - name: "timezone"
-    type: string"
-    description: "Ad account time zone including GMT offset. For example, "Etc/GMT""
+    type: "string"
+    description: "Ad account time zone including GMT offset. For example, `Etc/GMT`"
 ---
