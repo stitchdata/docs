@@ -124,7 +124,6 @@ attributes:
       - name: "model"
         type: "object"
         description: ""
-        anchor-id: 1
         subattributes: &model
           - name: "id"
             type: "string"
@@ -154,7 +153,6 @@ attributes:
       - name: "space"
         type: "object"
         description: ""
-        anchor-id: 1
         subattributes: &space
           - name: "child_count"
             type: "integer"
@@ -279,7 +277,6 @@ attributes:
           - name: "folder"
             type: "object"
             description: ""
-            anchor-id: 2
             subattributes: *folder
 
           - name: "hidden"
@@ -294,7 +291,6 @@ attributes:
           - name: "model"
             type: "object"
             description: ""
-            anchor-id: 2
             subattributes: *model
 
           - name: "query_timezone"
@@ -316,7 +312,6 @@ attributes:
           - name: "space"
             type: "object"
             description: ""
-            anchor-id: 2
             subattributes: *space
 
           - name: "title"
@@ -357,7 +352,6 @@ attributes:
       - name: "folder"
         type: "object"
         description: ""
-        anchor-id: 3
         subattributes: *folder
 
       - name: "folder_id"
@@ -398,7 +392,6 @@ attributes:
       - name: "model"
         type: "object"
         description: ""
-        anchor-id: 3
         subattributes: *model
 
       - name: "public"
@@ -425,7 +418,6 @@ attributes:
       - name: "space"
         type: "object"
         description: ""
-        anchor-id: 3
         subattributes:
           - name: "child_count"
             type: "integer"

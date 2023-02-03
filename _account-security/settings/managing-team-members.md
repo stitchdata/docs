@@ -90,6 +90,17 @@ sections:
       - [{{ subsection.title | flatify }}](#{{ subsection.anchor }})
       {% endfor %}
     subsections:
+      - title: "Role-Based Access Control (RBAC)"
+        anchor: "role-based-access-control"
+        content: |
+          You can now control what users have access to within the Stitch app based on an assigned role! Head to the next session to learn about the role types and their permissions.
+
+          {% capture rbac-notice %}
+          If you are not on an SSO enabled account, every user will have an Administrator role by default, and then you can downgrade roles to General User. If you are on an SSO enabled account, SSO Admins will become the Administrators by default and all other users will become General Users. Refer to the [SSO Doccumentation]({{ link.security.single-sign-on | prepend: site.baseurl }}) for more information.
+          {% endcapture %}
+
+          {% include note.html first-line="**For accounts created before Role-Based Access Control was enabled:**" content=rbac-notice %}
+
       - title: "Team member user roles"
         anchor: "team-member-user-roles"
         content: |
@@ -101,14 +112,12 @@ sections:
           - title: "User role assignment"
             anchor: "team-member-user-role--assignment"
             content: |
-              Currently, Stitch automatically assigns user roles to team members. Defining user roles for individual team members isn't currently supported.
+              Currently, Stitch automatically assigns the **{{ user-roles.administrator.name }}** role to initial account creator. {{ user-roles.administrator.name | append: "s" }} can add additional team members to the account and assign their role before they accept the invitation.
 
               When inviting and managing team members, keep the following in mind:
 
-              - New team members invited to the account are automatically assigned the **{{ user-roles.general-user.name }}** user role.
               - Every account has an **{{ user-roles.invoice-admin.name }}**. This is the team member who initially enters payment info for the account.
-              - If [single sign-on (SSO)]({{ link.security.single-sign-on | prepend: site.baseurl }}) is enabled, every account will have an **{{ user-roles.sso-admin.name }}**. This is the team member who initially enables SSO for the account. Additional {{ user-roles.sso-admin.name | append: "s" }} can be added by contacting support.
-              - It's possible for a team member to be both an {{ user-roles.invoice-admin.name }} and an {{ user-roles.sso-admin.name }}.
+              - It's possible for a team member to be an {{ user-roles.invoice-admin.name }} and an {{ user-roles.administrator.name }} at the same time.
 
           - title: "User role types"
             anchor: "team-member-user-role--types"
@@ -145,7 +154,7 @@ sections:
 
           - {{ supported | replace:"TOOLTIP","[USER ROLE] users can perform this action" }} indicates that the user role has the permission to perform the described action
 
-          - {{ support-exception | replace:"TOOLTIP","[USER ROLE] users can perform this action, but there may be exceptions" }} indicates that the user role has the permission to perform the described action, but there may be exceptions. For example: All users can reset their own passwords, but if SSO is enabled for the account, only the SSO Admin can reset their own password.
+          - {{ support-exception | replace:"TOOLTIP","[USER ROLE] users can perform this action, but there may be exceptions" }} indicates that the user role has the permission to perform the described action, but there may be exceptions. For example: All users can reset their own passwords, but if SSO is enabled for the account, only the Administrator can reset their own password.
 
           - {{ not-supported | replace:"TOOLTIP","[USER ROLE] users can't perform this action" }} indicates that the user role doesn't have the permission to perform the described action
 
@@ -218,13 +227,10 @@ sections:
     anchor: "invite-team-member"
     summary: "How to invite a team member"
     content: |
-      {% capture sso-notice-invitations %}
-      If the [SSO]({{ link.security.single-sign-on | prepend: site.baseurl }}) feature is enabled for your account:
-
-      - Only the {{ user-roles.sso-admin.name }} will have the ability to invite new users or update their own email address
-      - All pending invitations will be invalidated
+      {% capture rbac-notice-invitations %}
+      Only the **{{ user-roles.administrator.name }}** will have the ability to invite new users. All pending invitations will be invalidated.
       {% endcapture %}
-      {% include note.html first-line="**Single sign-on (SSO) enablement impacts this feature**" content=sso-notice-invitations %}
+      {% include note.html type="single-line" content=rbac-notice-invitations %}
 
       When inviting a team member to your account, keep the following in mind:
 
@@ -250,10 +256,10 @@ sections:
         anchor: "add-to-multiple-accounts"
         summary: "How to add a team member to multiple accounts"
         content: |
-          {% capture sso-notice-deactivations %}
-          **Single sign-on (SSO) enablement impacts this feature**: If the [SSO]({{ link.security.single-sign-on | prepend: site.baseurl }}) feature is enabled for your account, only the {{ user-roles.sso-admin.name }} will have the ability to update their own email address. Contact the {{ user-roles.sso-admin.name }} if you need to be added to multiple Stitch accounts.
+          {% capture rbac-notice-update-email %}
+          Only users with the **{{ user-roles.administrator.name }}** role will have the ability to take this action. Contact the {{ user-roles.administrator.name }} if you need to be added to multiple Stitch accounts.
           {% endcapture %}
-          {% include note.html type="single-line" content=sso-notice-deactivations %}
+          {% include note.html type="single-line" content=rbac-notice-update-email %}
 
           Currently, Stitch allows an email address to be associated with only a single Stitch account. If you're one of our customers with two accounts and you want to use the same email address for both accounts, you may be able to use an email alias - also known as the `+` feature - to do so.
 
@@ -279,21 +285,36 @@ sections:
 
           Additionally, if the account is no longer needed, [you can cancel it]({{ link.account.cancel-account | prepend: site.baseurl }}).
 
+  - title: "Update a team member's role"
+    anchor: "update-team-member-role"
+    summary: "How to update a team member's role"
+    content: |
+      {% capture rbac-notice-role-updates %}
+      Only users with the **{{ user-roles.administrator.name }}** role can make changes to the roles of other users in an account.
+      {% endcapture %}
+          {% include note.html type="single-line" content=rbac-notice-role-updates %}
+      
+      1. Click the {{ app.menu-paths.account-settings }}.
+      2. On the **Members** tab, find the team member whose role you want to change.
+      3. Click the role you want in the dropdown menu next to the team member's name.
+
+      You can also update the roles of members who have not yet accepted their invitations following the same steps.        
+
   - title: "Deactivate a team member"
     anchor: "deactivate-team-member"
     summary: "How to deactivate a team member"
     content: |
-      {% capture sso-notice-deactivations %}
-      **Single sign-on (SSO) enablement impacts this feature**: If the [SSO]({{ link.security.single-sign-on | prepend: site.baseurl }}) feature is enabled for your account, only the {{ user-roles.sso-admin.name }} will have the ability to deactivate and reactivate team members.
+      {% capture rbac-notice-deactivations %}
+      Only users with the **{{ user-roles.administrator.name }}** role will have the ability to deactivate and reactivate team members.
       {% endcapture %}
-      {% include note.html type="single-line" content=sso-notice-deactivations %}
+      {% include note.html type="single-line" content=rbac-notice-deactivations %}
 
       If a team member no longer requires access to Stitch, you can deactivate them.
 
       **This process is reversible**. If you deactivate a team member by accident, you can simply re-add them.
 
       1. Click the {{ app.menu-paths.account-settings }}.
-      2. In the Team Members section, find the team member you want to deactivate.
-      3. Click the **Deactivate** button next to the team member's name.
+      2. On the **Members** tab, find the team member you want to deactivate.
+      3. Click the vertical ellipsis next to the team memberss name and then click the **Deactivate** button.
 ---
 {% include misc/data-files.html %}

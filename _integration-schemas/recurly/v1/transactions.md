@@ -29,7 +29,6 @@ attributes:
 
   - name: "account"
     type: "object"
-    anchor-id: 1
     description: "Details about the account associated with the subscription."
     subattributes: &account
       - name: "bill_to"
@@ -275,7 +274,6 @@ attributes:
   - name: "payment_method"
     type: "object"
     description: &payment_method_desc "The payment method used in the transaction."
-    anchor-id: 1
     subattributes: &payment_method
       - name: "card_type"
         type: "string"

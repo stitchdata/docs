@@ -43,8 +43,12 @@ attributes:
     type: "string"
     description: ""
   - name: "field_options"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
   - name: "field_type"
     type: "string"
     description: ""

@@ -41,7 +41,6 @@ attributes:
       - name: "detailed"
         type: "object"
         description: ""
-
       - name: "initial"
         type: "object"
         description: ""

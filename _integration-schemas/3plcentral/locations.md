@@ -122,12 +122,10 @@ attributes:
       - name: "name_key"
         type: "object"
         description: ""
-        anchor-id: 2
         subattributes:
           - name: "facility_identifier"
             type: "object"
             description: ""
-            anchor-id: 2
             subattributes: *facility-identifier
 
           - name: "name"

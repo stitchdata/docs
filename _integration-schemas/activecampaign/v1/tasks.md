@@ -36,7 +36,7 @@ attributes:
   - name: "cdate"
     type: "date-time"
     description: ""
-  - name: "deal_task_type"
+  - name: "deal_tasktype"
     type: "integer"
     description: "The deal task type ID."
     foreign-key-id: "task-type-id"

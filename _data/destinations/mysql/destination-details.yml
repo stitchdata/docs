@@ -1,0 +1,88 @@
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-details-data-file/
+
+
+# --------------------------------------- #
+#   MySQL DESTINATION DETAILS  #
+# --------------------------------------- #
+
+## Details about the destination provider.
+
+
+# -------------------------- #
+#       General/Pricing      #
+# -------------------------- #
+
+description: "{{ destination.display_name }} is an open-source relational database management system."
+
+fully-managed: false
+
+free-option: "Yes"
+
+pricing-model: "Annual"
+
+pricing-details: |
+  Refer to [MySQL's documentation]({{ site.data.destinations.mysql.resource-links.pricing }}){:target="new"} for more info and examples.
+
+
+# -------------------------- #
+#         Table limits       #
+# -------------------------- #
+
+max-columns-per-table: "1017"
+
+max-tables-per-database: "None"
+
+max-table-size: "Depends on the InnoDB page size"
+
+
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+case-sensitivity: "Insensitive"
+
+table-name-length: "60 characters"
+
+column-name-length: "64 characters"
+
+
+# -------------------------- #
+#     Column naming rules    #
+# -------------------------- #
+
+column-name-rules: |
+
+
+column-name-transformations:
+  - transformation: "Trim leading and trailing spaces"
+    source-column: "<code> customerid </code>"
+    destination-column: "<code>customerid</code>"
+
+  - transformation: "Replace characters which are not a-z, A-Z, 0-9, _ or $ with an underscore"
+    source-column: "<code>customer-id</code>"
+    destination-column: "<code>customer_id</code>"
+
+  - transformation: "Convert to lowercase"
+    source-column: "<code>CustomerID</code>"
+    destination-column: "<code>customerid</code>"
+
+# ------------------------------- #
+#     Table and naming rules      #
+# ------------------------------- #
+
+table-name-rules: |
+
+
+table-name-transformations:
+  - transformation: "Trim leading and trailing spaces"
+    source-name: "<code> customerid </code>"
+    destination-name: "<code>customerid</code>"
+
+  - transformation: "Replace characters which are not a-z, A-Z, 0-9, _ or $ with an underscore"
+    source-name: "<code>customer-id</code>"
+    destination-name: "<code>customer_id</code>"
+
+  - transformation: "Convert to lowercase"
+    source-name: "<code>CustomerID</code>"
+    destination-name: "<code>customerid</code>"

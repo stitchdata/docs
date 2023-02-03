@@ -7,6 +7,12 @@
 
 
 microsoft-azure:
+  - name: "{{ site.data.ui.destination-settings.common.field-names.display-name }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.display-name | flatify }}"
+    
+  - name: "{{ site.data.ui.destination-settings.common.field-names.description }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.description | flatify }}"
+
   - name: "{{ site.data.ui.common.database-connections.field-names.host }}"
     copy: "Enter the host address (server name) used by the {{ destination.display_name }} instance. This is the **Server name** value you retrieved in [the previous step](#locate-connection-details)."
 

@@ -179,7 +179,7 @@ sections:
         content: |
           Stitch converts data types only where needed to ensure the data is accepted by {{ destination.display_name }}. In the table below are the data types Stitch supports for {{ destination.display_name }} destinations, and the Stitch types they map to.
 
-          {% include replication/templates/data-types/destination-data-types.html display-intro=true %
+          {% include replication/templates/data-types/destination-data-types.html display-intro=true %}
 
       - title: "JSON structures"
         anchor: "transformations--json-structures"

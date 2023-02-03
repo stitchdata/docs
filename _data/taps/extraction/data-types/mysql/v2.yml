@@ -73,7 +73,7 @@ integer:
   stitch-type: "integer"
 
 json:
-  stitch-type: "string"
+  stitch-type: "object"
 
 linestring:
   stitch-type: "unsupported"
@@ -142,7 +142,7 @@ text:
   stitch-type: "string"
 
 time:
-  stitch-type: "unsupported"
+  stitch-type: "datetime"
 
 timestamp:
   stitch-type: "timestamp"
@@ -159,6 +159,9 @@ tinyint(1):
 
 tinyint>1:
   stitch-type: "integer"
+
+tinytext:
+  stitch-type: "string"
 
 varchar:
   stitch-type: "string"

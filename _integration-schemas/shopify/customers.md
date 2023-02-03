@@ -133,6 +133,22 @@ attributes:
     type: "string"
     description: "The customer's email address."
 
+  - name: "email_marketing_consent"
+    type: "object"
+    description: "The marketing consent information when the customer consented to receiving marketing material by email."
+    subattributes:
+      - name: "state"
+        type: "string"
+        description: "The current email marketing state for the customer."
+
+      - name: "opt_in_level"
+        type: "string"
+        description: "The marketing subscription opt-in level that the customer gave when they consented to receive marketing material by email."
+
+      - name: "consent_updated_at"
+        type: "date-time"
+        description: "The date and time when the customer consented to receive marketing material by email. If no date is provided, then the date and time when the consent information was sent is used."
+
   - name: "first_name"
     type: "string"
     description: "The customer's first name."

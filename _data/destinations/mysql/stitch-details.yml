@@ -1,0 +1,48 @@
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-stitch-details-data-file/
+
+# ----------------------------------- #
+#   MySQL STITCH DETAILS   #
+# ----------------------------------- #
+
+# Details about Stitch's implementation &
+# requirements for MySQL destinations.
+
+
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
+
+pricing-tier: "Standard"
+
+supported-versions: "5.7.8 and later"
+
+api-type: "mysql_destination"
+
+available-in-connect: true
+
+stitch-supported-regions:
+  - id: "north-america"
+  - id: "europe"
+
+# ------------------------------ #
+#      CONNECTION METHODS        #
+# ------------------------------ #
+
+ssl: true
+
+connect-ssl: false ## Indicates whether SSL can be configured via the API
+
+ssh: true
+
+vpn: false
+
+static-ip: true
+
+
+# ------------------------------ #
+#    WORKLOAD PERFORMANCE MGMT   #
+# ------------------------------ #
+
+workload-performance-management: false
+workload-performance-management-description: ""

@@ -9,13 +9,14 @@ keywords: destination, destinations, data warehouse, data warehouses, warehouse,
 
 summary: "If you're looking to map your Stitch integrations to more than one destination, this guide will help you set them up."
 
+destination: false
+content-type: "destination-general"
+type: "all"
+key: "multiple-destinations"
+
 layout: general
 toc: true
 
-key: "multiple-destinations"
-
-type: "all"
-destination: false
 
 # -------------------------- #
 #         GUIDE INTRO        #
@@ -54,12 +55,12 @@ sections:
       - title: "Who can use multiple destinations?"
         anchor: "basics--who-can-use-multiple-destinations"
         content: |
-          Clients on a Stitch Unlimited or Unlimited Plus plan can use this feature.
+          Clients on a Stitch Advanced or Premium plan can use this feature.
 
       - title: "How many destinations can I have?"
         anchor: "basics--how-many-destinations-can-i-have"
         content: |
-          The default limit is five destinations per Stitch account. To increase this limit, you must pay an add-on per additional destination. Stitch can support up to 10 destinations per account.
+          The default limit is 3 destinations per Stitch Advanced account, and five destinations per Stitch Premium account. To increase this limit, you must pay an add-on per additional destination. Stitch can support up to 10 destinations per account.
         
       - title: "Can I send data from one integration to multiple destinations?"
         anchor: "basics--sending-data-to-multiple-destinations"

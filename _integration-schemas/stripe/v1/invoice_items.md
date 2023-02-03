@@ -145,7 +145,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information attached to the plan."
-        anchor-id: 1
         subattributes: *metadata
 
       - name: "nickname"

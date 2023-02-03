@@ -43,7 +43,7 @@ driver: |
 #  Stitch Plan Requirements  #
 # -------------------------- #
 
-minimum-plan: "unlimited"
+minimum-plan: "advanced"
 
 minimum-plan-cta:
   feature: "Oracle integrations "

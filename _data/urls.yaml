@@ -62,11 +62,10 @@ account:
   datadog-notifications: /account-security/notifications/integrate-notifications-with-datadog
   pagerduty-notifications: /account-security/notifications/integrate-notifications-with-pagerduty
   slack-notifications: /account-security/notifications/integrate-notifications-with-slack
-  
-  hipaa-compliance: /assets/pdfs/operating-stitch-in-compliance-with-hipaa.pdf
+
   cancel-account: /account-security/cancelling-your-stitch-account
 
-  enterprise-features: /account-security/stitch-unlimited-features
+  enterprise-features: /account-security/stitch-upgraded-features
 
 billing:
   billing-faq: /account-security/billing-faq
@@ -98,6 +97,7 @@ security:
   sso-onelogin: /account-security/single-sign-on/enabling-onelogin
   sso-azure-ad: /account-security/single-sign-on/enabling-azure-active-directory-saml
   sso-pingfederate: /account-security/single-sign-on/enabling-pingfederate-saml
+  sso-google-workspace: /account-security/single-sign-on/enabling-google-workspace-saml
 
 
 # -------------------------- #
@@ -128,6 +128,7 @@ destinations:
     data-world: /destinations/data-world/reference
     azure: /destinations/microsoft-azure-sql-data-warehouse/reference
     microsoft-sql-server: /destinations/microsoft-sql-server/reference
+    mysql: /destinations/mysql/reference
     postgres: /destinations/postgresql/reference
     panoply: /destinations/panoply/reference
     snowflake: /destinations/snowflake/reference
@@ -185,7 +186,7 @@ destinations:
 ## used as link.destinations.storage.[id]
   storage:
     ## GENERAL
-    loading-data: /replication/loading/reference
+    loading-data: /replication/loading
     loading-behavior: /replication/loading/understanding-loading-behavior
 
     ## SYSTEM COLUMNS AND TABLES
@@ -235,6 +236,8 @@ integrations:
   other-data-sources: /integrations/connecting-other-data-sources-to-stitch
 
   identify-integration-version: /integrations/identify-an-integration-version
+
+  connection-cloning: /integrations/connection-cloning
 
   ## Use a filter to replace INTEGRATION with the integration's name to
   ## create the URL.

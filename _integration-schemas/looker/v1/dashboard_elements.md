@@ -215,7 +215,6 @@ attributes:
       - name: "query"
         type: "object"
         description: ""
-        anchor-id: 1
         subattributes:
           - name: "client_id"
             type: "string"
@@ -236,7 +235,6 @@ attributes:
           - name: "fields"
             type: "array"
             description: ""
-            anchor-id: 1
             subattributes:
               - name: "value"
                 type: "string"
@@ -245,7 +243,6 @@ attributes:
           - name: "fill_fields"
             type: "array"
             description: ""
-            anchor-id: 1
             subattributes:
               - name: "value"
                 type: "string"
@@ -283,7 +280,6 @@ attributes:
           - name: "pivots"
             type: "array"
             description: ""
-            anchor-id: 1
             subattributes:
               - name: "value"
                 type: "string"
@@ -312,7 +308,6 @@ attributes:
           - name: "sorts"
             type: "array"
             description: ""
-            anchor-id: 1
             subattributes:
               - name: "value"
                 type: "anything"
@@ -321,7 +316,6 @@ attributes:
           - name: "subtotals"
             type: "array"
             description: ""
-            anchor-id: 1
             subattributes:
               - name: "value"
                 type: "string"
@@ -484,7 +478,6 @@ attributes:
   - name: "query"
     type: "object"
     description: ""
-    anchor-id: 2
     subattributes:
       - name: "client_id"
         type: "string"
@@ -505,7 +498,6 @@ attributes:
       - name: "fields"
         type: "array"
         description: ""
-        anchor-id: 2
         subattributes:
           - name: "value"
             type: "string"
@@ -514,7 +506,6 @@ attributes:
       - name: "fill_fields"
         type: "array"
         description: ""
-        anchor-id: 2
         subattributes:
           - name: "value"
             type: "string"
@@ -552,7 +543,6 @@ attributes:
       - name: "pivots"
         type: "array"
         description: ""
-        anchor-id: 2
         subattributes:
           - name: "value"
             type: "string"
@@ -581,7 +571,6 @@ attributes:
       - name: "sorts"
         type: "array"
         description: ""
-        anchor-id: 2
         subattributes:
           - name: "value"
             type: "anything"
@@ -590,7 +579,6 @@ attributes:
       - name: "subtotals"
         type: "array"
         description: ""
-        anchor-id: 2
         subattributes:
           - name: "value"
             type: "string"
@@ -676,7 +664,6 @@ attributes:
       - name: "query"
         type: "object"
         description: ""
-        anchor-id: 3
         subattributes:
           - name: "client_id"
             type: "string"
@@ -697,7 +684,6 @@ attributes:
           - name: "fields"
             type: "array"
             description: ""
-            anchor-id: 3
             subattributes:
               - name: "value"
                 type: "string"
@@ -706,7 +692,6 @@ attributes:
           - name: "fill_fields"
             type: "array"
             description: ""
-            anchor-id: 3
             subattributes:
               - name: "value"
                 type: "string"
@@ -744,7 +729,6 @@ attributes:
           - name: "pivots"
             type: "array"
             description: ""
-            anchor-id: 3
             subattributes:
               - name: "value"
                 type: "string"
@@ -773,7 +757,6 @@ attributes:
           - name: "sorts"
             type: "array"
             description: ""
-            anchor-id: 3
             subattributes:
               - name: "value"
                 type: "anything"
@@ -782,7 +765,6 @@ attributes:
           - name: "subtotals"
             type: "array"
             description: ""
-            anchor-id: 3
             subattributes:
               - name: "value"
                 type: "string"

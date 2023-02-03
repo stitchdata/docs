@@ -302,16 +302,6 @@ attributes:
         type: "string"
         description: "The last name of the customer."
 
-      - name: "last_order_id"
-        type: "integer"
-        description: "The ID of the customer's last order."
-        foreign-key-id: "order-id"
-
-      - name: "last_order_name"
-        type: "string"
-        description: |
-          The name of the customer's last order. This is related to the `name` field in the [`orders` table](#orders).
-
       - name: "multipass_identifier"
         type: "string"
         description: "The customer's Multipass login ID."
@@ -319,10 +309,6 @@ attributes:
       - name: "note"
         type: "string"
         description: "A note about the customer."
-
-      - name: "orders_count"
-        type: "integer"
-        description: "The number of orders associated with the customer."
 
       - name: "phone"
         type: "string"
@@ -347,10 +333,6 @@ attributes:
         type: "boolean"
         description: |
           Indicates if the customer is exempt from paying taxes on their order. If `true`, taxes will not be applied to an order at checkout.
-
-      - name: "total_spent"
-        type: "string"
-        description: "The total amount of money that the customer has spent across their order history."
 
       - name: "updated_at"
         type: "date-time"
@@ -452,6 +434,22 @@ attributes:
     type: "string"
     description: "The customer's email address."
 
+  - name: "email_marketing_consent"
+    type: "object"
+    description: "The marketing consent information when the customer consented to receiving marketing material by email."
+    subattributes:
+      - name: "state"
+        type: "string"
+        description: "The current email marketing state for the customer."
+
+      - name: "opt_in_level"
+        type: "string"
+        description: "The marketing subscription opt-in level that the customer gave when they consented to receive marketing material by email."
+
+      - name: "consent_updated_at"
+        type: "date-time"
+        description: "The date and time when the customer consented to receive marketing material by email. If no date is provided, then the date and time when the consent information was sent is used."
+
   - name: "financial_status"
     type: "string"
     description: |
@@ -507,7 +505,6 @@ attributes:
           - name: "destination_location"
             type: "object"
             description: "Details about the line item's destination location."
-            anchor-id: 1
             subattributes: &default-address-fields
               - name: "address1"
                 type: "string"
@@ -549,7 +546,6 @@ attributes:
           - name: "discount_allocations"
             type: "array"
             description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular appliction."
-            anchor-id: 1
             subattributes: &discount-allocations
               - name: "amount"
                 type: "number"
@@ -603,7 +599,6 @@ attributes:
           - name: "origin_location"
             type: "object"
             description: "Details about the origin location associated with the refund line item."
-            anchor-id: 1
             subattributes: *default-address-fields
 
           - name: "origin_location_id"
@@ -630,7 +625,6 @@ attributes:
           - name: "properties"
             type: "array"
             description: "Details about custom info for the item."
-            anchor-id: 1
             subattributes: &properties
               - name: "name"
                 type: "string"
@@ -659,7 +653,6 @@ attributes:
           - name: "tax_lines"
             type: "array"
             description: "Details about the line item's tax lines, each of which details a tax applicable to this line item."
-            anchor-id: 1
             subattributes: &tax-lines
               - name: "compare_at"
                 type: "string"
@@ -809,7 +802,6 @@ attributes:
       - name: "destination_location"
         type: "object"
         description: "Details about the line item's destination location."
-        anchor-id: 2
         subattributes: *default-address-fields
 
       - name: "destination_location_id"
@@ -819,7 +811,6 @@ attributes:
       - name: "discount_allocations"
         type: "array"
         description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular appliction."
-        anchor-id: 2
         subattributes: *discount-allocations
 
       - name: "fulfillable_quantity"
@@ -866,7 +857,6 @@ attributes:
       - name: "origin_location"
         type: "object"
         description: "Details about the origin location associated with the refund line item."
-        anchor-id: 2
         subattributes: *default-address-fields
 
       - name: "origin_location_id"
@@ -893,7 +883,6 @@ attributes:
       - name: "properties"
         type: "array"
         description: "Details about custom info for the item."
-        anchor-id: 3
         subattributes: *properties
 
       - name: "quantity"
@@ -915,7 +904,6 @@ attributes:
       - name: "tax_lines"
         type: "array"
         description: "Details about the line item's tax lines, each of which details a tax applicable to this line item."
-        anchor-id: 2
         subattributes: *tax-lines
 
       - name: "taxable"
@@ -1138,7 +1126,6 @@ attributes:
               - name: "destination_location"
                 type: "object"
                 description: "Details about the line item's destination location."
-                anchor-id: 3
                 subattributes: *default-address-fields
 
               - name: "destination_location_id"
@@ -1148,7 +1135,6 @@ attributes:
               - name: "discount_allocations"
                 type: "array"
                 description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular appliction."
-                anchor-id: 3
                 subattributes: *discount-allocations
 
               - name: "fulfillable_quantity"
@@ -1195,7 +1181,6 @@ attributes:
               - name: "origin_location"
                 type: "object"
                 description: "Details about the origin location associated with the refund line item."
-                anchor-id: 3
                 subattributes: *default-address-fields
 
               - name: "origin_location_id"
@@ -1222,7 +1207,6 @@ attributes:
               - name: "properties"
                 type: "array"
                 description: "Details about custom info for the item."
-                anchor-id: 4
                 subattributes: *properties
 
               - name: "quantity"
@@ -1244,7 +1228,6 @@ attributes:
               - name: "tax_lines"
                 type: "array"
                 description: "Details about the line item's tax lines, each of which details a tax applicable to this line item."
-                anchor-id: 5
                 subattributes: *tax-lines
 
               - name: "taxable"
@@ -1346,7 +1329,6 @@ attributes:
       - name: "discount_allocations"
         type: "array"
         description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular appliction."
-        anchor-id: 4
         subattributes: *discount-allocations
 
       - name: "discounted_price"
@@ -1372,7 +1354,6 @@ attributes:
       - name: "tax_lines"
         type: "array"
         description: "Details about the shipping line's tax lines, each of which details a tax applicable to this shipping line."
-        anchor-id: 6
         subattributes: *tax-lines
 
       - name: "title"
@@ -1447,4 +1428,104 @@ attributes:
   - name: "user_id"
     type: "integer"
     description: "The ID of th euser logged into the {{ integration.display_name }} POS that processed the order, if applicable."
+
+  - name: "current_subtotal_price_set"
+    type: "object"
+    description: "The current subtotal price of the order in shop and presentment currencies."
+
+  - name: "current_total_duties_set"
+    type: "object"
+    description: "The current total duties charged on the order in shop and presentment currencies."
+
+  - name: "current_total_discounts_set"
+    type: "object"
+    description: "The current total discounts on the order in shop and presentment currencies."
+
+  - name: "current_total_price_set"
+    type: "object"
+    description: "The current total price of the order in shop and presentment currencies."
+
+  - name: "current_total_tax_set"
+    type: "object"
+    description: "The current total taxes charged on the order in shop and presentment currencies."
+
+  - name: "original_total_duties_set"
+    type: "object"
+    description: "The original total duties charged on the order in shop and presentment currencies."
+
+  - name: "current_subtotal_price"
+    type: "string"
+    description: "The current subtotal price of the order in the shop currency."
+
+  - name: "current_total_discounts"
+    type: "string"
+    description: "The current total discounts on the order in the shop currency."
+
+  - name: "current_total_price"
+    type: "string"
+    description: "The current total price of the order in the shop currency."
+
+  - name: "current_total_tax"
+    type: "string"
+    description: "The current total taxes charged on the order in the shop currency."
+
+  - name: "total_outstanding"
+    type: "string"
+    description: "The total outstanding amount of the order in the shop currency."
+
+  - name: "payment_terms"
+    type: "string"
+    description: "The terms and conditions under which a payment should be processed."
+    subattributes:
+      - name: "amount"
+        type: "integer, string"
+        description: "The amount that is owed according to the payment terms."
+
+      - name: "currency"
+        type: "string"
+        description: "The presentment currency for the payment."
+        
+      - name: "due_in_days"
+        type: "integer"
+        description: "The number of days between the invoice date and due date."
+        
+      - name: "payment_schedules"
+        type: "array"
+        description: "An array of schedules associated to the payment terms."
+        subattributes:
+          - name: "amount"
+            type: "integer, string"
+            description: "The amount that is owed according to the payment terms."
+            
+          - name: "due_at"
+            type: "string"
+            description: "The date and time when the payment is due."
+            
+          - name: "currency"
+            type: "string"
+            description: "The presentment currency for the payment."
+            
+          - name: "issued_at"
+            type: "string"
+            description: "The date and time when the payment terms were initiated."
+            
+          - name: "completed_at"
+            type: "string"
+            description: "The date and time when the purchase is completed."
+            
+          - name: "expected_payment_method"
+            type: "string"
+            description: "The name of the payment method gateway."
+        
+      - name: "payment_terms_name"
+        type: "string"
+        description: "The name of the selected payment terms template for the order."
+        
+      - name: "payment_terms_type"
+        type: "string"
+        description: "The type of selected payment terms template for the order."
+
+  - name: "estimated_taxes"
+    type: "boolean"
+    description: "Whether taxes on the order are estimated."
 ---

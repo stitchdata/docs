@@ -41,4 +41,11 @@ object-attributes:
       **Note**: Providing a certificate via this property isn't required to use SSL. This is only if Stitch should verify the connection against a specific certificate.
     value: |
       "<OPTIONAL_SSL_CERTIFICATE>"
+
+  - name: "ssl"
+    required: true
+    internal: false
+    type: "boolean"
+    description: "If `true`, SSL will be used to connect to the database."
+    value: "true"
 ---

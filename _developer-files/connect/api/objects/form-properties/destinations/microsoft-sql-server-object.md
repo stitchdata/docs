@@ -46,10 +46,11 @@ description: ""
 uses-common-fields: true
 ## See these fields in _data/connect/common/destination-forms.yml > all-destinations
 
-# object-attributes:
-#   - name: ""
-#     type: ""
-#     required: true/false
-#     description: ""
-#     value: ""
+object-attributes:
+  - name: "ssl"
+    required: false
+    internal: false
+    type: "boolean"
+    description: "If `true`, SSL will be used to connect to the database."
+    value: "true"
 ---

@@ -247,6 +247,10 @@ attributes:
         type: "string"
         description: "The price of the product variant."
 
+      - name: "product_id"
+        type: "integer"
+        description: "The unique numeric identifier for the product."
+
       - name: "requires_shipping"
         type: "boolean"
         description: "Indicates whether a customer needs to provide a shipping address when placing an order for the product variant."

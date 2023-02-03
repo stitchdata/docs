@@ -48,6 +48,13 @@ attributes:
     description: "The stage ID."
     foreign-key-id: "stage-id"
 
+  - name: "stages"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "value"
+        type: "integer"
+        description: ""
   - name: "title"
     type: "string"
     description: ""

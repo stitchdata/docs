@@ -51,7 +51,7 @@ dev-categories:
 
   - title: "Post-load webhooks"
     description: "Stay informed with post-load webhooks, which fire each time data is loaded into your destination."
-    plan: "unlimited"
+    plan: "upgraded"
     links:
       - name: "Post-load webhooks guide"
         url: "{{ link.account.post-load-notifications | prepend: site.baseurl }}"
@@ -67,7 +67,7 @@ dev-categories:
 
   - title: "Connect API"
     description: "Programmatically manage your Stitch account or integrate Stitch with other applications with our REST API."
-    plan: "unlimited"
+    plan: "upgraded"
     links:
       # - name: "Quick start"
       #   url: "{{ link.connect.api | prepend: site.baseurl }} TODO"

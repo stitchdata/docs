@@ -1,0 +1,45 @@
+# ------------------------------------- #
+#       STITCH PREMIUM PLAN DETAILS     #
+# ------------------------------------- #
+
+name: "Premium"
+
+trial-description: "During the Free Trial, you'll have access to all of Stitch's integrations and 1 billion rows for 14 days. The trial begins when you successfully connect and replicate data to a destination."
+
+paid: true
+type: "sales-led"
+
+integrations: "all"
+total-integrations: "Unlimited"
+
+users: "Unlimited"
+rows: "1B"
+logs: "60 days"
+reports: "60 days"
+
+api-access: true
+customize-notifications: true
+post-load-notifications: true
+cron-scheduling: true
+single-sign-on: true
+multiple-destinations: true
+advanced-connectivity: true
+
+# -------------------------- #
+#     ADDITIONAL FEATURES    #
+# -------------------------- #
+
+features:
+  - category: "Account"
+    guides:
+      - key: "data-encryption-overview"
+        title: "Advanced Connectivity"
+        summary: |
+          Use [Advanced connection options]({{ link.security.encryption }}#advanced-connectivity), such as a VPN or AWS Private Link, to establish connections to your private network.
+        free-trial-available: false
+
+      - key: "reverse-ssh-tunnel-setup"
+        title: "Reverse SSH tunnels"
+        summary: |
+          Establish a connection to a database in your private network without opening holes in your network's firewall. A reverse SSH tunnel is an outbound connection from a machine on your network that connects securely over the internet to Stitch.
+        free-trial-available: false

@@ -13,10 +13,10 @@
 # -------------------------- #
 
 title: Google Sheets (v1)
-permalink: /integrations/saas/google-sheets
+permalink: /integrations/saas/google-sheets/v1
 keywords: google-sheeets, integration, schema, etl google-sheeets, google-sheeets etl, google-sheeets schema
 layout: singer
-# input: false
+input: false
 
 key: "google-sheets-setup"
 
@@ -199,7 +199,7 @@ replication-sections:
               - `0`
               - `false` (the string "false" prefixed with a tick [`])
 
-              If a column has been specified as a `STRING`, Stitch will attempt to parse the value as a string, unless the column contains non-stantadard boolean language.  If this fails, the column will be loaded as a nullable `STRING`.
+              If a column has been specified as a `STRING`, Stitch will attempt to parse the value as a string, unless the column contains non-standard boolean language.  If this fails, the column will be loaded as a nullable `STRING`.
 
               For all other columns, Stitch will perform the following to determine the column's data type:
 

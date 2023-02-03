@@ -1,0 +1,120 @@
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/data-types/
+
+
+# ---------------------------- #
+#      MySQL DATA TYPING       #
+# ---------------------------- #
+
+## Details about data typing for MySQL destinations.
+## Includes:
+##  - Stitch types mapped to MySQL-specific types
+##  - Data type suffixes
+##  - Limitations on each data type, imposed by MySQL
+
+
+## NOTE: Relevant files:
+##  - Stitch data types: _data/taps/extraction/data-types/stitch-types.yml
+##  - All supported source types: _data/taps/extraction/data-types/source-types.yml
+
+
+# ---------------------------- #
+#       DATA TYPE MAPPING      #
+# ---------------------------- #
+
+# ---------------------------- #
+#           BIGINT             #
+# ---------------------------- #
+
+bigint:
+  destination-type: "BIGINT"
+  suffix: "bi"
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/integer-types.html"
+  range: "-9223372036854775808 to 9223372036854775807"
+  loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
+
+
+# ---------------------------- #
+#           BOOLEAN            #
+# ---------------------------- #
+
+boolean:
+  destination-type: "TINYINT(1)"
+  suffix: "bo"
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/integer-types.html"
+
+
+# ---------------------------- #
+#            DATE              #
+# ---------------------------- #
+
+date:
+  destination-type: "DATETIME"
+  suffix: "dt"
+  description: "Stored in UTC with fractional seconds."
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/datetime.html"
+  range: "1000-01-01 to 9999-12-31"
+  loading-error: "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range }}"
+  # date-range: &date-range ""
+  # timezone-support: &timezone-support "None"
+
+
+# ---------------------------- #
+#           DOUBLE             #
+# ---------------------------- #
+
+double: &float
+  destination-type: "FLOAT(53)"
+  suffix: "fl"
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/floating-point-types.html"
+
+
+# ---------------------------- #
+#           FLOAT              #
+# ---------------------------- #
+
+float: *float
+
+
+# ---------------------------- #
+#           INTEGER            #
+# ---------------------------- #
+
+integer:
+  destination-type: "INT"
+  suffix: "it"
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/integer-types.html"
+  range: "-2147483648 to 2147483647"
+  loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
+
+
+# ---------------------------- #
+#           NUMBER             #
+# ---------------------------- #
+
+number:
+  destination-type: "DECIMAL"
+  suffix: "de"
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/fixed-point-types.html"
+  range: "-99999999999999999999999999999999.999999M to 99999999999999999999999999999999.999999M"
+  loading-error: "{{ site.data.destinations.common.loading-errors.decimal-out-of-range }}"
+
+
+# ---------------------------- #
+#           STRING             #
+# ---------------------------- #
+
+string:
+  destination-type: "LONGTEXT"
+  suffix: "st"
+  description: "`LONGTEXT` is used for all strings except Primary Keys. If a string is loaded into a Primary Key field, it uses the `VARCHAR` type."
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/blob.html"
+
+# ---------------------------- #
+#            JSON              #
+# ---------------------------- #
+
+json:
+  destination-type: "JSON"
+  suffix: "js"
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/json.html"

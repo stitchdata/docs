@@ -43,6 +43,10 @@ attributes:
     description: "The ID of the campaign."
     foreign-key-id: "campaign-id"
 
+  - name: "Goal"
+    type: "string"
+    description: "The name of the goal you set for the conversions you want."
+
   - name: "Custom Fields"
     description: |
       Columns selected by you. For descriptions of available columns, refer to [Microsoft's documentation]({{ table.doc-link }}).

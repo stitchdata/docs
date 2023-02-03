@@ -28,7 +28,7 @@ attributes:
   - name: "cols"
     type: "integer"
     description: ""
-  - name: "defvalue"
+  - name: "defval"
     type: "string"
     description: ""
   - name: "descript"
