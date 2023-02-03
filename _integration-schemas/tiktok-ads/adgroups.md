@@ -462,5 +462,4 @@ attributes:
   - name: "video_download"
     type: string"
     description: "Whether users can download your video ads on TikTok. Allowed values: ALLOW_DOWNLOAD ,PREVENT_DOWNLOAD Default: ALLOW_DOWNLOAD."
-
-
+---

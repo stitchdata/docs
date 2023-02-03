@@ -244,5 +244,4 @@ attributes:
   - name: "video_watched_6s"
     type: integer"
     description: "6-Second Video Views. The number of times your video played for at least 6 seconds, or completely played. Replays will not be counted."
-
-
+---

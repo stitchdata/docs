@@ -113,5 +113,4 @@ attributes:
   - name: "timezone"
     type: string"
     description: "Ad account time zone including GMT offset. For example, "Etc/GMT""
-
-
+---

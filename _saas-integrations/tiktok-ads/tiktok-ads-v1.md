@@ -48,7 +48,7 @@ certified: true
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Standard/Enterprise"
+tier: "Standard"
 
 api-type: "platform.tiktok-ads"
 
@@ -58,8 +58,8 @@ cron-scheduling: true
 extraction-logs: true
 loading-reports: true
 
-table-selection: true/false
-column-selection: true/false
+table-selection: true
+column-selection: true
 
 # attribution-window: "# days"
 # attribution-is-configurable: 

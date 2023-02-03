@@ -87,5 +87,4 @@ attributes:
   - name: "status"
     type: string"
     description: "Campaign status (Secondary status). For enum values, see (Enumeration-Campaign Status - Secondary Status)[https://ads.tiktok.com/marketing_api/docs?id=1701890985340929]. Note: This field is not returned in the sandbox environment because the campaign is not actually delivered."
-
-
+---

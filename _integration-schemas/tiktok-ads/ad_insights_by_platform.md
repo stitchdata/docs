@@ -157,5 +157,4 @@ attributes:
   - name: "user_action"
     type: string"
     description: "For the VIDEO_RELATED scene, available values include WATCHED_TO_END, LIKED, COMMENTED, and SHARED. For the CREATOR_RELATED scene, available values are FOLLOWING and VIEW_HOMEPAGE."
-
-
+---
