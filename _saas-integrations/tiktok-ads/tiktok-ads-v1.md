@@ -31,7 +31,7 @@ display_name: "TikTok Ads"
 singer: true
 status-url: ""
 
-tap-name: "TikTok Ads" ## Ex: Intercom, not intercom
+tap-name: "tiktok-ads"
 repo-url: https://github.com/singer-io/tap-tiktok-ads
 
 this-version: "1"
