@@ -38,8 +38,8 @@ attributes:
     type: string"
     format: "date-time"
     description: "Advertiser's create time"
-	  replication-key: true
-	  primary-key: true
+    replication-key: true
+    primary-key: true
 
   - name: "currency"
     type: string"
@@ -56,7 +56,7 @@ attributes:
   - name: "id"
     type: integer"
     description: "Advertiser ID"
-	  primary-key: true
+    primary-key: true
 
   - name: "industry"
     type: string"

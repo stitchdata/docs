@@ -17,7 +17,7 @@ attributes:
   - name: "advertiser_id"
     type: integer"
     description: "Advertiser ID"
-	  primary-key: true
+    primary-key: true
 
   - name: "bid_type"
     type: string"
@@ -38,7 +38,7 @@ attributes:
   - name: "campaign_id"
     type: integer"
     description: "Campaign ID"
-	  primary-key: true
+    primary-key: true
 
   - name: "campaign_name"
     type: string"
@@ -61,8 +61,8 @@ attributes:
     type: string"
     format: "date-time"
     description: "Time at which the campaign was Modified."
-	  replication-key: true
-	  primary-key: true
+    replication-key: true
+    primary-key: true
 
   - name: "objective"
     type: string"

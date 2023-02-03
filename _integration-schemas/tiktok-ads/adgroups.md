@@ -50,12 +50,12 @@ attributes:
   - name: "adgroup_name"
     type: string"
     description: "Ad group Name"
-	  primary-key: true
+    primary-key: true
 
   - name: "advertiser_id"
     type: integer"
     description: "Advertiser ID"
-	  primary-key: true
+    primary-key: true
 
   - name: "age"
     type: array"
@@ -131,7 +131,7 @@ attributes:
   - name: "campaign_id"
     type: integer"
     description: "Campaign ID"
-	  primary-key: true
+    primary-key: true
 
   - name: "carriers_v2"
     type: array"
@@ -317,8 +317,8 @@ attributes:
     type: string"
     format: "date-time"
     description: "Time at which the ad group was Modified."
-	  replication-key: true
-	  primary-key: true
+    replication-key: true
+    primary-key: true
 
   - name: "operation_system"
     type: array"

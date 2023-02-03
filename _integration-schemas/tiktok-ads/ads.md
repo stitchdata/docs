@@ -21,7 +21,7 @@ attributes:
   - name: "ad_id"
     type: integer"
     description: "Ad ID"
-	  primary-key: true
+    primary-key: true
 
   - name: "ad_name"
     type: string"
@@ -34,7 +34,7 @@ attributes:
   - name: "adgroup_id"
     type: integer"
     description: "Ad group ID"
-	  primary-key: true
+    primary-key: true
 
   - name: "adgroup_name"
     type: string"
@@ -43,7 +43,7 @@ attributes:
   - name: "advertiser_id"
     type: integer"
     description: "Advertiser ID"
-	  primary-key: true
+    primary-key: true
 
   - name: "app_name"
     type: string"
@@ -56,7 +56,7 @@ attributes:
   - name: "campaign_id"
     type: integer"
     description: "Campaign ID"
-	  primary-key: true
+    primary-key: true
 
   - name: "campaign_name"
     type: string"
@@ -144,7 +144,7 @@ attributes:
     format: "date-time"
     description: "Time at which the ad was Modified."
 	  replication-key: true
-	  primary-key: true
+    primary-key: true
 
   - name: "open_url"
     type: string"

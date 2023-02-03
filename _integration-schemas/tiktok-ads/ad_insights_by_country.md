@@ -17,7 +17,7 @@ attributes:
   - name: "ad_id"
     type: integer"
     description: "Ad ID"
-	  primary-key: true
+    primary-key: true
 
   - name: "ad_name"
     type: string"
@@ -30,7 +30,7 @@ attributes:
   - name: "adgroup_id"
     type: integer"
     description: "Ad group ID. Avaialble at Ad level."
-	  primary-key: true
+    primary-key: true
 
   - name: "adgroup_name"
     type: string"
@@ -39,12 +39,12 @@ attributes:
   - name: "advertiser_id"
     type: integer"
     description: "Advertiser ID"
-	  primary-key: true
+    primary-key: true
 
   - name: "campaign_id"
     type: integer"
     description: "Campaign ID. Available at Ad Group and Ad levels."
-	  primary-key: true
+    primary-key: true
 
   - name: "campaign_name"
     type: string"
@@ -73,7 +73,7 @@ attributes:
   - name: "country_code"
     type: string"
     description: ""
-	  primary-key: true
+    primary-key: true
 
   - name: "cpc"
     type: number"
@@ -143,8 +143,8 @@ attributes:
     type: string"
     format: "date-time"
     description: ""
-	  replication-key: true
-	  primary-key: true
+    replication-key: true
+    primary-key: true
 
   - name: "tt_app_id"
     type: string"
