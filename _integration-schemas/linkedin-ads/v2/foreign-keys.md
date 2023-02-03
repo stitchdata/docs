@@ -9,7 +9,7 @@
 
 tap-reference: "linkedin-ads"
 
-version: "1"
+version: "2"
 
 foreign-keys:
   - id: "account-id"
