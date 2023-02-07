@@ -90,17 +90,17 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
-requirements-list:
-  - item: ""
-  - item: ""
+# requirements-list:
+#   - item: ""
+#   - item: ""
 
-requirements-info:
+# requirements-info:
 
 setup-steps:
-  - title: ""
-    anchor: ""
-    content: |
-      [Add content]
+  # - title: ""
+  #   anchor: ""
+  #   content: |
+  #     [Add content]
 
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
@@ -118,6 +118,15 @@ setup-steps:
     anchor: "define-rep-frequency"
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Authorize Stitch"
+    anchor: "authorize-stitch"
+    content: |
+      1. Next, you’ll be prompted to log into your TikTok account and approve Stitch’s access to your {{ integration.display_name }} data. **Note that we will only ever read your data.**
+      2. Click **Sign in with TikTok** to connect.
+      3. Sign in with your TikTok account.
+      4. After your credentials are validated, you’ll be directed back to Stitch and prompted to select the {{ integration.display_name }} accounts you want to for which you want to run extractions.
+      4. When finished, click **Check and Save**, then click **All Done**.
 
 ## remove this if the integration doesn't support at least table selection
   - title: "Set objects to replicate"
