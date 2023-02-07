@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-zuora/pull/73"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've fixed an issue with related objects in our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration. Fields that case issues when added as related objects will now be ignored.
+We've fixed a bug with related objects in our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration. Fields that cause issues when added as related objects will now be ignored.
