@@ -67,6 +67,34 @@ attributes:
     type: "integer"
     description: ""
 
+  - name: "custom_fields"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "items"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "archived"
+            type: "boolean"
+            description: ""
+            
+          - name: "attribute_id"
+            type: "string"
+            description: ""
+            
+          - name: "data_type"
+            type: "string"
+            description: ""
+            
+          - name: "identifier"
+            type: "string"
+            description: ""
+            
+          - name: "value"
+            type: "string"
+            description: ""
+
   - name: "direction"
     type: "string"
     description: ""

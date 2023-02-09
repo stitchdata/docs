@@ -101,6 +101,9 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/klaviyo
+
+youtubeId: ma_zRadotOM
 ---
+{% include youtube-player.html id=page.youtubeId %}
 {% assign integration = page %}
 {% include misc/data-files.html %}
