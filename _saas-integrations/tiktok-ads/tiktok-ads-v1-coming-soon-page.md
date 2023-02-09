@@ -12,27 +12,27 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Sailthru (v1)
-permalink: /integrations/saas/sailthru ## Add if there are multiple versions: /vVERSION
-keywords: sailthru, integration, schema, etl sailthru, sailthru etl, sailthru schema
+title: TikTok Ads (v1)
+permalink: /integrations/saas/tiktok-ads ## Add if there are multiple versions: /v1
+keywords: tiktok ads, integration, schema, etl tiktok ads, tiktok ads etl, tiktok ads schema
 layout: coming-soon
 input: false
 
-key: "sailthru-setup"
+key: "tiktok-ads-setup"
 
 
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
 
-name: "sailthru"
-display_name: "Sailthru"
+name: "tiktok-ads"
+display_name: "TikTok Ads"
 
 singer: true
-status-url: "https://status.sailthru.com/#!/"
+status-url: ""
 
-tap-name: "Sailthru" ## Ex: Intercom, not intercom
-repo-url: https://github.com/singer-io/tap-sailthru
+tap-name: "" ## Ex: Intercom, not intercom
+repo-url: https://github.com/singer-io/tap-tiktok-ads
 
 this-version: "1"
 ---
