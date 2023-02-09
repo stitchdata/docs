@@ -90,9 +90,9 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
-# requirements-list:
-#   - item: ""
-#   - item: ""
+requirements-list:
+  - item: "Access to a {{ integration.display_name }} account. This is necessary to login to the Ad Manager account."
+  - item: "Access to a {{ integration.display_name }} Ad Manager account. Verify that you have access to use the Ad accounts you want to replicate data from. This is necessary to connect to Stitch."
 
 # requirements-info:
 
