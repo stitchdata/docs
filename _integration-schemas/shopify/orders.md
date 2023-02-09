@@ -302,16 +302,6 @@ attributes:
         type: "string"
         description: "The last name of the customer."
 
-      - name: "last_order_id"
-        type: "integer"
-        description: "The ID of the customer's last order."
-        foreign-key-id: "order-id"
-
-      - name: "last_order_name"
-        type: "string"
-        description: |
-          The name of the customer's last order. This is related to the `name` field in the [`orders` table](#orders).
-
       - name: "multipass_identifier"
         type: "string"
         description: "The customer's Multipass login ID."
@@ -319,10 +309,6 @@ attributes:
       - name: "note"
         type: "string"
         description: "A note about the customer."
-
-      - name: "orders_count"
-        type: "integer"
-        description: "The number of orders associated with the customer."
 
       - name: "phone"
         type: "string"
@@ -347,10 +333,6 @@ attributes:
         type: "boolean"
         description: |
           Indicates if the customer is exempt from paying taxes on their order. If `true`, taxes will not be applied to an order at checkout.
-
-      - name: "total_spent"
-        type: "string"
-        description: "The total amount of money that the customer has spent across their order history."
 
       - name: "updated_at"
         type: "date-time"
@@ -451,6 +433,22 @@ attributes:
   - name: "email"
     type: "string"
     description: "The customer's email address."
+
+  - name: "email_marketing_consent"
+    type: "object"
+    description: "The marketing consent information when the customer consented to receiving marketing material by email."
+    subattributes:
+      - name: "state"
+        type: "string"
+        description: "The current email marketing state for the customer."
+
+      - name: "opt_in_level"
+        type: "string"
+        description: "The marketing subscription opt-in level that the customer gave when they consented to receive marketing material by email."
+
+      - name: "consent_updated_at"
+        type: "date-time"
+        description: "The date and time when the customer consented to receive marketing material by email. If no date is provided, then the date and time when the consent information was sent is used."
 
   - name: "financial_status"
     type: "string"
