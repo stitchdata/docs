@@ -57,5 +57,4 @@ attributes:
     type: "object"
       format: "date-time"
     description: "Date and time at which the catalog was created"
-
-
+---

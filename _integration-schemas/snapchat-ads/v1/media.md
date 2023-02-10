@@ -90,5 +90,4 @@ attributes:
     - name: "lens_package_metadata"
     type: "object"
     description: "Metadata for lens media created by Lens Studio"
-
-
+---

@@ -98,5 +98,4 @@ attributes:
   - name: "value_micro"
     type: "integer"
     description: "Value of the COUPON (micro-currency)"
-
-
+---

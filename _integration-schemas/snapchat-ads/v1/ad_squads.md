@@ -127,8 +127,6 @@ attributes:
         - type: "string"
           description: "Content Type"
 
-
-
   - name: "product_properties"
     type: "object"
     description: "Product Properties to be associated with the Ad Squad"
@@ -233,5 +231,4 @@ attributes:
   - name: "updated_at"
     type: "date-time"
     description: "Date and Time at which AD squad was last updated"
-
-
+---

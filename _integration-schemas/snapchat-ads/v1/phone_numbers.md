@@ -50,5 +50,4 @@ attributes:
   - name: "verification_status"
     type: "string"
     description: "Verification Status"
-
-
+---

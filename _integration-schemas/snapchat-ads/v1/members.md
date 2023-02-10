@@ -42,5 +42,4 @@ attributes:
     - name: "member_status"
     type: "string"
     description: "Name of the Advertiser. Example: INVITED, MEMBER"
-
-
+---

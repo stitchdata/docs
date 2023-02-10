@@ -46,5 +46,4 @@ attributes:
     - name: "type"
     type: "string"
     description: "Different types of the roles. Example: Admin, Creative, General, Reports, Audience"
-
-
+---

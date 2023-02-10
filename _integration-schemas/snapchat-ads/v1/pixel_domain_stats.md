@@ -47,5 +47,4 @@ attributes:
   - name: "type"
     type: "string"
     description: "Type"
-
-
+---

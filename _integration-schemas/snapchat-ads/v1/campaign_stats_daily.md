@@ -560,5 +560,4 @@ attributes:
   - name: "view_time_millis"
     type: "integer"
     description: "Use screen_time_millis instead. Total Time Spent on top Snap Ad (milliseconds)"
-
-
+---

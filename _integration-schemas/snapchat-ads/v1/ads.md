@@ -106,5 +106,4 @@ attributes:
   - name: "updated_at"
     type: "date-time"
     description: "Date of last update"
-
-
+---

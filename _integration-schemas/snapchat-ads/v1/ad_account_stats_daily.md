@@ -52,5 +52,4 @@ attributes:
   - name: "view_attribution_window"
     type: "string"
     description: "Attribution window for views. Example: 1_HOUR, 3_HOUR, 6_HOUR, 1_DAY (default), 7_DAY, 28_DAY"
-
-
+---

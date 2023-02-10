@@ -46,5 +46,4 @@ attributes:
   - name: "targeting_type"
     type: "string"
     description: "Targeting Type. Only possible value for this stream: `advanced_demographics`"
-
-
+---

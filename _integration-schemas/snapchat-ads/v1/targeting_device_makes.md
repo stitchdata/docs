@@ -47,3 +47,4 @@ attributes:
     type: "string"
     description: "Targeting Type. Only possible value for this stream: `marketing_name`"
 
+---

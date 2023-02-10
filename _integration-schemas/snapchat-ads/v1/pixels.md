@@ -58,6 +58,4 @@ attributes:
     subattributes:
     - type: "string"
       description: ""
-
-
-
+---

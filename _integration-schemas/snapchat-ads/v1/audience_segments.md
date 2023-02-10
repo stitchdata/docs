@@ -74,6 +74,4 @@ attributes:
     - name: "items"
       type: "string"
       description: ""
-
-
-
+---

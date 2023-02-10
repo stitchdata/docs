@@ -140,5 +140,4 @@ attributes:
     type: "object"
     description: "Defines the url for “Shop Now” button Required when interaction_type == WEB_VIEW. Only url in web_view_properties can be used"
     subattributes:
-
-
+---

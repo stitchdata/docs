@@ -41,3 +41,4 @@ attributes:
       format: "date-time"
     description: "Date and time at which product set was created"
 
+---
