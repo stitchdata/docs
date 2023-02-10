@@ -141,9 +141,9 @@ attributes:
             type: "string"
             description: "Catalog ID"
 
-    - name: "catalog_vertical"
-      type: "string"
-      description: "Catalog vertical, automatically set by the Catalog"
+          - name: "catalog_vertical"
+            type: "string"
+            description: "Catalog vertical, automatically set by the Catalog"
 
   - name: "reach_and_frequency_micro"
     type: "integer"

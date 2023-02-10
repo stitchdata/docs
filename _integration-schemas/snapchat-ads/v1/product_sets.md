@@ -30,14 +30,13 @@ attributes:
   - name: "filter"
     type: "object"
     description: "Filter rule to be applied"
-      subattributes:
+    subattributes:
+      - name: "updated_at"
+        type: "date-time"
+        description: "Latest Date and Time ast which product set was updated"
 
-        - name: "updated_at"
-          type: "date-time"
-          description: "Latest Date and Time ast which product set was updated"
-
-        - name: "created_at"
-          type: "date-time"
-          description: "Date and time at which product set was created"
+      - name: "created_at"
+        type: "date-time"
+        description: "Date and time at which product set was created"
 
 ---

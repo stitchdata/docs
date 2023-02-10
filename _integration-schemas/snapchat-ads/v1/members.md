@@ -19,27 +19,27 @@ attributes:
     type: "string"
     description: "Member's Id"
 
-    - name: "updated_at"
+  - name: "updated_at"
     type: "date-time"
     description: "Latest Date and time at which member details were updated"
 
-    - name: "created_at"
+  - name: "created_at"
     type: "date-time"
     description: "Date and Time at which the member was created"
 
-    - name: "email"
+  - name: "email"
     type: "string"
     description: "Member's EmailId"
 
-    - name: "organization_id"
+  - name: "organization_id"
     type: "string"
     description: "Id of the organization to which the members belongs to"
 
-    - name: "display_name"
+  - name: "display_name"
     type: "string"
     description: "DIsplay name of the member"
 
-    - name: "member_status"
+  - name: "member_status"
     type: "string"
     description: "Name of the Advertiser. Example: INVITED, MEMBER"
 ---

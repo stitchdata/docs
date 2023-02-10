@@ -19,31 +19,31 @@ attributes:
     type: "string"
     description: "Role Id"
 
-    - name: "updated_at"
+  - name: "updated_at"
     type: "date-time"
     description: "Date and time at which the role was updated"
 
-    - name: "created_at"
+  - name: "created_at"
     type: "date-time"
     description: "Date and time at which the role was created"
 
-    - name: "container_kind"
+  - name: "container_kind"
     type: "string"
     description: "Name of the Container to which the role is associated with. Example: AdAccounts, Organizations, Catalogs"
 
-    - name: "container_id"
+  - name: "container_id"
     type: "string"
     description: "Id of the Container."
 
-    - name: "member_id"
+  - name: "member_id"
     type: "string"
     description: "Id of the member"
 
-    - name: "organization_id"
+  - name: "organization_id"
     type: "string"
     description: "Id of the Oranization"
 
-    - name: "type"
+  - name: "type"
     type: "string"
     description: "Different types of the roles. Example: Admin, Creative, General, Reports, Audience"
 ---
