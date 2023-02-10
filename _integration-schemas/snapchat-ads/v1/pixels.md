@@ -19,36 +19,35 @@ attributes:
     type: "string"
     description: "Pixel ID"
 
-    - name: "ad_account_id"
+  - name: "ad_account_id"
     type: "string"
     description: "Ad Account ID"
 
-    - name: "name"
+  - name: "name"
     type: "string"
     description: "Name of the pixel"
 
-    - name: "organization_id"
+  - name: "organization_id"
     type: "string"
     description: "Organization ID"
 
-    - name: "updated_at"
+  - name: "updated_at"
     type: "date-time"
     description: "Date and time at which the pixel was last updated"
 
-    - name: "created_at"
-    type: "object"
-      format: "date-time"
+  - name: "created_at"
+    type: "date-time"
     description: "Date and time at which the pixel was created"
 
-    - name: "status"
+  - name: "status"
     type: "string"
     description: "Status of the pixel. Example: Active, "
 
-    - name: "effective_status"
+  - name: "effective_status"
     type: "string"
     description: ""
 
-    - name: "pixel_javascript"
+  - name: "pixel_javascript"
     type: "string"
     description: "Javascript snippet for the created pixel"
 
@@ -56,6 +55,7 @@ attributes:
     type: "array"
     description: ""
     subattributes:
-    - type: "string"
-      description: ""
+      - name: "items" 
+        type: "string"
+        description: ""
 ---

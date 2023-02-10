@@ -109,11 +109,12 @@ attributes:
       description: "Details about the content types to be included"
       subattributes:
       - name: "content_types"
-        type: "array, null"
+        type: "array"
         description: "List of possible content types"
         subattributes:
-        - type: "string"
-          description: "Content Type"
+          - name: "items" 
+            type: "string"
+            description: "Content Type"
 
 
     - name: "exclusion"
@@ -121,23 +122,24 @@ attributes:
       description: "Details about the content types to be excluded"
       subattributes:
       - name: "content_types"
-        type: "array, null"
+        type: "array"
         description: "List of possible content types"
         subattributes:
-        - type: "string"
-          description: "Content Type"
+          - name: "items" 
+            type: "string"
+            description: "Content Type"
 
   - name: "product_properties"
     type: "object"
     description: "Product Properties to be associated with the Ad Squad"
     subattributes:
       - name: "product_set_id"
-      type: "object"
-      description: "The Product Set ID to be associated with the Ad Squad"
-      subattributes:
-        - name: "catalog_id"
-        type: "string"
-        description: "Catalog ID"
+        type: "object"
+        description: "The Product Set ID to be associated with the Ad Squad"
+        subattributes:
+          - name: "catalog_id"
+            type: "string"
+            description: "Catalog ID"
 
     - name: "catalog_vertical"
       type: "string"
@@ -180,7 +182,7 @@ attributes:
       description: ""
 
     - name: "demographics"
-      type: "array, null"
+      type: "array"
       description: ""
       subattributes:
       - name: "items"
@@ -188,7 +190,7 @@ attributes:
         description: ""
 
     - name: "devices"
-      type: "array, null"
+      type: "array"
       description: ""
       subattributes:
       - name: "items"
@@ -196,7 +198,7 @@ attributes:
         description: ""
 
     - name: "geos"
-      type: "array, null"
+      type: "array"
       description: ""
       subattributes:
       - name: "items"
@@ -204,7 +206,7 @@ attributes:
         description: ""
 
     - name: "interests"
-      type: "array, null"
+      type: "array"
       description: ""
       subattributes:
       - name: "items"
@@ -212,7 +214,7 @@ attributes:
         description: ""
 
     - name: "segments"
-      type: "array, null"
+      type: "array"
       description: ""
       subattributes:
       - name: "items"

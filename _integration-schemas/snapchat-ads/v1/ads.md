@@ -55,8 +55,9 @@ attributes:
     type: "array"
     description: "List of Ad Review Rejection Reasons"
     subattributes:
-    - type: "string"
-      description: ""
+      - name: "items" 
+        type: "string"
+        description: ""
 
 
   - name: "status"

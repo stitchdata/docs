@@ -87,8 +87,9 @@ attributes:
     type: "array"
     description: "Array of Funding Source IDs"
     subattributes:
-    - type: "string"
-      description: "Funding Source ID"
+      - name: "items" 
+        type: "string"
+        description: "Funding Source ID"
 
 
   - name: "id"

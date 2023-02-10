@@ -22,14 +22,13 @@ attributes:
     type: "array"
     description: "List of Pixel IDs and/or the Snap App IDs that reports events for the Catalog"
     subattributes:
-    - name: "id"
-    primary-key: true
-      type: "string"
-      description: "Pixel ID"
+      - name: "id"
+        type: "string"
+        description: "Pixel ID"
 
-    - name: "type"
-      type: "string"
-      description: "Pixel Type"
+      - name: "type"
+        type: "string"
+        description: "Pixel Type"
 
 
   - name: "id"
@@ -37,15 +36,15 @@ attributes:
     type: "string"
     description: "Catalog's Id"
 
-    - name: "source"
+  - name: "source"
     type: "string"
     description: "Indicates the source of Catalog, set automatically on creation"
 
-    - name: "name"
+  - name: "name"
     type: "string"
     description: "Name of the catalog"
 
-    - name: "organization_id"
+  - name: "organization_id"
     type: "string"
     description: "Organization's Id"
 
@@ -53,8 +52,7 @@ attributes:
     type: "date-time"
     description: "latest Date and time at which the catalog was updated"
 
-    - name: "created_at"
-    type: "object"
-      format: "date-time"
+  - name: "created_at"
+    type: "date-time"
     description: "Date and time at which the catalog was created"
 ---

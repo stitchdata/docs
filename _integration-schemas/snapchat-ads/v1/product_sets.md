@@ -19,26 +19,25 @@ attributes:
     type: "string"
     description: "Id of the product set"
 
-    - name: "catalog_id"
+  - name: "catalog_id"
     type: "string"
     description: "Catalog's Id to which the product set belongs to"
 
-    - name: "name"
+  - name: "name"
     type: "string"
     description: "Name of the Product Set"
 
-    - name: "filter"
+  - name: "filter"
     type: "object"
     description: "Filter rule to be applied"
       subattributes:
 
-    - name: "updated_at"
-    type: "date-time"
-    description: "Latest Date and Time ast which product set was updated"
+        - name: "updated_at"
+          type: "date-time"
+          description: "Latest Date and Time ast which product set was updated"
 
-    - name: "created_at"
-    type: "object"
-      format: "date-time"
-    description: "Date and time at which product set was created"
+        - name: "created_at"
+          type: "date-time"
+          description: "Date and time at which product set was created"
 
 ---
