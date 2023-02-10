@@ -17,12 +17,12 @@ attributes:
   - name: "id"
     type: "string"
     description: "Id of the media"
-	primary-key: true
+	  primary-key: true
 
   - name: "updated_at"
     type: "date-time"
     description: "Date and time at which the media was updated"
-	replication-key: true
+	  replication-key: true
 
   - name: "created_at"
     type: "date-time"
@@ -71,18 +71,18 @@ attributes:
   - name: "image_metadata"
     type: "object"
     description: "Metadata of the image uploaded"
-	subattributes:
-	  - name: "height_px"
-		type: "integer"
-		description: "Height of the image in pixels"
+	  subattributes:
+	    - name: "height_px"
+		    type: "integer"
+		    description: "Height of the image in pixels"
 
-	  - name: "width_px"
-		type: "integer"
-		description: "Widht of the image in pixels"
+	    - name: "width_px"
+		    type: "integer"
+		    description: "Widht of the image in pixels"
 
-	  - name: "image_format"
-		type: "string"
-		description: "Format of the image uploaded. Example: PNG, JPG etc.."
+	    - name: "image_format"
+		    type: "string"
+		    description: "Format of the image uploaded. Example: PNG, JPG etc.."
 
   - name: "video_metadata"
     type: "object"
