@@ -26,7 +26,13 @@ Additionally, setting up binlog replication requires rebooting your database to 
 {% include important.html first-line="**Requirements for configuring binlog replication**" content=important %}
 
 {% when 'postgres' %}
+{% capture replica-identity %}
+**Note**: It is recommended to set the `REPLICA IDENTITY` parameter to `FULL` in your source table to capture all changed and unchanged keys in the Write-Ahead Logging. 
+
+You can configure this with the following query: `ALTER TABLE <your_table> REPLICA IDENTITY FULL`.
+{% endcapture %}
 {% include notifications/postgres-binlog-limitations.html %}
+{% include note.html type="single-line" content=replica-identity %}
 {% endcase %}
 
 

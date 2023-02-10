@@ -13,10 +13,10 @@
 # -------------------------- #
 
 title: Intercom (v1)
-permalink: /integrations/saas/intercom
+permalink: /integrations/saas/intercom/v1
 keywords: intercom, integration, schema, etl intercom, intercom etl, intercom schema
 layout: singer
-# input: false
+input: false
 
 key: "intercom-setup"
 
