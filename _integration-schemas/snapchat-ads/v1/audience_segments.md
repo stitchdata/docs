@@ -20,7 +20,7 @@ attributes:
 
   - name: "approximate_number_users"
     type: "integer"
-    description: "Approximate # of users in the segment"
+    description: "Approximate number of users in the segment"
 
   - name: "created_at"
     type: "date-time"
@@ -45,7 +45,7 @@ attributes:
 
   - name: "retention_in_days"
     type: "integer"
-    description: "# of days to retain audience members"
+    description: "Number of days to retain audience members"
 
   - name: "source_type"
     type: "string"

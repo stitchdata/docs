@@ -6,7 +6,7 @@ key: ""
 name: "targeting_device_makes"
 doc-link: https://developers.snapchat.com/api/docs/#device-make
 singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting.json
-description: "This stream retrieves the list of device make targeting options. Please note that specifying a parent level make option like “Apple/” in the targeting spec will include all devices of the kind “Apple/*” like “Apple/iPad (3rd Gen)/”, “Apple/iPhone 4/”, “Apple/iPhone 7 Plus/” etc."
+description: "This stream retrieves the list of device make targeting options. Please note that specifying a parent level make option like `Apple/` in the targeting spec will include all devices of the kind `Apple/*` like `Apple/iPad (3rd Gen)/`, `Apple/iPhone 4/`, `Apple/iPhone 7 Plus/` etc."
 
 replication-method: "Full Table"
 

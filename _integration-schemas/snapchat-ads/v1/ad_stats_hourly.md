@@ -16,7 +16,7 @@ valid-replication-keys: "end_time"
 attributes:
   - name: "android_installs"
     type: "integer"
-    description: "# of Android App Installs"
+    description: "Number of Android App Installs"
 
   - name: "android_installs_app"
     type: "integer"
@@ -32,7 +32,7 @@ attributes:
 
   - name: "attachment_frequency"
     type: "number"
-    description: "Average # of Attachment Views per User Reached"
+    description: "Average number of Attachment Views per User Reached"
 
   - name: "attachment_impressions"
     type: "integer"
@@ -56,7 +56,7 @@ attributes:
 
   - name: "attachment_uniques"
     type: "integer"
-    description: "# of unique attachment impressions"
+    description: "Number of unique attachment impressions"
 
   - name: "attachment_view_completion"
     type: "integer"
@@ -72,7 +72,7 @@ attributes:
 
   - name: "conversion_achievement_unlocked"
     type: "integer"
-    description: "# of attributed “ACHIEVEMENT_UNLOCKED” conversion events"
+    description: "Number of attributed `ACHIEVEMENT_UNLOCKED` conversion events"
 
   - name: "conversion_achievement_unlocked_app"
     type: "integer"
@@ -84,7 +84,7 @@ attributes:
 
   - name: "conversion_ad_click"
     type: "integer"
-    description: "# of attributed “AD_CLICK” conversion events"
+    description: "Number of attributed `AD_CLICK` conversion events"
 
   - name: "conversion_ad_click_app"
     type: "integer"
@@ -96,7 +96,7 @@ attributes:
 
   - name: "conversion_ad_view"
     type: "integer"
-    description: "# of attributed “AD_VIEW” conversion events"
+    description: "Number of attributed `AD_VIEW` conversion events"
 
   - name: "conversion_ad_view_app"
     type: "integer"
@@ -108,7 +108,7 @@ attributes:
 
   - name: "conversion_add_billing"
     type: "integer"
-    description: "# of attributed “ADD_BILLING” conversion events"
+    description: "Number of attributed `ADD_BILLING` conversion events"
 
   - name: "conversion_add_billing_app"
     type: "integer"
@@ -120,7 +120,7 @@ attributes:
 
   - name: "conversion_add_cart"
     type: "integer"
-    description: "# of attributed “ADD_CART” conversion events"
+    description: "Number of attributed `ADD_CART` conversion events"
 
   - name: "conversion_add_cart_app"
     type: "integer"
@@ -132,7 +132,7 @@ attributes:
 
   - name: "conversion_add_to_wishlist"
     type: "integer"
-    description: "# of attributed “ADD_TO_WISHLIST” conversion events"
+    description: "Number of attributed `ADD_TO_WISHLIST` conversion events"
 
   - name: "conversion_add_to_wishlist_app"
     type: "integer"
@@ -144,7 +144,7 @@ attributes:
 
   - name: "conversion_app_opens"
     type: "integer"
-    description: "# of attributed “APP_OPEN” conversion events"
+    description: "Number of attributed `APP_OPEN` conversion events"
 
   - name: "conversion_app_opens_app"
     type: "integer"
@@ -156,7 +156,7 @@ attributes:
 
   - name: "conversion_complete_tutorial"
     type: "integer"
-    description: "# of attributed “COMPLETE_TUTORIAL” conversion events"
+    description: "Number of attributed `COMPLETE_TUTORIAL` conversion events"
 
   - name: "conversion_complete_tutorial_app"
     type: "integer"
@@ -168,7 +168,7 @@ attributes:
 
   - name: "conversion_invite"
     type: "integer"
-    description: "# of attributed “INVITE” conversion events"
+    description: "Number of attributed `INVITE` conversion events"
 
   - name: "conversion_invite_app"
     type: "integer"
@@ -180,7 +180,7 @@ attributes:
 
   - name: "conversion_level_completes"
     type: "integer"
-    description: "# of attributed “LEVEL_COMPLETE” conversion events**"
+    description: "Number of attributed `LEVEL_COMPLETE` conversion events**"
 
   - name: "conversion_level_completes_app"
     type: "integer"
@@ -192,7 +192,7 @@ attributes:
 
   - name: "conversion_list_view"
     type: "integer"
-    description: "# of attributed “LIST_VIEW” conversion events++"
+    description: "Number of attributed `LIST_VIEW` conversion events++"
 
   - name: "conversion_list_view_app"
     type: "integer"
@@ -204,7 +204,7 @@ attributes:
 
   - name: "conversion_login"
     type: "integer"
-    description: "# of attributed “LOGIN” conversion events"
+    description: "Number of attributed `LOGIN` conversion events"
 
   - name: "conversion_login_app"
     type: "integer"
@@ -216,7 +216,7 @@ attributes:
 
   - name: "conversion_page_views"
     type: "integer"
-    description: "# of attributed “PAGE_VIEW” conversion events**"
+    description: "Number of attributed `PAGE_VIEW` conversion events**"
 
   - name: "conversion_page_views_app"
     type: "integer"
@@ -228,7 +228,7 @@ attributes:
 
   - name: "conversion_purchases"
     type: "integer"
-    description: "# of attributed “PURCHASE” conversion events"
+    description: "Number of attributed `PURCHASE` conversion events"
 
   - name: "conversion_purchases_app"
     type: "integer"
@@ -236,7 +236,7 @@ attributes:
 
   - name: "conversion_purchases_value"
     type: "integer"
-    description: "Value of attributed “PURCHASE” conversion events (microcurrency in Ad Account’s currency)"
+    description: "Value of attributed `PURCHASE` conversion events (microcurrency in Ad Account’s currency)"
 
   - name: "conversion_purchases_value_app"
     type: "integer"
@@ -252,7 +252,7 @@ attributes:
 
   - name: "conversion_rate"
     type: "integer"
-    description: "# of attributed “RATE” conversion events"
+    description: "Number of attributed `RATE` conversion events"
 
   - name: "conversion_rate_app"
     type: "integer"
@@ -264,7 +264,7 @@ attributes:
 
   - name: "conversion_reserve"
     type: "integer"
-    description: "# of attributed “CONVERSION_RESERVE” conversion events++"
+    description: "Number of attributed `CONVERSION_RESERVE` conversion events++"
 
   - name: "conversion_reserve_app"
     type: "integer"
@@ -276,7 +276,7 @@ attributes:
 
   - name: "conversion_save"
     type: "integer"
-    description: "# of attributed “SAVE” conversion events"
+    description: "Number of attributed `SAVE` conversion events"
 
   - name: "conversion_save_app"
     type: "integer"
@@ -288,7 +288,7 @@ attributes:
 
   - name: "conversion_searches"
     type: "integer"
-    description: "# of attributed “SEARCH” conversion events"
+    description: "Number of attributed `SEARCH` conversion events"
 
   - name: "conversion_searches_app"
     type: "integer"
@@ -300,7 +300,7 @@ attributes:
 
   - name: "conversion_share"
     type: "integer"
-    description: "# of attributed “CONVERSION_SHARE” conversion events"
+    description: "Number of attributed `CONVERSION_SHARE` conversion events"
 
   - name: "conversion_share_app"
     type: "integer"
@@ -312,7 +312,7 @@ attributes:
 
   - name: "conversion_sign_ups"
     type: "integer"
-    description: "# of attributed “SIGN_UP” conversion events"
+    description: "Number of attributed `SIGN_UP` conversion events"
 
   - name: "conversion_sign_ups_app"
     type: "integer"
@@ -324,7 +324,7 @@ attributes:
 
   - name: "conversion_spend_credits"
     type: "integer"
-    description: "# of attributed "CONVERSION_SPEND_CREDITS" conversion events"
+    description: "Number of attributed `CONVERSION_SPEND_CREDITS` conversion events"
 
   - name: "conversion_spend_credits_app"
     type: "integer"
@@ -336,7 +336,7 @@ attributes:
 
   - name: "conversion_start_checkout"
     type: "integer"
-    description: "# of attributed "START_CHECKOUT" conversion events"
+    description: "Number of attributed `START_CHECKOUT` conversion events"
 
   - name: "conversion_start_checkout_app"
     type: "integer"
@@ -348,7 +348,7 @@ attributes:
 
   - name: "conversion_start_trial"
     type: "integer"
-    description: "# of attributed “CONVERSION_START_TRIAL” conversion events"
+    description: "Number of attributed `CONVERSION_START_TRIAL` conversion events"
 
   - name: "conversion_start_trial_app"
     type: "integer"
@@ -360,7 +360,7 @@ attributes:
 
   - name: "conversion_subscribe"
     type: "integer"
-    description: "# of attributed “SUBSCRIBE” conversion events"
+    description: "Number of attributed `SUBSCRIBE` conversion events"
 
   - name: "conversion_subscribe_app"
     type: "integer"
@@ -372,7 +372,7 @@ attributes:
 
   - name: "conversion_view_content"
     type: "integer"
-    description: "# of attributed “VIEW_CONTENT” conversion events"
+    description: "Number of attributed `VIEW_CONTENT` conversion events"
 
   - name: "conversion_view_content_app"
     type: "integer"
@@ -384,7 +384,7 @@ attributes:
 
   - name: "custom_event_1"
     type: "integer"
-    description: "# of attributed “CUSTOM_EVENT_1” conversion events"
+    description: "Number of attributed `CUSTOM_EVENT_1` conversion events"
 
   - name: "custom_event_1_app"
     type: "integer"
@@ -396,7 +396,7 @@ attributes:
 
   - name: "custom_event_2"
     type: "integer"
-    description: "# of attributed “CUSTOM_EVENT_2” conversion events++"
+    description: "Number of attributed `CUSTOM_EVENT_2` conversion events++"
 
   - name: "custom_event_2_app"
     type: "integer"
@@ -408,7 +408,7 @@ attributes:
 
   - name: "custom_event_3"
     type: "integer"
-    description: "# of attributed “CUSTOM_EVENT_3” conversion events++"
+    description: "Number of attributed `CUSTOM_EVENT_3` conversion events++"
 
   - name: "custom_event_3_app"
     type: "integer"
@@ -420,7 +420,7 @@ attributes:
 
   - name: "custom_event_4"
     type: "integer"
-    description: "# of attributed “CUSTOM_EVENT_4” conversion events++"
+    description: "Number of attributed `CUSTOM_EVENT_4` conversion events++"
 
   - name: "custom_event_4_app"
     type: "integer"
@@ -432,7 +432,7 @@ attributes:
 
   - name: "custom_event_5"
     type: "integer"
-    description: "# of attributed “CUSTOM_EVENT_5” conversion events++"
+    description: "Number of attributed `CUSTOM_EVENT_5` conversion events++"
 
   - name: "custom_event_5_app"
     type: "integer"
@@ -453,7 +453,7 @@ attributes:
 
   - name: "frequency"
     type: "number"
-    description: "Average # of Impressions per User Reached"
+    description: "Average number of Impressions per User Reached"
 
   - name: "granularity"
     type: "string"
@@ -470,7 +470,7 @@ attributes:
 
   - name: "ios_installs"
     type: "integer"
-    description: "# of iOS App Installs"
+    description: "Number of iOS App Installs"
 
   - name: "ios_installs_app"
     type: "integer"
@@ -519,7 +519,7 @@ attributes:
 
   - name: "total_installs"
     type: "integer"
-    description: "Total # of App Installs"
+    description: "Total number of App Installs"
 
   - name: "total_installs_app"
     type: "integer"
@@ -535,7 +535,7 @@ attributes:
 
   - name: "uniques"
     type: "integer"
-    description: "# of unique impressions"
+    description: "Number of unique impressions"
 
   - name: "video_views"
     type: "integer"
