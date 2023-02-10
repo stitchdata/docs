@@ -17,12 +17,12 @@ attributes:
   - name: "id"
     type: "string"
     description: "Id of the media"
-	  primary-key: true
+    primary-key: true
 
   - name: "updated_at"
     type: "date-time"
     description: "Date and time at which the media was updated"
-	  replication-key: true
+    replication-key: true
 
   - name: "created_at"
     type: "date-time"
@@ -42,7 +42,7 @@ attributes:
 
   - name: "media_status"
     type: "string"
-    description: "Status of the meida availability."
+    description: "Status of the media availability."
 
   - name: "file_name"
     type: "string"
