@@ -101,8 +101,11 @@ setup-steps:
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-# starting with 4., add instructions for additional fields in UI. EX:
-# 4. In the [FIELD_NAME] field, [instructions]
+      5. If needed, set the following optional parameters:
+        - **Omit Empty**: Use this parameter to omit records for a given date or entity if there is no data for any of the metrics. The value can be `true` or `false`. The default value is `true`.
+        - **Targeting Country Codes**: Enter a comma-separated list of lowercase two-letter ISO country codes for ads targeting. The default value is `us`.
+        - **Swipe Up Attribution Window**: Enter the attribution window for swipe-ups. The value can be `1_DAY`, `7_DAY`, or `28_DAY`. The default value is `28_DAY`.
+        - **View Attribution Window**: Enter the attribution window for views. The value can be `1_HOUR`, `3_HOUR`, `6_HOUR`, `1_DAY`, `7_DAY`, or `28_DAY`. The default value is `1_DAY`.
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
