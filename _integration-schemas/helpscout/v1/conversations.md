@@ -85,6 +85,10 @@ attributes:
         type: "string"
         description: "The email that was CC'd on the conversation."
 
+  - name: "closed_at"
+    type: "date-time"
+    description: "The UTC time when the conversation was closed."
+
   - name: "closed_by"
     type: "integer"
     description: "The ID of the {{ integration.display_name }} user that closed the conversation."
