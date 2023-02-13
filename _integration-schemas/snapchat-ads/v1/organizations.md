@@ -108,4 +108,5 @@ attributes:
   - name: "updated_at"
     type: "date-time"
     description: "Date of last updated"
+    replication-key: true
 ---

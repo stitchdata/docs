@@ -62,6 +62,7 @@ attributes:
   - name: "updated_at"
     type: "date-time"
     description: "Date of last update"
+    replication-key: true
 
   - name: "upload_status"
     type: "string"

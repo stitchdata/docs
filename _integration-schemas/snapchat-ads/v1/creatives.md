@@ -135,6 +135,7 @@ attributes:
   - name: "updated_at"
     type: "date-time"
     description: "Date of last updated"
+    replication-key: true
 
   - name: "web_view_properties"
     type: "object"

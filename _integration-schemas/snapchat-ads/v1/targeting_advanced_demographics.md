@@ -3,7 +3,7 @@ tap: "snapchat-ads"
 version: "1"
 key: ""
 
-name: "targeting_advanced_demmographics"
+name: "targeting_advanced_demographics"
 doc-link: https://developers.snapchat.com/api/docs/#demographics-advanced-demographics
 singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/shared/targeting.json
 description: "This stream retrieves the list of Advanced Demographics targeting options"

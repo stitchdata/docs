@@ -233,4 +233,5 @@ attributes:
   - name: "updated_at"
     type: "date-time"
     description: "Date and Time at which AD squad was last updated"
+    replication-key: true
 ---

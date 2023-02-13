@@ -62,4 +62,5 @@ attributes:
   - name: "updated_at"
     type: "date-time"
     description: "Date and Time at which the billing center was last updated"
+    replication-key: true
 ---

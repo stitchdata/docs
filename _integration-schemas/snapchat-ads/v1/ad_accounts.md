@@ -138,4 +138,5 @@ attributes:
   - name: "updated_at"
     type: "date-time"
     description: "Date and Time at which Ad Account was last updated"
+    replication-key: true
 ---

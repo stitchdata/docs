@@ -34,6 +34,7 @@ attributes:
   - name: "updated_at"
     type: "date-time"
     description: "Date and time at which the pixel was last updated"
+    replication-key: true
 
   - name: "created_at"
     type: "date-time"

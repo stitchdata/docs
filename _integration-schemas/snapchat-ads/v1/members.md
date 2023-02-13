@@ -22,6 +22,7 @@ attributes:
   - name: "updated_at"
     type: "date-time"
     description: "Latest Date and time at which member details were updated"
+    replication-key: true
 
   - name: "created_at"
     type: "date-time"

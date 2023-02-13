@@ -50,7 +50,8 @@ attributes:
 
   - name: "updated_at"
     type: "date-time"
-    description: "latest Date and time at which the catalog was updated"
+    description: "Latest date and time at which the catalog was updated"
+    replication-key: true
 
   - name: "created_at"
     type: "date-time"
