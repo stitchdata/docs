@@ -596,9 +596,8 @@ attributes:
     description: ""
 
   - name: "completed_at"
-    type: "string"
+    type: "date-time"
     description: ""
-    format: date-time
 
   - name: "completed_by"
     type: "object"
