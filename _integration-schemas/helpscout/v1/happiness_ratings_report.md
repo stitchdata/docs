@@ -4,9 +4,13 @@ version: "1"
 key: ""
 
 name: "happiness_ratings_report"
-doc-link: https://developer.helpscout.com/mailbox-api/endpoints/reports/happiness/reports-happiness-ratings/
+doc-link: ""
 singer-schema: https://github.com/singer-io/tap-helpscout/tree/master/tap_helpscout/schemas/happiness_ratings_report.json
 description: "The happiness ratings report provides a company’s ratings for a specified time range."
+
+api-method:
+    name: "Happiness ratings report"
+    doc-link: "https://developer.helpscout.com/mailbox-api/endpoints/reports/happiness/reports-happiness-ratings/"
 
 replication-method: "Full Table"
 

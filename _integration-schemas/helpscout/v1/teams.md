@@ -4,11 +4,15 @@ version: "1"
 key: ""
 
 name: "teams"
-doc-link: https://developer.helpscout.com/mailbox-api/endpoints/teams/list-teams/
+doc-link: ""
 singer-schema: https://github.com/singer-io/tap-helpscout/tree/master/tap_helpscout/schemas/teams.json
 description: "This report contains information about all the different teams in the company."
 
 replication-method: "Key-based Incremental"
+
+api-method:
+    name: "List teams"
+    doc-link: "https://developer.helpscout.com/mailbox-api/endpoints/teams/list-teams/"
 
 table-key-properties: "id"
 valid-replication-keys: "updated_at"
