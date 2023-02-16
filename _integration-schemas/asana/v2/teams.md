@@ -16,54 +16,68 @@ api-method:
     doc-link: "https://developers.asana.com/docs/get-teams-for-a-user"
 
 attributes:
-  - name: "gid"
-    type: "string"
-    primary-key: true
-    description: "The team GID."
-    #foreign-key-id: "team-id"
-
   - name: "description"
     type: "string"
     description: ""
-  
+
+  - name: "gid"
+    type: "string"
+    description: ""
+    primary-key: true
+
   - name: "html_description"
     type: "string"
     description: ""
+
   - name: "name"
     type: "string"
     description: ""
+
   - name: "organization"
     type: "object"
     description: ""
     subattributes:
-      - name: "gid"
-        type: "string"
-        description: "The workspace'S GID."
-        foreign-key-id: "workspace-id"
-      - name: "name"
-        type: "string"
-        description: ""
-      - name: "resource_type"
-        type: "string"
-        description: ""
+    - name: "gid"
+      type: "string"
+      description: ""
+
+    - name: "resource_type"
+      type: "string"
+      description: ""
+
+    - name: "name"
+      type: "string"
+      description: ""
+
+
   - name: "permalink_url"
     type: "string"
     description: ""
+
   - name: "resource_type"
     type: "string"
     description: ""
+
   - name: "users"
     type: "array"
     description: ""
     subattributes:
-      - name: "gid"
-        type: "string"
-        description: "The user's GID."
-        foreign-key-id: "user-id"
-      - name: "name"
-        type: "string"
-        description: ""
-      - name: "resource_type"
-        type: "string"
-        description: ""
+    - name: "gid"
+      type: "string"
+      description: ""
+
+    - name: "resource_type"
+      type: "string"
+      description: ""
+
+    - name: "name"
+      type: "string"
+      description: ""
+
+
+  - name: "visibility"
+    type: "string"
+    description: ""
+
+
 ---

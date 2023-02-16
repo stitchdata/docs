@@ -16,48 +16,57 @@ api-method:
     doc-link: "https://developers.asana.com/docs/get-sections-in-a-project"
 
 attributes:
-  - name: "gid"
-    type: "string"
-    primary-key: true
-    description: "The section GID."
-    foreign-key-id: "section-id"
 
   - name: "created_at"
     type: "date-time"
     description: ""
-  
+
+  - name: "gid"
+    type: "string"
+    description: ""
+    primary-key: true
+
   - name: "name"
     type: "string"
     description: ""
+
   - name: "project"
     type: "object"
     description: ""
     subattributes:
-      - name: "gid"
-        type: "string"
-        description: "The project's GID."
-        foreign-key-id: "project-id"
-      - name: "name"
-        type: "string"
-        description: ""
-      - name: "resource_type"
-        type: "string"
-        description: ""
+    - name: "gid"
+      type: "string"
+      description: ""
+
+    - name: "resource_type"
+      type: "string"
+      description: ""
+
+    - name: "name"
+      type: "string"
+      description: ""
+
+
   - name: "projects"
     type: "array"
     description: ""
     subattributes:
-      - name: "gid"
-        type: "string"
-        description: "The project's GID."
-        foreign-key-id: "project-id"
-      - name: "name"
-        type: "string"
-        description: ""
-      - name: "resource_type"
-        type: "string"
-        description: ""
+    - name: "gid"
+      type: "string"
+      description: ""
+
+    - name: "resource_type"
+      type: "string"
+      description: ""
+
+    - name: "name"
+      type: "string"
+      description: ""
+
+
   - name: "resource_type"
     type: "string"
     description: ""
+
+
 ---
