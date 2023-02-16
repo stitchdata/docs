@@ -26,25 +26,21 @@ attributes:
     type: "object"
     description: "Associations represent the relationships between objects and activities in the HubSpot CRM"
     subattributes:
-      - name: "companies"
-        type: "object"
-        description: "Companies store information about the organizations that interact with your business"
+    - name: "companies"
+      type: "object"
+      description: "Companies store information about the organizations that interact with your business"
+      subattributes:
+      - name: "results"
+        type: "array"
+        description: "Array of objects"
         subattributes:
-          - name: "results"
-            type: "array"
-            description: "Array of objects"
-            subattributes:
-			  - name: "items"
-		        type: "object"
-			    description: ""
-			    subattributes:
-                  - name: "id"
-                    type: "string"
-                    description: "The ID of the record to associate"
+        - name: "id"
+          type: "string"
+          description: "The ID of the record to associate"
 
-                  - name: "type"
-                    type: "string"
-                    description: "Tickets association with companies. Eg - ticket_to_company, ticket_to_company_unlabeled"
+        - name: "type"
+          type: "string"
+          description: "Tickets association with companies. Eg - ticket_to_company, ticket_to_company_unlabeled"
 
 
 
@@ -52,41 +48,38 @@ attributes:
       type: "object"
       description: "Deals represent transactions with contacts or companies"
       subattributes:
-        - name: "results"
-          type: "array"
-          description: "Array of objects"
-          subattributes:
-		    - name: "items"
-		      type: "object"
-			  description: ""
-			  subattributes:
-                - name: "id"
-                  type: "string"
-                  description: "The ID of the record to associate"
+      - name: "results"
+        type: "array"
+        description: "Array of objects"
+        subattributes:
+        - name: "id"
+          type: "string"
+          description: "The ID of the record to associate"
 
-                - name: "type"
-                  type: "string"
-                  description: "Tickets association with deals. Eg - ticket_to_deal"
+        - name: "type"
+          type: "string"
+          description: "Tickets association with deals. Eg - ticket_to_deal"
+
+
 
     - name: "contacts"
       type: "object"
       description: "Contacts store information about the individual people that interact with your business"
       subattributes:
-        - name: "results"
-          type: "array"
-          description: "Array of objects"
-          subattributes:
-		    - name: "items"
-		      type: "object"
-			  description: ""
-			  subattributes:
-                - name: "id"
-                  type: "string"
-                  description: "The ID of the record to associate"
+      - name: "results"
+        type: "array"
+        description: "Array of objects"
+        subattributes:
+        - name: "id"
+          type: "string"
+          description: "The ID of the record to associate"
 
-                - name: "type"
-                  type: "string"
-                  description: "Tickets association with cotacts. Eg - ticket_to_contact"
+        - name: "type"
+          type: "string"
+          description: "Tickets association with cotacts. Eg - ticket_to_contact"
+
+
+
 
   - name: "createdAt"
     type: "date-time"
@@ -95,50 +88,52 @@ attributes:
   - name: "id"
     type: "string"
     description: "The unique identifier for the ticket"
-	primary-key: true
 
   - name: "properties"
     type: "object"
     description: "Ticket details are stored in ticket properties."
     subattributes:
-      - name: "content"
-        type: "string"
-        description: "Content for ticket"
+    - name: "content"
+      type: "string"
+      description: "Content for ticket"
 
-      - name: "createdate"
-        type: "date-time"
-        description: "The date the ticket was created"
+    - name: "createdate"
+      type: "date-time"
+      description: "The date the ticket was created"
 
-      - name: "hs_lastmodifieddate"
-        type: "date-time"
-        description: "Last modified date for the record"
+    - name: "hs_lastmodifieddate"
+      type: "date-time"
+      description: "Last modified date for the record"
 
-      - name: "hs_object_id"
-        type: "string"
-        description: "Stores information about customer requests for help or support."
+    - name: "hs_object_id"
+      type: "string"
+      description: "Stores information about customer requests for help or support."
 
-      - name: "hs_pipeline"
-        type: "string"
-        description: "A pipeline is where deal stages or or ticket statuses are set"
+    - name: "hs_pipeline"
+      type: "string"
+      description: "A pipeline is where deal stages or or ticket statuses are set"
 
-      - name: "hs_pipeline_stage"
-        type: "string"
-        description: "The ticket's status"
+    - name: "hs_pipeline_stage"
+      type: "string"
+      description: "The ticket's status"
 
-      - name: "hs_ticket_category"
-        type: "string"
-        description: "Category of the ticket"
+    - name: "hs_ticket_category"
+      type: "string"
+      description: "Category of the ticket"
 
-      - name: "hs_ticket_priority"
-        type: "string"
-        description: "Priority of the ticket"
+    - name: "hs_ticket_priority"
+      type: "string"
+      description: "Priority of the ticket"
 
-      - name: "subject"
-        type: "string"
-        description: "The ticket's name"
+    - name: "subject"
+      type: "string"
+      description: "The ticket's name"
+
 
   - name: "updatedAt"
     type: "date-time"
     description: "Last modified date for the record"
-	replication-key: true
+
+
+
 ---
