@@ -1,5 +1,5 @@
 ---
-title: "Hubspot (v2) update: New tickets stream"
+title: "HubSpot (v2) update: New tickets stream"
 content-type: "changelog-entry"
 date: 2023-02-16
 entry-type: new-feature

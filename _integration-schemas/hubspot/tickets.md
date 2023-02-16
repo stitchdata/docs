@@ -30,21 +30,21 @@ attributes:
         type: "object"
         description: "Companies store information about the organizations that interact with your business"
         subattributes:
-        - name: "results"
-          type: "array"
-          description: "Array of objects"
-          subattributes:
-		    - name: "items"
-		      type: "object"
-			  description: ""
-			  subattributes:
-                - name: "id"
-                  type: "string"
-                  description: "The ID of the record to associate"
+          - name: "results"
+            type: "array"
+            description: "Array of objects"
+            subattributes:
+		      - name: "items"
+		        type: "object"
+			    description: ""
+			    subattributes:
+                  - name: "id"
+                    type: "string"
+                    description: "The ID of the record to associate"
 
-                - name: "type"
-                  type: "string"
-                  description: "Tickets association with companies. Eg - ticket_to_company, ticket_to_company_unlabeled"
+                  - name: "type"
+                    type: "string"
+                    description: "Tickets association with companies. Eg - ticket_to_company, ticket_to_company_unlabeled"
 
 
 
@@ -72,21 +72,21 @@ attributes:
       type: "object"
       description: "Contacts store information about the individual people that interact with your business"
       subattributes:
-      - name: "results"
-        type: "array"
-        description: "Array of objects"
-        subattributes:
-		  - name: "items"
-		    type: "object"
-			description: ""
-			subattributes:
-              - name: "id"
-                type: "string"
-                description: "The ID of the record to associate"
+        - name: "results"
+          type: "array"
+          description: "Array of objects"
+          subattributes:
+		    - name: "items"
+		      type: "object"
+			  description: ""
+			  subattributes:
+                - name: "id"
+                  type: "string"
+                  description: "The ID of the record to associate"
 
-              - name: "type"
-                type: "string"
-                description: "Tickets association with cotacts. Eg - ticket_to_contact"
+                - name: "type"
+                  type: "string"
+                  description: "Tickets association with cotacts. Eg - ticket_to_contact"
 
   - name: "createdAt"
     type: "date-time"
@@ -113,29 +113,29 @@ attributes:
         type: "date-time"
         description: "Last modified date for the record"
 
-    - name: "hs_object_id"
-      type: "string"
-      description: "Stores information about customer requests for help or support."
+      - name: "hs_object_id"
+        type: "string"
+        description: "Stores information about customer requests for help or support."
 
-    - name: "hs_pipeline"
-      type: "string"
-      description: "A pipeline is where deal stages or or ticket statuses are set"
+      - name: "hs_pipeline"
+        type: "string"
+        description: "A pipeline is where deal stages or or ticket statuses are set"
 
-    - name: "hs_pipeline_stage"
-      type: "string"
-      description: "The ticket's status"
+      - name: "hs_pipeline_stage"
+        type: "string"
+        description: "The ticket's status"
 
-    - name: "hs_ticket_category"
-      type: "string"
-      description: "Category of the ticket"
+      - name: "hs_ticket_category"
+        type: "string"
+        description: "Category of the ticket"
 
-    - name: "hs_ticket_priority"
-      type: "string"
-      description: "Priority of the ticket"
+      - name: "hs_ticket_priority"
+        type: "string"
+        description: "Priority of the ticket"
 
-    - name: "subject"
-      type: "string"
-      description: "The ticket's name"
+      - name: "subject"
+        type: "string"
+        description: "The ticket's name"
 
   - name: "updatedAt"
     type: "date-time"
