@@ -88,6 +88,7 @@ attributes:
   - name: "id"
     type: "string"
     description: "The unique identifier for the ticket"
+    primary-key: true
 
   - name: "properties"
     type: "object"
@@ -133,6 +134,7 @@ attributes:
   - name: "updatedAt"
     type: "date-time"
     description: "Last modified date for the record"
+    replication-key: true
 
 
 
