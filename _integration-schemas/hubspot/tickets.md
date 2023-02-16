@@ -34,7 +34,7 @@ attributes:
             type: "array"
             description: "Array of objects"
             subattributes:
-		      - name: "items"
+			  - name: "items"
 		        type: "object"
 			    description: ""
 			    subattributes:
