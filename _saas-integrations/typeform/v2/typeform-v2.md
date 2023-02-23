@@ -87,7 +87,9 @@ setup-steps:
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      4. In the **API Token** field, paste the {{ integration.display_name }} API token you generated in [Step 1](#generate-{{ integration.name }}-api-token).
+      5. In the **Forms** field, enter a comma-separated list of the form IDs you retrieved in [Step 2](#retrieve-{{ integration.name }}-form-ids). For example:
+         - **Single form**: `FrZ6iD`
+         - **Multiple forms**: `FrZ6iD,f8nzFM`
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
