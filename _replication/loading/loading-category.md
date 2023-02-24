@@ -79,8 +79,8 @@ sections:
         url: "{{ link.replication.append-only-querying }}"
         weight: 4
 
-      - title: "Querying Historical Tables"
-        url: "{{ link.replication.historical-querying }}"
+      - title: "Querying History Mode Tables"
+        url: "{{ link.replication.history-mode-querying }}"
         weight: 5
     content: |
       Resources and tutorials for interacting with data loaded by Stitch into your destination.

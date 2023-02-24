@@ -80,7 +80,7 @@ sections:
 
           - **Upsert**: {{ site.data.tooltips.upsert }}
           - **Append-Only**: {{ site.data.tooltips.append-only }}
-          - **Historical**: {{ site.data.tooltips.historical }}
+          - **History Mode**: {{ site.data.tooltips.history-mode }}
 
           The table below lists the default loading behavior for each destination and whether it can be configured.
 

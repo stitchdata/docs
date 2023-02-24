@@ -8,7 +8,7 @@ The last step is to define how Stitch will handle changes to existing records in
 
 - **Upsert**: Existing rows will be updated with the most recent version of the record from the source. With this option, only the most recent version of a record will exist in {{ destination.display_name }}. 
 
-- **Historical**: Newer versions of existing records are added as new rows to the end of tables. Each time a new version of a record is added, the `_sdc_end_date` column is updated in the previous version of the same record to indicate that it is no longer the most recent version.
+- **History Mode**: Newer versions of existing records are added as new rows to the end of tables. Each time a new version of a record is added, the `_sdc_end_date` column is updated in the previous version of the same record to indicate that it is no longer the most recent version.
 
 Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info and examples.
 

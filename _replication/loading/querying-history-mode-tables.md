@@ -3,12 +3,12 @@
 #          PAGE INFO         #
 # -------------------------- #
 
-title: Querying Historical Tables
-permalink: /replication/loading/querying-historical-tables
+title: Querying History Mode Tables
+permalink: /replication/loading/querying-history-mode-tables
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery, historical
-summary: "Learn how Historical Loading works and how to account for it in your queries."
+summary: "Learn how History mode works and how to account for it in your queries."
 
-key: "historical-querying"
+key: "history-mode-querying"
 type: ""
 
 layout: general
@@ -23,12 +23,12 @@ content-type: "guide"
 
 intro: |
   {% capture note %}
-  - [Destinations configured to use Historical Loading]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl | append:"#reference--destinations-loading-behavior" }})
+  - [Destinations configured to use History mode]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl | append:"#reference--destinations-loading-behavior" }})
   {% endcapture %}
 
   {% include note.html first-line="**This guide is applicable to:**" content=note %}
 
-  When data is loaded using [Historical Loading]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl | append:"#reference--destinations-loading-behavior" }}), records are appended to the end of the table as new rows. Only the `_sdc_end_date` column is updated in existing rows, to indicate when a new version was added. Multiple versions of a row can exist in a table, creating a log of how a record has changed over time.
+  When data is loaded using [History mode]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl | append:"#reference--destinations-loading-behavior" }}), records are appended to the end of the table as new rows. Only the `_sdc_end_date` column is updated in existing rows, to indicate when a new version was added. Multiple versions of a row can exist in a table, creating a log of how a record has changed over time.
 
   In this guide, we'll cover:
 

@@ -58,10 +58,10 @@ sections:
         content: |
           {{ site.data.tooltips.append-only }}
 
-      - title: "Historical"
-        anchor: "loading-behavior-types--historical"
+      - title: "History Mode"
+        anchor: "loading-behavior-types--history-mode"
         content: |
-          When data is loaded using the Historical behavior, records are appended to the end of the table as new rows.
+          When data is loaded using the History mode, records are appended to the end of the table as new rows.
 
           When a record is added, the `_sdc_start_date` column is set to the loading date, and the `sdc_end_date` column is set to `9999-12-31` (UTC time). 
           When a new verson of the same record is added, the `_sdc_end_date` value of the previous version is updated to the loading date of the new version. 
@@ -101,10 +101,10 @@ sections:
           - The data doesn't have defined Primary Keys in the source **or** destination, **or**
           - The integration or table is pre-configured to use Append-Only loading
 
-      - title: "Historical loading"
-        anchor: "historical-conditions"
+      - title: "History mode"
+        anchor: "history-mode-conditions"
         content: |
-          Historical loading is only used when the destination is configured to use Historical loading.
+          History mode is only used when the destination is configured to use History mode.
 
   - title: "Examples"
     anchor: "examples"
@@ -148,11 +148,11 @@ sections:
 
           {% include layout/image.html enlarge=true file="/replication/append-only-no-primary-key.png" alt="Click to enlarge: Append-Only loading as a result of no defined Primary Keys" %}
 
-      - title: "Historical loading example"
-        anchor: "example--historical-loading"
-        summary: "Historical loading"
+      - title: "History mode example"
+        anchor: "example--history-mode-loading"
+        summary: "History mode"
         content: |
-          In this example, the destination is configured to use Historical loading. The `id` column is the table's Primary Key.
+          In this example, the destination is configured to use History mode. The `id` column is the table's Primary Key.
 
           The following record is added to the destination table in a first replication job. The `_sdc_end_date` column is set to `9999-12-31` to indicate that this is the latest version of this record:
 

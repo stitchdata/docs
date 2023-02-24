@@ -197,7 +197,7 @@ steps:
       - title: "Define loading behavior"
         anchor: "define-loading-behavior"
         content: |
-          {% include destinations/historical-mode.html %}
+          {% include destinations/history-mode.html %}
 
       - title: "Save the destination"
         anchor: "save-destination"
