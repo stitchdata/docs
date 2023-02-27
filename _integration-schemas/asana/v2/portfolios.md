@@ -57,6 +57,22 @@ attributes:
     type: "date-time"
     description: ""
 
+  - name: "created_by"
+    type: "object"
+    description: ""
+    subattributes:
+    - name: "gid"
+      type: "string"
+      description: ""
+
+    - name: "resource_type"
+      type: "string"
+      description: ""
+
+    - name: "name"
+      type: "string"
+      description: ""
+
   - name: "created_from_template"
     type: "object"
     description: ""
@@ -586,6 +602,22 @@ attributes:
   - name: "permalink_url"
     type: "string"
     description: ""
+
+  - name: "portfolio_items"
+    type: "array"
+    description: ""
+    subattributes:
+    - name: "gid"
+      type: "string"
+      description: ""
+
+    - name: "resource_type"
+      type: "string"
+      description: ""
+
+    - name: "name"
+      type: "string"
+      description: ""
 
   - name: "project_brief"
     type: "object"
