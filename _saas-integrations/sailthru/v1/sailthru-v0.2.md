@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Sailthru (v0.2)
+title: Sailthru (v1)
 permalink: /integrations/saas/sailthru ## Add if there are multiple versions: /vVERSION
 keywords: sailthru, integration, schema, etl sailthru, sailthru etl, sailthru schema
 layout: singer
@@ -34,7 +34,7 @@ status-url: "https://status.sailthru.com/#!/"
 tap-name: "Sailthru" ## Ex: Intercom, not intercom
 repo-url: https://github.com/singer-io/tap-sailthru
 
-this-version: "0.2"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} API](https://getstarted.sailthru.com/developers/api-basics/introduction/){:target="new"}
