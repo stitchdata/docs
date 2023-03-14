@@ -1,9 +1,6 @@
-# -------------------------- #
-#      Page & Formatting     #
-# -------------------------- #
-
-title: Iterable (v1)
-permalink: /integrations/saas/iterable
+---
+title: Iterable Core (v1)
+permalink: /integrations/saas/iterable-core
 keywords: iterable, integration, schema, etl iterable, iterable etl, iterable schema
 layout: singer
 # input: false
@@ -15,7 +12,7 @@ key: "iterable-setup"
 #         Tap Details        #
 # -------------------------- #
 
-name: "iterable"
+name: "iterable-core"
 display_name: "Iterable"
 
 singer: true
@@ -71,7 +68,7 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      You must be an **org admin** or a user with API and Webhook configuration permissions in your {{ integration.display_name }} account.
+      You must be an **org admin** or a user with **API and Webhook configuration permissions** in your {{ integration.display_name }} account.
 
 setup-steps:
   - title: "Generate an {{ integration.display_name }} API key"

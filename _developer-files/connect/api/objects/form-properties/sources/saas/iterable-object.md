@@ -27,7 +27,7 @@ api-type: "platform.iterable"
 display-name: "Iterable"
 
 source-type: "saas"
-docs-name: "iterable" # This should be whatever integration.name is. Ex: LinkedIn Ads is linkedin-ads
+docs-name: "iterable-core" # This should be whatever integration.name is. Ex: LinkedIn Ads is linkedin-ads
 
 property-description: ""
 ## Used to create a description for the object that doesn't adhere to the standard in _developers/connect/api/documentation/api-form-properties.html

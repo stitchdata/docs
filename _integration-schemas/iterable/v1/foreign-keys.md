@@ -7,7 +7,7 @@
 ## https://docs-about-stitch-docs.netlify.com/reference/integration-templates/saas-foreign-keys/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
-tap-reference: "iterable"
+tap-reference: "iterable-core"
 
 version: "1"
 

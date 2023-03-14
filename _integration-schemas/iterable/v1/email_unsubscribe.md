@@ -1,5 +1,5 @@
 ---
-tap: "iterable"
+tap: "iterable-core"
 version: "1"
 key: ""
 
