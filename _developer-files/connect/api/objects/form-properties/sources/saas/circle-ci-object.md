@@ -50,13 +50,13 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      Your project slugs. This is a space-separated list. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | prepend: site.baseurl | append: #create-your-project-slugs }}) for instructions on how to create a project slug.
+      Your project slugs. This is a space-separated list. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | prepend: site.baseurl | append: "#create-your-project-slugs" }}) for instructions on how to create a project slug.
     value: "<PROJECT_TYPE>/<ORG_NAME>/<REPO_NAME>"
 
   - name: "token"
     type: "string"
     required: true
     description: |
-      The {{ form-property.display-name }} API token. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | prepend: site.baseurl | append: #create-api-token }}) for instructions on how to create a one.
+      The {{ form-property.display-name }} API token. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | prepend: site.baseurl | append: "#create-api-token" }}) for instructions on how to create a one.
     value: "<API_TOKEN>"  
 ---
