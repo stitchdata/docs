@@ -86,7 +86,7 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Iterable API Key** field, paste the API key you copied in [step 1](#generate-api-key).
-      5. In the **Window in Days** field, enter a value. This should be set to an optimal value so that historical syncs are completed on time, as setting this value too low may result in historical syncs running for very long time. Setting this value too high could cause the integration to timeout and send `out of memory` errors due to large data flow. This parameter can be reduced to a value as low as 1 day for before syncing latest/recent data.
+      5. In the **API Window in Days** field, enter a value. This parameter should be set to an optimum value to improve historical sync performance. Setting this value too low will take longer to complete historical sync and setting it larger may result in request timeouts or memory overflow issues..
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
