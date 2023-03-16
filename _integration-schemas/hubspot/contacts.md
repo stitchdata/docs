@@ -1,37 +1,41 @@
 ---
 tap: "hubspot"
 version: "2"
+key: "contact"
 
 name: "contacts"
 doc-link: https://developers.hubspot.com/docs/methods/contacts/contacts-overview
 singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/contacts.json
 description: |
-  The `{{ table.name }}` table contains info about individual contacts in HubSpot.
+  The `{{ table.name }}` table contains info about individual contacts in {{ integration.display_name }}.
 
   ### Contact properties
 
   If properties have been set for the contact, additional fields beginning with `properties__` will be included in the table. **Note**: Contacts will only have an entry for a property if that property has been set for the contact's record.
 
-  HubSpot always types the value of `properties` fields as `STRING` despite the property type. [Refer to HubSpot's documentation for more info](https://developers.hubspot.com/docs/methods/contacts/contacts-overview).
+  {{ integration.display_name }} always types the value of `properties` fields as `STRING` despite the property type. [Refer to HubSpot's documentation for more info](https://developers.hubspot.com/docs/methods/contacts/contacts-overview){:target="new"}.
 
 replication-method: "Key-based Incremental"
+replication-key:
+  name: "versionTimestamp"
+
 api-method:
   name: "Get contacts"
   doc-link: https://developers.hubspot.com/docs/methods/contacts/get_contacts
 
 attributes:
-  - name: "canonical-vid"
+  - name: "vid"
     type: "integer"
     primary-key: true
+    description: "The internal ID of the contact."
+
+  - name: "canonical-vid"
+    type: "integer"
     description: |
       The canonical ID of the contact. In {{ integration.display_name }}, contacts may have multiple vids, but the `canonical-vid` will be the primary ID for a contact. 
       
       **Note**: When a contact is merged into another contact, the parent contact is updated with the child contact's vid added to its `merged-vids` list.  The child contact is not updated, however, so to fully account for merged contacts, canonical-vids that appear in the `merged-vids` list should be filtered out.
     foreign-key-id: "contact-id"
-
-  - name: "vid"
-    type: "integer"
-    description: "The internal ID of the contact."
 
   - name: "merged-vids"
     type: "array"

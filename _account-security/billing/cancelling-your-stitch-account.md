@@ -6,9 +6,10 @@ keywords: billing, plan, change plan, cancel, canceling account, account
 summary: "If you decide Stitch isn't for you, here's what you need to do to cancel your account."
 
 toc: false
+key: "cancel-account"
 
-type: "billing"
-weight: 3
+type: "billing, manage-your-account"
+weight: 100
 ---
 {% include misc/data-files.html %}
 

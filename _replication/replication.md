@@ -43,7 +43,8 @@ sections:
 
   - id: "replication-methods"
     name: "Replication Methods"
-    description: "Replication Methods define the approach Stitch takes when extracting data from a source during a replication job."
+    description: |
+      Replication Methods define the approach Stitch takes when [extracting data](https://www.stitchdata.com/resources/what-is-data-extraction/){:target="new"} from a source during a replication job.
 
   - id: "replication-keys"
     name: "Replication Keys"
@@ -68,7 +69,7 @@ sections:
 
 ## {{ section.name }} {#{{ section.id | append: "-section" }}}
 
-{{ section.description }}
+{{ section.description | flatify }}
 
 {% for doc in all-section-docs %}
 #### [{{ doc.title }}]({{ doc.url | prepend: site.baseurl }})

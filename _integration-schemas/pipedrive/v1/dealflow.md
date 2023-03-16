@@ -9,7 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-pipedrive/blob/master/tap_piped
 description: |
   The `{{ table.name }}` table contains info about the updates made to a deal.
 
-replication-method: ""
+replication-method: "Key-based Incremental"
 
 api-method:
   name: "List updates about a deal"

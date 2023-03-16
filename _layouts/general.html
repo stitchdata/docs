@@ -4,8 +4,8 @@ layout: page
 {% include misc/data-files.html %}
 
 
-<!-- This only runs for destination and integration pgaes.
-    The include assigns a different page variable, and displays the correc
+<!-- This only runs for destination and integration pages.
+    The include assigns a different page variable, and displays the correct
     beta notice when applicable. -->
     {% if page.permalink contains "destinations" or "integrations" %}
         {% include layout/destination-integration-variable-assignment.html %}

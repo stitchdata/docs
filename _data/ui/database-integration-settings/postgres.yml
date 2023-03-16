@@ -8,20 +8,10 @@
 ## Depending on the provider of the database (ex: RDS), some field names
 ## or values will vary. See the lists below for specifics.
 
-## NOTE: 'defaults' is a variable assigned to this file: 
-## /_data/ui/database-integration-settings/default-fields.yml
-
 
 field-names:
   schema-names-tables: &schema-names-tables-name "Include PostgreSQL schema names in destination tables"
 
-descriptions:
-  schema-names-tables: &schema-names-tables-description |
-    Checking this setting will include schema names from the source database in the destination table name - for example: `<source_schema_name>__<table_name>`.
-
-          Stitch loads all selected replicated tables to a single schema, preserving only the table name. If two tables canonicalize to the same name - even if they're in different source databases or schemas - name collision errors can arise. Checking this setting can prevent these issues. 
-
-          **Note**: This setting can not be changed after the integration is saved. Additionally, this setting may create table names that exceed your destination's limits. For more info, refer to the [Database Integration Table Name Collisions guide]({{ link.troubleshooting.database-table-name-collisions | prepend: site.baseurl }}).
 
 # -------------------------- #
 #      VANILLA POSTGRES      #
@@ -29,40 +19,39 @@ descriptions:
 
 postgres:
   - &integration-name
-    name: "{{ defaults.field-names.integration-name }}"
+    name: "{{ site.data.ui.common.database-connections.field-names.integration-name }}"
     version: "all"
-    copy: "{{ defaults.field-copy.integration-name | flatify }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.integration-name | flatify }}"
 
   - &host
-    name: "{{ defaults.field-names.host }}"
+    name: "{{ site.data.ui.common.database-connections.field-names.host }}"
     version: "all"
-    copy: "{{ defaults.field-copy.host | flatify }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.host | flatify }}"
 
   - &port
-    name: "{{ defaults.field-names.port }}"
+    name: "{{ site.data.ui.common.database-connections.field-names.port }}"
     version: "all"
-    copy: "{{ defaults.field-copy.port | flatify }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.port | flatify }}"
 
   - &username
-    name: "{{ defaults.field-names.username }}"
+    name: "{{ site.data.ui.common.database-connections.field-names.username }}"
     version: "all"
-    copy: "{{ defaults.field-copy.username | flatify }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.username | flatify }}"
 
   - &password
-    name: "{{ defaults.field-names.password }}"
+    name: "{{ site.data.ui.common.database-connections.field-names.password }}"
     version: "all"
-    copy: "{{ defaults.field-copy.password | flatify }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.password | flatify }}"
 
   - &database
-    name: "{{ defaults.field-names.database }}"
+    name: "{{ site.data.ui.common.database-connections.field-names.database }}"
     version: "all"
-    copy: "{{ defaults.field-copy.database | flatify }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.database | flatify }}"
 
   - &schema-name
     name: *schema-names-tables-name
-    version: "1"
-    copy: *schema-names-tables-description
-
+    version: "1,2"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.schema-names-tables | flatify }}"
 
 # -------------------------- #
 #      CLOUDSQL POSTGRES     #
@@ -70,10 +59,10 @@ postgres:
 
 cloudsql-postgres:
   - *integration-name
-  - name: "{{ defaults.field-names.host }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.host }}"
     version: "all"
     copy: |
-      {{ defaults.field-copy.host-cloudsql | flatify | replace:"[STEP]","[Step 3.1](#locate-database-connection-details)" }}
+      {{ site.data.ui.common.database-connections.field-copy.host-cloudsql | flatify | replace:"[STEP]","the [previous step](#locate-database-connection-details)" }}
   - *port
   - *username
   - *password
@@ -87,17 +76,17 @@ cloudsql-postgres:
 
 heroku:
   - *integration-name
-  - name: "{{ defaults.field-names.host }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.host }}"
     version: "all"
     copy: "Paste the **Host** address from the {{ integration.display_name }} Database Settings page into this field."
   - *port
-  - name: "{{ defaults.field-names.username }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.username }}"
     version: "all"
     copy: "Paste the **User** name from the {{ integration.display_name }} Database Settings page into this field."
-  - name: "{{ defaults.field-names.password }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.password }}"
     version: "all"
     copy: "Paste the **Password** from the {{ integration.display_name }} Database Settings page into this field."
-  - name: "{{ defaults.field-names.database }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.database }}"
     version: "all"
     copy: "Paste the **Database** name from the {{ integration.display_name }} Database Settings page into this field."
   - *schema-name
@@ -109,9 +98,9 @@ heroku:
 
 postgresql-rds: &rds-fields
   - *integration-name
-  - name: "{{ defaults.field-names.host }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.host }}"
     version: "all"
-    copy: "{{ defaults.field-copy.host-rds | flatify }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.host-rds | flatify }}"
   - *port
   - *username
   - *password

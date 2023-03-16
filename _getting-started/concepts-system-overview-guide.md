@@ -116,7 +116,7 @@ sections:
             content: |
               An integration is a data source. This can be a database, API, file, or other data application that Stitch replicates data from, such as MySQL, Google Analytics, or Amazon S3.
 
-              During your free trial, all of Stitch's integrations are accessible. After the trial ends, some integrations - such as Oracle or Google Analytics 360 - are only available if you enter into an [Enterprise plan]({{ link.account.enterprise-features | prepend: site.baseurl }}).
+              During your free trial, all of Stitch's integrations are accessible. After the trial ends, some integrations - such as Oracle or Google Analytics 360 - are only available if you enter into an [{{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan]({{ link.account.enterprise-features | prepend: site.baseurl }}).
 
               Refer to the [Integration]({{ site.baseurl }}/integrations) documentation for more info on each of Stitch's integrations, such as what data is available or what features are supported.
 
@@ -266,7 +266,15 @@ sections:
     content: |
       Now that you understand the basics of Stitch and how data replication works, let's take a look at the internal workings of the Stitch system.
 
+      Stitch's replication process consists of three phases:
+
+      {% for subsection in section.subsections %}
+      1. [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %} 
+
       {% include layout/image.html type="inline" file="/system-architecture.png" enlarge=true %}
+
+      **Note**: This process is the same regardless of your account's [data pipeline region]({{ link.security.supported-operating-regions | prepend: site.baseurl }}).
 
     subsections:
       - title: "Extract"
@@ -356,7 +364,7 @@ sections:
           - title: "Step 6: Your destination"
             anchor: "system-architecture--destination"
             content: |
-              Data is finally loaded into your destination! For each integration, Stitch will create a schema (or dataset, or folder, depending on your destination) and load that integration's data into it. Refer to the [Understanding integration schema structures guide]({{ link.destinations.storage.stitch-schema | prepend: site.baseurl }}) for info on how schemas will be structured.
+              Data is finally loaded into your destination! For each integration, Stitch will create a schema (or dataset, or folder, or database, depending on your destination) and load that integration's data into it. Refer to the [Understanding integration schema structures guide]({{ link.destinations.storage.stitch-schema | prepend: site.baseurl }}) for info on how schemas will be structured.
 
               At this point, you can use an [analysis tool]({{ site.baseurl }}/analysis-tools) to interact with your data.
 

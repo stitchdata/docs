@@ -2,10 +2,12 @@
 title: Panoply Connection Issues
 keywords: troubleshooting, destination, trouble, issue, help, error, errors, panoply
 permalink: /troubleshooting/destinations/panoply-connection-issues
-tags: [troubleshooting_destinations, troubleshooting_errors]
 
 summary: "If you’re having trouble with setting up or connecting to your Panoply data warehouse in Stitch, try these troubleshooting steps before reaching out to support."
 type: "panoply-destination, connection, error"
+
+key: "panoply-issues"
+
 category: "connection-errors"
 promote: "false"
 ---

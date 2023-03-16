@@ -59,7 +59,6 @@ attributes:
       - name: "avatarUrls"
         type: "object"
         description: "The URLs associated with the avatars used by the {{ description-type }}."
-        anchor-id: 1
         subattributes:
           - name: "16x16"
             type: "string"
@@ -166,7 +165,6 @@ attributes:
       - name: "avatarUrls"
         type: "object"
         description: "The URLs associated with the avatars used by the {{ description-type }}."
-        anchor-id: 2
         subattributes:
           - name: "16x16"
             type: "string"

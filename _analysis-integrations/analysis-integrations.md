@@ -9,13 +9,11 @@ redirect_from: /analysis-integrations/
 keywords: analysis, analysis integration, analytics, analyze stitch data, layer, analysis tool, visualization tool, sql, query stitch data
 summary: "Stitch gives you the ability to consolidate and optimize your data, but if you want to do some exploring, you’ll need an additional visualization or middleware tool."
 
+key: "analysis-tools"
+
 layout: general
 toc: true
 feedback: false
-
-level: "category"
-
-key: "analysis-tools"
 
 
 # -------------------------- #
@@ -23,6 +21,8 @@ key: "analysis-tools"
 # -------------------------- #
 
 ## Used to display info on the home page as a category tile
+
+level: "category"
 
 icon: "analytics"
 display-title: "Analysis tools"
@@ -246,6 +246,9 @@ compatibility-list:
     google-bigquery:
       link-copy: "Supported"
       link-url: "https://documentation.sisense.com/latest/managing-data/connectors/bigquerylive.htm"
+    microsoft-azure:
+      link-copy: "Supported"
+      link-url: "https://www.sisense.com/data-connectors/azure-synapse/"
     postgresql:
       link-copy: "Supported"
       link-url: "https://documentation.sisense.com/latest/managing-data/connectors/postgresql-live.htm"

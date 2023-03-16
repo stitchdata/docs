@@ -40,6 +40,8 @@ ssl: true
 
 this-version: "1"
 
+api-type: "dataworld"
+
 # -------------------------- #
 #        Introduction        #
 # -------------------------- #
@@ -71,9 +73,10 @@ steps:
     anchor: "authorize-with-data-world"
     content: |
       Next, you'll be asked to authorize Stitch to access your {{ destination.display_name }} account. Stitch will request permission to perform the following:
-         - **Access your profile information**: This is required to identify and connect to your account.
-         - **Read datasets and projects**: This is required to load replicated data into your destination.
-         - **Write to datasets and projects**: This is required to load replicated data into your destination.
+      
+      - **Access your profile information**: This is required to identify and connect to your account.
+      - **Read datasets and projects**: This is required to load replicated data into your destination.
+      - **Write to datasets and projects**: This is required to load replicated data into your destination.
       
       Click **Authorize Stitch**.
 

@@ -21,7 +21,7 @@ repo-url: https://github.com/singer-io/tap-shopify
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} REST Admin API (v2019-07)](https://shopify.dev/docs/admin-api/rest/reference){:target="new"}
+  [{{ integration.display_name }} REST Admin API (v2022-07)](https://shopify.dev/docs/admin-api/rest/reference){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -57,7 +57,7 @@ row-usage-hog-reasons:
 # -------------------------- #
 #      Feature Summary       #
 # -------------------------- #
-
+ 
 feature-summary: |
   Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
@@ -66,12 +66,31 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
+requirements-list:
+  - item: |
+      **Admin access in {{ integration.display_name }}**. This is required to allow Stitch to replicate data.
+
+      **Note: If you're on a {{ integration.display_name }} Plus plan**, the permissions required may differ. Store owners can grant users permissions to export orders, draft orders, products, inventory, and customer data. In general, **view-level** permissions should be sufficient.
+      
+      Refer to the [{{ integration.display_name }} Staff permissions documentation](https://help.shopify.com/en/manual/your-account/staff-accounts/staff-permissions#store-owner-permissions){:target="new"} for more information.
+  
 setup-steps:
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Shopify Shop** field, enter the name of the shop you want to connect to Stitch. For example: If the shop URL was `stitch-data.shopify.com`, you'd enter `stitch-data` into this field. 
-  - title: "historical sync"
-  - title: "replication frequency"
+
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
   - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
     content: |
@@ -79,7 +98,11 @@ setup-steps:
       2. Click **Log in**.
       3. After the authorization process is successfully completed, you'll be directed back to Stitch.
       4. Click {{ app.buttons.finish-int-setup }}.
-  - title: "track data"
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Replication Details    #

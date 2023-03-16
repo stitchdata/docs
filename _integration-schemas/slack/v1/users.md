@@ -71,6 +71,14 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "profile"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "email"
+        type: "string"
+        description: ""
+
   - name: "real_name"
     type: "string"
     description: ""

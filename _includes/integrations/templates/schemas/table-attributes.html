@@ -51,21 +51,24 @@
 	                        {% endif %}
 
 	                        {% if attribute.subattributes %}
-	                        	{% case attribute.type %}
-									{% when 'object' %}
+	                        	{% if attribute.type %}
+									{% if attribute.type == 'object' %}
 										{% capture nested-data-note %}
 											attributes in this object will be flattened into the table.
 										{% endcapture %}
 
-									{% when 'array' %}
+									{% elsif attribute.type == 'array' %}
 										{% capture nested-data-note %}
 											attributes will be denested into a subtable.
 										{% endcapture %}
-								{% endcase %}
+									{% endif %}
+								
 
 								{% capture nested-data-tooltip %}This is a nested data structure. If your destination doesn't natively support nested data, {{ nested-data-note | strip }} <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}' target='new'>Learn more</a>.{% endcapture %}
 
 								{{ plus-icon | replace:"TOOLTIP",nested-data-tooltip }}
+
+								{% endif %}
 	                        {% endif %}
 	                        <br>
 		                    {{ attribute.type | upcase }}
@@ -84,18 +87,17 @@
                 	file for an example) -->
 
 					{% if attribute.subattributes %}
-						{% if attribute.anchor-id %}
-							{% capture attribute-id %}{{ forloop.index | plus: attribute.anchor-id | random_number }}{% endcapture %}{% else %}{% capture attribute-id %}{{ forloop.index }}{% endcapture %}{% endif %}
+						{% capture attribute-id %}{% increment counter %}{% endcapture %}
 
 						{% assign full-id = table.name | append: "--" | append: attribute.name | append: "--" | append: attribute-id %}
 
-						<div class="panel-group" id="{{ full-id }}">
+						<div class="panel-group" id="{{ full-id | slugify }}">
 						    <div class="panel panel-table-subattributes">
 						        <div class="panel-table-subattribute-heading">
-						            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id | strip }}" href="#collapse{{ full-id }}">Click to expand {{ attribute.name }}</a>
+						            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id | slugify | strip }}" href="#collapse{{ full-id | slugify }}">Click to expand {{ attribute.name }}</a>
 						        </div>
 
-						        <div id="collapse{{ full-id | strip }}" class="panel-collapse collapse noCrossRef">
+						        <div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
 									{% include integrations/templates/schemas/table-attributes.html table=attribute.subattributes %}
 								</div>
 								<span class="table-subattribute-label">

@@ -48,6 +48,9 @@ loading-reports: true
 
 table-selection: false
 column-selection: false
+select-all: false
+select-all-reason: |
+  As this integration doesn't support table or column selection, all available tables and columns are automatically replicated.
 
 
 # -------------------------- #
@@ -73,11 +76,21 @@ setup-steps:
       5. Locate your **Client ID**.
 
       Keep this page open - you'll need it to complete the next step.
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Campaign Monitor Client ID** field, paste your {{ integration.display_name }} client ID.
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
   - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
     content: |

@@ -57,7 +57,7 @@ databases:
   - type: "mssql"
     display-name: "Microsoft SQL Server"
 
-  - type: "mongo"
+  - type: "mongodb"
     display-name: "MongoDB"
 
   - type: "mysql"
@@ -88,7 +88,7 @@ hard-deletes:
   icon: |
     {{ sometimes-supported | replace:"TOOLTIP","Sometimes supported" }}
   destination: |
-    Record will have a timestamp value in the `{{ system-column.deleted-at }}` column.
+    Record will remain in the destination. The `{{ system-column.deleted-at }}` column will be populated with a timestamp value and all columns except for the Primary Key will be overwritten.
 
     **Note**: Only deletes completed as part of a [supported event type]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation--database-event-types" }}) will be captured.
 

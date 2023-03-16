@@ -21,6 +21,7 @@ tap-name: "Postgres"
 repo-url: "https://github.com/singer-io/tap-postgres"
 
 this-version: "1"
+override-version-status: "released"
 
 driver: |
   [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}
@@ -38,6 +39,8 @@ db-type: "postgres"
 
 ## Stitch features
 api-type: "platform.heroku_pg"
+override-api-type: true
+
 versions: "9.3+"
 ssh: false
 ssl: true
@@ -52,11 +55,16 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+select-all: false
+select-all-reason: |
+  {{ integration.display_name }} integrations don't currently support a default Replication Method, which is required to use the Select All feature. The default Replication Method setting is only available for integrations that support Log-based Incremental Replication.
+
 table-level-reset: true
 
 ## Replication methods
 
 define-replication-methods: true
+set-default-replication-method: false
 
 log-based-replication-minimum-version: "n/a"
 log-based-replication-master-instance: false
@@ -119,7 +127,7 @@ setup-steps:
   - title: "Select data to replicate"
     anchor: "sync-data"
     content: |
-      {% include integrations/databases/setup/syncing.html %}
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

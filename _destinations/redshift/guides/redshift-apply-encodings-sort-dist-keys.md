@@ -28,8 +28,10 @@ intro: |
   {% include important.html type="single-line" content="The process we outline in this tutorial - which includes dropping tables - can lead to data corruption and other issues if done incorrectly. **Proceed with caution or reach out to Stitch support if you have questions.**" %}
 
   Want to improve your query performance? In this guide, we’ll walk you through how to use encoding, SORT, and DIST (distribution) keys to streamline query processing.
+  
+  **Note**: Redshift supports automatic table optimization to improve querying performance by using `ALTER` statements and then defining automation for either DIST or SORT keys. This feature is not supported for encodings. For more information on how to set this up in Redshift, refer to the [AWS documentation](https://docs.aws.amazon.com/redshift/latest/dg/t_Creating_tables.html){:target="new"}. If you prefer to apply SORT and DIST keys manually, continue using this guide.
 
-  Before we dive into their application, here's a quick overview of each of these performance enhancing tools.
+  Before we dive into their application, here's a quick overview of each of these performance enhancing tools:
 
   - **Encodings**, or [compression types](http://docs.aws.amazon.com/redshift/latest/dg/t_Compressing_data_on_disk.html), are used to reduce the amount of required storage space and the size of data that’s read from storage. This in turn can lead to a reduction in processing time for queries.
 
@@ -42,7 +44,6 @@ intro: |
   1. **Optimizing for every single query isn’t possible.** We suggest selecting the most important queries and selecting SORT/DIST keys that will improve the performance of those queries.
   2. **Columns with few unique values aren’t good SORT keys**. Because SORT Keys store records together based on similar values, selecting a column with few unique values as the SORT key will heavily skew the data. This will lead to an increase in query processing time.
   3. **Tables using Full Table Replication aren’t good candidates for this process** Due to the nature of [Full Table Replication]({{ link.replication.full-table | prepend: site.baseurl }}), encodings, SORT, and DIST keys in these tables may be overwritten during the replication attempts that follow application.
-
 
 
 # -------------------------- #
@@ -88,7 +89,6 @@ steps:
 
       - Apply SORT and DIST keys to the `id` column
       - Apply a `bytedict` encoding to the `rep_name` column
-
 
   - title: "Create a table copy and redefine the schema"
     anchor: "create-table-copy"

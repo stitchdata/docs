@@ -18,9 +18,9 @@ date-time: |
   The date and time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} when the [ITEM] was [ACTION].
 
 attributes:
-  # - name: "admin_graphql_api_id"
-  #   type: "string"
-  #   description: ""
+  - name: "admin_graphql_api_id"
+    type: "string"
+    description: ""
 
   - name: "id"
     type: "integer"
@@ -37,6 +37,39 @@ attributes:
   - name: "note"
     type: "string"
     description: "An optional note attached to a refund."
+  
+  - name: "order_adjustments"
+    type: "array"
+    description: "A list of order adjustments attached to the refund."
+    subattributes:
+      - name: "order_id"
+        type: "integer"
+        description: "The unique identifier for the order that the order adjustment is associated with."
+
+      - name: "tax_amount"
+        type: "string"
+        description: "The taxes that are added to the amount."
+
+      - name: "refund_id"
+        type: "integer"
+        description: "The unique identifier for the refund that the order adjustment is associated with."
+
+      - name: "amount"
+        type: "string"
+        description: "The value of the discrepancy between the calculated refund and the actual refund."
+
+      - name: "kind"
+        type: "string"
+        description: "The order adjustment type."
+
+      - name: "id"
+        type: "integer"
+        description: "The unique identifier for the order adjustment."
+
+      - name: "reason"
+        type: "string"
+        description: "The reason for the order adjustment."
+
 
   - name: "order_id"
     type: "integer"
@@ -84,7 +117,6 @@ attributes:
                   - name: "presentment_money"
                     type: "object"
                     description: "Details about the presentment amount associated with the line item."
-                    anchor-id: 1
                     subattributes: &presentment-money
                       - name: "amount"
                         type: "string"
@@ -98,7 +130,6 @@ attributes:
                   - name: "shop_money"
                     type: "object"
                     description: "Details about the shop amount associated with the line item."
-                    anchor-id: 2
                     subattributes: &shop-money
                       - name: "amount"
                         type: "string"
@@ -156,13 +187,11 @@ attributes:
               - name: "presentment_money"
                 type: "object"
                 description: "Details about the presentment amount associated with the pre-tax price."
-                anchor-id: 2
                 subattributes: *presentment-money
 
               - name: "shop_money"
                 type: "object"
                 description: "Details about the shop amount associated with the pre-tax price."
-                anchor-id: 2
                 subattributes: *shop-money
 
           - name: "price"
@@ -176,13 +205,11 @@ attributes:
               - name: "presentment_money"
                 type: "object"
                 description: "Details about the presentment amount associated with the price."
-                anchor-id: 3
                 subattributes: *presentment-money
 
               - name: "shop_money"
                 type: "object"
                 description: "Details about the shop amount associated with the price."
-                anchor-id: 3
                 subattributes: *shop-money
 
           - name: "product_exists"
@@ -233,13 +260,11 @@ attributes:
                   - name: "presentment_money"
                     type: "object"
                     description: "Details about the presentment amount associated with the tax line price."
-                    anchor-id: 4
                     subattributes: *presentment-money
 
                   - name: "shop_money"
                     type: "object"
                     description: "Details about the shop amount associated with the tax line price."
-                    anchor-id: 4
                     subattributes: *shop-money
 
               - name: "rate"
@@ -269,13 +294,11 @@ attributes:
               - name: "presentment_money"
                 type: "object"
                 description: "Details about the presentment amount associated with the total discount."
-                anchor-id: 5
                 subattributes: *presentment-money
 
               - name: "shop_money"
                 type: "object"
                 description: "Details about the shop amount associated with the total discount."
-                anchor-id: 5
                 subattributes: *shop-money
 
           - name: "variant_id"
@@ -328,13 +351,11 @@ attributes:
           - name: "presentment_money"
             type: "object"
             description: "Details about the presentment amount associated with the subtotal."
-            anchor-id: 6
             subattributes: *presentment-money
 
           - name: "shop_money"
             type: "object"
             description: "Details about the shop amount associated with the subtotal."
-            anchor-id: 6
             subattributes: *shop-money
 
       - name: "total_tax"
@@ -348,13 +369,11 @@ attributes:
           - name: "presentment_money"
             type: "object"
             description: "Details about the presentment amount associated with the total tax."
-            anchor-id: 7
             subattributes: *presentment-money
 
           - name: "shop_money"
             type: "object"
             description: "Details about the shop amount associated with the total tax."
-            anchor-id: 7
             subattributes: *shop-money
 
   - name: "restock"
@@ -364,4 +383,9 @@ attributes:
   - name: "user_id"
     type: "integer"
     description: "The ID of the user who performed the refund."
+  
+  - name: "transactions"
+    type: "array"
+    description: "A list of transactions involved in the refund. It can contain all the elements present in the [transactions](#transactions) schema."
+
 ---

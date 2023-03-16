@@ -39,11 +39,19 @@ arguments:
     example-value: |
       post_load
 
+  - name: "destination_id"
+    required: true
+    type: "integer"
+    description: "The Stitch destination that will trigger the hook notification."
+    example-value: |
+      12345
+
   - name: "config"
     required: true
     type: "object"
     description: "The configuration details of the hook."
     subattributes:
+
       - name: "url"
         required: true
         type: "string"
@@ -67,11 +75,12 @@ returns: |
 examples:
   - type: "Request"
     request-url: "{{ endpoint.short-url | flatify | strip_newlines }}"
-    header: "{{ site.data.connect.request-headers.put.with-body | flatify }}"
+    header: "{{ site.data.connect.request-headers.post.with-body | flatify }}"
     code: |
       '{
          "type":"post_load",
-         "config":{  
+         "destination_id": 12345,  
+         "config":{
             "url":"https://hooks.zapier.com/hooks/catch/some/webhook/id"
          }
        }'
@@ -83,6 +92,7 @@ examples:
         "client_id": 116078,
         "type": "post_load",
         "version": 1,
+        "destination_id": 12345
         "config": {
           "url": "https://hooks.zapier.com/hooks/catch/some/webhook/id"
         },

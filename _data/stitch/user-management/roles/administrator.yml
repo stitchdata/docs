@@ -1,0 +1,71 @@
+# -------------------------- #
+#     ADMINISTRATOR ROLE     #
+# -------------------------- #  
+
+name: "Administrator"
+
+description: |
+  {% capture administrator-name %}{{ site.data.stitch.user-management.roles.administrator.name }}{% endcapture %}
+  {% capture invoice-admin-name %}{{ site.data.stitch.user-management.roles.invoice-admin.name }}{% endcapture %}
+
+  The {{ administrator-name }} is the user responsible for ensuring the Stitch account is set up as needed and is therefore the ultimate owner of the Stitch account. They have total control over every possible action a user can take on Stitch. They also have some exclusive privileges that no other role has.
+
+  **Note**: If the {{ administrator-name }} initially entered payment info for the account, they will also have {{ invoice-admin-name }} permissions.
+
+
+# -------------------------- #
+#      ROLE PERMISSIONS      #
+# -------------------------- #
+
+## Permission data lives in: _data/stitch/user-management/permissions
+
+general: 
+  - id: "modify-company-settings"
+  - id: "update-your-email-address"
+  - id: "reset-your-password"
+  - id: "enable-single-sign-on"
+  - id: "manage-single-sign-on"
+
+billing:
+  - id: "manage-payment-info"
+  - id: "manage-plan-details"
+  - id: "view-invoices"
+  - id: "cancel-account"
+
+team-members:
+  - id: "invite-users"
+  - id: "deactivate-users"
+  - id: "reactivate-users"
+
+api:
+  - id: "manage-api-keys"
+  - id: "manage-partner-keys"
+  - id: "connect-api-usage"
+
+notifications:
+  - id: "dismiss-account-notifications"
+  - id: "manage-custom-notification-list"
+  - id: "manage-notification-content"
+  - id: "manage-post-load-hooks"
+
+destinations:
+  - id: "add-destination"
+  - id: "modify-destination"
+  - id: "change-destination"
+  - id: "delete-destination"
+
+integrations:
+  - id: "add-integrations"
+  - id: "modify-integrations"
+  - id: "pause-integrations"
+  - id: "delete-integrations"
+
+replication:
+  - id: "manage-data-selection"
+  - id: "modify-replication-schedules"
+  - id: "manage-table-settings"
+  - id: "reset-tables"
+  - id: "reset-integrations"
+  - id: "manage-extraction-jobs"
+  - id: "view-extraction-logs"
+  - id: "view-loading-reports"

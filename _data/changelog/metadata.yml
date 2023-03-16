@@ -1,0 +1,28 @@
+archive-entry: |
+  {% assign entry-anchor = item.date | date: "%F" | append: "-" | append: item.title | slugify %}
+
+  [{{ item.title }}]({{ link.changelog.main | prepend: site.baseurl | append: "#" | append: entry-anchor }})
+  <br>
+  {{ item.date | date: "%B %e, %Y" }}
+
+archive-button: |
+  <a href="{{ item-link }}">
+    <button type="button" class="btn btn-primary btn-sm">{{ item-display-text | upcase }}</button>
+  </a>
+
+single-integration: |
+  {% assign connections = site.saas-integrations | concat: site.database-integrations | concat: site.webhook-integrations | where:"name",entry.connection-id %}
+  {% assign this-connection = connections | where:"this-version",entry.connection-version | first %}
+
+integration-list: |
+  {% for connection in entry.connections %}
+
+  {% assign connections = site.saas-integrations | concat: site.database-integrations | concat: site.webhook-integrations | where:"name",connection.id %}
+  {% assign this-connection = connections | where:"this-version",connection.version | first %}
+
+  - [{{ this-connection.display_name }} (v{{ this-connection.this-version }})]({{ this-connection.url | prepend: site.baseurl | prepend: site.home }}){% if connection.copy %}: {{ connection.copy | flatify }}{% endif %} 
+  {% endfor %}
+
+single-destination: |
+  {% assign connections = site.destinations | where:"type",entry.connection-id %}
+  {% assign this-connection = connections | where:"this-version",entry.connection-version | first %}

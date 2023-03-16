@@ -45,13 +45,13 @@ this-version: "2"
 # -------------------------- #
 
 intro: |
-  {% capture account-creation %}
-  The email address you used to sign into Stitch will be used to create your Panoply data warehouse.
+  {% capture region-note %}
+  {% assign north-america-region = site.data.stitch.regions | where:"id","north-america" | first %}
 
-  Additionally, Stitch is in no way involved with the management of Panoply data warehouses. If you have billing questions or need help regarding your Panoply destination, [reach out to Panoply]({{ site.data.destinations[destination.type]resource-links.main-site }}){:target="new"}.
+  Using this process will create a {{ destination.display_name }} destination in the `{{ north-america-region.region }}` region. To use a different region, use the [Connecting an existing {{ destination.display_name }} destination to Stitch]({{ link.destinations.setup.panoply-ex | prepend: site.baseurl }}) guide.
   {% endcapture %}
 
-  {% include note.html first-line="**Panoply account creation and management**" content=account-creation %}
+  {% include important.html type="single-line" content=region-note %}
 
 
 # -------------------------- #
@@ -62,15 +62,18 @@ steps:
   - title: "Create a {{ destination.display_name }} account"
     anchor: "create-panoply-account"
     content: |
-      1. Click the {{ app.menu-paths.destination-settings }}.
-      2. Click the **Panoply.io** icon.
-      3. A page explaining what’s included in a Panoply account will display. Click the **Create an Account** button.
-      4. Click the **Create My Account** button when a pop-up explaining the use of your email address displays.
+      {% include note.html type="single-line" content="**Note**: The email address you used to sign into Stitch will be used to create your Panoply destination." %}
 
-  - title: "Wrap up and save your Panoply credentials"
+      1. [Sign into your Stitch account]({{ site.sign-in }}){:target="new"}.
+      2. Click the {{ app.menu-paths.destination-settings }}.
+      3. Click the **Panoply.io** icon.
+      4. A page explaining what’s included in a {{ destination.display_name }} account will display. Click the **Create an Account** button.
+      5. Click the **Create My Account** button when a pop-up explaining the use of your email address displays.
+
+  - title: "Wrap up and save your {{ destination.display_name }} credentials"
     anchor: "wrap-up-save-credentials"
     content: |
-      It may take a few minutes, but after your Panoply destination is successfully created, the Panoply connection info will display in Stitch:
+      It may take a few minutes, but after your {{ destination.display_name }} destination is successfully created, the {{ destination.display_name }} connection info will display in Stitch:
       
       ![Panoply connection information.]({{ site.baseurl }}/images/destinations/panoply-connection-info.png)
       
@@ -78,10 +81,10 @@ steps:
       
       After you’ve copied your password, click the **View Your Dashboard** button to wrap things up.
 
-      The Panoply destination connection settings will automatically populate in the {{ app.page-names.dw-settings }} page. If you need to update the settings at any point, click the {{ app.menu-paths.destination-settings }}.
+      The {{ destination.display_name }} destination connection settings will automatically populate in the {{ app.page-names.dw-settings }} page. If you need to update the settings at any point, click the {{ app.menu-paths.destination-settings }}.
 
 next-steps: |
-  After the account is created, you can manage your Panoply settings by signing into [Panoply]({{ site.data.destinations[destination.type]resource-links.main-site }}){:target="new"}.
+  After the account is created, you can manage your {{ destination.display_name }} settings by signing into [{{ destination.display_name }}]({{ site.data.destinations[destination.type]resource-links.main-site }}){:target="new"}.
 ---
 {% include misc/data-files.html %}
 {% assign destination = panoply %}

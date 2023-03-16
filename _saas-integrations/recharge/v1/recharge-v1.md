@@ -12,11 +12,11 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: ReCharge
-permalink: /integrations/saas/recharge
+title: Recharge (v1)
+permalink: /integrations/saas/recharge/v1
 keywords: recharge, integration, schema, etl recharge, recharge etl, recharge schema
 layout: singer
-# input: false
+input: false
 
 key: "recharge-setup"
 
@@ -26,7 +26,7 @@ key: "recharge-setup"
 # -------------------------- #
 
 name: "recharge"
-display_name: "ReCharge"
+display_name: "Recharge"
 
 singer: true
 status-url: ""
@@ -37,14 +37,14 @@ repo-url: https://github.com/singer-io/tap-recharge
 this-version: "1"
 
 api: |
-  [ReCharge Payments API](https://developer.rechargepayments.com/){:target="new"}
+  [Recharge Payments API](https://developer.rechargepayments.com/){:target="new"}
 
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-certified: false
+certified: true
 
 api-type: "platform.recharge"
 
@@ -111,12 +111,25 @@ setup-steps:
           - In the **Permission** section, select the `Read Access` scope for each permission.
       6. Click **Save** to create the Access Token.    
          {% include layout/image.html file="/integrations/recharge-access-token.png" alt="The API key creation page." enlarge=true max-width="550" %}
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Access Token** field, enter the access token you obtained in the [previous step](#obtain-access-token).
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

@@ -49,7 +49,7 @@
     v1: &varchar-storage |
       {{ destination.display_name }} will default to using the maximum length: `VARCHAR(16777216)`
 
-      **Note**: `VARCHAR` columns only consume storage for the actual amount of stored data. This means that for a 1-character string in a `{{ destination-reference.data-limit-info.strings.max-width }}` column, the storage used is equivalent to one character.
+      **Note**: `VARCHAR` columns only consume storage for the actual amount of stored data. This means that for a 1-character string in a `VARCHAR(16777216)` column, the storage used is equivalent to one character.
 
       For more info on full-length `VARCHAR` declarations and performance in {{ destination.display_name }}, refer to [{{ destination.display_name }}'s documentation](https://docs.{{ destination.display_name }}.net/manuals/sql-reference/data-types-text.html#varchar){:target="_blank"}.
 

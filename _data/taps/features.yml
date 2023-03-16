@@ -28,10 +28,10 @@ supported-icon: &supported-icon |
 
 boolean-field-value-logic: &boolean-field-value-logic |
   {% case integration[attribute.name] %}
-  {% when true %}
-  {{ site.data.taps.features.supported-icon | flatify }}
-  {% when false %}
-  {{ site.data.taps.features.unsupported-icon | flatify }}
+    {% when true %}
+      {{ site.data.taps.features.supported-icon | flatify }}
+    {% when false %}
+      {{ site.data.taps.features.unsupported-icon | flatify }}
   {% endcase %}
 
 unsupported-icon: &unsupported-icon |
@@ -39,10 +39,10 @@ unsupported-icon: &unsupported-icon |
 
 unsupported-tooltip-logic: &unsupported-tooltip-logic |
   {% case integration[attribute.name] %}
-  {% when true %}
-  {{ site.data.taps.features.supported-icon | flatify }}
-  {% else %}
-  {{ not-supported | replace:"TOOLTIP",attribute.unsupported-tooltip[include.feature-type] }} Unsupported
+    {% when true %}
+      {{ site.data.taps.features.supported-icon | flatify }}
+    {% else %}
+      {{ not-supported | replace:"TOOLTIP",attribute.unsupported-tooltip[include.feature-type] }} Unsupported
   {% endcase %}
 
 # -------------------------- #
@@ -52,31 +52,34 @@ unsupported-tooltip-logic: &unsupported-tooltip-logic |
 release-status: &release-status
   display-name: "Release status"
   name: "status"
+  doc-link: "{{ link.integrations.identify-integration-version | prepend: site.baseurl }}"
   field-value: |
+    {% assign version-statuses = site.data.stitch.version-statuses %}
+
     {% if include.feature-type == "webhooks" %}
-    {{ integration.status }}
+      {{ integration.status }}
 
     {% else %}
-    {% case include.type %}
-    {% when 'integration-snapshot' %}
-    {% assign version-variable = this-version %}
+      {% case include.type %}
+        {% when 'integration-snapshot' %}
+          {% assign version-variable = this-version %}
 
-    {% when 'version-comparison' %}
-    {% assign version-variable = version %}
-    {% endcase %}
+        {% when 'version-comparison' %}
+          {% assign version-variable = version %}
+      {% endcase %}
 
-    {% assign version-status = version-variable.status | capitalize %}
+      {% if integration.override-version-status %}
+        {% assign version-status = version-statuses[integration.override-version-status] %}
 
-    {% case version-variable.status %}
-    {% when 'released' %}
-    {% assign version-date = version-variable.date-released | prepend: " on " %}
-    {% when 'deprecated' %}
-    {% assign version-date = version-variable.deprecation-date | prepend: " on "  %}
-    {% when 'sunset' %}
-    {% assign version-date = version-variable.sunset-date | prepend: " on " %}
-    {% endcase %}
+      {% else %}
+        {% assign version-status = version-statuses[version-variable.status] %}
+      {% endif %}
 
-    {{ version-status | append: version-date }}
+      {% if version-status.date %}
+        {% assign version-info = version-variable[version-status.date] | prepend: " on " %}
+      {% endif %}
+
+      {{ version-status.display-name | flatify }} {{ version-info | flatify }}
     {% endif %}
 
 support-level: &support-level
@@ -84,18 +87,24 @@ support-level: &support-level
   name: "certified"
   tooltip: "{{ site.data.tooltips.supported-by }}"
   field-value: |
-    {% case integration.certified %}
-    {% when true %}
-    [Stitch](mailto:{{ site.support }})
-    {% when false %}
-    [Singer Community]({{ site.singer }}){:target="new"}
-    {% endcase %}
+    {% if integration.certified == true %}
+      [Stitch](mailto:{{ site.support }})
+    {% else %}
+      [Singer Community]({{ site.singer }}){:target="new"}
+    {% endif %}
     
 stitch-plan: &stitch-plan
   display-name: "Stitch plan"
   name: "tier"
   tooltip: "{{ site.data.tooltips.integration-availability }}"
-  field-value: "{{ integration.tier }}"
+  field-value: |
+    {% if integration.minimum-plan %}
+    {{ site.data.stitch.subscription-plans[integration.minimum-plan]name }}
+
+    {% else %}
+    {{ site.data.stitch.subscription-plans.standard.name }}
+
+    {% endif %}
 
 supported-versions: &supported-versions
   display-name: "Supported versions"
@@ -114,9 +123,9 @@ singer: &singer
   name: "repo-url"
   field-value: |
     {% if integration.singer == true and integration.repo-url != "Not applicable" %}
-    [{{ integration.repo-url | remove:"https://github.com/" }}]({{ integration.repo-url }}){:target="new"}
+      [{{ integration.repo-url | remove:"https://github.com/" }}]({{ integration.repo-url }}){:target="new"}
     {% else %}
-    Not applicable
+      Not applicable
     {% endif %}
 
 
@@ -131,9 +140,11 @@ api-availability: &api-availability
   tooltip: "{{ site.data.tooltips.available-in-connect }}"
   field-value: |
     {% if integration.this-version == latest-version and integration.api-type %}
-    {{ supported | replace:"TOOLTIP","This version of the integration is available via the API." }} Available
+      {{ supported | replace:"TOOLTIP","This version of the integration is available via the API." }} Available
+    {% elsif integration.api-type and integration.override-api-type == true %}
+      {{ supported | replace:"TOOLTIP","This version of the integration is available via the API." }} Available
     {% else %}
-    {{ not-supported | replace:"TOOLTIP","This version of the integration isn't available via the API." }} Not available
+      {{ not-supported | replace:"TOOLTIP","This version of the integration isn't available via the API." }} Not available
     {% endif %}
 
 # ------------------------------ #
@@ -232,6 +243,28 @@ column-selection: &column-selection
     webhooks: *column-selection-unsupported
   field-value: *unsupported-tooltip-logic
 
+select-all: &select-all
+  display-name: "Select all"
+  name: "select-all"
+  tooltip: "{{ site.data.tooltips.select-all-objects }}"
+  field-value: |
+    {% if integration.select-all-reason %}
+      {% assign reason = integration.select-all-reason | flatify %}
+    {% else %}
+      {% assign reason = "Supported" %}
+    {% endif %}
+
+    {% case integration[attribute.name] %}
+      {% when false %}
+        {{ not-supported | replace:"TOOLTIP",reason }} Unsupported
+
+      {% when 'sometimes' %}
+        {{ sometimes-supported | replace:"TOOLTIP",reason }} Supported, with prerequisites
+
+      {% else %}
+        {{ supported |  replace:"TOOLTIP","Supported" }} Supported
+    {% endcase %}
+
 view-replication: &view-replication
   display-name: "View replication"
   name: "view-replication"
@@ -312,6 +345,7 @@ databases:
       - *table-selection
       - *column-selection
       - *view-replication
+      - *select-all
   - name: "Transparency"
     attributes: &transparency-category-attributes
       - *extraction-logs
@@ -322,7 +356,30 @@ databases:
 #    SAAS INTEGRATION FEATURES   #
 # ------------------------------ #
 
-saas: &saas-integration-categories
+saas:
+  - name: "Stitch"
+    attributes:
+      - *release-status
+      - *support-level
+      - *stitch-plan
+      - *api-availability
+      - *singer
+  - name: "Replication settings"
+    attributes: *replication-setting-category-attributes
+  - name: "Data selection"
+    attributes:
+      - *table-selection
+      - *column-selection
+      - *select-all
+  - name: "Transparency"
+    attributes: *transparency-category-attributes
+
+
+# ------------------------------ #
+#  WEBHOOK INTEGRATION FEATURES  #
+# ------------------------------ #
+
+webhooks:
   - name: "Stitch"
     attributes:
       - *release-status
@@ -338,10 +395,3 @@ saas: &saas-integration-categories
       - *column-selection
   - name: "Transparency"
     attributes: *transparency-category-attributes
-
-
-# ------------------------------ #
-#  WEBHOOK INTEGRATION FEATURES  #
-# ------------------------------ #
-
-webhooks: *saas-integration-categories

@@ -57,6 +57,25 @@ attributes:
     type: "boolean"
     description: "Indicates whether discounts can apply to this line item."
 
+  - name: "discount_amounts"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "amount"
+        type: "integer"
+        description: ""
+      - name: "discount"
+        type: "string"
+        description: ""
+
+  - name: "discounts"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
+
   - name: "invoice_item"
     type: "string"
     description: "The invoice item(s) associated with this invoice line item."
@@ -153,7 +172,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information attached to the plan."
-        anchor-id: 1
         subattributes: *metadata
 
       - name: "nickname"
@@ -218,6 +236,20 @@ attributes:
     type: "string"
     description: "The subscription item associated with the invoice line item."
     foreign-key-id: "subscription-item-id"
+
+  - name: "tax_amounts"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "amount"
+        type: "integer"
+        description: ""
+      - name: "inclusive"
+        type: "boolean"
+        description: ""
+      - name: "tax_rate"
+        type: "string"
+        description: ""
 
   - name: "type"
     type: "string"

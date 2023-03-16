@@ -1,7 +1,6 @@
 ---
 title: SaaS Integration Connection Errors
 keywords: troubleshooting, connection issue, connection error, trouble, saas integration
-tags: [troubleshooting_integrations, troubleshooting_errors]
 
 permalink: /troubleshooting/integrations/saas-integration-connection-errors
 redirect_from: /troubleshooting/integrations/integration-connection-errors
@@ -10,6 +9,8 @@ redirect_from: /troubleshooting/integrations/integration-connection-errors
 summary: "If Stitch is unable to connect to one of your SaaS integrations, the issue may be a security setting on the integration provider's side."
 type: "saas-integrations, connection, error"
 category: "connection-errors"
+
+key: "saas-connection-errors"
 ---
 {% include misc/data-files.html %}
 

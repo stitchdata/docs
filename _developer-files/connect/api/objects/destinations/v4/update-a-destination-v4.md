@@ -37,7 +37,7 @@ arguments:
   - name: "properties"
     required: true
     type: "object"
-    description: "A [Destination Form Properties object]({{ api.form-properties.destination-forms.section }}) corresponding to the value of `type`."
+    description: "A [Connection property object]({{ api.form-properties.destination-forms.section }}) corresponding to the value of `type`."
 
 
 # -------------------------- #
@@ -67,6 +67,7 @@ examples:
   - type: "Response"
     code: |
       {
+        "description": "Postgres database for the staging environment.",
         "properties": {
           "database": "demni2mf59dt10",
           "encryption_type": "none",
@@ -78,7 +79,7 @@ examples:
         },
         "updated_at": "2019-05-28T15:37:37Z",
         "check_job_name": "116078.155582.check.859f4746-815e-11e9-bb8e-0693226a5168",
-        "name": "Default Warehouse",
+        "name": "Staging",
         "type": "postgres",
         "deleted_at": null,
         "system_paused_at": null,

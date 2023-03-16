@@ -9,6 +9,9 @@ all-docs:
       - title: "Basic concepts & system overview"
         url: "{{ link.getting-started.basic-concepts }}"
 
+      - title: "Select a data pipeline region"
+        url: "{{ link.security.supported-operating-regions }}"
+
       - title: "Set up your Stitch data pipeline"
         url: "{{ link.getting-started.onboarding }}"
 
@@ -21,11 +24,11 @@ all-docs:
       - title: "All Getting started"
         url: "{{ link.getting-started.category }}"
 
-  - title: Account & security
+  - title: Account management
     sections:
     - title: Manage your account
       subsections:
-        - title: "Change your email & password"
+        - title: "Change your email and password"
           url: "{{ link.account.email-password }}"
 
         - title: "Manage your email notifications"
@@ -34,19 +37,30 @@ all-docs:
         - title: "Update company details"
           url: "{{ link.account.account-settings }}#update-company-information"
 
+        - title: "Identify your data pipeline region"
+          url: "{{ link.security.supported-operating-regions }}#identify-data-pipeline-region"
+
         - title: "Manage your API keys"
           url: "{{ link.account.manage-api-keys }}"
 
         - title: "Manage Stitch partner access"
           url: "{{ link.account.manage-partner-access }}"
 
+        - title: "Manage Single Sign-on (SSO)"
+          url: "{{ link.security.single-sign-on }}"
+
         - title: Cancel your account
           url: "{{ link.account.cancel-account }}"
 
-    - title: "Invite your team"
+    - title: "Manage your team"
       subsections:
+        - title: "Role-Based Access Control (RBAC)"
+          url: "{{ link.account.team-members }}#role-based-access-control"
         - title: "Team member basics"
           url: "{{ link.account.team-members }}#team-member-basics"
+
+        - title: "Team member roles & permissions"
+          url: "{{ link.account.team-roles-permissions }}"
 
         - title: "Add a team member"
           url: "{{ link.account.team-members }}#invite-team-member"
@@ -54,8 +68,14 @@ all-docs:
         - title: "Add a team member to multiple accounts"
           url: "{{ link.account.team-members }}#add-to-multiple-accounts"
 
+        - title: "Update a team member's role"
+          url: "{{ link.account.team-members }}#update-team-member-role"  
+
         - title: "Deactivate a team member"
           url: "{{ link.account.team-members }}#deactivate-team-member"
+
+        - title: "Manage Single Sign-on (SSO)"
+          url: "{{ link.security.single-sign-on }}"
 
     - title: Notifications
       subsections:
@@ -86,39 +106,85 @@ all-docs:
         - title: "HIPAA-compliance"
           url: "{{ link.account.hipaa-notifications }}"
 
-        # - title: "Post-load Notifications"
-        #   url: "{{ link.account.post-load }}"
-
     - title: Billing
       subsections:
         - title: Understand your usage
           url: "{{ link.getting-started.row-usage }}"
 
-        - title: "FAQ"
-          url: "{{ link.billing.billing-faq }}"
+        - title: "Basics"
+          url: "{{ link.billing.billing-faq }}#billing-basics"
 
-    - title: Security
-      subsections:
-        - title: "Compliance"
-          url: "{{ link.security.faq }}#stitch-compliance"
+        - title: "Integrations"
+          url: "{{ link.billing.billing-faq }}#integrations"
 
-        - title: "Data encryption"
-          url: "{{ link.security.encryption }}"
+        - title: "Historical data loads"
+          url: "{{ link.billing.billing-faq }}#historical-data-loads"
 
-        - title: "Data access policies"
-          url: "{{ link.security.faq }}#stitch-access"
+        - title: "Row counts"
+          url: "{{ link.billing.billing-faq }}#row-usage"
 
-        - title: "Protocols and recommendations"
-          url: "{{ link.security.faq }}#stitch-protocols-recommendations"
+        - title: "Choose and change plans"
+          url: "{{ link.billing.billing-faq }}#manage-plans"
 
-        - title: "Reporting issues"
-          url: "{{ link.security.faq }}#security-issues"
+        - title: "Payment details and invoices"
+          url: "{{ link.billing.billing-faq }}#payment-invoices"
 
-    - title: Enterprise
+        - title: Cancel your account
+          url: "{{ link.account.cancel-account }}"
+
+    - title: Upgraded plans
       url: "{{ link.account.enterprise-features }}"
 
-    - title: All Account & Security
+    - title: All Account management
       url: /account-security/
+
+  - title: "Security"
+    sections:
+      - title: "Environment"
+        url: "{{ link.security.faq }}#environment"
+
+      - title: "Data access policies"
+        url: "{{ link.security.faq }}#stitch-access"
+
+      - title: "PII stored by Stitch"
+        url: "{{ link.security.faq }}#stitch-pii-stored"
+
+      - title: "Access control"
+        subsections:
+          - title: "Stitch account access"
+            url: "{{ link.security.faq }}#account-access"
+
+          - title: "Connectivity"
+            url: "{{ link.security.faq }}#connectivity"
+
+          - title: "Connection permissions"
+            url: "{{ link.security.faq }}#permissions"
+
+      - title: "Compliance"
+        url: "{{ link.security.faq }}#stitch-compliance"
+
+      - title: "Encryption"
+        url: "{{ link.security.faq }}#stitch-encryption"
+
+      - title: "Processing and retention"
+        subsections:
+          - title: "Processing"
+            url: "{{ link.security.faq }}#data-processing"
+
+          - title: "Data pipeline regions"
+            url: "{{ link.security.supported-operating-regions }}"
+
+          - title: "Retention"
+            url: "{{ link.security.faq }}#data-retention"
+
+      - title: "Protocols and recommendations"
+        url: "{{ link.security.faq }}#stitch-protocols-recommendations"
+
+      - title: "Issue reporting and handling"
+        url: "{{ link.security.faq }}#security-issues"
+
+      - title: "All Security"
+        url: "/security"
 
   - title: Destinations
     sections:
@@ -127,191 +193,54 @@ all-docs:
 
     - title: Amazon Redshift
       url: "/destinations/amazon-redshift"
-      # subsections:
-      #   - title: "Overview"
-      #     url: "{{ link.destinations.overviews.redshift }}"
-
-      #   - title: "Connect to Stitch"
-      #     url: "{{ link.destinations.setup.redshift }}"
-
-      #   - title: "Replication"
-      #     url: "{{ link.destinations.overviews.redshift }}#replication"
-
-      #   - title: "Encodings, SORT, and DIST keys"
-      #     url: "{{ link.destinations.storage.redshift-encodings }}"
-
-      #   - title: "Limitations"
-      #     url: "{{ link.destinations.overviews.redshift }}#limitations"
 
     - title: "Amazon S3"
       url: "/destinations/amazon-s3"
-      # subsections:
-      #   - title: "Overview"
-      #     url: "{{ link.destinations.overviews.amazon-s3 }}"
-
-      #   - title: "Connect to Stitch"
-      #     url: "{{ link.destinations.setup.amazon-s3 }}"
-
-      #   - title: "Replication"
-      #     url: "{{ link.destinations.overviews.amazon-s3 }}#replication"
-
-      #   - title: "Schema"
-      #     url: "{{ link.destinations.overviews.amazon-s3 }}#schema"
-
-      #   - title: "Limitations"
-      #     url: "{{ link.destinations.overviews.amazon-s3 }}#limitations"
 
     - title: "Databricks Delta Lake"
       url: "/destinations/databricks-delta"
 
     - title: "data world"
       url: "/destinations/data-world"
-      # subsections:
-      #   - title: "Overview"
-      #     url: "{{ link.destinations.overviews.data-world }}"
-
-      #   - title: "Connect to Stitch"
-      #     url: "{{ link.destinations.setup.data-world }}"
-
-      #   - title: "Replication"
-      #     url: "{{ link.destinations.overviews.data-world }}#replication"
-
-      #   - title: "Schema"
-      #     url: "{{ link.destinations.overviews.data-world }}#schema"
 
     - title: Google BigQuery
       url: "/destinations/google-bigquery/v1"
-      # subsections:
-      #   - title: "All BigQuery guides"
-      #     url: ""
-
-      #   - title: "Connect to Stitch"
-      #     url: "{{ link.destinations.setup.bigquery-v1 }}"
-
-      #   - title: "Stitch impact on BigQuery costs"
-      #     url: "{{ link.destinations.overviews.bigquery-pricing }}"
-
-      #   - title: "Change BigQuery location"
-      #     url: "{{ link.destinations.overviews.switch-bigquery-destination }}"
-
-      #   - title: "Table partitioning and clustering"
-      #     url: "{{ link.destinations.storage.bigquery-partitioning }}"
-
-      #   - title: "Reference"
-      #     url: "{{ link.destinations.overviews.bigquery-v1 }}"
 
     - title: Google BigQuery v2
       url: "/destinations/google-bigquery/v2"
-      # subsections:
-      #   - title: "Connect to Stitch"
-      #     url: "{{ link.destinations.setup.bigquery-v2 }}"
-
-      #   - title: "Stitch impact on BigQuery costs"
-      #     url: "{{ link.destinations.overviews.bigquery-pricing }}"
-
-      #   - title: "Replication"
-      #     url: "{{ link.destinations.overviews.bigquery }}#replication-details"
-
-      #   - title: "Transformations"
-      #     url: "{{ link.destinations.overviews.bigquery }}#transformations"
-
-      #   - title: "Primary Key handling"
-      #     url: "{{ link.destinations.storage.primary-key-system-table }}"
-
-      #   - title: "Reference"
-      #     url: "{{ link.destinations.overviews.bigquery-v2 }}"
 
     - title: "Microsoft Azure Synapse Analytics"
       url: "/destinations/microsoft-azure-synapse-analytics"
-      # subsections:
-      #   - title: "Overview"
-      #     url: "{{ link.destinations.overviews.azure }}"
 
-      #   - title: "Connect to Stitch"
-      #     url: "{{ link.destinations.setup.azure }}"
+    - title: "Microsoft SQL Server"
+      url: "/destinations/microsoft-sql-server"
 
-      #   - title: "Replication"
-      #     url: "{{ link.destinations.overviews.azure }}#replication"
-
-      #   - title: "Limitations"
-      #     url: "{{ link.destinations.overviews.azure }}#limitations"
-
-      #   - title: "Primary Key handling"
-      #     url: "{{ link.destinations.storage.primary-key-system-table }}"
+    - title: "MySQL"
+      url: "/destinations/mysql"
 
     - title: Panoply
       url: "/destinations/panoply"
-      # subsections:
-      #   - title: "Overview"
-      #     url: "{{ link.destinations.overviews.panoply }}"
-
-      #   - title: "Connect an existing destination"
-      #     url: "{{ link.destinations.setup.panoply-ex }}"
-
-      #   - title: "Connect a new destination"
-      #     url: "{{ link.destinations.setup.panoply-new }}"
-
-      #   - title: "Replication"
-      #     url: "{{ link.destinations.overviews.panoply }}#replication"
-
-      #   - title: "Limitations"
-      #     url: "{{ link.destinations.overviews.panoply }}#limitations"
 
     - title: PostgreSQL
       url: "/destinations/postgresql"
-      # subsections:
-      #   - title: "Overview"
-      #     url: "{{ link.destinations.overviews.postgres }}"
-
-      #   - title: "Connect an Amazon Aurora RDS destination"
-      #     url: "{{ link.destinations.setup.aurora-postgres }}"
-
-      #   - title: "Connect an Amazon RDS destination"
-      #     url: "{{ link.destinations.setup.postgres-rds }}"
-
-      #   - title: "Connect a Google CloudSQL destination"
-      #     url: "{{ link.destinations.setup.cloudsql-postgres }}"
-
-      #   - title: "Connect a Heroku destination"
-      #     url: "{{ link.destinations.setup.heroku-postgres }}"
-
-      #   - title: "Connect a self-hosted destination"
-      #     url: "{{ link.destinations.setup.self-hosted-postgres }}"
-
-      #   - title: "Replication"
-      #     url: "{{ link.destinations.overviews.postgres }}#replication"
-
-      #   - title: "Limitations"
-      #     url: "{{ link.destinations.overviews.postgres }}#limitations"
 
     - title: Snowflake
       url: "/destinations/snowflake"
-      # subsections:
-      #   - title: "Overview"
-      #     url: "{{ link.destinations.overviews.snowflake }}"
-
-      #   - title: "Connect to Stitch"
-      #     url: "{{ link.destinations.setup.snowflake }}"
-
-      #   - title: "Replication"
-      #     url: "{{ link.destinations.overviews.snowflake }}#replication"
-
-      #   - title: "Limitations"
-      #     url: "{{ link.destinations.overviews.snowflake }}#limitations"
-
-      #   - title: "Snowflake pricing"
-      #     url: "{{ link.destinations.overviews.snowflake }}#pricing"
 
     - title: "Guides"
+      anchor: "guides--destinations"
       subsections:
         - title: "Choosing a destination"
           url: "{{ link.destinations.overviews.choose-destination }}"
 
-        - title: "Destination & integration compatibility"
+        - title: "Destination and integration compatibility"
           url: "{{ link.destinations.overviews.compatibility }}"
 
-        - title: Change Destinations
+        - title: Change destinations
           url: "{{ link.destinations.switch-destinations }}"
+
+        - title: Multiple destinations
+          url: "{{ link.destinations.multiple-destinations }}"  
 
   - title: Integrations
     sections:
@@ -339,17 +268,20 @@ all-docs:
       - title: All integrations
         url: "{{ link.integrations.main }}"
 
+      - title: "Connection cloning"
+        url: "{{ link.integrations.connection-cloning }}"  
+
       - title: "Connect other data sources"
         url: "{{ link.integrations.other-data-sources }}"
 
   - title: Extracting data
     sections:
-    - title: Replicate data
+    - title: Selecting data
       subsections:
-        - title: Select data to replicate 
-          url: /replication/syncing-data
+        - title: Selecting tables and columns 
+          url: "{{ link.replication.syncing }}"
 
-        - title: Replicate new & additional columns
+        - title: Replicating new and additional columns
           url: "{{ link.replication.syncing-new-columns }}"
 
         - title: Database views
@@ -358,30 +290,8 @@ all-docs:
         - title: Historical SaaS data
           url: "{{ link.replication.saas-historical }}"
 
-    - title: Replication Keys
-      subsections:
-        - title: Database Replication Keys
-          url: "{{ link.replication.rep-keys }}"
-
-        - title: MongoDB Replication Keys
-          url: "{{ link.replication.mongo-rep-keys }}"
-
-        - title: Reset Replication Keys
-          url: "{{ link.replication.reset-rep-keys }}"
-
-    - title: Replication Methods
-      subsections:
-        - title: Overview
-          url: "{{ link.replication.rep-methods }}"
-
-        - title: "Log-based Incremental"
-          url: "{{ link.replication.log-based-incremental }}"
-
-        - title: "Key-based Incremental"
-          url: "{{ link.replication.key-based-incremental }}"
-
-        - title: Full Table
-          url: "{{ link.replication.full-table }}"
+        - title: Supported data types
+          url: "{{ link.replication.supported-data-types }}"
 
     - title: Replication scheduling
       subsections:
@@ -397,8 +307,30 @@ all-docs:
         - title: "Advanced Scheduling using Cron"
           url: "{{ link.replication.advanced-scheduling }}"
 
-    - title: Supported data types
-      url: "{{ link.replication.supported-data-types }}"
+    - title: Replication Methods
+      subsections:
+        - title: Overview
+          url: "{{ link.replication.rep-methods }}"
+
+        - title: "Log-based Incremental"
+          url: "{{ link.replication.log-based-incremental }}"
+
+        - title: "Key-based Incremental"
+          url: "{{ link.replication.key-based-incremental }}"
+
+        - title: Full Table
+          url: "{{ link.replication.full-table }}"
+
+    - title: Replication Keys
+      subsections:
+        - title: Database Replication Keys
+          url: "{{ link.replication.rep-keys }}"
+
+        - title: MongoDB Replication Keys
+          url: "{{ link.replication.mongo-rep-keys }}"
+
+        - title: Resetting Replication Keys
+          url: "{{ link.replication.reset-rep-keys }}"
 
     - title: Deleted record handling
       subsections:
@@ -458,7 +390,7 @@ all-docs:
           - title: "Non-BigQuery destinations"
             url: "{{ link.destinations.storage.nested-structures }}"
 
-      - title: Loading behavior guides
+      - title: Loading behavior references
         subsections:
           - title: "Amazon Redshift"
             url: "{{ link.destinations.loading.redshift }}"
@@ -468,6 +400,9 @@ all-docs:
 
           - title: "Google BigQuery v2"
             url: "{{ link.destinations.loading.bigquery-v2 }}"
+
+          - title: "Microsoft SQL Server"
+            url: "{{ link.destinations.loading.microsoft-sql-server }}"
 
           - title: "Panoply"
             url: "{{ link.destinations.loading.panoply }}"
@@ -484,7 +419,11 @@ all-docs:
       - title: Monitoring loading
         url: "{{ link.replication.loading-reports }}"
 
+      - title: Pipeline monitoring
+        url: "{{ link.replication.pipeline-monitoring }}"  
+
       - title: "Guides"
+        anchor: "guides--loading"
         subsections:
           - title: "Understanding loading behavior"
             url: "{{ link.destinations.storage.loading-behavior }}"
@@ -519,7 +458,7 @@ all-docs:
 
   - title: Troubleshooting
     sections:
-    - title: Account & billing
+    - title: Account and billing
       url: /troubleshooting/account
 
     - title: Destinations
@@ -543,3 +482,7 @@ all-docs:
   - title: Developers
     drop-down: false
     url: "{{ link.developers }}"
+
+  - title: "Changelog"
+    drop-down: false
+    url: "{{ link.changelog.main }}"

@@ -19,6 +19,19 @@ show-in-menus: true
 
 key: "oracle-integration"
 
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "advanced"
+
+minimum-plan-cta:
+  feature: "Oracle integrations "
+  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.minimum-plan-cta.feature | flatify }}"
+  copy: "{{ site.data.strings.enterprise.copy.are-an | prepend: page.minimum-plan-cta.feature | flatify }}"
+
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -38,20 +51,14 @@ hosting-type: "generic"
 driver: |
   [cx_Oracle 6.1](https://cx-oracle.readthedocs.io/en/latest/){:target="new"}
 
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
 certified: true
 
-enterprise: true
-enterprise-cta:
-  feature: "Oracle integrations "
-  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.enterprise-cta.feature }}"
-  copy: "{{ site.data.strings.enterprise.copy.are-an | prepend: page.enterprise-cta.feature | flatify }}"
-
 frequency: "30 minutes"
-tier: "Enterprise"
 port: 1521
 db-type: "oracle"
 
@@ -71,6 +78,9 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+select-all: "sometimes"
+select-all-reason: "Log-based Incremental Replication must be enabled and set as the default Replication Method to use the Select All feature."
+
 table-level-reset: true
 
 ## Replication methods
@@ -331,7 +341,7 @@ setup-steps:
   - title: "Select data to replicate"
     anchor: "sync-data"
     content: |
-      {% include integrations/databases/setup/syncing.html %}
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

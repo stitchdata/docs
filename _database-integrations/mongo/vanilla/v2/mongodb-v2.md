@@ -32,7 +32,7 @@ certified: true
 frequency: "30 minutes"
 tier: "Standard"
 port: 27017
-db-type: "mongo"
+db-type: "mongodb"
 
 
 ## Stitch features
@@ -52,6 +52,9 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+select-all: "sometimes"
+select-all-reason: "Log-based Incremental Replication must be enabled and set as the default Replication Method to use the Select All feature."
+
 table-level-reset: true
 
 ## Replication methods
@@ -135,8 +138,6 @@ setup-steps:
       
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
 
-      In this section:
-
       {% for substep in step.substeps %}
       - [Step 3.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
       {% endfor %}
@@ -174,6 +175,10 @@ setup-steps:
 
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
+      {% for substep in step.substeps %}
+      - [Step 4.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
+
     substeps:
       - title: "Define the database connection details"
         anchor: "define-connection-details"
@@ -210,7 +215,7 @@ setup-steps:
   - title: "Select data to replicate"
     anchor: "sync-data"
     content: |
-      {% include integrations/databases/setup/syncing.html %}
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

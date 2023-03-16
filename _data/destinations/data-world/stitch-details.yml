@@ -18,6 +18,13 @@ supported-versions: "n/a"
 
 available-in-connect: false
 
+loader-name: "data-world"
+
+api-type: "dataworld"
+
+stitch-supported-regions:
+  - id: "north-america"
+
 
 # ------------------------------ #
 #      CONNECTION METHODS        #
@@ -30,6 +37,8 @@ connect-ssl: false ## Indicates whether SSL can be configured via the API
 ssh: false
 
 vpn: "n/a"
+
+static-ip: true
 
 
 # ------------------------------ #

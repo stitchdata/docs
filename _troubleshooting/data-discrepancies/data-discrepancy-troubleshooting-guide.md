@@ -2,9 +2,11 @@
 title: Data Discrepancy Troubleshooting Guide
 keywords: troubleshooting, integration, trouble, issue, help, data discrepancy, discrepancies, discrepancy guide, discrepancy
 permalink: /troubleshooting/data-discrepancy-troubleshooting-guide
-tags: [data_discrepancy]
 
 summary: "If you've noticed missing or incorrect data in your destination, this guide is the place to start. In it we'll walk you through the most common causes of data discrepancies, how to verify the root cause, and how to fix it. We also outline the next steps should you need to contact support."
+
+key: "discrepancy-guide"
+
 type: "discrepancy"
 weight: 1
 ---
@@ -249,7 +251,7 @@ If the discrepancy can’t be explained by any of the points above, reach out to
                         <ul>
                             <li>The record's <code>id</code></li>
                             <li>The field with the discrepancy</li>
-                            <li>The <code>updated_at</code> value, if applicable</li>
+                            <li>The replication key value, if applicable</li>
                         </ul>
                     <li><strong>For database integrations:</strong></li>
                         <ul>

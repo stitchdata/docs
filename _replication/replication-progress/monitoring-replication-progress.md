@@ -2,9 +2,10 @@
 title: Monitoring Replication Progress
 permalink: /replication/monitoring-replication-progress
 keywords: replicate, replication, replication progress, stitch replicates data, how long, where is my data, time to dw, time to data warehouse
-tags: [replication]
 
 content-type: "replication-progress"
+key: "rep-progress"
+
 toc: true
 weight: 1
 

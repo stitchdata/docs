@@ -31,6 +31,10 @@ attributes:
     description: |
       A positive integer in the [smallest currency unit](https://stripe.com/docs/currencies#zero-decimal){:target="new"} (e.g., 100 cents to charge $1.00 or 100 to charge ¥100, a zero-decimal currency) representing how much to charge. The minimum amount is $0.50 USD or [equivalent in charge currency](https://support.stripe.com/questions/what-is-the-minimum-amount-i-can-charge-with-stripe){:target="new"}.
 
+  - name: "amount_captured"
+    type: "integer"
+    description: ""
+
   - name: "amount_refunded"
     type: "integer"
     description: "Amount in cents refunded (can be less than `amount` if a partial refund was issued)."
@@ -43,10 +47,54 @@ attributes:
     type: "string"
     description: "The application fee (if any) for the charge."
 
+  - name: "application_fee_amount"
+    type: "integer"
+    description: ""
+
   - name: "balance_transaction"
     type: "string"
     description: "The ID of the balance transaction that describes the impact of this charge on the {{ integration.display_name }} account."
     foreign-key-id: "balance-transaction-id"
+
+  - name: "billing_details"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "address"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "city"
+            type: "string"
+            description: ""
+          - name: "country"
+            type: "string"
+            description: ""
+          - name: "line1"
+            type: "string"
+            description: ""
+          - name: "line2"
+            type: "string"
+            description: ""
+          - name: "postal_code"
+            type: "string"
+            description: ""
+          - name: "state"
+            type: "string"
+            description: ""
+      - name: "email"
+        type: "string"
+        description: ""
+      - name: "name"
+        type: "string"
+        description: ""
+      - name: "phone"
+        type: "string"
+        description: ""
+
+  - name: "calculated_statement_descriptor"
+    type: "string"
+    description: ""
 
   - name: "captured"
     type: "boolean"
@@ -171,7 +219,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information attached to the card."
-        anchor-id: 1
         subattributes:
           - name: "ANYTHING"
             type: "ANYTHING"
@@ -213,7 +260,11 @@ attributes:
 
   - name: "dispute"
     type: "string"
-    description: "Details about the dispute, if the charge has been dispuated."
+    description: "Details about the dispute, if the charge has been disputed."
+
+  - name: "disputed"
+    type: "boolean"
+    description: ""
 
   - name: "failure_code"
     type: "string"
@@ -254,7 +305,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: "Additional information attached to the charge."
-    anchor-id: 2
     subattributes:
       - name: ""
         type: 
@@ -338,6 +388,10 @@ attributes:
     type: "string"
     description: "The ID of the payment intent associated with the charge."
     # foreign-key-id: "payment-intent-id"
+
+  - name: "payment_method"
+    type: "string"
+    description: ""
 
   - name: "payment_method_details"
     type: "object"
@@ -840,7 +894,6 @@ attributes:
         type: "string"
         description: ""
 
-
   - name: "receipt_email"
     type: "string"
     description: "The email address that the receipt for the charge was sent to."
@@ -848,6 +901,10 @@ attributes:
   - name: "receipt_number"
     type: "string"
     description: "The transaction number that appears on email receipts for the charge. This will be `null` until a receipt is sent."
+
+  - name: "receipt_url"
+    type: "string"
+    description: ""
 
   - name: "refunded"
     type: "boolean"
@@ -1033,7 +1090,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information attached to the card."
-        anchor-id: 3
         subattributes:
           - name: "ANYTHING"
             type: "ANYTHING"
@@ -1068,6 +1124,10 @@ attributes:
     type: "string"
     description: "Additional information about the charge. This appears on the customer's credit card statement."
 
+  - name: "statement_descriptor_suffix"
+    type: "string"
+    description: ""
+
   - name: "status"
     type: "string"
     description: |
@@ -1076,6 +1136,17 @@ attributes:
       - `succeeded`
       - `pending`
       - `failed`
+
+  - name: "transfer_data"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "amount"
+        type: "integer"
+        description: ""
+      - name: "destination"
+        type: "string"
+        description: ""
 
   - name: "transfer_group"
     type: "string"

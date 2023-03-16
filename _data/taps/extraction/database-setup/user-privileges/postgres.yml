@@ -11,6 +11,7 @@ defaults:
     select: &select-name "SELECT"
     alter-default-privileges: &alter-default-privileges-name "ALTER DEFAULT PRIVILEGES"
     rds-replication: &rds-replication-name "rds_replication"
+    cloudsql-replication: &cloudsql-replication-name "REPLICATION"
 
   reasons:
     connect: &connect-reason "Required to connect successfully to the specified database."
@@ -18,11 +19,13 @@ defaults:
     select: &select-reason "Required to select rows from tables in the specified schema."
     alter-default-privileges: &alter-default-privileges-reason "Required to ensure that objects created in the schema after connecting to Stitch will be accessible by the Stitch database user."
     rds-replication: &rds-replication-reason "**Required to allow the Stitch database user to use logical (Log-based) replication**. The `rds_superuser` role is required to grant this privilege."
+    cloudsql-replication: &cloudsql-replication-reason "Required to allow the Stitch database user to use logical (Log-based) replication."
 
   doc-links:
     privileges: &privileges-doc "https://www.postgresql.org/docs/9.4/static/sql-grant.html"
     alter-default-privileges: &alter-default-privileges-doc "https://www.postgresql.org/docs/9.4/static/sql-alterdefaultprivileges.html"
     replication: &replication-doc "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication"
+    cloudsql-replication: &cloudsql-replication-doc "https://cloud.google.com/sql/docs/postgres/replication/configure-logical-replication#create-a-replication-user"
 
 # -------------------------- #
 #    POSTGRESQL PRIVILEGES   #
@@ -66,6 +69,10 @@ cloudsql-postgres:
   - name: *alter-default-privileges-name
     reason: *alter-default-privileges-reason
     doc-link: *alter-default-privileges-doc
+
+  - name: *cloudsql-replication-name
+    reason: *cloudsql-replication-reason
+    doc-link: *cloudsql-replication-doc
 
 
 # -------------------------- #
@@ -125,31 +132,34 @@ aurora-postgresql-rds:
 # -------------------------- #
 
 create-user-command-default: |
-  CREATE USER <stitch_username> WITH ENCRYPTED PASSWORD '<password>'
+  CREATE USER <stitch_username> WITH ENCRYPTED PASSWORD '<password>';
 
 grant-connect-on-database: |
-  GRANT CONNECT ON DATABASE <database_name> TO <stitch_username>
+  GRANT CONNECT ON DATABASE <database_name> TO <stitch_username>;
 
 grant-schema-usage: |
-  GRANT USAGE ON SCHEMA <schema_name> TO <stitch_username>
+  GRANT USAGE ON SCHEMA <schema_name> TO <stitch_username>;
 
 grant-select-on-table: |
-  GRANT SELECT ON <schema_name>.<table_name> TO <stitch_username>
+  GRANT SELECT ON <schema_name>.<table_name> TO <stitch_username>;
 
 grant-select-on-tables: |
-  GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO <stitch_username>
+  GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO <stitch_username>;
 
 revoke-select: |
-  REVOKE SELECT ON ALL TABLES IN SCHEMA <schema_name> FROM <stitch_username>
+  REVOKE SELECT ON ALL TABLES IN SCHEMA <schema_name> FROM <stitch_username>;
 
 alter-default-schema-privileges: |
-  ALTER DEFAULT PRIVILEGES IN SCHEMA <schema_name> GRANT SELECT ON TABLES TO <stitch_username>
+  ALTER DEFAULT PRIVILEGES IN SCHEMA <schema_name> GRANT SELECT ON TABLES TO <stitch_username>;
 
 rds-grant-replication: |
-  GRANT rds_replication TO <stitch_username>
+  GRANT rds_replication TO <stitch_username>;
+
+cloudsql-grant-replication: |
+  ALTER USER <stitch_username> WITH REPLICATION;
 
 postgresql-create-replication-role: |
-  CREATE ROLE replication REPLICATION LOGIN
+  CREATE ROLE replication REPLICATION LOGIN;
 
 postgresql-grant-replication-role: |
-  GRANT replication TO <stitch_username>
+  GRANT replication TO <stitch_username>;

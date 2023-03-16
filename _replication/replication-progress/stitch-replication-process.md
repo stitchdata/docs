@@ -2,10 +2,11 @@
 title: Stitch Replication Process
 permalink: /replication/stitch-replication-process
 keywords: 
-tags: [replication]
-summary: "Learn how Stitch extracts, prepares, and loads your data during the replicaiton process."
+summary: "Learn how Stitch extracts, prepares, and loads your data during the replication process."
 
 type: "overview"
+key: "replication-process"
+
 toc: true
 weight: 
 ---

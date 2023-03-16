@@ -59,6 +59,56 @@ attributes:
     primary-key: true
     description: "The type of device by which the data is segmented."
 
+  - name: "actions"
+    type: "array"
+    description: "The total number of actions people took that are attributed to the ad."
+    subattributes: &action-values
+      - name: "1d_click"
+        type: "number"
+        description: "The metric value of attribution window `1 day after clicking the ad`."
+
+      - name: "7d_click"
+        type: "number"
+        description: "The metric value of attribution window `7 days after clicking the ad`."
+
+      - name: "28d_click"
+        type: "number"
+        description: "The metric value of attribution window `28 days after clicking the ad`."
+
+      - name: "1d_view"
+        type: "number"
+        description: "The metric value of attribution window `1 day after viewing the ad`."
+
+      - name: "7d_view"
+        type: "number"
+        description: "The metric value of attribution window `7 days after viewing the ad`."
+
+      - name: "28d_view"
+        type: "number"
+        description: "The metric value of attribution window `28 days after viewing the ad`."
+
+      - name: "action_destination"
+        type: "string"
+        description: "The destination where people go after clicking the ad."
+
+      - name: "action_target_id"
+        type: "string"
+        description: "The ID of the destination where people go after clicking on the ad."
+
+      - name: "action_type"
+        type: "string"
+        description: |
+          The kind of actions taken on the ad, Page, app, or event after the ad was served to someone, even if they didn't click on it. Refer to [{{ integration.display_name }}'s documentation](https://developers.facebook.com/docs/marketing-api/reference/ads-action-stats/#fields){:target="new"} for more info and a list of possible values.
+
+      - name: "value"
+        type: "number"
+        description: "The metric value of the default attribution window."
+
+  - name: "action_values"
+    type: "array"
+    description: "The total value of all conversions attributed to the ad."
+    subattributes: *action-values
+
   - name: "date_stop"
     type: "date-time"
     description: "The end date of the ad."

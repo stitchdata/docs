@@ -6,9 +6,13 @@ name: "adcreative"
 doc-link: https://developers.facebook.com/docs/reference/ads-api/adcreative/
 singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/adcreative.json
 description: |
-  The `adcreative` table contains info about the creatives used in ads in your Facebook Ads account.
+  The `adcreative` table contains info about the creatives used in ads, in your {{ integration.display_name }} account.
 
   **This is a Core Object table**.
+
+  #### Limits {#adcreative-table-limits}
+
+  Facebook's API limits the number of ad creatives that can be retrieved through their API to 50,000, which is [documented here](https://developers.facebook.com/docs/marketing-api/reference/ad-creative#limits){:target="new"}. If you're missing data from this table and have more than 50,000 ad creatives in your {{ integration.display_name }} account, this may be the cause of the discrepancy.
 
 replication-method: "Full Table"
 attribution-window: true
@@ -103,7 +107,6 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The value of the crop specification."
-        anchor-id: 1
 
       - name: "100x72"
         type: "array"
@@ -112,7 +115,6 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The value of the crop specification."
-        anchor-id: 1
 
       - name: "191x100"
         type: "array"
@@ -121,7 +123,6 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The value of the crop specification."
-        anchor-id: 1
 
       - name: "400x150"
         type: "array"
@@ -130,7 +131,6 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The value of the crop specification."
-        anchor-id: 1
 
       - name: "400x500"
         type: "array"
@@ -139,7 +139,6 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The value of the crop specification."
-        anchor-id: 1
 
       - name: "600x360"
         type: "array"
@@ -148,7 +147,6 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The value of the crop specification."
-        anchor-id: 1
 
       - name: "90x160"
         type: "array"
@@ -157,7 +155,6 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The value of the crop specification."
-        anchor-id: 1
 
   - name: "instagram_actor_id"
     type: "string"
@@ -220,7 +217,6 @@ attributes:
               - [`ios`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/){:target="new"}
               - [`ipad`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/){:target="new"}
               - [`iphone`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/){:target="new"}
-            anchor-id: 1
             subattributes:
               - name: "android"
                 type: "array"
@@ -241,7 +237,6 @@ attributes:
                   - name: "url"
                     type: "string"
                     description: "The native Android URL that will be navigated to."
-                anchor-id: 1
 
               - name: "ios"
                 type: "array"
@@ -259,7 +254,6 @@ attributes:
                   - name: "url"
                     type: "string"
                     description: "The native iOS URL that will be navigated to."
-                anchor-id: 1
 
               - name: "ipad"
                 type: "array"
@@ -277,7 +271,6 @@ attributes:
                   - name: "url"
                     type: "string"
                     description: "The native iOS URL that will be navigated to."
-                anchor-id: 1
 
               - name: "iphone"
                 type: "array"
@@ -295,7 +288,6 @@ attributes:
                   - name: "url"
                     type: "string"
                     description: "The native iOS URL that will be navigated to."
-                anchor-id: 1
 
         # End object_story_spec__link_data__link_spec
 
@@ -317,7 +309,6 @@ attributes:
             type: "object"
             description: "Details about the call to action button."
             doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ad-creative-link-data-call-to-action-value/"
-            anchor-id: 1
             subattributes: &call-to-action
               - name: "app_destination"
                 type: "string"
@@ -385,7 +376,6 @@ attributes:
               - name: "call_to_action"
                 type: "object"
                 description: "Details about the call to associated with the link object."
-                anchor-id: 2
                 subattributes: *call-to-action
 
               # End object_story_spec__link_data__child_attachments__call_to_action
@@ -429,7 +419,6 @@ attributes:
                       - name: "value"
                         type: "integer"
                         description: "The value of the crop specification."
-                    anchor-id: 2
 
                   - name: "100x72"
                     type: "array"
@@ -438,7 +427,6 @@ attributes:
                       - name: "value"
                         type: "integer"
                         description: "The value of the crop specification."
-                    anchor-id: 2
 
                   - name: "191x100"
                     type: "array"
@@ -447,7 +435,6 @@ attributes:
                       - name: "value"
                         type: "integer"
                         description: "The value of the crop specification."
-                    anchor-id: 2
 
                   - name: "400x150"
                     type: "array"
@@ -456,7 +443,6 @@ attributes:
                       - name: "value"
                         type: "integer"
                         description: "The value of the crop specification."
-                    anchor-id: 2
 
                   - name: "400x500"
                     type: "array"
@@ -465,7 +451,6 @@ attributes:
                       - name: "value"
                         type: "integer"
                         description: "The value of the crop specification."
-                    anchor-id: 2
 
                   - name: "600x360"
                     type: "array"
@@ -474,7 +459,6 @@ attributes:
                       - name: "value"
                         type: "integer"
                         description: "The value of the crop specification."
-                    anchor-id: 2
 
                   - name: "90x160"
                     type: "array"
@@ -483,7 +467,6 @@ attributes:
                       - name: "value"
                         type: "integer"
                         description: "The value of the crop specification."
-                    anchor-id: 2
 
               # End object_story_spec__link_data__child_attachments__image_crops
 
@@ -512,7 +495,6 @@ attributes:
                   - name: "value"
                     type: "integer"
                     description: "The value of the crop specification."
-                anchor-id: 3
 
               - name: "100x72"
                 type: "array"
@@ -521,7 +503,6 @@ attributes:
                   - name: "value"
                     type: "integer"
                     description: "The value of the crop specification."
-                anchor-id: 3
 
               - name: "191x100"
                 type: "array"
@@ -530,7 +511,6 @@ attributes:
                   - name: "value"
                     type: "integer"
                     description: "The value of the crop specification."
-                anchor-id: 3
 
               - name: "400x150"
                 type: "array"
@@ -539,7 +519,6 @@ attributes:
                   - name: "value"
                     type: "integer"
                     description: "The value of the crop specification."
-                anchor-id: 3
 
               - name: "400x500"
                 type: "array"
@@ -548,7 +527,6 @@ attributes:
                   - name: "value"
                     type: "integer"
                     description: "The value of the crop specification."
-                anchor-id: 3
 
               - name: "600x360"
                 type: "array"
@@ -557,7 +535,6 @@ attributes:
                   - name: "value"
                     type: "integer"
                     description: "The value of the crop specification."
-                anchor-id: 3
 
               - name: "90x160"
                 type: "array"
@@ -566,7 +543,6 @@ attributes:
                   - name: "value"
                     type: "integer"
                     description: "The value of the crop specification."
-                anchor-id: 3
 
           # End object_story_spec__link_data__image_crops
 
@@ -691,8 +667,6 @@ attributes:
               - [`ios`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/){:target="new"}
               - [`ipad`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/){:target="new"}
               - [`iphone`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/){:target="new"}
-
-            anchor-id: 2
             subattributes:
               - name: "android"
                 type: "array"
@@ -713,7 +687,6 @@ attributes:
                   - name: "url"
                     type: "string"
                     description: "The native Android URL that will be navigated to."
-                anchor-id: 3
 
               - name: "ios"
                 type: "array"
@@ -731,7 +704,6 @@ attributes:
                   - name: "url"
                     type: "string"
                     description: "The native iOS URL that will be navigated to."
-                anchor-id: 3
 
               - name: "ipad"
                 type: "array"
@@ -749,7 +721,6 @@ attributes:
                   - name: "url"
                     type: "string"
                     description: "The native iOS URL that will be navigated to."
-                anchor-id: 3
 
               - name: "iphone"
                 type: "array"
@@ -767,7 +738,6 @@ attributes:
                   - name: "url"
                     type: "string"
                     description: "The native iOS URL that will be navigated to."
-                anchor-id: 3
 
         # End object_story_spec__template_data__app_link_spec
 
@@ -793,7 +763,6 @@ attributes:
             type: "object"
             description: "Details about the call to associated with the link object."
             doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ad-creative-link-data-call-to-action-value/"
-            anchor-id: 3
             subattributes: *call-to-action
 
         # End object_story_spec__template_data__call_to_action
@@ -822,7 +791,6 @@ attributes:
               - name: "call_to_action"
                 type: "object"
                 description: "Details about the call to associated with the link object."
-                anchor-id: 4
                 subattributes: *call-to-action
 
             # End object_story_spec__template_data__child_attachments__call_to_action
@@ -854,7 +822,6 @@ attributes:
                   - name: "value"
                     type: "integer"
                     description: "The value of the crop specification."
-                anchor-id: 4
 
               - name: "100x72"
                 type: "array"
@@ -863,7 +830,6 @@ attributes:
                   - name: "value"
                     type: "integer"
                     description: "The value of the crop specification."
-                anchor-id: 4
 
               - name: "191x100"
                 type: "array"
@@ -872,7 +838,6 @@ attributes:
                   - name: "value"
                     type: "integer"
                     description: "The value of the crop specification."
-                anchor-id: 4
 
               - name: "400x150"
                 type: "array"
@@ -881,7 +846,6 @@ attributes:
                   - name: "value"
                     type: "integer"
                     description: "The value of the crop specification."
-                anchor-id: 4
 
               - name: "400x500"
                 type: "array"
@@ -890,7 +854,6 @@ attributes:
                   - name: "value"
                     type: "integer"
                     description: "The value of the crop specification."
-                anchor-id: 4
 
               - name: "600x360"
                 type: "array"
@@ -899,7 +862,6 @@ attributes:
                   - name: "value"
                     type: "integer"
                     description: "The value of the crop specification."
-                anchor-id: 4
 
               - name: "90x160"
                 type: "array"
@@ -908,7 +870,6 @@ attributes:
                   - name: "value"
                     type: "integer"
                     description: "The value of the crop specification."
-                anchor-id: 4
 
         # End object_story_spec__template_data__child_attachments__image_crops
 
@@ -1003,7 +964,6 @@ attributes:
           - name: "call_to_action"
             type: "object"
             description: "Details about the call to associated with the link object."
-            anchor-id: 5
             subattributes: *call-to-action
 
           - name: "force_single_link"
@@ -1121,7 +1081,6 @@ attributes:
           - name: "url"
             type: "string"
             description: "The custom URL scheme for the Android app."
-        anchor-id: 2
 
     # End template_url_spec__android
 
@@ -1134,7 +1093,6 @@ attributes:
           - name: "app_id"
             type: "string"
             description: "The ID of the Facebook app where the deeplink information is stored."
-        anchor-id: 2
 
     # End template_url_spec__config
 
@@ -1156,7 +1114,6 @@ attributes:
           - name: "url"
             type: "string"
             description: "The custom URL scheme for the iOS app."
-        anchor-id: 2
 
     # End template_url_spec__ios
 
@@ -1178,7 +1135,6 @@ attributes:
           - name: "url"
             type: "string"
             description: "The custom URL scheme for the iOS app."
-        anchor-id: 2
 
     # End template_url_spec__ipad
 
@@ -1200,7 +1156,6 @@ attributes:
           - name: "url"
             type: "string"
             description: "The custom URL scheme for the iOS app."
-        anchor-id: 2
 
     # End template_url_spec__iphone
 
@@ -1217,7 +1172,6 @@ attributes:
           - name: "url"
             type: "string"
             description: "The web URL."
-        anchor-id: 2
 
     # End template_url_spec__web
 
@@ -1239,7 +1193,6 @@ attributes:
           - name: "url"
             type: "string"
             description: "The custom URL scheme for the Windows Phone app."
-        anchor-id: 2
 
     # End template_url_spec__windows_phone
 

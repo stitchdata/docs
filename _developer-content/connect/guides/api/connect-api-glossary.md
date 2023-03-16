@@ -15,7 +15,6 @@ topics: "basics"
 key: "connect-glossary"
 
 layout: general
-sidebar: api
 
 
 # -------------------------- #
@@ -78,6 +77,8 @@ all-terms:
 
   - name: "Ephemeral token"
     definition: |
+      **Note**: The Connect JavaScript client has been deprecated. [Learn more]({{ site.data.urls.changelog.main | prepend: site.baseurl | append: "#2021-07-14-stitch-connect-javascript-stitch-js-deprecation" }}).
+
       A token that is passed to the Connect JavaScript client to create a session in the Stitch web application. This credential is created by using the [Create a session endpoint]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sessions.section }}) in the Connect API.
 
       A session is for the user for whom the API access token was created. The session will expire once terminated or after 12 hours. 

@@ -7,12 +7,16 @@ redirect_from: /integrations/saas/contentful
 keywords: contentful, integration, schema, etl contentful, contentful etl, contentful schema
 summary: "Connect your Contentful data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
+key: "contentful-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
 name: "contentful"
 display_name: "Contentful"
+
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #

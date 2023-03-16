@@ -1,0 +1,121 @@
+
+{% case integration.collection %}
+    {% when 'saas-integrations' %}
+<!-- Get instructions for individual object selection -->
+        {% capture individual-object-instructions %}
+            {% include integrations/shared-setup/data-selection/saas-object-selection.html %}
+        {% endcapture %}
+
+    {% when 'database-integrations' %}
+<!-- Get instructions for individual object selection -->
+        {% if integration.file-system == true %}
+            {% capture individual-object-instructions %}
+                {% include integrations/shared-setup/data-selection/file-system-object-selection.html %}
+            {% endcapture %}
+        {% else %}
+            {% capture individual-object-instructions %}
+                {% include integrations/shared-setup/data-selection/database-object-selection.html %}
+            {% endcapture %}
+        {% endif %}
+{% endcase %}
+
+<!-- Check for Select All support -->
+<!-- Only integrations that sometimes or don't support this feature will
+    have the Frontmatter for it -->
+{% if integration.select-all == false %}
+    {% assign select-all = false %}
+{% elsif integration.select-all == "sometimes" %}
+    {% assign select-all = true %}
+{% else %}
+    {% assign select-all = true %}
+{% endif %}
+
+<!-- Check for view replication support -->
+{% if integration.view-replication == true %}
+    {% assign view-selection = true %}
+{% else %}
+    {% assign view-selection = false %}
+{% endif %}
+
+{% if select-all == true or view-selection == true %}
+<ul id="profileTabs" class="nav nav-tabs">
+    <li class="active">
+        <a href="#data-selection-options" data-toggle="tab">
+            Selection options
+        </a>
+    </li>
+
+    <li>
+        <a href="#select-individual-objects" data-toggle="tab">
+            Individual {{ object }}s {% if integration.column-selection == true %} and {{ col }}s{% endif %}
+        </a>
+    </li>
+<!-- Only if the integration supports the Select All feature -->
+    {% if select-all == true %}
+        <li>
+            <a href="#select-all-objects" data-toggle="tab">
+                All {{ object }}s {% if integration.column-selection == true %} and {{ col }}s{% endif %}
+            </a>
+        </li>
+    {% endif %}
+
+<!-- Only for databases, and only those that support replicating database views -->
+    {% if view-selection == true %}
+        <li>
+            <a href="#database-view-selection" data-toggle="tab">
+                Database views
+            </a>
+        </li>
+    {% endif %}
+</ul>
+
+{% capture selection-options %}
+For {{ integration.display_name }} integrations, you can select:
+
+1. **Individual {{ object }}s {% if integration.column-selection == true %} and {{ col }}s{% endif %}**
+{% if select-all == true %}
+2. **All {{ object }}s and {{ col }}s** {% if integration.collection == "database-integrations" and view-selection == true %}(except views){% endif %}
+{% endif %}
+
+{% if view-selection == true %}
+3. **Database views**
+{% endif %}
+
+Click the tabs to view instructions for each selection method.
+{% endcapture %}
+
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="data-selection-options">
+        {{ selection-options | flatify | markdownify }}
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="select-individual-objects">
+        {{ individual-object-instructions | flatify | markdownify }}
+    </div>
+<!-- Only if the integration supports the Select All feature -->
+    {% if select-all == true %}
+        <div role="tabpanel" class="tab-pane" id="select-all-objects">
+            {% capture select-all-instructions %}
+                {% include integrations/shared-setup/data-selection/select-all.html %}
+            {% endcapture %}
+
+            {{ select-all-instructions | flatify | markdownify }}
+        </div>
+    {% endif %}
+
+<!-- Only for databases, and only those that support replicating database views -->
+    {% if view-selection == true %}
+        <div role="tabpanel" class="tab-pane" id="database-view-selection">
+            {% capture view-instructions %}
+                {% include integrations/shared-setup/data-selection/database-view-selection.html %}
+            {% endcapture %}
+
+            {{ view-instructions | flatify | markdownify }}
+        </div>
+    {% endif %}
+</div>
+
+{% else %}
+
+{{ individual-object-instructions | flatify | markdownify }}
+{% endif %}

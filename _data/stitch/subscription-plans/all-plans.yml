@@ -6,11 +6,13 @@
 # pricing plans. 
 
 - name: "free-trial"
-  key: "enterprise"
+  key: "upgraded"
 
 - name: "standard"
 
-- name: "enterprise"
+- name: "advanced"
+
+- name: "premium"
 
 
 #------------------------------------#
@@ -34,6 +36,8 @@
 # customize-notifications: true if the plan includes access to the Custom notifications feature
 # post-load-notifications: true if the plan includes access to Post-load notifications
 # cron-scheduling: true if the plan includes access to the Advanced Scheduling feature
+# multiple-destinations: true if the plan includes access to the Multiple Destinations feature
+# advanced-connectivity: true if the plan includes access to advanced connection options (ex: VPN, reverse SSH)
 
 # features: a list of categories and guide keys for the plan. Used to list plan-specific guides. Follows this format:
 

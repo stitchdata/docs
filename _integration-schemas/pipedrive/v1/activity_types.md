@@ -9,7 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-pipedrive/blob/master/tap_piped
 description: |
   The `{{ table.name }}` table contains info about the different kinds of activities in your {{ integration.display_name }} account.
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 
 api-method:
   name: "Get all activity types"
@@ -21,11 +21,6 @@ attributes:
     primary-key: true
     description: "The activity type ID."
     #foreign-key-id: "activity-type-id"
-
-  - name: "update_time"
-    type: "date-time"
-    replication-key: true
-    description: "The time the activity type was last updated."
 
   - name: "active_flag"
     type: "boolean"
@@ -58,4 +53,8 @@ attributes:
   - name: "order_nr"
     type: "integer"
     description: ""
+
+  - name: "update_time"
+    type: "date-time"
+    description: "The time the activity type was last updated."
 ---

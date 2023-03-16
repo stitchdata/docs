@@ -1,0 +1,16 @@
+{% if include.first-step == true %}
+First, you'll log into Stitch and verify the data pipeline region your account is using. Later in this guide, you'll need to grant Stitch access {% if page.title contains "SSH" %}to the SSH server{% endif %} by whitelisting our IP addresses.
+{% endif %}
+
+The IP addresses you'll whitelist depend on the [**Data pipeline region** your account is in]({{ link.security.supported-operating-regions | prepend: site.baseurl }}).
+
+1. [Sign into your Stitch account]({{ site.sign-in }}){:target="_blank"}, if you haven't already.
+2. Click {{ app.menu-paths.account-settings }} and locate the **Data pipeline region** section to verify your account's region.
+3. Locate the list of IP addresses for your region:
+   {% for region in site.data.stitch.regions %}
+   - [{{ region.name }} region IP addresses]({{ link.security.ip-addresses | prepend: site.baseurl }}#{{ region.id }}-ip-addresses)
+   {% endfor %}
+
+{% if include.first-step == true %}
+Keep this list handy - you'll need it later.
+{% endif %}

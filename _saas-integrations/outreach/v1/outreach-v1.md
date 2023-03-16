@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Outreach
+title: Outreach (v1)
 permalink: /integrations/saas/outreach
 keywords: outreach, integration, schema, etl outreach, outreach etl, outreach schema
 layout: singer
@@ -93,13 +93,27 @@ feature-summary: |
 requirements-list:
   
 setup-steps:
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
+    content: |
+      {% include integrations/shared-setup/connection-setup.html %}
     anchor: "add-integration"
     content: |
       4. In the **Quota Limit** field, define the percentage of your standard {{ integration.display_name }} API quota Stitch is allowed to use. This is an optional field. Before you define the limit, refer to the [{{ integration.display_name }} API documentation](https://api.outreach.io/api/v2/docs#rate-limiting) to learn about your {{ integration.display_name }} rate limit.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

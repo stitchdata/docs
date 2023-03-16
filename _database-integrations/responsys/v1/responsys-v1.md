@@ -32,6 +32,8 @@ display_name: "Responsys"
 
 singer: true 
 tap-name: "Responsys"
+file-system: true
+
 repo-url: https://github.com/singer-io/tap-responsys
 status-url: "https://community.oracle.com/docs/DOC-1011262"
 
@@ -149,6 +151,10 @@ setup-steps:
     anchor: "add-stitch-public-key-to-sftp-server"
     content: |
       Stitch uses an SSH tunnel to securely connect to your {{ integration.display_name }} SFTP server. This means that to connect successfully, you'll need to add Stitch's Public Key to your server.
+
+      {% for substep in step.substeps %}
+      - [Step 1.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %} 
 
     substeps:
       - title: "Retrieve your Stitch public key"
@@ -275,7 +281,7 @@ setup-steps:
   - title: "Select data to replicate"
     anchor: "setting-data-to-replicate"
     content: |
-      {% include integrations/databases/setup/syncing.html %}
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #
@@ -305,10 +311,10 @@ replication-sections:
       <strong>{{ comparison.item | flatify }}</strong>
       </td>
       <td>
-      {{ comparison.this-integration | markdownify }}
+      {{ comparison.this-integration | flatify | markdownify }}
       </td>
       <td>
-      {{ comparison.other-integrations | markdownify }}
+      {{ comparison.other-integrations | flatify | markdownify }}
       </td>
       </tr>
       {% endfor %}

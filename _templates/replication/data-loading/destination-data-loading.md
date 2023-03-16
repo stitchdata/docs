@@ -1,6 +1,6 @@
 ---
 title: DESTINATION Data Loading Behavior
-permalink: /replication/loading/destination-type/
+permalink: /replication/loading/destination-guides/destination-type/
 
 layout: general
 keywords: destination-type, destination-type data warehouse, destination-type data warehouse, destination-type etl, etl to destination-type
@@ -8,6 +8,8 @@ summary: "Learn how Stitch will load data from your integrations into Stitch's D
 
 display_name: "DESTINATION"
 type: "destination-type"
+
+key: "destination-type-loading-reference"
 
 this-version: ""
 

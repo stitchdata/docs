@@ -3,9 +3,10 @@ title: Zapier
 permalink: /integrations/webhooks/zapier
 redirect_from: /integrations/saas/zapier
 
-tags: [stitch_webhooks]
 keywords: zapier, integration, schema, etl zapier, zapier etl, zapier schema
 summary: "Connect your Zapier data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
+
+key: "zapier-setup"
 
 # -------------------------- #
 #     Integration Details    #
@@ -13,6 +14,8 @@ summary: "Connect your Zapier data to Stitch using Stitch's Incoming Webhooks in
 
 name: "zapier"
 display_name: "Zapier"
+
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #

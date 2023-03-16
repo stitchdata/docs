@@ -7,12 +7,16 @@ redirect_from: /integrations/saas/formkeep
 keywords: formkeep, integration, schema, etl formkeep, formkeep etl, formkeep schema, stitch webhooks
 summary: "Connect your FormKeep data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse." 
 
+key: "formkeep-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
 name: "formkeep"
 display_name: "FormKeep"
+
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #

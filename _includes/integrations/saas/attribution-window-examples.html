@@ -7,6 +7,10 @@ The **Start Date**, in conjunction with the **{{ window }}**, defines the minimu
 
 `Start Date - {{ window }} = Minimum Extraction Date`
 
+{% if integration.name == "facebook-ads" %}
+**Note**: For the `ads_insights` stream, the **Minimum Extraction Date** cannot be more than 37 months ago.
+{% endif %}
+
 **Example**
 
 {% if integration.attribution-is-configurable %}

@@ -20,6 +20,12 @@ available-in-connect: true
 
 api-type: "snowflake"
 
+loader-name: "Snow"
+
+stitch-supported-regions:
+  - id: "north-america"
+  - id: "europe"
+
 
 # ------------------------------ #
 #      CONNECTION METHODS        #
@@ -32,6 +38,8 @@ connect-ssl: false ## Indicates whether SSL can be configured via the API
 ssh: false
 
 vpn: false
+
+static-ip: true
 
 
 # ------------------------------ #

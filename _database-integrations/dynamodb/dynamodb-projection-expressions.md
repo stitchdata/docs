@@ -8,6 +8,7 @@ input: false
 layout: general
 toc: false
 key: "dynamodb-projection-queries"
+content-type: "guide"
 
 display_name: "DynamoDB"
 name: "dynamodb"
@@ -40,6 +41,8 @@ sections:
     summary: "What projection expressions are"
     content: |
       {% include shared/integrations/projection-column-selection.html type="what-are-projection-queries" %}
+
+      The {{ page.display_name }} integration supports the use of expression attributes in projection expressions. For more information, refer to [{{ page.display_name }}'s documentation]({{ site.data.taps.links.dynamodb.expression-attribute-names }}){:target="new"}
 
   - title: "Projection expression requirements for Stitch"
     anchor: "projection-query-stitch-requirements"
@@ -86,6 +89,7 @@ sections:
           - Ice King
         acquaintances-list: |
           - Ice King
+        comment:  Also known as Finn the Human
       - name: "Jake"
         is_active: true
         details: |
@@ -95,6 +99,7 @@ sections:
           - Lady
         acquaintances-list: |
           - Lady
+        comment:  Magical dog
       - name: "Bubblegum"
         is_active: false
         details: |
@@ -104,6 +109,7 @@ sections:
           - Bubblegum
         acquaintances-list: |
           - Bubblegum
+        comment:  Rules over the Candy Kingdom
       - name: "Lady"
         is_active: true
         details: |
@@ -113,6 +119,7 @@ sections:
           - Finn
         acquaintances-list: |
           - Finn
+        comment:  
       - name: "Ice King"
         is_active: false
         details: |
@@ -122,6 +129,7 @@ sections:
           - Bubblegum
         acquaintances-list: |
           - Bubblegum
+        comment:  
     examples:
       - title: "Return only specified fields"
         description: |
@@ -178,6 +186,23 @@ sections:
         results: |
           {% assign results = section.data %}
           {% assign attributes = "name|acquaintances-list" | split:"|" %}
+
+      - title: "Return a field using an expression attribute"
+        description: |
+          Use an expression attribute to reference a field when the field name cannot be used in a projection expression. In this example, `comment` is a reserved word and cannot be used in a query. You can define an expression attribute name, starting with a `#`, that will be used as a placeholder for the field name.
+
+          Refer to [{{ page.display_name }}'s documentation]({{ site.data.taps.links.dynamodb.expression-attribute-names }}){:target="new"} for more examples of expression attributes.
+        projection-query: |
+          ```json
+          name, is_active, #c
+          ```
+        expression-attributes: |
+          ```json
+          "#c":"comment"
+          ```
+        results: |
+          {% assign results = section.data %}
+          {% assign attributes = "name|is_active|comment" | split:"|" %}
     content: |
       In this section, we'll look at some example projection expressions and their SQL equivalents.
 
@@ -191,8 +216,8 @@ sections:
       The examples use data from a table named `customers`, which uses the `name` field as a Primary Key. This table contains the following records:
 
       {% assign results = section.data %}
-      {% assign headings = "name [pk] (string)|is_active (boolean)|details (object)|acquaintances (array)" | split:"|" %}
-      {% assign attributes = "name|is_active|details|acquaintances" | split:"|" %}
+      {% assign headings = "name [pk] (string)|is_active (boolean)|details (object)|acquaintances (array)|comment (string)" | split:"|" %}
+      {% assign attributes = "name|is_active|details|acquaintances|comment" | split:"|" %}
 
       <table class="attribute-list" style="margin-top: 0px;">
       <tr>
@@ -211,7 +236,7 @@ sections:
       {% endfor %}
       </table>
 
-      {% assign example-attributes = "projection-query|sql|results" | split: "|" %}
+      {% assign example-attributes = "projection-query|expression-attributes|sql|results" | split: "|" %}
 
       {% for example in section.examples %}
       ### {{ example.title }} {#{{ example.title | slugify }}}

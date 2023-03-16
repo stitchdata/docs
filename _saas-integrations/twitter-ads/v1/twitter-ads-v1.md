@@ -98,8 +98,10 @@ setup-steps:
 
       **Note**: If you would like to add multiple ads accounts for this integration, repeat the above steps for each account.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Account IDs** field, paste the account ID you copied from [Step 1](#retrieve-account-id). If you're adding multiple accounts IDs, format them as a comma-delimited list. For example: `accountId1, accountId2`
       5. **Optional**: In the **Attribution Window** field, enter the number of days you want to use as a lookback period for [conversion reporting](https://business.twitter.com/en/help/campaign-measurement-and-analytics/conversion-tracking-for-websites.html){:target="new"} to stabilize. Custom report tables use this value during Extraction.
       6. **Optional**: Check the **with deleted** box if you want to include deleted records in the extraction Stitch performs.
@@ -140,9 +142,20 @@ setup-steps:
       To remove a report, click the **- Remove this report** link.
 
       **Note**: Removing a report will not remove the corresponding table or its data from your destination.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

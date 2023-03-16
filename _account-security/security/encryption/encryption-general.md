@@ -4,23 +4,30 @@
 # -------------------------- #
 
 title: Data Encryption
-permalink: /account-security/data-encryption
+permalink: /security/data-encryption
+redirect_from: /account-security/data-encryption
 summary: "Stitch offers secure options for making connections to all data sources and destinations, giving you the power to secure your data as you see fit."
+
+key: "data-encryption-overview"
+type: "security"
+content-type: "encryption"
+weight: 2
 
 input: false
 layout: general
 feedback: false
 
-key: "data-encryption-overview"
-type: "security"
-weight: 2
 
-enterprise: true
-enterprise-cta:
-  general: false
-  title: "Advanced connectivity for Stitch Enterprise"
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "premium"
+minimum-plan-cta:
+  title: "Advanced connectivity for {{ site.data.stitch.subscription-plans.premium.name }} plans"
   copy: |
-    [Additional connection options](#advanced-connectivity) are available as part of a Stitch Enterprise plan.
+    [Additional connection options](#advanced-connectivity) are available as part of an {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan.
+
 
 # -------------------------- #
 #        Introduction        #
@@ -28,7 +35,7 @@ enterprise-cta:
 
 intro: |
   {% capture security-faq %}
-  **Looking for general security info?** Check out the [Security FAQ]({{ link.security.faq | prepend: site.baseurl }}).
+  **Looking for general security info?** Check out the [Security overview]({{ link.security.faq | prepend: site.baseurl }}).
   {% endcapture %}
 
   {% include note.html type="single-line" content=security-faq %}
@@ -47,7 +54,6 @@ intro: |
 # -------------------------- #
 #           Content          #
 # -------------------------- #
-
 
 ssh-tunnels:
   - name: "Self-hosted"
@@ -123,12 +129,12 @@ sections:
           {% endfor %}
           </table>
 
-          **Note**: [Reverse SSH tunnels]({{ link.security.reverse-ssh | prepend: site.baseurl }}) are also available for Stitch Enterprise customers.
+          **Note**: [Reverse SSH tunnels]({{ link.security.reverse-ssh | prepend: site.baseurl }}) are also available for {{ site.data.stitch.subscription-plans.premium.name }} customers.
 
       - title: "Advanced connectivity"
         anchor: "advanced-connectivity"
         content: |
-          Additional connection options are available as part of a Stitch Enterprise plan. This includes:
+          Additional connection options are available as part of an {{ site.data.stitch.subscription-plans.premium.name }} plan. This includes:
 
           - Virtual Private Network (VPN)
           - [Reverse SSH tunneling]({{ link.security.reverse-ssh | prepend: site.baseurl }})

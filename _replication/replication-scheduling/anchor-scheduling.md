@@ -76,7 +76,7 @@ sections:
       To use anchor scheduling, you'll need to:
 
       - **Select a Replication Frequency** greater than an hour. One hour is the minimum frequency required to use anchor scheduling, as using an anchor time with a frequency less than an hour won't affect an integration's replication schedule.
-      - **Define an Anchor Time**. An Anchor Time is the time that the Replication Frequency is "anchored" to, which Stitch will use to create a replication schedule. Anchor times are available in half hour increments. Selecting an Anchor Time is only required when using anchor scheduling.
+      - **Define an Anchor Time**. An Anchor Time is the time that the Replication Frequency is "anchored" to, which Stitch will use to create a replication schedule. Selecting an Anchor Time is only required when using anchor scheduling.
 
       When you select an Anchor Time, Stitch will use it and your selected Replication Frequency to create a replication schedule for the integration.
 

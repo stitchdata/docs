@@ -8,12 +8,13 @@ input: false
 layout: general
 toc: false
 key: "mongodb-projection-queries"
+content-type: "guide"
 
 display_name: "MongoDB"
 name: "mongodb"
-db-type: "mongo"
+db-type: "mongodb"
 
-this-version: "1"
+# this-version: "1"
 
 intro: |
   {% include misc/data-files.html %}
@@ -69,7 +70,6 @@ sections:
         anchor: "adding-new-projection-query"
         content: |
           {% include shared/integrations/projection-column-selection.html type="adding-new-projection-query" %}
-
 
       - title: "Modifying an existing projection query"
         anchor: "modifying-existing-projection-query"

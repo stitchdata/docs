@@ -61,40 +61,16 @@ all-permissions:
 ## The individual steps for granting access to S3 for Stitch.
 
 databricks-delta:
-  - copy: "Sign into your Amazon Web Services (AWS) account as a user with privileges that allow you to manage S3 buckets."
+  - copy: "Sign into your Amazon Web Services (AWS) account as a user with privileges that allows you to manage S3 buckets."
   - copy: "Click **Services** near the top-left corner of the page."
   - copy: "Under the **Storage** option, click **S3**."
   - copy: "A page listing all buckets currently in use will display. Click the **name of the bucket** that is used with Databricks."
   - copy: "Click the **Permissions** tab."
   - copy: "In the **Permissions** tab, click the **Bucket Policy** button."
   - copy: |
-      In the Bucket policy editor, paste the following bucket policy. **Replace `<YOUR-BUCKET-NAME>` with the name of your S3 bucket**:
+      In the Bucket policy editor, paste the bucket policy for your [Stitch data pipeline region]({{ link.security.supported-operating-regions | prepend: site.baseurl }}) and replace `<YOUR-BUCKET-NAME>` with the name of your S3 bucket.
 
-      ```json
-      {
-        "Version": "2012-10-17",
-        "Id": "Policy-LoaderDelta-MWF",
-        "Statement": [
-          {
-            "Sid": "Stmt123",
-            "Effect": "Allow",
-            "Principal": {
-              "AWS": [
-                "arn:aws:iam::218546966473:role/LoaderDelta"
-              ]
-            },
-            "Action": [
-              "s3:PutObject",
-              "s3:GetObject",
-              "s3:ListBucket",
-              "s3:DeleteObject"
-            ],
-            "Resource": [
-              "arn:aws:s3:::<YOUR-BUCKET-NAME>",
-              "arn:aws:s3:::<YOUR-BUCKET-NAME>/"
-            ]
-          }
-        ]
-      }
-      ```
+      **Not sure what your Stitch data pipeline region is?** [Click here for help]({{ link.security.supported-operating-regions | prepend: site.baseurl | append: "#identify-data-pipeline-region" }}).
+
+      {% include destinations/templates/s3-bucket-policies.html %}
   - copy: "When finished, click **Save**."

@@ -1,0 +1,35 @@
+---
+permalink: /page-metadata
+search: exclude
+---
+
+{% assign redirect-data = "redirect_from|redirect_to" | split:"|" %}
+{% assign output-collections = site.collections | where:"output",true %}
+{% assign permalink-docs = site.documents | where_exp:"page","page.permalink != nil" %}
+
+
+{
+	"pages": [
+{% for page in permalink-docs %}
+	{% if page.this-version %}
+		{% assign page-key = page.key | append: "-v" | append: page.this-version %}
+	{% else %}
+		{% assign page-key = page.key %}
+	{% endif %}
+
+	{% capture all-permalinks %}{{ page.permalink | strip }}{% if page.redirect_from %},{% if page.redirect_from[1] %}{% for url in page.redirect_from %}{{ url | replace_regex:'(#.*)',"" }}{%- unless forloop.last == true -%},{% endunless %}{% endfor %}{% else %}{{ page.redirect_from }}{% endif %}{% endif %}{% endcapture %}
+
+  {
+		"collection": "{{ page.collection }}",
+		"key": "{{ page-key }}",
+		"title": "{{ page.title }}",
+		"content_type": "{{ page.content-type }}",
+		"current_permalink": "{{ page.permalink | strip }}",
+		"all_permalinks": "{{ all-permalinks | strip }}",
+	  "repo_url": "{{ page.repo-url }}",
+	  "api_type": "{{ page.api-type }}",
+	  "version": "{{ page.this-version }}"
+	}{% unless forloop.last == true %},{% endunless %}
+{% endfor %}
+]
+}

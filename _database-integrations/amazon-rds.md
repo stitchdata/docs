@@ -7,6 +7,7 @@ layout: general
 input: false
 
 key: "amazon-rds-integration"
+content-type: "database-category"
 
 toc: false
 feedback: false

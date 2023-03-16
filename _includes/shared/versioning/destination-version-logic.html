@@ -5,6 +5,12 @@
 
 {% assign display_name = [include.item-name]display_name %}
 
+{% if include.page-key %}
+	{% assign doc-key = include.page-key %}
+{% else %}
+	{% assign doc-key = [include.item-name]key %}
+{% endif %}
+
 
 <!-- Get the correct versions 
 
@@ -12,7 +18,7 @@
 {% if include.this-version %}
     {% assign released-versions = site.data.destinations[page_name]versions.released-versions | where:"number",include.this-version %}
 
-    {% assign only-this-version = released-versions | where:"number",[page_name]this-version | first %}
+    {% assign only-this-version = released-versions | find:"number",include.this-version %}
 
 <!-- Otherwise, get the full list of released versions. -->
 {% else %}
@@ -22,14 +28,14 @@
 {% endif %}
 
 
-	{% assign this-version = released-versions | where:"number",page.this-version | first %}
+	{% assign this-version = released-versions | find:"number",[include.item-name]this-version %}
 
 
 <!-- Pulls the latest version number for the destination -->
     {% assign latest-version = site.data.destinations[page_name]versions.latest-version %}
 
 <!-- Last, pulls all docs that that match the given key  -->
-    {% assign all-versioned-docs = site.documents | where:"key",[include.item-name]key %}
+    {% assign all-versioned-docs = site.documents | where:"key",doc-key %}
 
 <!-- Get the doc that is the latest version based on the given key. -->
-	{% assign latest-version-doc = all-versioned-docs | where:"this-version",latest-version | first %}
+	{% assign latest-version-doc = all-versioned-docs | find:"this-version",latest-version %}

@@ -151,8 +151,10 @@ setup-steps:
          ![Mixpanel API credentials.]({{ site.baseurl}}/images/integrations/mixpanel-api-creds.png)
 
          Leave this page open - you'll need it to complete the setup in Stitch.
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. Paste your API credentials in the the **API Key** and **Secret** fields, respectively.
   - title: "Define the historical sync"
     content: |
@@ -163,8 +165,16 @@ setup-steps:
       For example: If you have a Starter Free {{ integration.display_name }} plan, you have access to 90 days of historical data (as of 04/28/2020). If you select a Start Date greater than 90 days, {{ integration.display_name }}'s API will prevent Stitch from extracting your data.
       
       Refer to [{{ integration.display_name }}'s documentation](https://help.mixpanel.com/hc/en-us/articles/115004511246){:target="new"} for more info and to check your {{ integration.display_name }} account's historical data access limit.
-  - title: "replication frequency"
-  - title: "track data"
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #      Replication Info      #

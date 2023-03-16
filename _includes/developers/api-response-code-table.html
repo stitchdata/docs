@@ -46,7 +46,7 @@
                                     <strong>{{ response-code.code }}</strong>
                                 </td>
                                 <td>
-                                    {{ response.condition | markdownify }}
+                                    {{ response.condition | flatify | markdownify }}
                                 </td>
                                 <td>
                                     {{ response.response-body | flatify | default: "None" | markdownify }}

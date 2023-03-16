@@ -21,10 +21,10 @@
 ## It won't show up in the Connect docs unless the section
 ## below is uncommented:
 
-# product-type: "connect"
-# content-type: "api-form"
-# form-type: "destination"
-# key: "destination-form-properties-dataworld-object"
+product-type: "connect"
+content-type: "api-form"
+form-type: "destination"
+key: "destination-form-properties-dataworld-object"
 
 
 # -------------------------- #

@@ -2,10 +2,10 @@
 title: Replication Keys for MongoDB Integrations
 permalink: /replication/mongo-replication-keys
 keywords: replicate, replication, replication key, keys, stitch replicates data, rp, mongo, mongodb, mongo database integration
-tags: [replication]
 summary: "Replication Keys for MongoDB integrations have their own set of quirks and gotchas, owing to how MongoDB itself is designed. In this guide, we'll explain what to watch out for and how to choose the best field for the job."
 
 content-type: "replication-keys"
+key: "mongo-rep-keys"
 toc: true
 weight: 2
 ---

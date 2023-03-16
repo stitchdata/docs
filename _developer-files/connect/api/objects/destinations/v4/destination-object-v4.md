@@ -34,7 +34,7 @@ object-attributes:
     type: "string"
     description: "The name for the destination."
     example-value: |
-      "Default Warehouse"
+      "Staging"
 
   - name: "paused_at"
     type: "timestamp"
@@ -44,7 +44,7 @@ object-attributes:
 
   - name: "properties"
     type: "object"
-    sub-type: "destination form properties"
+    sub-type: "connection property"
     url: "{{ api.form-properties.destination-forms.section }}"
     description: |
       Parameters for connecting to the destination, excluding any sensitive credentials. The parameters must adhere to the `type` of destination.
@@ -78,6 +78,7 @@ object-attributes:
 examples:
   - code: |
       {
+        "description": "Postgres database for the staging environment.",
         "properties": {
           "database": "demni2mf59dt10",
           "encryption_type": "none",
@@ -88,7 +89,7 @@ examples:
           "username": "stitch"
         },
         "updated_at": "2019-05-24T18:04:08Z",
-        "name": "Default Warehouse",
+        "name": "Staging",
         "type": "postgres",
         "deleted_at": null,
         "system_paused_at": null,

@@ -38,6 +38,7 @@ db-type: "postgres"
 
 ## Stitch features
 api-type: "platform.cloudsql_pg"
+
 versions: "9.3+"
 ssh: false
 ssl: false
@@ -52,14 +53,18 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+select-all: false
+select-all-reason: |
+  {{ integration.display_name }} integrations don't currently support a default Replication Method, which is required to use the Select All feature. The default Replication Method setting is only available for integrations that support Log-based Incremental Replication.
+
 table-level-reset: true
 
 ## Replication methods
 
 define-replication-methods: true
+set-default-replication-method: false
 
 log-based-replication-minimum-version: "n/a"
-
 log-based-replication-master-instance: false
 log-based-replication-master-instance-reason: "Google CloudSQL doesn't currently support logical replication."
 log-based-replication-master-instance-doc-link: "https://groups.google.com/forum/#!topic/google-cloud-sql-discuss/md_7Rq3LgB0"
@@ -97,6 +102,11 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
+  - title: "Verify your Stitch account's data pipeline region"
+    anchor: "verify-stitch-account-region"
+    content: |
+      {% include shared/whitelisting-ips/locate-region-ip-addresses.html first-step=true %}
+      
   - title: "Configure database connection settings"
     anchor: "connect-settings"
     content: |
@@ -113,6 +123,10 @@ setup-steps:
     anchor: "connect-stitch"
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
+
+      {% for substep in step.substeps %}
+      - [Step 4.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
 
     substeps:
       - title: "Locate the database connection details in Google"
@@ -138,7 +152,7 @@ setup-steps:
   - title: "Select data to replicate"
     anchor: "sync-data"
     content: |
-      {% include integrations/databases/setup/syncing.html %}
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

@@ -211,8 +211,13 @@
                   :as property]]
   (let [property (if (contains? property-json-schema-partial "$ref")
                    (let [{:keys [file json-pointer]}
-                         (parse-json-schema-reference
-                          (property-json-schema-partial "$ref"))
+
+                         (try
+                           (parse-json-schema-reference
+                            (property-json-schema-partial "$ref"))
+                           (catch Exception err
+                             (println (str "Got an error processing " property))
+                             (throw err)))
 
                          _
                          (when (and (nil? file)
@@ -263,7 +268,7 @@
   {:pre [(tap-fs? tap-fs)]}
   (let [schema-path        (.relativize (.toPath tap-directory)
                                         (.toPath input-json-schema-file))
-        tap-version        (string/replace (string/trim (:out (sh "python" "setup.py" "--version" :dir tap-directory)))
+        tap-version (string/replace (string/trim (:out (sh "python3" "setup.py" "--version" :dir tap-directory)))
                                            #"^([0-9]+)\..+"
                                            "$1.x")
         stream-name        (string/replace (.getName input-json-schema-file) #".json$" "")
@@ -318,7 +323,7 @@
                              1)))
                    "tap"                (string/replace tap-name "tap-" "")
                    "version"            tap-version
-                   "key"																""
+                   "key"                ""
                    "name"               stream-name
                    "doc-link"           ""
                    "singer-schema"      (format "https://github.com/singer-io/%s/blob/master/%s"
@@ -374,7 +379,7 @@
   [tap-directory]
   {:pre [(.exists tap-directory)]
    :post [(tap-fs? %)]}
-  (let [tap-name             (string/trim (:out (sh "python" "setup.py" "--name" :dir tap-directory)))
+  (let [tap-name             (string/trim (:out (sh "python3" "setup.py" "--name" :dir tap-directory)))
         tap-code-package-dir (io/file tap-directory (string/replace tap-name "-" "_"))
         tap-schema-dir       (let [tap-schema-dir (io/file tap-code-package-dir "schemas")]
                                (if (.exists tap-schema-dir)
@@ -425,8 +430,10 @@
     (if (or (get-in parsed-args [:options :help])
             (not= 1 (count (parsed-args :arguments)))
             (not (try (cli-arg->tap-fs (first (parsed-args :arguments)))
-                      (catch Exception e)
-                      (catch Error e))))
+                      (catch Exception e
+                        (println e))
+                      (catch Error e
+                        (println e)))))
       (show-help parsed-args)
       (let [tap-fs       (cli-arg->tap-fs (first (parsed-args :arguments)))
             schema-files (:tap-schemas tap-fs)]

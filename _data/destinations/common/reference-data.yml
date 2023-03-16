@@ -16,14 +16,37 @@ feature-comparisons:
         {% assign clean-version = version | remove:"v" %}
         {% assign this-version = released-versions | where:"number",clean-version | first %}
         {{ this-version.status | capitalize }}
+    
     - id: "release-date"
       default: |
         {% assign clean-version = version | remove:"v" %}
         {% assign this-version = released-versions | where:"number",clean-version | first %}
         {{ this-version.date-released }}
+    
     - id: "stitch-plan-availability"
       file: "stitch-details"
       default: "All Stitch plans"
+    
+    - id: "stitch-supported-region-list"
+      file: "stitch-details"
+      default: &stitch-supported-region-list-default |
+        <ul>
+        {% if site.data.destinations[destination.type][version]stitch-details %}
+        {% assign stitch-supported-regions = site.data.destinations[destination.type][version]stitch-details.stitch-supported-regions %}
+        {% else %}
+        {% assign stitch-supported-regions = site.data.destinations[destination.type]stitch-details.stitch-supported-regions %}
+        {% endif %}
+        {% for region in stitch-supported-regions %}
+        {% assign stitch-region = site.data.stitch.regions | where:"id",region.id | first %}
+
+        <li style="margin-top: 0px;">{{ stitch-region.name }} (AWS {{ stitch-region.region }})</li>
+        {% endfor %}
+        </ul>
+
+        {% unless page.content-type == "destination-category" %}
+        Operating regions determine the location of the resources Stitch uses to process your data. [Learn more]({{ link.security.supported-operating-regions | prepend: site.baseurl }}).
+        {% endunless %}
+    
     - id: "available-in-connect"
       file: "stitch-details"
 
@@ -33,6 +56,8 @@ feature-comparisons:
     - id: "ssl"
       file: "stitch-details"
     - id: "vpn"
+      file: "stitch-details"
+    - id: "static-ip"
       file: "stitch-details"
 
   replication-loading:
@@ -64,11 +89,13 @@ feature-comparisons:
 stitch-details:
   - "release-status"
   - "stitch-plan-availability"
+  - "stitch-supported-region-list"
   - "supported-versions"
   - "available-in-connect"
   - "ssh"
   - "ssl"
   - "vpn"
+  - "static-ip"
   - "default-loading-behavior"
   - "nested-structure-support"
 
@@ -92,9 +119,14 @@ pricing-tier:
     {% case destination-data[reference-item] %}
     {% when 'Standard' %}
     All Stitch plans
-    {% when 'Enterprise' %}
-    Stitch Enterprise plans
+    {% else %}
+    {{ destination-data[reference-item] | flatify }}
     {% endcase %}
+
+stitch-supported-region-list:
+  title: "Stitch supported regions"
+  tooltip: "The Stitch operating regions the destination supports."
+  default: *stitch-supported-region-list-default
 
 supported-versions:
   tooltip: "The database versions supported for use with Stitch."
@@ -123,7 +155,13 @@ vpn:
   title: "VPN connections" 
   tooltip: "Indicates if VPN connections are supported for the destination."
   not-supported: |
-    Virtual Private Network (VPN) connections may be implemented as part of an Enterprise plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
+    Virtual Private Network (VPN) connections may be implemented as part of a {{ site.data.stitch.subscription-plans.premium.name }} plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
+
+static-ip:
+  title: "Static IP addresses" 
+  tooltip: "Indicates if static IP addresses are supported for the destination."
+  supported: "This version of the {{ destination.display_name }} destination has static IP addresses that can be whitelisted."
+  not-supported: "This version of the {{ destination.display_name }} destination does not have static IP addresses that can be whitelisted."
 
 default-loading-behavior:
   tooltip: "The default loading behavior used by the destination."
@@ -171,6 +209,7 @@ destination-details:
   - "max-record-size"
   - "table-name-length"
   - "column-name-length"
+  - "max-columns-per-table"
   - "max-table-size"
   - "max-tables-per-database"
   - "case-sensitivity"

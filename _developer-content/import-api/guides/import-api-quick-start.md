@@ -15,6 +15,8 @@ content-id: "stitch-import-api-quick-start"
 
 key: "import-api-quick-start"
 
+region-selector: true
+
 layout: tutorial
 
 
@@ -82,10 +84,25 @@ steps:
 
       {% include developers/import-api/obtaining-credentials.html type="generate-new-access-token" %}
 
+  - title: "Retrieve the correct Import API base URL for your region"
+    anchor: "verify-your-data-pipeline-region"
+    content: |
+      Next, you'll identify the [data pipeline region]({{ link.security.supported-operating-regions | prepend: site.baseurl }}) your Stitch account is in. You'll use this to retrieve the correct Import API base URL for your account's region.
+
+      The base URL is used in requests submitted to the Import API and is similar to `{{ site.data.import-api.api.base-url }}`.
+
+      To identify your region and get your base URL:
+
+      1. Use [these instructions]({{ link.security.supported-operating-regions | prepend: site.baseurl | append: "#identify-data-pipeline-region" }}) to locate your account's data pipeline region.
+      2. Refer to the [Import API base URL reference]({{ link.import-api.api | prepend: site.baseurl | append: "#base-urls" }}) to locate the base URL for your region.
+      3. Use the **Select your region** menu at the top right corner of this page to select your data pipeline region. This will display all API requests in this guide with the correct base URL for your region.
+
+      Your base URL is currently set to: <code class='apiUrl'></code>
+
   - title: "Check the status of the Import API"
     anchor: "check-import-api-status"
     content: |
-      {% assign api = site.data.connect.api %}
+      {% assign api = site.data.import-api.api %}
 
       Next, check the status of the Import API by sending a request to [GET {{ site.data.import-api.core-objects.api-status.url }}]({{ link.import-api.api | prepend: site.baseurl | append: site.data.import-api.core-objects.api-status.anchor }}). This will ensure that the test request you send in the next step, which will validate your credentials and some sample data, will not fail due to an API outage.
 

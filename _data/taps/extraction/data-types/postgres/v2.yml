@@ -1,0 +1,214 @@
+# ----------------------------------- #
+#  POSTGRESQL V2 SUPPORTED DATA TYPES #
+# ----------------------------------- #
+
+## In addition to the common supported data types (_data/stitch/supported-data-types.yml), the following data types are relevant to PostgreSQL VERSION 2.
+
+# Source: https://github.com/stitchdata/tap-postgres/blob/master/src/tap_postgres/utils/avro.clj#L377
+
+
+# --------------------------------- #
+#  INTEGRATION-SPECIFIC DATA TYPES  #
+# --------------------------------- #
+
+## PostgreSQL has integration-specific data types. Refer to:
+## _data/taps/extraction/data-types/postgres/specific.yml
+
+
+# --------------------------------- #
+#          ALL DATA TYPES           #
+# --------------------------------- #
+
+array:
+  stitch-type: "array"
+  tooltip: |
+    Arrays aren't fully implemented for this version. Arrays of some types - such as decimals or dates - are not yet supported.
+
+bigint:
+  stitch-type: "integer"
+
+bigserial:
+  stitch-type: "integer"
+
+bit:
+  stitch-type: "boolean"
+
+bit varying:
+  stitch-type: "unsupported"
+
+boolean:
+  stitch-type: "boolean"
+
+box:
+  stitch-type: "unsupported"
+
+bytea:
+  stitch-type: "unsupported"
+
+char:
+  stitch-type: "string"
+
+cidr:
+  stitch-type: "string"
+
+circle:
+  stitch-type: "unsupported"
+
+citext:
+  stitch-type: "string"
+
+composite:
+  stitch-type: "unsupported"
+      
+date:
+  stitch-type: "string"
+  format: "date-time"
+  tooltip: |
+    Dates are exported as epoch days and loaded as DATE-TIME.
+      
+decimal:
+  stitch-type: "number"
+
+double:
+  stitch-type: "number"
+
+float:
+  stitch-type: "number"  
+
+hstore:
+  stitch-type: "object"
+  tooltip: |
+    HSTORE is supported, but may be de-nested depending on the destination you're using. <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}'>Learn more.</a>
+
+inet:
+  stitch-type: "string"
+
+ip:
+  stitch-type: "string"
+      
+integer:
+  stitch-type: "integer"
+
+interval:
+  stitch-type: "string"
+
+json:
+  stitch-type: "object"
+  tooltip: |
+    JSON is supported, but may be de-nested depending on the destination you're using. <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}'>Learn more.</a>
+
+jsonb:
+  stitch-type: "object"
+  tooltip: |
+    JSONB is supported, but may be de-nested depending on the destination you're using. <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}'>Learn more.</a>
+
+line:
+  stitch-type: "unsupported"
+
+lseg:
+  stitch-type: "unsupported"
+
+longvarchar:
+  stitch-type: "string"
+
+longnvarchar:
+  stitch-type: "string"
+
+macaddr:
+  stitch-type: "string"
+
+money:
+  stitch-type: "string"
+
+nchar:
+  stitch-type: "string"
+
+numeric:
+  stitch-type: "number"
+      
+nvarchar:
+  stitch-type: "string"
+
+oid:
+  stitch-type: "unsupported"
+
+path:
+  stitch-type: "unsupported"
+
+pg_lsn:
+  stitch-type: "unsupported"
+
+point:
+  stitch-type: "unsupported"
+
+polygon:
+  stitch-type: "unsupported"
+
+range:
+  stitch-type: "unsupported"
+
+real:
+  stitch-type: "double"
+
+regproc:
+  stitch-type: "unsupported"
+
+regprocedure:
+  stitch-type: "unsupported"
+
+regoper:
+  stitch-type: "unsupported"
+
+regoperator:
+  stitch-type: "unsupported"
+
+regclass:
+  stitch-type: "unsupported"
+
+regtype:
+  stitch-type: "unsupported"
+
+regconfig:
+  stitch-type: "unsupported"
+
+regdictionary:
+  stitch-type: "unsupported"
+
+serial:
+  stitch-type: "integer"
+
+smallserial:
+  stitch-type: "integer"
+
+smallint:
+  stitch-type: "integer"
+
+time:
+  stitch-type: "string"
+
+timestamp:
+  stitch-type: "string"
+  format: "date-time"
+  tooltip: |
+    Timestamps are exported as epoch microseconds and loaded as DATE-TIME.
+
+tinyint:
+  stitch-type: "integer"
+
+tsquery:
+  stitch-type: "unsupported"
+
+tsvector:
+  stitch-type: "unsupported"
+
+txid_snapshot:
+  stitch-type: "unsupported"
+
+uuid:
+  stitch-type: "string"
+
+varchar:
+  stitch-type: "string"
+
+xml:
+  stitch-type: "unsupported"

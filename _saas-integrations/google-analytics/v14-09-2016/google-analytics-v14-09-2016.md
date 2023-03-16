@@ -37,11 +37,17 @@ historical: "30 days"
 frequency: "6 hours"
 tier: "Standard"
 
-table-selection: false
-column-selection: false
-
 anchor-scheduling: false
 cron-scheduling: false
+
+table-selection: false
+column-selection: false
+select-all: false
+select-all-reason: |
+  As this integration doesn't support table or column selection, all available tables and columns are automatically replicated.
+select-all: false
+select-all-reason: |
+  As this integration doesn't support table or column selection, all available tables and columns are automatically replicated.
 
 extraction-logs: false
 loading-reports: true
@@ -91,9 +97,20 @@ requirements-list:
   - item: "**To pause all ad-blocking software**. Because Google authentication uses pop ups, you may encounter issues if ad blockers aren't disabled during the setup."
 
 setup-steps:
-  - title: "add integration"
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
+    content: |
+      {% include integrations/shared-setup/connection-setup.html %}
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
   - title: "Authorize Stitch and select a Google Analytics profile"
     anchor: "auth-select-ga-profile"
     content: |

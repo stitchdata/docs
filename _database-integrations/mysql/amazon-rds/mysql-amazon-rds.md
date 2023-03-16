@@ -51,11 +51,15 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+select-all: "sometimes"
+select-all-reason: "Log-based Incremental Replication must be enabled and set as the default Replication Method to use the Select All feature."
+
 table-level-reset: true
 
 ## Replication methods
 
 define-replication-methods: true
+set-default-replication-method: true
 
 log-based-replication-minimum-version: "5.6.2"
 log-based-replication-master-instance: true
@@ -89,6 +93,11 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
+  - title: "Verify your Stitch account's data pipeline region"
+    anchor: "verify-stitch-account-region"
+    content: |
+      {% include shared/whitelisting-ips/locate-region-ip-addresses.html first-step=true %}
+
   - title: "Configure database connection settings"
     anchor: "connect-settings"
     content: |
@@ -100,6 +109,10 @@ setup-steps:
       {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication. [Click to skip ahead](#create-a-database-user)." %}
 
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
+
+      {% for substep in step.substeps %}
+      - [Step 3.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
     substeps:
       - title: "Configure the database parameter group"
         anchor: "configure-database-parameter-group"
@@ -154,11 +167,15 @@ setup-steps:
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
+      {% for substep in step.substeps %}
+      - [Step 5.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
+
     substeps:
       - title: "Locate the database connection details in AWS"
         anchor: "locating-rds-database-details"
         content: |
-          {% include shared/connection-details/amazon.html %}
+          {% include shared/connection-details/amazon.html type="connection-details"%}
 
       - title: "Define the database connection details in Stitch"
         anchor: "define-connection-details"
@@ -195,7 +212,7 @@ setup-steps:
   - title: "Select data to replicate"
     anchor: "sync-data"
     content: |
-      {% include integrations/databases/setup/syncing.html %}
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

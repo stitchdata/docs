@@ -55,10 +55,15 @@ arguments:
     example-value: |
       "2019-06-01T00:00:00Z"
 
+  - name: "destination_id"
+    required: false
+    type: "integer"
+    description: "The ID of the destination you want to load data into. For example: `12345`."   
+
   - name: "properties"
     required: false
     type: "object"
-    description: "A [Source Form Property object]({{ api.form-properties.source-forms.section }}) corresponding to the value of `type`."
+    description: "A [Connection property object]({{ api.form-properties.source-forms.section }}) corresponding to the value of `type`."
 
 
 # -------------------------- #

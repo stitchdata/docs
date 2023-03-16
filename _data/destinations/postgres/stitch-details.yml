@@ -20,6 +20,12 @@ available-in-connect: true
 
 api-type: "postgres"
 
+loader-name: "PG"
+
+stitch-supported-regions:
+  - id: "north-america"
+  - id: "europe"
+
 
 # ------------------------------ #
 #      CONNECTION METHODS        #
@@ -32,6 +38,8 @@ connect-ssl: true ## Indicates whether SSL can be configured via the API
 ssh: true
 
 vpn: false
+
+static-ip: true
 
 
 # ------------------------------ #

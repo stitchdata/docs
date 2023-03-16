@@ -1,8 +1,13 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Billing FAQ
 permalink: /account-security/billing-faq
 keywords: billing, bill info, payment history, tier, plan, charge, overage, invoice, payments, invoices
-tags: [account, getting_started]
+
+key: "billing-faq"
 
 summary: "Learn how to manage and change your Stitch subscription plan, enter payment details, view invoices, and cancel your account."
 
@@ -11,6 +16,11 @@ layout: faq
 
 type: "billing"
 weight: 2
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 frequently-asked-questions:
 
@@ -27,9 +37,7 @@ frequently-asked-questions:
         answer: |
           Plans are based on the volume of rows and events replicated per month. Each plan has a monthly allotment of replicated rows.
 
-          In addition, access to some integrations depends on the type of plan you select. To use Stitch's Standard integrations, you'll need to select a Standard plan.
-
-          Refer to the [pricing page]({{ site.pricing }}){:target="new"} for more info.
+          In addition, access to some integrations depends on the type of plan you select. Refer to the [pricing page]({{ site.pricing }}){:target="new"} for more info.
 
       - question: "What's a replicated row?"
         anchor: "what-is-a-replicated-row"
@@ -56,7 +64,7 @@ frequently-asked-questions:
 
           For example: Accounts using the Standard Plan may add up to **{{ standard-plan.total-integrations | downcase }}** different types of integrations.
 
-          If an account has **five** Google Analytics integrations connected, this wonly counts as **one** towards the integration type quota. Up to **nine** additional types of integrations may still be added.
+          If an account has **five** Google Analytics integrations connected, this only counts as **one** towards the integration type quota. Up to **nine** additional types of integrations may still be added.
 
           <table class="attribute-list">
           <tr>
@@ -76,10 +84,6 @@ frequently-asked-questions:
           <tr>
           <td class="attribute-name">
           <strong>{{ plan.name | capitalize | replace:"-", " " }}</strong>
-
-          {% if this-plan.legacy == true %}
-          {{ info-icon | replace:"TOOLTIP","This is a legacy plan and has been replaced by the Standard plan." }}
-          {% endif %}
           </td>
           <td>
           {{ this-plan.total-integrations }}
@@ -89,27 +93,27 @@ frequently-asked-questions:
           </table>
           <br>
 
-          **Note**: The types of integrations available are also dependent on plan type. Users of the Enterprise plan will have access to all integrations, while Standard Plan users will have access only to Standard integrations.
+          **Note**: The types of integrations available are also dependent on plan type. Users of the {{ site.data.stitch.subscription-plans.advanced.name }} and {{ site.data.stitch.subscription-plans.premium.name }} plans will have access to all integrations, while Standard Plan users will have access only to Standard integrations.
 
           For more info, refer to the [pricing page]({{ site.pricing }}){:target="new"}.
 
       - question: "What integrations are available on a Standard Plan?"
         anchor: "integrations-paid-plan"
         answer: |
-          After the Free Trial has ended, only Standard integrations will be available to users who select a Standard plan. This includes the majority of Stitch's available integrations with the exception of those offered as part of an [Enterprise plan]({{ link.account.enterprise-features | prepend: site.baseurl }}).
+          After the Free Trial has ended, only Standard integrations will be available to users who select a Standard plan. This includes the majority of Stitch's available integrations with the exception of those offered as part of an [{{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan]({{ link.account.enterprise-features | prepend: site.baseurl }}).
 
           Refer to the [pricing page]({{ site.pricing }}){:target="new"} for a list of current Stitch plans.
 
-      - question: "What integrations are available on an Enterprise Plan?"
-        anchor: "integrations-enterprise-plan"
+      - question: "What integrations are available on {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} Plans?"
+        anchor: "integrations-upgraded-plan"
         answer: |
           {% assign all-integrations = site.documents | where:"input", true %}
-          {% assign enterprise-integrations = all-integrations | where:"tier","Enterprise" %}
+          {% assign stitch-upgraded-integrations = all-integrations | where:"minimum-plan","advanced" %}
 
-          The integrations in the table below are available only to Enterprise Plans. [Reach out to sales]({{ site.sales }}){:target="new"} for more info.
+          The integrations in the table below are available only to {{ site.data.stitch.subscription-plans.advanced.name }} and {{ site.data.stitch.subscription-plans.premium.name }} Plans. [Reach out to sales]({{ site.sales }}){:target="new"} for more info.
 
           <table class="attribute-list">
-          {% for integration in enterprise-integrations %}
+          {% for integration in stitch-upgraded-integrations %}
 
           {% assign index = forloop.index | modulo: 2 %}
 
@@ -237,7 +241,7 @@ frequently-asked-questions:
 
           If you're upgrading or downgrading a monthly plan, meaning the new plan has a greater or lower row limit than the current plan, the change will be effective immediately and you will be charged or refunded the difference between the current plan and the new plan.
 
-          In addition, if you're upgrading from the Standard plan to an Enterprise plan, you'll also have immediate access to Enterprise integrations.
+          In addition, if you're upgrading to a plan that has access to additional features, you'll have immediate access to those features. 
              
           **For annual plans**:
 
@@ -256,28 +260,37 @@ frequently-asked-questions:
       - question: "Where do I manage my payment details?"
         anchor: "manage-payment-details"
         answer: |
-          {% include note.html type="single-line" content="**Note**: The user who initially enters the payment info is the user who will receive your account's monthly invoice in their email." %}
+          {% include note.html type="single-line" content="**Note**: Until contact addresses are updated, the user who initially enters the payment info will receive your account's monthly invoice in their email." %}
 
-          You can enter and manage your credit card details in the {{ app.page-names.billing }} page, accessed by clicking {{ app.menu-paths.billing }}.
+          You can enter and manage your credit card, addresses and contact details in the {{ app.page-names.billing }} page, accessed by clicking {{ app.menu-paths.billing }}.
 
-          When you enter the cardholder's name, **make sure that a valid last name is entered**. Though Stitch does validate these fields, we've seen replication issues arise when the Last Name field is blank.
+          When you enter the cardholder's name, **make sure that a valid last name is entered**. Though Stitch does validate these fields, we've seen replication issues arise when the Last Name field is blank.  
 
       - question: "What types of payment does Stitch accept?"
         anchor: "accepted-payment-types"
         answer: |
-          Stitch accepts all major credit cards. Additional options are available for Enterprise customers.
+          Stitch accepts all major credit cards. Additional options are available for Enterprise and Unlimited customers.
 
       - question: "Where can I see my past payments?"
         anchor: "view-past-payments"
         answer: |
           You can view your past payments, including the payment amount and associated invoice number, in the **Past Payments** section of the {{ app.page-names.billing }} page.
 
+      - question: "Can I change my billing address?"
+        anchor: "change-bill-to-address"
+        answer: |
+          When a user subscribes to a paid plan, the "Bill to" address is overwritten by the "Sold to" address because a billing address is required. 
+
+          To change either of these addresses, head to the {{ app.page-names.billing }} page, accessed by clicking {{ app.menu-paths.billing }}.
+
+          Please note that a "Sold to" address can only be updated when changing payment methods. When the "Sold to" address is updated, Stitch will begin to charge the appropriate sales tax in the next invoice.
+
       - question: "Who receives a copy of the monthly invoice?"
         anchor: "copy-monthly-invoice"
         answer: |
-          The user who initially adds the payment information to the account will receive a copy of the monthly invoice in their email.
+          The user who initially adds the payment information to the account, and any user-provided email addresses, will receive a copy of the monthly invoice in their email. Additionally, everyone can also view the Past Payments details in the {{ app.page-names.billing }} page.
 
-          Additionally, everyone can also view the Past Payments details in the {{ app.page-names.billing }} page.
+          There is a hard limit of 38 additional email addresses per account. These emails are not restricted to just Stitch users. Any email address added will begin receiving invoices as soon as the next invoice is issued.
 
 
 # -------------------------- #

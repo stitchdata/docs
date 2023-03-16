@@ -23,15 +23,32 @@ db-type: "postgres"
 
 description: ""
 
+deprecated:
+  as-of: "June 2, 2021"
+  use-instead: "platform.hp-postgres"
+
 
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
 ## See these fields in _data/connect/common/database-sources.yml > all-databases
-## This object will also list the fields in the `mysql` list ^
 
 uses-common-fields: true
 uses-feature-fields: true
 uses-start-date: false
+
+object-attributes:
+  - name: "wal2json_message_format"
+    required: false
+    internal: true
+    type: "string"
+    description: |
+      The message format version the [wal2json plugin](https://github.com/eulerto/wal2json){:target="new"} on Stitch's server should use when performing Log-based Incremental Replication.
+
+      Accepted values are:
+
+      - `1` - Use the v1 message format. This is the default.
+      - `2` - Use the v2 message format
+    value: "2"
 ---

@@ -9,6 +9,8 @@ layout: general
 toc: false
 feedback: false
 
+key: "troubleshooting-errors"
+
 intro: |
   {% include misc/data-files.html %}
   {% assign all-errors = site.troubleshooting | where_exp:"page","page.type contains 'error'" | sort_natural: "title" %}

@@ -27,24 +27,20 @@ foreign-keys:
         join-on: "id"
 
   - id: "person-id"
-    attribute: "person_id"
+    attribute: "updated_by_id"
     table: "people"
     all-foreign-keys:
       - table: "assignments"
+        join-on: "person_id"
       - table: "assignments"
-        join-on: "updated_by_id"
       - table: "clients"
-        join-on: "updated_by_id"
       - table: "milestones"
-        join-on: "updated_by_id"
       - table: "people"
         join-on: "id"
       - table: "people"
-        join-on: "updated_by_id"
       - table: "projects"
-        join-on: "updated_by_id"
       - table: "placeholders"
-        join-on: "updated_by_id"  
+      - table: "roles"
 
   - id: "project-id"
     attribute: "project_id"
@@ -67,16 +63,14 @@ foreign-keys:
         join-on: "value"
 
   - id: "role-id"
-    attribute: "id"
+    attribute: "value"
     table: "roles"
     all-foreign-keys:
       - table: "people"
         subattribute: "roles"
-        join-on: "value"
 
       - table: "placeholders"
         subattribute: "roles"
-        join-on: "value"
 
       - table: "roles"
         join-on: "id"

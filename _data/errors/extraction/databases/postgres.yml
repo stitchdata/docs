@@ -1,0 +1,46 @@
+# ----------------------------- #
+#  PostgreSQL Extraction Errors #
+# ----------------------------- #
+
+## This file contains the extraction errors that can arise 
+## while replicating data from a PostgreSQL-backed database.
+
+raw-error:
+  missing-replication-slot: &missing-replication-slot |
+    Unable to find replication slot 'stitch' nor 'stitch_[name]' with wal2json
+
+  ssl-required-error: &ssl-required-error |
+    Fatal Error Occured - FATAL: connection requires a valid client certificate
+
+all:
+# Missing replication slot
+  - message: *missing-replication-slot
+    id: "missing-replication-slot"
+    applicable-to: "PostgreSQL v2 database integrations"
+    level: "critical"
+    category: "Log-based Incremental Replication"
+    category-doc: |
+      {{ link.replication.log-based-incremental | prepend: site.baseurl }}
+    version: "2"
+    summary: "Missing replication slot"
+    cause: |
+      {% assign all-postgres = site.database-integrations | where:"key","postgres-integration" %}
+      {% assign postgres-v2 = all-postgres | find:"this-version",2 %}
+
+      Stitch is unable to find a replication slot that adheres to [Stitch's naming requirements]({{ postgres-v2.url | prepend: site.baseurl }}#create-replication-slot).
+
+    fix-it: |
+      Verify that a replication slot exists for the database you're trying to connect, and that it adheres to [Stitch's naming requirements]({{ postgres-v2.url | prepend: site.baseurl }}#create-replication-slot).
+# 
+  - message: *ssl-required-error
+    id: "ssl-required-error"
+    applicable-to: "Google CloudSQL PostgreSQL v2 database integrations"
+    level: "critical"
+    category: "SSL configuration"
+    version: "2"
+    summary: "SSL connections can't be required"
+    cause: |
+      The Google CloudSQL PostgreSQL instance is configured to require SSL to connect. This configuration isn't currently supported, as it requires the database to expect client certifications.
+
+    fix-it: |
+      Verify that the instance isn't set to require SSL in Google Cloud. If it is, disable the setting and re-try the connection in Stitch.

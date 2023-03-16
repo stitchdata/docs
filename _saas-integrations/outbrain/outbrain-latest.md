@@ -39,6 +39,9 @@ cron-scheduling: true
 
 table-selection: false
 column-selection: false
+select-all: false
+select-all-reason: |
+  As this integration doesn't support table or column selection, all available tables and columns are automatically replicated.
 
 extraction-logs: true
 loading-reports: true
@@ -56,8 +59,10 @@ feature-summary: |
 # -------------------------- #
 
 setup-steps:
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Account ID** field, enter your Outbrain Account (or Marketer) ID. 
 
          You can find this by looking at the URL when you're logged into your Outbrain account. The Account ID looks something like this: `0f4b02153ee75f3c9dc4fc128ab041962` and is located between `marketers` and `campaigns`, if you're looking at the Overview dashboard:
@@ -67,8 +72,16 @@ setup-steps:
       5. In the **Username** field, enter your Outbrain username.
       6. In the **Password** field, enter your Outbrain password.
 
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
 
 # -------------------------- #
 #        Table Schemas       #

@@ -9,7 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-pipedrive/blob/master/tap_piped
 description: |
   The `{{ table.name }}` table contains info about the users associated with your {{ integration.display_name }} account. **Note**: This table contains info about the people with access to your {{ integration.display_name }} account - they should not be confused with [`persons`](#persons).
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 
 api-method:
   name: "Get recent users"
@@ -21,11 +21,6 @@ attributes:
     primary-key: true
     description: "The user ID."
     foreign-key-id: "user-id"
-
-  - name: "modified"
-    type: "date-time"
-    replication-key: true
-    description: ""
 
   - name: "activated"
     type: "boolean"
@@ -77,6 +72,10 @@ attributes:
 
   - name: "name"
     type: "string"
+    description: ""
+
+  - name: "modified"
+    type: "date-time"
     description: ""
 
   - name: "phone"

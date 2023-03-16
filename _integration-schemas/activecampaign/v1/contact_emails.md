@@ -1,0 +1,75 @@
+---
+tap: "activecampaign"
+version: "0.3"
+key: ""
+
+name: "contact_emails"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contact_emails.json"
+description: ""
+
+replication-method: "Key-based Incremental"
+
+api-method:
+    name: ""
+    doc-link: ""
+
+attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The contact email ID."
+    #foreign-key-id: "contact-email-ID"
+
+  - name: "sdate"
+    type: "date-time"
+    description: "The email sdate."
+    replication-key: true
+
+  - name: "account"
+    type: "integer"
+    description: "The account ID."
+    foreign-key-id: "account-id"
+  - name: "contact"
+    type: "integer"
+    description: "The contact ID."
+    foreign-key-id: "contact-id"
+  - name: "d_id"
+    type: "integer"
+    description: ""
+  - name: "deal"
+    type: "integer"
+    description: "The deal ID."
+    foreign-key-id: "deal-id"
+  
+  - name: "ip"
+    type: "string"
+    description: ""
+  - name: "message"
+    type: "integer"
+    description: ""
+  - name: "messageheader"
+    type: "string"
+    description: ""
+  - name: "messageid"
+    type: "integer"
+    description: "The message ID."
+    foreign-key-id: "message-id"
+
+  - name: "seriesid"
+    type: "integer"
+    description: ""
+  - name: "source"
+    type: "string"
+    description: ""
+  - name: "subscriberid"
+    type: "integer"
+    description: ""
+  - name: "user"
+    type: "integer"
+    description: ""
+  - name: "userid"
+    type: "integer"
+    description: "The user ID."
+    foreign-key-id: "user-id"
+---

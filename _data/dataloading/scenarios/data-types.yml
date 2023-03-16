@@ -69,7 +69,7 @@ varchar-widening:
 varchar-max-size:
   heading: "a VARCHAR column exceeds the size maximum?"
   anchor: "varchar-max-size"
-  if: "A `VARCHAR` column is replicated with data that exceeds {{ destination.display_name }}'s size limit of `{{ destination-reference.data-limit-info.strings.max-width }}`."
+  if: "A `VARCHAR` column is replicated with data that exceeds {{ destination.display_name }}'s size limit for string data."
   then: "Stitch will stop processing data for the table."
 
 # -------------------------- #

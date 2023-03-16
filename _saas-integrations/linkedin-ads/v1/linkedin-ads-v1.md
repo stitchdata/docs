@@ -13,10 +13,12 @@
 # -------------------------- #
 
 title: LinkedIn Ads (v1)
-permalink: /integrations/saas/linkedin-ads
+permalink: /integrations/saas/linkedin-ads/v1
 keywords: linkedin ads, integration, schema, etl linkedin ads, linkedin ads etl, linkedin ads schema, linkedin, 
 layout: singer
-input: true
+input: false
+
+key: "linkedin-ads-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -54,6 +56,13 @@ column-selection: true
 
 
 # -------------------------- #
+#        API Details         #
+# -------------------------- #
+
+attribution-window: "7 days"
+
+
+# -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
 
@@ -74,12 +83,50 @@ setup-steps:
 
          ![LinkedIn Ads account IDs highlighted in the Accounts table of the Campaign Manager page.]({{ site.baseurl }}/images/integrations/linkedin-ads-account-ids.png){:style="max-width: 500px"}
       
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Accounts** field, enter a comma-separated list of the account IDs of the campaign accounts you want to replicate data from. These will be the account IDs you retrieved in [Step 1](#retrieve-account-ids). For example: `503123456,503234567`, etc.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
+
+
+# -------------------------- #
+#      Replication Info      #
+# -------------------------- #
+
+replication-sections:
+  - content: |
+      {% assign window = "Attribution Window" %}
+      {% assign table = "ad_analytics_by_campaign" %}
+      {% assign replication-key = "end_at" %}
+      {% assign start-date ="06/03/2017" %}
+      {% assign start-date-value = "June 3, 2017" %}
+      {% assign replication-key-historical = "2017-06-03 00:00:00" %}
+      {% assign replication-key-ongoing = "2017-09-24 00:00:00" %}
+
+      {% include integrations/saas/attribution-windows.html %}
+
+      Refer to the documentation for each of these tables in the next section for more info.
+
+      ### Attribution window examples
+
+      In the tabs below are examples of attribution windows behave during historical (initial) and ongoing replication jobs.
+
+      {% include integrations/saas/attribution-window-examples.html %}
 
 # -------------------------- #
 #     Integration Tables     #

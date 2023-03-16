@@ -18,6 +18,10 @@
     {% assign page-name = "Configure Your Intacct Integration" %}
     {% assign database-name = "amazon-s3-csv" %}
 
+  {% when "heap" %}
+    {% assign page-name = "Configure Your Heap Integration" %}
+    {% assign database-name = "amazon-s3-csv" %}
+
 {% endcase %}         
 
 {% case include.type %}
@@ -146,7 +150,7 @@ To create the IAM policy:
 4. Click **Create Policy**.
 5. In the **Create Policy** page, click the **JSON** tab.
 6. Select everything currently in the text field and delete it.
-7. In the text field, paste the Stitch IAM policy.
+7. In the text field, paste the IAM policy from the **{{ page-name }}** page in Stitch.
 8. Click **Review policy**.
 9. On the **Review Policy** page, give the policy a name. For example: `stitch_{{ integration.name | replace:"-","_" }}`
 10. Click **Create policy**.

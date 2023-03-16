@@ -1,21 +1,37 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Extending Email Notifications
 permalink: /account-security/notifications/extend-email-notifications
 keywords: customize notifications, add recipients, notifications, pagerduty, datadog, slack, extend notifications, email alerts
 summary: "Using the Custom notification list feature, extend Stitch's email notifications to external services like PagerDuty, Datadog, and Slack."
 
-layout: general
 key: "customize-notifications"
+
+layout: general
 toc: true
 
 type: "notifications"
 weight: 2
 
-enterprise: true
-enterprise-cta:
-  feature: "The custom notification list "
-  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.enterprise-cta.feature }}"
-  copy: "{{ site.data.strings.enterprise.copy.is-an | prepend: page.enterprise-cta.feature | flatify }}"
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "advanced"
+
+minimum-plan-cta:
+  feature: "The custom notification list"
+  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
+  copy: "{{ site.data.strings.enterprise.copy.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
+
+
+# -------------------------- #
+#           INTRO            #
+# -------------------------- #
 
 intro: |
   {% include misc/data-files.html %}
@@ -29,6 +45,11 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
   {% endfor %}
+
+
+# -------------------------- #
+#          CONTENT           #
+# -------------------------- #
 
 sections:
   - title: "Uses for the custom notification list"
@@ -49,7 +70,7 @@ sections:
     anchor: "custom-notification-list-access"
     summary: "How to access the custom notification list feature"
     content: |
-      The custom notification list feature is available during the Free Trial or on an Enterprise plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info about Enterprise plans.
+      The custom notification list feature is available during the Free Trial or on an {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info about these plans.
 
     subsections:
       - title: "Plan downgrades"

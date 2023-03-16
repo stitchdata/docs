@@ -7,12 +7,16 @@ redirect_from: /integrations/saas/delighted
 keywords: delighted, integration, schema, etl delighted, delighted etl, delighted schema, stitch webhooks
 summary: "Connect your Delighted data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
+key: "delighted-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
 name: "delighted"
 display_name: "Delighted"
+
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #

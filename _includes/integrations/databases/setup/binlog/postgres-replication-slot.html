@@ -10,8 +10,8 @@ You risk losing data if multiple processes or Stitch integrations share a replic
 
 **Note**: Replication slots are specific to a given database in a cluster. If you want to connect multiple databases - whether in one integration or several - you'll need to create a replication slot for each database.
 
-1. Log into the master database as a superuser.
-2. Using the `wal2json` plugin, create a logical replication slot:
+1. Log into the master database as a {% unless integration.name contains "cloudsql" %}superuser{% else %}user with the `cloudsqlsuperuser` role{% endunless %}.
+2. Using `wal2json`, create a logical replication slot:
    - **If you're connecting multiple databases**, you'll need to run this command for every database you want to connect, replacing `<raw_database_name>` with the name of the database:
 
      ```sql

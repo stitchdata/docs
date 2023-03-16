@@ -1,22 +1,33 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Automating Post-Load Processing Using Webhooks
 permalink: /account-security/notifications/post-load-notifications
 redirect_from: /account-security/post-load-notifications
 keywords: loading notifications, load notification, post-load, webhook, notify load
 summary: "Automate your post-load processing functions using the Post-load webhooks notification feature. With Post-load notifications, you can configure a webhook to fire each time Stitch loads data into your destination."
 
-layout: general
 key: "post-load-notifications"
+
+layout: general
 toc: true
 
 type: "notifications"
 weight: 4
 
-enterprise: true
-enterprise-cta:
+
+# -------------------------- #
+#  Stitch Plan Requirements  #
+# -------------------------- #
+
+minimum-plan: "unlimited"
+
+minimum-plan-cta:
   feature: "Post-load notifications "
-  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.enterprise-cta.feature }}"
-  copy: "{{ site.data.strings.enterprise.copy.are-an | prepend: page.enterprise-cta.feature | flatify }}"
+  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.minimum-plan-cta.feature | flatify }}"
+  copy: "{{ site.data.strings.enterprise.copy.are-an | prepend: page.minimum-plan-cta.feature | flatify }}"
 
 
 # -------------------------- #
@@ -26,7 +37,7 @@ enterprise-cta:
 intro: |
   {% include misc/data-files.html %}
 
-  In the **{{ app.page-names.notification-tab }}** tab of the **{{ app.page-names.account-settings }}** page, you can configure webhooks to fire each time data is loaded into your destination. Using Stitch's post-load hooks feature, you can automate your post-load processing functions.
+  In the **{{ app.page-names.notification-tab }}** tab of the **{{ app.page-names.account-settings }}** page, you can configure webhooks to fire each time data is loaded into your existing destination. Using Stitch's post-load hooks feature, you can automate your post-load processing functions.
 
   In this guide, we'll cover:
 
@@ -56,6 +67,14 @@ sections:
     anchor: "post-load-hooks-access"
     summary: "How to access post-load hooks"
     content: |
+      The post-load hook feature is available during the Free Trial or on an {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info about these plans.
+
+      {% capture post-load-setup %}
+      To use post-load hooks, you must already have a destination set up in your Stitch account.
+      {% endcapture %}
+
+      {% include important.html content=post-load-setup %}
+
       The post-load hook feature is available during the Free Trial or on an Enterprise plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info about Enterprise plans.
 
     subsections:
@@ -123,10 +142,10 @@ sections:
           1. Click the {{ app.menu-paths.account-settings }}.
           2. Click the **{{ app.page-names.notification-tab }}** tab.
           3. Click the **Add Webhook** button in the **Post-load hooks** section.
-          3. In the field that displays, paste the webhook URL.
+          4. In the field that displays, paste the webhook URL.
 
              **Note**: [The webhook URL must use HTTPS](#what-services-post-load-hooks), otherwise you'll receive an `Invalid URI` error and be unable to save the webhook.
-          4. Click the **Save Webhook** button.
+          5. Click the **Save Webhook** button.
 
       - title: "Delete a post-load webhook URL in the Stitch app"
         anchor: "delete-post-load-hook"

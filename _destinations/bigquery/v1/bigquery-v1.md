@@ -45,7 +45,7 @@ sections:
   - title: "Getting started"
     anchor: "get-started"
     guides:
-      - key: "bigquery-setup"
+      - key: "bigquery-destination-setup"
         version: "1"
       - key: "bigquery-v1-migration"
     content: |

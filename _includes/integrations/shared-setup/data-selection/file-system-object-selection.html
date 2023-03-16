@@ -1,0 +1,13 @@
+
+<!-- Instructions for selecting objects for file system integrations
+    See this file for database integration instructions:
+    _includes/integrations/shared-setup/data-selection/database-object-selection.html -->
+
+1. In the {{ app.page-names.int-details }} page, click the {{ app.buttons.tables | replace:"Tables",button }} tab.
+2. Locate a {{ object }} you want to replicate.
+3. {{ app.menu-paths.sync | replace: "object",object }}
+4. After you set a {{ object }} to replicate, a page with the {{ object }}'s {{ col }}s will display. De-select {{ col }}s if needed. **Note**: {{ integration.display_name }} tables replicate using Key-based Incremental Replication. Refer to the [Replication](#replication) section for more info.
+1. Repeat this process for every {{ object }} you want to replicate.
+{% if integration.singer == true %}
+1. {{ app.menu-paths.finalize-selections | flatify }}
+{% endif %}

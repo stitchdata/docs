@@ -2,10 +2,11 @@
 title: Log-based Incremental Replication
 permalink: /replication/replication-methods/log-based-incremental
 keywords: replicate, replication, replication method, stitch replicates data, change data capture, logical replication, log replication, binary replication, binary database replication
-tags: [replication]
 layout: general
 
 content-type: "replication-methods"
+key: "log-based-incremental"
+
 toc: true
 weight: 4
 
@@ -52,7 +53,7 @@ feature-details:
     link: "https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-tracking-sql-server?view=sql-server-2017"
 
   - database: "MongoDB"
-    db-type: "mongo"
+    db-type: "mongodb"
     name: "OpLog"
     link: "https://docs.mongodb.com/manual/core/replica-set-oplog/"
 
@@ -262,11 +263,11 @@ sections:
           {{ section.back-to-list | flatify }}
 
 ## STRUCTURAL CHANGES
-      - title: "Limitation {{ forloop.index }}: Structural changes require manual intervention (Microsoft SQL Server, MySQL, Oracle, PostgreSQL)"
+      - title: "Limitation {{ forloop.index }}: Structural changes require manual intervention (Microsoft SQL Server, MySQL, Oracle, PostgreSQL (v1))"
         anchor: "limitation--structural-changes"
         databases: "mssql, mysql, oracle, postgres"
         content: |
-          {% include note.html type="single-line" content="**Note**: This section is applicable only to **Microsoft SQL Server, MySQL, Oracle**, and **PostgreSQL**-backed database integrations." %}
+          {% include note.html type="single-line" content="**Note**: This section is applicable only to **Microsoft SQL Server, MySQL, Oracle**, and **PostgreSQL (v1)**-backed database integrations. **This doesn't apply to PostgreSQL (v2)**." %}
 
           Any time the structure of a source table changes, you'll need to [reset the table from the {{ app.page-names.table-settings }} page]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}). This will queue a full re-replication of the table and ensure that structural changes are correctly captured.
 
@@ -314,7 +315,7 @@ sections:
               1,Finn,human,2,Jake,dog,3,Bubblegum,princess
               ```
 
-              Stitch's Microsoft SQL Server, MySQL, Oracle, and PostgreSQL integrations use JSON schema validation to ensure that values in log messages are attributed to the correct fields when data is loaded into your destination. For this reason, schema changes in a source - whether it's changing a column's data type or re-ordering columns - will cause an extraction error to occur.
+              Stitch's Microsoft SQL Server, MySQL, Oracle, and PostgreSQL (v1) integrations use JSON schema validation to ensure that values in log messages are attributed to the correct fields when data is loaded into your destination. For this reason, schema changes in a source - whether it's changing a column's data type or re-ordering columns - will cause an extraction error to occur.
 
               If the column order or data types of a source table change in any capacity, the integration will not persist new or updated records that use this updated schema, as it does not have a means of attributing values to their proper columns based on the ordinal set when compared to the expected schema that was previously detected.
 
@@ -367,7 +368,7 @@ sections:
 ## LOG AGE OUT
       - title: "Limitation {{ forloop.index }}: Logs can age out and impact replication (Microsoft SQL Server, MongoDB, MySQL, and Oracle)"
         anchor: "limitation--log-retention"
-        databases: "mongo, mssql, mysql, oracle"
+        databases: "mongodb, mssql, mysql, oracle"
         content: |
           {% include note.html type="single-line" content="**Note**: This section is applicable only to **Microsoft SQL Server, MongoDB, MySQL,** and **Oracle**-backed database integrations." %}
 
@@ -394,18 +395,38 @@ sections:
           4. **Any critical error that prevents Stitch from replicating data**, such as a connection issue that prevents Stitch from connecting to the database or a [schema violation](#limitation-3--structural-changes). If the error persists past the log retention period, the log will be purged before Stitch can read it.
 
         sub-subsections:
-          - title: "MongoDB: Affected tables will be re-replicated in full"
+          - title: "Microsoft SQL Sever and MongoDB: Affected tables will be re-replicated in full"
             anchor: "limitation--log-retention--full-re-replication"
-            summary: "**Affected collections will be re-replicated in full**. This is applicable to MongoDB database integrations."
+            summary: "**Affected tables will be re-replicated in full**. This is applicable to Microsoft SQL Sever and MongoDB database integrations."
             content: |
-              When logs age out for a MongoDB database integration, the affected collections will be re-replicated in full and the following will surface in the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
+              When logs age out for Microsoft SQL Server and MongoDB database integration, the affected tables will be re-replicated in full and the following will surface in the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
 
-              {% capture code %}{{ site.data.errors.extraction.databases.mongo.raw-error.oplog-age-out | strip }}
-              {% endcapture %}
+              - **For Microsoft SQL Server databases**:
+                {% capture code %}{{ site.data.errors.extraction.databases.mssql.raw-error.log-age-out | strip }}
+                {% endcapture %}
 
-              {% include layout/code-snippet.html code=code language="shell"%}
+                {% include layout/code-snippet.html use-code-block=false code=code %}
 
-              To prevent collection re-replication, increase the maximum size of the OpLog with the [replSetResizeOplog](https://docs.mongodb.com/v4.0/reference/command/replSetResizeOplog/#dbcmd.replSetResizeOplog){:target="new"} command. **Note**: As the maximum size you need depends on your database, it may take some experimentation to identify the best setting. Mongo doesn't currently recommend an OpLog size.
+                ```shell
+              {{ code | lstrip | rstrip }}
+                ```
+
+              - **For MongoDB databases**:
+                {% capture code %}{{ site.data.errors.extraction.databases.mongodb.raw-error.oplog-age-out | strip }}
+                {% endcapture %}
+
+                {% include layout/code-snippet.html use-code-block=false code=code %}
+
+                ```shell
+              {{ code | lstrip | rstrip }}
+                ```
+
+              To prevent table re-replication, increase the log retention settings for the database:
+
+              - **For Microsoft SQL Server databases**, this is accomplished via the [CHANGE_RETENTION](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server?view=sql-server-ver15){:target="new"} setting. Stitch recommends a value of at least 3 days, but 7 days is preferable.
+              - **For MongoDB databases**, this is accomplished via the [replSetResizeOplog](https://docs.mongodb.com/v4.0/reference/command/replSetResizeOplog/#dbcmd.replSetResizeOplog){:target="new"} command. **Note**: As the maximum size you need depends on your database, it may take some experimentation to identify the best setting. Mongo doesn't currently recommend an OpLog size.
+
+              {{ section.back-to-list | flatify }}
 
           - title: "MySQL and Oracle: Replication will stop"
             anchor: "limitation--log-retention--stop-replication"
@@ -504,7 +525,7 @@ sections:
 
       - title: "Limitation {{ forloop.index }}: Multiple data types in the _id field can cause discrepancies during historical replication (MongoDB)"
         anchor: "limitation--single-data-type-id-field-mongo"
-        databases: "mongo"
+        databases: "mongodb"
         content: |
           {% include note.html type="single-line" content="**Note**: This applies only to MongoDB-based database integrations." %}
 

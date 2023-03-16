@@ -96,12 +96,22 @@ setup-steps:
       4. If using a JWT app, copy the **JWT**. If using an OAuth app, copy the **Client ID**, **Client Secret**, and **Refresh Token**.
       5. Keep your token(s) readily available for the next step.
       
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. If connecting to Stitch with a {{ integration.display_name }} OAuth app, paste the **Client ID**, **Client Secret**, and **Refresh Token** you obtained in [Step 1](#obtain-tokens) into their respective fields.
       5. If connecting to Stitch with a {{ integration.display_name }} JWT app, paste the **JWT** you obtained in [Step 1](#obtain-tokens) into the **JWT** field.
-  - title: "replication frequency"
-  - title: "track data"
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

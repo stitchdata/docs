@@ -2,7 +2,6 @@
 title: Redshift View Dependency Errors
 keywords: troubleshooting, destination, trouble, issue, help, error, errors, redshift, panoply, late binding views, view dependency, dependent view, view, cascade
 permalink: /troubleshooting/destinations/redshift-dependent-view-errors
-tags: [troubleshooting_destinations, troubleshooting_errors]
 
 summary: "If you've received a 'Dependent Views' error for your Redshift or Panoply data warehouse, you may need to temporarily drop dependent objects."
 type: "redshift-destination, error, replication"

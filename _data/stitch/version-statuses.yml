@@ -1,0 +1,110 @@
+# -------------------------- #
+#      VERSION STATUSES      #
+# -------------------------- #
+
+alpha: &alpha
+  id: "alpha"
+  display-name: "Alpha"
+  api: "alpha/beta"
+  availability: "private"
+  notes:
+    - "Available only to accounts that have been granted access"
+    - "May be missing features, contain bugs, and/or change at any time"
+    - "May also encompass 'closed' beta"
+  description: &alpha-description |
+    - Available only to accounts that have been granted access
+    - May be missing features, contain bugs, and/or change at any time
+    - May also encompass "closed" beta
+
+beta: &beta
+  id: "beta"
+  display-name: "Beta"
+  api: "beta"
+  availability: "available"
+  notes:
+    - "Generally available in Stitch, but may not be 'fully baked'"
+    - "May be missing features, contain bugs, and/or change at any time"
+    - "Support is available, but Enterprise SLAs don't apply"
+  description: &beta-description |
+    - Generally available in Stitch, but may not be "fully baked"
+    - May be missing features, contain bugs, and/or change at any time
+    - Support is available, but Enterprise SLAs don't apply
+
+released: &released
+  id: "released"
+  display-name: "Released"
+  api: "released"
+  availability: "available"
+  date: "date-released"
+  notes:
+    - "Generally available in Stitch"
+    - "Support is available depending on the integration's **Certified** or **Community** support status"
+  description: |
+    - Generally available in Stitch
+    - Support is available depending on the integration's **Certified** or **Community** support status
+
+in-testing: &in-testing
+  id: "in-testing"
+  display-name: "Released (Testing)"
+  api: "released"
+  availability: "available"
+  date: "date-released"
+  notes:
+    - |
+        Generally available in Stitch, but hasn't been fully tested with a specific variant of the connection
+
+        For example: Amazon PostgreSQL RDS databases can be connected using the PostgreSQL integration, but RDS connections may not have been specifically tested prior to releasing a new version for PostgreSQL.
+  description: |
+    Generally available in Stitch, but hasn't been fully tested with a specific variant of the connection
+
+    For example: Amazon PostgreSQL RDS databases can be connected using the PostgreSQL integration, but RDS connections may not have been specifically tested prior to releasing a new version for PostgreSQL.
+  tooltip: ""
+
+deprecated: &deprecated
+  id: "deprecated"
+  display-name: "Deprecated"
+  api: "deprecated"
+  availability: "unavailable"
+  date: "deprecation-date"
+  notes:
+    - "No longer available in Stitch"
+    - "Existing connections will continue to function"
+    - "Support is unavailable, even if the connection is **Certified**"
+  description: |
+    - No longer available in Stitch
+    - Existing connections will continue to function
+    - Support is unavailable, even if the connection is **Certified**
+
+sunset: &sunset
+  id: "sunset"
+  display-name: "Sunset"
+  api: "deprecated"
+  availability: "unavailable"
+  date: "sunset-date"
+  notes:
+    - "No longer available in Stitch"
+    - "Existing connections will no longer function"
+    - "Support is unavailable, even if the connection is **Certified**"
+  description: |
+    - No longer available in Stitch
+    - Existing connections will no longer function
+    - Support is unavailable, even if the connection is **Certified**
+
+all:
+  - name: "alpha"
+    <<: *alpha
+
+  - name: "beta"
+    <<: *beta
+
+  - name: "released"
+    <<: *released
+
+  - name: "in-testing"
+    <<: *in-testing
+
+  - name: "deprecated"
+    <<: *deprecated
+
+  - name: "sunset"
+    <<: *sunset

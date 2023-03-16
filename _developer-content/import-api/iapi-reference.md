@@ -22,6 +22,8 @@ content-type: "api-doc"
 
 key: "import-api-reference"
 
+region-selector: true
+
 
 # -------------------------- #
 #       Stitch Details       #

@@ -2,7 +2,6 @@
 title: Redshift VACUUM Errors
 keywords: troubleshooting, destination, trouble, issue, help, error, errors, redshift, panoply
 permalink: /troubleshooting/destinations/redshift-vacuum-errors
-tags: [troubleshooting_destinations, troubleshooting_errors]
 
 summary: "If you received a `VACUUM` notification, it means that Stitch hasn't been able to successfully complete `VACUUM` some tables in your data warehouse for more than 10 days."
 type: "redshift-destination, error"

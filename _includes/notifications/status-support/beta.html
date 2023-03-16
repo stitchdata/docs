@@ -7,4 +7,8 @@
     	<br>
 
     	{{ page.display_name }} is currently in beta. The info in this guide is subject to change.
+
+    	{% if page.beta-copy %}
+    	<p>{{ page.beta-copy | flatify | markdownify }}</p>
+    	{% endif %}
 </div>

@@ -7,6 +7,8 @@ summary: "View and manage the Stitch partners you have authorized to access your
 layout: general
 toc: true
 
+key: "manage-partner-access"
+
 type: "account-settings"
 weight: 5
 

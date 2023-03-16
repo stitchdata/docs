@@ -1,3 +1,5 @@
+
+
 <!-- This file contains the logic used to pull and display applicable fields
 	for destination source form properties. -->
 
@@ -26,7 +28,7 @@
 		{% assign all-this-destination = all-destination-docs | where:"destination",true %}
 			{% assign this-destination = all-this-destination | where:"this-version",destination-latest-version | first %}
 
-		<!-- Get the destination's port and the link to its documentation -->
+<!-- Get the destination's port and the link to its documentation -->
 			{% assign port = site.data.destinations[form-property.docs-name]destination-details.port %}
 			{% assign doc-link = this-destination.url | prepend: site.baseurl %}
 
@@ -34,7 +36,7 @@
 <!-- Get support info for SSL and SSH connections,
 	using the corresponding doc for the destination -->
 
-	<!-- Create a variable that links to the destination's stitch-details.yml file.
+<!-- Create a variable that links to the destination's stitch-details.yml file.
 			Otherwise it's a nightmare to keep typing out -->
 
 		{% if site.data.destinations[form-property.docs-name][version]stitch-details %}
@@ -43,15 +45,15 @@
 			{% assign destination-connection-support = site.data.destinations[form-property.docs-name]stitch-details %}
 		{% endif %}
 
-	<!-- Check for SSL support in the API -->
+<!-- Check for SSL support in the API -->
 		{% if destination-connection-support.connect-ssl == true %}
 			{% assign ssl-fields = connect-destination-attributes.ssl %}
 		{% else %}
 			{% assign ssl-fields = null | compact %}
 		{% endif %}
 
-	<!-- Check for SSH support -->
-		<!-- The second part is a check to see if the form-property needs to override the standard
+<!-- Check for SSH support -->
+<!-- The second part is a check to see if the form-property needs to override the standard
 				SSH fields. A new structure was introduced recently (Aug 2020) to SSH configuration,
 				and not all destinations use it. Ex: Databricks Delta. -->
 		{% if destination-connection-support.ssh == true and form-property.uses-ssh-fields != false %}
@@ -61,7 +63,7 @@
 		{% endif %}
 
 
-	<!-- Concat the SSL and SSH fields together and create a new array called feature-fields -->
+<!-- Concat the SSL and SSH fields together and create a new array called feature-fields -->
 		{% assign feature-fields = ssl-fields | concat: ssh-fields %}
 
 
@@ -71,7 +73,7 @@
 	    {% assign form-object-attributes = form-property.object-attributes %}
 	    	{% assign all-form-attributes = common-destination-attributes | concat: form-object-attributes | concat: feature-fields | sort: "name" %}
 
-	<!-- Otherwise, run this -->
+<!-- Otherwise, run this -->
 	{% else %}
 	    {% assign all-form-attributes = common-destination-attributes | concat: feature-fields | sort: "name" %}
 	{% endif %}

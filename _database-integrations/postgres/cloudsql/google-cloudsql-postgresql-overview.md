@@ -1,13 +1,13 @@
 ---
 title: Google CloudSQL PostgreSQL
 keywords: postgresql, postgres, google cloudsql postgres, google cloudsql postgresql, database integration, etl postgres, etl cloudsql, cloudsql etl, postgres etl, postgresql etl
-tags: [database_integrations]
 permalink: /integrations/databases/google-cloudsql-postgresql
 summary: "Connect and replicate data from your Google CloudSQL PostgreSQL database using Stitch's Google CloudSQL PostgreSQL integration."
 layout: general
 input: false
 
 key: "cloudsql-postgres-integration"
+content-type: "database-category"
 
 show-in-menus: true
 has-versions: true
@@ -23,10 +23,22 @@ sections:
     content: |
       {% include shared/versioning/integration-version-tiles.html %}
 
-  - title: "Version history"
-    anchor: "version-history"
+  - title: "{{ integration.display_name }} updates"
+    anchor: "integration-updates"
     content: |
-      {% include shared/versioning/version-history.html %}
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title | flatify }}](#{{ subsection.anchor }})
+      {% endfor %}
+    subsections:
+      - title: "{{ integration.display_name }} version history"
+        anchor: "version-history"
+        content: |
+          {% include shared/versioning/version-history.html %}
+
+      - title: "{{ integration.display_name }} changelog"
+        anchor: "integration-changelog"
+        content: |
+          {% include changelog/entry-list.html type="connection-overview" %}
 
   - title: "{{ integration.display_name }} version features"
     anchor: "version-features"

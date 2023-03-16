@@ -1,0 +1,76 @@
+---
+tap: "activecampaign"
+version: "0.3"
+key: ""
+
+name: "contact_automations"
+doc-link: "https://developers.activecampaign.com/reference#automations"
+singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contact_automations.json"
+description: |
+  The `{{ table.name }}` table contains information about automations in your {{ integration.display_name }} account that you can add contacts to.
+
+replication-method: "Key-based Incremental"
+
+api-method:
+    name: "List all automations a contact is in"
+    doc-link: "https://developers.activecampaign.com/reference#list-all-contact-automations"
+
+attributes:
+  - name: "id"
+    type: "integer"
+    description: "The contact automation ID."
+
+  - name: "lastdate"
+    type: "date-time"
+    description: "The date the automation was last updated."
+
+  - name: "adddate"
+    type: "date-time"
+    description: ""
+  - name: "automation"
+    type: "integer"
+    description: "The automation ID."
+    foreign-key-id: "automation-id"
+  - name: "batchid"
+    type: "string"
+    description: ""
+  - name: "complete_value"
+    type: "integer"
+    description: ""
+  - name: "completed"
+    type: "integer"
+    description: ""
+  - name: "completed_elements"
+    type: "integer"
+    description: ""
+  - name: "contact"
+    type: "integer"
+    description: "The contact ID."
+    foreign-key-id: "contact-id"
+  
+  - name: "lastblock"
+    type: "integer"
+    description: ""
+  
+  - name: "lastlogid"
+    type: "integer"
+    description: ""
+  - name: "remdate"
+    type: "date-time"
+    description: ""
+  - name: "seriesid"
+    type: "integer"
+    description: ""
+  - name: "startid"
+    type: "integer"
+    description: ""
+  - name: "status"
+    type: "integer"
+    description: ""
+  - name: "timespan"
+    type: "integer"
+    description: ""
+  - name: "total_elements"
+    type: "integer"
+    description: ""
+---

@@ -63,7 +63,6 @@ attributes:
           - name: "48x48"
             type: "string"
             description: "The URL of the user's 48x48 avatar."
-        anchor-id: 1
 
       - name: "displayName"
         type: "string"
@@ -158,7 +157,6 @@ attributes:
           - name: "48x48"
             type: "string"
             description: "The URL of the user's 48x48 avatar."
-        anchor-id: 2
 
   - name: "updated"
     type: "date-time"

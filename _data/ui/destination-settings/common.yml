@@ -20,6 +20,8 @@
 ## Defines the default field names in the Destination Settings page.
 
 field-names:
+  display-name: "Display Name"
+  description: "Description (optional)"
   ssl-certificate: &ssl-certificate "SSL Certificate"
 
 # -------------------------- #
@@ -37,3 +39,7 @@ field-copy:
     **Optional**: Provide the certificate (typically a CA or server certificate) Stitch should verify the SSL connection against. The connection will succeed only if the server's certificate verifies against the certificate provided here.
 
             **Note**: Providing a certificate isn't required to use SSL. This is only if Stitch should verify the connection against a specific certificate.
+  display-name: |
+    Enter a display name for your destination, to distinguish various connections of the same type.
+  description: |
+    Enter a description for your destination.

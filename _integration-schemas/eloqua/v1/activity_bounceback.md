@@ -1,10 +1,9 @@
 ---
 tap: "eloqua"
 version: "1"
+key: "activity-activity-bounceback"
 
 name: "activity_bounceback"
-key: "activity-activity_bounceback"
-
 doc-link: &doc-link "https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAC/op-api-bulk-2.0-activities-exports-post.html"
 description: |
   The `{{ table.name }}` table contains info about `Bounceback` contact activities.
@@ -44,6 +43,7 @@ attributes:
   - name: "AssetId"
     type: "string"
     description: "The ID of the associated asset."
+    foreign-key-id: "asset-id"
 
   - name: "AssetName"
     type: "string"
@@ -69,7 +69,7 @@ attributes:
 
   - name: "EmailRecipientId"
     type: "string"
-    description: "The recipient ID associated with the activity."
+    description: "The ID of the recipient associated with the activity."
 
   - name: "ExternalId"
     type: "string"

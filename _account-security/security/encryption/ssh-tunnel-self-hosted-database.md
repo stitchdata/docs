@@ -4,14 +4,21 @@
 # -------------------------- #
 
 title: Setting up an SSH Tunnel for a self-hosted database
-permalink: /account-security/data-encryption/setting-up-ssh-tunnel-for-database-connection
+permalink: /security/data-encryption/setting-up-ssh-tunnel-for-database-connection
+redirect_from: /account-security/data-encryption/setting-up-ssh-tunnel-for-database-connection
 summary: "If a database is privately accessible, you can use an SSH tunnel to connect Stitch. This tutorial will walk you through setting up an SSH server and configuring access for a self-hosted database connection to Stitch."
+
+key: "ssh-setup-self-hosted"
+type: "security"
+content-type: "encryption"
 
 input: false
 layout: tutorial
 use-tutorial-sidebar: false
+weight: 3
 
 hosting-type: "generic"
+
 
 # -------------------------- #
 #       Introduction         #
@@ -63,11 +70,10 @@ steps:
   - title: "Configure the SSH server to allow Stitch access"
     anchor: "configure-ssh-server-stitch-access"
     content: |
-      First, you'll configure the SSH server to allow traffic from Stitch to access the server. Whitelist the following IP addresses to allow access to the SSH server on the SSH port, which is typically `22`:
+      First, you'll configure the SSH server to allow traffic from Stitch to access the server. You'll need to whitelist Stitch's IP addresses on the SSH server's SSH port (typically `22`) to grant access.
 
-        {% for ip-address in ip-addresses %}
-        - {{ ip-address.ip }}
-        {% endfor %}
+      {% include shared/whitelisting-ips/locate-region-ip-addresses.html %}
+      3. Whitelist the appropriate IP addresses.
 
   - title: "Configure the database to allow SSH server traffic"
     anchor: "configure-database-allow-ssh-server-traffic"

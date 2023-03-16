@@ -12,6 +12,8 @@ top-level: "replication"
 category: "extraction-errors"
 integration-type: "saas"
 
+key: "common-saas-extraction-errors"
+
 type: "saas-integration, error, replication"
 popular: true
 

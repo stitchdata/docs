@@ -64,9 +64,20 @@ requirements-info: |
   More information about HubSpot user roles and permissions can be found in [HubSpot's documentation](https://knowledge.hubspot.com/articles/kcs_article/settings/hubspot-user-roles-guide){:target="new"}.
 
 setup-steps:
-  - title: "add integration"
-  - title: "historical sync"
-  - title: "replication frequency"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
+    content: |
+      {% include integrations/shared-setup/connection-setup.html %}
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
   - title: "Authorize Stitch to Access HubSpot"
     anchor: "grant-stitch-authorization"
     content: |
@@ -76,7 +87,10 @@ setup-steps:
          **Note that Stitch will only ever read your data**. Stitch will never modify or delete any data in your HubSpot account. 
       3. After the authorization process is successfully completed, you'll be directed back to Stitch.
       4. Click {{ app.buttons.finish-int-setup }}.
-  - title: "track data"
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

@@ -5,21 +5,15 @@
 ## This file contains the properties required to successfully set up
 ## a PostgreSQL destination in Stitch.
 
-## NOTE: 'defaults' is a variable assigned to this file: 
-## /_data/ui/common/database-connections.yml
-
-## 'common' is a variable assigned to this file: 
-## /_data/ui/destination-settings/common.yml
-
 
 # -------------------------- #
 #         SSL FIELDS         #
 # -------------------------- #
 
 ssl:
-  - name: "{{ common.field-names.ssl-certificate | flatify }}"
+  - name: "{{ site.data.ui.destination-settings.common.field-names.ssl-certificate | flatify }}"
     connect: "ssl_ca"
-    copy: "{{ common.field-copy.ssl-certificate | flatify }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.ssl-certificate | flatify }}"
 
 
 # -------------------------- #
@@ -27,20 +21,26 @@ ssl:
 # -------------------------- #
 
 postgres:
-  - name: "{{ defaults.field-names.host }}"
-    copy: "{{ defaults.field-copy.host | flatify }}"
+  - name: "{{ site.data.ui.destination-settings.common.field-names.display-name }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.display-name | flatify }}"
+    
+  - name: "{{ site.data.ui.destination-settings.common.field-names.description }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.description | flatify }}"
 
-  - name: "{{ defaults.field-names.port }}"
-    copy: "{{ defaults.field-copy.port | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.host }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.host | flatify }}"
 
-  - name: "{{ defaults.field-names.username }}"
-    copy: "{{ defaults.field-copy.username | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.port }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.port | flatify }}"
 
-  - name: "{{ defaults.field-names.password }}"
-    copy: "{{ defaults.field-copy.password | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.username }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.username | flatify }}"
 
-  - name: "{{ defaults.field-names.database }}"
-    copy: "{{ common.field-copy.destination-database | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.password }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.password | flatify }}"
+
+  - name: "{{ site.data.ui.common.database-connections.field-names.database }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.destination-database | flatify }}"
     
 
 # -------------------------- #
@@ -48,22 +48,22 @@ postgres:
 # -------------------------- #
 
 heroku:
-  - name: "{{ defaults.field-names.host }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.host }}"
     copy: "Paste the host of the Heroku database."
 
-  - name: "{{ defaults.field-names.port }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.port }}"
     copy: "Paste the port used by the Heroku database."
 
-  - name: "{{ defaults.field-names.username }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.username }}"
     copy: "Paste the username of the Heroku database user."
 
-  - name: "{{ defaults.field-names.password }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.password }}"
     copy: "Paste the password of the Heroku database user."
 
-  - name: "{{ defaults.field-names.database }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.database }}"
     copy: "Paste the name of the Heroku database."
 
-  - name: "{{ defaults.field-names.ssl | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.ssl | flatify }}"
     copy: "Check this box. Heroku requires SSL to connect; if left unchecked, Stitch will be unable to connect to your Heroku database."
 
 
@@ -72,20 +72,20 @@ heroku:
 # -------------------------- #
 
 postgres-rds:
-  - name: "{{ defaults.field-names.host }}"
-    copy: "{{ defaults.field-copy.host-rds | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.host }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.host-rds | flatify }}"
 
-  - name: "{{ defaults.field-names.port }}"
-    copy: "{{ defaults.field-copy.port | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.port }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.port | flatify }}"
 
-  - name: "{{ defaults.field-names.username }}"
-    copy: "{{ defaults.field-copy.username | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.username }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.username | flatify }}"
 
-  - name: "{{ defaults.field-names.password }}"
-    copy: "{{ defaults.field-copy.password | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.password }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.password | flatify }}"
 
-  - name: "{{ defaults.field-names.database }}"
-    copy: "{{ common.field-copy.destination-database | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.database }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.destination-database | flatify }}"
 
 # FOR FUTURE USE:
 # postgres-rds:
@@ -122,20 +122,20 @@ postgres-rds:
 # -------------------------- #
 
 aurora-postgres:
-  - name: "{{ defaults.field-names.host }}"
-    copy: "{{ defaults.field-copy.host-rds | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.host }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.host-rds | flatify }}"
 
-  - name: "{{ defaults.field-names.port }}"
-    copy: "{{ defaults.field-copy.port | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.port }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.port | flatify }}"
 
-  - name: "{{ defaults.field-names.username }}"
-    copy: "{{ defaults.field-copy.username | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.username }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.username | flatify }}"
 
-  - name: "{{ defaults.field-names.password }}"
-    copy: "{{ defaults.field-copy.password | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.password }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.password | flatify }}"
 
-  - name: "{{ defaults.field-names.database }}"
-    copy: "{{ common.field-copy.destination-database | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.database }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.destination-database | flatify }}"
 
 
 # -------------------------- #
@@ -143,21 +143,21 @@ aurora-postgres:
 # -------------------------- #
 
 cloudsql-postgres:
-  - name: "{{ defaults.field-names.host }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.host }}"
     copy: |
-      {{ defaults.field-copy.host-cloudsql | flatify | replace: "[STEP]","the previous step" }}
+      {{ site.data.ui.common.database-connections.field-copy.host-cloudsql | flatify | replace: "[STEP]","the previous step" }}
 
-  - name: "{{ defaults.field-names.port }}"
-    copy: "{{ defaults.field-copy.port | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.port }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.port | flatify }}"
 
-  - name: "{{ defaults.field-names.username }}"
-    copy: "{{ defaults.field-copy.username | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.username }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.username | flatify }}"
 
-  - name: "{{ defaults.field-names.password }}"
-    copy: "{{ defaults.field-copy.password | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.password }}"
+    copy: "{{ site.data.ui.common.database-connections.field-copy.password | flatify }}"
 
-  - name: "{{ defaults.field-names.database }}"
-    copy: "{{ common.field-copy.destination-database | flatify }}"
+  - name: "{{ site.data.ui.common.database-connections.field-names.database }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.destination-database | flatify }}"
 
 
 # FOR FUTURE USE:

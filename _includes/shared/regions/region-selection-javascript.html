@@ -1,0 +1,19 @@
+{% capture region-list %}
+selectRegion:"SELECT_YOUR_REGION",
+{% for region in site.data.stitch.regions %}
+{{ region.id | remove:"-" }}:"{{ site.data.import-api.base-urls[region.id] }}"{% unless forloop.last == true %},{% endunless %}
+{% endfor %}
+{% endcapture %}
+
+<script>
+var regions = {
+	{{ region-list }}
+}
+$(document).ready(function () {
+   $('.apiUrl').html(regions[$('#regions').val()]);
+});
+
+$('#regions').change(function () {
+   $('.apiUrl').html(regions[$('#regions').val()]);
+});
+</script>

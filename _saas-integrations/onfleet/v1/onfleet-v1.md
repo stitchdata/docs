@@ -93,15 +93,28 @@ setup-steps:
       5. Click **Create Key**.
 
       Keep the API key somewhere handy - you'll need it in the next step.
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API Key** field, paste the {{ integration.display_name }} API key you created in [Step 1](#create-onfleet-api-key).
       5. In the **Quota Limit** field, enter the percentage of the {{ integration.display_name }} API quota that Stitch is allowed to use. For example: Entering `10` would allow Stitch to use 10% of the API quota.
 
          {{ integration.display_name }} limits API requests to 20 requests per second across all API keys in a given {{ integration.display_name }} account. Refer to [{{ integration.display_name }}'s documentation](http://docs.onfleet.com/docs/throttling){:target="new"} for more info.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 # -------------------------- #
 #     Integration Tables     #

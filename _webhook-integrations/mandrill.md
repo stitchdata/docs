@@ -7,6 +7,7 @@ redirect_from: /integrations/saas/mandrill
 keywords: mandrill, integration, schema, etl mandrill, mandrill etl, mandrill schema, webhook, webhooks, stitch webhooks, incoming webhook
 summary: "Connect your Mandrill data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
+key: "mandrill-setup"
 
 # -------------------------- #
 #     Integration Details    #
@@ -14,6 +15,8 @@ summary: "Connect your Mandrill data to Stitch using Stitch's Incoming Webhooks 
 
 name: "mandrill"
 display_name: "Mandrill"
+
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #

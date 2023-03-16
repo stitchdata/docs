@@ -33,4 +33,25 @@ description: ""
 uses-common-fields: true
 uses-feature-fields: true
 uses-start-date: false
+
+object-attributes:
+  - name: "allow_non_auto_increment_pks"
+    type: "string"
+    required: false
+    description: |
+      If `true`, an auto-incrementing Primary Key will not be required for tables using Full Table Replication. Auto-incrementing Primary Keys are used during full table replication to allow the replication of a table to span multiple replication jobs.
+
+      Unless set, this property will default to `true`.
+    value: "true"
+  
+  - name: "filter_dbs"
+    required: false
+    read-only: false
+    internal: false
+    type: "array"
+    description: |
+      **Optional**: An array of strings that specifies the name of the databases that can be discovered by Stitch.
+      If no value is specified, Stitch will discover all databases on the host.
+    value: |
+      ["<DATABASE_NAME>", "<OTHER_DATABASE_NAME>"]
 ---

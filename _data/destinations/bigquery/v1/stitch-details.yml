@@ -18,6 +18,11 @@ supported-versions: "n/a"
 
 available-in-connect: false
 
+loader-name: "BQ"
+
+stitch-supported-regions:
+  - id: "north-america"
+
 
 # ------------------------------ #
 #      CONNECTION METHODS        #
@@ -30,6 +35,8 @@ connect-ssl: false ## Indicates whether SSL can be configured via the API
 ssh: false
 
 vpn: false
+
+static-ip: true
 
 
 # ------------------------------ #

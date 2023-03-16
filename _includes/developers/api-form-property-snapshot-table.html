@@ -1,0 +1,28 @@
+
+<!-- Creates a lil' summary table that displays alongside the
+	attribute documentation for a connection property object -->
+
+<table class="table-snapshot table-hover" style="margin-top: 0px;">
+	<tr>
+		<td width="15%; fixed">
+			<strong>Property type:</strong>
+		</td>
+		<td width="35%; fixed">
+			{{ form-property.api-type }}
+		</td>
+		<td width="18%; fixed">
+			<strong>Connection type:</strong>
+		</td>
+		<td>
+			{{ form-property.form-type | capitalize }}
+		</td>
+	</tr>
+	<tr>
+		<td width="15%; fixed">
+			<strong>Documentation:</strong>
+		</td>
+		<td colspan="3">
+			<a href="{{ doc-link }}">Stitch docs</a>
+		</td>
+	</tr>
+</table>

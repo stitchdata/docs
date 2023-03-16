@@ -1,4 +1,4 @@
-# Content for the REST/BULK API comparion table in the Salesforce docs.
+# Content for the REST/BULK API comparison table in the Salesforce docs.
 
 - name: "Good for replicating"
   rest-api: |
@@ -14,17 +14,17 @@
   rest-api: |
     Total usage is calculated by your organization type, the type of licenses held, and the number of licenses.
 
-    Refer to [{{ integration.display_name }}'s documentation](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm){:target="new"} for more info.
+    Refer to [{{ integration.display_name }}'s documentation](https://developer.salesforce.com/docs/atlas.en-us.210.0.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm){:target="new"} for more info.
   bulk-api: |
     **Limited to 10,000 batches per day,** regardless of the standard API quota.<br><br>
     
-    Refer to [{{ integration.display_name }}'s documentation](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_bulkapi.htm){:target="new"} for more info.
+    Refer to [{{ integration.display_name }}'s documentation](https://developer.salesforce.com/docs/atlas.en-us.210.0.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_bulkapi.htm){:target="new"} for more info.
 
 - name: "Structure sync"
   icon: |
     {{ question-icon | replace: "TOOLTIP", "The first step in the replication process, where Stitch looks for changes to the structure of your data, such as new objects or fields." }}
   rest-api: "Uses the REST API and standard API quota."
-  bulk-api: "Uses the REST API and standard API quota."
+  bulk-api: "Uses the Bulk API, REST API and standard API quota."
 
 - name: "Data extraction"
   icon: |

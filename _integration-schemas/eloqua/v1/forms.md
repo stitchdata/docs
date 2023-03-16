@@ -1,10 +1,9 @@
 ---
 tap: "eloqua"
 version: "1"
+key: "form"
 
 name: "forms"
-key: "forms"
-
 doc-link: &doc-link "https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAC/op-api-rest-1.0-assets-forms-get.html"
 singer-schema: "https://github.com/singer-io/tap-eloqua/blob/master/tap_eloqua/schemas/forms.json"
 description: |
@@ -15,8 +14,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Retrieve a list of forms"
-    doc-link: *doc-link
+  name: "Retrieve a list of forms"
+  doc-link: *doc-link
 
 attributes:
   - name: "id"
@@ -41,6 +40,7 @@ attributes:
   - name: "createdBy"
     type: "string"
     description: "The ID of the user who created the form."
+    foreign-key-id: "user-id"
 
   - name: "currentStatus"
     type: "string"
@@ -150,6 +150,7 @@ attributes:
   - name: "folderId"
     type: "string"
     description: ""
+    foreign-key-id: "folder-id"
 
   - name: "html"
     type: "string"
@@ -182,6 +183,7 @@ attributes:
       - name: "campaignId"
         type: "string"
         description: ""
+        foreign-key-id: "campaign-id"
 
       - name: "description"
         type: "string"
@@ -194,6 +196,7 @@ attributes:
       - name: "emailId"
         type: "string"
         description: ""
+        foreign-key-id: "email-id"
 
       - name: "eventId"
         type: "string"
@@ -259,4 +262,5 @@ attributes:
   - name: "updatedBy"
     type: "string"
     description: "The ID of the user that last updated the form."
+    foreign-key-id: "user-id"
 ---

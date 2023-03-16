@@ -2,7 +2,7 @@
 title: Versioning
 product-type: "connect"
 content-type: "api-doc"
-order: 7
+order: 6
 
 sections:
   - content: |

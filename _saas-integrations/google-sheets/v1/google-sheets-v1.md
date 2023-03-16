@@ -12,11 +12,11 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Google Sheets
-permalink: /integrations/saas/google-sheets
+title: Google Sheets (v1)
+permalink: /integrations/saas/google-sheets/v1
 keywords: google-sheeets, integration, schema, etl google-sheeets, google-sheeets etl, google-sheeets schema
 layout: singer
-# input: false
+input: false
 
 key: "google-sheets-setup"
 
@@ -39,6 +39,7 @@ this-version: "1"
 api: |
   [Google Sheets v4 AP1](https://developers.google.com/sheets/api){:target="new"}
 
+file-system: true
 
 # -------------------------- #
 #       Stitch Details       #
@@ -103,12 +104,32 @@ setup-steps:
       2. Open the spreadsheet that you want to use in the integration.
       3. The Spreadsheet ID is within the URL to the webpage. In the image below, the portion of the URL within the blue box is the Spreadsheet ID. Keep this readily available to continue with the integration. **Note**: The file should be stored in **My Drive** and not a shared drive or you'll receive a [File Not Found error](https://github.com/singer-io/tap-google-sheets/issues/7){:target="new"}.
         {% include layout/image.html file="/integrations/google-sheets-spreadsheet-id.png" alt="Google Sheets URL containing the Spreadsheet ID." enlarge=true max-width="850" %}
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Spreadsheet ID** field, enter your Spreadsheet ID you obtained from the [previous step](#obtain-spreadsheet-id). **Note**: To integrate another spreadsheet, you'll need to repeat these steps over again with another {{ integration.display_name }} integration.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+  
+  - title: "Authorize Stitch"
+    anchor: "authorize-stitch"
+    content: |
+      1. Next, you’ll be prompted to log into your Google account and approve Stitch’s access to your {{ integration.display_name }} data. **Note that we will only ever read your data.**
+      2. Select the **See all your Google Sheets spreadsheets** access.
+      3. Click **Continue**.
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #
@@ -166,7 +187,19 @@ replication-sections:
             content: |
               To determine data types, Stitch will analyze the first two rows in the [files included in object discovery](#discovery--objects).
 
-              If a column has been specified as a `STRING`, Stitch will attempt to parse the value as a string. If this fails, the column will be loaded as a nullable `STRING`.
+              If a column contains non-standard boolean language, Stitch will intentionally coerce those values into boolean. The following values are to be expected to be replicated as `True`:
+              - `YES`/`yes`
+              - `Y`/`y`
+              - `1`
+              - `true` (the string "true" prefixed with a tick [`])
+
+              The following values are expected to be replicated as `False`:
+              - `NO`/`no`
+              - `N`/`n`
+              - `0`
+              - `false` (the string "false" prefixed with a tick [`])
+
+              If a column has been specified as a `STRING`, Stitch will attempt to parse the value as a string, unless the column contains non-standard boolean language.  If this fails, the column will be loaded as a nullable `STRING`.
 
               For all other columns, Stitch will perform the following to determine the column's data type:
 

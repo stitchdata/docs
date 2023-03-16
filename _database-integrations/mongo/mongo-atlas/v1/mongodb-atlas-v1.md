@@ -35,7 +35,7 @@ certified: true
 frequency: "30 minutes"
 tier: "Standard"
 port: 27017
-db-type: "mongo"
+db-type: "mongodb"
 
 ## Stitch features
 api-type: "platform.mongodb"
@@ -115,6 +115,11 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
+  - title: "Verify your Stitch account's data pipeline region"
+    anchor: "verify-stitch-account-region"
+    content: |
+      {% include shared/whitelisting-ips/locate-region-ip-addresses.html first-step=true %}
+      
   - title: "Configure database connection settings"
     anchor: "connect-settings"
     content: |
@@ -174,7 +179,7 @@ setup-steps:
   - title: "Select data to replicate"
     anchor: "sync-data"
     content: |
-      {% include integrations/databases/setup/syncing.html %}
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

@@ -6,12 +6,16 @@ redirect_from: /integrations/saas/sendwithus
 keywords: sendwithus, integration, schema, etl sendwithus, sendwithus etl, sendwithus schema, stitch webhooks
 summary: "Connect your SendWithUs data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
+key: "sendwithus-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
 name: "sendwithus"
 display_name: "SendWithUs"
+
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #

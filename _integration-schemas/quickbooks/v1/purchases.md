@@ -160,7 +160,6 @@ attributes:
 
           - name: "TaxCodeRef"
             type: "object"
-            anchor-id: 1
             description: "Details about the tax code associated with the line item."
             subattributes: &tax-code
               - name: "value"
@@ -215,7 +214,6 @@ attributes:
 
           - name: "TaxCodeRef"
             type: "object"
-            anchor-id: 2
             description: "Details about the tax code associated with the line item."
             subattributes: *tax-code
 

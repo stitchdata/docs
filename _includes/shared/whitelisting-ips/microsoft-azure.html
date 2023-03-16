@@ -36,7 +36,7 @@ For the connection from Stitch to be successful, you'll need to configure the fi
   {% assign steps = "4 and 5" %}
 
 {% unless include.type == "ssh" %}
-For the connection from Stitch to be successful, you'll need to configure the firewall for your {{ destination.display_name }} instance to allow access from our IP addresses.
+For the connection from Stitch to be successful, you'll need to configure the firewall for your {{ destination.display_name }} instance to allow access from IP addresses for your [Stitch data pipeline region](#verify-stitch-account-region).
 
 1. Sign into your [Microsoft Azure portal](https://azure.microsoft.com/en-us/account/){:target="new"}.
 {% endunless %}
@@ -62,20 +62,14 @@ For the connection from Stitch to be successful, you'll need to configure the fi
 
 <!-- For direct connections only -->
 {% else %}
-1. For each of Stitch's IP addresses listed below, create a rule:
+1. For each of the IP addresses you retrieved in [Step 1](#verify-stitch-account-region) for your Stitch data pipeline region, create a rule:
    - **Rule name**: Enter a name for the rule. For example: `Stitch<number>`
-   - **Start IP**: Paste one of Stitch's IP addresses.
+   - **Start IP**: Paste one of the Stitch data pipeline region IP addresses.
    - **End IP**: Paste the same IP address.
-
-   Stitch's IP addresses are:
-
-   {% for ip-address in ip-addresses %}
-    - {{ ip-address.ip | remove: "/32" }}
-    {% endfor %}
 1. Click the three dots to the right of the **End IP** field to add the rule.
-1. Repeat steps {{ steps }} until there is a rule for each IP address. The screen should look similar to the following when you're finished:
+1. Repeat steps {{ steps }} until there is a rule for each IP address for your Stitch data pipeline region. Below is an example of what this might look like using Stitch's North America IP addresses:
 
-   ![IP address rules for Stitch's IP addresses in Microsoft Azure firewall settings]({{ site.baseurl }}/images/destinations/microsoft-azure-ip-addresses.png)
+   ![IP address rules for Stitch's North America IP addresses in Microsoft Azure firewall settings]({{ site.baseurl }}/images/destinations/microsoft-azure-ip-addresses.png)
 
    **Note**: You may also want to add your own IP address(es) to this list. This ensures that you'll also be able to connect to the database as needed.
 1. Click **Save**.

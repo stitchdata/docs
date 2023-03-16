@@ -8,10 +8,15 @@ release and deprecation dates -->
 <!-- The logic for pulling version info is in this include -->
 {% case page.connection-type %}
     {% when 'destination' %}
-        {% include shared/versioning/destination-version-logic.html connection-type="destination" item-name="destination"  %}
+        {% assign page-key = page.type | append: "-version-category" %}
+
+        {% include shared/versioning/destination-version-logic.html connection-type="destination" item-name="destination" page-key=page-key %}
+        
 
     {% when 'integration' %}
-        {% include shared/versioning/integration-version-logic.html connection-type="integration" item-name="integration" %}
+        {% assign page-key = page.key %}
+
+        {% include shared/versioning/integration-version-logic.html connection-type="integration" item-name="integration" page-key=page-key %}
 
 {% endcase %}
 
@@ -21,49 +26,61 @@ release and deprecation dates -->
 
 <table class="attribute-list">
     <tr>
-        <td width="25%; fixed" align="right">
+        <td width="20%; fixed" align="right">
             <strong>Version</strong>
         </td>
-        <td>
+        <td width="20%; fixed">
             <strong>Status</strong>
         </td>
         <td>
-            <strong>Release date</strong>
+            <strong>Release</strong>
         </td>
         <td>
-            <strong>Deprecation date</strong>
+            <strong>Deprecation</strong>
         </td>
         <td>
             <strong>End of life (Sunset)</strong>
         </td>
     </tr>
     {% for version in released-versions %}
-        {% for doc in all-versioned-docs %}
-            {% if version.number == doc.this-version %}
-                <tr>
-                    <td width="25%; fixed" align="right">
-                        <strong>
-                            <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}</a>
-                        </strong>
-                        {% if version.number == latest-version %} (latest){% endif %}
-                    </td>
 
-                    <td class="attribute-description">
-                        {{ version.status | capitalize }}
-                    </td>
+    <!-- Get the category page specific to the version  -->
+        {% assign doc = all-versioned-docs | find:"this-version",version.number %}
 
-                    <td class="attribute-description">
-                        {{ version.date-released }}
-                    </td>
+    <!-- Only display a row if there's a page that matches the current version -
+        that is, that the page-version variable isn't nil -->
+        {% if doc != null %}
+            {% include shared/versioning/version-status-logic.html %}
 
-                    <td class="attribute-description">
+            <tr>
+                <td align="right">
+                    <strong>
+                        <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}</a>
+                    </strong>
+                    {% if is-latest == true %} (latest){% endif %}
+                </td>
+
+                <td >
+                    {{ version-status.display-name }}
+                </td>
+
+                <td>
+                    {{ version.date-released }}
+                </td>
+
+                <td>
+                    {% if doc.override-version-status %}
+                    {% else %}
                         {{ version.deprecation-date }}
-                    </td>
-                    <td>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if doc.override-version-status %}
+                    {% else %}
                         {{ version.sunset-date }}
-                    </td>
-                </tr>
-            {% endif %}
-        {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endif %}
     {% endfor %}
 </table>

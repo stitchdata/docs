@@ -109,6 +109,16 @@ all:
           ```
 
       - method: "post"
+        condition: "Base URL doesn't match account region"
+        version: "all"
+        response-body: |
+          ```json
+          {  
+             "message": "Invalid region."
+          }
+          ```
+
+      - method: "post"
         condition: "Integration is paused or has been deleted"
         version: "all"
         response-body: |

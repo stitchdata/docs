@@ -7,12 +7,16 @@ redirect_from: /integrations/saas/drip
 keywords: drip, integration, schema, etl drip, drip etl, drip schema, stitch webhooks
 summary: "Connect your Drip data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
+key: "drip-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
 name: "drip"
 display_name: "Drip"
+
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #

@@ -5,13 +5,13 @@
 ## This file contains the names and descriptions of fields in the 
 ## Destination Settings page for a Google BigQuery-backed destination.
 
-## NOTE: 'defaults' is a variable assigned to this file: 
-## /_data/ui/common/database-connections.yml
-
-## 'common' is a variable assigned to this file: 
-## /_data/ui/destination-settings/common.yml
-
 bigquery:
+  - name: "{{ site.data.ui.destination-settings.common.field-names.display-name }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.display-name | flatify }}"
+    
+  - name: "{{ site.data.ui.destination-settings.common.field-names.description }}"
+    copy: "{{ site.data.ui.destination-settings.common.field-copy.description | flatify }}"
+
   - name: "Your Key File"
     version: "2"
     copy: ""

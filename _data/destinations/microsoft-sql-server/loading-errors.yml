@@ -1,0 +1,47 @@
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/common-templates/error-messages/
+
+
+# ------------------------------------------ #
+#    Microsoft SQL Server Loading Errors     #
+# ------------------------------------------ #
+
+## This file contains loading errors specific to Microsoft SQL Server destinations.
+
+all:
+## Primary Key change not allowed
+  - message: "Incoming Primary Keys do not match Primary Keys in existing table"
+    id: "pk-change-not-permitted"
+    applicable-to: "Microsoft SQL Server destinations"
+    level: "critical"
+    category: "Primary Keys"
+    category-doc: "{{ link.destinations.storage.primary-key-system-table | prepend: site.baseurl }}"
+    summary: "Primary Key change is not permitted"
+    cause: |
+      The Primary Keys of incoming data don't match the Primary Keys of the table in the destination.
+
+      This can be caused by:
+
+      1. The Primary Keys being changed in the source, or
+      2. The [`{{ stitch.system-tables.sdc-primary-keys.name }}` table]({{ link.destinations.storage.primary-key-system-table | prepend: site.baseurl }}) is altered or dropped
+    fix-it: |
+      Reset the table(s) mentioned in the error. This will queue a full re-replication of the table(s), which will ensure Primary Keys are correctly captured and used to de-dupe data when loading.
+
+## Primary Key type change not allowed
+  - message: "Incoming Primary Key type does not match Primary Key type in existing table"
+    id: "pk-type-change-not-permitted"
+    applicable-to: "Microsoft SQL Server destinations"
+    level: "critical"
+    category: "Primary Keys"
+    category-doc: "{{ link.destinations.storage.primary-key-system-table | prepend: site.baseurl }}"
+    summary: "Primary Key type change is not permitted"
+    cause: |
+      The type of the Primary Key of incoming data doesn't match the the type of the Primary Key of the table in the destination.
+
+      This can be caused by:
+
+      1. The Primary Key type being changed in the source, or
+      2. The [`{{ stitch.system-tables.sdc-primary-keys.name }}` table]({{ link.destinations.storage.primary-key-system-table | prepend: site.baseurl }}) is altered or dropped
+    fix-it: |
+      Reset the table(s) mentioned in the error. This will queue a full re-replication of the table(s), which will ensure Primary Keys are correctly captured and used to de-dupe data when loading.
+    

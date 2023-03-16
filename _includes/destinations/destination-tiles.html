@@ -1,7 +1,13 @@
 <!-- This creates tiles that display all destinations. Used
 	on the destination category and Choosing a Destination pages. -->
 
-{% assign destinations = site.destinations | where:"destination",true | sort: "display_name" %}
+{% assign destinations = site.destinations | where:"destination",true | sort_natural: "display_name" %}
+
+<!-- Get all the loading guides -->
+	{% assign all-data-loading-guides = site.data-structure | where:"content-type","loading-reference" %}
+
+<!-- Get all the changelogs -->
+    {% assign all-destination-changelogs = site.destinations | where:"content-type","changelog-entry-list" %}
 
 <ul class="tiles three-columns">
 {% for destination in destinations %}
@@ -21,12 +27,21 @@
 
 		<a href="{{ destination.url | prepend: site.baseurl | append: "#getting-started" }}">Setup</a><br>
 
-		{% assign all-data-loading-guides = site.data-structure | where:"content-type","loading-reference" %}
-			{% assign all-destination-loading-guides = all-data-loading-guides | where:"display_name",destination.display_name %}
-				{% assign destination-loading-guide = all-destination-loading-guides | where:"this-version",destination.this-version | first %}
-					{% if destination-loading-guide.this-version == destination.this-version %}
-						<a href="{{ destination-loading-guide.url | prepend: site.baseurl }}">Loading reference</a>
-					{% endif %}
+<!-- Checking if there's a loading guide for the destination -->
+	{% assign all-destination-loading-guides = all-data-loading-guides | where:"display_name",destination.display_name %}
+		{% assign destination-loading-guide = all-destination-loading-guides | where:"this-version",destination.this-version | first %}
+			{% if destination-loading-guide %}
+				<a href="{{ destination-loading-guide.url | prepend: site.baseurl }}">Loading reference</a>
+			{% endif %}
+
+	{% assign destination-changelog = all-destination-changelogs | find:"name",destination.type %}
+		{% if destination-changelog %}
+			{% if destination-loading-guide %}
+				|
+			{% endif %}
+			
+			<a href="{{ destination-changelog.url | prepend: site.baseurl }}">Changelog</a>
+		{% endif %}
 	</li>
 {% endfor %}
 </ul>

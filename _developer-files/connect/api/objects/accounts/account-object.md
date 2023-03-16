@@ -69,6 +69,11 @@ object-attributes:
     type: "string"
     description: "The secret for your API client, obtained when you registered to use the API."
 
+  - name: "region"
+    type: "string"
+    description: |
+      The account's [data pipeline region]({{ link.security.supported-operating-regions | prepend: site.baseurl }}), which determines where defines the region where Stitch-hosted data centers will process the account's replicated data.
+
 
 # -------------------------- #
 #           EXAMPLES         #
@@ -82,6 +87,7 @@ examples:
         "first_name": "Stitch",
         "last_name": "Product Team",
         "company": "Stitch Product Team",
+        "region": "us-east-1",
         "email": "stitch-api-test@stitchdata.com"
       }
 ---

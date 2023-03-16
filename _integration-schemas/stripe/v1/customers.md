@@ -21,6 +21,33 @@ attributes:
     description: "The customer ID."
     foreign-key-id: "customer-id"
 
+  - name: "address"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "city"
+        type: "string"
+        description: ""
+      - name: "country"
+        type: "string"
+        description: ""
+      - name: "line1"
+        type: "string"
+        description: ""
+      - name: "line2"
+        type: "string"
+        description: ""
+      - name: "postal_code"
+        type: "string"
+        description: ""
+      - name: "state"
+        type: "string"
+        description: ""
+
+  - name: "balance"
+    type: "integer"
+    description: ""
+
   - name: "created"
     type: "date-time"
     replication-key: true
@@ -149,7 +176,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information attached to the card."
-        anchor-id: 1
         subattributes: &metadata
           - name: "ANYTHING"
             type: "ANYTHING"
@@ -245,7 +271,6 @@ attributes:
           - name: "metadata"
             type: "object"
             description: ""
-            anchor-id: 2
             subattributes: *metadata
 
           - name: "name"
@@ -298,6 +323,14 @@ attributes:
         description: "The subscription that this coupon is applied to, if it is applied to a particular subscription."
         foreign-key-id: "subscription-id"
 
+  - name: "discounts"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
+
   - name: "email"
     type: "string"
     description: "The customer's email address."
@@ -306,19 +339,56 @@ attributes:
     type: "string"
     description: "The prefix used to generate unique invoice numbers for the customer."
 
+  - name: "invoice_settings"
+    type: "object"
+    description: ""
+    subattributes:
+      - name: "custom_fields"
+        type: "array"
+        description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
+      - name: "default_payment_method"
+        type: "string"
+        description: ""
+      - name: "footer"
+        type: "string"
+        description: ""
+
   - name: "livemode"
     type: "boolean"
     description: "Indicates if the customer exists in live mode (`true`) or in test mode (`false`)."
 
+  - name: "name"
+    type: "string"
+    description: ""
+
   - name: "metadata"
     type: "object"
     description: ""
-    anchor-id: 3
     subattributes: *metadata
+
+  - name: "next_invoice_sequence"
+    type: "integer"
+    description: ""
 
   - name: "object"
     type: "string"
     description: "The type of {{ integration.display_name }} object. This will be `customer`."
+
+  - name: "phone"
+    type: "string"
+    description: ""
+
+  - name: "preferred_locales"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
 
   - name: "shipping"
     type: "object"
@@ -582,7 +652,6 @@ attributes:
           - name: "metadata"
             type: "object"
             description: "Additional information attached to the card."
-            anchor-id: 4
             subattributes: &metadata
               - name: "ANYTHING"
                 type: "ANYTHING"
@@ -686,7 +755,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: ""
-        anchor-id: 5
         subattributes: *metadata
 
       - name: "multibanco"
@@ -710,7 +778,6 @@ attributes:
           - name: "address"
             type: "object"
             description: "The owner's address."
-            anchor-id: 1
             subattributes:
               - name: "city"
                 type: "string"
@@ -887,6 +954,55 @@ attributes:
 
   - name: "tax_info_verification"
     type: "string"
+    description: ""
+
+  - name: "tax_exempt"
+    type: "string"
+    description: ""
+
+  - name: "tax_rates"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "active"
+        type: "boolean"
+        description: ""
+      - name: "country"
+        type: "string"
+        description: ""
+      - name: "created"
+        type: "date-time"
+        description: ""
+      - name: "description"
+        type: "string"
+        description: ""
+      - name: "display_name"
+        type: "string"
+        description: ""
+      - name: "id"
+        type: "string"
+        description: ""
+      - name: "inclusive"
+        type: "boolean"
+        description: ""
+      - name: "jurisdiction"
+        type: "string"
+        description: ""
+      - name: "livemode"
+        type: "boolean"
+        description: ""
+      - name: "object"
+        type: "string"
+        description: ""
+      - name: "percentage"
+        type: "decimal"
+        description: ""
+      - name: "state"
+        type: "string"
+        description: ""
+
+  - name: "unit_amount_decimal"
+    type: "decimal"
     description: ""
 
   - name: "updated"

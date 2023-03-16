@@ -1,12 +1,13 @@
 ---
 tap: "hubspot"
 version: "2"
+key: "form"
 
 name: "forms"
 doc-link: https://developers.hubspot.com/docs/methods/forms/forms_overview
 singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/forms.json
 description: |
-  The `{{ table.name }}` table contains info about your HubSpot website forms.
+  The `{{ table.name }}` table contains info about your {{ integration.display_name }} website forms.
 
 replication-method: "Key-based Incremental"
 api-method:

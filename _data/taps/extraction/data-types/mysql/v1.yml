@@ -1,0 +1,165 @@
+# ----------------------------------- #
+#    MYSQL V1 SUPPORTED DATA TYPES    #
+# ----------------------------------- #
+
+## In addition to the common supported data types (_data/stitch/supported-data-types.yml), the following data types are relevant to MySQL (v1).
+
+
+# --------------------------------- #
+#  INTEGRATION-SPECIFIC DATA TYPES  #
+# --------------------------------- #
+
+## MySQL has integration-specific data types. Refer to:
+## _data/taps/extraction/data-types/postgres/specific.yml
+
+
+# --------------------------------- #
+#          ALL DATA TYPES           #
+# --------------------------------- #
+
+bigint:
+  stitch-type: "integer"
+  doc-link: &integer "https://dev.mysql.com/doc/refman/8.0/en/integer-types.html"
+
+bit:
+  stitch-type: "unsupported"
+
+bit(1):
+  stitch-type: "boolean"
+
+bit>1:
+  stitch-type: "unsupported"
+
+binary:
+  stitch-type: "unsupported"
+
+blob:
+  stitch-type: "unsupported"
+
+char:
+  stitch-type: "string"
+      
+date:
+  stitch-type: "datetime"
+
+datetime:
+  stitch-type: "datetime"
+      
+decimal:
+  stitch-type: "decimal"
+
+double:
+  stitch-type: "float"
+
+enum:
+  stitch-type: "string"
+
+float:
+  stitch-type: "float"
+
+geometry:
+  stitch-type: "unsupported"
+
+geometrycollection:
+  stitch-type: "unsupported"
+
+int:
+  stitch-type: "integer"
+      
+integer:
+  stitch-type: "integer"
+
+json:
+  stitch-type: "string"
+
+linestring:
+  stitch-type: "unsupported"
+
+longblob:
+  stitch-type: "unsupported"
+
+longtext:
+  stitch-type: "string"
+
+longvarbinary:
+  stitch-type: "unsupported" 
+
+longvarchar:
+  stitch-type: "string"
+
+longnvarchar:
+  stitch-type: "unsupported"
+
+mediumblob:
+  stitch-type: "unsupported"
+
+mediumint:
+  stitch-type: "integer"
+
+mediumtext:
+  stitch-type: "string"
+
+multilinestring:
+  stitch-type: "unsupported"
+
+multipoint:
+  stitch-type: "unsupported"
+
+multipolygon:
+  stitch-type: "unsupported"
+
+nchar:
+  stitch-type: "string"
+
+numeric:
+  stitch-type: "decimal"
+
+nvarchar:
+  stitch-type: "string"      
+
+other:
+  stitch-type: "unsupported"
+
+point:
+  stitch-type: "unsupported"
+
+polygon:
+  stitch-type: "unsupported"
+
+real:
+  stitch-type: "double"  
+
+set:
+  stitch-type: "unsupported"
+
+smallint:
+  stitch-type: "integer"
+
+text:
+  stitch-type: "string"
+
+time:
+  stitch-type: "datetime"
+
+timestamp:
+  stitch-type: "datetime"
+
+tinyblob:
+  stitch-type: "unsupported"
+tinyint:
+  stitch-type: "unsupported"
+
+tinyint(1):
+  stitch-type: "boolean"
+
+tinyint>1:
+  stitch-type: "integer"
+
+varchar:
+  stitch-type: "string"
+
+varbinary:
+  stitch-type: "binary"
+
+year:
+  stitch-type: "unsupported"

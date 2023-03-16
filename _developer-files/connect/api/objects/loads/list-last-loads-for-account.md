@@ -23,8 +23,6 @@ full-url: |
 
 short: "{{ site.data.connect.core-objects.loads.list.short | flatify }}"
 description: |
-  {% include note.html type="single-line" content="**This endpoint is in beta.**" %}
-
   {{ site.data.connect.core-objects.loads.list.description | flatify }}
 
 

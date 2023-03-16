@@ -55,6 +55,14 @@ attributes:
   - name: "edit_url"
     type: "string"
     description: "The weblink to the survey taking page to edit the response."
+
+  - name: "email_address"
+    type: "string"
+    description: "The email address of the responder."  
+
+  - name: "first_name"
+    type: "string"
+    description: "The first name of the responder."  
   
   - name: "href"
     type: "string"
@@ -63,6 +71,10 @@ attributes:
   - name: "ip_address"
     type: "string"
     description: "The IP Address the response was taken from."
+
+  - name: "last_name"
+    type: "string"
+    description: "The last name of the responder."  
   
   - name: "logic_path"
     type: "object"

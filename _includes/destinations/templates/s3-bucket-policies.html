@@ -1,0 +1,45 @@
+<!-- This generates a copy of the S3 bucket policy for destinations
+    like Amazon S3 and Databricks Delta Lake. -->
+
+<div class="panel-group" id="accordion">
+    {% for region in site.data.stitch.regions %}
+      <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ region.id }}-bucket-policy">My Stitch data pipeline region is {{ region.name }} ({{ region.region }}).</a>
+            </h4>
+        </div>
+        <div id="collapse-{{ region.id }}-bucket-policy" class="panel-collapse collapse noCrossRef">
+            <div class="panel-body">
+{% capture code %}{
+  "Version": "2012-10-17",
+  "Id": "",
+  "Statement": [
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::218546966473:role/Loader{{ site.data.destinations[destination.type]stitch-details.loader-name }}{{ region.amazon-s3-role }}"
+        ]
+      },
+      "Action": [
+        {% for permission in site.data.destinations[destination.type]user-privileges.all-permissions %}"{{ permission.name }}"{% unless forloop.last == true %},{% endunless %}
+        {% endfor %}],
+      "Resource": [
+        "arn:aws:s3:::<YOUR_BUCKET_NAME>",
+        "arn:aws:s3:::<YOUR_BUCKET_NAME>/*"
+      ]
+    }
+  ]
+}
+{% endcapture %}
+
+                {% assign description = region.name | append: " (" | append: region.region | append: ")" | append: " bucket policy" %}
+
+                {% include layout/code-snippet.html code=code code-description=description language="json" %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

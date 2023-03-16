@@ -102,6 +102,10 @@ attributes:
     type: "boolean"
     description: "Indicates whether the customer wants to receive email updates from the shop."
 
+  - name: "buyer_accepts_sms_marketing"
+    type: "boolean"
+    description: "Indicates whether the customer wants to receive SMS updates from the shop."
+
   - name: "cart_token"
     type: "string"
     description: "The ID of the cart that is attached to the checkout."
@@ -134,7 +138,6 @@ attributes:
     subattributes:
       - name: "id"
         type: "integer"
-        primary-key: true
         description: "The customer ID."
         foreign-key-id: "customer-id"
         
@@ -310,7 +313,7 @@ attributes:
 
   - name: "discount_codes"
     type: "array"
-    description: "The discount codees applied to the checkout."
+    description: "The discount codes applied to the checkout."
     subattributes:
       - name: "amount"
         type: "number"
@@ -347,12 +350,15 @@ attributes:
     subattributes:
       - name: "id"
         type: "string"
-        primary-key: true
         description: "The line item ID."
 
       - name: "applied_discount"
         type: "integer"
         description: "The amount of the discount applied to the line item."
+
+      - name: "applied_discounts"
+        type: "array"
+        description: ""
 
       - name: "compare_at_price"
         type: "string"
@@ -381,7 +387,6 @@ attributes:
 
           - name: "id"
             type: "integer"
-            primary-key: true
             description: "The address ID."
 
           - name: "name"
@@ -574,6 +579,18 @@ attributes:
     type: "string"
     description: "The order name as represented by a number."
 
+  - name: "note_attributes"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "name"
+        type: "string"
+        description: ""
+
+      - name: "value"
+        type: "string"
+        description: ""
+
   - name: "note"
     type: "string"
     description: "An optional note attached to the order."
@@ -589,7 +606,7 @@ attributes:
 
   - name: "referring_site"
     type: "string"
-    description: "The website that referred the cusomter to the shop."
+    description: "The website that referred the customer to the shop."
 
   - name: "shipping_address"
     type: "object"
@@ -662,8 +679,11 @@ attributes:
     subattributes:
       - name: "id"
         type: "integer"
-        primary-key: true
         description: "The shipping line ID."
+
+      - name: "applied_discounts"
+        type: "array"
+        description: ""
 
       - name: "carrier_identifier"
         type: "string"
@@ -672,6 +692,10 @@ attributes:
       - name: "code"
         type: "string"
         description: "A reference to the shipping method."
+
+      - name: "custom_tax_lines"
+        type: "array"
+        description: ""
 
       - name: "delivery_category"
         type: "string"
@@ -709,6 +733,10 @@ attributes:
       - name: "validation_context"
         type: "string"
         description: ""
+
+  - name: "sms_marketing_phone"
+    type: "string"
+    description: "The phone number used to opt in to SMS marketing during checkout."
 
   - name: "source"
     type: "string"
@@ -752,6 +780,10 @@ attributes:
   - name: "total_discounts"
     type: "number"
     description: "The total amount of discounts to be applied."
+
+  - name: "total_duties"
+    type: "string"
+    description: "The total duties of the checkout in presentment currency."
 
   - name: "total_line_items_price"
     type: "number"

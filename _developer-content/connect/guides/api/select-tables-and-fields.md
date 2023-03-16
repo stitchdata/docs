@@ -66,7 +66,7 @@ intro: |
 
 requirements:
   - item: |
-      **Access to Stitch Connect and valid Connect API credentials.** Connect access is a Stitch Enterprise feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
+      **Access to Stitch Connect and valid Connect API credentials.** Connect access is a Stitch {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
   - item: |
       **Access to a source with a `field_selection` connection step**. This guide will use a [Shopify SaaS source]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section |  append: "-shopify-object" }}) as an example, but any source type with a `field_selection` step will work.
 
@@ -252,7 +252,7 @@ steps:
         anchor: "create-the-request-body"
         content: |
           {% capture quote %}'{% endcapture %}
-          To select a stream, you'll make a request to [POST {{ site.data.connect.core-objects.streams.update.name | flatify }}]({{ link.connect.api | append: site.data.connect.core-objects.streams.update.anchor | prepend: site.baseurl }}) with a request body that contains:
+          To select a stream, you'll make a request to [PUT {{ site.data.connect.core-objects.streams.update.name | flatify }}]({{ link.connect.api | append: site.data.connect.core-objects.streams.update.anchor | prepend: site.baseurl }}) with a request body that contains:
 
           1. The stream's `tap_stream_id`. **Note** This is different than the `stream_id`, which is always numeric.
 

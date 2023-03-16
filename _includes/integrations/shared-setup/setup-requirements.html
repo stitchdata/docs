@@ -1,0 +1,29 @@
+<!-- This formats and displays any setup requirements for integrations. -->
+
+{% if integration.requirements-list or integration.minimum-plan %}
+<h3 id="setup-requirements">{{ integration.display_name }} setup requirements</h3>
+
+    <p>To set up {{ integration.display_name }} in Stitch, you need:</p>
+
+    <ul>
+    {% if page.minimum-plan %}
+        <li>
+            <strong>
+                A Stitch {{ site.data.stitch.subscription-plans[page.minimum-plan].name }} plan.
+            </strong>
+        </li>
+    {% endif %}
+    {% for requirement in integration.requirements-list %}
+        <li>
+            {{ requirement.item | flatify | markdownify }}{% if requirement.reason %}{{ requirement.reason | flatify | markdownify }}{% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+
+<!-- If there's any additional info about the requirements, display them here. -->
+{% if integration.requirements-info %}
+    {{ integration.requirements-info | flatify | markdownify }}
+{% endif %}
+
+<hr>
+{% endif %}

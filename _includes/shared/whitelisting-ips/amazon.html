@@ -25,13 +25,11 @@ Security Groups must reside in the same VPC as the instance. Use the instruction
 7. Fill in the fields as follows:
    - **Type**: Select `Custom TCP Rule`
    - **Port Range**: Enter the port your database uses. (`{{ port }}` by default)
-   - **CIDR, IP or Security Group**: Enter one of the IP addresses listed below:
-
-        {% for ip-address in ip-addresses %}
-        - {{ ip-address.ip }}
-        {% endfor %}
+   - **CIDR, IP or Security Group**: Paste one of the Stitch IP addresses **for your Stitch data pipeline region** that you retrieved in [Step 1](#verify-stitch-account-region).
 8. Click **Add Rule** to add an additional Inbound rule.
-9. Repeat steps 6-8 until all the IP addresses above have been added:
+9. Repeat steps 6-8 until all the IP addresses for your Stitch data pipeline region have been added.
 
-   ![Whitelisting Stitch IP addresses through Inbound Security Group rules]({{ site.baseurl }}/images/shared/whitelisting-ips/amazon-security-group.png)
+   This is what a Security Group using Stitch's North America IP addresses looks like:
+
+   ![Whitelisting Stitch North America IP addresses through Inbound Security Group rules]({{ site.baseurl }}/images/shared/whitelisting-ips/amazon-security-group.png)
 10. When finished, click **Create** to create the Security Group.

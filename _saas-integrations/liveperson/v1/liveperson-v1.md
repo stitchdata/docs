@@ -107,16 +107,29 @@ setup-steps:
 
       An **Authentication details** section will display. Leave this page open for now - you'll need it in the next step.
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
+      {% include integrations/shared-setup/connection-setup.html %}
       4. In the **{{ integration.display_name }} App Key** field, paste value from the **App key** field in {{ integration.display_name }}.
       5. In the **{{ integration.display_name }} App Secret** field, paste the value from the **Secret** field in {{ integration.display_name }}.
       6. In the **{{ integration.display_name }} Access Token** field, paste the value from the **Access token** field in {{ integration.display_name }}.
       7. In the **{{ integration.display_name }} Access Token Secret** field, paste the value from the **Access token secret** field in {{ integration.display_name }}.
       8. In the **{{ integration.display_name }} Account ID** field, enter your {{ integration.display_name }} account ID.
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data"
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

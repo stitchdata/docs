@@ -79,12 +79,10 @@ attributes:
           - name: "applicationRoles"
             type: "object"
             description: "Application roles associated with the {{ description-type }}."
-            anchor-id: 1
             subattributes:
               - name: "items"
                 type: "array"
                 description: "A list of application roles associated with the {{ description-type }}."
-                anchor-id: 1
                 subattributes:
                   - name: "name"
                     type: "string"
@@ -105,7 +103,6 @@ attributes:
           - name: "avatarUrls"
             type: "object"
             description: "The URLs associated with the avatars used by the {{ description-type }}."
-            anchor-id: 1
             subattributes:
               - name: "16x16"
                 type: "string"
@@ -138,12 +135,10 @@ attributes:
           - name: "groups"
             type: "object"
             description: "Details about the groups the {{ description-type }} is associated with."
-            anchor-id: 1
             subattributes:
               - name: "items"
                 type: "array"
                 description: "The groups the {{ description-type }} is associated with."
-                anchor-id: 2
                 subattributes:
                   - name: "name"
                     type: "string"
@@ -223,7 +218,6 @@ attributes:
               - name: "items"
                 type: "array"
                 description: "A list of application roles associated with the {{ description-type }}."
-                anchor-id: 3
                 subattributes:
                   - name: "name"
                     type: "string"
@@ -243,7 +237,6 @@ attributes:
 
           - name: "avatarUrls"
             type: "object"
-            anchor-id: 2
             description: "The URLs associated with the avatars used by the {{ description-type }}."
             subattributes:
               - name: "16x16"
@@ -277,12 +270,10 @@ attributes:
           - name: "groups"
             type: "object"
             description: "Details about the groups the {{ description-type }} is associated with."
-            anchor-id: 2
             subattributes:
               - name: "items"
                 type: "array"
                 description: "The groups the {{ description-type }} is associated with."
-                anchor-id: 4
                 subattributes:
                   - name: "name"
                     type: "string"

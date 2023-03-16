@@ -7,6 +7,7 @@ layout: general
 input: false
 
 key: "microsoft-azure-integration"
+content-type: "database-category"
 
 show-in-menus: true
 has-versions: true

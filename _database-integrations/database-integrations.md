@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#      Page & Formatting     #
+# -------------------------- #
+
 title: Stitch Database Integrations
 keywords: database integration, etl database, database etl
 layout: general
@@ -6,6 +10,7 @@ permalink: /integrations/databases/
 summary: "With Stitch, you can consolidate data from a variety of databases into a single data warehouse. Learn more about setting up a database integration and how Stitch will replicate data from that specific database type."
 
 key: "database-integrations"
+content-type: "category"
 
 toc: false
 input: false
@@ -22,9 +27,14 @@ row-usage-hog-reasons:
   data-volume: true
   lots-of-full-table: false
 
+
+# -------------------------- #
+#           Content          #
+# -------------------------- #
+
 sections:
   - content: |
-      With Stitch, you can consolidate data from a variety of databases into [a single destination]({{ site.baseurl }}/destinations).
+      With Stitch, you can consolidate data from a variety of databases into [destinations]({{ site.baseurl }}/destinations).
 
   - title: "Database connection methods"
     anchor: "database-connection-methods"
@@ -51,7 +61,7 @@ sections:
       - title: "Advanced connectivity options"
         anchor: "advanced-connectivity-options"
         content: |
-          Additional connection options can be included as part of an Enterprise plan. These options include reverse SSH tunnels, VPNs, and AWS Private Link. Reach out to [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
+          Additional connection options can be included as part of a Stitch {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan. These options include reverse SSH tunnels, VPNs, and AWS Private Link. Reach out to [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
 
   - title: "All database integrations"
     anchor: "all-database-integrations"

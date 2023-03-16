@@ -1,0 +1,54 @@
+{% unless integration.no-schema == true %}
+<!-- SCHEMA DETAILS START -->
+<h2 id="schema">{{ integration.display_name }} table reference</h2>
+
+<!-- Displays an info box if there are multiple versions of an integration currently available -->
+
+{% capture version-notice %}
+Schemas and naming conventions can change from version to version, so we recommend verifying your integration's version before continuing.
+
+The schema and info displayed below is for **version {{ integration.this-version }}** of this integration.
+
+{% if integration.this-version == latest-version %}
+  This is the latest version of the {{ integration.display_name }} integration.
+{% endif %}
+{% endcapture %}
+
+{% include note.html first-line="**Schemas and versioning**" content=version-notice %}
+
+
+<!-- If there are any notes about the schema,
+display them. This is info like custom field support,
+non-standard handling of certain data types, etc. -->
+    {% if integration.schema-sections %}
+        {% for section in integration.schema-sections %}
+                {% if section.title %}
+                    <h3 id="{{ section.anchor }}">{{ section.title | flatify }}</h3>
+                {% endif %}
+            {{ section.content | flatify | markdownify }}
+
+            {% if section.subsections %}
+                {% for subsection in section.subsections %}
+                    <h4 id="{{ subsection.anchor }}">{{ subsection.title | flatify }}</h4>
+
+                    {{ subsection.content | flatify | markdownify }}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+        <hr>
+    {% endif %}
+
+<!-- ACTUAL TABLE SCHEMA DISPLAY -->
+{% if integration.old-schema-template %}
+    {% if integration.tables %}
+        {% include integrations/templates/expand-list.html %}
+    {% else %}
+    {% endif %}
+{% else %}
+    {% unless integration.exclude-table-schemas == true %}
+        {% include integrations/templates/schemas/table-schemas.html %}
+    {% endunless %}
+{% endif %}
+
+<!-- SCHEMA DETAILS END -->
+{% endunless %}

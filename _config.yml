@@ -42,6 +42,8 @@ exclude:
   - .gitignore
   - _templates
   - _drafts
+  - .jekyll-cache
+  - .saas-cache
 
 include: [_pages, _redirects]
 relative_permalinks: false
@@ -80,12 +82,16 @@ collections:
    output: true
   analysis-integrations:
    output: true
+  changelog:
+   output: true
+  changelog-files:
+   output: false
+  posts:
+   output: false
   developer-content:
    output: true
   developer-files:
    output: false
-  data-structure:
-   output: true
   database-integrations:
    output: true
   destinations:
@@ -129,23 +135,13 @@ defaults:
       display-summary: "false"
       toc: false
 
-## Data Structure
-  - scope:
-      type: data-structure
-    values:
-      layout: page
-      enterprise: false
-      sidebar: stitchnav
-      display-summary: "false"
-      toc: false
-
 ## Database Integrations 
   - scope:
       type: database-integrations
     values:
       layout: database
       connection-type: "integration"
-      enterprise: false
+      content-type: "integration"
       toc: true
       sidebar: stitchnav
       display-summary: "false"
@@ -163,7 +159,6 @@ defaults:
     values:
       layout: general
       connection-type: "destination"
-      enterprise: false
       toc: true
       sidebar: stitchnav
       display-summary: "false"
@@ -183,7 +178,6 @@ defaults:
       type: developers
     values:
       layout: general
-      enterprise: false
       toc: true
       sidebar: stitchnav
       display-summary: "false"
@@ -193,7 +187,6 @@ defaults:
       type: getting-started
     values:
       layout: general
-      enterprise: false
       sidebar: on-page
       toc: true
 
@@ -202,7 +195,6 @@ defaults:
       type: replication
     values:
       layout: page
-      enterprise: false
       sidebar: stitchnav
       display-summary: "false"
       toc: true
@@ -213,7 +205,7 @@ defaults:
     values:
       layout: saas
       connection-type: "integration"
-      enterprise: false
+      content-type: "integration"
       toc: true
       sidebar: stitchnav
       display-summary: "false"
@@ -230,7 +222,6 @@ defaults:
       type: webhook-integrations
     values:
       layout: webhook
-      enterprise: false
       toc: true
       sidebar: stitchnav
       display-summary: "false"
@@ -265,7 +256,7 @@ integrations: https://www.stitchdata.com/integrations/sources/
 destinations: https://www.stitchdata.com/integrations/destinations/
 
 status: https://status.stitchdata.com/
-changelog: https://www.stitchdata.com/changelog
+changelog: https://www.stitchdata.com/docs/changelog
 blog: https://blog.stitchdata.com/
 security: https://www.stitchdata.com/platform/security/
 partners: https://www.stitchdata.com/partners/
