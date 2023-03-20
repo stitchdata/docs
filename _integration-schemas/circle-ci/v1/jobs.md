@@ -30,6 +30,7 @@ attributes:
 
   - name: "_workflow_id"
     type: "string"
+    primary-key: true
     description: "The workflow ID."
     foreign-key-id: "workflow-id"
 
