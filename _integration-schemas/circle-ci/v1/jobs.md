@@ -22,11 +22,6 @@ attributes:
     description: "The job ID."
     #foreign-key-id: "job-id"
 
-  - name: "_sdc_record_hash"
-    type: "string"
-    primary-key: true
-    description: "The record hash."
-    #foreign-key-id: "record-id"  
 
   - name: "_pipeline_id"
     type: "string"
