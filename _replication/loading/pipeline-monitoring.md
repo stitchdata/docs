@@ -62,7 +62,7 @@ sections:
       - title: "Time between loads"
         anchor: "ingestion-time-between-loads"
         content: |
-          The **Time between loads** chart shows the time since data was last loaded. To view this chart, you must select a table. You can also see the average time between loads accross all days where data exists.
+          The **Time between loads** chart shows the time since data was last loaded. To view this chart, you must select a table. You can also see the average time between loads across all days where data exists.
 
       - title: "Rows loaded"
         anchor: "ingestion-rows-loaded"
