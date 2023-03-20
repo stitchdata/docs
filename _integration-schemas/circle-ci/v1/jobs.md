@@ -22,17 +22,16 @@ attributes:
     description: "The job ID."
     #foreign-key-id: "job-id"
 
-
-  - name: "_pipeline_id"
-    type: "string"
-    description: "The pipeline ID."
-    foreign-key-id: "pipeline-id"
-
   - name: "_workflow_id"
     type: "string"
     primary-key: true
     description: "The workflow ID."
     foreign-key-id: "workflow-id"
+    
+  - name: "_pipeline_id"
+    type: "string"
+    description: "The pipeline ID."
+    foreign-key-id: "pipeline-id"
 
   - name: "approval_request_id"
     type: "string"
