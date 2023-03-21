@@ -42,8 +42,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: "A hash of key/value pairs that can store additional information about this object."
-    subattributes: &id001 [
-        ]
   - name: "name"
     type: "string"
     description: "Plan name"
@@ -62,7 +60,6 @@ attributes:
   - name: "tiers"
     type: "object"
     description: ""
-    subattributes: *id001
   - name: "updated_at"
     type: "integer"
     description: "Timestamp when updated"
