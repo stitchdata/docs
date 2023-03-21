@@ -178,7 +178,7 @@ attributes:
             type: "string"
             description: ""
           - name: "padding"
-            type: "integer"
+            type: "integer, string"
             description: ""
       - name: "dark"
         type: "boolean"
