@@ -34,7 +34,7 @@ status-url: "http://status.activecampaign.com/"
 tap-name: "ActiveCampaign" ## Ex: Intercom, not intercom
 repo-url: https://github.com/singer-io/tap-activecampaign
 
-this-version: "0.3"
+this-version: "0.4"
 
 api: |
   [{{ integration.display_name }} v3 API](https://developers.activecampaign.com/reference#overview){:target="new"}
