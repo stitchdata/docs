@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: ActiveCampaign (v0.3)
+title: ActiveCampaign (v0.4)
 permalink: /integrations/saas/activecampaign ## Add if there are multiple versions: /vVERSION
 keywords: activecampaign, integration, schema, etl activecampaign, activecampaign etl, activecampaign schema
 layout: singer
