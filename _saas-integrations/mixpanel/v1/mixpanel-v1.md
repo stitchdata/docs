@@ -108,8 +108,6 @@ feature-summary: |
 requirements-list:
   - item: |
       **Admin privileges**. These are required to retrieve your API secret in your {{ integration.display_name }} account.
-  - item: |
-      **A US-based {{ integration.display_name }} account**. The Stitch {{ integration.display_name }} integration does not currently support interacting with EU {{ integration.display_name }} domains.
 
 setup-steps:
   - title: "Retrieve your {{ integration.display_name }} project timezone and API secret"
