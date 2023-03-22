@@ -1,6 +1,6 @@
 ---
 tap: "activecampaign"
-version: "0.4"
+version: "1"
 key: ""
 
 name: "deal_custom_field_values"
