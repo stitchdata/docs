@@ -84,6 +84,7 @@ requirements-list:
       **If using Log-based Incremental Replication**, you'll need:
 
       - **The `ALTER DATABASE` privilege in {{ integration.display_name }}.** This is required to complete the setup for Log-based Incremental Replication.
+      - **A Primary Key in the source table.** If the logical replication method is selected for a table without a Primary Key, an error will occur.
   - item: |
       **A server that**:
 
