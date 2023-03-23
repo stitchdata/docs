@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: ActiveCampaign (v0.3)
+title: ActiveCampaign (v1)
 permalink: /integrations/saas/activecampaign ## Add if there are multiple versions: /vVERSION
 keywords: activecampaign, integration, schema, etl activecampaign, activecampaign etl, activecampaign schema
 layout: singer
@@ -34,7 +34,7 @@ status-url: "http://status.activecampaign.com/"
 tap-name: "ActiveCampaign" ## Ex: Intercom, not intercom
 repo-url: https://github.com/singer-io/tap-activecampaign
 
-this-version: "0.3"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} v3 API](https://developers.activecampaign.com/reference#overview){:target="new"}

@@ -1,6 +1,6 @@
 ---
 tap: "activecampaign"
-version: "0.3"
+version: "1"
 key: ""
 
 name: "forms"
@@ -178,7 +178,7 @@ attributes:
             type: "string"
             description: ""
           - name: "padding"
-            type: "integer"
+            type: "integer, string"
             description: ""
       - name: "dark"
         type: "boolean"

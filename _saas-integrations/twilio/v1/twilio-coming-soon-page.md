@@ -12,27 +12,27 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Sailthru (v1)
-permalink: /integrations/saas/sailthru ## Add if there are multiple versions: /vVERSION
-keywords: sailthru, integration, schema, etl sailthru, sailthru etl, sailthru schema
+title: Twilio (v1)
+permalink: /integrations/saas/twilio ## Add if there are multiple versions: /vVERSION
+keywords: twilio, integration, schema, etl twilio, twilio etl, twilio schema
 layout: coming-soon
 input: false
 
-key: "sailthru-setup"
+key: "twilio-setup"
 
 
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
 
-name: "sailthru"
-display_name: "Sailthru"
+name: "twilio"
+display_name: "Twilio"
 
 singer: true
-status-url: "https://status.sailthru.com/#!/"
+status-url: "https://status.twilio.com/"
 
-tap-name: "Sailthru" ## Ex: Intercom, not intercom
-repo-url: https://github.com/singer-io/tap-sailthru
+tap-name: "Twilio" ## Ex: Intercom, not intercom
+repo-url: https://github.com/singer-io/tap-twilio
 
 this-version: "1"
 ---
