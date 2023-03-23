@@ -33,6 +33,7 @@ attributes:
   - name: "id"
     type: "string"
     description: "The plan’s unique ID"
+    primary-key: true
   - name: "interval"
     type: "string"
     description: "One of day, week, month, year. The frequency with which a subscription should be billed."
@@ -63,4 +64,5 @@ attributes:
   - name: "updated_at"
     type: "integer"
     description: "Timestamp when updated"
+    replication-key: true
 ---
