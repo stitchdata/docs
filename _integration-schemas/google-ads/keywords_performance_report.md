@@ -3,7 +3,7 @@ tap: "google-ads"
 version: "1"
 
 name: "keywords_performance_report"
-doc-link: https://developers.google.com/google-ads/api/fields/v10/overview
+doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
 description: |
   The `{{ table.name }}` table contains all statistics aggregated at the keyword level.
 

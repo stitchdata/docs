@@ -2,7 +2,7 @@
 tap: "google-ads"
 version: "1"
 name: "mobile_app_category_constant"
-doc-link: https://developers.google.com/google-ads/api/reference/rpc/v10/MobileAppCategoryConstant
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/MobileAppCategoryConstant
 dependent-on: "campaign_criterion|ad_group_criterion"
 description: |
   The `{{ table.name }}` table contains info about mobile application categories.
