@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-marketo/pull/82"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-The `campaignId` field is now available in the `activities` stream for our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration.
+The `campaignId` field is now available for the `activities` stream in our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration.
