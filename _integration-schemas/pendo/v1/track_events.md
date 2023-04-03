@@ -52,6 +52,7 @@ attributes:
   - name: "day"
     type: "date-time"
     description: "{{ day-event-rep-key-note }}"
+    primary-key: true
 
   - name: "hour"
     type: "date-time"
@@ -92,9 +93,11 @@ attributes:
   - name: "track_type_id"
     type: "string"
     description: ""
+    primary-key: true
     foreign-key-id: "track-type-id"
 
   - name: "user_agent"
     type: "string"
     description: ""
+    primary-key: true
 ---

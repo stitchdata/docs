@@ -45,6 +45,7 @@ attributes:
   - name: "visitor_id"
     type: "string"
     description: ""
+    primary-key: true
     foreign-key-id: "visitor-id"
 
   - name: "day"
@@ -53,6 +54,7 @@ attributes:
       {% capture day-event-rep-key-note %}If the **Period** setting is set to `Day`, this field will be used as the table's Replication Key.{% endcapture %}
 
       {{ day-event-rep-key-note }}
+    primary-key: true
 
   - name: "hour"
     type: "date-time"
@@ -91,4 +93,5 @@ attributes:
   - name: "user_agent"
     type: "string"
     description: ""
+    primary-key: true
 ---

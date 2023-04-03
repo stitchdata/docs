@@ -39,11 +39,13 @@ attributes:
   - name: "browser_time"
     type: "date-time"
     description: ""
-    replication-key: true  
+    replication-key: true
+    primary-key: true  
 
   - name: "visitor_id"
     type: "string"
     description: ""
+    primary-key: true
     foreign-key-id: "visitor-id"
 
   - name: "account_ids"
@@ -71,8 +73,13 @@ attributes:
   - name: "guide_id"
     type: "string"
     description: ""
+    primary-key: true
     foreign-key-id: "guide-id"
 
+  - name: "guide_step_id"
+    type: "string"
+    description: ""
+    primary-key: true
   - name: "hour"
     type: "date-time"
     description: "{{ hour-event-rep-key-note }}"
@@ -109,6 +116,12 @@ attributes:
   - name: "type"
     type: "string"
     description: ""
+    primary-key: true
+
+  - name: "url"
+    type: "string"
+    description: ""
+    primary-key: true
 
   - name: "user_agent"
     type: "string"
