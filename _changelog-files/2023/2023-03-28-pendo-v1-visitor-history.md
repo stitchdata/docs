@@ -2,7 +2,7 @@
 title: "Pendo (v1) bug fix: Visitor history issue"
 content-type: "changelog-entry"
 date: 2023-03-28
-entry-type: 
+entry-type: bug-fix
 entry-category: integration
 connection-id: pendo
 connection-version: 1
