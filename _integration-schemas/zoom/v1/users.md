@@ -22,15 +22,36 @@ attributes:
     description: "The user ID."
     foreign-key-id: "user-id"
     
-  - name: "created_at"
-    type: "date-time"
+  - name: "custom_attributes"
+    type: "array"
     description: ""
+    subattributes:
+    - name: "key"
+      type: "string"
+      description: ""
+
+    - name: "name"
+      type: "string"
+      description: ""
+
+    - name: "value"
+      type: "string"
+      description: ""
+
 
   - name: "dept"
     type: "string"
     description: ""
 
+  - name: "display_name"
+    type: "string"
+    description: ""
+
   - name: "email"
+    type: "string"
+    description: ""
+
+  - name: "employee_unique_id"
     type: "string"
     description: ""
 
@@ -42,17 +63,17 @@ attributes:
     type: "array"
     description: ""
     subattributes:
-      - name: "value"
-        type: "string"
-        description: ""
-  
+    - name: "items"
+      type: "string"
+      description: ""
+
   - name: "im_group_ids"
     type: "array"
     description: ""
     subattributes:
-      - name: "value"
-        type: "string"
-        description: ""
+    - name: "items"
+      type: "string"
+      description: ""
 
   - name: "last_client_version"
     type: "string"
@@ -66,8 +87,16 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "plan_united_type"
+    type: "string"
+    description: ""
+
   - name: "pmi"
     type: "integer"
+    description: ""
+
+  - name: "role_id"
+    type: "string"
     description: ""
 
   - name: "status"
@@ -80,6 +109,10 @@ attributes:
 
   - name: "type"
     type: "integer"
+    description: ""
+
+  - name: "user_created_at"
+    type: "date-time"
     description: ""
 
   - name: "verified"

@@ -41,11 +41,19 @@ attributes:
     type: "array"
     description: ""
     subattributes:
-      - name: "answer"
-        type: "string"
-        description: ""
+    - name: "question"
+      type: "string"
+      description: ""
 
-      - name: "question"
-        type: "string"
-        description: ""
+    - name: "answer"
+      type: "string"
+      description: ""
+
+    - name: "date_time"
+      type: "date-time"
+      description: ""
+
+    - name: "polling_id"
+      type: "string"
+      description: ""
 ---

@@ -22,8 +22,21 @@ attributes:
     description: "The webinar UUID."
     foreign-key-id: "webinar-uuid"
 
+  - name: "custom_keys"
+    type: "array"
+    description: ""
+    subattributes:
+    - name: "key"
+      type: "string"
+      description: ""
+
+    - name: "value"
+      type: "string"
+      description: ""
+
+
   - name: "dept"
-    type: "integer"
+    type: "string"
     description: ""
 
   - name: "duration"
@@ -32,6 +45,10 @@ attributes:
 
   - name: "end_time"
     type: "date-time"
+    description: ""
+
+  - name: "host_id"
+    type: "string"
     description: ""
 
   - name: "id"
@@ -58,13 +75,14 @@ attributes:
     type: "array"
     description: ""
     subattributes:
-      - name: "field"
-        type: "string"
-        description: ""
+    - name: "field"
+      type: "string"
+      description: ""
 
-      - name: "value"
-        type: "string"
-        description: ""
+    - name: "value"
+      type: "string"
+      description: ""
+
 
   - name: "type"
     type: "integer"
@@ -74,12 +92,15 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "user_id"
+    type: "string"
+    description: ""
+
   - name: "user_name"
     type: "string"
     description: ""
-  
+
   - name: "webinar_id"
     type: "string"
     description: ""
-    foreign-key-id: "webinar-id"
 ---

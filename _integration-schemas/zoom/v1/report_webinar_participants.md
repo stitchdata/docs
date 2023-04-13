@@ -30,14 +30,18 @@ attributes:
     description: "The webinar ID."
     foreign-key-id: "webinar-id"
 
-  - name: "attentiveness_score"
+  - name: "customer_key"
     type: "string"
     description: ""
 
   - name: "duration"
-    type: "string"
+    type: "integer"
     description: ""
-  
+
+  - name: "failover"
+    type: "boolean"
+    description: ""
+
   - name: "join_time"
     type: "date-time"
     description: ""
@@ -50,12 +54,19 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "registrant_id"
+    type: "string"
+    description: ""
+
+  - name: "status"
+    type: "string"
+    description: ""
+
   - name: "user_email"
     type: "string"
     description: ""
 
   - name: "user_id"
     type: "string"
-    description: "The webinar participant's user ID."
-    foreign-key-id: "user-id"
+    description: ""
 ---
