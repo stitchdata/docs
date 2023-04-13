@@ -1,0 +1,14 @@
+<ul>
+    {% for property in site.data.schemas.schema.properties %}
+    {% assign name = property | first %}
+    {% assign types = site.data.schemas.schema.properties.name.type %}
+    <li>{{ name }} - {{ types }}
+    
+    </li>
+    
+    
+    
+    
+    {% endfor %}
+    
+    </ul>

@@ -1,0 +1,42 @@
+{
+    "type": ["null", "object"],
+    "additional_properties": false,
+    "properties": {
+      "account_id": {
+        "type": ["null", "string"]
+      },
+      "lastupdated": {
+        "type": ["null", "string"],
+        "format": "date-time"
+      },
+      "metadata_auto": {
+        "type": ["null", "object"],
+        "additional_properties": false,
+        "properties": {
+          "firstvisit": {
+            "type": ["null", "string"],
+            "format": "date-time"
+          },
+          "id": {
+            "type": ["null", "string"]
+          },
+          "idhash": {
+            "type": ["null", "integer"]
+          },
+          "lastupdated": {
+            "type": ["null", "string"],
+            "format": "date-time"
+          },
+          "lastvisit": {
+            "type": ["null", "string"],
+            "format": "date-time"
+          }
+        }
+      },
+      "metadata_custom": {
+        "type": ["null", "object"],
+        "additional_properties": false
+      }
+    }
+  }
+  
