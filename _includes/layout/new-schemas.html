@@ -1,14 +1,2 @@
-<ul>
-    {% for property in site.data.schemas.schema.properties %}
-    {% assign name = property | first %}
-    {% assign types = site.data.schemas.schema.properties.name.type %}
-    <li>{{ name }} - {{ types }}
-    
-    </li>
-    
-    
-    
-    
-    {% endfor %}
-    
-    </ul>
+{% assign data = site.data.schemas.schema.properties %}
+{% include layout/new-schemas-table.html jsondata=data %}

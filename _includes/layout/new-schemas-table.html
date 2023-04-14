@@ -1,0 +1,44 @@
+<div class="table-responsive">
+	<table class="attribute-list table-hover" style="margin-top: 0px; margin-bottom: 0px;">
+	
+
+		{% for property in include.jsondata %}
+        {% assign name = property | first %}
+        {% assign data = property | last %}
+			<tr>
+				<td>
+						<p>
+							<strong>
+								{{ name }}
+		                    </strong>
+	                        <br>
+		                    {% assign types = data.type %}
+                            {% for type in types %}
+                            {% if type != "null" %}
+                            {{ type }}
+                            {% endif %}
+                            {% endfor %}
+	                	</p>
+
+                        {% if data.properties %}
+						{% capture attribute-id %}{% increment counter %}{% endcapture %}
+
+						{% assign full-id = name | append: "--" | append: attribute-id %}
+
+						<div class="panel-group" id="{{ full-id | slugify }}">
+						    <div class="panel panel-table-subattributes">
+						        <div class="panel-table-subattribute-heading">
+						            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id | slugify | strip }}" href="#collapse{{ full-id | slugify }}">Click to expand {{ attribute.name }}</a>
+						        </div>
+
+						        <div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
+									{% include layout/new-schemas-table.html jsondata=data.properties %}
+								</div>
+						    </div>
+						</div>
+					{% endif %}
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+</div>
