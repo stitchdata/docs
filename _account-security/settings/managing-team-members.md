@@ -93,13 +93,7 @@ sections:
       - title: "Role-Based Access Control (RBAC)"
         anchor: "role-based-access-control"
         content: |
-          You can now control what users have access to within the Stitch app based on an assigned role! Head to the next session to learn about the role types and their permissions.
-
-          {% capture rbac-notice %}
-          If you are not on an SSO enabled account, every user will have an Administrator role by default, and then you can downgrade roles to General User. If you are on an SSO enabled account, SSO Admins will become the Administrators by default and all other users will become General Users. Refer to the [SSO Doccumentation]({{ link.security.single-sign-on | prepend: site.baseurl }}) for more information.
-          {% endcapture %}
-
-          {% include note.html first-line="**For accounts created before Role-Based Access Control was enabled:**" content=rbac-notice %}
+          You can now control what users have access to within the Stitch app based on an assigned role! Head to the next section to learn about the role types and their permissions.
 
       - title: "Team member user roles"
         anchor: "team-member-user-roles"

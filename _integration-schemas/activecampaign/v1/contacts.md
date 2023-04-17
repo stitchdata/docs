@@ -1,6 +1,6 @@
 ---
 tap: "activecampaign"
-version: "0.3"
+version: "1"
 key: ""
 
 name: "contacts"
@@ -103,6 +103,9 @@ attributes:
     description: ""
   - name: "orgid"
     type: "integer"
+    description: ""
+  - name: "phone"
+    type: "string"
     description: ""
   - name: "rating_tstamp"
     type: "string"

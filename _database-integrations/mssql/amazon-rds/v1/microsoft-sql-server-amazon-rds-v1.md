@@ -89,6 +89,7 @@ requirements-list:
       **If using Log-based Incremental Replication**, you'll need:
 
       - **The `ALTER DATABASE` privilege in Microsoft SQL Server.** This is required to complete the setup for Log-based Incremental Replication.
+      - **A Primary Key in the source table.** This is required to use logical replication.
 
 ## Based on this AWS doc, enabling mixed mode auth shouldn't be necessary:
 ## https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html

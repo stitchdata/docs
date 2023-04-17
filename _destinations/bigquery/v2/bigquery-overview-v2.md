@@ -65,7 +65,10 @@ name: *name
 #      Overview Content      #
 # -------------------------- #
 
+youtubeId: wN-n7fA1iTk
+
 intro: |
+  {% include youtube-player.html id=page.youtubeId %}
   {{ site.data.destinations.bigquery.destination-details.description | flatify }}
 
   For more information, check out [Google's {{ destination.display_name }} overview]({{ site.data.destinations.bigquery.resource-links.what-is-bq }}){:target="new"}.

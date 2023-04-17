@@ -2,7 +2,7 @@
 tap: "google-ads"
 version: "1"
 name: "campaign_budgets"
-doc-link: https://developers.google.com/google-ads/api/reference/rpc/v9/CampaignBudgetService
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/CampaignBudgetService
 description: |
   The `{{ table.name }}` table contains info about campaign budgets in your Google Ads account.
 

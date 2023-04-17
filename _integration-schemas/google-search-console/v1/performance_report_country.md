@@ -25,7 +25,7 @@ attributes:
   - name: "search_type"
     type: "string"
     primary-key: true
-    description: "The search type to filter for. Acceptable values are: `image`, `video`, and `web`."
+    description: "The search type to filter for. Acceptable values are: `discover`, `googleNews`, `image`, `news`, `video`, and `web`."
     foreign-key-id: "search-type"
 
   - name: "country"
