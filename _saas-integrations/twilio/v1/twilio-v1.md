@@ -37,14 +37,14 @@ repo-url: https://github.com/singer-io/tap-twilio
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} Advertiser API ](){:target="new"}
+  [{{ integration.display_name }} REST API ](https://www.twilio.com/docs/usage/api){:target="new"}
 
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-certified: false 
+certified: true 
 
 historical: "1 year"
 frequency: "1 hour"
@@ -90,24 +90,36 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
-requirements-list:
-  - item: ""
-  - item: ""
-
-requirements-info:
-
 setup-steps:
-  - title: ""
-    anchor: ""
+  - title: "Retrieve Auth token and Account SID"
+    anchor: "retrieve-auth-sid"
     content: |
-      [Add content]
-  - title: "add integration"
-    # content: |
-      # starting with 4., add instructions for additional fields in UI. EX:
-      # 4. In the [FIELD_NAME] field, [instructions]
-  - title: "historical sync"
-  - title: "replication frequency"
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
+      1. Log into your {{ integration.display_name }} account.
+      2. Click on **Console**.
+      3. Copy your **Account SID** and **Auth Token** and have it ready for the next step.
+
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
+    content: |
+      {% include integrations/shared-setup/connection-setup.html %}
+      4. In the **Account Sid** field, paste the Account SID you copied in [step 1](#retrieve-auth-sid).
+      5. In the **Auth Token** field, paste the Auth Token you copied in [step 1](#retrieve-auth-sid).
+      6. In the **Date Window Days** field, enter a value. This parameter should be set to an optimum value to improve historical sync performance. Setting this value too low will take longer to complete historical sync and setting it larger may result in request timeouts or memory overflow issues. The default value is `30`.
+  
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

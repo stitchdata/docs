@@ -15,23 +15,19 @@
 product-type: "connect"
 content-type: "api-form"
 form-type: "source"
-key: "source-form-properties-[integration]-object"
+key: "source-form-properties-twilio-object"
 
 
 # -------------------------- #
 #        OBJECT INFO         #
 # -------------------------- #
 
-title: "[INTEGRATION] Source Form Property"
-api-type: "platform.[integration]"
-display-name: "[INTEGRATION]"
+title: "Twilio Source Form Property"
+api-type: "platform.twilio"
+display-name: "Twilio"
 
 source-type: "saas"
-docs-name: "" # This should be whatever integration.name is. Ex: LinkedIn Ads is linkedin-ads
-
-property-description: ""
-## Used to create a description for the object that doesn't adhere to the standard in _developers/connect/api/documentation/api-form-properties.html
-## See the Heap object for an example
+docs-name: "twilio" # This should be whatever integration.name is. Ex: LinkedIn Ads is linkedin-ads
 
 
 # -------------------------- #
@@ -40,15 +36,24 @@ property-description: ""
 
 uses-start-date: true
 
-# Only source-specific attributes need to be listed here.
-# The following attributes are considered common,
-# and therefore don't need to be listed:
-# anchor_time, cron_expression, frequency_in_minutes, image_version, start_date 
+object-attributes:
+  - name: "account_sid"
+    type: "string"
+    required: true
+    description: |
+      Your {{ form-property.display-name }} account SID. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-auth-sid" }}) to retrieve this information.
+    value: "<YOUR_ACCOUNT_SID>"
 
-# object-attributes:
-#   - name: ""
-#     type: ""
-#     required: true/false
-#     description: ""
-#     value: ""
+  - name: "auth_token"
+    type: "string"
+    required: true
+    description: |
+      Your {{ form-property.display-name }} auth token. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-auth-sid" }}) to retrieve this information.
+    value: "<YOUR_AUTH_TOKEN>"
+  
+  - name: "date_window_days"
+    type: "integer"
+    required: false
+    description: "The number of days of data to replicate at a time. The default value is `30`."
+    value: "XX"    
 ---
