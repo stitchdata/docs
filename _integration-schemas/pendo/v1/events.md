@@ -26,26 +26,28 @@ api-method:
   doc-link: "https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation"
 
 attributes:
-  - name: "account_id"
+
+  - name: "_sdc_record_hash"
     type: "string"
     primary-key: true
+    description: "Generated hash value of the record"
+
+  - name: "account_id"
+    type: "string"
     description: "The account ID."
     foreign-key-id: "account-id"
 
   - name: "server"
     type: "string"
-    primary-key: true
     description: ""
 
   - name: "remote_ip"
     type: "string"
-    primary-key: true
     description: ""
 
   - name: "visitor_id"
     type: "string"
     description: ""
-    primary-key: true
     foreign-key-id: "visitor-id"
 
   - name: "day"
@@ -54,7 +56,6 @@ attributes:
       {% capture day-event-rep-key-note %}If the **Period** setting is set to `Day`, this field will be used as the table's Replication Key.{% endcapture %}
 
       {{ day-event-rep-key-note }}
-    primary-key: true
 
   - name: "hour"
     type: "date-time"
@@ -93,5 +94,4 @@ attributes:
   - name: "user_agent"
     type: "string"
     description: ""
-    primary-key: true
 ---
