@@ -15,7 +15,7 @@ description: |
 
   {{ event-replication-note }}
 
-replication-method: "Key-based Incremental"
+replication-method: "Append-Only (Incremental)"
 replication-key:
   name: "day or hour"
 
