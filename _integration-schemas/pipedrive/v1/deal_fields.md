@@ -7,7 +7,7 @@ name: "deal_fields"
 doc-link: https://developers.pipedrive.com/docs/api/v1/DealFields#getDealFields
 singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_pipedrive/schemas/deal_fields.json
 description: |
-  The `{{ table.name }}` table contains info about
+  The `{{ table.name }}` table contains info about all deal fields.
 
 api-method:
     name: "DealFields"
