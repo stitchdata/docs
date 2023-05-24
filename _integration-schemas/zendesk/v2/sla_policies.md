@@ -1,6 +1,6 @@
 ---
 tap: "zendesk"
-version: "1"
+version: "2"
 
 name: "sla_policies"
 doc-link: https://developer.zendesk.com/rest_api/docs/support/sla_policies

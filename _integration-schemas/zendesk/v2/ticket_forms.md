@@ -1,6 +1,6 @@
 ---
 tap: "zendesk"
-version: "1"
+version: "2"
 
 name: "ticket_forms"
 doc-link: https://developer.zendesk.com/rest_api/docs/support/ticket_forms

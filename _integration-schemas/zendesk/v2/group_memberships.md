@@ -1,6 +1,6 @@
 ---
 tap: "zendesk"
-version: "1"
+version: "2"
 
 name: "group_memberships"
 doc-link: https://developer.zendesk.com/rest_api/docs/support/group_memberships

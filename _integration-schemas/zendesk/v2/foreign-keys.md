@@ -1,7 +1,7 @@
 ---
 tap-reference: "zendesk"
 
-version: "1"
+version: "2"
 
 foreign-keys:
   - id: "group-id"
