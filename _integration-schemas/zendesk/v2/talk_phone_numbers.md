@@ -6,7 +6,7 @@ key: ""
 name: "talk_phone_numbers"
 doc-link: "https://developer.zendesk.com/api-reference/voice/talk-api/phone_numbers/"
 singer-schema: "https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/talk_phone_numbers.json"
-description: "This table contains data about numbers in Zendesk Talk."
+description: "This table contains data about phone numbers in Zendesk Talk."
 
 api-method:
     name: "TalkPhoneNumbers"
