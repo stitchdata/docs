@@ -48,7 +48,7 @@ intro: |
 
 requirements:
   - item: |
-      **An existing Slack account.** Depending on ]the method you want to use to integrate with Slack](#configure-slack), you may need a Slack Standard or Plus plan.
+      **An existing Slack account.** Depending on [the method you want to use to integrate with Slack](#configure-slack), you may need a Slack Standard or Plus plan.
 
 
 # -------------------------- #
