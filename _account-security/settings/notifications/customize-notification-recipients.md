@@ -16,19 +16,6 @@ toc: true
 type: "notifications"
 weight: 2
 
-
-# -------------------------- #
-#  Stitch Plan Requirements  #
-# -------------------------- #
-
-minimum-plan: "advanced"
-
-minimum-plan-cta:
-  feature: "The custom notification list"
-  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
-  copy: "{{ site.data.strings.enterprise.copy.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
-
-
 # -------------------------- #
 #           INTRO            #
 # -------------------------- #
