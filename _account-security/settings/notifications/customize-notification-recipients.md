@@ -53,20 +53,6 @@ sections:
 
       For example: Your team wants to be notified when their Stitch account is nearing its row limit. Based on this, you can filter emails from Stitch with the subject [`Approaching Row Limit`]({{ link.account.notification-settings | prepend: site.baseurl }}#usage-nearing-limit), which are sent when an account is nearing its usage limit.
 
-  - title: "Access to the custom notification list"
-    anchor: "custom-notification-list-access"
-    summary: "How to access the custom notification list feature"
-    content: |
-      The custom notification list feature is available during the Free Trial or on an {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info about these plans.
-
-    subsections:
-      - title: "Plan downgrades"
-        anchor: "plan-downgrades"
-        content: |
-          If you decide to downgrade to a plan without custom notification list access, the feature will be disabled and notifications will no longer be sent to the email addresses in the custom notifications list.
-
-          If you upgrade from a plan without custom notification list access to a plan that includes it, and you previously added custom notification email addresses in your account, you will need to [re-enable them](#disable-reenable-email-addresses) to allow Stitch to send notifications to the email address again.
-
   - title: "Custom notification list basics"
     anchor: "custom-notification-basics"
     summary: "Some custom notification list basics"
