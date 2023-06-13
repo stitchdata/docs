@@ -65,7 +65,11 @@ sections:
       - title: "Can I send data from one integration to multiple destinations?"
         anchor: "basics--sending-data-to-multiple-destinations"
         content: |
-          Yes, you can! Head over to the [**Mapping your destinations**](#mapping-to-destinations) section for instructions on how to do that.
+          You can't connect a single integration to multiple destinations, but you can create multiple integrations for the same data source and connect them to different destinations. The easiest way to do this is to use the connection cloning feature:
+          
+            1. Create a first integration and connect it to a destination.
+            2. Follow the instructions in the [connection cloning documentation]({{ site.data.urls.integrations.connection-cloning | prepend: site.baseurl | prepend: site.home }}) to clone the integration.
+            3. Update the cloned integration to connect it to a different destination. Head over to the [**Mapping your destinations**](#mapping-to-destinations) section for instructions on how to do that.
         
       - title: "What happens to my other destinations if I downgrade my plan?"
         anchor: "basics--what-happens-when-i-downgrade-my-plan"
@@ -137,12 +141,12 @@ sections:
       - title: "Mapping through the Stitch app"
         anchor: "mapping-integrations-app"
         content: |
-          To map a source to a destination through the Stitch app is a very simple process. Within your setup page, you will be able to select which destination you would like to map your intgration to.
+          To map a source to a destination through the Stitch app is a very simple process. Within your setup page, you will be able to select which destination you would like to map your integration to.
 
           1. Login to your Stitch account.
           2. Click **Integrations** in the top navigation.
-          3. Select the integration you would like to map to your destinations.
-          4. In the **Target Destination** section, select your destinations. If you don't want to map to a destination, select **No Destination**.
+          3. Select the integration you would like to map to your destination.
+          4. In the **Target Destination** section, select your destination. If you don't want to map to a destination, select **No Destination**.
           5. Save your changes.
 
       - title: "Mapping through the Stitch Connect API"
