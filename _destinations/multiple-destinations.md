@@ -68,8 +68,7 @@ sections:
           You can't connect a single integration to multiple destinations, but you can create multiple integrations for the same data source and connect them to different destinations. The easiest way to do this is to use the connection cloning feature:
           
             1. Create a first integration and connect it to a destination.
-            2. Follow the instructions in the [connection cloning documentation]({{ site.data.urls.integrations.connection-cloning | prepend: site.baseurl | prepend: site.home }}) to clone the integration.
-            3. Update the cloned integration to connect it to a different destination. Head over to the [**Mapping your destinations**](#mapping-to-destinations) section for instructions on how to do that.
+            2. Follow the instructions in the [connection cloning documentation]({{ site.data.urls.integrations.connection-cloning | prepend: site.baseurl | prepend: site.home }}) to clone the integration and select a different destination.
         
       - title: "What happens to my other destinations if I downgrade my plan?"
         anchor: "basics--what-happens-when-i-downgrade-my-plan"
