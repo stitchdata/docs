@@ -83,7 +83,7 @@ attributes:
     description: "Id of the associated ticket"
 
   - name: "time"
-    type: "string"
+    type: "date-time"
     description: "The time the event occurred"
     replication-key: true
 
