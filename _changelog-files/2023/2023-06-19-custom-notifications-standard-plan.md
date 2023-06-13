@@ -1,0 +1,8 @@
+---
+title: Custom notification in Standard plan
+content-type: "changelog-entry"
+date: 2023-06-19 # Tentative date, to be updated if needed
+entry-type: new-feature
+entry-category: notifications
+---
+The custom notifications feature is now available for all plans, including Standard Plan.
