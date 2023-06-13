@@ -1,5 +1,5 @@
 ---
-title: Custom notification in Standard Plan
+title: Custom notifications in Standard Plan
 content-type: "changelog-entry"
 date: 2023-06-15 # Tentative date, to be updated if needed
 entry-type: new-feature
