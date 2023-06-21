@@ -73,6 +73,7 @@ foreign-keys:
       - table: "campaigns"
         subtable: "ads"
         join-on: "id"
+      - table: "leads"
 
   - id: "campaign-id"
     attribute: "campaign_id"
