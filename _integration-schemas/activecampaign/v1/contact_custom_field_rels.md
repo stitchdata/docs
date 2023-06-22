@@ -1,6 +1,6 @@
 ---
 tap: "activecampaign"
-version: "0.3"
+version: "1"
 key: ""
 
 name: "contact_custom_field_rels"

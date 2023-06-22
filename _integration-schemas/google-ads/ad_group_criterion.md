@@ -2,7 +2,7 @@
 tap: "google-ads"
 version: "1"
 name: "ad_group_criterion"
-doc-link: https://developers.google.com/google-ads/api/reference/rpc/v10/AdGroupCriterion
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/AdGroupCriterion
 description: |
   The `{{ table.name }}` table contains info about ad group criteria.
 
@@ -216,6 +216,6 @@ attributes:
 
   - name: "criterion"
     type: "object"
-    description: "The ad group criterion. It is one of the objects listed under criterion in the [Google Ads API documentation](https://developers.google.com/google-ads/api/reference/rpc/v10/AdGroupCriterion#criterion)."
+    description: "The ad group criterion. It is one of the objects listed under criterion in the [Google Ads API documentation](https://developers.google.com/google-ads/api/reference/rpc/v12/AdGroupCriterion#criterion)."
 
 ---

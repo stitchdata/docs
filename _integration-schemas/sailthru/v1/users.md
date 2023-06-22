@@ -1,6 +1,6 @@
 ---
 tap: "sailthru"
-version: "0.2"
+version: "1"
 key: ""
 
 name: "users"

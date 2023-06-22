@@ -2,7 +2,7 @@
 tap: "google-ads"
 version: "1"
 name: "campaign_labels"
-doc-link: https://developers.google.com/google-ads/api/reference/rpc/v10/CampaignLabel
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/CampaignLabel
 description: |
   The `{{ table.name }}` table contains info about the relationship between campaigns and labels.
 
