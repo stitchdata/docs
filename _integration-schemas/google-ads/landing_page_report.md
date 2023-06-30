@@ -3,7 +3,7 @@ tap: "google-ads"
 version: "1"
 
 name: "landing_page_report"
-doc-link: https://developers.google.com/google-ads/api/fields/v10/overview
+doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
 description: |
   The `{{ table.name }}` table contains 
 

@@ -12,72 +12,69 @@ description: |
 replication-method: "Key-based Incremental"
 
 attributes:
-  - name: "gid"
+  - name: "color"
     type: "string"
-    primary-key: true
-    description: "The tag GID."
-    #foreign-key-id: "tag-id"
+    description: ""
 
   - name: "created_at"
     type: "date-time"
+    description: ""
     replication-key: true
-    description: "The time the tag was created."
-
-  - name: "color"
-    type: "string"
-    description: |
-      The color of the tag. Possible values are:
-
-      - `dark-pink`
-      - `dark-green` 
-      - `dark-blue`
-      - `dark-red`
-      - `dark-teal` 
-      - `dark-brown` 
-      - `dark-orange` 
-      - `dark-purple`
-      - `dark-warm-gray` 
-      - `light-pink`
-      - `light-green` 
-      - `light-blue`
-      - `light-red`
-      - `light-teal` 
-      - `light-yellow` 
-      - `light-orange`
-      - `light-purple`
-      - `light-warm-gray`
 
   - name: "followers"
     type: "array"
-    description: "A list of users following the tag."
+    description: ""
     subattributes:
-      - name: "gid"
-        type: "string"
-        description: "The follower's GID."
-        foreign-key-id: "user-id"
+    - name: "gid"
+      type: "string"
+      description: ""
 
-      - name: "resource_type"
-        type: "string"
-        description: "This will be `user`."
+    - name: "resource_type"
+      type: "string"
+      description: ""
+
+    - name: "name"
+      type: "string"
+      description: ""
+
+
+  - name: "gid"
+    type: "string"
+    description: ""
+    primary-key: true
 
   - name: "name"
     type: "string"
-    description: "The name of the tag."
+    description: ""
 
   - name: "notes"
     type: "string"
-    description: "Any notes associated with the tag."
+    description: ""
+
+  - name: "permalink_url"
+    type: "string"
+    description: ""
+
+  - name: "resource_type"
+    type: "string"
+    description: ""
 
   - name: "workspace"
     type: "object"
-    description: "Details about the workspace or organization the tag is associated with."
+    description: ""
     subattributes:
-      - name: "gid"
-        type: "string"
-        description: "The workspace's GID."
-        foreign-key-id: "workspace-id"
+    - name: "gid"
+      type: "string"
+      description: ""
 
-      - name: "resource_type"
-        type: "string"
-        description: "This will be `workspace`."
+    - name: "resource_type"
+      type: "string"
+      description: ""
+
+    - name: "name"
+      type: "string"
+      description: ""
+
+
+
 ---

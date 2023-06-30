@@ -2,7 +2,7 @@
 tap: "google-ads"
 version: "1"
 name: "call_details"
-doc-link: https://developers.google.com/google-ads/api/reference/rpc/v10/CallView
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/CallView
 description: |
   The `{{ table.name }}` table contains info about call tracking of call-only ads or call extensions.
 

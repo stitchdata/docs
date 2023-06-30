@@ -2,7 +2,7 @@
 tap: "google-ads"
 version: "1"
 name: "labels"
-doc-link: https://developers.google.com/google-ads/api/reference/rpc/v10/Label
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/Label
 description: |
   The `{{ table.name }}` table contains info about labels.
 

@@ -3,7 +3,7 @@ tap: "google-ads"
 version: "1"
 
 name: "keywordless_query_report"
-doc-link: https://developers.google.com/google-ads/api/fields/v10/overview
+doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
 description: |
   The `{{ table.name }}` includes keywordless ads (dynamic search ads) statistics based on search terms.
 

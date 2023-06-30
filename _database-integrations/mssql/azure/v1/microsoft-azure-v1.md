@@ -76,7 +76,10 @@ view-replication: true
 requirements-list:
   - item: "**Privileges in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
   - item: |
-      **If using Log-based Incremental Replication**, you'll need the `ALTER DATABASE` privilege in {{ integration.display_name }}. This is required to complete the setup for Log-based Incremental Replication.
+      **If using Log-based Incremental Replication**, you'll need:
+
+      - **The `ALTER DATABASE` privilege in {{ integration.display_name }}.** This is required to complete the setup for Log-based Incremental Replication.
+      - **A Primary Key in the source table.** This is required to use logical replication.
 
 # -------------------------- #
 #     Setup Instructions     #

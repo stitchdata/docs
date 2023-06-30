@@ -2,7 +2,7 @@
 tap: "google-ads"
 version: "1"
 name: "accessible_bidding_strategies"
-doc-link: https://developers.google.com/google-ads/api/reference/rpc/v10/AccessibleBiddingStrategy
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/AccessibleBiddingStrategy
 description: |
   The `{{ table.name }}` table contains info about accessible bidding strategies in your Google Ads account.
 

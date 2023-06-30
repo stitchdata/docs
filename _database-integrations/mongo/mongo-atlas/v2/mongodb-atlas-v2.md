@@ -37,7 +37,7 @@ db-type: "mongodb"
 
 ## Stitch features
 api-type: "platform.mongodb"
-versions: "2.6 through 4.0"
+versions: "2.6 through 5.0"
 ssh: false
 ssl: true
 

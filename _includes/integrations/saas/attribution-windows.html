@@ -8,7 +8,7 @@ total-table-count is the total count cast as an integer.
 {% endcomment %}
 
 {% if integration.layout == "singer" %}
-    {% assign schema = site.integration-schemas | where:"tap",integration.name %}
+    {% assign schema = site.integration-schemas | where:"tap",integration.name | where: "version",integration.this-version %}
 {% else %}
     {% assign schema = integration.tables %}
 {% endif %}
