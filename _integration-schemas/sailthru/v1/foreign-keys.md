@@ -9,7 +9,7 @@
 
 tap-reference: "integration"
 
-version: ""
+version: "1"
 
 foreign-keys:
   - id: "list-id"
