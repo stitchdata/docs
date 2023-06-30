@@ -2,7 +2,7 @@
 tap: "google-ads"
 version: "1"
 name: "carrier_constant"
-doc-link: https://developers.google.com/google-ads/api/reference/rpc/v10/CarrierConstant
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/CarrierConstant
 dependent-on: "campaign_criterion"
 description: |
   The `{{ table.name }}` table contains info about carrier criteria that can be used in campaign targeting.

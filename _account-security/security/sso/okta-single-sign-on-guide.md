@@ -43,16 +43,14 @@ related:
 
 intro: |
   {% capture sso-admin %}
-  If this is the first time SSO is enabled, the Stitch user who configures the connection will become an SSO Admin. Additional SSO Admins may be added by contacting support.
-
   Refer to the [Team member roles and permissions documentation]({{ link.account.team-roles-permissions | prepend: site.baseurl }}) for more info about privileges in Stitch.
   {% endcapture %}
 
   {% capture sso-admin-note %}
-  Setting up or modifying an existing {{ page.display-name }} connection requires SSO Admin privileges in Stitch. {{ sso-admin }}
+  Setting up or modifying an existing {{ page.display-name }} connection requires Admin privileges in Stitch. {{ sso-admin }}
   {% endcapture %}
 
-  {% include note.html first-line="**Stitch SSO Admin privileges required**" content=sso-admin-note %}
+  {% include note.html first-line="**Stitch Admin privileges required**" content=sso-admin-note %}
 
   {{ page.summary }}
 
@@ -69,7 +67,7 @@ intro: |
 
 requirements:
   - item: |
-      **SSO Admin privileges in Stitch.** {{ sso-admin }}
+      **Admin privileges in Stitch.** {{ sso-admin }}
 
   - item: |
       **Application Management privileges in {{ page.display-name }} that allow you to add and configure applications.** If you don't have these privileges, **contact an {{ page.display-name }} admin before continuing**.

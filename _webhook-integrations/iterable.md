@@ -1,7 +1,6 @@
 ---
 title: Iterable
 permalink: /integrations/webhooks/iterable
-redirect_from: /integrations/saas/iterable
 ## Some users may experience a blip while the redirect works - it's normal.
 
 keywords: iterable, integration, schema, etl iterable, iterable etl, iterable schema, stitch webhooks

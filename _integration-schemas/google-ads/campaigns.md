@@ -3,7 +3,7 @@ tap: "google-ads"
 version: "1"
 
 name: "campaigns"
-doc-link: https://developers.google.com/google-ads/api/reference/rpc/v9/CampaignService
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/CampaignService
 singer-schema: https://github.com/singer-io/tap-google-ads/blob/main/tap_google_ads/schemas/campaigns.json
 description: |
   The `{{ table.name }}` table contains detailed info about your Google Ads campaigns.

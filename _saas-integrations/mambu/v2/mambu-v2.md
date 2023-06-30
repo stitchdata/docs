@@ -13,10 +13,10 @@
 # -------------------------- #
 
 title: Mambu (v2)
-permalink: /integrations/saas/mambu
+permalink: /integrations/saas/mambu/v2
 keywords: mambu, integration, schema, etl mambu, mambu etl, mambu schema
 layout: singer
-# input: false
+input: false
 
 key: "mambu-setup"
 

@@ -161,6 +161,26 @@ attributes:
     type: "string"
     description: "The URL of the customer's photo."
 
+  - name: "properties"
+    type: "array"
+    description: "Custom properties setup by customer on their profile."
+    subattributes:
+      - name: "items"
+        type: "object"
+        description: ""
+        subattributes:
+          - name: "type"
+            type: "string"
+            description: "The type of property."
+            
+          - name: "name"
+            type: "string"
+            description: "The property name."
+            
+          - name: "value"
+            type: "string"
+            description: "The property value."
+
   - name: "social_profiles"
     type: "array"
     description: "Details about the customer's social profiles."

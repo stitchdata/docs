@@ -2,7 +2,7 @@
 tap: "google-ads"
 version: "1"
 name: "topic_constant"
-doc-link: https://developers.google.com/google-ads/api/reference/rpc/v10/TopicConstant
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/TopicConstant
 dependent-on: "campaign_criterion|ad_group_criterion"
 description: |
   The `{{ table.name }}` table contains info about topics.

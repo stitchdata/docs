@@ -16,18 +16,6 @@ type: "notifications"
 weight: 6
 
 # -------------------------- #
-#  Stitch Plan Requirements  #
-# -------------------------- #
-
-minimum-plan: "advanced"
-
-minimum-plan-cta:
-  feature: "The custom notification list "
-  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
-  copy: "{{ site.data.strings.enterprise.copy.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
-
-
-# -------------------------- #
 #   RELATED SIDEBAR LINKS    #
 # -------------------------- #
 
@@ -60,7 +48,7 @@ intro: |
 
 requirements:
   - item: |
-      **An existing Slack account.** Depending on ]the method you want to use to integrate with Slack](#configure-slack), you may need a Slack Standard or Plus plan.
+      **An existing Slack account.** Depending on [the method you want to use to integrate with Slack](#configure-slack), you may need a Slack Standard or Plus plan.
 
 
 # -------------------------- #
