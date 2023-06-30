@@ -12,21 +12,36 @@ description: |
 replication-method: "Full Table"
 
 attributes:
+  - name: "email_domains"
+    type: "array"
+    description: ""
+    subattributes:
+    - name: "items"
+      type: "string"
+      description: ""
+
+
+  - name: "email_domains"
+    type: "null"
+    description: ""
+
+
   - name: "gid"
-    type: "integer"
+    type: "string"
+    description: ""
     primary-key: true
-    description: "The workspace's GID."
-    foreign-key-id: "workspace-id"
 
   - name: "is_organization"
     type: "boolean"
-    description: "Indicates if the workspace is an organization or not."
+    description: ""
 
   - name: "name"
     type: "string"
-    description: "The name of the workspace."
+    description: ""
 
   - name: "resource_type"
     type: "string"
-    description: "This will be `workspace`."
+    description: ""
+
+
 ---

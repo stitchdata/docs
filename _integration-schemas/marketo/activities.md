@@ -39,6 +39,10 @@ attributes:
     description: "The ID of the activity type."
     foreign-key-id: "activity-type-id"
 
+  - name: "campaignId"
+    type: "integer"
+    description: "The ID of the campaign."
+
   - name: "primary_attribute_value_id"
     type: "integer"
     description: "The ID of the activity's primary attribute."

@@ -73,7 +73,7 @@ attributes:
     description: ""
 
   - name: "customer_id"
-    type: "integer"
+    type: "string"
     description: ""
     foreign-key-id: "customer-id"
 

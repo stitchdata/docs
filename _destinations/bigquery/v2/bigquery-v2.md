@@ -41,6 +41,8 @@ this-version: "2"
 #          Sections          #
 # -------------------------- #
 
+youtubeId: wN-n7fA1iTk
+
 sections:
   - title: "Getting started"
     anchor: "get-started"
@@ -49,6 +51,7 @@ sections:
         version: "2"
       - key: "bigquery-v1-migration"
     content: |
+      {% include youtube-player.html id=page.youtubeId %}
       {% include layout/category-sections.html %}
 
   - title: "Using {{ page.display_name }}"

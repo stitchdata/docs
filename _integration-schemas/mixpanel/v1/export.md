@@ -7,7 +7,7 @@ name: "export"
 doc-link: "https://developer.mixpanel.com/docs/exporting-raw-data#section-export-api-reference"
 singer-schema: "https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/schemas/export.json"
 description: |
-  The `{{ table.name }}` table contains "raw data dumps" of tracked events.
+  The `{{ table.name }}` table contains "raw data dumps" of tracked events. The API endpoint for EU region servers will return a `200 terminated early` error code.
 
   #### Table schema {#export-events-table-schema}
 

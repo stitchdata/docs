@@ -90,7 +90,7 @@ sections:
             action: "update"
           - connection: "sources"
             action: "create"
-          - connection: "destinations"
+          - connection: "sources"
             action: "update"
         content: |
           A connection property object is a JSON object that contains the properties necessary to create a source or destination using the Connect API. Connection property objects include info like connection credentials, configuration details, and for sources, some replication settings.

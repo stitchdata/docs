@@ -3,7 +3,7 @@ tap: "google-ads"
 version: "1"
 
 name: "accounts"
-doc-link: https://developers.google.com/google-ads/api/reference/rpc/v9/CustomerService
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/CustomerService
 singer-schema: https://github.com/singer-io/tap-google-ads/blob/main/tap_google_ads/schemas/accounts.json
 description: |
   The `{{ table.name }}` table contains high-level info about the Google Ads account(s) you’ve connected to Stitch.

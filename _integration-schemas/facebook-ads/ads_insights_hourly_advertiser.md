@@ -1,5 +1,5 @@
 ---
-tap: "facebook"
+tap: "facebook-ads"
 version: "1"
 key: "ad-insight-hourly-advertiser"
 
