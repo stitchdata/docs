@@ -1,5 +1,5 @@
 ---
-tap: netsuite
+tap: "netsuite"
 version: "2"
 name: CustomerCategory
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/CustomerCategory.html

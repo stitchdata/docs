@@ -1,5 +1,5 @@
 ---
-tap: netsuite
+tap: "netsuite"
 version: "2"
 name: ResourceAllocation
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ResourceAllocation.html
