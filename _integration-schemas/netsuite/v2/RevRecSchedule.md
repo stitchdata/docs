@@ -49,3 +49,4 @@ attributes:
 - name: initialAmount
   type: string, number
   description: ""
+---

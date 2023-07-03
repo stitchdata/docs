@@ -61,3 +61,4 @@ attributes:
 - name: shipmentBaseCurrency
   type: string
   description: ""
+---

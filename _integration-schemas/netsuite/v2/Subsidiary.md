@@ -136,3 +136,4 @@ attributes:
 - name: receiptQuantity
   type: string, number
   description: ""
+---

@@ -64,3 +64,4 @@ attributes:
 - name: availableForAllAssemblies
   type: boolean, string
   description: ""
+---

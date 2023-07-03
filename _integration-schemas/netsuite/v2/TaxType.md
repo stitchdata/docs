@@ -49,3 +49,4 @@ attributes:
 - name: taxInNetAmount
   type: boolean, string
   description: ""
+---
