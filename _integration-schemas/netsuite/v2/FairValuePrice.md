@@ -7,7 +7,7 @@ singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/sch
 description: ""
 replication-method: "Full Table"
 table-key-properties: internalId
-valid-replication-keys: ""
+
 attributes:
 - name: lowValuePercent
   type: string, number
