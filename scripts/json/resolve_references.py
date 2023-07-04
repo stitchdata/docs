@@ -3,7 +3,7 @@ import json, re, os
 file = 'first.json'
 
 def fullFileRef(path):
-    for root, dirs, files in os.walk("."):
+    for root, dirs, files in os.walk('schemas'):
         for file in files:
             if file == path:
                 with open(file) as f:
@@ -33,9 +33,12 @@ def replaceRefs(json_content):
     
     return j
 
-with open(file, 'r') as f:
-    json_content = f.read()
-    new_json = replaceRefs(json_content)
 
-with open(file, 'w') as j:
-    json.dump(new_json, j, indent=4)
+for file in os.listdir('schemas'):
+    if file.endswith('.json'):
+        with open(file, 'r') as f:
+            json_content = f.read()
+            new_json = replaceRefs(json_content)
+
+        with open(file, 'w') as j:
+            json.dump(new_json, j, indent=4)
