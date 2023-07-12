@@ -76,32 +76,13 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      **A {{integration.display_name }} authentication app**. You'll need one of the following apps to connect your {{integration.display_name }} account to Stitch:
-        - **An OAuth app**. [Click here](https://marketplace.zoom.us/docs/guides/build/oauth-app){:target="new"} for more information on OAuth apps. If using a {{ integration.display_name }} OAuth App to connect to Stitch, make sure that the following scopes are included in the app:
-          - `account:read:admin`
-          - `meeting:read:admin`
-          - `report:read:admin`
-          - `user:read:admin`
-          - `webinar:read:admin`
-
-        - **A JSON Web Tokens (JWT) app**. [Click here](https://marketplace.zoom.us/docs/guides/build/jwt-app){:target="new"} for more information on JWT apps. 
+      **Admin access in Zoom.** This is required to allow Stitch to replicate data.
   
-setup-steps:
-  - title: "Obtain your {{ integration.display_name }} authentication app tokens"
-    anchor: "obtain-tokens"
-    content: |
-      1. Login to your {{ integration.display_name }} account on the [{{ integration.display_name }} App Marketplace](https://marketplace.zoom.us/){:target="new"}.
-      2. Click **Manage** in the upper right corner of the page.
-      3. Click on the OAuth or JWT app you'd like to use to connect to Stitch.
-      4. If using a JWT app, copy the **JWT**. If using an OAuth app, copy the **Client ID**, **Client Secret**, and **Refresh Token**.
-      5. Keep your token(s) readily available for the next step.
-      
+setup-steps:      
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      4. If connecting to Stitch with a {{ integration.display_name }} OAuth app, paste the **Client ID**, **Client Secret**, and **Refresh Token** you obtained in [Step 1](#obtain-tokens) into their respective fields.
-      5. If connecting to Stitch with a {{ integration.display_name }} JWT app, paste the **JWT** you obtained in [Step 1](#obtain-tokens) into the **JWT** field.
   
   - title: "Create a replication schedule"
     anchor: "define-rep-frequency"
