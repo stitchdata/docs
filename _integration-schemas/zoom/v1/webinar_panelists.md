@@ -41,24 +41,4 @@ attributes:
   - name: "name"
     type: "string"
     description: ""
-
-  - name: "name_tag_description"
-    type: "string"
-    description: ""
-
-  - name: "name_tag_id"
-    type: "string"
-    description: ""
-
-  - name: "name_tag_name"
-    type: "string"
-    description: ""
-
-  - name: "name_tag_pronouns"
-    type: "string"
-    description: ""
-
-  - name: "virtual_background_id"
-    type: "string"
-    description: ""
 ---

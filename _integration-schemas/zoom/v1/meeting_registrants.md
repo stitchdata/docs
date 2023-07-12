@@ -40,7 +40,7 @@ attributes:
     type: "string"
     description: ""
 
-  - name: "country"
+  - name: "county"
     type: "string"
     description: ""
 
@@ -52,13 +52,13 @@ attributes:
     type: "array"
     description: ""
     subattributes:
-    - name: "title"
-      type: "string"
-      description: ""
+      - name: "title"
+        type: "string"
+        description: ""
 
-    - name: "value"
-      type: "string"
-      description: ""
+      - name: "value"
+        type: "string"
+        description: ""
 
   - name: "email"
     type: "string"
@@ -67,7 +67,7 @@ attributes:
   - name: "first_name"
     type: "string"
     description: ""
-
+  
   - name: "industry"
     type: "string"
     description: ""
@@ -83,17 +83,13 @@ attributes:
   - name: "last_name"
     type: "string"
     description: ""
-
+  
   - name: "no_of_employees"
     type: "string"
     description: ""
 
   - name: "org"
     type: "string"
-    description: ""
-
-  - name: "participant_pin_code"
-    type: "integer"
     description: ""
 
   - name: "phone"

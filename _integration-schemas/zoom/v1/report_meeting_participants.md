@@ -30,20 +30,8 @@ attributes:
     description: "The meeting ID."
     foreign-key-id: "meeting-id"
       
-  - name: "bo_mtg_id"
-    type: "string"
-    description: ""
-
-  - name: "customer_key"
-    type: "string"
-    description: ""
-
   - name: "duration"
-    type: "integer"
-    description: ""
-
-  - name: "failover"
-    type: "boolean"
+    type: "string"
     description: ""
 
   - name: "join_time"
@@ -58,19 +46,12 @@ attributes:
     type: "string"
     description: ""
 
-  - name: "registrant_id"
-    type: "string"
-    description: ""
-
-  - name: "status"
-    type: "string"
-    description: ""
-
   - name: "user_email"
     type: "string"
     description: ""
 
   - name: "user_id"
     type: "string"
-    description: ""
+    description: "The meeting participant's user ID."
+    foreign-key-id: "user-id"
 ---

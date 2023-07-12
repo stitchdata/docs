@@ -26,35 +26,35 @@ attributes:
     type: "array"
     description: ""
     subattributes:
-    - name: "title"
-      type: "string"
-      description: ""
+      - name: "answers"
+        type: "array"
+        description: ""
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: ""
 
-    - name: "type"
-      type: "string"
-      description: ""
+      - name: "required"
+        type: "boolean"
+        description: ""
 
-    - name: "required"
-      type: "boolean"
-      description: ""
-
-    - name: "answers"
-      type: "array"
-      description: ""
-      subattributes:
-      - name: "items"
+      - name: "title"
         type: "string"
         description: ""
 
+      - name: "type"
+        type: "string"
+        description: ""
+  
   - name: "questions"
     type: "array"
     description: ""
     subattributes:
-    - name: "field_name"
-      type: "string"
-      description: ""
+      - name: "field_name"
+        type: "string"
+        description: ""
 
-    - name: "required"
-      type: "boolean"
-      description: ""
+      - name: "required"
+        type: "boolean"
+        description: ""
 ---

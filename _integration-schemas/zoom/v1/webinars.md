@@ -39,334 +39,190 @@ attributes:
     type: "integer"
     description: ""
 
-  - name: "host_email"
-    type: "string"
-    description: ""
-
   - name: "host_id"
     type: "string"
     description: ""
 
   - name: "id"
-    type: "integer"
-    description: ""
-
-  - name: "is_simulive"
-    type: "boolean"
+    type: "string"
     description: ""
 
   - name: "join_url"
     type: "string"
     description: ""
 
-  - name: "occurrences"
+  - name: "occurences"
     type: "array"
     description: ""
     subattributes:
-    - name: "occurrence_id"
-      type: "string"
-      description: ""
+      - name: "duration"
+        type: "integer"
+        description: ""
 
-    - name: "start_time"
-      type: "date-time"
-      description: ""
+      - name: "occurence_id"
+        type: "string"
+        description: ""
 
-    - name: "duration"
-      type: "integer"
-      description: ""
+      - name: "start_time"
+        type: "date-time"
+        description: ""
 
-    - name: "status"
-      type: "string"
-      description: ""
-
-
-  - name: "password"
-    type: "string"
-    description: ""
-
-  - name: "record_file_id"
-    type: "string"
-    description: ""
+      - name: "status"
+        type: "string"
+        description: ""
 
   - name: "recurrence"
     type: "object"
     description: ""
     subattributes:
-    - name: "type"
-      type: "integer"
-      description: ""
+      - name: "end_date_time"
+        type: "date-time"
+        description: ""
 
-    - name: "repeat_interval"
-      type: "integer"
-      description: ""
+      - name: "end_times"
+        type: "integer"
+        description: ""
 
-    - name: "weekly_days"
-      type: "string"
-      description: ""
+      - name: "monthly_day"
+        type: "integer"
+        description: ""
 
-    - name: "monthly_day"
-      type: "integer"
-      description: ""
+      - name: "monthly_week"
+        type: "integer"
+        description: ""
 
-    - name: "monthly_week"
-      type: "integer"
-      description: ""
+      - name: "monthly_week_day"
+        type: "integer"
+        description: ""
 
-    - name: "monthly_week_day"
-      type: "integer"
-      description: ""
+      - name: "repeat_interval"
+        type: "integer"
+        description: ""
 
-    - name: "end_times"
-      type: "integer"
-      description: ""
+      - name: "type"
+        type: "integer"
+        description: ""
 
-    - name: "end_date_time"
-      type: "date-time"
-      description: ""
-
+      - name: "weekly_days"
+        type: "integer"
+        description: ""
 
   - name: "settings"
     type: "object"
     description: ""
     subattributes:
-    - name: "host_video"
-      type: "boolean"
-      description: ""
-
-    - name: "panelists_video"
-      type: "boolean"
-      description: ""
-
-    - name: "practice_session"
-      type: "boolean"
-      description: ""
-
-    - name: "hd_video"
-      type: "boolean"
-      description: ""
-
-    - name: "hd_video_for_attendees"
-      type: "boolean"
-      description: ""
-
-    - name: "question_and_answer"
-      type: "object"
-      description: ""
-      subattributes:
-      - name: "allow_anonymous_questions"
+      - name: "allow_multiple_devices"
         type: "boolean"
         description: ""
 
-      - name: "answer_questions"
+      - name: "alternative_hosts"
         type: "string"
         description: ""
 
-      - name: "attendees_can_comment"
-        type: "boolean"
+      - name: "approval_type"
+        type: "integer"
         description: ""
 
-      - name: "attendees_can_upvote"
-        type: "boolean"
-        description: ""
-
-      - name: "allow_auto_reply"
-        type: "boolean"
-        description: ""
-
-      - name: "auto_reply_text"
+      - name: "audio"
         type: "string"
         description: ""
 
-      - name: "enable"
+      - name: "authentication_domains"
+        type: "string"
+        description: ""
+
+      - name: "authentication_option"
+        type: "string"
+        description: ""
+
+      - name: "auto_recording"
+        type: "string"
+        description: ""
+
+      - name: "close_registration"
         type: "boolean"
         description: ""
 
-
-    - name: "approval_type"
-      type: "integer"
-      description: ""
-
-    - name: "panelist_authentication"
-      type: "boolean"
-      description: ""
-
-    - name: "language_interpretation"
-      type: "object"
-      description: ""
-      subattributes:
-      - name: "enable"
+      - name: "contact_email"
         type: "boolean"
         description: ""
 
-      - name: "interpreters"
+      - name: "contact_name"
+        type: "boolean"
+        description: ""
+
+      - name: "enforce_login"
+        type: "boolean"
+        description: ""
+
+      - name: "enforce_login_domains"
+        type: "string"
+        description: ""
+
+      - name: "global_dial_in_countries"
         type: "array"
         description: ""
+
         subattributes:
-        - name: "email"
-          type: "string"
-          description: ""
+          - name: "value"
+            type: "string"
+            description: ""
 
-        - name: "languages"
-          type: "string"
-          description: ""
-
-
-
-    - name: "attendees_and_panelists_reminder_email_notification"
-      type: "object"
-      description: ""
-      subattributes:
-      - name: "enable"
+      - name: "hd_video"
         type: "boolean"
         description: ""
 
-      - name: "type"
-        type: "integer"
-        description: ""
-
-
-    - name: "follow_up_absentees_email_notification"
-      type: "object"
-      description: ""
-      subattributes:
-      - name: "enable"
+      - name: "host_video"
         type: "boolean"
         description: ""
 
-      - name: "type"
-        type: "integer"
-        description: ""
-
-
-    - name: "follow_up_attendees_email_notification"
-      type: "object"
-      description: ""
-      subattributes:
-      - name: "enable"
+      - name: "meeting_authentication"
         type: "boolean"
         description: ""
 
-      - name: "type"
+      - name: "notify_registrants"
+        type: "boolean"
+        description: ""
+
+      - name: "on_demand"
+        type: "boolean"
+        description: ""
+
+      - name: "panelists_video"
+        type: "boolean"
+        description: ""
+
+      - name: "post_webinar_survey"
+        type: "boolean"
+        description: ""
+
+      - name: "practice_session"
+        type: "boolean"
+        description: ""
+
+      - name: "registrants_confirmation_email"
+        type: "boolean"
+        description: ""
+
+      - name: "registrants_email_notification"
+        type: "boolean"
+        description: ""
+
+      - name: "registrants_restrict_number"
         type: "integer"
         description: ""
 
+      - name: "registration_type"
+        type: "integer"
+        description: ""
 
-    - name: "registration_type"
-      type: "integer"
-      description: ""
+      - name: "show_share_button"
+        type: "boolean"
+        description: ""
 
-    - name: "send_1080p_video_to_attendees"
-      type: "boolean"
-      description: ""
-
-    - name: "audio"
-      type: "string"
-      description: ""
-
-    - name: "audio_conference_info"
-      type: "string"
-      description: ""
-
-    - name: "auto_recording"
-      type: "string"
-      description: ""
-
-    - name: "alternative_hosts"
-      type: "string"
-      description: ""
-
-    - name: "alternative_host_update_polls"
-      type: "boolean"
-      description: ""
-
-    - name: "show_share_button"
-      type: "boolean"
-      description: ""
-
-    - name: "allow_multiple_devices"
-      type: "boolean"
-      description: ""
-
-    - name: "on_demand"
-      type: "boolean"
-      description: ""
-
-    - name: "panelists_invitation_email_notification"
-      type: "boolean"
-      description: ""
-
-    - name: "global_dial_in_countries"
-      type: "array"
-      description: ""
-      subattributes:
-      - name: "items"
+      - name: "survey_url"
         type: "string"
         description: ""
-
-    - name: "contact_name"
-      type: "string"
-      description: ""
-
-    - name: "contact_email"
-      type: "string"
-      description: ""
-
-    - name: "email_language"
-      type: "string"
-      description: ""
-
-    - name: "registrants_confirmation_email"
-      type: "boolean"
-      description: ""
-
-    - name: "registrants_restrict_number"
-      type: "integer"
-      description: ""
-
-    - name: "notify_registrants"
-      type: "boolean"
-      description: ""
-
-    - name: "post_webinar_survey"
-      type: "boolean"
-      description: ""
-
-    - name: "survey_url"
-      type: "string"
-      description: ""
-
-    - name: "registrants_email_notification"
-      type: "boolean"
-      description: ""
-
-    - name: "meeting_authentication"
-      type: "boolean"
-      description: ""
-
-    - name: "add_watermark"
-      type: "boolean"
-      description: ""
-
-    - name: "add_audio_watermark"
-      type: "boolean"
-      description: ""
-
-    - name: "authentication_option"
-      type: "string"
-      description: ""
-
-    - name: "enable_session_branding"
-      type: "boolean"
-      description: ""
-
-    - name: "authentication_domains"
-      type: "string"
-      description: ""
-
-    - name: "authentication_name"
-      type: "string"
-      description: ""
-
 
   - name: "start_time"
     type: "date-time"
@@ -388,14 +244,13 @@ attributes:
     type: "array"
     description: ""
     subattributes:
-    - name: "field"
-      type: "string"
-      description: ""
+      - name: "field"
+        type: "string"
+        description: ""
 
-    - name: "value"
-      type: "string"
-      description: ""
-
+      - name: "value"
+        type: "string"
+        description: ""
 
   - name: "type"
     type: "integer"

@@ -45,7 +45,7 @@ attributes:
     type: "string"
     description: ""
 
-  - name: "country"
+  - name: "county"
     type: "string"
     description: ""
 
@@ -57,14 +57,13 @@ attributes:
     type: "array"
     description: ""
     subattributes:
-    - name: "title"
-      type: "string"
-      description: ""
+      - name: "title"
+        type: "string"
+        description: ""
 
-    - name: "value"
-      type: "string"
-      description: ""
-
+      - name: "value"
+        type: "string"
+        description: ""
 
   - name: "email"
     type: "string"
@@ -73,7 +72,7 @@ attributes:
   - name: "first_name"
     type: "string"
     description: ""
-
+  
   - name: "industry"
     type: "string"
     description: ""
@@ -117,7 +116,7 @@ attributes:
   - name: "status"
     type: "string"
     description: ""
-
+  
   - name: "zip"
     type: "string"
     description: ""

@@ -21,21 +21,8 @@ attributes:
     primary-key: true
     description: "The report UUID."
     
-  - name: "custom_keys"
-    type: "array"
-    description: ""
-    subattributes:
-    - name: "key"
-      type: "string"
-      description: ""
-
-    - name: "value"
-      type: "string"
-      description: ""
-
-
   - name: "dept"
-    type: "string"
+    type: "integer"
     description: ""
 
   - name: "duration"
@@ -52,7 +39,8 @@ attributes:
 
   - name: "meeting_id"
     type: "string"
-    description: ""
+    description: "The meeting ID."
+    foreign-key-id: "meeting-id"
 
   - name: "participants_count"
     type: "integer"
@@ -74,14 +62,13 @@ attributes:
     type: "array"
     description: ""
     subattributes:
-    - name: "field"
-      type: "string"
-      description: ""
+      - name: "field"
+        type: "string"
+        description: ""
 
-    - name: "value"
-      type: "string"
-      description: ""
-
+      - name: "value"
+        type: "string"
+        description: ""
 
   - name: "type"
     type: "integer"
