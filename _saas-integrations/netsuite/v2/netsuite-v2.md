@@ -12,13 +12,13 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: NetSuite (v1)
-permalink: /integrations/saas/netsuite-suitetalk/v1
+title: NetSuite (v2)
+permalink: /integrations/saas/netsuite-suitetalk
 redirect_from: 
-  - /integrations/saas/netsuite-suitetalk/v1
+  - /integrations/saas/netsuite
 keywords: netsuite, integration, schema, etl netsuite, netsuite etl, netsuite schema
 layout: singer
-input: false
+# input: false
 
 key: "netsuite-setup"
 
@@ -33,10 +33,10 @@ singer: true
 tap-name: "NetSuite"
 
 
-this-version: "1"
+this-version: "2"
 
 api: |
-  {{ integration.display_name }} SuiteTalk API (v2017_2)
+  {{ integration.display_name }} SuiteTalk API (v2023_1)
 
 # -------------------------- #
 #       Stitch Details       #
