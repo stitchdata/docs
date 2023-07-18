@@ -1,6 +1,6 @@
 ---
 tap: "square"
-version: "1"
+version: "2"
 key: "cash-drawer-shift"
 
 name: "cash_drawer_shifts"

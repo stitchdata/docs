@@ -9,7 +9,7 @@
 
 tap-reference: "square"
 
-version: "1"
+version: "2"
 
 foreign-keys: 
   - id: "bank-account-id"

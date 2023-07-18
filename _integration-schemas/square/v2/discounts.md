@@ -1,6 +1,6 @@
 ---
 tap: "square"
-version: "1"
+version: "2"
 key: "discount"
 
 name: "discounts"
