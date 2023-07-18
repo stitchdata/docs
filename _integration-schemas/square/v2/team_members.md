@@ -10,6 +10,10 @@ description: ""
 
 replication-method: "Key-based Incremental"
 
+api-method:
+  name: "Search team members"
+  doc-link: "https://developer.squareup.com/reference/square/team-api/search-team-members"
+
 table-key-properties: ""
 valid-replication-keys: "updated_at"
 
