@@ -8,7 +8,7 @@ doc-link:
 singer-schema: https://github.com/singer-io/tap-square/tree/TDL-23352-schema-changes/tap_square/schemas/team_members.json
 description: ""
 
-replication-method: "Key_based Incremental"
+replication-method: "Key-based Incremental"
 
 table-key-properties: ""
 valid-replication-keys: "updated_at"
