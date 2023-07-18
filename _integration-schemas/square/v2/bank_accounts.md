@@ -52,6 +52,10 @@ attributes:
     type: "boolean"
     description: ""
 
+  - name: "debit_mandate_reference_id"
+    type: "string"
+    description: "Reference identifier that will be displayed to UK bank account owners when collecting direct debit authorization. Only required for UK bank accounts."
+
   - name: "holder_name"
     type: "string"
     description: ""
@@ -63,7 +67,15 @@ attributes:
 
   - name: "primary_bank_identification_number"
     type: "string"
-    description: ""
+    description: "Primary identifier for the bank"
+
+  - name: "secondary_bank_identification_number"
+    type: "string"
+    description: "Secondary identifier for the bank"
+
+  - name: "reference_id"
+    type: "string"
+    description: "Client-provided identifier for linking the banking account to an entity in a third-party system (for example, a bank account number or a user identifier)."
 
   - name: "status"
     type: "string"
