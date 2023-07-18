@@ -16,66 +16,54 @@ api-method:
   doc-link: "https://developer.squareup.com/reference/square/labor-api/search-shifts"
 
 attributes:
-  - name: "id"
-    type: "string"
-    primary-key: true
-    description: "The shift ID."
-    # foreign-key-id: "shift-id"
-
-  - name: "updated_at"
-    type: "date-time"
-    description: "The time the shift was last updated."
-    replication-key: true
-      
   - name: "breaks"
     type: "array"
     description: ""
     subattributes:
-      - name: "break_type_id"
-        type: "string"
-        description: ""
+    - name: "expected_duration"
+      type: "string"
+      description: ""
 
-      - name: "end_at"
-        type: "date-time"
-        description: ""
+    - name: "id"
+      type: "string"
+      description: ""
 
-      - name: "expected_duration"
-        type: "string"
-        description: ""
+    - name: "is_paid"
+      type: "boolean"
+      description: ""
 
-      - name: "id"
-        type: "string"
-        description: ""
+    - name: "name"
+      type: "string"
+      description: ""
 
-      - name: "is_paid"
-        type: "boolean"
-        description: ""
+    - name: "end_at"
+      type: "date-time"
+      description: ""
 
-      - name: "name"
-        type: "string"
-        description: ""
+    - name: "start_at"
+      type: "date-time"
+      description: ""
 
-      - name: "start_at"
-        type: "date-time"
-        description: ""
+    - name: "break_type_id"
+      type: "string"
+      description: ""
+
 
   - name: "created_at"
     type: "date-time"
     description: ""
 
-  - name: "employee_id"
-    type: "string"
-    description: "The ID of the employee that the shift belongs to."
-    foreign-key-id: "employee-id"
-
   - name: "end_at"
     type: "date-time"
     description: ""
 
+  - name: "id"
+    type: "string"
+    description: ""
+
   - name: "location_id"
     type: "string"
-    description: "The ID of the location associated with the shift."
-    foreign-key-id: "location-id"
+    description: ""
 
   - name: "start_at"
     type: "date-time"
@@ -85,10 +73,19 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "team_member_id"
+    type: "string"
+    description: ""
+
   - name: "timezone"
     type: "string"
     description: ""
-  
+
+  - name: "updated_at"
+    type: "date-time"
+    description: ""
+    replication-key: true
+
   - name: "version"
     type: "integer"
     description: ""
@@ -97,19 +94,24 @@ attributes:
     type: "object"
     description: ""
     subattributes:
-      - name: "hourly_rate"
-        type: "object"
+    - name: "hourly_rate"
+      type: "object"
+      description: ""
+      subattributes:
+      - name: "amount"
+        type: "integer"
         description: ""
-        subattributes:
-          - name: "amount"
-            type: "integer"
-            description: ""
 
-          - name: "currency"
-            type: "string"
-            description: ""
-
-      - name: "title"
+      - name: "currency"
         type: "string"
         description: ""
+
+
+    - name: "job_id"
+      type: "string"
+      description: ""
+
+    - name: "title"
+      type: "string"
+      description: ""
 ---

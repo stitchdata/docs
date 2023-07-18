@@ -16,12 +16,6 @@ api-method:
   doc-link: "https://developer.squareup.com/reference/square/cash-drawers-api/retrieve-cash-drawer-shift"
 
 attributes:
-  - name: "id"
-    type: "string"
-    primary-key: true
-    description: "The cash drawer shift ID."
-    # foreign-key-id: "cash-drawer-shift-id"
-
   - name: "closed_at"
     type: "date-time"
     description: ""
@@ -30,13 +24,18 @@ attributes:
     type: "object"
     description: ""
     subattributes:
-      - name: "amount"
-        type: "integer"
-        description: ""
+    - name: "amount"
+      type: "integer"
+      description: ""
 
-      - name: "currency"
-        type: "string"
-        description: ""
+    - name: "currency"
+      type: "string"
+      description: ""
+
+
+  - name: "created_at"
+    type: "date-time"
+    description: ""
 
   - name: "description"
     type: "string"
@@ -50,13 +49,22 @@ attributes:
     type: "object"
     description: ""
     subattributes:
-      - name: "amount"
-        type: "integer"
-        description: ""
+    - name: "amount"
+      type: "integer"
+      description: ""
 
-      - name: "currency"
-        type: "string"
-        description: ""
+    - name: "currency"
+      type: "string"
+      description: ""
+
+
+  - name: "id"
+    type: "string"
+    description: ""
+
+  - name: "location_id"
+    type: "string"
+    description: ""
 
   - name: "opened_at"
     type: "date-time"
@@ -66,15 +74,20 @@ attributes:
     type: "object"
     description: ""
     subattributes:
-      - name: "amount"
-        type: "integer"
-        description: ""
+    - name: "amount"
+      type: "integer"
+      description: ""
 
-      - name: "currency"
-        type: "string"
-        description: ""
+    - name: "currency"
+      type: "string"
+      description: ""
+
 
   - name: "state"
     type: "string"
+    description: ""
+
+  - name: "updated_at"
+    type: "date-time"
     description: ""
 ---
