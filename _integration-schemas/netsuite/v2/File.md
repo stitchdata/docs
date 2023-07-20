@@ -7,7 +7,8 @@ singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/sch
 description: ""
 replication-method: "Key-based Incremental"
 table-key-properties: internalId
-valid-replication-keys: modified
+replication-key:
+  name: modified
 attributes:
 - name: attachFrom
   type: varies
