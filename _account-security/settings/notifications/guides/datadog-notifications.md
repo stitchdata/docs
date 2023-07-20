@@ -15,19 +15,6 @@ layout: tutorial
 type: "notifications"
 weight: 6
 
-
-# -------------------------- #
-#  Stitch Plan Requirements  #
-# -------------------------- #
-
-minimum-plan: "advanced"
-
-minimum-plan-cta:
-  feature: "The custom notification list "
-  title: "{{ site.data.strings.enterprise.title.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
-  copy: "{{ site.data.strings.enterprise.copy.is-an | prepend: page.minimum-plan-cta.feature | flatify }}"
-
-
 # -------------------------- #
 #   RELATED SIDEBAR LINKS    #
 # -------------------------- #

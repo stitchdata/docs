@@ -22,7 +22,10 @@ layout: general
 #        Introduction        #
 # -------------------------- #
 
+youtubeId: wN-n7fA1iTk
+
 intro: |
+  {% include youtube-player.html id=page.youtubeId %}
   Google BigQuery pricing is based on usage instead of fixed pricing, unlike traditional relational databases and other cloud solutions. Because of this, it can be difficult to estimate the cost of using a BigQuery destination with Stitch.
 
   Stitch employs a number of different operations across both Google Cloud Storage (GCS) and BigQuery as part of the replication process, which can impact your costs in several areas of Google Cloud Platform (GCP). In this article, we'll cover:

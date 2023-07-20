@@ -108,8 +108,6 @@ feature-summary: |
 requirements-list:
   - item: |
       **Admin privileges**. These are required to retrieve your API secret in your {{ integration.display_name }} account.
-  - item: |
-      **A US-based {{ integration.display_name }} account**. The Stitch {{ integration.display_name }} integration does not currently support interacting with EU {{ integration.display_name }} domains.
 
 setup-steps:
   - title: "Retrieve your {{ integration.display_name }} project timezone and API secret"
@@ -131,8 +129,9 @@ setup-steps:
          Date looping will return records whose `from_date` and `to_date` fall between the number of days in the defined window size.
 
          **Note**: If your project has large volumes of events, you may want to set the number of days to `14`, `7`, or even to `1` or `2` days.
-      7. In the **Project Timezone** field, paste the **Project Timezone** you retrieved from [Step 1](#retrieve-timezone-api-secret).
-      8. **Optional**: To capture new properties automatically in the `events` and `engage` tables, check the **Select Properties By Default** box. Otherwise, new properties will be ignored.
+      7. **Optional**: To fetch specific events, enter a comma-separated list of events in the **Export Events** field. For example: `Page Viewed, Signed Up`.
+      8. In the **Project Timezone** field, paste the **Project Timezone** you retrieved from [Step 1](#retrieve-timezone-api-secret).
+      9. **Optional**: To capture new properties automatically in the `events` and `engage` tables, check the **Select Properties By Default** box. Otherwise, new properties will be ignored.
 
 ## Max start date: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/sync.py#L151
   - anchor: "define-historical-sync"
@@ -173,6 +172,8 @@ replication-sections:
       When Stitch runs a replication job for {{ integration.display_name }}, it will use the value of the **Attribution Window** setting to query for and extract data for tables using Key-based Incremental Replication. An attribution window is a period of time for attributing results to ads and the lookback period after those actions occur during which ad results are counted.
 
       For example: If set to **5 days**, Stitch will replicate the past five days' worth of data for applicable tables every time a replication job runs. While Stitch replicates data in this way to account for updates to records made during the attribution window, it can have a [substantial impact on your overall row usage](#attribution-window-row-count-impact).
+
+      **Note**: If the beginning of the attribution window is earlier than the selected Start Date, the replication will start from the Start Date and no data before that date will be fetched. For example, if you set the Start Date to five days ago and the attribution window to ten days, only the past five days' worth of data will be replicated.
 
       In the sections below are examples of how attribution windows impact how Stitch extracts data during historical and ongoing replication jobs.
 

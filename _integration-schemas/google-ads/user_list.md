@@ -2,7 +2,7 @@
 tap: "google-ads"
 version: "1"
 name: "user_list"
-doc-link: https://developers.google.com/google-ads/api/reference/rpc/v10/UserList
+doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/UserList
 dependent-on: "campaign_criterion|ad_group_criterion"
 description: |
   The `{{ table.name }}` table contains info about lists of user that can be targeted.
@@ -104,6 +104,6 @@ attributes:
     
   - name: "user_list"
     type: "object"
-    description: "The user list. It is one of the objects listed under user_list in the [Google Ads API documentation](https://developers.google.com/google-ads/api/reference/rpc/v10/UserList#user_list)."
+    description: "The user list. It is one of the objects listed under user_list in the [Google Ads API documentation](https://developers.google.com/google-ads/api/reference/rpc/v12/UserList#user_list)."
 
 ---

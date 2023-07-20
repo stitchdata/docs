@@ -7,7 +7,7 @@ name: "revenue"
 doc-link: "https://developer.mixpanel.com/docs/data-export-api#hrspan-stylefont-family-courierrevenuespan"
 singer-schema: "https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/schemas/revenue.json"
 description: |
-  The `{{ table.name }}` table contains info about revenue, segmented by day.
+  The `{{ table.name }}` table contains info about revenue, segmented by day. The API endpoint for EU region servers will return a `400 bad requests (Timeout Error)` code.
 
   **Note**: This table is replicated using the **Attribution Window** value defined in the integration's settings page. Refer to the [Replication section](#attribution-windows-extraction) for more info.
 

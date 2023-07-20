@@ -13,13 +13,12 @@
 # -------------------------- #
 
 title: NetSuite (v1)
-permalink: /integrations/saas/netsuite-suitetalk
+permalink: /integrations/saas/netsuite-suitetalk/v1
 redirect_from: 
-  - /integrations/saas/netsuite
   - /integrations/saas/netsuite-suitetalk/v1
 keywords: netsuite, integration, schema, etl netsuite, netsuite etl, netsuite schema
 layout: singer
-# input: false
+input: false
 
 key: "netsuite-setup"
 
