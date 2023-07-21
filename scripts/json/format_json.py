@@ -1,7 +1,7 @@
 import json, re, os
 from jsonpath_ng import parse
 
-def replaceDatetimeFormat(json_content):
+def replaceDatetimeFormat(json_content, output_type):
     
     pattern_single_type = re.compile('"type":\s"string",\s*"format":\s"date-time"')
     pattern_multi_types = re.compile('(("type":\s\[[^\]]*")string("[^\]]*\]),\s*"format":\s"date-time")')
@@ -23,8 +23,12 @@ def replaceDatetimeFormat(json_content):
         new_multi_type = p1 + p2 + p3
         json_content = json_content.replace(full, new_multi_type)
     
-    return json_content
-
+    if output_type == 'dict':
+        j = json.loads(json_content)
+    elif output_type == 'str':
+        j = json_content
+    
+    return j
 
 def replaceAnyof(json_content):
     json_data = json.loads(json_content)
@@ -38,14 +42,10 @@ def replaceAnyof(json_content):
         v_types = v['type']
         if type(v_types) == list:
             for t in v_types:
-                if t == 'null':
-                    pass
-                else:
-                    if t not in types:
-                        types.append(t)
+                if t not in types:
+                    types.append(t)
         elif type(v_types) == str:
-            if v_types != 'null':
-                types.append(v_types)
+            types.append(v_types)
     
     if 'items' in v:
         items = v['items']
@@ -65,9 +65,7 @@ def replaceAnyof(json_content):
     else:
         new_content = content
 
-    json_output = json.loads(new_content)
-
-    return json_output
+    return new_content
 
 def fullFileRef(path):
     for root, dirs, files in os.walk('schemas'):
@@ -121,8 +119,7 @@ def replaceRefs(json_content):
     
     
     if '"format": "date-time"' in json_content:
-        print(filepath)
-        json_content = replaceDatetimeFormat(json_content)
+        json_content = replaceDatetimeFormat(json_content, 'str')
     
 
     j = json.loads(json_content)
@@ -139,18 +136,19 @@ for root, dirs, files in os.walk(folder, topdown=False):
             with open(filepath, 'r') as f:
                 json_content = f.read()
                 if '$ref' in json_content:
-                    json_content = replaceRefs(json_content)
+                    json_content = json.dumps(replaceRefs(json_content))
                     change +=1
 
                 elif '"format": "date-time"' in json_content:
-                    print(filepath)
-                    json_content = replaceDatetimeFormat(json_content)
+                    json_content = replaceDatetimeFormat(json_content, 'str')
                     change +=1
 
-                if 'anyOf' in json_content:
-                    json_content = replaceAnyof(json_content)
-                    change +=1
+                # if '"anyOf"' in json_content:
+                #     print(filepath)
+                #     json_content = replaceAnyof(json_content)
+                #     change +=1
             
             if change > 0:
+                content = json.loads(json_content)
                 with open(filepath, 'w') as j:
-                    json.dump(json_content, j, indent=2)
+                    json.dump(content, j, indent=2)
