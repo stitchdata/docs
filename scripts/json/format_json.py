@@ -2,19 +2,28 @@ import json, re, os
 from jsonpath_ng import parse
 
 def replaceDatetimeFormat(json_content):
-    pattern = re.compile('("type":\s"string",\s*"format":\s"date-time")')
-
-    dt = re.findall(pattern, json_content)
-
-    new = '"type": "date-time"'
-
-    for i in dt:
-
-        json_content = json_content.replace(i, new)
     
-    j = json.loads(json_content)
+    pattern_single_type = re.compile('"type":\s"string",\s*"format":\s"date-time"')
+    pattern_multi_types = re.compile('(("type":\s\[[^\]]*")string("[^\]]*\]),\s*"format":\s"date-time")')
+
+    single_dt = re.findall(pattern_single_type, json_content)
+    multi_dt = re.findall(pattern_multi_types, json_content)
     
-    return j
+
+    for i in single_dt:
+        new_single_type = '"type": "date-time"'
+        json_content = json_content.replace(i, new_single_type)
+    
+    for j in multi_dt:
+        full = j[0]
+        p1 = j[1]
+        p2 = 'date-time'
+        p3 = j[2]
+
+        new_multi_type = p1 + p2 + p3
+        json_content = json_content.replace(full, new_multi_type)
+    
+    return json_content
 
 
 def replaceAnyof(json_content):
@@ -110,13 +119,15 @@ def replaceRefs(json_content):
             content = partialRef(path)
             json_content = json_content.replace(element, content)
     
+    
+    if '"format": "date-time"' in json_content:
+        print(filepath)
+        json_content = replaceDatetimeFormat(json_content)
+    
 
     j = json.loads(json_content)
     
     return j
-
-# def removeNull(json_content):
-
 
 folder = 'schemas'
 
@@ -130,11 +141,14 @@ for root, dirs, files in os.walk(folder, topdown=False):
                 if '$ref' in json_content:
                     json_content = replaceRefs(json_content)
                     change +=1
+
+                elif '"format": "date-time"' in json_content:
+                    print(filepath)
+                    json_content = replaceDatetimeFormat(json_content)
+                    change +=1
+
                 if 'anyOf' in json_content:
                     json_content = replaceAnyof(json_content)
-                    change +=1
-                if '"format": "date-time"' in json_content:
-                    json_content = replaceDatetimeFormat(json_content)
                     change +=1
             
             if change > 0:
