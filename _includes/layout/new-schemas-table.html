@@ -13,14 +13,53 @@
 		                    </strong>
 	                        <br>
 		                    {% assign types = data.type %}
-                            {% for type in types %}
-                            {% if type != "null" %}
-                            {{ type }}
-                            {% endif %}
-                            {% endfor %}
+							{% assign types_string = types | join: " " %}
+							{% assign new_types = types_string | remove: "null" | strip | replace: "  ", " " | split: " " | join: ", " %}
+
+							<p>{{new_types}}</p>
+
+							{% if data.anyOf %}
+								{% for item in data.anyOf %}
+
+
+									{% assign anyof_types = item.type %}
+									{% assign anyof_types_string = item.type | join: " " %}
+									
+
+
+									{% for anyof_type in anyof_types %}
+										{% if anyof_type != "null" %}
+											<p>{{ anyof_type }}</p>
+
+											{% if item.properties %}
+													{% capture attribute-id %}{% increment counter %}{% endcapture %}
+		
+													{% assign full-id = name | append: "--" | append: attribute-id %}
+		
+													<div class="panel-group" id="{{ full-id | slugify }}">
+														<div class="panel panel-table-subattributes">
+															<div class="panel-table-subattribute-heading">
+																<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id | slugify | strip }}" href="#collapse{{ full-id | slugify }}">contents</a>
+															</div>
+		
+															<div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
+																{% include layout/new-schemas-table.html jsondata=item.properties %}
+															</div>
+														</div>
+													</div>
+											{% endif %}
+										
+										{% endif %}
+									{% endfor %}
+
+								{% endfor %}
+							{% endif %}
+
 	                	</p>
 
-                        {% if data.properties %}
+						
+
+                    {% if data.properties %}
 						{% capture attribute-id %}{% increment counter %}{% endcapture %}
 
 						{% assign full-id = name | append: "--" | append: attribute-id %}
@@ -28,7 +67,7 @@
 						<div class="panel-group" id="{{ full-id | slugify }}">
 						    <div class="panel panel-table-subattributes">
 						        <div class="panel-table-subattribute-heading">
-						            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id | slugify | strip }}" href="#collapse{{ full-id | slugify }}">Click to expand {{ attribute.name }}</a>
+						            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id | slugify | strip }}" href="#collapse{{ full-id | slugify }}">contents</a>
 						        </div>
 
 						        <div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
