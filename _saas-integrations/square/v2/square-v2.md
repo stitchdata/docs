@@ -12,11 +12,11 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Square (v1)
-permalink: /integrations/saas/square/v1
+title: Square (v2)
+permalink: /integrations/saas/square
 keywords: square, integration, schema, etl square, square etl, square schema
 layout: singer
-input: false
+# input: false
 
 key: "square-setup"
 
@@ -34,10 +34,10 @@ status-url: "http://issquareup.com/"
 tap-name: "Square" ## Ex: Intercom, not intercom
 repo-url: https://github.com/singer-io/tap-square
 
-this-version: "1"
+this-version: "2"
 
 api: |
-  [{{ integration.display_name }} V2 and Connect V1 APIs](https://developer.squareup.com/reference/square){:target="new"}
+  [{{ integration.display_name }} API version 2023-06-08](https://developer.squareup.com/reference/square){:target="new"}
 
 
 # -------------------------- #
