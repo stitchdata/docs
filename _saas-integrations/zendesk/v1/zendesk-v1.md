@@ -1,11 +1,12 @@
 ---
 title: Zendesk Support (v1)
-permalink: /integrations/saas/zendesk
+permalink: /integrations/saas/zendesk/v1
 keywords: zendesk, integration, schema, etl zendesk, zendesk etl, zendesk schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Zendesk Support integration."
 layout: singer
 
 key: "zendesk-setup"
+input: false
 
 # -------------------------- #
 #     Integration Details    #

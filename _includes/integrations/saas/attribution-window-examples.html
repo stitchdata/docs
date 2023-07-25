@@ -1,5 +1,26 @@
 
 <!-- Capture the copy for the Historical & full tab, so it can be written as markdown -->
+<!-- For Mixpanel historical replication -->
+{% if integration.name == "mixpanel" %}
+{% capture historical-copy %}
+For historical and full re-replications of {{ integration.display_name }} data, Stitch will query for and extract data newer than or equal to the date defined in the **Start Date** field in the Integration Settings page.
+
+**Example**
+
+During the initial set up, the **Start Date** field is defined as `07/03/2017`, or `2017-07-03 00:00:00`.
+
+If you were to write a SQL query using this date for the `{{ table }}` table, it might look like this:
+
+```sql
+  SELECT *
+    FROM {{ integration.name | replace: "-","_" }}.{{ table }}
+   WHERE {{ replication-key }} >= '2017-07-03 00:00:00'   /* Start Date */
+ORDER BY {{ replication-key }}
+```
+{% endcapture %}
+
+<!-- For other historical replication -->
+{% else %}
 {% capture historical-copy %}
 For historical and full re-replications of {{ integration.display_name }} data, Stitch will query for and extract data newer than or equal to the date defined in the **Start Date** field in the Integration Settings page.
 
@@ -35,6 +56,7 @@ ORDER BY {{ replication-key }}
 ```
 {% endcapture %}
 
+{% endif %}
 
 
 {% capture ongoing-copy %}

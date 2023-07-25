@@ -13,10 +13,10 @@
 # -------------------------- #
 
 title: Square (v1)
-permalink: /integrations/saas/square
+permalink: /integrations/saas/square/v1
 keywords: square, integration, schema, etl square, square etl, square schema
 layout: singer
-# input: false
+input: false
 
 key: "square-setup"
 
