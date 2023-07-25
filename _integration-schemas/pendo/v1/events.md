@@ -15,7 +15,7 @@ description: |
 
   {{ event-replication-note }}
 
-replication-method: "Append-Only (Incremental)"
+replication-method: "Key-based Incremental"
 replication-key:
   name: "day or hour"
 
@@ -26,23 +26,20 @@ api-method:
   doc-link: "https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation"
 
 attributes:
-
-  - name: "_sdc_record_hash"
-    type: "string"
-    primary-key: true
-    description: "Generated hash value of the record"
-
   - name: "account_id"
     type: "string"
+    primary-key: true
     description: "The account ID."
     foreign-key-id: "account-id"
 
   - name: "server"
     type: "string"
+    primary-key: true
     description: ""
 
   - name: "remote_ip"
     type: "string"
+    primary-key: true
     description: ""
 
   - name: "visitor_id"
