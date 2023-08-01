@@ -22,11 +22,6 @@ api-method:
   doc-link: "https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation"
 
 attributes:
-  - name: "_sdc_parameters_hash"
-    type: "string"
-    description: ""
-    primary-key: true
-
   - name: "account_id"
     type: "string"
     primary-key: true
