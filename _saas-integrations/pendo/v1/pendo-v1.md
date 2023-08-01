@@ -115,7 +115,7 @@ setup-steps:
 
          **Note**: The `Period` field is configured during integration creation. Once set, this `Period` field will remain disabled on the edit page. Refer to the [Event replication](#event-replication) section for more info.
       2. In the **X Pendo Integration Key** field, paste the integration key you created in [Step 1](#create-integration-key).
-      3. **Optional**: If you want to extract data for specific apps, enter a comma-separated list of app IDs in the **App Ids* field. If this field is empty, Stitch will extract data for all apps available in your {{ integration.display_name }} account.
+      3. **Optional**: If you want to extract data for specific apps, enter a comma-separated list of app IDs in the **App Ids** field. If this field is empty, Stitch will extract data for all apps available in your {{ integration.display_name }} account.
       4. **Optional**: Check the **Inlude Anonymous Visitors** checkbox to have Stitch include anonymous vistors in replication.
 
   - title: "Define the historical replication start date"
