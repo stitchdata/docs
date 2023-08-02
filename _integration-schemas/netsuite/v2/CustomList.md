@@ -4,9 +4,13 @@ version: "2"
 name: CustomList
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/CustomList.html
 singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/CustomList
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about 
+
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "custom-list"
+
 replication-method: "Full Table"
-table-key-properties: internalId
 
 attributes:
 - name: description

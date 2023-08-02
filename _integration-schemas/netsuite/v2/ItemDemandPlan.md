@@ -4,10 +4,15 @@ version: "2"
 name: ItemDemandPlan
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ItemDemandPlan.html
 singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ItemDemandPlan
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about item demand plans in your {{ integration.display_name }} account. An item demand plan transaction stores the quantity expected to be needed, during specified time periods, for an item.
+
+  {{ integration.permission-for-table | flatify }}
+
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "item-demand-plan"
+
 replication-method: "Key-based Incremental"
-table-key-properties: internalId
-valid-replication-keys: lastModifiedDate
 attributes:
 - name: nullFieldList
   type: varies

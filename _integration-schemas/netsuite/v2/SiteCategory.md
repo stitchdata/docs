@@ -4,7 +4,13 @@ version: "2"
 name: SiteCategory
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/SiteCategory.html
 singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/SiteCategory
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about the categories used to organize your website.
+
+  {{ integration.permission-for-table | flatify }}
+
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "site-category"
 replication-method: "Full Table"
 table-key-properties: internalId
 

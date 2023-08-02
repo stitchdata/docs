@@ -4,9 +4,14 @@ version: "2"
 name: CustomerSubsidiaryRelationship
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/CustomerSubsidiaryRelationship.html
 singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/CustomerSubsidiaryRelationship
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about customers shared with multiple subsidiaries.
+
+  {{ integration.permission-for-table | flatify }}
 replication-method: "Full Table"
 table-key-properties: internalId
+
+key: customer-subsidiary-relationship
 
 attributes:
 - name: internalId
