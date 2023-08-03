@@ -4,9 +4,13 @@ version: "2"
 name: HcmJob
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/HcmJob.html
 singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/HcmJob
-description: ""
+description: |
+  {{ integration.permission-for-table | flatify }}
+
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "hcmjob"
+
 replication-method: "Full Table"
-table-key-properties: internalId
 
 attributes:
 - name: description

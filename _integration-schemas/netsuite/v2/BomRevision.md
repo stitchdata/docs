@@ -4,9 +4,14 @@ version: "2"
 name: BomRevision
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/BomRevision.html
 singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/BomRevision
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about updates on bills of materials.
+
+  {{ integration.permission-for-table | flatify }}
 replication-method: "Full Table"
 table-key-properties: internalId
+
+key: bom-revision
 
 attributes:
 - name: nullFieldList

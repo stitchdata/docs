@@ -4,9 +4,15 @@ version: "2"
 name: Budget
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Budget.html
 singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Budget
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about the budgets in your {{ integration.display_name }} account. A budget records the expected values of income and expenses for your business. Budgets can be created for specific customers, items, departments, classes, locations, or any combination of these criteria. 
+
+  {{ integration.permission-for-table | flatify }}
+
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "budget"
+
 replication-method: "Full Table"
-table-key-properties: internalId
 
 attributes:
 - name: category

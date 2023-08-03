@@ -4,10 +4,16 @@ version: "2"
 name: CalendarEvent
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/CalendarEvent.html
 singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/CalendarEvent
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about the scheduled activities, or events, that are on the calendar in your {{ integration.display_name }} account.
+
+  {{ integration.permission-for-table | flatify }}
+
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "calendar-event"
+
 replication-method: "Key-based Incremental"
-table-key-properties: internalId
-valid-replication-keys: lastModifiedDate
+
 attributes:
 - name: accessLevel
   type: varies

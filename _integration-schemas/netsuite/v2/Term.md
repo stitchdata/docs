@@ -4,7 +4,13 @@ version: "2"
 name: Term
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Term.html
 singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Term
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about the terms in your {{ integration.display_name }} account. Terms are used to specify when payment is due on customer invoices.
+
+  {{ integration.permission-for-table | flatify }}
+
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "term"
 replication-method: "Full Table"
 table-key-properties: internalId
 

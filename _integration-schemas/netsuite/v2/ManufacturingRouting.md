@@ -4,9 +4,17 @@ version: "2"
 name: ManufacturingRouting
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ManufacturingRouting.html
 singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ManufacturingRouting
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about the manufacturing routing templates in your {{ integration.display_name }} account.
+
+  A manufacturing routing is a template that contains a list of steps required to build an assembly item. Each step is in a sequential order necessary to complete the operational sequence for completing the assembly. After you have created a routing record, that routing can be selected on a work order to direct the completion of the assembly. The routing determines the work center, cost template, labor resources, and machine resources that will be used during the assembly.
+
+  {{ integration.permission-for-table | flatify }}
+
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "manufacturing-routing"
+
 replication-method: "Full Table"
-table-key-properties: internalId
 
 attributes:
 - name: nullFieldList
