@@ -1,6 +1,6 @@
 ---
 tap: "tiktok-ads"
-version: "1"
+version: "0"
 key: "adgroups"
 
 name: "adgroups"
