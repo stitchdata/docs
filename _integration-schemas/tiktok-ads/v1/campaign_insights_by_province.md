@@ -49,7 +49,7 @@ attributes:
     description: ""
 
   - name: "conversion_rate_v2"
-    type: "string"
+    type: "number"
     description: ""
 
   - name: "cost_per_conversion"
@@ -98,7 +98,7 @@ attributes:
     description: ""
 
   - name: "real_time_conversion_rate_v2"
-    type: "string"
+    type: "number"
     description: ""
 
   - name: "real_time_cost_per_conversion"
