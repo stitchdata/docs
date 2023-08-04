@@ -1,6 +1,6 @@
 ---
 tap: "tiktok-ads"
-version: "0"
+version: "1"
 key: "ad-insights-by-age-and-gender"
 
 name: "ad_insights_by_age_and_gender"
@@ -21,11 +21,11 @@ attributes:
 
   - name: "ad_name"
     type: "string"
-    description: "Ad name. Available at Ad level."
+    description: ""
 
   - name: "ad_text"
     type: "string"
-    description: "Ad title. Available in Ad level."
+    description: ""
 
   - name: "adgroup_id"
     type: "integer"
@@ -34,7 +34,7 @@ attributes:
 
   - name: "adgroup_name"
     type: "string"
-    description: "Ad group name. Available at Ad Group and Ad levels."
+    description: ""
 
   - name: "advertiser_id"
     type: "integer"
@@ -46,6 +46,34 @@ attributes:
     description: ""
     primary-key: true
 
+  - name: "bid"
+    type: "string"
+    description: ""
+
+  - name: "bid_strategy"
+    type: "string"
+    description: ""
+
+  - name: "billing_event"
+    type: "string"
+    description: ""
+
+  - name: "budget"
+    type: "string"
+    description: ""
+
+  - name: "call_to_action"
+    type: "string"
+    description: ""
+
+  - name: "campaign_budget"
+    type: "string"
+    description: ""
+
+  - name: "campaign_dedicate_type"
+    type: "string"
+    description: ""
+
   - name: "campaign_id"
     type: "integer"
     description: "Campaign ID. Available at Ad Group and Ad levels."
@@ -53,66 +81,90 @@ attributes:
 
   - name: "campaign_name"
     type: "string"
-    description: "Campaign name. Available at Campaign, Ad Group and Ad levels."
+    description: ""
 
   - name: "clicks"
     type: "integer"
-    description: "The number of clicks on your ads."
+    description: ""
 
   - name: "conversion"
     type: "integer"
-    description: "The number of times your ad achieved an outcome, based on the secondary goal you selected. As one campaign may have a number of different secondary goals, this statistic is not supported for campaigns. Please go to ad groups or ads to view. (The total count is calculated based on the time each ad impression occurred.)"
+    description: ""
 
   - name: "conversion_rate"
     type: "number"
-    description: "The percentage of results you received out of all the clicks of your ads.(The total count is calculated based on the time each ad impression occurred.)"
+    description: ""
+
+  - name: "conversion_rate_v2"
+    type: "number"
+    description: ""
 
   - name: "cost_per_conversion"
     type: "number"
-    description: "The average amount of money you've spent on a conversion.(The total count is calculated based on the time each ad impression occurred.)"
+    description: ""
 
   - name: "cost_per_result"
     type: "number"
-    description: "The average cost for each result from your ads. As one campaign may have a number of different optimization goals, this statistic is not supported for campaigns. Please go to ad groups or ads to view the cost per result. (The total count is calculated based on the time each ad impression occurred.)"
+    description: ""
 
   - name: "cpc"
     type: "number"
-    description: "The average amount of money you've spent on a click."
+    description: ""
 
   - name: "cpm"
     type: "number"
-    description: "The average amount of money you've spent per 1,000 impressions."
+    description: ""
 
   - name: "ctr"
     type: "number"
-    description: "The percentage of times people saw your ad and performed a click."
+    description: ""
 
   - name: "dpa_target_audience_type"
     type: "string"
-    description: "The Audience that DPA products target. Supported at Adgroup or Ad levels in both synchronous and asynchronous reports."
+    description: ""
 
   - name: "gender"
     type: "string"
     description: ""
     primary-key: true
 
+  - name: "gross_impressions"
+    type: "string"
+    description: ""
+
   - name: "impressions"
     type: "integer"
-    description: "The number of times your ads were on screen."
+    description: ""
+
+  - name: "is_smart_creative"
+    type: "boolean"
+    description: ""
 
   - name: "mobile_app_id"
     type: "string"
-    description: "Mobile App ID. Examples are, App Store: https://apps.apple.com/us/app/angry-birds/id343200656; Google Play：https://play.google.com/store/apps/details?id=com.rovio.angrybirds. Available at Ad Group and Ad levels. Returned if the promotion type of one Ad Group is App."
+    description: ""
+
+  - name: "objective_type"
+    type: "string"
+    description: ""
+
+  - name: "opt_status"
+    type: "string"
+    description: ""
 
   - name: "promotion_type"
     type: "string"
-    description: "It can be app, website, or others. Supported at Adgroup and Ad levels in both synchronous and asynchronous reports."
+    description: ""
 
   - name: "real_time_conversion"
     type: "integer"
     description: ""
 
   - name: "real_time_conversion_rate"
+    type: "number"
+    description: ""
+
+  - name: "real_time_conversion_rate_v2"
     type: "number"
     description: ""
 
@@ -140,13 +192,24 @@ attributes:
     type: "number"
     description: ""
 
+  - name: "rf_campaign_type"
+    type: "string"
+    description: ""
+
+  - name: "smart_target"
+    type: "string"
+    description: ""
+
   - name: "spend"
     type: "number"
     description: ""
 
-  - name: "stat_time_day"
+  - name: "split_test"
     type: "string"
-    format: "date-time"
+    description: ""
+
+  - name: "stat_time_day"
+    type: "date-time"
     description: ""
     replication-key: true
     primary-key: true
