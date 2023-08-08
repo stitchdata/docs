@@ -4,9 +4,17 @@ version: "2"
 name: ManufacturingOperationTask
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ManufacturingOperationTask.html
 singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ManufacturingOperationTask
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about manufacturing operation tasks in your {{ integration.display_name }} account.
+
+  After a WIP work order that has a designated routing is saved in {{ integration.display_name }}, manufacturing operation tasks are created based on the routing. Each of these tasks is a step that must be done in order for the assembly process to be finished.
+
+  {{ integration.permission-for-table | flatify }}
+
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "manufacturing-operation-task"
+
 replication-method: "Full Table"
-table-key-properties: internalId
 
 attributes:
 - name: nullFieldList

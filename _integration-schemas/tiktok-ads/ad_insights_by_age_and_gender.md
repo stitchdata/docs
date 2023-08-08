@@ -1,6 +1,6 @@
 ---
 tap: "tiktok-ads"
-version: "1"
+version: "0"
 key: "ad-insights-by-age-and-gender"
 
 name: "ad_insights_by_age_and_gender"

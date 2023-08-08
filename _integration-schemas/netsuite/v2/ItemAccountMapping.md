@@ -4,9 +4,17 @@ version: "2"
 name: ItemAccountMapping
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ItemAccountMapping.html
 singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ItemAccountMapping
-description: ""
+description: |
+  The `{{ table.name }}` table contains details about the item account mapping record in your {{ integration.display_name }} account.
+
+  For accounts using {{ integration.display_name }} Multi-Book Accounting, the item account mapping record enables you to configure secondary accounting books to post to accounts different from the primary book, based on the item that is the subject of the transaction. These mappings are used by transactions where the item determines the account to which the transaction posts.
+
+  {{ integration.permission-for-table | flatify }}
+
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "item-account-mapping"
+
 replication-method: "Full Table"
-table-key-properties: internalId
 
 attributes:
 - name: department

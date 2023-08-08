@@ -35,9 +35,12 @@
   table: "Transaction"
   key: "transaction"
 
-# - name: "bom"
+- name: "Bom"
+  key: "bom"
+  
 
-# - name: "bomRevision"
+- name: "BomRevision"
+  key: "bom-revision"
 
 - name: "CalendarEvent"
   key: "calendar-event"
@@ -111,6 +114,9 @@
 
 - name: "CustomerStatus"
   key: "customer-status"
+
+- name: "CustomerSubsidiaryRelationship"
+  key: "customer-subsidiary-relationship"
 
 - name: "Deposit"
   table: "Transaction"
@@ -249,6 +255,9 @@
 
 - name: "ManufacturingRouting"
   key: "manufacturing-routing"
+
+- name: "MerchandiseHierarchyNode"
+  key: "merchandise-hierarchy-node"
 
 - name: "Nexus"
   key: "nexus"
@@ -417,6 +426,9 @@
 - name: "VendorReturnAuthorization"
   table: "Transaction"
   key: "transaction"
+
+- name: "VendorSubsidiaryRelationship"
+  key: "vendor-subsidiary-relationship"
 
 - name: "WinLossReason"
   key: "win-loss-reason"

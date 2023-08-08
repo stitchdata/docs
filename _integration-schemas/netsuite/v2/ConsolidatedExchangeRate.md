@@ -4,9 +4,15 @@ version: "2"
 name: ConsolidatedExchangeRate
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ConsolidatedExchangeRate.html
 singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ConsolidatedExchangeRate
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about consolidated exchange rates. This is used in {{ integration.display_name }} OneWorld for consolidation purposes, ensuring currency amounts correctly roll up from child to parent subsidiaries.
+
+  {{ integration.permission-for-table | flatify }}
+
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "consolidated-exchange-rate"
+
 replication-method: "Full Table"
-table-key-properties: internalId
 
 attributes:
 - name: nullFieldList

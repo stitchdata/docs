@@ -106,8 +106,7 @@ setup-steps:
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-# starting with 4., add instructions for additional fields in UI. EX:
-# 4. In the [FIELD_NAME] field, [instructions]
+      4. Check the **include_deleted** box to have Stitch replicate data from deleted campaigns, ads, and adgroups.
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"

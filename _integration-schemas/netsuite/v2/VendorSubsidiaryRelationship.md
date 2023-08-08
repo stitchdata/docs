@@ -4,9 +4,13 @@ version: "2"
 name: VendorSubsidiaryRelationship
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/VendorSubsidiaryRelationship.html
 singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/VendorSubsidiaryRelationship
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about vendors shared with multiple subsidiaries.
+
+  {{ integration.permission-for-table | flatify }}
 replication-method: "Full Table"
 table-key-properties: internalId
+key: vendor-subsidiary-relationship
 
 attributes:
 - name: nullFieldList
