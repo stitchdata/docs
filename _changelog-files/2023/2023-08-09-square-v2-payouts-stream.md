@@ -10,6 +10,4 @@ pull-request: "https://github.com/singer-io/tap-square/pull/109"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-A new version (v{{ this-connection.this-version }}) of our {{ this-connection.display_name }} integration is now available!
-
 We've updated our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to replace the deprecated `settlements` stream with the `payouts` stream.
