@@ -1,5 +1,5 @@
 ---
-title: "MailChimp (v1) update: New property for `reports_email_activity` stream"
+title: "MailChimp (v1) update: New property for reports_email_activity stream"
 content-type: "changelog-entry"
 date: 2023-06-08
 entry-type: updated-feature

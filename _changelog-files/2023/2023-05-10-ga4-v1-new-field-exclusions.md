@@ -1,5 +1,5 @@
 ---
-title: "Google Analytics 4 (v1) update: new field exclusions"
+title: "Google Analytics 4 (v1) update: New field exclusions"
 content-type: "changelog-entry"
 date: 2023-05-10
 entry-type: updated-feature

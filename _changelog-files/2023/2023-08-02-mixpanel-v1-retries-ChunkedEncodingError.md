@@ -1,5 +1,5 @@
 ---
-title: "Mixpanel (v1) bug fix: Add retries for `ChunkedEncodingError`"
+title: "Mixpanel (v1) bug fix: Add retries for ChunkedEncodingError"
 content-type: "changelog-entry"
 date: 2023-08-02
 entry-type: bug-fix

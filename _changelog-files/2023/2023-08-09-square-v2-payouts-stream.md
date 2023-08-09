@@ -1,5 +1,5 @@
 ---
-title: "Square (v2) update: New `payouts` stream"
+title: "Square (v2) update: New payouts stream"
 content-type: "changelog-entry"
 date: 2023-08-09
 entry-type: new-feature

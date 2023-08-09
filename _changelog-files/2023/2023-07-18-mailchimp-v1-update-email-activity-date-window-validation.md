@@ -1,5 +1,5 @@
 ---
-title: "MailChimp (v1) bug fix: Update `email_activity_date_window` validation"
+title: "MailChimp (v1) bug fix: Update email_activity_date_window validation"
 content-type: "changelog-entry"
 date: 2023-07-18
 entry-type: bug-fix
