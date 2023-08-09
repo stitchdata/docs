@@ -89,6 +89,17 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
 
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
+    anchor: "grant-stitch-authorization"
+    content: |
+      1. Click **Authorize** to sign into your {{ integration.display_name }} account. You’ll be taken through a series of steps to allow Stitch to access data from {{ integration.display_name }}.
+      2. Click **Okay** for each step.
+      3. Once you have authorized Stitch to access {{ integration.display_name }}, select the account you want to pull data from by selecting the check box in the **Connect** check box. 
+      
+          If you don't see the profiles you expect, make sure to check your {{ integration.display_name }} permissions. Reach out to support if you're still having issues.
+      4. Click **Save Connections**. Once your credentials are validated, you will be redirected back to Stitch.
+      5. Click {{ app.buttons.finish-int-setup }}.
+
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |
