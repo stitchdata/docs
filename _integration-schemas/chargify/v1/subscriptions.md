@@ -197,7 +197,7 @@ attributes:
         description: ""
 
       - name: "portal_invite_last_accepted_at"
-        type: "number"
+        type: "date-time"
         description: ""
 
       - name: "portal_invite_last_sent_at"
