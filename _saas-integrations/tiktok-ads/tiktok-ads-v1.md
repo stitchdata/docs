@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-tiktok-ads
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} API (v1.2)](https://ads.tiktok.com/marketing_api/docs?id=1701890905779201){:target="new"}
+  [{{ integration.display_name }} API (v1.3)](https://ads.tiktok.com/marketing_api/docs){:target="new"}
 
 
 # -------------------------- #
