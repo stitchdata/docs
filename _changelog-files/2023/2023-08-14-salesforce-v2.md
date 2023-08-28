@@ -2,7 +2,7 @@
 title: "Salesforce integration: New version (v2) now available!"
 content-type: "changelog-entry"
 date: 2023-08-14
-entry-type: 
+entry-type: new-feature
 entry-category: integration
 connection-id: salesforce
 connection-version: 2
