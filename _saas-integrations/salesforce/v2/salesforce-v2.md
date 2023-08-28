@@ -1,9 +1,10 @@
 ---
-title: Salesforce (v1)
+title: Salesforce (v2)
 permalink: /integrations/saas/salesforce/
 keywords: salesforce, integration, schema, etl salesforce, salesforce etl, salesforce schema
 summary: "Connections instructions, replication info, and schema details for Stitch's Salesforce integration."
 layout: singer
+# input: false
 
 key: "salesforce-setup"
 
