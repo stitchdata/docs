@@ -7,7 +7,6 @@ input: false
 
 layout: general
 toc: false
-key: "dynamodb-projection-queries"
 content-type: "guide"
 
 name: "hubspot"
