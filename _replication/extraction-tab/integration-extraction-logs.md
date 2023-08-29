@@ -63,8 +63,11 @@ sections:
       {% assign this-plan = site.data.stitch.subscription-plans[plan.name] %}
       {% assign plan-name = this-plan.name %}
       {% endif %}
-
+      {% if plan-name == "Free trial" %}
+      - **{{ plan-name }}**: 1 day
+      {% else %}
       - **{{ plan-name }}**: {{ this-plan.logs }}
+      {% endif %}
       {% endfor %}
 
     subsections:
