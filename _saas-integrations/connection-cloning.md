@@ -53,7 +53,7 @@ sections:
       - title: "Which sources are available to clone?"
         anchor: "basics--which-sources-are-available"
         content: |
-          More and more sources are becoming available to clone. To determine if your specific connection can be cloned, you will see that you have the option to clone on your connection's settings page. Currently, cloning is not available for connections that are deprecated or not on the latest major version.
+          More and more sources are becoming available to clone. To determine if your specific connection can be cloned, you will see that you have the option to clone on your connection's settings page. Currently, cloning is not available for connections that are deprecated.
 
       - title: "Is there a limit on the amount of connections I can clone?"
         anchor: "basics--connection-cloning-limit"
