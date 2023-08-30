@@ -59,16 +59,16 @@ sections:
         anchor: "basics--how-sso-works"
         content: |
           {% capture sso-admin %}
-          SSO can be enabled by any team member of a Stitch account with an Administrator role. The team member who initially enables SSO becomes an {{ user-roles.sso-admin.name }} user. To request that other users are added or removed as {{ user-roles.sso-admin.name | append: "s" }}, the {{ user-roles.sso-admin.name }} should contact support.
+          SSO can be enabled by any team member of a Stitch account with an Administrator role. The team member who initially enables SSO becomes an {{ user-roles.administrator.name }} user. To request that other users are added or removed as {{ user-roles.administrator.name | append: "s" }}, the {{ user-roles.administrator.name }} should contact support.
           {% endcapture %}
 
-          When SSO is enabled in Stitch, non-{{ user-roles.sso-admin.name }} users must sign into Stitch using your organization's Identity Provider (IdP).
+          When SSO is enabled in Stitch, non-{{ user-roles.administrator.name }} users must sign into Stitch using your organization's Identity Provider (IdP).
 
           Additionally, when SSO is enabled:
 
           - Upon initial enablement, all pending team member invitations are invalidated
           - Upon initial enablement, all existing team members in the account receive an email notification
-          - Only {{ user-roles.sso-admin.name }} users are able to update their email addresses and passwords, or add, deactivate, or reactivate other team members
+          - Only {{ user-roles.administrator.name }} users are able to update their email addresses and passwords, or add, deactivate, or reactivate other team members
           - Team members access must be [managed in your IdP](#basics--how-is-user-access-managed)
 
       - title: "What Identity Providers (IdP) are supported by Stitch?"
@@ -90,7 +90,7 @@ sections:
       - title: "Who can modify the SSO configuration?"
         anchor: "basics--who-can-modify-sso"
         content: |
-          Only {{ user-roles.sso-admin.name }} users can modify an existing SSO configuration. This includes modifying any settings, disabling SSO, or reenabling SSO.
+          Only {{ user-roles.administrator.name }} users can modify an existing SSO configuration. This includes modifying any settings, disabling SSO, or reenabling SSO.
 
       - title: "How is team member access to Stitch managed?"
         anchor: "basics--how-is-user-access-managed"
@@ -102,12 +102,12 @@ sections:
       - title: "How can I access Stitch if my Identity Provider experiences downtime?"
         anchor: "basics--idp-downtime"
         content: |
-          If SSO is enabled and your IdP is experiencing downtime, only {{ user-roles.sso-admin.name }} users will be able to access Stitch. These users can sign into Stitch using their password, ensuring a member of your team will always have access even if your Identity Provider is down.
+          If SSO is enabled and your IdP is experiencing downtime, only {{ user-roles.administrator.name }} users will be able to access Stitch. These users can sign into Stitch using their password, ensuring a member of your team will always have access even if your Identity Provider is down.
 
       - title: "What happens when SSO is disabled in Stitch?"
         anchor: "basics--disable-sso"
         content: |
-          Only an {{ user-roles.sso-admin.name }} can [disable SSO in Stitch](#disable-sso). When SSO is disabled, the following occurs:
+          Only an {{ user-roles.administrator.name }} can [disable SSO in Stitch](#disable-sso). When SSO is disabled, the following occurs:
 
           - All team members in the account receive an email notifying them that SSO has been disabled
           - All team members in the account receive a password reset email

@@ -5,7 +5,7 @@
 name: "General User"
 
 description: |
-  {% capture sso-admin-name %}{{ site.data.stitch.user-management.roles.sso-admin.name }}{% endcapture %}
+  {% capture sso-admin-name %}{{ site.data.stitch.user-management.roles.administrator.name }}{% endcapture %}
   {% capture invoice-admin-name %}{{ site.data.stitch.user-management.roles.invoice-admin.name }}{% endcapture %}
 
   General Users have the majority of available permissions, with the exception of those granted to the {{ invoice-admin-name }} and {{ sso-admin-name }} user roles. New team members invited to an account are automatically assigned this role.
