@@ -267,7 +267,9 @@ replication-sections:
                 header-row: "id,name,has_magic,active"
                 included-in-discovery: "<strong>false</strong>"
             content: |
-              At the start of each replication job, Stitch will analyze the header rows in the first five files returned by the table's [search pattern](#define-table-search-pattern). The header rows in these files are used to determine the table's schema.
+              For CSV files, at the start of each replication job, Stitch will analyze the header rows in the first five files returned by the table's [search pattern](#define-table-search-pattern). The header rows in these files are used to determine the table's schema.
+
+              For JSONL files, the JSON object keys are used to determine the table's schema.
 
               For this reason, the structure of files replicated using {{ integration.display_name }} should be the same for every file included in a table's configuration. If the header row in an included file changes after the fifth file, Stitch will not detect the difference.
 
