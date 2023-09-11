@@ -269,9 +269,9 @@ replication-sections:
             content: |
               For CSV files, at the start of each replication job, Stitch will analyze the header rows in the first five files returned by the table's [search pattern](#define-table-search-pattern). The header rows in these files are used to determine the table's schema.
 
-              For JSONL files, the JSON object keys are used to determine the table's schema.
+              For JSONL files, Stitch examines the keys of objects in the first five files identified by the table's search pattern. These keys are used to define the schema of the table.
 
-              For this reason, the structure of files replicated using {{ integration.display_name }} should be the same for every file included in a table's configuration. If the header row in an included file changes after the fifth file, Stitch will not detect the difference.
+              For this reason, the structure of files replicated using {{ integration.display_name }} should be the same for every file included in a table's configuration. If the CSV header row or the JSON keys in an included file change after the fifth file, Stitch will not detect the difference.
 
               For example: Based on the files in the table below, the table created from these files would have `id`, `name`, and `active` columns. The `has_magic` column in the `customers-001.csv` file will not be detected, as it's not in the first five files.
 
