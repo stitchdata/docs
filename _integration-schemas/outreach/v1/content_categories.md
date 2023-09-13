@@ -28,14 +28,18 @@ attributes:
     replication-key: true
 
   - name: "allowSequences"
-    type: "string"
+    type: "boolean"
     description: ""
 
   - name: "allowSnippets"
-    type: "string"
+    type: "boolean"
     description: ""
 
   - name: "allowTemplates"
+    type: "boolean"
+    description: ""
+
+  - name: "color"
     type: "string"
     description: ""
 
@@ -46,7 +50,6 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
 
   - name: "name"
     type: "string"

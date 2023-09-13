@@ -30,7 +30,6 @@ attributes:
   - name: "accountId"
     type: "integer"
     description: ""
-    foreign-key-id: "account-id"
 
   - name: "amount"
     type: "integer"
@@ -47,7 +46,10 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
+
+  - name: "currencyType"
+    type: "string"
+    description: ""
 
   - name: "custom1"
     type: "string"
@@ -61,7 +63,83 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "custom101"
+    type: "string"
+    description: ""
+
+  - name: "custom102"
+    type: "string"
+    description: ""
+
+  - name: "custom103"
+    type: "string"
+    description: ""
+
+  - name: "custom104"
+    type: "string"
+    description: ""
+
+  - name: "custom105"
+    type: "string"
+    description: ""
+
+  - name: "custom106"
+    type: "string"
+    description: ""
+
+  - name: "custom107"
+    type: "string"
+    description: ""
+
+  - name: "custom108"
+    type: "string"
+    description: ""
+
+  - name: "custom109"
+    type: "string"
+    description: ""
+
   - name: "custom11"
+    type: "string"
+    description: ""
+
+  - name: "custom110"
+    type: "string"
+    description: ""
+
+  - name: "custom111"
+    type: "string"
+    description: ""
+
+  - name: "custom112"
+    type: "string"
+    description: ""
+
+  - name: "custom113"
+    type: "string"
+    description: ""
+
+  - name: "custom114"
+    type: "string"
+    description: ""
+
+  - name: "custom115"
+    type: "string"
+    description: ""
+
+  - name: "custom116"
+    type: "string"
+    description: ""
+
+  - name: "custom117"
+    type: "string"
+    description: ""
+
+  - name: "custom118"
+    type: "string"
+    description: ""
+
+  - name: "custom119"
     type: "string"
     description: ""
 
@@ -69,7 +147,87 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "custom120"
+    type: "string"
+    description: ""
+
+  - name: "custom121"
+    type: "string"
+    description: ""
+
+  - name: "custom122"
+    type: "string"
+    description: ""
+
+  - name: "custom123"
+    type: "string"
+    description: ""
+
+  - name: "custom124"
+    type: "string"
+    description: ""
+
+  - name: "custom125"
+    type: "string"
+    description: ""
+
+  - name: "custom126"
+    type: "string"
+    description: ""
+
+  - name: "custom127"
+    type: "string"
+    description: ""
+
+  - name: "custom128"
+    type: "string"
+    description: ""
+
+  - name: "custom129"
+    type: "string"
+    description: ""
+
   - name: "custom13"
+    type: "string"
+    description: ""
+
+  - name: "custom130"
+    type: "string"
+    description: ""
+
+  - name: "custom131"
+    type: "string"
+    description: ""
+
+  - name: "custom132"
+    type: "string"
+    description: ""
+
+  - name: "custom133"
+    type: "string"
+    description: ""
+
+  - name: "custom134"
+    type: "string"
+    description: ""
+
+  - name: "custom135"
+    type: "string"
+    description: ""
+
+  - name: "custom136"
+    type: "string"
+    description: ""
+
+  - name: "custom137"
+    type: "string"
+    description: ""
+
+  - name: "custom138"
+    type: "string"
+    description: ""
+
+  - name: "custom139"
     type: "string"
     description: ""
 
@@ -77,7 +235,51 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "custom140"
+    type: "string"
+    description: ""
+
+  - name: "custom141"
+    type: "string"
+    description: ""
+
+  - name: "custom142"
+    type: "string"
+    description: ""
+
+  - name: "custom143"
+    type: "string"
+    description: ""
+
+  - name: "custom144"
+    type: "string"
+    description: ""
+
+  - name: "custom145"
+    type: "string"
+    description: ""
+
+  - name: "custom146"
+    type: "string"
+    description: ""
+
+  - name: "custom147"
+    type: "string"
+    description: ""
+
+  - name: "custom148"
+    type: "string"
+    description: ""
+
+  - name: "custom149"
+    type: "string"
+    description: ""
+
   - name: "custom15"
+    type: "string"
+    description: ""
+
+  - name: "custom150"
     type: "string"
     description: ""
 
@@ -457,6 +659,18 @@ attributes:
     type: "date-time"
     description: ""
 
+  - name: "mapLink"
+    type: "string"
+    description: ""
+
+  - name: "mapNextSteps"
+    type: "string"
+    description: ""
+
+  - name: "mapStatus"
+    type: "string"
+    description: ""
+
   - name: "name"
     type: "string"
     description: ""
@@ -468,7 +682,6 @@ attributes:
   - name: "opportunityStageId"
     type: "integer"
     description: ""
-    foreign-key-id: "stage-id"
 
   - name: "opportunityType"
     type: "string"
@@ -477,7 +690,6 @@ attributes:
   - name: "ownerId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
 
   - name: "probability"
     type: "integer"
@@ -487,15 +699,27 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "sharingTeamId"
+    type: "string"
+    description: ""
+
+  - name: "stageId"
+    type: "integer"
+    description: ""
+
   - name: "tags"
     type: "array"
     description: ""
     subattributes:
-      - name: "value"
-        type: "string"
-        description: ""
+    - name: "items"
+      type: "string"
+      description: ""
 
   - name: "touchedAt"
     type: "date-time"
+    description: ""
+
+  - name: "updaterId"
+    type: "integer"
     description: ""
 ---

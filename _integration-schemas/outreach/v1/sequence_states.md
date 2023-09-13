@@ -30,7 +30,6 @@ attributes:
   - name: "accountId"
     type: "integer"
     description: ""
-    foreign-key-id: "account-id"
 
   - name: "activeAt"
     type: "date-time"
@@ -55,7 +54,6 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
 
   - name: "deliverCount"
     type: "integer"
@@ -69,7 +67,7 @@ attributes:
     type: "integer"
     description: ""
 
-  - name: "naturalReplyCount"
+  - name: "mailboxId"
     type: "integer"
     description: ""
 
@@ -77,7 +75,15 @@ attributes:
     type: "integer"
     description: ""
 
+  - name: "neutralReplyCount"
+    type: "integer"
+    description: ""
+
   - name: "openCount"
+    type: "integer"
+    description: ""
+
+  - name: "opportunityId"
     type: "integer"
     description: ""
 
@@ -96,7 +102,6 @@ attributes:
   - name: "prospectId"
     type: "integer"
     description: ""
-    foreign-key-id: "prospect-id"
 
   - name: "repliedAt"
     type: "date-time"
@@ -113,7 +118,10 @@ attributes:
   - name: "sequenceId"
     type: "integer"
     description: ""
-    foreign-key-id: "sequence-id"
+
+  - name: "sequenceStepId"
+    type: "integer"
+    description: ""
 
   - name: "state"
     type: "string"

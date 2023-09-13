@@ -30,7 +30,6 @@ attributes:
   - name: "accountId"
     type: "integer"
     description: ""
-    foreign-key-id: "account-id"
 
   - name: "action"
     type: "string"
@@ -43,7 +42,6 @@ attributes:
   - name: "callId"
     type: "integer"
     description: ""
-    foreign-key-id: "call-id"
 
   - name: "compiledSequenceTemplateHtml"
     type: "string"
@@ -60,7 +58,6 @@ attributes:
   - name: "completerId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
 
   - name: "createdAt"
     type: "date-time"
@@ -69,7 +66,6 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
 
   - name: "dueAt"
     type: "date-time"
@@ -78,16 +74,18 @@ attributes:
   - name: "mailingId"
     type: "integer"
     description: ""
-    foreign-key-id: "mailing-id"
 
   - name: "note"
+    type: "string"
+    description: ""
+
+  - name: "opportunityAssociation"
     type: "string"
     description: ""
 
   - name: "opportunityId"
     type: "integer"
     description: ""
-    foreign-key-id: "opportunity-id"
 
   - name: "ownerId"
     type: "integer"
@@ -96,7 +94,6 @@ attributes:
   - name: "prospectId"
     type: "integer"
     description: ""
-    foreign-key-id: "prospect-id"
 
   - name: "scheduledAt"
     type: "date-time"
@@ -105,17 +102,18 @@ attributes:
   - name: "sequenceId"
     type: "integer"
     description: ""
-    foreign-key-id: "sequence-id"
 
   - name: "sequenceStateId"
     type: "integer"
     description: ""
-    foreign-key-id: "sequence-state-id"
 
   - name: "sequenceStepId"
     type: "integer"
     description: ""
-    foreign-key-id: "sequence-step-id"
+
+  - name: "sequenceTemplateId"
+    type: "integer"
+    description: ""
 
   - name: "state"
     type: "string"

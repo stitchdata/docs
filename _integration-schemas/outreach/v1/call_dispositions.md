@@ -31,10 +31,13 @@ attributes:
     type: "date-time"
     description: ""
 
+  - name: "createdAt"
+    type: "date-time"
+    description: ""
+
   - name: "creatorId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
 
   - name: "name"
     type: "string"

@@ -39,10 +39,6 @@ attributes:
     type: "date-time"
     description: ""
 
-  - name: "calendarId"
-    type: "integer"
-    description: ""
-
   - name: "clickCount"
     type: "integer"
     description: ""
@@ -67,6 +63,10 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "followUpSequenceId"
+    type: "integer"
+    description: ""
+
   - name: "followUpTaskScheduledAt"
     type: "date-time"
     description: ""
@@ -82,7 +82,6 @@ attributes:
   - name: "mailboxId"
     type: "integer"
     description: ""
-    foreign-key-id: "mailbox-id"
 
   - name: "mailingType"
     type: "string"
@@ -119,7 +118,6 @@ attributes:
   - name: "opportunityId"
     type: "integer"
     description: ""
-    foreign-key-id: "opportunity-id"
 
   - name: "overrideSafetySettings"
     type: "boolean"
@@ -128,11 +126,14 @@ attributes:
   - name: "prospectId"
     type: "integer"
     description: ""
-    foreign-key-id: "prospect-id"
 
   - name: "references"
-    type: "string"
+    type: "array"
     description: ""
+    subattributes:
+    - name: "items"
+      type: "string"
+      description: ""
 
   - name: "repliedAt"
     type: "date-time"
@@ -157,17 +158,14 @@ attributes:
   - name: "sequenceId"
     type: "integer"
     description: ""
-    foreign-key-id: "sequence-id"
 
   - name: "sequenceStateId"
     type: "integer"
     description: ""
-    foreign-key-id: "sequence-state-id"
 
   - name: "sequenceStepId"
     type: "integer"
     description: ""
-    foreign-key-id: "sequence-step-id"
 
   - name: "state"
     type: "string"
@@ -184,7 +182,6 @@ attributes:
   - name: "taskId"
     type: "integer"
     description: ""
-    foreign-key-id: "task-id"
 
   - name: "templateId"
     type: "integer"
@@ -200,5 +197,9 @@ attributes:
 
   - name: "unsubscribedAt"
     type: "date-time"
+    description: ""
+
+  - name: "userId"
+    type: "integer"
     description: ""
 ---

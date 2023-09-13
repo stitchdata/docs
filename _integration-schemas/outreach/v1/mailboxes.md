@@ -38,13 +38,16 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
 
   - name: "editable"
     type: "boolean"
     description: ""
 
   - name: "email"
+    type: "string"
+    description: ""
+
+  - name: "emailHash"
     type: "string"
     description: ""
 
@@ -199,22 +202,12 @@ attributes:
   - name: "updaterId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
 
   - name: "userId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
 
   - name: "username"
     type: "string"
-    description: ""
-
-  - name: "validateSend"
-    type: "boolean"
-    description: ""
-
-  - name: "validateSync"
-    type: "boolean"
     description: ""
 ---

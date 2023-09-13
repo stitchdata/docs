@@ -46,7 +46,6 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
 
   - name: "deliverCount"
     type: "integer"
@@ -123,7 +122,6 @@ attributes:
   - name: "ownerId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
 
   - name: "positiveReplyCount"
     type: "integer"
@@ -138,6 +136,10 @@ attributes:
     description: ""
 
   - name: "replyCount"
+    type: "integer"
+    description: ""
+
+  - name: "rulesetId"
     type: "integer"
     description: ""
 
@@ -170,8 +172,12 @@ attributes:
     description: ""
 
   - name: "tags"
-    type: "string"
+    type: "array"
     description: ""
+    subattributes:
+    - name: "items"
+      type: "string"
+      description: ""
 
   - name: "throttleCapacity"
     type: "integer"
@@ -196,5 +202,4 @@ attributes:
   - name: "updaterId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
 ---

@@ -27,6 +27,10 @@ attributes:
     description: "The time the user was last updated."
     replication-key: true
 
+  - name: "accountsViewId"
+    type: "integer"
+    description: ""
+
   - name: "activityNotificationsDisabled"
     type: "boolean"
     description: ""
@@ -43,7 +47,7 @@ attributes:
     type: "string"
     description: ""
 
-  - name: "calendarId"
+  - name: "callsViewId"
     type: "integer"
     description: ""
 
@@ -58,7 +62,6 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
 
   - name: "currentSignInAt"
     type: "date-time"
@@ -92,24 +95,27 @@ attributes:
     type: "array"
     description: ""
     subattributes:
-      - name: "duty_type"
-        type: "string"
-        description: ""
+    - name: "name"
+      type: "string"
+      description: ""
 
-      - name: "id"
-        type: "integer"
-        description: ""
-        foreign-key-id: "duty-id"
+    - name: "duty_type"
+      type: "string"
+      description: ""
 
-      - name: "name"
-        type: "string"
-        description: ""
+    - name: "id"
+      type: "integer"
+      description: ""
 
   - name: "email"
     type: "string"
     description: ""
 
   - name: "enableVoiceRecordings"
+    type: "boolean"
+    description: ""
+
+  - name: "engagementEmailsEnabled"
     type: "boolean"
     description: ""
 
@@ -129,12 +135,28 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "inboundPhoneType"
+    type: "string"
+    description: ""
+
   - name: "inboundVoicemailCustomMessageText"
     type: "string"
     description: ""
 
   - name: "inboundVoicemailMessageTextVoice"
     type: "string"
+    description: ""
+
+  - name: "inboundVoicemailPromptType"
+    type: "string"
+    description: ""
+
+  - name: "kaiaRecordingsViewId"
+    type: "integer"
+    description: ""
+
+  - name: "keepBridgePhoneConnected"
+    type: "boolean"
     description: ""
 
   - name: "lastName"
@@ -156,7 +178,10 @@ attributes:
   - name: "mailboxId"
     type: "integer"
     description: ""
-    foreign-key-id: "mailbox-id"
+
+  - name: "meetingEngagementNotificationEnabled"
+    type: "boolean"
+    description: ""
 
   - name: "name"
     type: "string"
@@ -194,8 +219,8 @@ attributes:
     type: "boolean"
     description: ""
 
-  - name: "onboardedAt"
-    type: "date-time"
+  - name: "opportunitiesViewId"
+    type: "integer"
     description: ""
 
   - name: "passwordExpiresAt"
@@ -214,11 +239,35 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "pluginAlertNotificationEnabled"
+    type: "boolean"
+    description: ""
+
+  - name: "preferredVoiceRegion"
+    type: "string"
+    description: ""
+
   - name: "prefersLocalPresence"
     type: "boolean"
     description: ""
 
+  - name: "primaryTimezone"
+    type: "string"
+    description: ""
+
   - name: "profileId"
+    type: "integer"
+    description: ""
+
+  - name: "prospectsViewId"
+    type: "integer"
+    description: ""
+
+  - name: "reportsTeamPerfViewId"
+    type: "integer"
+    description: ""
+
+  - name: "reportsViewId"
     type: "integer"
     description: ""
 
@@ -226,8 +275,36 @@ attributes:
     type: "integer"
     description: ""
 
+  - name: "scimExternalId"
+    type: "string"
+    description: ""
+
+  - name: "scimSource"
+    type: "string"
+    description: ""
+
+  - name: "secondaryTimezone"
+    type: "string"
+    description: ""
+
   - name: "senderNotificationsExcluded"
     type: "string"
+    description: ""
+
+  - name: "tasksViewId"
+    type: "integer"
+    description: ""
+
+  - name: "teamsViewId"
+    type: "integer"
+    description: ""
+
+  - name: "tertiaryTimezone"
+    type: "string"
+    description: ""
+
+  - name: "textingEmailNotifications"
+    type: "boolean"
     description: ""
 
   - name: "title"
@@ -241,10 +318,21 @@ attributes:
   - name: "updaterId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
+
+  - name: "userGuid"
+    type: "string"
+    description: ""
 
   - name: "username"
     type: "string"
+    description: ""
+
+  - name: "usersViewId"
+    type: "integer"
+    description: ""
+
+  - name: "voicemailNotificationEnabled"
+    type: "boolean"
     description: ""
 
   - name: "weeklyDigestEmailEnabled"

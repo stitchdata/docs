@@ -31,6 +31,10 @@ attributes:
     type: "integer"
     description: ""
 
+  - name: "callPurposeId"
+    type: "integer"
+    description: ""
+
   - name: "clickCount"
     type: "integer"
     description: ""
@@ -42,10 +46,9 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
 
   - name: "date"
-    type: "date"
+    type: "date-time"
     description: ""
 
   - name: "deliverCount"
@@ -99,7 +102,6 @@ attributes:
   - name: "sequenceId"
     type: "integer"
     description: ""
-    foreign-key-id: "sequence-id"
 
   - name: "stepType"
     type: "string"
@@ -113,8 +115,11 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "taskPriorityId"
+    type: "integer"
+    description: ""
+
   - name: "updaterId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
 ---

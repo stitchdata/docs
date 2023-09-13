@@ -36,7 +36,6 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
 
   - name: "deliverCount"
     type: "integer"
@@ -86,6 +85,14 @@ attributes:
     type: "integer"
     description: ""
 
+  - name: "sequenceStepId"
+    type: "integer"
+    description: ""
+
+  - name: "templateId"
+    type: "integer"
+    description: ""
+
   - name: "updatedAt"
     type: "date-time"
     description: ""
@@ -93,5 +100,4 @@ attributes:
   - name: "updaterId"
     type: "integer"
     description: ""
-    foreign-key-id: "user-id"
 ---
