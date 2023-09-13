@@ -1,2 +1,102 @@
-{% assign data = site.data.schemas.schema.properties %}
-{% include layout/new-schemas-table.html jsondata=data %}
+{% assign integration = page %}
+
+{% assign tables = site.data.schemas.[integration.name].[integration.version].tables.tables %}
+
+<div>
+{% for table in tables %}
+    {% if site.data.schemas.[integration.name].[integration.version].json.[table.name].properties %}
+
+    {% assign data = site.data.schemas.[integration.name].[integration.version].json.[table.name].properties %}
+
+    <!-- Table Name -->
+    <div class="table-heading">
+        
+        <h3 id="{{ table.name | slugify }}">{{ table.name }}</h3>
+        <p>{{ table.description | flatify | markdownify }}</p>
+        <table class="table-snapshot table-hover">
+
+            {% for field in table.table-details %}
+                {% assign field-key = field[0] %}
+                {% assign field-value = field[1] %}
+                <tr>
+                    <td>
+                        <strong>{{ field-key }}</strong>:
+                    </td>
+                    <td>
+                        {{ field-value }}
+                    </td>
+                </tr>
+            {% endfor %}
+
+            <tr>
+                {% if table.links %}
+                    <td>
+                        <strong>Useful links</strong>:
+                    </td>
+                    <td>
+                        <ul>
+                            {% for link in table.links %}
+                                {% assign key = link[0] %}
+                                {% assign url = link[1] %}
+                                    <li>
+                                        <a href="{{ url }}" title="Opens in new tab: {{ key }}" target="new">
+                                            {{ key }}
+                                        </a>
+                                    </li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                {% endif %}
+            </tr>
+        </table>
+    </div>
+
+<!-- Dependent and parent table info -->
+    {% if table.dependent-table-key or table.is-parent-table %}
+    <!-- If the table is dependent on another table, show this note: -->
+        {% if table.dependent-table-key %}
+            <p>
+                <strong>Note</strong>: In order to replicate this table, you must also set the <a href="#{{ parent-table.name | slugify }}">{{ parent-table.name }}</a> table to replicate.
+            </p>
+        {% endif %}
+
+    <!-- If the table has other tables that depend on it, show this note: -->
+        {% if table.is-parent-table %}
+            {% assign child-tables = schema | where:"dependent-table-key",table.key | sort_natural:"name" %}
+
+            <p>
+                <strong>Note</strong>: This table must be selected to replicate the following tables:
+
+                <ul>
+                {% for child-table in child-tables %}
+                    <li>
+                        <a href="#{{ child-table.name | slugify }}">{{ child-table.name }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </p>
+        {% endif %}
+    {% endif %}
+
+    {% if table.notes %}
+        {{ table.notes | flatify | markdownify }}
+    {% endif %}
+
+
+    <div class="panel-group" id="{{ table.name | slugify }}-schema">
+        <div class="panel panel-default">   
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ table.name | slugify }}-table">{{ table.name }} table schema</a>
+                </h4>
+            </div>
+          
+            <div id="collapse-{{ table.name | slugify }}-table" class="panel-collapse collapse noCrossRef">
+                {% include layout/new-schemas-table.html jsondata=data table-data=table %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endfor %}
+
+</div>
