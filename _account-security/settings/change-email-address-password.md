@@ -14,7 +14,7 @@ weight: 1
 
 intro: |
   {% capture sso-notice %}
-  If [Single Sign-on (SSO)]({{ link.security.single-sign-on | prepend: site.baseurl }}) is enabled, only {{ site.data.stitch.user-management.roles.sso-admin.name | append: "s" }} will have the ability to change their email address and/or password in Stitch. All other users will need to make changes through their Identity Provider (IdP).
+  If [Single Sign-on (SSO)]({{ link.security.single-sign-on | prepend: site.baseurl }}) is enabled, only {{ site.data.stitch.user-management.roles.administrator.name | append: "s" }} will have the ability to change their email address and/or password in Stitch. All other users will need to make changes through their Identity Provider (IdP).
   {% endcapture %}
 
   {% include note.html first-line="**Single Sign-on (SSO) can impact these features**" content=sso-notice %}
