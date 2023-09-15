@@ -67,8 +67,8 @@ def replaceAnyof(json_content):
 
     return new_content
 
-def fullFileRef(path):
-    for root, dirs, files in os.walk('schemas'):
+def fullFileRef(path, folder):
+    for root, dirs, files in os.walk(folder):
         for file in files:
             filepath = os.path.join(root, file)
             if file == path:
@@ -77,14 +77,14 @@ def fullFileRef(path):
     
     return content
 
-def partialRef(ref):
+def partialRef(ref, folder):
 
     split_ref = ref.split('/')
     path = split_ref[0].replace('#', '')
 
     steps = len(split_ref)
 
-    for root, dirs, files in os.walk('schemas'):
+    for root, dirs, files in os.walk(folder):
         for file in files:
             filepath = os.path.join(root, file)
             if file == path:
@@ -100,7 +100,7 @@ def partialRef(ref):
     
     return content
 
-def replaceRefs(json_content):
+def replaceRefs(json_content, folder):
 
     pattern = re.compile('(\{\s*\"\$ref\"\:\s\"([^\"]+)\"\s*\})')
 
@@ -111,10 +111,10 @@ def replaceRefs(json_content):
         path = ref[1]
 
         if path.endswith('.json') or path.endswith('.json#/'):
-            content = fullFileRef(path)
+            content = fullFileRef(path, folder)
             json_content = json_content.replace(element, content)
         else:
-            content = partialRef(path)
+            content = partialRef(path, folder)
             json_content = json_content.replace(element, content)
     
     
@@ -126,29 +126,29 @@ def replaceRefs(json_content):
     
     return j
 
-folder = 'schemas'
 
-for root, dirs, files in os.walk(folder, topdown=False):
-    for file in files:
-        filepath = os.path.join(root, file)
-        if filepath.endswith('.json'):
-            change = 0
-            with open(filepath, 'r') as f:
-                json_content = f.read()
-                if '$ref' in json_content:
-                    json_content = json.dumps(replaceRefs(json_content))
-                    change +=1
+def formatJSON(folder, json_output_folder):
+    for root, dirs, files in os.walk(folder, topdown=False):
+        for file in files:
+            filepath = os.path.join(root, file)
+            if filepath.endswith('.json'):
+                change = 0
+                with open(filepath, 'r') as f:
+                    json_content = f.read()
+                    if '$ref' in json_content:
+                        json_content = json.dumps(replaceRefs(json_content, folder))
+                        change +=1
 
-                elif '"format": "date-time"' in json_content:
-                    json_content = replaceDatetimeFormat(json_content, 'str')
-                    change +=1
+                    elif '"format": "date-time"' in json_content:
+                        json_content = replaceDatetimeFormat(json_content, 'str')
+                        change +=1
 
-                # if '"anyOf"' in json_content:
-                #     print(filepath)
-                #     json_content = replaceAnyof(json_content)
-                #     change +=1
-            
-            if change > 0:
-                content = json.loads(json_content)
-                with open(filepath, 'w') as j:
-                    json.dump(content, j, indent=2)
+                    # if '"anyOf"' in json_content:
+                    #     print(filepath)
+                    #     json_content = replaceAnyof(json_content)
+                    #     change +=1
+                
+                if change > 0:
+                    content = json.loads(json_content)
+                    with open(json_output_folder + '/' + file, 'w') as j:
+                        json.dump(content, j, indent=2)

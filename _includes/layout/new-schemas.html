@@ -1,6 +1,9 @@
-{% assign integration = page %}
+{% include misc/icons.html %}
+{% include misc/data-files.html %}
 
-{% assign tables = site.data.schemas.[integration.name].[integration.version].tables.tables %}
+{% assign integration = page %}
+{% assign filename = integration.name | append: "-" | append: integration.version | append: "-tables" %}
+{% assign tables = site.data.schemas.[integration.name].[integration.version].[filename].tables %}
 
 <div>
 {% for table in tables %}
@@ -13,14 +16,16 @@
         
         <h3 id="{{ table.name | slugify }}">{{ table.name }}</h3>
         <p>{{ table.description | flatify | markdownify }}</p>
-        <table class="table-snapshot table-hover">
+        
+        <table class="attribute-list table-hover">
 
             {% for field in table.table-details %}
                 {% assign field-key = field[0] %}
                 {% assign field-value = field[1] %}
+                {% assign field-name = site.data.taps.snapshot-attributes.field-names.[field-key] | flatify | markdownify | strip %}
                 <tr>
                     <td>
-                        <strong>{{ field-key }}</strong>:
+                        <strong>{{ field-name }}</strong>
                     </td>
                     <td>
                         {{ field-value }}
@@ -31,20 +36,19 @@
             <tr>
                 {% if table.links %}
                     <td>
-                        <strong>Useful links</strong>:
+                        <strong>Useful links</strong>
                     </td>
                     <td>
-                        <ul>
-                            {% for link in table.links %}
-                                {% assign key = link[0] %}
-                                {% assign url = link[1] %}
-                                    <li>
-                                        <a href="{{ url }}" title="Opens in new tab: {{ key }}" target="new">
-                                            {{ key }}
-                                        </a>
-                                    </li>
-                            {% endfor %}
-                        </ul>
+                        {% for link in table.links %}
+                            {% assign key = link[0] %}
+                            {% assign url = link[1] %}
+                            {% assign text = site.data.taps.snapshot-attributes.field-names.[key] | flatify | markdownify | strip %}
+                                <p>
+                                    <a href="{{ url }}" title="Opens in new tab: {{ text }}" target="new">
+                                        {{ text }}
+                                    </a>
+                                </p>
+                        {% endfor %}
                     </td>
                 {% endif %}
             </tr>
