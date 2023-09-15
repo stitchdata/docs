@@ -45,12 +45,16 @@ def getSchemaData(file):
                 'tap': tap,
                 'version': version,
                 'name': name,
-                'doc-link': doc,
-                'singer-schema': singer,
                 'description': description,
-                'replication-method': replication,
-                'primary-keys': primary_keys,
-                'replication-keys': replication_keys
+                'links': {
+                    'doc-link': doc,
+                    'singer-schema': singer
+                },
+                'table-details': {
+                    'replication-method': replication,
+                    'primary-keys': primary_keys,
+                    'replication-keys': replication_keys
+                }
             }
             
             tables.append(data)
@@ -97,6 +101,6 @@ for tap in taps:
     else:
         os.makedirs(path)
 
-    with open ('{2}/{0}-v{1}-schemas.yaml'.format(tap_name, tap_version, path), 'w', encoding='utf-8') as out:
+    with open ('{2}/{0}-v{1}-tables.yaml'.format(tap_name, tap_version, path), 'w', encoding='utf-8') as out:
 
         y = yaml.dump(tap_dict, out, default_flow_style=None, sort_keys=False)
