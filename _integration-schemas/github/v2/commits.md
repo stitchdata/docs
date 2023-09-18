@@ -89,48 +89,7 @@ attributes:
         
       
     
-  - name: "files"
-    type: "array"
-    description: ""
-    subattributes:
-      - name: "items"
-        type: "object"
-        description: ""
-        subattributes:
-          - name: "filename"
-            type: "string"
-            description: ""
-          
-          - name: "additions"
-            type: "number"
-            description: ""
-          
-          - name: "deletions"
-            type: "number"
-            description: ""
-          
-          - name: "changes"
-            type: "number"
-            description: ""
-          
-          - name: "status"
-            type: "string"
-            description: ""
-          
-          - name: "raw_url"
-            type: "string"
-            description: ""
-          
-          - name: "blob_url"
-            type: "string"
-            description: ""
-          
-          - name: "patch"
-            type: "string"
-            description: ""
-          
-        
-      
+
     
   - name: "html_url"
     type: "string"
@@ -363,20 +322,5 @@ attributes:
     type: "object"
     description: "Details about the author of the commit."
     subattributes: *user-attributes
-    
-  - name: "stats"
-    type: "object"
-    description: ""
-    subattributes:
-      - name: "additions"
-        type: "integer"
-        description: ""
-        
-      - name: "deletions"
-        type: "integer"
-        description: ""
-        
-      - name: "total"
-        type: "integer"
-        description: ""
+
 ---
