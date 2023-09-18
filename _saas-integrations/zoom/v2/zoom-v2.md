@@ -12,11 +12,11 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Zoom (v2)
-permalink: /integrations/saas/zoom
+title: Zoom (v2) (Beta)
+permalink: /integrations/saas/zoom/v2
 keywords: zoom, integration, schema, etl zoom, zoom etl, zoom schema
 layout: singer
-# input: false
+input: false
 
 key: "zoom-setup"
 
@@ -61,7 +61,6 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-
 # -------------------------- #
 #      Feature Summary       #
 # -------------------------- #
@@ -92,6 +91,12 @@ setup-steps:
   - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
     content: |
+      {% capture beta-note %}
+      This feature is currently in beta and is not publicly available. Check the [{{ integration.display_name }} v1 setup documentation](https://www.stitchdata.com/docs/integrations/saas/zoom#setup) for the current version of the integration.
+      {% endcapture %}
+
+      {% include note.html type="single-line" content=beta-note %}
+
       1. Click **Authorize** to sign into your {{ integration.display_name }} account. You’ll be taken through a series of steps to allow Stitch to access data from {{ integration.display_name }}.
       2. Click **Okay** for each step.
       3. Once you have authorized Stitch to access {{ integration.display_name }}, select the account you want to pull data from by selecting the check box in the **Connect** check box. 

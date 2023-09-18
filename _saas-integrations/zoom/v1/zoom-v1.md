@@ -13,10 +13,10 @@
 # -------------------------- #
 
 title: Zoom (v1)
-permalink: /integrations/saas/zoom/v1
+permalink: /integrations/saas/zoom
 keywords: zoom, integration, schema, etl zoom, zoom etl, zoom schema
 layout: singer
-input: false
+# input: false
 
 key: "zoom-setup"
 
