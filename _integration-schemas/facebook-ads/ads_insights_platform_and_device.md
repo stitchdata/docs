@@ -108,6 +108,16 @@ attributes:
     type: "array"
     description: "The total value of all conversions attributed to the ad."
     subattributes: *action-values
+  
+  - name: "conversion_values"
+    type: "array"
+    description: ""
+    subattributes: *action-values
+  
+  - name: "conversions"
+    type: "array"
+    description: ""
+    subattributes: *action-values
 
   - name: "date_stop"
     type: "date-time"
