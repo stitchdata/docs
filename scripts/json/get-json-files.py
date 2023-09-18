@@ -11,6 +11,19 @@ github_headers = {'Authorization': github_token}
 repo = sys.argv[2]
 branch = sys.argv[3]
 
+def getTapData(setup_file):
+
+    name_pattern = re.compile(r'name=\'([^\']+)\'')
+    version_pattern = re.compile(r'version=\'([^\']+)\'')
+
+    tap_name = re.search(name_pattern, setup_file).group(1)
+    tap_version = re.search(version_pattern, setup_file).group(1)
+
+    tap_major_version = tap_version[0]
+
+    return [tap_name, tap_major_version]
+
+
 def getIntegrationId(repo):
     file = '../../_data/taps/integrations.yml'
 
@@ -27,16 +40,6 @@ def getIntegrationId(repo):
                 integration_id = id
     
     return integration_id
-
-
-def getTapVersion(changelog):
-
-    changelog = str(changelog)
-
-    version_line = re.search('##\s(v\d|\d|v\s\d)', changelog, re.MULTILINE).group(1)
-    version = version_line[-1]
-
-    return version
 
 def getFiles(repo, branch): 
 
@@ -55,11 +58,13 @@ def getFiles(repo, branch):
     
     tap_folder = zip_output + '/' + os.listdir(zip_output)[0]
 
-    integration_id = getIntegrationId(repo)
+    setup_file = open(tap_folder + '/setup.py').read()
+    tap_data = getTapData(setup_file)
 
-    changelog = open( tap_folder + '/CHANGELOG.md').read()
-    tap_version = getTapVersion(changelog)
-    print(tap_version)
+    tap_name = tap_data[0]
+    tap_version = tap_data[1]
+
+    integration_id = getIntegrationId(tap_name)
 
     json_output_folder = '../../_data/schemas/{0}/v{1}/json'.format(integration_id, tap_version)
 
