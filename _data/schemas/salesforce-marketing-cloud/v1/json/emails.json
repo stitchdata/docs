@@ -1,0 +1,206 @@
+{
+  "type": "object",
+  "properties": {
+    "CategoryID": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Specifies the identifier of the folder containing the email."
+    },
+    "CharacterSet": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Indicates encoding used in an email message."
+    },
+    "ClonedFromID": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "ID of email message from which the specified email message was created."
+    },
+    "ContentAreaIDs": {
+      "type": "array",
+      "description": "Contains information on content areas included in an email message.",
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      }
+    },
+    "ContentCheckStatus": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Indicates whether content validation has completed for this email message."
+    },
+    "CreatedDate": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Read-only date and time of the object's creation."
+    },
+    "CustomerKey": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "User-supplied unique identifier for an object within an object type (corresponds to the external key assigned to an object in the user interface)."
+    },
+    "EmailType": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Defines preferred email type."
+    },
+    "HasDynamicSubjectLine": {
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "description": "Indicates whether email message contains a dynamic subject line."
+    },
+    "HTMLBody": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Contains HTML body of an email message."
+    },
+    "ID": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Read-only legacy identifier for an object. Not supported on all objects. Some objects use the ObjectID property as the Marketing Cloud unique ID."
+    },
+    "IsActive": {
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "description": "Specifies whether the object is active."
+    },
+    "IsHTMLPaste": {
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "description": "Indicates whether email message was created via pasted HTML."
+    },
+    "ModifiedDate": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Indicates the last time object information was modified."
+    },
+    "Name": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Name of the object or property."
+    },
+    "ObjectID": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "System-controlled, read-only text string identifier for object."
+    },
+    "PartnerProperties": {
+      "type": "array",
+      "description": "Specifies key-value pairs of properties associated with an object.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    },
+    "PreHeader": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Contains text used in preheader of email message on mobile devices."
+    },
+    "Status": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Defines status of object. Status of an address."
+    },
+    "Subject": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Contains subject area information for a message."
+    },
+    "SyncTextWithHTML": {
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "description": "Makes the text version of an email contain the same content as the HTML version."
+    },
+    "TextBody": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Contains raw text body of a message."
+    },
+    "__AdditionalEmailAttribute1": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "__AdditionalEmailAttribute2": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "__AdditionalEmailAttribute3": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "__AdditionalEmailAttribute4": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "__AdditionalEmailAttribute5": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "value": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ends_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "starts_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "usage_limit": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "applies_to_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "applies_to_resource": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "times_used": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "duration": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "duration_usage_limit": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "applies_to_product_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "once_per_customer": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "applies_to": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "ids": {
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "purchase_item_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "resource": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "channel_settings": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "api": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "can_apply": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            }
+          }
+        },
+        "customer_portal": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "can_apply": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            }
+          }
+        },
+        "merchant_portal": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "can_apply": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            }
+          }
+        },
+        "checkout_page": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "can_apply": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "external_discount_id": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "ecommerce": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "first_time_customer_restriction": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "prerequisite_subtotal_min": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "usage_limits": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "max_subsequent_redemptions": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "first_time_customer_restriction": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "one_application_per_customer": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "value_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}

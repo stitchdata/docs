@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "file": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {}
+    },
+    "parsedData": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {}
+    }
+  }
+}

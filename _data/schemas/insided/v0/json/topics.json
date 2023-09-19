@@ -1,0 +1,221 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "contentType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "content": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "featuredImage": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "publicLabel": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "categoryId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "categoryName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tags": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "string"
+        ]
+      }
+    },
+    "moderatorTags": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "string"
+        ]
+      }
+    },
+    "replyCount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "likes": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "votes": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "voteSet": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "string"
+        ]
+      }
+    },
+    "sticky": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "trashed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "bestAnswer": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "author": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "username": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "avatar": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "lastContributor": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "username": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "avatar": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "createdAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "lastActivityAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ideaStatus": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "textColor": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "backgroundColor": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,759 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "deflection": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "selected_menu": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "parent_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "hidden": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "menu_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "position": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "output_msg": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "deleted": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      }
+    },
+    "fail_details": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "end_user": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "identifier": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "out_contact_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "support_number": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "deflection_details": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "call_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fail_reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "offer_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "out_ticket_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "participants": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "fail_reason": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "ended_at": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "hold_duration": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "connected_at": {
+                "type": [
+                  "date-time",
+                  "null"
+                ]
+              },
+              "user_id": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "call_duration": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "end_user_id": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "call_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "queued_at": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "hold_duration": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "connected_at": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "answer_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "outbound_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "voip_provider": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "has_feedback": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "wait_duration": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "call_duration": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "rating": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "offer_events": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "casting_time": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "group": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "assigned_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "voicemail_reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "disconnected_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "recording_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "videos": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "scheduled_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "lang": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "transfers": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "deflection": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "from_agent": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "first_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "agent_number": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "last_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "avatar_url": {
+                    "type": [
+                      "null",
+                      "string"
+                    ],
+                    "format": "uri"
+                  }
+                }
+              },
+              "to_queue_priority_level": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "fail_reason": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "from_queue_priority_level": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "connected_at": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "to_agent": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "properties": {
+                  "first_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "agent_number": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "last_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "avatar_url": {
+                    "type": [
+                      "null",
+                      "string"
+                    ],
+                    "format": "uri"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "wait_duration": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "answer_type_path": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "call_duration": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "from_menu_path": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "properties": {
+                  "items_count": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "materialized_path": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              },
+              "status": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "assigned_at": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "created_at": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "to_menu_path": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "updated_at": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "out_ticket_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "agent_info": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "first_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "agent_number": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "avatar_url": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "format": "uri"
+        }
+      }
+    },
+    "verified": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "menu_path": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "items_count": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "materialized_path": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "photos": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "additionalProperties": false,
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "photo_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ends_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  }
+}

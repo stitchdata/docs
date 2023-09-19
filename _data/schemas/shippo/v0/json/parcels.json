@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "properties": {
+    "object_state": {
+      "type": "string"
+    },
+    "object_created": {
+      "type": "date-time"
+    },
+    "object_updated": {
+      "type": "date-time"
+    },
+    "object_id": {
+      "type": "string"
+    },
+    "object_owner": {
+      "type": "string"
+    },
+    "template": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "length": {
+      "type": "string"
+    },
+    "width": {
+      "type": "string"
+    },
+    "height": {
+      "type": "string"
+    },
+    "distance_unit": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "string"
+    },
+    "mass_unit": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "string"
+    },
+    "extra": {
+      "type": "object",
+      "properties": {}
+    },
+    "test": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    }
+  },
+  "required": [
+    "object_id"
+  ]
+}

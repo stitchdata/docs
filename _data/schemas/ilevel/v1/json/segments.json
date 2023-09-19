@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "excel_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "asset_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "has_data": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "nodes": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "parent_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  }
+}

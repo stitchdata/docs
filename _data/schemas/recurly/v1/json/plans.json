@@ -1,0 +1,188 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "interval_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "interval_length": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "trial_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "trial_length": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "total_billing_cycles": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "auto_renew": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "accounting_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "setup_fee_accounting_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tax_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tax_exempt": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "currencies": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "currency": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "setup_fee": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          },
+          "unit_amount": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          }
+        }
+      }
+    },
+    "hosted_pages": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "success_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "cancel_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "bypass_confirmation": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "display_quantity": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      }
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "deleted_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  }
+}

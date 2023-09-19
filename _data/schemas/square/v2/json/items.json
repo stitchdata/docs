@@ -1,0 +1,382 @@
+{
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "present_at_location_ids": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "absent_at_location_ids": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "version": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "item_data": {
+      "properties": {
+        "variations": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "properties": {
+              "item_variation_data": {
+                "properties": {
+                  "sku": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "user_data": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "inventory_alert_type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "track_inventory": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "location_overrides": {
+                    "type": [
+                      "null",
+                      "array"
+                    ],
+                    "items": {
+                      "properties": {
+                        "inventory_alert_threshold": {
+                          "type": [
+                            "null",
+                            "integer"
+                          ]
+                        },
+                        "inventory_alert_type": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "location_id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "sold_out": {
+                          "type": [
+                            "null",
+                            "boolean"
+                          ]
+                        },
+                        "track_inventory": {
+                          "type": [
+                            "null",
+                            "boolean"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    }
+                  },
+                  "ordinal": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "item_id": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "price_money": {
+                    "properties": {
+                      "amount": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      },
+                      "currency": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "pricing_type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "present_at_location_ids": {
+                "type": [
+                  "null",
+                  "array"
+                ],
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "version": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "present_at_all_locations": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "is_deleted": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "updated_at": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "abbreviation": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "available_electronically": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "available_for_pickup": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "available_online": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "skip_modifier_screen": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "product_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "label_color": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "legacy_tax_ids": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "tax_ids": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "modifier_list_info": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "enabled": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "modifier_list_id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "item_options": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "item_option_id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "visibility": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "category_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "present_at_all_locations": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "created_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "line_items": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "media_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "media_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pdf": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "total_amount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "total_vat_amount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    }
+  }
+}

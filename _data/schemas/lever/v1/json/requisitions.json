@@ -1,0 +1,106 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "requisitionCode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "backfill": {
+      "type": "boolean"
+    },
+    "createdAt": {
+      "type": "date-time"
+    },
+    "creator": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "headcountHired": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "headcountTotal": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "hiringManager": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "owner": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "compensationBand": {},
+    "employmentStatus": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "location": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "internalNotes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "postings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "department": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "team": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "offerIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "customFields": {}
+  }
+}

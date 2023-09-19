@@ -1,0 +1,195 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "currentStatus": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "permissions": {
+      "type": "string"
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "date-time"
+    },
+    "updatedBy": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "date-time"
+    },
+    "accessedAt": {
+      "type": "date-time"
+    },
+    "depth": {
+      "type": "string"
+    },
+    "htmlName": {
+      "type": "string"
+    },
+    "processingType": {
+      "type": "string"
+    },
+    "emailAddressFormFieldId": {
+      "type": "string"
+    },
+    "submitFailedLandingPageId": {
+      "type": "string"
+    },
+    "html": {
+      "type": "string"
+    },
+    "style": {
+      "type": "string"
+    },
+    "elements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "altText": {
+            "type": "string"
+          },
+          "createdFromContactFieldId": {
+            "type": "string"
+          },
+          "dataType": {
+            "type": "string"
+          },
+          "displayType": {
+            "type": "string"
+          },
+          "fieldMergeId": {
+            "type": "string"
+          },
+          "htmlName": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "optionListId": {
+            "type": "string"
+          },
+          "style": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "useGlobalSubscriptionStatus": {
+            "type": "string"
+          },
+          "validations": {
+            "type": "string"
+          },
+          "depth": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "numberOfFieldsToDisplay": {
+            "type": "string"
+          },
+          "onlyShowIncompleteFields": {
+            "type": "string"
+          },
+          "randomizeFields": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "processingSteps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "allowResend": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "emailAddressFormFieldId": {
+            "type": "string"
+          },
+          "emailId": {
+            "type": "string"
+          },
+          "eventId": {
+            "type": "string"
+          },
+          "execute": {
+            "type": "string"
+          },
+          "keyFieldId": {
+            "type": "string"
+          },
+          "mappings": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "campaignElementId": {
+            "type": "string"
+          },
+          "campaignId": {
+            "type": "string"
+          },
+          "keyFieldMapping": {
+            "type": "string"
+          },
+          "resendLimit": {
+            "type": "integer"
+          },
+          "landingPageId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "customCSS": {
+      "type": "string"
+    },
+    "defaultKeyFieldMapping": {
+      "type": "string"
+    },
+    "folderId": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    }
+  }
+}

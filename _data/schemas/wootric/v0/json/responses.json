@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "created_at": {
+      "type": "date-time"
+    },
+    "updated_at": {
+      "type": "date-time"
+    },
+    "score": {
+      "type": "integer"
+    },
+    "text": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ip_address": {
+      "type": "string"
+    },
+    "origin_url": {
+      "type": "string"
+    },
+    "end_user_id": {
+      "type": "integer"
+    },
+    "survey_id": {
+      "type": "integer"
+    },
+    "completed": {
+      "type": "boolean"
+    },
+    "excluded_from_calculations": {
+      "type": "boolean"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

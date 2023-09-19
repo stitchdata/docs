@@ -1,0 +1,350 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "create_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "emails_sent": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "recipients": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "list_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "list_is_active": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "list_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "segment_opts": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "saved_segment_id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "match": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "conditions": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "condition_type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "op": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "field": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "store_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "settings": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "from_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "reply_to": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "use_conversation": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "to_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "authenticate": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "auto_footer": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "inline_css": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      }
+    },
+    "tracking": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "opens": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "html_clicks": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "text_clicks": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "goal_tracking": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "ecomm360": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "google_analytics": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "clicktale": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "salesforce": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "campaign": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "notes": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            }
+          }
+        },
+        "capsule": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "notes": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "trigger_settings": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "workflow_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "runtime": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "workflow_title": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "workflow_emails_count": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      }
+    },
+    "report_summary": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "opens": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "unique_opens": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "open_rate": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "clicks": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "subscriber_clicks": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "click_rate": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      }
+    }
+  }
+}

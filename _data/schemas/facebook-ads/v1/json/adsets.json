@@ -1,0 +1,607 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "end_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "promoted_object": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "custom_event_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "pixel_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "pixel_rule": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "page_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "object_store_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "application_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "product_set_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "offer_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "account_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "daily_budget": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "maximum": 100000000000000000000000000000000,
+      "minimum": -100000000000000000000000000000000,
+      "multipleOf": 1e-06,
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true
+    },
+    "budget_remaining": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "maximum": 100000000000000000000000000000000,
+      "minimum": -100000000000000000000000000000000,
+      "multipleOf": 1e-06,
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true
+    },
+    "effective_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "campaign_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "lifetime_budget": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "maximum": 100000000000000000000000000000000,
+      "minimum": -100000000000000000000000000000000,
+      "multipleOf": 1e-06,
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true
+    },
+    "targeting": {
+      "definitions": {
+        "id_name_pairs": {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "targeting_fields": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "household_composition": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "home_type": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "friends_of_connections": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "family_statuses": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "work_positions": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "education_majors": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "life_events": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "moms": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "custom_audiences": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "interests": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "behaviors": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "connections": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "excluded_connections": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "user_adclusters": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "income": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "excluded_custom_audiences": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "work_employers": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "industries": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "net_worth": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "relationship_statuses": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "generation": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "home_ownership": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            },
+            "politics": {
+              "$ref": "targeting.json#/definitions/id_name_pairs"
+            }
+          }
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "excluded_custom_audiences": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "messenger_positions": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "locales": {
+          "items": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "connections": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "instagram_positions": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "audience_network_positions": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "exclusions": {
+          "$ref": "targeting.json#/definitions/targeting_fields"
+        },
+        "interests": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "geo_locations": {
+          "$ref": "geo_locations.json"
+        },
+        "excluded_geo_locations": {
+          "$ref": "geo_locations.json"
+        },
+        "work_positions": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "education_statuses": {
+          "items": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "publisher_platforms": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "age_max": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "custom_audiences": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "device_platforms": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "age_min": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "facebook_positions": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "excluded_connections": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "flexible_spec": {
+          "items": {
+            "$ref": "targeting.json#/definitions/targeting_fields"
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "friends_of_connections": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "user_os": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "user_device": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "excluded_publisher_categories": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "genders": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "targeting_optimization": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "user_adclusters": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "generation": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "behaviors": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "moms": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "home_ownership": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "office_type": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "home_type": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "family_statuses": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "relationship_statuses": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "industries": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "income": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "app_install_state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "net_worth": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "politics": {
+          "$ref": "targeting.json#/definitions/id_name_pairs"
+        },
+        "interested_in": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "excluded_user_device": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    },
+    "bid_info": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "CLICKS": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "ACTIONS": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "IMPRESSIONS": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "REACH": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      }
+    },
+    "adlabels": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "created_time": {
+            "type": "date-time"
+          },
+          "updated_time": {
+            "type": "date-time"
+          }
+        }
+      }
+    }
+  }
+}

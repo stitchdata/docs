@@ -1,0 +1,101 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "accounts": {
+      "type": [
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "campaign_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "cellphone_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "cellphone_number_country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "email_address": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "first_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "labels": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "last_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "profile_image": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "work_phone_number": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "work_phone_number_country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}

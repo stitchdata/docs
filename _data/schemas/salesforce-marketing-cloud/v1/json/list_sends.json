@@ -1,0 +1,166 @@
+{
+  "type": "object",
+  "properties": {
+    "CreatedDate": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Read-only date and time of the object's creation."
+    },
+    "CustomerKey": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "User-supplied unique identifier for an object within an object type (corresponds to the external key assigned to an object in the user interface)."
+    },
+    "ExistingUndeliverables": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Indicates whether bounces occurred on previous send."
+    },
+    "ExistingUnsubscribes": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Indicates whether unsubscriptions occurred on previous send."
+    },
+    "ForwardedEmails": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Number of emails forwarded for a send."
+    },
+    "HardBounces": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Indicates number of hard bounces associated with a send."
+    },
+    "InvalidAddresses": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Specifies the number of invalid addresses associated with a send."
+    },
+    "ListID": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "List associated with the send."
+    },
+    "ID": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Read-only legacy identifier for an object. Not supported on all objects. Some objects use the ObjectID property as the Marketing Cloud unique ID."
+    },
+    "MissingAddresses": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Specifies number of missing addresses encountered within a send."
+    },
+    "ModifiedDate": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Indicates the last time object information was modified."
+    },
+    "NumberDelivered": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Number of sent emails that did not bounce."
+    },
+    "NumberSent": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Number of emails actually sent as part of an email send. This number reflects all of the sent messages and may include bounced messages."
+    },
+    "ObjectID": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "System-controlled, read-only text string identifier for object."
+    },
+    "OtherBounces": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Specifies number of Other-type bounces in a send."
+    },
+    "PartnerProperties": {
+      "type": "array",
+      "description": "Specifies key-value pairs of properties associated with an object.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    },
+    "SendID": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Contains identifier for a specific send."
+    },
+    "SoftBounces": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Indicates number of soft bounces associated with a specific send."
+    },
+    "UniqueClicks": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Indicates number of unique clicks on message."
+    },
+    "UniqueOpens": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Indicates number of unique opens resulting from a triggered send."
+    },
+    "Unsubscribes": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Indicates the number of unsubscribe events associated with a send."
+    }
+  }
+}

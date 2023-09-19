@@ -1,0 +1,135 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "question_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "content": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "author": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "username": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "customTitle": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "signature": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "avatar": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "reputation": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "rank": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "rankIcon": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "rankIconThumbnail": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "likesReceived": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "repliesMade": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "repliedAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "highlighted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "trashed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "pendingApproval": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "likedBy": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "string"
+        ]
+      }
+    }
+  }
+}

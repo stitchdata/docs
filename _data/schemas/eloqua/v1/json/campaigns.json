@@ -1,0 +1,119 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "currentStatus": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "folderId": {
+      "type": "string"
+    },
+    "sourceTemplateId": {
+      "type": "string"
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "date-time"
+    },
+    "updatedBy": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "date-time"
+    },
+    "accessedAt": {
+      "type": "date-time"
+    },
+    "scheduledFor": {
+      "type": "date-time"
+    },
+    "depth": {
+      "type": "string"
+    },
+    "elements": {
+      "type": "array",
+      "items": {}
+    },
+    "isReadOnly": {
+      "type": "string"
+    },
+    "runAsUserId": {
+      "type": "string"
+    },
+    "startAt": {
+      "type": "date-time"
+    },
+    "endAt": {
+      "type": "date-time"
+    },
+    "budgetedCost": {
+      "type": "string"
+    },
+    "actualCost": {
+      "type": "string"
+    },
+    "isMemberAllowedReEntry": {
+      "type": "string"
+    },
+    "fieldValues": {
+      "type": "array",
+      "items": {}
+    },
+    "campaignType": {
+      "type": "string"
+    },
+    "product": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "clrEndDate": {
+      "type": "date-time"
+    },
+    "crmId": {
+      "type": "string"
+    },
+    "isSyncedWithCRM": {
+      "type": "string"
+    },
+    "isIncludedInROI": {
+      "type": "string"
+    },
+    "badgeId": {
+      "type": "string"
+    },
+    "isEmailMarketingCampaign": {
+      "type": "string"
+    },
+    "campaignCategory": {
+      "type": "string"
+    },
+    "firstActivation": {
+      "type": "date-time"
+    },
+    "memberCount": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "type": "object",
+  "properties": {
+    "_contact_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sessionId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "startTime": {
+      "type": "date-time"
+    },
+    "duration": {
+      "type": "integer"
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "direction": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "action": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "result": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deleted": {},
+    "reason": {},
+    "reasonDescription": {},
+    "message": {},
+    "to": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phoneNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "location": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "extensionId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "from": {
+      "type": "object",
+      "properties": {
+        "phoneNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "location": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "extensionId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "extension": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

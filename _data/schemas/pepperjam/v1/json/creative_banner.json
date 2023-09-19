@@ -1,0 +1,151 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "destination_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "banner_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "alt_text": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "width": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "height": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "promotions": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "private": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "private_affiliates": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "affiliate_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "first_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "last_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "allow_deep_link": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "start_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "end_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "view_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "modified": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}

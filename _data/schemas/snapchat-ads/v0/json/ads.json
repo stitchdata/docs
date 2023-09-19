@@ -1,0 +1,162 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "paying_advertiser_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ad_account_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ad_squad_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "creative_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "render_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "review_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "review_status_reasons": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "third_party_paid_impression_tracking_urls": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "tracking_url_metadata": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": true,
+                "properties": {}
+              },
+              "expanded_tracking_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "tracking_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "third_party_swipe_tracking_urls": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "tracking_url_metadata": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": true,
+                "properties": {}
+              },
+              "expanded_tracking_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "tracking_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  }
+}

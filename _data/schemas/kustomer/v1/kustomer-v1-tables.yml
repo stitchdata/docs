@@ -13,6 +13,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: customers
   description: 'The `{{ table.name }}` table contains information about customers
     in the {{ integration.display_name }} app.
@@ -25,6 +26,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: kobjects
   description: 'The `{{ table.name }}` table contains information about {{ integration.display_name
     }} objects in the {{ integration.display_name }} app.
@@ -37,6 +39,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: messages
   description: 'The `{{ table.name }}` table contains information about messages in
     the {{ integration.display_name }} app.
@@ -49,6 +52,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: notes
   description: 'The `{{ table.name }}` table contains information about notes in the
     {{ integration.display_name }} app.
@@ -61,6 +65,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: shortcuts
   description: 'The `{{ table.name }}` table contains information about shortcuts
     in the {{ integration.display_name }} app.
@@ -73,6 +78,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: tags
   description: 'The `{{ table.name }}` table contains information about tags in the
     {{ integration.display_name }} app.
@@ -85,6 +91,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: teams
   description: 'The `{{ table.name }}` table contains information about teams in the
     {{ integration.display_name }} app.
@@ -97,6 +104,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: users
   description: 'The `{{ table.name }}` table contains information about users in the
     {{ integration.display_name }} app.
@@ -109,3 +117,4 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found

@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "user_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "webinar_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "join_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "leave_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "duration": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "attentiveness_score": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}

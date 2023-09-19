@@ -1,0 +1,213 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "featuredImage": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "publicLabel": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "content": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "author": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "username": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "customTitle": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "signature": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "avatar": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "reputation": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "rank": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "rankIcon": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "rankIconThumbnail": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "likesReceived": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "repliesMade": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "createdAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "replyCount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "tags": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "string"
+        ]
+      }
+    },
+    "moderatorTags": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "string"
+        ]
+      }
+    },
+    "containsPoll": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "closed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "sticky": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "trashed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "lastEdit": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "editor": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "username": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "editedAt": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      }
+    }
+  }
+}

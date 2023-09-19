@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "created_at": {
+      "type": "date-time"
+    },
+    "updated_at": {
+      "type": "date-time"
+    },
+    "email": {
+      "type": "string"
+    },
+    "last_surveyed": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "external_created_at": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "page_views_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "type": "object",
+  "properties": {
+    "ID": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Read-only legacy identifier for an object. Not supported on all objects. Some objects use the ObjectID property as the Marketing Cloud unique ID."
+    },
+    "CreatedDate": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Read-only date and time of the object's creation."
+    },
+    "ModifiedDate": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Indicates the last time object information was modified."
+    },
+    "ObjectID": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "System-controlled, read-only text string identifier for object."
+    },
+    "PartnerProperties": {
+      "type": "array",
+      "description": "Specifies key-value pairs of properties associated with an object.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    },
+    "ListID": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Defines identification for a list the subscriber resides on."
+    },
+    "Status": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Defines status of object. Status of an address."
+    },
+    "SubscriberKey": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Identification of a specific subscriber."
+    }
+  }
+}

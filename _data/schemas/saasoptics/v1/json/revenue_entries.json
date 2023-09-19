@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "end_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "home_amount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-10
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "local_amount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-10
+    },
+    "modified": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "start_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "transaction": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  }
+}

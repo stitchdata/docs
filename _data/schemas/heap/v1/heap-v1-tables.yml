@@ -20,6 +20,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: event_id
+  status: not_found
 - name: pageviews
   description: 'The `{{ table.name }}` table contains info about pageviews.
 
@@ -35,6 +36,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: event_id
+  status: not_found
 - name: sessions
   description: 'The `{{ table.name }}` table contains info about sessions. In {{ integration.display_name
     }}, a web session ends after 30 minutes of user inactivity, while in iOS, a session
@@ -52,6 +54,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: event_id
+  status: not_found
 - name: users
   description: 'The `{{ table.name }}` table contains info about users.
 
@@ -67,6 +70,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: user_id
+  status: not_found
 - name: user_migrations
   description: 'The `{{ table.name }}` table contains info about user migrations.
 
@@ -82,3 +86,4 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: from_user_id
+  status: not_found

@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "key": true
+    },
+    "accountId": {
+      "type": "string",
+      "key": true
+    },
+    "email": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "firstSeenIP": {
+      "type": "string"
+    },
+    "lastSeenIP": {
+      "type": "string"
+    },
+    "dateCreated": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "emailHash": {
+      "type": "string"
+    },
+    "referralSource": {
+      "type": "string"
+    },
+    "locale": {
+      "type": "string"
+    },
+    "shareLink": {
+      "type": "string"
+    },
+    "facebookShareLink": {
+      "type": "string"
+    },
+    "twitterShareLink": {
+      "type": "string"
+    },
+    "emailShareLink": {
+      "type": "string"
+    },
+    "linkedinShareLink": {
+      "type": "string"
+    }
+  }
+}

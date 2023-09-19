@@ -14,6 +14,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: comments
   description: 'The `comments` table contains info about the comments forum users
     have made.
@@ -26,6 +27,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: external_accounts
   description: 'The `{{ table.name }}` table contains info about accounts from external
     systems.
@@ -38,6 +40,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: external_users
   description: 'The `{{ table.name }}` table contains info about users from external
     systems.
@@ -50,6 +53,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: features
   description: 'The `{{ table.name }}` table contains info about planned product features.
 
@@ -61,6 +65,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: feature_statuses
   description: 'The `{{ table.name }}` table contains info about feature statuses,
     which are used to indicate a feature''s current state.
@@ -73,6 +78,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: forums
   description: 'The `{{ table.name }}` table contains info about your discussion forums.
 
@@ -84,6 +90,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: labels
   description: 'The `{{ table.name }}` table contains info about labels in your {{
     integration.display_name }} account, which admins use to internally organize suggestions.
@@ -96,6 +103,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: nps_ratings
   description: 'The `{{ table.name }}` table contains info about NPS, or Net Promoter
     Scores. NPS is used to measure customer satisfaction on a scale from 0-10.
@@ -108,6 +116,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: product_areas
   description: 'The `{{ table.name }}` table contains info about your product areas,
     which can be assigned to features to organize them into groups.
@@ -120,6 +129,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: requests
   description: 'The `{{ table.name }}` table contains info about requests, which are
     specific pieces of feedback submitted by your end users. Requests are associated
@@ -136,6 +146,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: segmented_values
   description: 'The `{{ table.name }}` table contains info about segmented values,
     which are calculated columns that aggregate supporter metrics for a segment.
@@ -148,6 +159,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: segments
   description: 'The `{{ table.name }}` table contains info about segments, which are
     subsets of your end users and accounts defined by a set of criteria.
@@ -160,6 +172,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: stauses
   description: "The `{{ table.name }}` table contains info about the various suggestion\
     \ statuses in your {{ integration.display_name }} account. \n"
@@ -170,6 +183,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: status_updates
   description: 'The `{{ table.name }}` table contains info about admin changes to
     the statuses of suggestions.
@@ -181,6 +195,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     replication-key: updated_at
+  status: not_found
 - name: suggestions
   description: 'The `{{ table.name }}` table contains info about suggestions, or requested
     changes to your product. Suggestions can be created by your end users, your product
@@ -198,6 +213,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: supporters
   description: 'The `{{ table.name }}` table contains info about supporters, who are
     end users that are supporters of a suggestion.
@@ -210,6 +226,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+  status: not_found
 - name: teams
   description: 'The `{{ table.name }}` table contains info about the teams in your
     {{ integration.display_name }} account. {{ integration.display_name }} admins
@@ -223,6 +240,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
+  status: not_found
 - name: users
   description: "The `{{ table.name }}` table contains info about your users. This\
     \ includes both {{ integration.display_name }} admins and end users. \n"
@@ -235,3 +253,4 @@ tables:
     replication-keys:
     - updated_at
     - created_at
+  status: not_found

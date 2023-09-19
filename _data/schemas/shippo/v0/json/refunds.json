@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "properties": {
+    "object_status": {
+      "type": "string"
+    },
+    "object_created": {
+      "type": "date-time"
+    },
+    "object_updated": {
+      "type": "date-time"
+    },
+    "object_id": {
+      "type": "string"
+    },
+    "object_owner": {
+      "type": "string"
+    },
+    "transaction": {
+      "type": "string"
+    },
+    "test": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    }
+  },
+  "required": [
+    "object_id"
+  ]
+}

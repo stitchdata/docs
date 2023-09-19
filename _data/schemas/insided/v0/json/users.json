@@ -1,0 +1,331 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "userid": {
+      "type": [
+        "string"
+      ]
+    },
+    "usergroupid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "membergroupids": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "displaygroupid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "username": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "posts": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "deleted_posts": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "options": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "autosubscribe": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "customoptions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "topics": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "solved": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "ipaddress": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "usertitle": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customtitle": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pmunread": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "subscriptions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "pmtotal": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "following": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "followers": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "avatar": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "signature": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lastvisit": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "lastactivity": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "insided_sso_customeruid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lastpostid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lastpost": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "joindate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "likes": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "likes_given": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "rank_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "rank_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "rank_display_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "rank_avatar_icon": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "rank_avatar_icon_thumb": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_moderator": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "cdn": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "blogposts": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "researches": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reputation": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reviewcount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "ratingcount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "crudListCacheDependencyKey": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "_related": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "_related": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "userprofilefields": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "type": [
+                  "object"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "userid": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "profilefieldid": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "profilefield_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

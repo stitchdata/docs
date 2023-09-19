@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "event": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "distinct_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "labels": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "sampling_factor": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "dataset": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}

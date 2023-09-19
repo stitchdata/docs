@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "date": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date"
+    },
+    "datetime": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "paid_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "amount": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "singer.decimal"
+    }
+  }
+}

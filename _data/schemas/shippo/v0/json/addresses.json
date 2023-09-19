@@ -1,0 +1,88 @@
+{
+  "type": "object",
+  "properties": {
+    "object_state": {
+      "type": "string"
+    },
+    "object_purpose": {
+      "type": "string"
+    },
+    "object_source": {
+      "type": "string"
+    },
+    "object_created": {
+      "type": "date-time"
+    },
+    "object_updated": {
+      "type": "date-time"
+    },
+    "object_id": {
+      "type": "string"
+    },
+    "object_owner": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "street1": {
+      "type": "string"
+    },
+    "street2": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "zip": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "is_residential": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "metadata": {
+      "type": "string"
+    },
+    "test": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "code": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "object_id"
+  ]
+}

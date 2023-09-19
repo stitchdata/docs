@@ -1,0 +1,79 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "from_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "acquisition_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "to_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "type_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "security_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "status_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "ownership_percentage": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "commitment": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_soft_deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "default": false
+    }
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "bogo_buy_image_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_buy_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_buy_quantity": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_buy_scope": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_get_discount_amount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "bogo_get_discount_currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_get_discount_percent": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "bogo_get_discount_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_get_image_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_get_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_get_quantity": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_get_scope": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "campaign_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "categories": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "default_promo_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "discount_amount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "discount_currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "discount_maximum_percent": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "discount_percent": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "discount_percent_range_end": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "discount_percent_range_start": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "discount_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "end_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "gift": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "maximum_savings_amount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "maximum_savings_currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "minimum_purchase_amount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "minimum_purchase_amount_currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "products": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "purchase_limit_quantity": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "rebate_amount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "rebate_currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "restricted_media_partner_groups": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "restricted_media_partners": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "scope": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "synch_ads_promo_codes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}

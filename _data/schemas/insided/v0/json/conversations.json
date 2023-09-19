@@ -1,0 +1,218 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "content": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "author": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "username": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "customTitle": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "signature": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "avatar": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "reputation": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "rank": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "rankIcon": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "rankIconThumbnail": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "likesReceived": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "repliesMade": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "categoryId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "startedAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "lastActivityAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "replyCount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "tags": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "string"
+        ]
+      }
+    },
+    "moderatorTags": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "string"
+        ]
+      }
+    },
+    "likedBy": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "string"
+        ]
+      }
+    },
+    "containsPoll": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "closed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "sticky": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "trashed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "pendingApproval": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "pinnedReplyId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "_links": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "self": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "href": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

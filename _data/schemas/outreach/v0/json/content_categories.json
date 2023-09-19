@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "allowSequences": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "allowSnippets": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "allowTemplates": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "createdAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updatedAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "creatorId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  }
+}

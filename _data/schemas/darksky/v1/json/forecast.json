@@ -1,0 +1,369 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "latitude": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-10
+    },
+    "longitude": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-10
+    },
+    "timezone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "offset": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 0.001
+    },
+    "start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "end_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "local_date": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "forecast_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "hourly": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "summary": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "icon": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "data": {
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      }
+    },
+    "daily": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "time": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "summary": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "icon": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sunrise_time": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "sunset_time": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "moon_phase": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "precip_intensity": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "precip_intensity_max": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "precip_intensity_max_time": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "precip_probability": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "precip_accumululation": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "precip_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "temperature_high": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "temperature_high_time": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "temperature_low": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "temperature_low_time": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "apparent_temperature_high": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "apparent_temperature_high_time": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "apparent_temperature_low": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "apparent_temperature_low_time": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "dew_point": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "humidity": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "pressure": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "wind_speed": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "wind_bearing": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "cloud_cover": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "uv_index": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "uv_index_time": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "visibility": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "temperature_max": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "temperature_max_time": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "temperature_min": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "temperature_min_time": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "apparent_temperature_max": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "apparent_temperature_max_time": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "apparent_temperature_min": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "apparent_temperature_min_time": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      }
+    },
+    "flags": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "nearest_station": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "multipleOf": 1e-10
+        },
+        "units": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sources": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

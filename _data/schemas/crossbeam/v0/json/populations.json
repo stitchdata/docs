@@ -1,0 +1,133 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "base_schema": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "base_table": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "population_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "source_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "filter_expression": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "string"
+        ]
+      }
+    },
+    "current_version": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "integer"
+          ]
+        },
+        "is_active": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "first_processed_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      }
+    },
+    "filter_parts": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": [
+              "integer"
+            ]
+          },
+          "schema": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "table": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "column": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "operator": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "operand": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

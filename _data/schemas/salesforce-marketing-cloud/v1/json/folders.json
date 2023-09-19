@@ -1,0 +1,103 @@
+{
+  "type": "object",
+  "properties": {
+    "AllowChildren": {
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "description": "Specifies whether a data folder can have child data folders."
+    },
+    "ContentType": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Defines the type of content contained within a folder."
+    },
+    "CreatedDate": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Read-only date and time of the object's creation."
+    },
+    "CustomerKey": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "User-supplied unique identifier for an object within an object type (corresponds to the external key assigned to an object in the user interface)."
+    },
+    "Description": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Describes and provides information regarding the object."
+    },
+    "ID": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Read-only legacy identifier for an object. Not supported on all objects. Some objects use the ObjectID property as the Marketing Cloud unique ID."
+    },
+    "ModifiedDate": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Indicates the last time object information was modified."
+    },
+    "Name": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Name of the object or property."
+    },
+    "ObjectID": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "System-controlled, read-only text string identifier for object."
+    },
+    "ParentFolder": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Specifies the parent folder for a data folder."
+    },
+    "PartnerProperties": {
+      "type": "array",
+      "description": "Specifies key-value pairs of properties associated with an object.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    },
+    "Type": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Indicates type of specific list. Valid values include Public, Private, Salesforce, GlobalUnsubscribe, and Master."
+    }
+  }
+}

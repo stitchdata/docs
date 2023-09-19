@@ -1,0 +1,136 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "owner_type_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "excel_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "color": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "currency_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "enabled_capabilities_string": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type_of_plan_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "calendar_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object_type_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "has_logo": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "business_unit_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "initial_period": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "total_committed_capital": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "vintage": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_soft_deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "default": false
+    },
+    "period_mapping": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "fiscal_period_mapping": {
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

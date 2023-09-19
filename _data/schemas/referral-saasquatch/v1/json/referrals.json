@@ -1,0 +1,66 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "key": true
+    },
+    "programId": {
+      "type": "string"
+    },
+    "referredUser": {
+      "type": "string"
+    },
+    "referredAccount": {
+      "type": "string"
+    },
+    "referredReward": {
+      "type": "string"
+    },
+    "referredModerationStatus": {
+      "type": "string"
+    },
+    "referrerUser": {
+      "type": "string"
+    },
+    "referrerAccount": {
+      "type": "string"
+    },
+    "referrerReward": {
+      "type": "string"
+    },
+    "referrerModerationStatus": {
+      "type": "string"
+    },
+    "dateReferralStarted": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "dateConverted": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "dateReferralPaid": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "dateReferralEnded": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "dateModerated": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "currentStatus": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "folderId": {
+      "type": "string"
+    },
+    "sourceTemplateId": {
+      "type": "string"
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "date-time"
+    },
+    "updatedBy": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "date-time"
+    },
+    "accessedAt": {
+      "type": "date-time"
+    },
+    "scheduledFor": {
+      "type": "string"
+    },
+    "depth": {
+      "type": "string"
+    },
+    "externalAssetTypeId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

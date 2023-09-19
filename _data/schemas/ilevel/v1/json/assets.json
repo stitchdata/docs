@@ -1,0 +1,142 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "type_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "investment_thesis": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object_type_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "excel_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "calendar_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "has_acquisition_as_of": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "acquisition_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "initial_period": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "acquisition_as_of": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "asset_status_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "lead_fund_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "currency_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "industry_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_soft_deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "default": false
+    },
+    "period_mapping": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "fiscal_period_mapping": {
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}
