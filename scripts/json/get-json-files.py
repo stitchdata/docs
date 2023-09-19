@@ -8,8 +8,8 @@ host = 'https://api.github.com'
 github_headers = {'Authorization': github_token}
 
 # Get repository name
-repo = sys.argv[2]
-branch = sys.argv[3]
+# repo = sys.argv[2]
+# branch = sys.argv[3]
 
 def getTableData(integration, version, schema_list):
 
@@ -100,10 +100,10 @@ def getIntegrationId(repo):
 
     return integration_id
 
-def getFiles(repo, branch):
+def getFiles(repo):
 
     # Get all PRs that are closed and had the default branch as base
-    contents_api = host + '/repos/singer-io/' + repo + '/zipball/' + branch
+    contents_api = host + '/repos/singer-io/' + repo + '/zipball'
     repo_contents = requests.get(contents_api, headers=github_headers)
     output_dir = '../../../'
     output_file = '{0}{1}.zip'.format(output_dir, repo)
@@ -140,6 +140,22 @@ def getFiles(repo, branch):
             schema_list = formatJSON(schemas, json_output_folder)
 
             getTableData(integration_id, tap_version, schema_list)
- 
-getFiles(repo, branch)
+
+issues = []
+
+file = '../../_data/taps/integrations.yml'
+
+with open(file, 'r') as f:
+    data = yaml.safe_load(f)
+    
+    integrations = data['integrations']
+    for i in integrations:
+        tap = integrations[i]['tap']
+
+        if tap != '':
+            try:
+                getFiles(tap)
+            except:
+                issues.append(tap)
+
 
