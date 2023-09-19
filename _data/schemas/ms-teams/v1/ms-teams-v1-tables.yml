@@ -1,0 +1,169 @@
+tap: ms-teams
+version: '1'
+tables:
+- name: channels
+  description: 'The `{{ table.name }}` table contains information about the channels
+    within a team in your Microsoft account.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/graph/api/channel-list?view=graph-rest-1.0&tabs=http
+    singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/channels.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: channel_members
+  description: 'The `{{ table.name }}` table contains information about conversation
+    members within a chat or channel in your Microsoft account.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/graph/api/conversationmember-list?view=graph-rest-beta&tabs=http
+    singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/channel_members.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: channel_messages
+  description: 'The `{{ table.name }}` table contains information about messages in
+    a channel, without replies, in your Microsoft account.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/graph/api/chatmessage-delta?view=graph-rest-beta&tabs=http
+    singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/channel_messages.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: lastModified_date_time
+- name: channel_message_replies
+  description: 'The `{{ table.name }}` table contains information about message replies
+    within a channel in one of your Microsoft teams.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/graph/api/channel-list-messagereplies?view=graph-rest-beta&tabs=http
+    singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/channel_message_replies.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date_time
+- name: channel_tabs
+  description: 'The `{{ table.name }}` table contains information about tabs within
+    a channel in one of your Microsoft teams.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/graph/api/teamstab-list?view=graph-rest-beta
+    singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/channel_tabs.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: conversations
+  description: 'The `{{ table.name }}` table contains information about conversations
+    within a group in your Microsoft account.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/graph/api/group-list-conversations?view=graph-rest-beta&tabs=http
+    singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/conversations.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_delivered_date_time
+- name: conversation_posts
+  description: 'The `{{ table.name }}` table contains information about the posts
+    within a conversation thread in your Microsoft account.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/graph/api/conversationthread-list-posts?view=graph-rest-beta&tabs=http
+    singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/conversation_posts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date_time
+- name: conversation_threads
+  description: 'The `{{ table.name }}` table contains information about threads in
+    a group conversation in your Microsoft account.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/graph/api/conversation-list-threads?view=graph-rest-beta&tabs=http
+    singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/conversation_threads.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_delivered_date_time
+- name: groups
+  description: 'The `{{ table.name }}` table contains information about groups in
+    your organization within your Microsoft account. Some old teams in your account
+    will not have a `resource_provisioning_options` value. For more information, refer
+    to [Microsoft''s docs](https://docs.microsoft.com/en-us/graph/known-issues#missing-teams-in-list-all-teams){:target="new"}.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/graph/teams-list-all-teams?context=graph%2Fapi%2Fbeta&view=graph-rest-beta
+    singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/groups.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: group_members
+  description: 'The `{{ table.name }}` table contains information about group members
+    in your Microsoft account. Members can be users, organizational contacts, devices,
+    service principals, and other groups.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/graph/api/group-list-members?view=graph-rest-1.0&tabs=http
+    singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/group_members.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: group_owners
+  description: "The `{{ table.name }}` table contains information about groups' owners\
+    \ in your Microsoft account. The owners can be a set of users or service principals\
+    \ that have modifying priviliges. \n\n**Note**: Groups created in Microsoft Exchange\
+    \ will not be available in this table.\n"
+  links:
+    doc-link: https://docs.microsoft.com/en-us/graph/api/group-list-owners?view=graph-rest-1.0&tabs=http
+    singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/group_owners.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: team_device_usage_report
+  description: 'The `{{ table.name }}` table contains information about a group''s
+    device usage in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/graph/api/reportroot-getteamsdeviceusageuserdetail?view=graph-rest-beta
+    singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/team_device_usage_report.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - user_principal_name
+    - report_refresh_date
+    replication-key: report_refresh_date
+- name: team_drives
+  description: 'The `{{ table.name }}` table contains information about the drive
+    that your team is on in your Microsoft account.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/graph/api/drive-get?view=graph-rest-beta&tabs=http#get-the-document-library-associated-with-a-group
+    singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/team_drives.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date_time
+- name: users
+  description: 'The `{{ table.name }}` table contains information about users in your
+    Microsoft account.
+
+    '
+  links:
+    doc-link: hhttps://docs.microsoft.com/en-us/graph/api/resources/user?view=graph-rest-beta
+    singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/users.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id

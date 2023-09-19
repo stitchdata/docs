@@ -1,0 +1,165 @@
+tap: salesforce-marketing-cloud
+version: '1'
+tables:
+- name: campaign
+  description: 'The `{{ table.name }}` table contains info about the campaigns in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/campaign.htm
+    singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/endpoints/campaigns.py
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+    replication-key: modifiedDate
+- name: content_area
+  description: 'The `{{ table.name }}` table contains info about the reusable content
+    sections in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/contentarea.htm
+    singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/endpoints/content_areas.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: ID
+    replication-key: ModifiedDate
+- name: data_extension
+  description: 'The `{{ table.name }}` table contains info about the data extensions
+    in your {{ integration.display_name }} account. A table will be created for each
+    [data extension](https://help.salesforce.com/articleView?id=mc_cab_data_extensions.htm&type=5){:target="new"}
+    in your {{ integration.display_name }} account.
+
+
+    For example: If there are two data extensions named `MobileAddress` and `MobileSubscription`,
+    two tables would be created: `{{ table.name }}._MobileAddress` and `{{ table.name
+    }}._MobileSubscription`
+
+
+    **Note**: Retrieving data extension data requires [**Read, Write** permissions
+    for Data Extensions](#add-api-component-to-package).
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/dataextensionobject.htm
+    singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/endpoints/data_extensions.py
+  table-details:
+    replication-method: Full Table
+    primary-key: _CustomObjectKey
+- name: email
+  description: 'The `{{ table.name }}` table contains info about the emails in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/email.htm
+    singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/endpoints/emails.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: ID
+    replication-key: ModifiedDate
+- name: event
+  description: 'The `{{ table.name }}` table contains info about the following event
+    types:
+
+
+    - [`BounceEvent`](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/bounceevent.htm){:target="new"}
+
+    - [`ClickEvent`](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/clickevent.htm){:target="new"}
+
+    - [`OpenEvent`](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/openevent.htm){:target="new"}
+
+    - [`SentEvent`](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/sentevent.htm){:target="new"}
+
+    - [`UnsubEvent`](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/unsubevent.htm){:target="new"}
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/endpoints/events.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - SendID
+    - EventType
+    - SubscriberKey
+    - EventDate
+    replication-key: EventDate
+- name: folder
+  description: 'The `{{ table.name }}` table contains info about the folders in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/datafolder.htm
+    singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/endpoints/folders.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: ID
+    replication-key: ModifiedDate
+- name: list
+  description: 'The `{{ table.name }}` table contains info about the lists in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/list.htm
+    singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/endpoints/lists.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: ID
+    replication-key: ModifiedDate
+- name: list_send
+  description: 'The `{{ table.name }}` table contains info about the completed sends
+    for lists in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/listsend.htm
+    singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/endpoints/list_sends.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ListID
+    - SendID
+    replication-key: ModifiedDate
+- name: list_subscriber
+  description: 'The `{{ table.name }}` table contains info about the lists associated
+    with a specific subscriber in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/listsubscriber.htm
+    singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/endpoints/list_subscribers.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ListID
+    - SubscriberKey
+    replication-key: ModifiedDate
+- name: send
+  description: 'The `{{ table.name }}` table contains info about the email sends in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/send.htm
+    singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/endpoints/sends.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: ID
+    replication-key: ModifiedDate
+- name: subscriber
+  description: 'The `{{ table.name }}` table contains info about the subscribers (people
+    subscribed to receive email and/or SMS communication) in your {{ integration.display_name
+    }} account.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/subscriber.htm
+    singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/endpoints/subscribers.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: ID
+    replication-key: ModifiedDate

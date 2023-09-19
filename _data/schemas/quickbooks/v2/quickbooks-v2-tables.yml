@@ -1,0 +1,373 @@
+tap: quickbooks
+version: '2'
+tables:
+- name: accounts
+  description: 'The `{{ table.name }}` table contains info about the various account
+    types in you {{ integration.display_name }} instance. This table includes all
+    account types: asset, liability, revenue (income), expenses, and equity.
+
+
+    **Note**: Both active and inactive accounts are included in the data for this
+    table.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/account
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/accounts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: bills
+  description: 'The `{{ table.name }}` table contains info about the bills, or requests
+    for payment from third parties, in your {{ integration.display_name }} instance.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/bill
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/bills.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: bill_payments
+  description: 'The `{{ table.name }}` table contains info about payments made on
+    bills received from vendors for goods or services.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/billpayment
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/bill_payments.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: budgets
+  description: 'The `{{ table.name }}` table contains info about the current state
+    of budgets in your {{ integration.display_name }} instance. **Note**: Both active
+    and inactive budgets are included in the data for this table.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/budget
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/budgets.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: classes
+  description: 'The `{{ table.name }}` table contains info about the classes set up
+    in your {{ integration.display_name }} instance. **Note**: Both active and inactive
+    classes are included in the data for this table.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/class
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/classes.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: credit_memos
+  description: 'The `{{ table.name }}` table contains info about the credit memos
+    in your {{ integration.display_name }} instance. A credit memo is a transaction
+    representing a refund or credit of payment for goods or services that have been
+    sold.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/creditmemo
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/credit_memos.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: customers
+  description: 'The `{{ table.name }}` table contains info about the consumers of
+    your business''s goods and services. **Note**: Both active and inactive customers
+    are included in the data for this table.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/customer
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/customers.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: customer_types
+  description: 'The `{{ table.name }}` table contains info about types of customers.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/changedatacapture#the-changedatacapture-object
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/customer_types.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: deleted_objects
+  description: 'The `{{ table.name }}` table contains info about objects deleted from
+    {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/changedatacapture#the-changedatacapture-object
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/deleted_objects.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: departments
+  description: 'The `{{ table.name }}` table contains info about the departments in
+    your {{ integration.display_name }} instance. **Note**: Both active and inactive
+    departments are included in the data for this table.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/department
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/departments.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: deposits
+  description: 'The `{{ table.name }}` table contains info about deposits in your
+    {{ integration.display_name }} instance. These can be customer payments or new
+    direct deposits.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/deposit
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/deposits.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: employees
+  description: 'The `{{ table.name }}` table contains info about the people working
+    for your company. **Note**: Both active and inactive employees are included in
+    the data for this table.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/employee
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/employees.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: estimates
+  description: 'The `{{ table.name }}` table contains info about the estimates in
+    your {{ integration.display_name }} instance. An estimate is a financial proposal
+    from a business to a [customer](#customers) for goods or services.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/estimate
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/estimates.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: invoices
+  description: 'The `{{ table.name }}` table contains info about the invoices in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/invoice
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/invoices.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: items
+  description: 'The `{{ table.name }}` table contains info about the items your company
+    buys, sells, or re-sells. This includes all item types in {{ integration.display_name
+    }}, such as `Inventory`, `Group`, `Service` and `Noninventory`.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/item
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/items.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: journal_entries
+  description: 'The `{{ table.name }}` table contains info about the journal entries
+    in your {{ integration.display_name }} instance. A journal entry is a transaction
+    that:
+
+
+    - Contains a pair of distribution lines, including a debit and a credit
+
+    - Each distribution line has an account from the Chart of Accounts
+
+    - The total of the debit column equals the total of the credit column
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/journalentry
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/journal_entries.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: payments
+  description: 'The `{{ table.name }}` table contains info about the payments recorded
+    in your {{ integration.display_name }} instance.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/payment
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/payments.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: payment_methods
+  description: 'The `{{ table.name }}` table contains info about the methods of payment
+    your company receives for goods. **Note**: Both active and inactive payment methods
+    are included in the data for this table.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/paymentmethod
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/payment_methods.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: profit_loss_report
+  description: 'The `{{ table.name }}` table contains reports about profit and loss
+    recorded in your {{ integration.display_name }} instance.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/profitandloss
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/profit_loss_report.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: ReportDate
+- name: purchases
+  description: 'The `{{ table.name }}` table contains info about the purchases recorded
+    in your {{ integration.display_name }} instance. This table includes all purchase
+    types: `Cash`, `Check`, and `CreditCard`.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/purchase
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/purchases.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: purchase_orders
+  description: 'The `{{ table.name }}` table contains info about purchase orders in
+    your {{ integration.display_name }} instance. A purchase order is a request to
+    purchase goods or services from a third party.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/purchaseorder
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/purchase_orders.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: refund_receipts
+  description: 'The `{{ table.name }}` table contains info about customer refunds
+    recorded in your {{ integration.display_name }} instance.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/refundreceipt
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/refund_receipts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: sales_receipts
+  description: 'The `{{ table.name }}` table contains info about the sales receipts
+    recorded in your {{ integration.display_name }} instance.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/salesreceipt
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/sales_receipts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: tax_agencies
+  description: 'The `{{ table.name }}` table contains info about the tax-collecting
+    entites defined in your {{ integration.display_name }} instance.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/taxagency
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/tax_agencies.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: tax_codes
+  description: 'The `{{ table.name }}` table contains info about the tax codes defined
+    in your {{ integration.display_name }} instance. **Note**: Both active and inactive
+    tax codes are included in the data for this table.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/taxcode
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/tax_codes.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: tax_rates
+  description: 'The `{{ table.name }}` table contains info about the tax rates defined
+    in your {{ integration.display_name }} instance. **Note**: Both active and inactive
+    tax rates are included in the data for this table.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/taxrate
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/tax_rates.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: terms
+  description: 'The `{{ table.name }}` table contains info about the sale terms defined
+    in your {{ integration.display_name }} instance. **Note**: Both active and inactive
+    terms are included in the data for this table.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/term
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/terms.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: time_activities
+  description: 'The `{{ table.name }}` table contains info about vendor and employee
+    time records in your {{ integration.display_name }} instance.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/timeactivity
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/time_activities.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: transfers
+  description: 'The `{{ table.name }}` table contains info about account transfers
+    from your company''s {{ integration.display_name }} chart of accounts.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/transfer
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/transfers.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: vendors
+  description: 'The `{{ table.name }}` table contains info about the sellers your
+    company purchases products from. **Note**: Both active and inactive vendors are
+    included in the data for this table.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/vendor
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/vendors.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id
+- name: vendor_credits
+  description: 'The `{{ table.name }}` table contains info about credits that a vendor
+    owes your company.
+
+    '
+  links:
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/vendorcredit
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/vendor_credits.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Id

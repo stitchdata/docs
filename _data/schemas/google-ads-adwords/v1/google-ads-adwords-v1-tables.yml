@@ -1,0 +1,344 @@
+tap: google-ads-adwords
+version: '1'
+tables:
+- name: accounts
+  description: "The `{{ table.name }}` table contains high-level info about the Google\
+    \ AdWords account(s) you\u2019ve connected to Stitch.\n\n[This is a **Core Object**\
+    \ table](#replication).\n"
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/ManagedCustomerService.ManagedCustomer
+    singer-schema: https://github.com/singer-io/tap-adwords/blob/master/tap_adwords/schemas/accounts.json
+  table-details:
+    replication-method: Full Table
+    primary-key: customerId
+- name: account_performance_report
+  description: 'The `{{ table.name }}` table contains all statistics aggregated by
+    default at the account level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/account-performance-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day
+- name: adgroup_performance_report
+  description: 'The `ad_performance_report` table contains all statistics aggregated
+    at the ad group level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/adgroup-performance-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day
+- name: ads
+  description: 'The `{{ table.name }}` table contains comprehensive info about ads
+    in ad groups in your Google AdWords account.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/AdGroupAdService.AdGroupAd
+    singer-schema: https://github.com/singer-io/tap-adwords/blob/master/tap_adwords/schemas/ads.json
+  table-details:
+    replication-method: Full Table
+    primary-key: adGroupId
+- name: ad_groups
+  description: 'The `{{ table.name }}` table contains detailed info about your ad
+    groups.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/AdGroupService.AdGroup
+    singer-schema: https://github.com/singer-io/tap-adwords/blob/master/tap_adwords/schemas/ad_groups.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: ad_performance_report
+  description: 'The `ad_performance_report` table contains all statistics aggregated
+    at the ad level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/ad-performance-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day
+- name: age_range_performance_report
+  description: 'The `age_range_performance_report` table contains all Display Network
+    and YouTube Network statistics aggregated by age range.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/age-range-performance-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day
+- name: audience_performance_report
+  description: 'The `audience_performance_report` table contains performance data
+    from interests and remarketing lists for Display Network and YouTube Network ads,
+    and remarketing lists for search ads (RLSA), aggregated at the audience level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/age-range-performance-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day
+- name: call_metrics_call_details_report
+  description: 'The `{{ table.name }}` table contains data for call tracking of call-only
+    ads or call extensions.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/call-metrics-call-details-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day
+- name: campaigns
+  description: 'The `{{ table.name }}` table contains detailed info about your Google
+    AdWords campaigns.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/CampaignService.Campaign
+    singer-schema: https://github.com/singer-io/tap-adwords/blob/master/tap_adwords/schemas/campaigns.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: campaign_performance_report
+  description: 'The `campaign_performance_report` table contains all statistics aggregated
+    by default at the campaign level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/campaign-performance-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day
+- name: click_performance_report
+  description: 'The `click_performance_report` table contains statistics aggregated
+    at each click level, and includes both valid and invalid clicks.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/click-performance-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day
+- name: criteria_performance_report
+  description: 'The `criteria_performance_report` table contains statistics aggregated
+    at the ad group criteria level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/criteria-performance-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day
+- name: display_keyword_performance_report
+  description: 'The `{{ table.name }}` table contains all Display Network and YouTube
+    Network statistics aggregated at the keyword level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/display-keyword-performance-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day
+- name: display_topics_performance_report
+  description: 'The `{{ table.name }}` table contains all Display Network and YouTube
+    Network statistics aggregated at the topic level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/display-topics-performance-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day
+- name: final_url_report
+  description: 'The `final_url_report` table contains all statistics aggregated at
+    the final URL level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/gender-performance-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day
+- name: gender_performance_report
+  description: 'The `gender_performance_report` table contains all statistics aggregated
+    by gender.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/gender-performance-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day
+- name: geo_performance_report
+  description: 'The `geo_performance_report` table contains all statistics aggregated
+    at the country/territory level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/geo-performance-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day
+- name: keywordless_query_report
+  description: 'The `keywordless_query_report` includes keywordless ads (dynamic search
+    ads) statistics based on search terms.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/keywordless-query-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day
+- name: keywords_performance_report
+  description: 'The `keywords_performance_report` table contains all statistics aggregated
+    at the keyword level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/keywords-performance-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day
+- name: search_query_performance_report
+  description: 'The `search_query_performance_report` table contains all statistics
+    aggregated at the search term level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/search-query-performance-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day
+- name: video_performance_report
+  description: 'The `video_performance_report` table contains statistics for your
+    account''s upgraded [AdWords for Video campaigns](https://adwords.googleblog.com/2015/09/trueview-campaigns-now-in-adwords.html){:target="new"}.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/video-performance-report
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.primary-key }}'
+    replication-key: day

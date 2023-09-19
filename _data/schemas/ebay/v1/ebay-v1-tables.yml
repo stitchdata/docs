@@ -1,0 +1,16 @@
+tap: ebay
+version: '1'
+tables:
+- name: orders
+  description: "The {{ table.name }} table contains details about all orders in your\
+    \ {{ integration.display_name }} seller account. \n\n**Note**: The integration's\
+    \ **Start Date** must be within 90 days of the current date, if initially creating\
+    \ or resetting the integration. Exceeding 90 days will result in an [{{ integration.display_name\
+    \ }} 30830 API error](https://developer.ebay.com/api-docs/sell/fulfillment/resources/order/methods/getOrders#h2-error-codes){:target=\"\
+    new\"}.\n"
+  links:
+    doc-link: https://developer.ebay.com/api-docs/sell/fulfillment/resources/order/methods/getOrders
+    singer-schema: https://github.com/singer-io/tap-ebay/blob/master/tap_ebay/schemas/orders.json
+  table-details:
+    replication-method: Full Table
+    primary-key: orderId

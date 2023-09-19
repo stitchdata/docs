@@ -1,0 +1,230 @@
+tap: jira
+version: '2'
+tables:
+- name: changelogs
+  description: 'The `{{ table.name }}` table contains info about the changelogs associated
+    with an issue.
+
+
+    **Note**: Due to a {{ integration.display_name }} limitation in the endpoint Stitch
+    uses to replicate changelogs, only the 100 most recent changelogs for any individual
+    issue can be replicated. Refer to [{{ integration.display_name }}''s documentation](https://confluence.atlassian.com/jirakb/jira-cloud-rest-api-limits-the-number-of-changelogs-returned-938840277.html){:target="new"}
+    for more info.
+
+
+    #### Replication requirements {#replication-requirements-changelogs}
+
+
+    To replicate this data:
+
+
+    1. The [`issues`](#issues) table must also be set to replicate. **Note**: When
+    an issue is updated, all available changelogs for that issue will also be replicated.
+
+
+    2. The `Browse Projects` [project {{ integration.display_name }} permission]({{
+    integration.project-permissions-doc }}){:target="new"} is required. Refer to [{{
+    integration.display_name }}''s API documentation]({{ table.doc-link }}){:target="new"}
+    for more info.
+
+    '
+  links:
+    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-changelog-get
+    singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/changelogs.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: components
+  description: "The `{{ table.name }}` table contains info about components in projects\
+    \ in your {{ integration.display_name }} account.\n\n#### Replication requirements\n\
+    \n**Note**: To replicate this data:\n\n   1. The [`projects`](#projects) table\
+    \ must also be set to replicate, and\n   2. The `Browse Projects` [project {{\
+    \ integration.display_name }} permission]({{ integration.project-permissions-doc\
+    \ }}){:target=\"new\"} is required. Refer to [{{ integration.display_name }}'s\
+    \ API documentation]({{ table.doc-link }}){:target=\"new\"} for more info.\n"
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/components.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: issues
+  description: "The `issues` table contains info about the issues in your {{ integration.display_name\
+    \ }} instance. This table only contains core issue data - some data is located\
+    \ in other tables, such as [`changelogs`](#changelogs), [`issue_comments`](#issue_comments),\
+    \ and [`issue_transitions`](#issue_transitions).\n\n**Note**: To replicate this\
+    \ data, the `Browse projects` [project {{ integration.display_name }} permission]({{\
+    \ integration.project-permissions-doc }}){:target=\"new\"} for the project that\
+    \ the issue is in is required. Refer to [{{ integration.display_name }}'s API\
+    \ documentation]({{ table.doc-link }}){:target=\"new\"} for more info.\n\n####\
+    \ Identifying deleted issues\n\nWhen an issue is hard-deleted in JIRA, the record\
+    \ for the issue will remain in your destination. This is due to the nature of\
+    \ Stitch [Replication Keys]({{ link.replication.rep-keys | prepend: baseurl }})\
+    \ and the design of JIRA's API:\n\n- **Replication Keys**: This table uses the\
+    \ values in the `{{ replication-keys | strip }}` column to identify new and updated\
+    \ data for replication. If a record is hard-deleted, there won't be a value for\
+    \ Stitch to check and thus no way to identify the change, meaning the record will\
+    \ remain in the destination.\n- **JIRA's API**: Currently, JIRA's API doesn't\
+    \ include a way to identify deleted issues.\n\nTo identify deleted issues, [Atlassian's\
+    \ suggested workaround](https://answers.atlassian.com/questions/75537/how-do-i-find-if-an-issue-has-been-deleted){:target=\"\
+    new\"} is:\n\n1. Create a status in JIRA that will be applied to issues you want\
+    \ to delete.\n2. **Before deleting the issue, apply the status**.\n3. Allow Stitch\
+    \ to extract and load the updated data into your destination.\n4. Delete the issue.\n\
+    5. After Stitch finishes loading the data, use the `fields__status__name` field\
+    \ in your queries to filter issues with the deleted status you applied in step\
+    \ 2. For example, the following query would return any issues that had been marked\
+    \ with a the deleted status:\n\n   ```sql\n   SELECT *\n   FROM stitch_jira.issues\n\
+    \   WHERE fields__status__name = 'Deleted'\n   ```\n"
+  links:
+    doc-link: https://docs.atlassian.com/jira/REST/ondemand/#api/2/issue-getIssue
+    singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/issues.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: issue_comments
+  description: 'The `{{ table.name }}` table contains info about comments made on
+    issues.
+
+
+    #### Replication requirements {#replication-requirements-issue-comments}
+
+
+    To replicate this data:
+
+
+    1. The [`issues`](#issues) table must also be set to replicate. **Note**: When
+    an issue is updated, all the comments for that issue will also be replicated.
+
+    2. The `Browse Projects` [project {{ integration.display_name }} permission]({{
+    integration.project-permissions-doc }}){:target="new"} is required. Refer to [{{
+    integration.display_name }}''s API documentation]({{ table.doc-link }}){:target="new"}
+    for more info.
+
+    '
+  links:
+    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-comment-get
+    singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/issue_comments.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: issue_transitions
+  description: "The `{{ table.name }}` table contains info about issue transitions.\n\
+    \n#### Replication requirements {#replication-requirements-issue-transitions}\n\
+    \nTo replicate this data:\n\n1. The [`issues`](#issues) table must also be set\
+    \ to replicate. **Note**: When an issue is updated, all the transitions for that\
+    \ issue will also be replicated.\n 2. The `Browse Projects` [project {{ integration.display_name\
+    \ }} permission]({{ integration.project-permissions-doc }}){:target=\"new\"} is\
+    \ required. Refer to [{{ integration.display_name }}'s API documentation]({{ table.doc-link\
+    \ }}){:target=\"new\"} for more info.\n"
+  links:
+    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-transitions-get
+    singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/issue_transitions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: project_categories
+  description: 'The `{{ table.name }}` table contains info about project categories.
+
+    '
+  links:
+    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-projectCategory-get
+    singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/project_categories.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: project_types
+  description: 'The `{{ table.name }}` table contains info about project types.
+
+    '
+  links:
+    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-project-type-get
+    singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/project_types.json
+  table-details:
+    replication-method: Full Table
+    primary-key: key
+- name: resolutions
+  description: 'The `{{ table.name }}` table contains info about issue resolutions.
+
+
+    **Note**: To replicate this data, the `Administer {{ integration.display_name
+    }}` [global {{ integration.display_name }} permission]({{ integration.global-permissions-doc
+    }}){:target="new"} is required. Refer to [{{ integration.display_name }}''s API
+    documentation]({{ table.doc-link }}){:target="new"} for more info.
+
+    '
+  links:
+    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-projectCategory-post
+    singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/resolutions.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: roles
+  description: 'The `{{ table.name }}` table contains info about the project roles
+    in your {{ integration.display_name }} account.
+
+
+    **Note**: To replicate this data, the `Administer {{ integration.display_name
+    }}` [global {{ integration.display_name }} permission]({{ integration.global-permissions-doc
+    }}){:target="new"} is required. Refer to [{{ integration.display_name }}''s API
+    documentation]({{ table.doc-link }}){:target="new"} for more info.
+
+    '
+  links:
+    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-role-get
+    singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/roles.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: users
+  description: 'The `{{ table.name }}` table contains info about the users in your
+    {{ integration.display_name }} account.
+
+
+    **Note**: To replicate this data, the `Administer {{ integration.display_name
+    }}` [global {{ integration.display_name }} permission]({{ integration.global-permissions-doc
+    }}){:target="new"} is required. Refer to [{{ integration.display_name }}''s API
+    documentation]({{ table.doc-link }}){:target="new"} for more info.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/users.json
+  table-details:
+    replication-method: Full Table
+    primary-key: accountId
+- name: versions
+  description: "The `{{ table.name }}` table contains info about versions in your\
+    \ {{ integration.display_name }} account.\n\n#### Replication requirements\n\n\
+    **Note**: To replicate this data:\n\n   1. The [`projects`](#projects) table must\
+    \ also be set to replicate, and\n   2. The `Browse Projects` [project {{ integration.display_name\
+    \ }} permission]({{ integration.project-permissions-doc }}){:target=\"new\"} is\
+    \ required. Refer to [{{ integration.display_name }}'s API documentation]({{ table.doc-link\
+    \ }}){:target=\"new\"} for more info.\n"
+  links:
+    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-project-projectIdOrKey-versions-get
+    singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/versions.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: worklogs
+  description: 'The `{{ table.name }}` table contains info about the worklogs in your
+    {{ integration.display_name }} account.
+
+
+    **Note**: For a worklog to be replicated, it must be set as `Viewable by All Users`,
+    or the integration [authenticating user]() (visible in the integration''s {{ app.page-names.int-settings
+    }} page), must be a member of the project role/group with permission to view the
+    worklog.
+
+
+    If you''re missing worklogs, verify that you have the required permissions to
+    access the worklog.
+
+    '
+  links:
+    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-worklog-updated-get
+    singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/worklogs.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated

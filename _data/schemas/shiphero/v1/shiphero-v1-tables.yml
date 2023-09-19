@@ -1,0 +1,48 @@
+tap: shiphero
+version: '1'
+tables:
+- name: orders
+  description: 'The `{{ table.name }}` table contains info about the orders in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://shipheropublic.docs.apiary.io/#reference/orders/get-orders/get-orders
+    singer-schema: https://github.com/singer-io/tap-shiphero/blob/master/tap_shiphero/schemas/orders.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: products
+  description: 'The `{{ table.name }}` table contains info about the products in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-shiphero/blob/master/tap_shiphero/schemas/products.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: shipments
+  description: 'The `{{ table.name }}` table contains info about the shipments in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-shiphero/blob/master/tap_shiphero/schemas/shipments.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: shipment_id
+- name: vendors
+  description: 'The `{{ table.name }}` table contains info about the vendors in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-shiphero/blob/master/tap_shiphero/schemas/vendors.json
+  table-details:
+    replication-method: Full Table
+    primary-key: vendor_id

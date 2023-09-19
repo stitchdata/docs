@@ -1,0 +1,40 @@
+tap: referral-saasquatch
+version: '1'
+tables:
+- name: referrals
+  description: 'The `{{ table.name }}` table contains info about all of the referrals
+    in your {{ integration.display_name }} tenant.
+
+    '
+  links:
+    doc-link: https://docs.referralsaasquatch.com/api/methods/#open_list_referrals
+    singer-schema: https://github.com/singer-io/tap-referral-saasquatch/blob/master/tap_referral_saasquatch/schemas/referrals.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: reward_balance
+  description: 'The `{{ table.name }}` table contains info about the balances for
+    all rewards.
+
+    '
+  links:
+    doc-link: https://docs.referralsaasquatch.com/api/methods#list_balances
+    singer-schema: https://github.com/singer-io/tap-referral-saasquatch/blob/master/tap_referral_saasquatch/schemas/reward_balances.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - userId
+    - accountId
+- name: users
+  description: 'The `{{ table.name }}` table contains info about the users in your
+    {{ integration.display_name }} tenant.
+
+    '
+  links:
+    doc-link: https://docs.referralsaasquatch.com/api/methods#list_users
+    singer-schema: https://github.com/singer-io/tap-referral-saasquatch/blob/master/tap_referral_saasquatch/schemas/users.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - accountId

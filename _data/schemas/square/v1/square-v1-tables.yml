@@ -1,0 +1,208 @@
+tap: square
+version: '1'
+tables:
+- name: bank_accounts
+  description: 'The `{{ table.name }}` contains information about a merchant''s bank
+    account in {{ integration.display_name }}.
+
+
+    **Note**: This table can''t be replicated if the **Connect to a sandbox environment**
+    box is checked in the [integration''s settings](#add-stitch-data-source) due to
+    limits imposed by {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developer.squareup.com/reference/square/bank-accounts-api
+    singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/bank_accounts.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: cash_drawer_shifts
+  description: 'The `{{ table.name }}` table contains infomration about cash transactions
+    in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developer.squareup.com/reference/square/cash-drawers-api/retrieve-cash-drawer-shift#response-body
+    singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/cash_drawer_shifts.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: categories
+  description: 'The `{{ table.name }}` table contains information about item categories
+    for a given location in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developer.squareup.com/reference/square/catalog-api/v1-list-categories
+    singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/categories.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: customers
+  description: 'The `{{ table.name }}` contains information about customer profiles
+    associated with your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developer.squareup.com/reference/square/customers-api/list-customers
+    singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/customers.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: discounts
+  description: 'The `{{ table.name }}` table contains information about discounts
+    for a given location in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/discounts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: employees
+  description: 'The `{{ table.name }}` table contains information about your employees
+    in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developer.squareup.com/reference/square/employees-api
+    singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/employees.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: inventories
+  description: 'The `{{ table.name }}` table contains info about the current calculated
+    stock count for a {{ integration.display_name }} location.
+
+    '
+  links:
+    doc-link: https://developer.squareup.com/reference/square/inventory-api
+    singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/inventories.json
+  table-details:
+    replication-method: Full Table
+- name: items
+  description: 'The `{{ table.name }}` table contains information about items for
+    a given location in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developer.squareup.com/reference/square/catalog-api
+    singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/items.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: locations
+  description: 'The `{{ table.name }}` table contains information about all of your
+    business locations in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developer.squareup.com/reference/square/locations-api
+    singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/locations.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: modifier_lists
+  description: 'The `{{ table.name }}` table contains information about modifier lists
+    for a given location in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developer.squareup.com/reference/square/catalog-api/v1-list-modifier-lists
+    singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/modifier_lists.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: orders
+  description: 'The `{{ table.name }}` table contains information about order updates
+    in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developer.squareup.com/reference/square/orders-api
+    singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/orders.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: payments
+  description: 'The `{{ table.name }}` table contains information about all payments
+    taken in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developer.squareup.com/reference/square/payments-api
+    singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/payments.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: refunds
+  description: 'The `{{ table.name }}` table contains information about refunds on
+    items in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developer.squareup.com/reference/square/refunds-api
+    singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/refunds.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: roles
+  description: "The `{{ table.name }}` table contains information about employees'\
+    \ roles in {{ integration.display_name }}. \n\n**Note**: This table can't be replicated\
+    \ if the **Connect to a sandbox environment** box is checked in the [integration's\
+    \ settings](#add-stitch-data-source) due to limits imposed by {{ integration.display_name\
+    \ }}.\n"
+  links:
+    doc-link: https://developer.squareup.com/reference/square/employees-api
+    singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/roles.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: settlements
+  description: 'The `{{ table.name }}` table contains information about deposits and
+    withdrawals issued by {{ integration.display_name }}.
+
+
+    **Note**: This table can''t be replicated if the **Connect to a sandbox environment**
+    box is checked in the [integration''s settings](#add-stitch-data-source) due to
+    limits imposed by {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developer.squareup.com/reference/square/settlements-api
+    singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/settlements.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: shifts
+  description: 'The `{{ table.name }}` table contains information about employee''s
+    shifts in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developer.squareup.com/reference/square/labor-api
+    singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/shifts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: taxes
+  description: 'The `{{ table.name }}` table contains information about taxes enabled
+    on your items in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/taxes.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at

@@ -1,0 +1,59 @@
+tap: bigcommerce
+version: '1'
+tables:
+- name: coupons
+  description: 'The `{{ table.name }}` table contains info about the coupons in your
+    {{ integration.display_name }} store.
+
+
+    {% capture replication-tip %}
+
+    This table uses Full Table Replication, which means all records will be replicated
+    during every replication job.
+
+
+    To avoid re-replicating unnecessary data, create a second {{ integration.display_name
+    }} integration in your Stitch account (you can even use the same {{ integration.display_name
+    }} API credentials) and set the integration to replicate every 12 or 24 hours.
+
+    {% endcapture %}
+
+
+    {% include tip.html content=replication-tip %}
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-bigcommerce/blob/master/tap_bigcommerce/schemas/coupons.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: customers
+  description: 'The `{{ table.name }}` table contains info about the customers in
+    your {{ integration.display_name }} store.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-bigcommerce/blob/master/tap_bigcommerce/schemas/customers.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_modified
+- name: products
+  description: 'The `{{ table.name }}` table contains info about the products in your
+    {{ integration.display_name }} store.
+
+
+    **Note**: During the initial replication job for a {{ integration.display_name
+    }} integration, all products will be replicated. On subsequent replication jobs,
+    only new and updated product records will be replicated.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-bigcommerce/blob/master/tap_bigcommerce/schemas/products.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_modified

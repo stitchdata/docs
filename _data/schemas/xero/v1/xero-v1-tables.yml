@@ -1,0 +1,323 @@
+tap: xero
+version: '1'
+tables:
+- name: accounts
+  description: 'The `{{ table.name }}` table contains info about the various accounts
+    (ex: banking) connected to your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/accounts
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/accounts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: AccountId
+    replication-key: UpdatedDateUTC
+- name: bank_transactions
+  description: 'The `{{ table.name }}` table contains info about the bank transactions
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/banktransactions
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/bank_transactions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: BankTransactionId
+    replication-key: UpdatedDateUTC
+- name: bank_transfers
+  description: "The `{{ table.name }}` table contains info about bank transfers. \n"
+  links:
+    doc-link: https://developer.xero.com/documentation/api/bank-transfers
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/bank_transfers.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: BankTransferID
+    replication-key: CreatedDateUTC
+- name: branding_themes
+  description: 'The `{{ table.name }}` table contains info about your branding themes.
+    A branding theme is customization you can apply to customer-facing documents such
+    as invoices, statements, quotes, etc.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/branding-themes
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/branding_themes.json
+  table-details:
+    replication-method: Full Table
+    primary-key: BrandingThemeID
+- name: contacts
+  description: 'The `{{ table.name }}` table contains info about the customers and
+    suppliers you do business with.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/contacts
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/contacts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: ContactID
+    replication-key: UpdatedDateUTC
+- name: contact_groups
+  description: 'The `{{ table.name }}` table contains info about your contact groups.
+    A contact group is a group of contacts that have something in common.
+
+
+    **Note**: Due to the limits of {{ integration.display_name }}''s API, only active
+    contact groups (`Status: ACTIVE`) may be retrieved.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/contactgroups
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/contact_groups.json
+  table-details:
+    replication-method: Full Table
+    primary-key: ContactGroupID
+- name: credit_notes
+  description: 'The `{{ table.name }}` table contains info about credit notes. A credit
+    note is similar to an invoice, except it reduces the amount you owe a supplier
+    or the amount a customer owes you.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/credit-notes
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/credit_notes.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: CreditNoteID
+    replication-key: UpdatedDateUTC
+- name: currencies
+  description: 'The `{{ table.name }}` table contains info about the currencies available
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/currencies
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/currencies.json
+  table-details:
+    replication-method: Full Table
+    primary-key: Code
+- name: employees
+  description: 'The `{{ table.name }}` table contains info about employees.
+
+
+    **Note**: According to [{{ integration.display_name }}''s documentation](https://developer.xero.com/documentation/api/employees),
+    the endpoint that produces this table is:
+
+
+    > Used for an [employee type](https://help.xero.com/int/Contacts_EmployeeAdd)
+    used exclusively by the global Payrun functionality in {{ integration.display_name
+    }} core accounting.
+
+
+    As a result, this table may not contain all employee data. Refer to the `contacts`
+    table if you believe you are missing records.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/employees
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/employees.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: EmployeeID
+    replication-key: UpdatedDateUTC
+- name: expense_claims
+  description: 'The `{{ table.name }}` table contains info about expense claims.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/expense-claims
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/expense_claims.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: ExpenseClaimID
+    replication-key: UpdatedDateUTC
+- name: invoices
+  description: 'The `{{ table.name }}` table contains info about sales invoices, which
+    are requests for payment for goods and services.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/invoices
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/invoices.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: InvoiceID
+    replication-key: UpdatedDateUTC
+- name: items
+  description: 'The `{{ table.name }}` table contains info about the [products and
+    services you buy and sell](https://help.xero.com/us/Inventory).
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/items
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/items.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: ItemID
+    replication-key: UpdatedDateUTC
+- name: journals
+  description: 'The `{{ table.name }}` table contains info about journal entries.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/journals
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/journals.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: JournalID
+    replication-key: JournalNumber
+- name: linked_transactions
+  description: 'The `{{ table.name }}` table contains info about linked transactions.
+    Linked transactions are transactions where line items from a purchase transaction
+    to a customer are linked to a sales transaction.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/linked-transactions
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/linked_transactions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: LinkedTransactionID
+    replication-key: UpdatedDateUTC
+- name: manual_journals
+  description: 'The `{{ table.name }}` table contains info about manual journals,
+    which are used by accountants or bookkeepers to work directly with a general ledger.
+    For example: To record accrued expenses or completed work that wasn''t invoiced.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/manual-journals
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/manual_journals.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: ManualJournalID
+    replication-key: UpdatedDateUTC
+- name: organisations
+  description: 'The `{{ table.name }}` table contains info about the organisations
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/organisation
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/organisations.json
+  table-details:
+    replication-method: Full Table
+    primary-key: OrganisationID
+- name: overpayments
+  description: 'The `{{ table.name }}` table contains info about overpayments, which
+    are transactions where a customer pays too much or you mistakenly overpay a supplier.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/overpayments
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/overpayments.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: OverpaymentID
+    replication-key: UpdatedDateUTC
+- name: payments
+  description: "The `{{ table.name }}` table contains info about the payments recorded\
+    \ in your {{ integration.display_name }} account. \n"
+  links:
+    doc-link: https://developer.xero.com/documentation/api/payments
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/payments.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: PaymentID
+    replication-key: UpdateDateUTC
+- name: prepayments
+  description: 'The `{{ table.name }}` table contains info about prepayments, which
+    are payments made in advance of an invoice being raised for a customer or a bill
+    being received from a supplier.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/prepayments
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/prepayments.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: PrepaymentID
+    replication-key: UpdatedDateUTC
+- name: purchase_orders
+  description: 'The `{{ table.name }}` table contains info about your purchase orders.
+    Purchase orders are requests sent to suppliers for specific goods and services.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/purchase-orders
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/purchase_orders.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: PurchaseOrderID
+    replication-key: UpdatedDateUTC
+- name: quotes
+  description: 'The `{{ table.name }}` table contains info about the quotes in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/quotes
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/quotes.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: QuoteID
+    replication-key: UpdatedDateUTC
+- name: receipts
+  description: 'The `{{ table.name }}` table contains info about invoice receipts,
+    which are receipts sent to customers after an invoice has been received.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/receipts
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/receipts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: ReceiptID
+    replication-key: UpdatedDateUTC
+- name: repeating_invoices
+  description: 'The `{{ table.name }}` table contains info about invoices set up to
+    repeat in your {{ integration.display_name }} account. A repeating invoice is
+    a recurring transaction, or a transaction that occurs on a regular basis.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/repeating-invoices
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/repeating_invoices.json
+  table-details:
+    replication-method: Full Table
+    primary-key: RepeatingInvoiceID
+- name: tax_rates
+  description: 'The `{{ table.name }}` table contains info about the tax rates set
+    up in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/tax-rates
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/tax_rates.json
+  table-details:
+    replication-method: Full Table
+    primary-key: Name
+- name: tracking_categories
+  description: 'The `{{ table.name }}` table contains info about the tracking categories
+    in your {{ integration.display_name }} account. Tracking categories are used to
+    track the performance of different areas of a business.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/tracking-categories
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/tracking_categories.json
+  table-details:
+    replication-method: Full Table
+    primary-key: TrackingCategoryID
+- name: users
+  description: 'The `{{ table.name }}` table contains info about the users in an organisation.
+
+    '
+  links:
+    doc-link: https://developer.xero.com/documentation/api/users
+    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/users.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: UserID
+    replication-key: UpdatedDateUTC

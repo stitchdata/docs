@@ -1,0 +1,216 @@
+tap: pendo
+version: '1'
+tables:
+- name: accounts
+  description: 'The `{{ table.name }}` table contains info about your customer accounts
+    in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developers.pendo.io/docs/?bash#account
+    singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/accounts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: account_id
+    replication-key: lastupdated
+- name: events
+  description: 'The `{{ table.name }}` table contains info about events recorded in
+    your {{ integration.display_name }} account.
+
+
+    {% capture event-replication-note %}
+
+    **Note**: The **Period** setting you define [during setup](#add-stitch-data-source)
+    determine how this table is replicated, including the field used as a Replication
+    Key. Refer to the [Replication section](#event-replication) for more info.
+
+    {% endcapture %}
+
+
+    {{ event-replication-note }}
+
+    '
+  links:
+    doc-link: https://developers.pendo.io/docs/?bash#events
+    singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/events.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - account_id
+    - server
+    - remote_ip
+- name: features
+  description: 'The `{{ table.name }}` table contains info about app features listed
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.pendo.io/docs/?bash#feature
+    singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/features.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_updated_at
+- name: feature_events
+  description: 'The `{{ table.name }}` table contains info about feature events recorded
+    in your {{ integration.display_name }} account.
+
+
+    {{ event-replication-note }}
+
+    '
+  links:
+    doc-link: https://developers.pendo.io/docs/?bash#events
+    singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/feature_events.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - account_id
+    - server
+    - remote_ip
+- name: guides
+  description: 'The `{{ table.name }}` table contains info about the guides in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/guides.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_updated_at
+- name: guide_events
+  description: 'The `{{ table.name }}` table contains info about guide events recorded
+    in your {{ integration.display_name }} account.
+
+
+    {{ event-replication-note }}
+
+    '
+  links:
+    doc-link: https://developers.pendo.io/docs/?bash#guide-events
+    singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/guide_events.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - account_id
+    - server
+    - remote_ip
+    replication-key: browser_time
+- name: metadata_accounts
+  description: 'The `{{ table.name }}` table contains info about the metadata schema
+    used for account objects in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.pendo.io/docs/?bash#metadata
+    singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/metadata_accounts.json
+  table-details:
+    replication-method: Full Table
+- name: metadata_visitors
+  description: 'The `{{ table.name }}` table contains info about the metadata schema
+    used for visitor objects in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.pendo.io/docs/?bash#metadata
+    singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/metadata_visitors.json
+  table-details:
+    replication-method: Full Table
+- name: pages
+  description: 'The `{{ table.name }}` table contains info about specific pages in
+    your {{ integration.display_name }} app.
+
+    '
+  links:
+    doc-link: https://developers.pendo.io/docs/?bash#page
+    singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/pages.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_updated_at
+- name: page_events
+  description: 'The `{{ table.name }}` table contains info about page events recorded
+    in your {{ integration.display_name }} account.
+
+
+    {{ event-replication-note }}
+
+    '
+  links:
+    doc-link: https://developers.pendo.io/docs/?bash#events
+    singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/page_events.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - account_id
+    - server
+    - remote_ip
+- name: poll_events
+  description: 'The `{{ table.name }}` table contains info about poll events recorded
+    in your {{ integration.display_name }} account.
+
+
+    {{ event-replication-note }}
+
+    '
+  links:
+    doc-link: https://developers.pendo.io/docs/?bash#events
+    singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/poll_events.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - account_id
+    - remote_ip
+    - visitor_id
+    replication-key: browser_time
+- name: track_events
+  description: 'The `{{ table.name }}` table contains info about the track events
+    recorded in your {{ integration.display_name }} account.
+
+
+    {{ event-replication-note }}
+
+    '
+  links:
+    doc-link: https://developers.pendo.io/docs/?bash#track-events
+    singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/track_events.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - account_id
+    - remote_ip
+    - server
+    - visitor_id
+- name: track_types
+  description: "The `{{ table.name }}` table contains info about \n"
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/track_types.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: visitors
+  description: 'The `{{ table.name }}` table contains info about the visitors recorded
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.pendo.io/docs/?bash#visitor
+    singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/visitors.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: visitor_id
+    replication-key: lastupdated
+- name: visitor_history
+  description: 'The `{{ table.name }}` table contains info about visitor activity.
+
+    '
+  links:
+    doc-link: https://developers.pendo.io/docs/?bash#visitor
+    singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/visitor_history.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: visitor_id
+    replication-key: modified_ts

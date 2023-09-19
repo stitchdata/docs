@@ -1,0 +1,61 @@
+tap: crossbeam
+version: '1'
+tables:
+- name: partners
+  description: 'The `{{ table.name }}` table contains information about your partners
+    as well as partner invitations sent to you in your {{ integration.display_name
+    }} account.
+
+    '
+  links:
+    doc-link: https://developers.crossbeam.com/#dd64387a-b410-40f3-9993-e87f1df96963
+    singer-schema: https://github.com/singer-io/tap-crossbeam/blob/master/tap_crossbeam/schemas/partners.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: partner_populations
+  description: 'The `{{ table.name }}` table contains information about the populations
+    that your partners have shared with you in your {{ integration.display_name }}
+    account.
+
+    '
+  links:
+    doc-link: https://developers.crossbeam.com/#53c31e87-71ed-4712-85b5-65877d0c0a0f
+    singer-schema: https://github.com/singer-io/tap-crossbeam/blob/master/tap_crossbeam/schemas/partner_populations.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: populations
+  description: 'The `{{ table.name }}` table contains information about all of your
+    populations in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.crossbeam.com/#514ea1c6-ca53-4bbb-9dee-e6793e7d1518
+    singer-schema: https://github.com/singer-io/tap-crossbeam/blob/master/tap_crossbeam/schemas/populations.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: threads
+  description: 'The `{{ table.name }}` table contains information about all threads
+    initiated by you in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.crossbeam.com/#4ab89b70-2b52-4405-a625-eeb09c0e7cef
+    singer-schema: https://github.com/singer-io/tap-crossbeam/blob/master/tap_crossbeam/schemas/threads.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: thread_timelines
+  description: 'The `{{ table.name }}` table contains information about the activity
+    for any given `thread-id` in your {{ integration.display_name }} account. This
+    is a child table of `threads`.
+
+    '
+  links:
+    doc-link: https://developers.crossbeam.com/#6315ece6-1805-4132-9337-13bf4607e77a
+    singer-schema: https://github.com/singer-io/tap-crossbeam/blob/master/tap_crossbeam/schemas/thread_timelines.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id

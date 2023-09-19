@@ -1,0 +1,51 @@
+tap: selligent
+version: '1'
+tables:
+- name: campaign
+  description: This table contains campaign data.
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-selligent/blob/master/tap_selligent/schemas.py
+  table-details:
+    replication-method: Full Table
+    primary-key: asset_id
+- name: internal_datasource
+  description: This table contains internal data source data.
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-selligent/blob/master/tap_selligent/schemas.py
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: owner
+  description: This table contains owner data.
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-selligent/blob/master/tap_selligent/schemas.py
+  table-details:
+    replication-method: Full Table
+    primary-key: asset_id
+- name: program
+  description: This table contains program data.
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-selligent/blob/master/tap_selligent/schemas.py
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: source
+  description: This table contains source data.
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-selligent/blob/master/tap_selligent/schemas.py
+  table-details:
+    replication-method: Full Table
+    primary-key: asset_id
+- name: transactional_mailing
+  description: This table contains transactional mailing data.
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-selligent/blob/master/tap_selligent/schemas.py
+  table-details:
+    replication-method: Full Table
+    primary-key: id

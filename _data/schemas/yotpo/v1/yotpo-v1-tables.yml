@@ -1,0 +1,98 @@
+tap: yotpo
+version: '1'
+tables:
+- name: emails
+  description: 'The `{{ table.name }}` table contains data about every email sent
+    from {{ integration.display_name }}.
+
+
+    #### Attribution window {#email-attribution-window}
+
+
+    When Stitch replicates data for this table, it will use an attribution window
+    of {{ integration.attribution-window }} to fetch updated email statistics such
+    as opens, clicks, etc. This means that every time a replication job runs, the
+    last 30 days'' worth of data will be replicated for this table.
+
+
+    Refer to the [Replication](#replication) section for more info and examples of
+    how the attribution window is used to query for data.
+
+    '
+  links:
+    doc-link: https://apidocs.yotpo.com/v1.0/reference#email-analytics-intro
+    singer-schema: https://github.com/singer-io/tap-yotpo/blob/master/tap_yotpo/schemas/emails.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - email_address
+    - email_sent_timestamp
+    replication-key: email_sent_timestamp
+- name: products
+  description: 'The `{{ table.name }}` table contains data about products in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://apidocs.yotpo.com/reference#introduction-to-products
+    singer-schema: https://github.com/singer-io/tap-yotpo/blob/master/tap_yotpo/schemas/products.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: product_reviews
+  description: 'The `{{ table.name }}` table contains data about reviews for a certain
+    product.
+
+
+    **Note**: This table is similar to the `reviews` table, but also contains custom
+    fields. If you don''t have or need custom product fields, you may only want to
+    replicate the `reviews` table to prevent redundant data.
+
+    '
+  links:
+    doc-link: https://apidocs.yotpo.com/reference#section-what-are-reviews
+    singer-schema: https://github.com/singer-io/tap-yotpo/blob/master/tap_yotpo/schemas/product_reviews.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created_at
+- name: reviews
+  description: 'The `{{ table.name }}` table contains data about reviews.
+
+
+    **Note**: This table is similar to the `product_reviews` table, but doesn''t contain
+    custom fields. If you have or need custom fields, you may want to only replicate
+    the `product_reviews` table to prevent redundant data.
+
+
+    #### Attribution window {#review-attribution-window}
+
+
+    When Stitch replicates data for this table, it will use an attribution window
+    of {{ integration.attribution-window }} to fetch updated (or deleted) reviews.
+    This means that every time a replication job runs, the last 30 days'' worth of
+    data will be replicated for this table.
+
+
+    Refer to the [Replication](#replication) section for more info and examples of
+    how the attribution window is used to query for data.
+
+    '
+  links:
+    doc-link: https://apidocs.yotpo.com/reference#section-what-are-reviews
+    singer-schema: https://github.com/singer-io/tap-yotpo/blob/master/tap_yotpo/schemas/reviews.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created_at
+- name: unsubscribers
+  description: 'The `{{ table.name }}` table contains data about customers who unsubscribed
+    from one of Yotpo''s emails.
+
+    '
+  links:
+    doc-link: https://apidocs.yotpo.com/reference#introduction-to-unsubscribers
+    singer-schema: https://github.com/singer-io/tap-yotpo/blob/master/tap_yotpo/schemas/unsubscribers.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id

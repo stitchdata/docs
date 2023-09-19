@@ -1,0 +1,595 @@
+tap: google-ads
+version: '1'
+tables:
+- name: accessible_bidding_strategies
+  description: 'The `{{ table.name }}` table contains info about accessible bidding
+    strategies in your Google Ads account.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/AccessibleBiddingStrategy
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: accounts
+  description: "The `{{ table.name }}` table contains high-level info about the Google\
+    \ Ads account(s) you\u2019ve connected to Stitch.\n\n[This is a **Core Object**\
+    \ table](#replication).\n"
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/CustomerService
+    singer-schema: https://github.com/singer-io/tap-google-ads/blob/main/tap_google_ads/schemas/accounts.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: account_performance_report
+  description: 'The `{{ table.name }}` table contains all statistics aggregated by
+    default at the account level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: ads
+  description: 'The `{{ table.name }}` table contains comprehensive info about ads
+    in ad groups in your Google Ads account.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/AdService
+    singer-schema: https://github.com/singer-io/tap-google-ads/blob/main/tap_google_ads/schemas/ads.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: ad_groups
+  description: 'The `{{ table.name }}` table contains detailed info about your ad
+    groups.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/AdGroupService
+    singer-schema: https://github.com/singer-io/tap-google-ads/blob/main/tap_google_ads/schemas/ad_groups.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: ad_group_criterion
+  description: 'The `{{ table.name }}` table contains info about ad group criteria.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/AdGroupCriterion
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - criterion_id
+    - ad_group_id
+- name: ad_group_performance_report
+  description: 'The `{{ table.name }}` table contains all statistics aggregated at
+    the ad group level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: ad_performance_report
+  description: 'The `{{ table.name }}` table contains all statistics aggregated at
+    the ad level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: age_range_performance_report
+  description: 'The `{{ table.name }}` table contains all Display Network and YouTube
+    Network statistics aggregated by age range.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: bidding_strategies
+  description: 'The `{{ table.name }}` table contains info about bidding strategies
+    in your Google Ads account.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/BiddingStrategyService
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: call_details
+  description: 'The `{{ table.name }}` table contains info about call tracking of
+    call-only ads or call extensions.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/CallView
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: resource_name
+- name: campaigns
+  description: 'The `{{ table.name }}` table contains detailed info about your Google
+    Ads campaigns.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/CampaignService
+    singer-schema: https://github.com/singer-io/tap-google-ads/blob/main/tap_google_ads/schemas/campaigns.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: campaign_audience_performance_report
+  description: 'The `{{ table.name }}` table contains all statistics aggregated by
+    default at the campaign level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: campaign_budgets
+  description: 'The `{{ table.name }}` table contains info about campaign budgets
+    in your Google Ads account.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/CampaignBudgetService
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: campaign_criterion
+  description: 'The `{{ table.name }}` table contains info about campaign criteria.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/CampaignCriterion
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: criterion_id
+- name: campaign_labels
+  description: 'The `{{ table.name }}` table contains info about the relationship
+    between campaigns and labels.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/CampaignLabel
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: resource_name
+- name: campaign_performance_report
+  description: 'The `{{ table.name }}` table contains all statistics aggregated by
+    default at the campaign level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: carrier_constant
+  description: "The `{{ table.name }}` table contains info about carrier criteria\
+    \ that can be used in campaign targeting.\n\n[This is a **Core Object** table](#replication).\
+    \ \n\nThis table is dependent on the [`{{ table.dependent-on }}`](#{{ table.dependent-on\
+    \ | replace:'_','-'}}) stream.\n"
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/CarrierConstant
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+- name: click_performance_report
+  description: 'The `{{ table.name }}` table contains statistics aggregated at each
+    click level, and includes both valid and invalid clicks.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: display_keyword_performance_report
+  description: 'The `{{ table.name }}` table contains all Display Network and YouTube
+    Network statistics aggregated at the keyword level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: display_topics_performance_report
+  description: 'The `{{ table.name }}` table contains all Display Network and YouTube
+    Network statistics aggregated at the topic level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: expanded_landing_page_report
+  description: "The `{{ table.name }}` table contains \n\n[This is a **Report** table](#replication).\
+    \ See the **Replication** section for information on how data is replicated and\
+    \ loaded for this table.\n"
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: feed
+  description: "The `{{ table.name }}` table contains info about feeds.\n\n[This is\
+    \ a **Core Object** table](#replication). \n\nThis table is dependent on the [`{{\
+    \ table.dependent-on }}`](#{{ table.dependent-on }}) stream.\n"
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/Feed
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: feed_item
+  description: 'The `{{ table.name }}` table contains infor about a feed item.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/FeedItem
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: gender_performance_report
+  description: 'The `{{ table.name }}` table contains all statistics aggregated by
+    gender.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: geo_performance_report
+  description: 'The `{{ table.name }}` table contains all statistics aggregated at
+    the country/territory level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: keywordless_query_report
+  description: 'The `{{ table.name }}` includes keywordless ads (dynamic search ads)
+    statistics based on search terms.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: keywords_performance_report
+  description: 'The `{{ table.name }}` table contains all statistics aggregated at
+    the keyword level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: labels
+  description: 'The `{{ table.name }}` table contains info about labels.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/Label
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: landing_page_report
+  description: "The `{{ table.name }}` table contains \n\n[This is a **Report** table](#replication).\
+    \ See the **Replication** section for information on how data is replicated and\
+    \ loaded for this table.\n"
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: language_constant
+  description: "The `{{ table.name }}` table contains info about about languages.\n\
+    \n[This is a **Core Object** table](#replication). \n\nThis table is dependent\
+    \ on the [`{{ table.dependent-on }}`](#{{ table.dependent-on }}) stream.\n"
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/LanguageConstant
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: mobile_app_category_constant
+  description: "The `{{ table.name }}` table contains info about mobile application\
+    \ categories.\n\n[This is a **Core Object** table](#replication). \n\nThis table\
+    \ is dependent on the following streams:\n\n{% assign dependents = table.dependent-on\
+    \ | split: \"|\" %}\n\n{% for dependent in dependents %}\n- [`{{ dependent }}`](#{{\
+    \ dependent | replace:'_','-'}})\n{% endfor %}\n"
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/MobileAppCategoryConstant
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: mobile_device_constant
+  description: "The `{{ table.name }}` table contains info about mobile devices.\n\
+    \n[This is a **Core Object** table](#replication). \n\nThis table is dependent\
+    \ on the [`{{ table.dependent-on }}`](#{{ table.dependent-on }}) stream.\n"
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/MobileDeviceConstant
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: operating_system_verison_constant
+  description: "The `{{ table.name }}` table contains info about mobile operating\
+    \ system versions.\n\n[This is a **Core Object** table](#replication). \n\nThis\
+    \ table is dependent on the [`{{ table.dependent-on }}`](#{{ table.dependent-on\
+    \ }}) stream.\n"
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/OperatingSystemVersionConstant
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: placeholder_feed_item_report
+  description: "The `{{ table.name }}` table contains \n\n[This is a **Report** table](#replication).\
+    \ See the **Replication** section for information on how data is replicated and\
+    \ loaded for this table.\n"
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: placeholder_report
+  description: "The `{{ table.name }}` table contains \n\n[This is a **Report** table](#replication).\
+    \ See the **Replication** section for information on how data is replicated and\
+    \ loaded for this table.\n"
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: placement_performance_report
+  description: "The `{{ table.name }}` table contains \n\n[This is a **Report** table](#replication).\
+    \ See the **Replication** section for information on how data is replicated and\
+    \ loaded for this table.\n"
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: search_query_performance_report
+  description: 'The `{{ table.name }}` table contains all statistics aggregated at
+    the search term level.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: shopping_performance_report
+  description: "The `{{ table.name }}` table contains \n\n[This is a **Report** table](#replication).\
+    \ See the **Replication** section for information on how data is replicated and\
+    \ loaded for this table.\n"
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: topic_constant
+  description: "The `{{ table.name }}` table contains info about topics.\n\n[This\
+    \ is a **Core Object** table](#replication). \n\nThis table is dependent on the\
+    \ following streams:\n\n{% assign dependents = table.dependent-on | split: \"\
+    |\" %}\n\n{% for dependent in dependents %}\n- [`{{ dependent }}`](#{{ dependent\
+    \ | replace:'_','-'}})\n{% endfor %}\n"
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/TopicConstant
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: user_interest
+  description: "The `{{ table.name }}` table contains info about user interests to\
+    \ be targeted.\n\n[This is a **Core Object** table](#replication). \n\nThis table\
+    \ is dependent on the following streams:\n\n{% assign dependents = table.dependent-on\
+    \ | split: \"|\" %}\n\n{% for dependent in dependents %}\n- [`{{ dependent }}`](#{{\
+    \ dependent | replace:'_','-'}})\n{% endfor %}\n"
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/UserInterest
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: user_list
+  description: "The `{{ table.name }}` table contains info about lists of user that\
+    \ can be targeted.\n\n[This is a **Core Object** table](#replication). \n\nThis\
+    \ table is dependent on the following streams:\n\n{% assign dependents = table.dependent-on\
+    \ | split: \"|\" %}\n\n{% for dependent in dependents %}\n- [`{{ dependent }}`](#{{\
+    \ dependent | replace:'_','-'}})\n{% endfor %}\n"
+  links:
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/UserList
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: user_location_performance_report
+  description: "The `{{ table.name }}` table contains \n\n[This is a **Report** table](#replication).\
+    \ See the **Replication** section for information on how data is replicated and\
+    \ loaded for this table.\n"
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date
+- name: video_performance_report
+  description: 'The `{{ table.name }}` table contains statistics for your account''s
+    videos.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://developers.google.com/google-ads/api/fields/v12/overview
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date

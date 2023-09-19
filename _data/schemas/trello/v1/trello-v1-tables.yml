@@ -1,0 +1,91 @@
+tap: trello
+version: '1'
+tables:
+- name: actions
+  description: 'The {{ table.name }} table contains information about the actions
+    within each board the [authorizing user](#data-replication-board-membership) is
+    a member of.
+
+    '
+  links:
+    doc-link: https://developer.atlassian.com/cloud/trello/rest/#api-boards-boardId-actions-get
+    singer-schema: https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/actions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date
+- name: boards
+  description: 'The {{ table.name }} table contains info about the boards that the
+    [authorizing user](#data-replication-board-membership) is a member of.
+
+
+    #### Custom field support
+
+
+    Custom fields are supported for this table.
+
+    '
+  links:
+    doc-link: https://developer.atlassian.com/cloud/trello/rest/#api-boards-id-get
+    singer-schema: https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/boards.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: cards
+  description: 'The {{ table.name }} table contains info about all of the cards on
+    boards that [authorizing user](#data-replication-board-membership) is a member
+    of.
+
+
+    #### Custom field support
+
+
+    Custom fields are supported for this table.
+
+    '
+  links:
+    doc-link: https://developer.atlassian.com/cloud/trello/rest/#api-cards-id-get
+    singer-schema: https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/cards.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: checklists
+  description: 'The {{ table.name }} table contains info about checklists on boards
+    that the [authorizing user](#data-replication-board-membership) is a member of.
+
+    '
+  links:
+    doc-link: https://developer.atlassian.com/cloud/trello/rest/#api-checklists-id-get
+    singer-schema: https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/checklists.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: lists
+  description: 'The {{ table.name }} table contains info about lists on boards that
+    the [authorizing user](#data-replication-board-membership) is a member of.
+
+
+    **Note**: To replicate this table, the [boards](#boards) table must be set to
+    replicate.
+
+    '
+  links:
+    doc-link: https://developer.atlassian.com/cloud/trello/rest/#api-boards-id-lists-get
+    singer-schema: https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/lists.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: users
+  description: 'The {{ table.name }} table contains information about users who are
+    members of boards that the [authorizing user](#data-replication-board-membership)
+    is also a member of.
+
+    '
+  links:
+    doc-link: https://developer.atlassian.com/cloud/trello/rest/#api-boards-id-members-get
+    singer-schema: https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/users.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - id
+    - boardId

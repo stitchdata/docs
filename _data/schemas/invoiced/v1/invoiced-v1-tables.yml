@@ -1,0 +1,78 @@
+tap: invoiced
+version: '1'
+tables:
+- name: credit_notes
+  description: 'The `{{ table.name }}` table contains info about the credit notes
+    in your {{ integration.display_name }} account. A credit note represents a balance
+    you owe to a customer.
+
+    '
+  links:
+    doc-link: https://invoiced.com/docs/api/#credit-note-object
+    singer-schema: https://github.com/singer-io/tap-invoiced/blob/master/tap_invoiced/schemas/credit_notes.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: customers
+  description: 'The `{{ table.name }}` table contains info about the customers in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-invoiced/blob/master/tap_invoiced/schemas/customers.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: invoices
+  description: 'The `{{ table.name }}` table contains info about the invoices in your
+    {{ integration.display_name }} account. An invoice represents a balance owed to
+    you by a customer.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-invoiced/blob/master/tap_invoiced/schemas/invoices.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: plans
+  description: 'The `{{ table.name }}` table contains info about the plans in your
+    {{ integration.display_name }} account. A plan describes a fixed amount that is
+    billed to customers over a recurring interval.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-invoiced/blob/master/tap_invoiced/schemas/plans.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: subscriptions
+  description: 'The `{{ table.name }}` table contains info about the subscriptions
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-invoiced/blob/master/tap_invoiced/schemas/subscriptions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: transactions
+  description: 'The `{{ table.name }}` table contains info about the transactions
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-invoiced/blob/master/tap_invoiced/schemas/transactions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at

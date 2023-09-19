@@ -1,0 +1,122 @@
+tap: slack
+version: '1'
+tables:
+- name: channels
+  description: 'The `{{ table.name }}` table contains info about the channels in your
+    {{ integration.display_name }} workspace. This includes conversations, channels,
+    and direct messages.
+
+
+    **Note**: Some types of channels - for example, private or archived channels -
+    will be replicated only if the appropriate settings are configured in the integration''s
+    settings. Refer to the {{ integration.display_name }} [setup steps](#add-integration)
+    for more info.
+
+    '
+  links:
+    doc-link: https://api.slack.com/types/channel
+    singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/channels.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: channel_members
+  description: 'The `{{ table.name }}` table contain info about members of channels
+    in your {{ integration.display_name }} workspace. Channels include conversations,
+    channels, and direct messages in your {{ integration.display_name }} workspace.
+
+    '
+  links:
+    doc-link: https://api.slack.com/docs/conversations-api
+    singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/channel_members.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - channel_id
+    - user_id
+- name: files
+  description: 'The `{{ table.name }}` table contains info about {{ integration.display_name
+    }} team files.
+
+    '
+  links:
+    doc-link: https://api.slack.com/types/file
+    singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/files.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated
+- name: messages
+  description: 'The `{{ table.name }}` table contains the history of messages and
+    events in conversations in your {{ integration.display_name }} workspace.
+
+    '
+  links:
+    doc-link: https://api.slack.com/types/conversation
+    singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/messages.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - channel_id
+    - ts
+    replication-key: ts
+- name: remote_files
+  description: 'The `{{ table.name }}` table contains info about remote files added
+    to {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://api.slack.com/methods/files.remote.list
+    singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/remote_files.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated
+- name: teams
+  description: 'The `{{ table.name }}` table contains info about teams in your {{
+    integration.display_name }} workspace.
+
+    '
+  links:
+    doc-link: https://api.slack.com/methods/team.info
+    singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/teams.json
+  table-details:
+    replication-method: Full Table
+- name: threads
+  description: "The `{{ table.name }}` table contains info about conversation threads\
+    \ in your {{ integration.display_name }} team. \n\n**Note**: While this table\
+    \ uses Full Table, it's not truly replicated in full during each replication job.\
+    \ Each time a message in a thread is updated, the entire thread and all the messages\
+    \ it contains will be replicated in full. This means that while only updated threads\
+    \ are replicated, they are replicated in full whenever they're updated.\n"
+  links:
+    doc-link: https://api.slack.com/docs/conversations-api
+    singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/threads.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - channel_id
+    - thread_ts
+- name: users
+  description: 'The `{{ table.name }}` table lists contains info about the users in
+    your {{ integration.display_name }} team. This includes deactivated and deleted
+    users.
+
+    '
+  links:
+    doc-link: https://api.slack.com/methods/users.list
+    singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/users.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated
+- name: user_groups
+  description: 'The `{{ table.name }}` table contains info about user groups from
+    your {{ integration.display_name }} team.
+
+    '
+  links:
+    doc-link: https://api.slack.com/methods/usergroups.list
+    singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/user_groups.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id

@@ -1,0 +1,251 @@
+tap: pepperjam
+version: '1'
+tables:
+- name: creative_advanced
+  description: 'The `{{ table.name }}` table contains information about advanced link
+    creatives in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#AdvancedLinks
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/creative_advanced.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: modified
+- name: creative_banner
+  description: 'The `{{ table.name }}` table contains information about banner creatives
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#Banner
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/creative_banner.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: modified
+- name: creative_coupon
+  description: 'The `{{ table.name }}` table contains information about coupon creatives
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#CouponCreative
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/creative_coupon.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: modified
+- name: creative_generic
+  description: 'The `{{ table.name }}` table contains information about generic link
+    creatives in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#Generic
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/creative_generic.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: type
+    replication-key: modified
+- name: creative_performance
+  description: 'The `{{ table.name }}` table contains information about your {{ integration.display_name
+    }} creatives'' performance within a {{ table.attribution-window-days }}-day time
+    frame from the date of the last table replication.
+
+
+    **Note**: During every replication job, Stitch will replicate the last {{ table.attribution-window-days
+    }} days'' worth of data for this table. Refer to the [Attribution windows and
+    data extraction](#attribution-windows-data-extraction) section for more info.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#CreativeDetails
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/creative_performance.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - creative_id
+    - creative_type
+    - date
+    replication-key: datetime
+- name: creative_performance_by_publisher
+  description: 'The `{{ table.name }}` table contains information about your {{ integration.display_name
+    }} creatives'' performance, per publisher, within a {{ table.attribution-window-days
+    }}-day time frame from the date of the last table replication.
+
+
+    **Note**: During every replication job, Stitch will replicate the last {{ table.attribution-window-days
+    }} days'' worth of data for this table. Refer to the [Attribution windows and
+    data extraction](#attribution-windows-data-extraction) section for more info.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#CreativePerformanceByPublisher
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/creative_performance_by_publisher.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - creative_id
+    - creative_type
+    - date
+    - publisher_id
+    replication-key: datetime
+- name: creative_product
+  description: 'The `{{ table.name }}` table contains information about product creatives
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#ProductCreative
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/creative_product.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: creative_promotion
+  description: 'The `{{ table.name }}` table contains information about promotion
+    creatives in your {{ integration.display_name }} name account.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#CreativePromotion
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/creative_promotion.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: creative_text
+  description: 'The  {{ table.name }} table contains information about text creatives
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#Text
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/creative_text.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: modified
+- name: group
+  description: 'The `{{ table.name }}` table contains information about groups in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#Group
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/group.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: group_member
+  description: 'The `{{ table.name }}` table contains information about members within
+    groups in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#Member
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/group_member.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: itemized_list
+  description: 'The `{{ table.name }}` table contains information about your itemized
+    lists in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#ItemizedList
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/itemized_list.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: itemized_list_product
+  description: 'The `{{ table.name }}` table contains information about products within
+    your itemized lists in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#Product
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/itemized_list_product.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: publisher
+  description: 'The `{{ table.name }}` table contains information about the publishers,
+    the publishers'' status, and the publishers'' term in your {{ integration.display_name
+    }} account.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#Publisher
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/publisher.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: publisher_performance
+  description: 'The `{{ table.name }}` table contains information about publishers''
+    performance within a {{ table.attribution-window-days }}-day time frame from the
+    date of the last table replication.
+
+
+    **Note**: During every replication job, Stitch will replicate the last {{ table.attribution-window-days
+    }} days'' worth of data for this table. Refer to the [Attribution windows and
+    data extraction](#attribution-windows-data-extraction) section for more info.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#PublisherPerformance
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/publisher_performance.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: sale_date
+    replication-key: sale_date
+- name: term
+  description: 'The `{{ table.name }}` table contains information about the terms
+    for your program in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#Term
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/term.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: transaction_details
+  description: 'The {{ table.name }} table contains all publisher transaction details,
+    within a {{ table.attribution-window-days }}-day time frame from the date of the
+    last table replication.
+
+
+    **Note**: During every replication job, Stitch will replicate the last {{ table.attribution-window-days
+    }} days'' worth of data for this table. Refer to the [Attribution windows and
+    data extraction](#attribution-windows-data-extraction) section for more info.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#TransactionDetails
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/transaction_details.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: transaction_id
+    replication-key: sale_date
+- name: transaction_history
+  description: 'The {{ table.name }} table contains all historical publisher transactions,
+    within a {{ table.attribution-window-days }}-day time frame from the date of the
+    last table replication.
+
+
+    **Note**: During every replication job, Stitch will replicate the last {{ table.attribution-window-days
+    }} days'' worth of data for this table.
+
+    '
+  links:
+    doc-link: https://support.pepperjam.com/s/advertiser-api-documentation#TransactionHistory
+    singer-schema: https://github.com/singer-io/tap-pepperjam/blob/master/tap_pepperjam/schemas/transaction_history.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - transaction_id
+    - process_date
+    - sale_date
+    replication-key: sale_date

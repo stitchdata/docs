@@ -1,0 +1,192 @@
+tap: sendgrid-core
+version: '1'
+tables:
+- name: blocks
+  description: 'The `{{ table.name }}` table contains info about the email addresses
+    currently on your blocks list. There are several causes for blocked emails: A
+    mail server IP address being on an ISP blacklist, blocked by an ISP, or if the
+    receiving server flags the message content.
+
+    '
+  links:
+    doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/blocks.html#List-all-blocks-GET
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/blocks.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+- name: bounces
+  description: 'The `{{ table.name }}` table contains info about bounced emails. A
+    bounced email is when the message is undeliverable and returned to the server
+    that sent it.
+
+    '
+  links:
+    doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/bounces.html#List-all-bounces-GET
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/bounces.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+- name: campaigns
+  description: 'The `{{ table.name }}` table contains info about all your campaigns.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/campaigns.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: contacts
+  description: 'The `{{ table.name }}` table contains info about the contacts in your
+    SendGrid account.
+
+
+    #### Contact custom fields
+
+
+    Stitch''s {{ integration.display_name }} integration will replicate any custom
+    fields associated with contact records.
+
+    '
+  links:
+    doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/Marketing_Campaigns/contactdb.html#Get-Recipients-Matching-Search-Criteria-GET
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/contacts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: global_suppressions
+  description: 'The `{{ table.name }}` table contains info about global suppressions,
+    or global unsubscribes. Recipients who are globally suppressed will be removed
+    from any email you send.
+
+    '
+  links:
+    doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/global_suppressions.html#-Global-Unsubscribes
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/global_suppressions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+- name: groups_all
+  description: 'The `{{ table.name }}` table contains info about the groups in your
+    SendGrid account. Groups are specific types of email you want your recipients
+    to be able to unsubscribe from or subscribe to. For example: Newsletters, Invoices,
+    Alerts, etc.
+
+    '
+  links:
+    doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/groups.html#-GET
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/groups_all.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: group_members
+  description: 'The `{{ table.name }}` table contains a list of `email` and `group_id`
+    pairs, allowing you to identify recipients and the groups they are members of.
+
+    '
+  links:
+    doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/suppressions.html#-GET
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/groups_members.json
+  table-details:
+    replication-method: Full Table
+    primary-key: email
+- name: invalids
+  description: 'The `{{ table.name }}` table contains info about invalid email addresses.
+    An invalid email occurs when you attempt to send an email to an address that is
+    formatted in a manner that doesn''t meet internet email format standards, or the
+    email doesn''t exist at the recipient''s email server.
+
+
+    For example: Email addresses that don''t include the `@` symbol.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/invalids.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+- name: lists_all
+  description: 'The `{{ table.name }}` table contains info about your recipient lists.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/lists_all.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: lists_members
+  description: 'The `{{ table.name }}` table contains info about members of your lists.
+
+
+    #### List member custom fields
+
+
+    Stitch''s {{ integration.display_name }} integration will replicate any custom
+    fields associated with list member records.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/lists_members.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: segments_all
+  description: 'The `{{ table.name }}` table contains info about the segments in your
+    SendGrid account, and the conditions required for recipients to be added to the
+    segment.
+
+
+    For example: A segment for recipients with email addresses that contain `@stitchdata.com`
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/segments_all.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: segments_members
+  description: 'The `{{ table.name }}` table contains info about the members of your
+    segments.
+
+
+    #### Segment member custom fields
+
+
+    Stitch''s {{ integration.display_name }} integration will replicate any custom
+    fields associated with segment member records.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/segments_members.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: spam_reports
+  description: 'The `{{ table.name }}` table contains info about spam reports made
+    against your messages. Spam reports occur when a recipient indicates they think
+    your message is spam, which their email provider then reports to SendGrid.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/spam_reports.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+- name: templates_all
+  description: 'The `{{ table.name }}` table contains info about the transactional
+    templates in your SendGrid account. Transactional templates are templates specifically
+    created for transactional email and are different than Marketing Campaign templates.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/templates_all.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id

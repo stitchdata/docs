@@ -1,0 +1,134 @@
+tap: intercom
+version: 02-02-2016
+tables:
+- name: admins
+  description: 'The `{{ table.name }}` table contains info about the admins and teams
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.intercom.io/docs/admins
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: companies
+  description: 'The `{{ table.name }}` table contains info about the companies (or
+    commercial organizations) that use your {{ integration.display_name }} product.
+
+
+    #### Custom Attributes
+
+
+    If applicable, Stitch will replicate custom fields related to `{{ table.name }}`
+    in Intercom.
+
+    '
+  links:
+    doc-link: https://developers.intercom.com/reference#companies
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: company_segments
+  description: 'The `{{ table.name }}` table contains info about company segments.
+    A segment is a group of users that are defined by a set of rules.
+
+    '
+  links:
+    doc-link: https://developers.intercom.io/docs/companies
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: contacts
+  description: 'The `{{ table.name }}` table contains info about the logged-out users,
+    or leads, of your {{ integration.display_name }} app.
+
+
+    **Note**: `contacts` is equivalent to the `leads` object in {{ integration.display_name
+    }}''s API. See [{{ integration.display_name }}''s documentation](https://developers.intercom.com/reference#leads){:target="new"}
+    for more info.
+
+
+    #### Custom Attributes
+
+
+    If applicable, Stitch will replicate custom fields related to `contacts` (leads)
+    in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developers.intercom.com/reference#leads
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: conversations
+  description: 'The `{{ table.name }}` table contains info about user conversations,
+    or conversations initiated by your end-users.
+
+
+    #### Conversation Parts
+
+    To reconstruct an entire conversation, use the `conversation_parts` associated
+    with the conversation. These are the individual elements - actions, messages,
+    and so on - that make up a conversation.
+
+
+    If your destination doesn''t natively support nested data structures, a subtable
+    named `conversations__conversation_parts` will be created. More info on this table
+    can be found below.
+
+    '
+  links:
+    doc-link: https://developers.intercom.com/reference#conversations
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: segments
+  description: 'The `{{ table.name }}` table contains info about the segments - or
+    groups of users defined by a set of rules - in your {{ integration.display_name
+    }} account.
+
+    '
+  links:
+    doc-link: https://developers.intercom.com/reference#segments
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: tags
+  description: 'The `{{ table.name }}` table contains info about the tags in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.intercom.io/docs/tags
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: users
+  description: 'The `{{ table.name }}` table contains info about the users in your
+    {{ integration.display_name }} account.
+
+
+    #### Custom Attributes
+
+
+    If applicable, Stitch will replicate custom fields related to `users` in {{ integration.display_name
+    }}.
+
+    '
+  links:
+    doc-link: https://developers.intercom.io/docs/users
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at

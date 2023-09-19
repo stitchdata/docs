@@ -1,0 +1,171 @@
+tap: intercom
+version: '2'
+tables:
+- name: admins
+  description: 'The `{{ table.name }}` table lists info about the admins in your {{
+    integration.display_name }} account. An admin is a user, or teammate, in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.intercom.com/intercom-api-reference/v2.5/reference/admin-model
+    singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/admins.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: companies
+  description: 'The `{{ table.name }}` table contains info about companies that use
+    your {{ integration.display_name }} product.
+
+
+    #### Custom attributes {#company-custom-attributes}
+
+
+    If applicable, Stitch will replicate custom fields related to `{{ table.name }}`
+    in {{ integration.display_name }}.
+
+
+    #### Limitations {#company-limitations}
+
+
+    [{{ integration.display_name }}''s API limits the number of simultaneous requests]({{
+    table.api-method.doc-link }}){:target="new"} a single {{ integration.display_name
+    }} app, or connection, can make to the {{ table.api-method.name }} endpoint. Stitch
+    uses this endpoint to replicate company data. Currently, only one request can
+    occur at a time.
+
+
+    If multiple connections exist and they attempt to use this endpoint at the same
+    time, only the connection who made the request first will succeed.
+
+
+    This means that if Stitch attempts to extract data when another connection is
+    using the endpoint, Extraction will fail and an [error](TODO) will surface in
+    the Extraction Logs.
+
+
+    To prevent or minimize this issue, we recommend limiting the number of connections
+    a single workspace has or scheduling extraction jobs in Stitch around your other
+    connections'' usage.
+
+    '
+  links:
+    doc-link: https://developers.intercom.com/intercom-api-reference/v2.5/reference/company-model
+    singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/companies.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: company_attributes
+  description: 'The `{{ table.name }}` lists data attributes for a specified company
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.intercom.com/intercom-api-reference/v2.5/reference/data-attribute-model
+    singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/company_attributes.json
+  table-details:
+    replication-method: Full Table
+    primary-key: _sdc_record_hash
+- name: company_segments
+  description: 'The `{{ table.name }}` table contains information about company segments
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.intercom.com/intercom-api-reference/v2.5/reference/segment-model
+    singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/company_segments.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: contacts
+  description: 'The `{{ table.name }}` table contains info about users and leads in
+    your {{ integration.display_name }} account.
+
+
+    #### Custom attributes
+
+
+    If applicable, Stitch will replicate custom fields related to `{{ table.name }}`
+    in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developers.intercom.com/intercom-api-reference/v2.5/reference/contacts-model
+    singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/contacts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: contact_attributes
+  description: 'The `{{ table.name }}` table contains information about contact attributes
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.intercom.com/intercom-api-reference/v2.5/reference/data-attribute-model
+    singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/contact_attributes.json
+  table-details:
+    replication-method: Full Table
+    primary-key: _sdc_record_hash
+- name: conversations
+  description: 'The `{{ table.name }}` table contains info about user conversations
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.intercom.com/intercom-api-reference/v2.5/reference/conversation-model
+    singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/conversations.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: conversation_parts
+  description: 'The `{{ table.name }}` table lists the individual parts of conversations
+    in your {{ integration.display_name }} account.
+
+
+    **Note**: When this table is replicated, all conversation parts associated with
+    an updated conversation will be replicated.
+
+    '
+  links:
+    doc-link: https://developers.intercom.com/intercom-api-reference/v2.5/reference/conversation-model
+    singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/conversation_parts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: segments
+  description: The `{{ table.name }}` table contains information about segments within
+    your {{ integration.display_name }} account.
+  links:
+    doc-link: https://developers.intercom.com/intercom-api-reference/v2.5/reference/segment-model
+    singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/segments.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: tags
+  description: 'The `{{ table.name }}` table contains information about tags within
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.intercom.com/intercom-api-reference/v2.5/reference/tag-model
+    singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/tags.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: teams
+  description: 'The `{{ table.name }}` table contains information about teams in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.intercom.com/intercom-api-reference/v2.5/reference/teams-model
+    singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/teams.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id

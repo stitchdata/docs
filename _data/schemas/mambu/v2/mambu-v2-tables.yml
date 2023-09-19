@@ -1,0 +1,253 @@
+tap: mambu
+version: '2'
+tables:
+- name: activities
+  description: 'This table contains information about activities.
+
+    '
+  links:
+    doc-link: https://support.mambu.com/docs/activities-api
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/activities.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: encoded_key
+    replication-key: timestamp
+- name: audit_trail
+  description: 'This table contains information about activities that have been performed
+    in the Mambu Core Banking system.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/audit_trail.json
+  table-details:
+    replication-method: Key-based Incremental
+    replication-key: occurred_at
+- name: branches
+  description: 'This table contains information about branches.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/branches.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date
+- name: cards
+  description: 'This table contains information about cards.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/cards.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - deposit_id
+    - reference_token
+- name: centres
+  description: 'This table contains information about centres.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/centres.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date
+- name: clients
+  description: 'This table contains information about clients.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/clients.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date
+- name: communications
+  description: 'This table contains information about communications.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/communications.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: encoded_key
+    replication-key: creation_date
+- name: credit_arrangements
+  description: 'This table contains information about credit arrangements.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/credit_arrangements.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date
+- name: custom_field_sets
+  description: 'This table contains information about custom field sets.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/custom_field_sets.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: deposit_accounts
+  description: 'This table contains information about deposit accounts.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/deposit_accounts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date
+- name: deposit_products
+  description: 'This table contains information about deposit (savings) products.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/deposit_products.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date
+- name: deposit_transactions
+  description: 'This table contains information about deposit transactions.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/deposit_transactions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: encoded_key
+    replication-key: creation_date
+- name: gl_accounts
+  description: 'This table contains information about general ledger accounts.
+
+    '
+  links:
+    doc-link: https://support.mambu.com/docs/gl-accounts-api
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/gl_accounts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: gl_code
+    replication-key: last_modified_date
+- name: gl_journal_entries
+  description: 'This table contains information about general ledger entries.
+
+    '
+  links:
+    doc-link: https://support.mambu.com/docs/gl-journal-entries-api
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/gl_journal_entries.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: entry_id
+    replication-key: booking_date
+- name: groups
+  description: 'This table contains information about groups.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/groups.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date
+- name: index_rate_sources
+  description: 'This table contains information about index rate sources.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/#mambu-api-v2-index-rate-sources
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/index_rate_sources.json
+  table-details:
+    replication-method: Full Table
+    primary-key: encoded_key
+- name: installments
+  description: 'This table contains information about installments for a loan.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/#mambu-api-v2-installments
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/installments.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: encoded_key
+    replication-key: last_paid_date
+- name: loan_accounts
+  description: This table contains information about Loan Accounts.
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/loan_accounts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date
+- name: loan_products
+  description: 'This table contains information about loan products.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/loan_products.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date
+- name: loan_repayments
+  description: 'This is a child table of `loan_accounts`, containing information exclusively
+    about loan repayments.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/loan_repayments.json
+  table-details:
+    replication-method: Full Table
+    primary-key: encoded_key
+- name: loan_transactions
+  description: 'This table contains information about loan transactions.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/loan_transactions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: encoded_key
+    replication-key: creation_date
+- name: tasks
+  description: 'This table contains information about tasks.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/tasks.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date
+- name: users
+  description: 'This table contains information about users.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/users.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date

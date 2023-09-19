@@ -1,0 +1,114 @@
+tap: listrak
+version: '1'
+tables:
+- name: lists
+  description: 'The `{{ table.name }}` table contains info about your contact lists.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/lists.json
+  table-details:
+    replication-method: Full Table
+    primary-key: ListID
+- name: messages
+  description: 'The `{{ table.name }}` table contains info about message statistics.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/messages.json
+  table-details:
+    replication-method: Full Table
+    primary-key: MsgID
+- name: message_bounces
+  description: 'The `{{ table.name }}` table contains info about contact bounces for
+    a message.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/message_bounces.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - MsgID
+    - EmailAddress
+- name: message_clicks
+  description: 'The `{{ table.name }}` table contains info about contact clicks for
+    a message.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/message_clicks.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - MsgID
+    - EmailAddress
+- name: message_opens
+  description: 'The `{{ table.name }}` table contains info about contact opens for
+    a message.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/message_opens.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - MsgID
+    - EmailAddress
+- name: message_reads
+  description: 'The `{{ table.name }}` table contains info about contact reads for
+    a message.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/message_reads.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - MsgID
+    - EmailAddress
+- name: message_sends
+  description: 'The `{{ table.name }}` table contains `MsgID` and `EmailAddress` pairs,
+    allowing you to identify the messages that your contacts have been sent.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/message_sends.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - MsgID
+    - EmailAddress
+- name: message_unsubs
+  description: 'The `{{ table.name }}` table contains info about contacts who requested
+    to be removed from a list from the supplied message.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/message_unsubs.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - MsgID
+    - EmailAddress
+- name: subscribed_contacts
+  description: 'The `{{ table.name }}` table contains info about contacts who are
+    currently subscribed to the specified list.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/subscribed_contacts.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - ContactID
+    - ListID

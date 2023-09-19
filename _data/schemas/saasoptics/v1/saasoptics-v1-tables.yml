@@ -1,0 +1,231 @@
+tap: saasoptics
+version: '1'
+tables:
+- name: accounts
+  description: 'The `{{ table.name }}` table contains info about accounts, or records
+    in your Chart of Accounts, in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/accounts.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: auto_renewal_profiles
+  description: 'The `{{ table.name }}` table contains info about auto-renwal profiles,
+    or transaction renewal rules in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/auto_renewal_profiles.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: billing_descriptions
+  description: 'The `{{ table.name }}` table contains info about billing line item
+    descriptions.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/billing_descriptions.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: billing_methods
+  description: 'The `{{ table.name }}` table contains info about billing methods,
+    which are used to specify billing/invoice frequencies for transactions in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/billing_methods.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: contracts
+  description: 'The `{{ table.name }}` table contains info about the contracts in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/contracts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: modified
+- name: country_codes
+  description: 'The `{{ table.name }}` table contains info about country codes.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/country_codes.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: currency_codes
+  description: 'The `{{ table.name }}` table contains info about currency codes.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/currency_codes.json
+  table-details:
+    replication-method: Full Table
+    primary-key: code
+- name: customers
+  description: 'The `{{ table.name }}` table contains info about customers.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/customers.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: modified
+- name: deleted_contracts
+  description: 'The `{{ table.name }}` table contains a list of deleted {{ integration.display_name
+    }} contracts.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/deleted_contracts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: deleted
+- name: deleted_invoices
+  description: 'The `{{ table.name }}` table contains a list of deleted {{ integration.display_name
+    }} invoices.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/deleted_invoices.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: deleted
+- name: deleted_revenue_entries
+  description: 'The `{{ table.name }}` table contains a list of deleted {{ integration.display_name
+    }} revenue entries.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/deleted_revenue_entries.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: deleted
+- name: deleted_transactions
+  description: 'The `{{ table.name }}` table contains a list of deleted {{ integration.display_name
+    }} transactions.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/deleted_transactions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: deleted
+- name: invoices
+  description: 'The `{{ table.name }}` table contains info about invoices in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/invoices.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: auditentry_modified
+- name: items
+  description: 'The `{{ table.name }}` table contains info about items, which are
+    products and services you sell.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/items.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: modified
+- name: payment_terms
+  description: "The `{{ table.name }}` table contains info about invoice payment terms.\
+    \ \n"
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/payment_terms.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: registers
+  description: 'The `{{ table.name }}` table contains info about registers, which
+    can contain one or more [contracts](#contracts).
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/registers.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: modified
+- name: revenue_entries
+  description: 'The `{{ table.name }}` table contains info about revenue entries.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/revenue_entries.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: modified
+- name: revenue_recognition_methods
+  description: 'The `{{ table.name }}` table contains info about revenue recognition
+    methods, which are the methods for calculating and generating revenue records
+    for a transaction.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/revenue_recognition_methods.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: sales_orders
+  description: 'The `{{ table.name }}` table contains info about sales orders, which
+    have historically been synced in through the Salesforce integration and processed
+    into financial records within {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/sales_orders.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: transactions
+  description: 'The `{{ table.name }}` table contains info about transactions.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/transactions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: modified

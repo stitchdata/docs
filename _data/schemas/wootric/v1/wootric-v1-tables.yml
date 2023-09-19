@@ -1,0 +1,39 @@
+tap: wootric
+version: '1'
+tables:
+- name: declines
+  description: 'The `{{ table.name }}` table contains info about declines, or the
+    instances where a user is presented with a survey opportunity and opts out.
+
+    '
+  links:
+    doc-link: http://docs.wootric.com/api/#get-all-declines
+    singer-schema: https://github.com/singer-io/tap-wootric/blob/master/tap_wootric/schemas/declines.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: end_users
+  description: 'The `{{ table.name }}` table contains info about the end users associated
+    with survey opportunities.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-wootric/blob/master/tap_wootric/schemas/end_users.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: responses
+  description: 'The `{{ table.name }}` table contains info about end user responses
+    to surveys.
+
+    '
+  links:
+    doc-link: http://docs.wootric.com/api/#get-all-responses
+    singer-schema: https://github.com/singer-io/tap-wootric/blob/master/tap_wootric/schemas/responses.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at

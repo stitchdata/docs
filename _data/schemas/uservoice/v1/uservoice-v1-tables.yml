@@ -1,0 +1,237 @@
+tap: uservoice
+version: '1'
+tables:
+- name: categories
+  description: 'The `{{ table.name }}` contains info about the various categories
+    in your {{ integration.display_name }} account. Categories are used to organize
+    suggestions in a forum.
+
+    '
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/categories
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/categories.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: comments
+  description: 'The `comments` table contains info about the comments forum users
+    have made.
+
+    '
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/comments,comments_0?q=comments
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/comments.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: external_accounts
+  description: 'The `{{ table.name }}` table contains info about accounts from external
+    systems.
+
+    '
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/ExternalAccount
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/external_accounts.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: external_users
+  description: 'The `{{ table.name }}` table contains info about users from external
+    systems.
+
+    '
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/ExternalUser
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/external_users.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: features
+  description: 'The `{{ table.name }}` table contains info about planned product features.
+
+    '
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Feature
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/feature_statuses.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: feature_statuses
+  description: 'The `{{ table.name }}` table contains info about feature statuses,
+    which are used to indicate a feature''s current state.
+
+    '
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Feature
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/feature_statuses.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: forums
+  description: 'The `{{ table.name }}` table contains info about your discussion forums.
+
+    '
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Forum
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/forums.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: labels
+  description: 'The `{{ table.name }}` table contains info about labels in your {{
+    integration.display_name }} account, which admins use to internally organize suggestions.
+
+    '
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Forum
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/forums.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: nps_ratings
+  description: 'The `{{ table.name }}` table contains info about NPS, or Net Promoter
+    Scores. NPS is used to measure customer satisfaction on a scale from 0-10.
+
+    '
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/nps_ratings.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: product_areas
+  description: 'The `{{ table.name }}` table contains info about your product areas,
+    which can be assigned to features to organize them into groups.
+
+    '
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: requests
+  description: 'The `{{ table.name }}` table contains info about requests, which are
+    specific pieces of feedback submitted by your end users. Requests are associated
+    with suggestions, and users are counted as supporters of the suggestion.
+
+
+    Unlike suggestions, requests are captured by your team on behalf of end users.
+
+    '
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/requests.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: segmented_values
+  description: 'The `{{ table.name }}` table contains info about segmented values,
+    which are calculated columns that aggregate supporter metrics for a segment.
+
+    '
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/segmented_values.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: segments
+  description: 'The `{{ table.name }}` table contains info about segments, which are
+    subsets of your end users and accounts defined by a set of criteria.
+
+    '
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Segments
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/segments.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: stauses
+  description: "The `{{ table.name }}` table contains info about the various suggestion\
+    \ statuses in your {{ integration.display_name }} account. \n"
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Stauses
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: status_updates
+  description: 'The `{{ table.name }}` table contains info about admin changes to
+    the statuses of suggestions.
+
+    '
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/status_updates
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/status_updates.py
+  table-details:
+    replication-method: Key-based Incremental
+    replication-key: updated_at
+- name: suggestions
+  description: 'The `{{ table.name }}` table contains info about suggestions, or requested
+    changes to your product. Suggestions can be created by your end users, your product
+    team, or other people from your company.
+
+
+    Each suggestion is linked to a forum, where it can be visible publicly or to authorized
+    users.
+
+    '
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Suggestions
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/suggestions.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: supporters
+  description: 'The `{{ table.name }}` table contains info about supporters, who are
+    end users that are supporters of a suggestion.
+
+    '
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Supporters
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/supporters.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: teams
+  description: 'The `{{ table.name }}` table contains info about the teams in your
+    {{ integration.display_name }} account. {{ integration.display_name }} admins
+    and contributors can be assigned to teams to organize feedback the feedback they
+    capture by department, such as Sales, Support, or Product.
+
+    '
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Teams
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/teams.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: users
+  description: "The `{{ table.name }}` table contains info about your users. This\
+    \ includes both {{ integration.display_name }} admins and end users. \n"
+  links:
+    doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Users
+    singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/.py
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-keys:
+    - updated_at
+    - created_at

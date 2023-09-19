@@ -1,0 +1,48 @@
+tap: marketo
+version: '1'
+tables:
+- name: activities
+  description: 'The `activities` table contains info about lead activities.
+
+    '
+  links:
+    doc-link: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Activities/getLeadActivitiesUsingGET
+    singer-schema: https://github.com/singer-io/tap-marketo/blob/14ea7da75ea0edd855500678c14764f5dad5b283/tap_marketo/schemas/activities.json
+  table-details:
+    replication-method: Incremental
+    primary-key: id
+    replication-key: activityDate
+- name: activity_types
+  description: 'The `activity_types` table contains metadata about the activity types
+    - form fill, web page visit, lead creation, and so on - available in {{ integration.display_name
+    }}.
+
+    '
+  links:
+    doc-link: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Activities/getAllActivityTypesUsingGET
+    singer-schema: https://github.com/singer-io/tap-marketo/blob/14ea7da75ea0edd855500678c14764f5dad5b283/tap_marketo/schemas/activity_types.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: leads
+  description: 'The `leads` table contains info about your {{ integration.display_name
+    }} leads.
+
+    '
+  links:
+    doc-link: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/getLeadsByFilterUsingGET
+    singer-schema: null
+  table-details:
+    replication-method: Incremental
+    primary-key: id
+- name: lists
+  description: "The `leads` table contains info about the static lists in your {{\
+    \ integration.display_name }} account. \n\n**Note**: Due to some of the limitations\
+    \ in Marketo\u2019s API, only static lists will be replicated.\n"
+  links:
+    doc-link: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Static_Lists/getListsUsingGET
+    singer-schema: https://github.com/singer-io/tap-marketo/blob/14ea7da75ea0edd855500678c14764f5dad5b283/tap_marketo/schemas/lists.json
+  table-details:
+    replication-method: Incremental
+    primary-key: id
+    replication-key: updatedAt

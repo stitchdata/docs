@@ -1,0 +1,1331 @@
+tap: netsuite
+version: '1'
+tables:
+- name: Account
+  description: 'The `{{ table.name }}` table contains info about the accounts in the
+    Chart of Accounts in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/account.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: AccountingPeriod
+  description: 'The `{{ table.name }}` table contains info about the accounting periods
+    in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/accountingperiod.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Address
+  description: 'The `{{ table.name }}` table contains info about the custom address
+    forms in your {{ integration.display_name }} account.
+
+
+    Custom address forms can apply to entity, transaction, subsidiary, company information,
+    location, and workplace records in {{ integration.display_name }}. As custom address
+    forms inherit the permissions set on the parent record, the permissions required
+    for the parent record are required to access custom address data.
+
+
+    For example: To get custom address data for a location, the user must have the
+    permission for accessing location data.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: BillingAccount
+  description: 'The `{{ table.name }}` table contains info about the billing accounts
+    in your {{ integration.display_name }} account. A billing account is a record
+    used to show all billing information for a customer or subcustomer. A billing
+    account contains billing-specific information, including billing schedule, default
+    payment terms, bill-to address, and currency.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/billingaccount.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: BillingSchedule
+  description: 'The `{{ table.name }}` table contains info about the billing schedules
+    in your {{ integration.display_name }} account. Billing schedules are used to
+    define how bills for transactions are relayed to customers. In general, a billing
+    schedule determines the frequency with which the customer is billed and the amount
+    of each bill. However, the exact effect of a billing schedule varies depending
+    on its type.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/billingschedule.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Bin
+  description: 'The `{{ table.name }}` table contains info about bins, or places in
+    your warehouse where you store inventory items.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/bin.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Budget
+  description: "The `{{ table.name }}` table contains info about the budgets in your\
+    \ {{ integration.display_name }} account. A budget records the expected values\
+    \ of income and expenses for your business. Budgets can be created for specific\
+    \ customers, items, departments, classes, locations, or any combination of these\
+    \ criteria. \n\n{{ integration.permission-for-table | flatify }}\n"
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/budget.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: CalendarEvent
+  description: 'The `{{ table.name }}` table contains info about the scheduled activities,
+    or events, that are on the calendar in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/calendarevent.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: Campaign
+  description: 'The `{{ table.name }}` table contains info about the campaigns in
+    your {{ integration.display_name }} account. Campaigns are used to manage marketing
+    initiatives.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/campaign.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Charge
+  description: 'The `{{ table.name }}` table contains info about the charges in your
+    {{ integration.display_name }} account, which represent billable amounts that
+    your clients must pay.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/charge.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Classification
+  description: 'The `{{ table.name }}` table contains info about the classifications
+    in your {{ integration.display_name }} account.
+
+
+    As classifications inherit the permissions set on the parent record, the permissions
+    required for the parent record are required to access classification data.
+
+
+    For example: To get classification data for a location, the user must have the
+    permission for accessing location data.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/classification.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: ConsolidatedExchangeRate
+  description: 'The `{{ table.name }}` table contains info about consolidated exchange
+    rates. This is used in {{ integration.display_name }} OneWorld for consolidation
+    purposes, ensuring currency amounts correctly roll up from child to parent subsidiaries.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/consolidatedexchangerate.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Contact
+  description: 'The `{{ table.name }}` table contains info about contacts.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/contact.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: ContactCategory
+  description: 'The `{{ table.name }}` table contains info about the types of contacts
+    in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/contactcategory.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: ContactRole
+  description: 'The `{{ table.name }}` table contains info about contact roles in
+    your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/contactrole.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: CostCategory
+  description: 'The `{{ table.name }}` table contains info about cost categories,
+    which are used to classify different types of costs associated with items.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/costcategory.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: CouponCode
+  description: 'The `{{ table.name }}` table contains info about the coupon codes
+    in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/couponcode.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: CurrencyRate
+  description: 'The `{{ table.name }}` table contains info about currency rate records
+    in you {{ integration.display_name }} account. These are also known as Exchange
+    Rate records in {{ integration.display_name }}.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/currencyrate.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Customer
+  description: 'The `{{ table.name }}` table contains info about customers.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/customer.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: CustomerCategory
+  description: 'The `{{ table.name }}` table contains info about the types of customers
+    in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/customercategory.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: CustomerMessage
+  description: 'The `{{ table.name }}` table contains info about standardized customer
+    messages in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/customermessage.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: CustomerStatus
+  description: 'The `{{ table.name }}` table contains info about the stages for leads,
+    prospects, and customers in your {{ integration.display_name }} sales cycle.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/customerstatus.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: CustomList
+  description: "The `{{ table.name }}` table contains info about \n"
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/customlist.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: customrecord_[custom_record_name]
+  description: 'For each custom record type in {{ integration.display_name }}, a table
+    for that custom record type will be available for selection in Stitch.
+
+
+    Custom record tables are named `{{ table.name }}`, where `[custom_record_name]`
+    is the value of the ID field in the Custom Record Setup page in {{ integration.display_name
+    }}.
+
+
+    For example: If a custom record were named `promo discount` in {{ integration.display_name
+    }}, the corresponding table for those records would be named `{{ table.name |
+    replace: "[custom_record_name]","promo_discount" }}`. If the ID field in the Custom
+    Record Setup page is left blank, {{ integration.display_name }} will auto-assign
+    a numerical ID to the record. In Stitch, the table for the custom record would
+    then be something like `customrecord_123`, where `123` is the ID auto-assigned
+    by {{ integration.display_name }}.
+
+
+    **Note**: The Replication Method Stitch uses to replicate custom record types
+    depends on how custom records are configured in {{ integration.display_name }}.
+    Refer to the [Custom records](#custom-records) section for more info.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/customrecord.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: Deleted
+  description: 'The `{{ table.name }}` table contains info about deleted records.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+
+    #### Objects with delete support
+
+
+    According to [{{ integration.display_name }}''s documentation](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N3497592.html){:target="new"},
+    only certain objects support the `{{ table.api-method.name }}` operation Stitch
+    uses to retrieve deleted record data from the SuiteTalk API.
+
+
+    Refer to the [Deleted records](#deleted-records) section for more info and a list
+    of record types with delete support.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N3497592.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - internalId
+    - type
+    replication-key: deletedDate
+- name: Department
+  description: 'The `{{ table.name }}` table contains info about the departments in
+    your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/department.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Employee
+  description: 'The `{{ table.name }}` table contains info about the employees in
+    your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/employee.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: EntityGroup
+  description: 'The `{{ table.name }}` table contains info about the groups in your
+    {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/entitygroup.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: ExpenseCategory
+  description: "The `{{ table.name }}` table contains info about the expense categories\
+    \ in your {{ integration.display_name }} account. \n\n{{ integration.permission-for-table\
+    \ | flatify }}\n"
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/expensecategory.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: FairValuePrice
+  description: 'The `{{ table.name }}` table contains info about the fair value price
+    list in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/fairvalueprice.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: File
+  description: 'The `{{ table.name }}` table contains info about the files in your
+    {{ integration.display_name }} File Cabinet.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/file.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: Folder
+  description: 'The `{{ table.name }}` table contains info about the folders in your
+    {{ integration.display_name }} File Cabinet.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/folder.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: GiftCertificate
+  description: 'The `{{ table.name }}` table contains info about the gift certificates
+    in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/giftcertificate.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: GlobalAccountMapping
+  description: "The `{{ table.name }}` table contains the global account mapping record\
+    \ details in your {{ integration.display_name }} account. \n\nFor {{ integration.display_name\
+    \ }} accounts using Multi-Book Accounting, the global account mapping record enables\
+    \ you to configure secondary accounting books to post to accounts different from\
+    \ the primary book. These mappings are used by transactions where the user can\
+    \ manually select the account to which the transaction posts.\n\n{{ integration.permission-for-table\
+    \ | flatify }}\n"
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/globalaccountmapping.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: HcmJob
+  description: '{{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/hcmjob.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: InboundShipment
+  description: 'The `{{ table.name }}` table contains info about inbound shipments
+    in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/inboundshipment.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: InventoryNumber
+  description: 'The `{{ table.name }}` table contains info about the serial or lot
+    numbers in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/inventorynumber.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Issue
+  description: 'The `{{ table.name }}` table contains info about the support cases
+    in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/issue.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: Item
+  description: 'The `{{ table.name }}` table contains info about items.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: ItemAccountMapping
+  description: 'The `{{ table.name }}` table contains details about the item account
+    mapping record in your {{ integration.display_name }} account.
+
+
+    For accounts using {{ integration.display_name }} Multi-Book Accounting, the item
+    account mapping record enables you to configure secondary accounting books to
+    post to accounts different from the primary book, based on the item that is the
+    subject of the transaction. These mappings are used by transactions where the
+    item determines the account to which the transaction posts.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/itemaccountmapping.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: ItemDemandPlan
+  description: 'The `{{ table.name }}` table contains info about item demand plans
+    in your {{ integration.display_name }} account. An item demand plan transaction
+    stores the quantity expected to be needed, during specified time periods, for
+    an item.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/itemdemandplan.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: ItemRevision
+  description: 'The `{{ table.name }}` table contains info about item revisions in
+    your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/itemrevision.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: ItemSupplyPlan
+  description: 'The `{{ table.name }}` table contains info about the item supply plans
+    in your {{ integration.display_name }} account. An item supply plan lists the
+    purchase orders or work orders required to ensure that item quantity meets expected
+    demand.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/itemsupplyplan.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Job
+  description: 'The `{{ table.name }}` table contains info about the projects in your
+    {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/job.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: JobStatus
+  description: 'The `{{ table.name }}` table contains info about the statuses that
+    can be applied to projects in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/jobstatus.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: JobType
+  description: 'The `{{ table.name }}` table contains info about the types that can
+    be applied to projects in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/jobtype.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Location
+  description: 'The `{{ table.name }}` table contains info about locations.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/location.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: ManufacturingCostTemplate
+  description: 'The `{{ table.name }}` table contains info about the manufacturing
+    cost templates in your {{ integration.display_name }} account.
+
+
+    A manufacturing cost template is a list of rates that can be associated with completing
+    a specific operation. The template defines the activities that occur and related
+    costs to be recorded each time this step is completed.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/manufacturingcosttemplate.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: ManufacturingOperationTask
+  description: 'The `{{ table.name }}` table contains info about manufacturing operation
+    tasks in your {{ integration.display_name }} account.
+
+
+    After a WIP work order that has a designated routing is saved in {{ integration.display_name
+    }}, manufacturing operation tasks are created based on the routing. Each of these
+    tasks is a step that must be done in order for the assembly process to be finished.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/manufacturingoperationtask.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: ManufacturingRouting
+  description: 'The `{{ table.name }}` table contains info about the manufacturing
+    routing templates in your {{ integration.display_name }} account.
+
+
+    A manufacturing routing is a template that contains a list of steps required to
+    build an assembly item. Each step is in a sequential order necessary to complete
+    the operational sequence for completing the assembly. After you have created a
+    routing record, that routing can be selected on a work order to direct the completion
+    of the assembly. The routing determines the work center, cost template, labor
+    resources, and machine resources that will be used during the assembly.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/manufacturingrouting.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Message
+  description: 'The `{{ table.name }}` table contains info about the messages in your
+    {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/message.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: Nexus
+  description: "The `{{ table.name }}` table contains info about the tax jurisdictions\
+    \ - or nexus - in your {{ integration.display_name }} account. A nexus is a tax\
+    \ jurisdiction, usually defined at the country level. \n\n{{ integration.permission-for-table\
+    \ | flatify }}\n"
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/nexus.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Note
+  description: 'The `{{ table.name }}` table contains info about the notes in your
+    {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/note.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: NoteType
+  description: 'The `{{ table.name }}` table contains info about the types that can
+    be applied to notes in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/notetype.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Opportunity
+  description: 'The `{{ table.name }}` table contains info about the opportunities
+    in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/opportunity.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: OtherNameCategory
+  description: 'The `{{ table.name }}` table contains info about the other name categories
+    in your {{ integration.display_name }} account. Other name category values are
+    used on other name records to categorize them. The list of other name records
+    is a collection of records for people or companies who are not vendors, customers,
+    or employees.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/othernamecategory.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Partner
+  description: 'The `{{ table.name }}` table contains info about the partners in your
+    {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/partner.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: PartnerCategory
+  description: 'The `{{ table.name }}` table contains info about the categories that
+    can be applied to partners in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/partnercategory.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Paycheck
+  description: 'The `{{ table.name }}` table contains info about the paycheck records
+    in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/paycheck.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: PaymentMethod
+  description: 'The `{{ table.name }}` table contains info about the customer payment
+    methods in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/paymentmethod.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: PayrollItem
+  description: 'The `{{ table.name }}` table contains info about the payroll items,
+    or payroll transaction line items, in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/payrollitem.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: PhoneCall
+  description: 'The `{{ table.name }}` table contains info about the phone call records
+    in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/payrollitem.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: PriceLevel
+  description: 'The `{{ table.name }}` table contains info about the price level list
+    in your {{ integration.display_name }} account. Price level defines a list of
+    values that are used by opportunity and item records to set the price level for
+    a specific item.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/pricelevel.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: PricingGroup
+  description: 'The `{{ table.name }}` table contains info about the pricing groups
+    in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/pricinggroup.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: ProjectTask
+  description: 'The `{{ table.name }}` table contains info about the project tasks
+    in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/projecttask.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: PromotionCode
+  description: 'The `{{ table.name }}` table contains info about the promotion codes
+    in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/promotioncode.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: ResourceAllocation
+  description: 'The `{{ table.name }}` table contains info about resource allocations,
+    or employee time reservations, in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/resourceallocation.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: RevRecSchedule
+  description: 'The `{{ table.name }}` table contains info about the revenue recognition
+    schedules in your {{ integration.display_name }} account. A revenue recognition
+    schedule indicates the posting periods in which revenue should be recognized,
+    and the amount to be recognized in each period, for an item sale.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/revrecschedule.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: RevRecTemplate
+  description: 'The `{{ table.name }}` table contains info about the revenue recognition
+    templates in your {{ integration.display_name }} account. A revenue recognition
+    template indicates how revenue from associated items should be posted.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/revrectemplate.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: SalesRole
+  description: 'The `{{ table.name }}` table contains info about the sales roles in
+    your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/salesrole.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: SalesTaxItem
+  description: 'The `{{ table.name }}` table contains info about the sales tax items
+    in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/salestaxitem.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: SiteCategory
+  description: 'The `{{ table.name }}` table contains info about the categories used
+    to organize your website.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/sitecategory.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Solution
+  description: 'The `{{ table.name }}` table contains info about the solutions, or
+    answers to customer issues, in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/solution.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: Subsidiary
+  description: 'The `{{ table.name }}` table contains info about the subsidiary records
+    in your {{ integration.display_name }} account. A subsidiary represents a separate
+    company within your global organization.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/subsidiary.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: SupportCase
+  description: 'The `{{ table.name }}` table contains info about the support cases
+    in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/supportcase.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: Task
+  description: 'The `{{ table.name }}` table contains info about the tasks in your
+    {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/task.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: TaxGroup
+  description: 'The `{{ table.name }}` table contains info about the tax groups in
+    your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/taxgroup.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: TaxType
+  description: 'The `{{ table.name }}` table contains info about the tax types in
+    your {{ integration.display_name }} account. A tax type determines where the tax
+    paid or collected is tracked on the balance sheet. The balance sheet account to
+    which {{ integration.display_name }} posts the collection or payment of tax is
+    called the tax control account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/taxtype.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Term
+  description: 'The `{{ table.name }}` table contains info about the terms in your
+    {{ integration.display_name }} account. Terms are used to specify when payment
+    is due on customer invoices.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: TimeBill
+  description: 'The `{{ table.name }}` table contains info about the time transactions
+    in your {{ integration.display_name }} account. Also known as time bills, these
+    transactions records the hours worked by an employee. This transaction can be
+    used to record billable hours and invoice customers.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/timebill.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: TimeEntry
+  description: 'The `{{ table.name }}` table contains info about the time entries
+    in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/timeentry.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: TimeSheet
+  description: 'The `{{ table.name }}` table contains info about the time sheets in
+    your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/timesheet.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Topic
+  description: 'The `{{ table.name }}` table contains info about the topics used to
+    organize knowledge base solutions in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/topic.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: UnitsType
+  description: 'The `{{ table.name }}` table contains info about the unit types, or
+    Units of Measure, in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/unitstype.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Usage
+  description: 'The `{{ table.name }}` table contains info about the subscription
+    billing lines in your {{ integration.display_name }} account. For example: Money,
+    time, cellular data, internet data, etc.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/usage.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: Vendor
+  description: 'The `{{ table.name }}` table contains info about the vendors in your
+    {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/vendor.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: VendorCategory
+  description: 'The `{{ table.name }}` table contains info about the categories that
+    can be applied to vendors in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/vendorcategory.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: WinLossReason
+  description: 'The `{{ table.name }}` table contains info about the win/loss reasons
+    in your {{ integration.display_name }} account.
+
+
+    {{ integration.permission-for-table | flatify }}
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/winlossreason.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId

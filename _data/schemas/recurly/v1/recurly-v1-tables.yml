@@ -1,0 +1,133 @@
+tap: recurly
+version: '1'
+tables:
+- name: accounts
+  description: 'The `{{ table.name }}` table contains info about the customer accounts
+    in your {{ integration.display_name }} account. Account objects store the history
+    of the customer, billing info, etc.
+
+
+    ### Custom fields
+
+
+    Stitch''s {{ integration.display_name }} integration supports replicating custom
+    fields for {{ table.name }} objects.
+
+    '
+  links:
+    doc-link: https://dev.recurly.com/docs/account-object
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/accounts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: adjustments
+  description: 'The `{{ table.name }}` table contains info about adjustments, which
+    are credits and charges associated with your customers.
+
+    '
+  links:
+    doc-link: https://dev.recurly.com/docs/adjustment-object
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/adjustments.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: billing_info
+  description: 'The `{{ table.name }}` table contains info about the billing information
+    for [`accounts`](#accounts).
+
+
+    **Note**: To replicate this table, you must also have the [`accounts`](#accounts)
+    table set to replicate.
+
+
+    ### Custom fields
+
+
+    Stitch''s {{ integration.display_name }} integration supports replicating custom
+    fields for billing info objects.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/billing_info.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: account_id
+    replication-key: updated_at
+- name: coupons
+  description: 'The `{{ table.name }}` table contains info about the coupons available
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/coupons.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: plans
+  description: 'The `{{ table.name }}` table contains info about the plans in your
+    {{ integration.display_name }} account. A plan tells {{ integration.display_name
+    }} how much to charge customers.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/plans.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: plans_add_ons
+  description: 'The `{{ table.name }}` table contains info about the add-ons in your
+    {{ integration.display_name }} account. An add-on is a charge billed each billing
+    period in addition to a subscription''s base charge.
+
+
+    **Note**: To replicate this table, you must also have the [`plans`](#plans) table
+    set to replicate.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/plans_add_ons.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: subscriptions
+  description: 'The `{{ table.name }}` table contains info about the subscriptions
+    in your {{ integration.display_name }} account. Subscriptions are created when
+    your customers subscribe to one of your plans. The customer''s subscription tells
+    {{ integration.display_name }} when and how much to bill the customer.
+
+
+    ### Custom fields
+
+
+    Stitch''s {{ integration.display_name }} integration supports replicating custom
+    fields for subscription objects.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/subscriptions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: transactions
+  description: 'The `{{ table.name }}` table contains info about the transactions
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/transactions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: collected_at

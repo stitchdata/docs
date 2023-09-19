@@ -1,0 +1,463 @@
+tap: zuora
+version: '1'
+tables:
+- name: account
+  description: 'The `{{ table.name }}` table contains information about the customer
+    accounts in your {{ integration.display_name }} instance.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Accounts
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: accountingCode
+  description: 'The `{{ table.name }}` table contains information about the accounting
+    codes in your {{ integration.display_name }} instance. Accounting codes are used
+    to categorize transactions for accounting purposes.
+
+
+    **Note**: To replicate this table, you must have {{ integration.display_name }}
+    Finance enabled.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#operation/GET_AllAccountingCodes
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: accountingPeriod
+  description: 'The `{{ table.name }}` table contains information about the [accounting
+    periods](https://knowledgecenter.zuora.com/CC_Finance/E_Accounting_Periods){:target="new"}
+    in your {{ integration.display_name }} account.
+
+
+    **Note**: To replicate this table, you must have {{ integration.display_name }}
+    Finance enabled.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Accounting-Periods
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: amendment
+  description: 'The `{{ table.name }}` table contains information about subscription
+    amendments, which are changes to customer subscriptions. For example: Changing
+    the terms of a contract, adding/removing a product, canceling a subscription,
+    etc.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#operation/Object_GETAmendment
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: billingRun
+  description: 'The `{{ table.name }}` table contains information about billing runs.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/billing-Run
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: communicationProfile
+  description: 'The `{{ table.name }}` table contains information about communication
+    profiles, which are sets of policies that determine how to communicate with the
+    contacts associated with a specific customer account.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#operation/Object_GETCommunicationProfile
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: contact
+  description: 'The `{{ table.name }}` table contains info about an account''s point-of-contact.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Contacts
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: contactSnapshot
+  description: 'The `{{ table.name }}` table contains ''snapshot'' records of Bill-To
+    or Sold-To contacts on customer accounts. Snapshots are record preservations at
+    specific points in time. When invoices are posted, {{ integration.display_name
+    }} will preserve the data for the Bill-To and Sold-To contacts at that point in
+    time.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Contacts
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: creditBalanceAdjustment
+  description: 'The `{{ table.name }}` table contains information about [credit balance
+    adjustments](https://knowledgecenter.zuora.com/CB_Billing/G_Credit_Balances){:target="new"},
+    or the application of credit balances to invoices, payments, and refunds.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/credit balance
+      adjustments
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: discountAppliedMetrics
+  description: 'The `{{ table.name }}` table contains information about rate plan
+    charges that use either a discount-fixed amount or discount-percentage charge
+    model.
+
+    '
+  links:
+    doc-link: https://knowledgecenter.zuora.com/CD_Reporting/D_Data_Sources_and_Exports/C_Data_Source_Reference/Discount_Applied_Metrics_Data_Sourceadjustments
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: export
+  description: 'The `{{ table.name }}` table contains information about export jobs
+    and files.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Exports
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: import
+  description: 'The `{{ table.name }}` table contains information about content uploads.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/imports
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: invoice
+  description: 'The `{{ table.name }}` table contains info about invoices, which are
+    bills to customers.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Invoices
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: invoiceItem
+  description: 'The `{{ table.name }}` table contains info about the line items in
+    invoices.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Invoice-Items
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: invoiceItemAdjustment
+  description: 'The `{{ table.name }}` table contains info about adjustments applied
+    to invoice line items.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Invoice-Items
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: journalEntry
+  description: "The `{{ table.name }}` table contains information about \n"
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Accounts
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: journalEntryItem
+  description: 'The `{{ table.name }}` table contains information about journal entry
+    items.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Summary-Journal-Entries
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: journalRun
+  description: 'The `{{ table.name }}` table contains information about journal runs.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Journal-Runs
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: payment
+  description: 'The `payment` table contains info about customer payments.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Payments
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: paymentRun
+  description: 'The `{{ table.name }}` table contains information about payment runs.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Payment-Runs
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: processedUsage
+  description: 'The `{{ table.name }}` table contains information about usage.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Accounts
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: product
+  description: 'The `{{ table.name }}` table contains info about your company''s product
+    offerings.
+
+    '
+  links:
+    doc-link: http://knowledgecenter.zuora.com/DC_Developers/SOAP_API/E1_SOAP_API_Object_Reference/Product#Field_Descriptions
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: productRatePlan
+  description: 'The `{{ table.name }}` table contains info about product rate plans,
+    or the part of a product that customers can subscribe to.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Product-Rate-Plans
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: productRatePlanCharge
+  description: 'The `{{ table.name }}` table contains info about product rate plan
+    charges, which are a charge model or set of fees associated with a product rate
+    plan.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Product-Rate-Plan-Charges
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: productRatePlanChargeTier
+  description: 'The `{{ table.name }}` table contains pricing info for product rate
+    plan charges.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Product-Rate-Plan-Charge-Tiers
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: ratePlan
+  description: 'The `{{ table.name }}` table contains info about rate plans, which
+    is a price or collection of prices for services.
+
+
+    #### Custom fields {#rate-plan-custom-fields}
+
+
+    In addition to the attributes listed below, our {{ integration.display_name }}
+    integration will also replicate any custom fields.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Rate-Plans
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: ratePlanChargeTier
+  description: 'The `{{ table.name }}` table contains pricing info for rate plan charges.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Rate-Plan-Charge-Tiers
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: refund
+  description: 'The `{{ table.name }}` table contains info about refunds, or transactions
+    where money is returned to a customer.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Refunds
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: revenueChargeSummaryItem
+  description: 'The `{{ table.name }}` table contains information about [charge revenue
+    summaries](https://knowledgecenter.zuora.com/CC_Finance/Revenue_Recognition/G_Revenue_Schedules/M_Charge_Revenue_Summary){:target="new"},
+    which are summaries of all revenue distributions associated with a subscription
+    charge.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#operation/GET_CRSByCRSNumber
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: revenueEventItem
+  description: 'The `{{ table.name }}` table contains information about revenue events.
+    A revenue event is a change to a revenue schedule, such as creating the initial
+    schedule, canceling an invoice, or recognizing an undistributed amount.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Revenue-Events
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: revenueEventItemInvoiceItem
+  description: 'The `{{ table.name }}` table contains information about revenue event
+    items that are associated with invoice items.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Revenue-Events
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: revenueEventItemInvoiceItemAdjustment
+  description: 'The `{{ table.name }}` table contains information about revenue event
+    items that are associated with invoice item adjustments.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Revenue-Events
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: revenueScheduleItem
+  description: 'The `{{ table.name }}` table contains information about revenue schedules.
+    A [revenue schedule](https://knowledgecenter.zuora.com/CC_Finance/Revenue_Recognition/G_Revenue_Schedules){:target="new"}
+    represents how revenue amounts from single charges are distributed over time and
+    recognized in accounting periods.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Revenue-Items
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: revenueScheduleItemInvoiceItem
+  description: 'The `{{ table.name }}` table contains information about revenue schedule
+    item - invoice items.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Revenue-Items
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: revenueScheduleItemInvoiceItemAdjustment
+  description: 'The `{{ table.name }}` table contains information about revenue schedule
+    item - invoice items.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Revenue-Items
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate
+- name: subscription
+  description: 'The `{{ table.name }}` table contains info about your products and/or
+    services with recurring charges.
+
+
+    ### Custom Attributes {#custom-subscription-fields}
+
+
+    If your {{ integration.display_name }} subscription records contain custom attributes,
+    Stitch will replicate them.
+
+    '
+  links:
+    doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Subscriptions
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedDate

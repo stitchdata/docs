@@ -1,0 +1,17 @@
+tap: sailthru
+version: '0.2'
+tables:
+- name: blast_query
+  description: 'The `{{ table.name }}` table contains information from blast query
+    jobs in your {{ integration.display_name }} account. This is a child table of
+    `blasts`.
+
+    '
+  links:
+    doc-link: https://getstarted.sailthru.com/developers/api/job/#blast-query
+    singer-schema: https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/blast_query.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - blast_id
+    - profile_id

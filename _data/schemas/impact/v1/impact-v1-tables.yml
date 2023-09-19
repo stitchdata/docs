@@ -1,0 +1,289 @@
+tap: impact
+version: '1'
+tables:
+- name: actions
+  description: 'The `{{ table.name }}` table contains info about a campaign''s actions.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/actions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: event_date
+- name: action_inquiries
+  description: 'The `{{ table.name }}` table contains info about a campaign''s action
+    inquiries.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/action_inquiries.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: creation_date
+- name: action_updates
+  description: 'The `{{ table.name }}` table contains info about a campaign''s action
+    updates.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/action_updates.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: update_date
+- name: ads
+  description: 'The `{{ table.name }}` table contains info about ads.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/ads.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: api_submissions
+  description: 'The `{{ table.name }}` table contains info about API submissions.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/api_submissions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: batch_id
+    replication-key: submission_date
+- name: campaigns
+  description: 'The `{{ table.name }}` table contains info about campaigns in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/campaigns.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: catalogs
+  description: 'The `{{ table.name }}` table contains info about the catalogs in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/catalogs.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: catalog_items
+  description: 'The `{{ table.name }}` table contains info about a catalog''s items.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/catalog_items.json
+  table-details:
+    replication-method: Full Table
+    primary-key: catalog_item_id
+- name: clicks
+  description: 'The `{{ table.name }}` table contains info about a campaign''s clicks.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/clicks.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: event_date
+- name: company_information
+  description: 'The `{{ table.name }}` table contains details about companies.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/company_information.json
+  table-details:
+    replication-method: Full Table
+    primary-key: company_name
+- name: contacts
+  description: 'The `{{ table.name }}` table contains info about a campaign''s contacts.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/contacts.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: conversion_paths
+  description: 'The `{{ table.name }}` table contains info about a campaign''s conversions.
+
+
+    **Note**: Your **Model ID** must be provided [in the integration''s settings](#add-stitch-data-source)
+    to replicate data for this table.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/conversion_paths.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - campaign_id
+    - customer_id
+    - model_id
+- name: deals
+  description: 'The `{{ table.name }}` table contains info about the deals in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/deals.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: exception_lists
+  description: 'The `{{ table.name }}` table contains info about exception lists.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/exception_lists.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: exception_list_items
+  description: 'The `{{ table.name }}` table contains info about an exception list''s
+    items.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/exception_list_items.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: ftp_file_submissions
+  description: 'The `{{ table.name }}` table contains info about FTP file submissions.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/ftp_file_submissions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: batch_id
+    replication-key: submission_date
+- name: invoices
+  description: 'The `{{ table.name }}` table contains info about the invoices in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/invoices.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created_date
+- name: media_partners
+  description: 'The `{{ table.name }}` table contains info about the media partners
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/media_partners.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: media_partner_groups
+  description: 'The `{{ table.name }}` table contains info about a campaign''s media
+    partner groups.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/media_partner_groups.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: notes
+  description: 'The `{{ table.name }}` table contains info about a campaign''s notes.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/notes.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: modification_date
+- name: phone_numbers
+  description: 'The `{{ table.name }}` table contains info about phone numbers.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/phone_numbers.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: promo_codes
+  description: 'The `{{ table.name }}` table contains info about promo codes.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/promo_codes.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: reports
+  description: 'The `{{ table.name }}` table contains info about the reports in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/reports.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: report_metadata
+  description: 'The `{{ table.name }}` table contains info about metadata associated
+    with reports.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/report_metadata.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: tracking_value_requests
+  description: 'The `{{ table.name }}` table contains info about tracking value requests.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/tracking_value_requests.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: unique_urls
+  description: 'The `{{ table.name }}` table contains info about unique URLs.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-impact/blob/master/tap_impact/schemas/unique_urls.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id

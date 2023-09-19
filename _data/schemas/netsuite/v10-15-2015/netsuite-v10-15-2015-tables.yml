@@ -1,0 +1,699 @@
+tap: netsuite
+version: 10-15-2015
+tables:
+- name: netsuite_accounting_period
+  description: 'The `{{ table.name }}` table contains info about accounting periods
+    in your NetSuite instance.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/accountingperiod.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_app_definition
+  description: 'The `{{ table.name }}` table contains info about the app definitions
+    in your NetSuite instance.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/appdefinition.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_app_package
+  description: 'The `{{ table.name }}` table contains info about the app packages
+    in your NetSuite instance.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/apppackage.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_billing_schedule
+  description: 'The `{{ table.name }}` table contains info about the accounts in your
+    NetSuite instance.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/billingschedule.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_calendar_event
+  description: 'The `{{ table.name }}` table contains info about calendar events.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/calendarevent.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_campaign
+  description: 'The `{{ table.name }}` table contains info about campaigns.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/campaign.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_classification
+  description: 'The `{{ table.name }}` table contains info about classifications.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/classification.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_contact_category
+  description: 'The `{{ table.name }}` table contains info about contact categories.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/contactcategory.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_contact_role
+  description: 'The `{{ table.name }}` table contains info about contact roles.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/contactrole.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_coupon_code
+  description: 'The `{{ table.name }}` table contains info about coupon codes.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/couponcode.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_currency_rate
+  description: 'The `{{ table.name }}` table contains info about currency rates.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/currencyrate.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_customer
+  description: "The `{{ table.name }}` table contains info about customers. \n"
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/customer.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_customer_category
+  description: 'The `{{ table.name }}` table contains info about customer categories.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/customercategory.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_customer_message
+  description: 'The `{{ table.name }}` table contains info about customer messages.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/search/customermessage.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_customer_status
+  description: 'The `{{ table.name }}` table contains info about customer statuses.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/customerstatus.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_custom_list
+  description: 'The `{{ table.name }}` table contains info about custom lists.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/customlist.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_custom_records
+  description: 'The `{{ table.name }}` table contains info about custom records.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/search/customrecord.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_deleted
+  description: "The `{{ table.name }}` table contains info about deleted records.\t\
+    \n"
+  links:
+    doc-link: null
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - internalId
+    - type
+- name: netsuite_department
+  description: "The `{{ table.name }}` table contains info about departments. \n"
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/department.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_entity_group
+  description: 'The `{{ table.name }}` table contains info about entity groups.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/entitygroup.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_expense_category
+  description: 'The `{{ table.name }}` table contains info about expense categories.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/expensecategory.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_folder
+  description: 'The `{{ table.name }}` table contains info about folders.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/folder.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_gift_certificate
+  description: 'The `{{ table.name }}` table contains info about gift certificates.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/giftcertificate.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_global_account_mapping
+  description: 'The `{{ table.name }}` table contains info about global account mappings.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/globalaccountmapping.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_inventory_number
+  description: 'The `{{ table.name }}` table contains info about inventory numbers.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/inventorynumber.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_item_account_mapping
+  description: 'The `{{ table.name }}` table contains info about item account mappings.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/itemaccountmapping.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_item_demand_plan
+  description: 'The `{{ table.name }}` table contains info about item demand plans.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/itemdemandplan.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_item_revision
+  description: 'The `{{ table.name }}` table contains info about item revisions.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/itemrevision.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - internalId
+    - _type
+- name: netsuite_item_supply_plan
+  description: 'The `{{ table.name }}` table contains info about item supply plans.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/itemsupplyplan.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_job
+  description: 'The `{{ table.name }}` table contains info about jobs.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/job.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_job_status
+  description: 'The `{{ table.name }}` table contains info about job statuses.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/jobstatus.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_job_type
+  description: 'The `{{ table.name }}` table contains info about job types.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/jobtype.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_manufacturing_cost_template
+  description: 'The `{{ table.name }}` table contains info about manufacturing cost
+    templates.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/manufacturingcosttemplate.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_manufacturing_operation_task
+  description: 'The `{{ table.name }}` table contains info about manufacturing operation
+    tasks.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/manufacturingoperationtask.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_manufacturing_routing
+  description: 'The `{{ table.name }}` table contains info about manufacturing routings.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/manufacturingrouting.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_message
+  description: 'The `{{ table.name }}` table contains info about messages.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/message.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_nexus
+  description: 'The `{{ table.name }}` table contains info about nexus tax items.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/nexus.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_note
+  description: 'The `{{ table.name }}` table contains info about notes.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/note.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_note_type
+  description: 'The `{{ table.name }}` table contains info about note types.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/notetype.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_opportunity
+  description: 'The `{{ table.name }}` table contains info about opportunities.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/opportunity.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_originating_lead
+  description: 'The `{{ table.name }}` table contains info about originating leads.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/originatinglead.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_other_name_category
+  description: 'The `{{ table.name }}` table contains info about other name categories.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/othernamecategory.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_partner_category
+  description: 'The `{{ table.name }}` table contains info about partner categories.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/partnercategory.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_payment_method
+  description: 'The `{{ table.name }}` table contains info about payment methods.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/paymentmethod.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_payroll_item
+  description: 'The `{{ table.name }}` table contains info about payroll items.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/payrollitem.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_phone_call
+  description: 'The `{{ table.name }}` table contains info about phone calls.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/phonecall.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_price_level
+  description: 'The `{{ table.name }}` table contains info about [price levels.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/pricelevel.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_pricing_group
+  description: 'The `{{ table.name }}` table contains info about pricing groups.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/pricinggroup.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_project_task
+  description: 'The `{{ table.name }}` table contains info about project tasks.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/projecttask.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_promotion_code
+  description: 'The `{{ table.name }}` table contains info about promotion codes.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/promotioncode.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_resource_allocation
+  description: 'The `{{ table.name }}` table contains info about resource allocations.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/resourceallocation.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_rev_rec_schedule
+  description: 'The `{{ table.name }}` table contains info about revenue recognition
+    schedules.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/revrecschedule.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_rev_rec_template
+  description: 'The `{{ table.name }}` table contains info about revenue recognition
+    templates.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/revrectemplate.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_sales_role
+  description: 'The `{{ table.name }}` table contains info about sales roles.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/salesrole.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_site_category
+  description: 'The `{{ table.name }}` table contains info about site categories.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/sitecategory.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_solution
+  description: 'The `{{ table.name }}` table contains info about solutions.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/solution.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_subsidiary
+  description: 'The `{{ table.name }}` table contains info about subsidiaries.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/subsidiary.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_support_case
+  description: 'The `{{ table.name }}` table contains info about support cases.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/supportcase.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_task
+  description: 'The `{{ table.name }}` table contains info about tasks.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/task.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_term
+  description: 'The `{{ table.name }}` table contains info about terms.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/term.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_time_bill
+  description: 'The `{{ table.name }}` table contains info about time bills.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/timebill.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_time_entry
+  description: 'The `{{ table.name }}` table contains info about time entries.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/timeentry.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_time_sheet
+  description: 'The `{{ table.name }}` table contains info about time sheets.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/timesheet.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_transaction
+  description: 'The `{{ table.name }}` table contains info about transactions.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/transaction.html
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: internalId
+    replication-key: lastModifiedDate
+- name: netsuite_units_type
+  description: 'The `{{ table.name }}` table contains info about unit types.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/unitstype.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_vendor_category
+  description: 'The `{{ table.name }}` table contains info about vendor categories.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/vendorcategory.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId
+- name: netsuite_win_loss_reason
+  description: 'The `{{ table.name }}` table contains info about win loss reasons.
+
+    '
+  links:
+    doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/winlossreason.html
+    singer-schema: ''
+  table-details:
+    replication-method: Full Table
+    primary-key: internalId

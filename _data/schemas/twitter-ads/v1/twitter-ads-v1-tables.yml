@@ -1,0 +1,486 @@
+tap: twitter-ads
+version: '1'
+tables:
+- name: accounts
+  description: 'The `{{ table.name }}` table contains info about the advertising-enabled
+    accounts the user authenticating the integration has access to.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/accounts#accounts
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/accounts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: account_media
+  description: 'The `{{ table.name }}` table contains info about the account media
+    associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/account-media#account-media
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/account_media.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: advertiser_business_categories
+  description: 'The `{{ table.name }}` table contains info about the advertiser business
+    categories associated with an advertiser''s ad groups.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/advertiser-business-categories#advertiser-business-categories
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/advertiser_business_categories.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: bidding_rules
+  description: 'The `{{ table.name }}` table contains info about the bidding rules
+    for currencies.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/bidding-rules#bidding-rules
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/bidding_rules.json
+  table-details:
+    replication-method: Full Table
+    primary-key: currency
+- name: campaigns
+  description: 'The `{{ table.name }}` table contains info about the campaigns associated
+    with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/campaigns#campaigns
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/campaigns.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: cards_image_app_download
+  description: 'The `{{ table.name }}` table contains info about image app download
+    cards associated with an account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_image_app_download.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: cards_image_conversation
+  description: 'The `{{ table.name }}` table contains info about image conversation
+    cards associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/image-conversation#image-conversation-cards
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_image_conversation.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: cards_image_direct_message
+  description: 'The `{{ table.name }}` table contains info about the image direct
+    message cards associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/image-direct-message#image-direct-message-cards
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_image_direct_message.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: cards_poll
+  description: 'The `{{ table.name }}` table contains info about poll cards associated
+    with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/poll#poll-cards
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_poll.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: cards_video_app_download
+  description: 'The `{{ table.name }}` table contains info about the video app download
+    cards associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/video-app-download#video-app-download-cards
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_video_app_download.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: cards_video_conversation
+  description: 'The `{{ table.name }}` table contains info about the video conversation
+    cards associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/video-conversation#video-conversation-cards
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_video_conversation.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: cards_video_direct_message
+  description: 'The `{{ table.name }}` table contains info about the video direct
+    message cards associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/video-direct-message#video-direct-message-cards
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_video_direct_message.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: cards_video_website
+  description: 'The `{{ table.name }}` table contains info about the video website
+    cards associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/video-website#video-website-cards
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_video_website.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: cards_website
+  description: 'The `{{ table.name }}` table contains info about the website cards
+    associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/website#website-cards
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_website.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: content_categories
+  description: 'The `{{ table.name }}` table contains info about the content categories
+    used as targeting criteria for ad groups.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/content-categories#content-categories
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/content_categories.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: EXAMPLE_CUSTOM_REPORT
+  description: '{% assign reference = integration.other-sections | where:"anchor","reference"
+    | first %}
+
+    {% assign custom-report-options = reference.custom-report-options %}
+
+
+    This is an example of a table created from a custom report configured in the integration''s
+    settings page.
+
+
+    Metric columns in report tables depend on the [entity selected for the report](#custom-report-configuration-options--compatibility).
+
+
+    When data is extracted for reports, Stitch uses the [Attribution Window](#add-stitch-data-source)
+    defined in the integration''s settings.
+
+    '
+  links:
+    doc-link: active_entities
+    singer-schema: ''
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.dimension-hash-key }}'
+    replication-key: end_time
+- name: funding_instruments
+  description: 'The `{{ table.name }}` table contains info about the funding instruments
+    associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/funding-instruments#funding-instruments
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/funding_instruments.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: iab_categories
+  description: 'The `{{ table.name }}` table contains info about the app categories
+    associated with ad groups.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/iab-categories#iab-categories
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/iab_categories.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: line_items
+  description: 'The `{{ table.name }}` table contains info about the line items (ad
+    groups) associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/line-items#line-items
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/line_items.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: line_item_apps
+  description: 'The `{{ table.name }}` table contains info about the apps associated
+    with line items associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/line-item-apps#line-item-apps
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/line_item_apps.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: media_creatives
+  description: 'The `{{ table.name }}` table contains info about the media creatives
+    associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/media-creatives#media-creatives
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/media_creatives.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: preroll_call_to_actions
+  description: 'The `{{ table.name }}` table contains info about the preroll call-to-actions
+    associated with line items (ad groups) associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/preroll-call-to-actions#preroll-call-to-actions
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/preroll_call_to_actions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: promotable_users
+  description: 'The `{{ table.name }}` table contains info about the promotable users
+    associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/promotable-users#promotable-users
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/promotable_users.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: promoted_accounts
+  description: 'The `{{ table.name }}` table contains info about the promoted accounts
+    associated with line items (ad groups) associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/promoted-accounts#promoted-accounts
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/promoted_accounts.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: promoted_tweets
+  description: 'The `{{ table.name }}` table contains info about references to Tweets
+    associated with line items (ad groups) associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/promoted-tweets#promoted-tweets
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/promoted_tweets.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: scheduled_promoted_tweets
+  description: 'The `{{ table.name }}` table contains info about the scheduled promoted
+    Tweets associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/scheduled-promoted-tweets#scheduled-promoted-tweets
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/scheduled_promoted_tweets.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: tailored_audiences
+  description: 'The `{{ table.name }}` table contains info about the Tailored Audiences
+    associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/audiences/api-reference/tailored-audiences#tailored-audiences
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/tailored_audiences.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: targeting_app_store_categories
+  description: 'The `{{ table.name }}` table contains info about the app store targeting
+    categories associated with promoted products.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-conversations
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_app_store_categories.json
+  table-details:
+    replication-method: Full Table
+    primary-key: targeting_value
+- name: targeting_conversations
+  description: 'The `{{ table.name }}` table contains info about the conversation-based
+    targeting criteria for Promoted Products.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-conversations
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_conversations.json
+  table-details:
+    replication-method: Full Table
+    primary-key: targeting_value
+- name: targeting_criteria
+  description: 'The `{{ table.name }}` table contains info about the targeting criteria
+    associated with an account.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-criteria#targeting-criteria
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_criteria.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - id
+    - line_item_id
+- name: targeting_devices
+  description: 'The `{{ table.name }}` table contains info about the device-based
+    targeting criteria for Promoted Products.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-devices
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_devices.json
+  table-details:
+    replication-method: Full Table
+    primary-key: targeting_value
+- name: targeting_interests
+  description: 'The `{{ table.name }}` table contains info about the interest-based
+    targeting criteria for Promoted Products.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-interests
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_interests.json
+  table-details:
+    replication-method: Full Table
+    primary-key: targeting_value
+- name: targeting_languages
+  description: 'The `{{ table.name }}` table contains info about the language-based
+    targeting criteria for Promoted Products.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-languages
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_languages.json
+  table-details:
+    replication-method: Full Table
+    primary-key: targeting_value
+- name: targeting_locations
+  description: 'The `{{ table.name }}` table contains info about location-based targeting
+    criteria for Promoted Products. According to {{ integration.display_name }}''s
+    documentation, geo-targeting is available for Promoted Accounts and Tweets at
+    the country, state/region, city, and postal code levels.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-locations
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_locations.json
+  table-details:
+    replication-method: Full Table
+    primary-key: targeting_value
+- name: targeting_network_operators
+  description: 'The `{{ table.name }}` table contains info about network operator-based
+    targeting criteria for Promoted Products.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-network-operators
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_network_operators.json
+  table-details:
+    replication-method: Full Table
+    primary-key: targeting_value
+- name: targeting_platforms
+  description: 'The `{{ table.name }}` table contains info about platform-based targeting
+    criteria for Promoted Products.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-platforms
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_platforms.json
+  table-details:
+    replication-method: Full Table
+    primary-key: targeting_value
+- name: targeting_platform_versions
+  description: 'The `{{ table.name }}` table contains info about mobile OS-version
+    based targeting criteria for Promoted Products.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-platform-versions
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_platform_versions.json
+  table-details:
+    replication-method: Full Table
+    primary-key: targeting_value
+- name: targeting_tv_markets
+  description: 'The `{{ table.name }}` table contains info about TV markets where
+    TV shows can be targeted. Use the [`targeting_tv_shows`](#targeting_tv_shows)
+    table for info about individual TV shows.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-tv-markets
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_tv_markets.json
+  table-details:
+    replication-method: Full Table
+    primary-key: locale
+- name: targeting_tv_shows
+  description: 'The `{{ table.name }}` table contains info about TV-show based targeting
+    criteria for Promoted Products.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-tv-shows
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_tv_shows.json
+  table-details:
+    replication-method: Full Table
+    primary-key: targeting_value
+- name: tweets
+  description: 'The `{{ table.name }}` table contains info about the scheduled and
+    published Tweets associated with an account''s full promotable user. **Note**:
+    This table doesn''t include draft Tweets.
+
+    '
+  links:
+    doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/tweets#get-accounts-account-id-scoped-timeline
+    singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/tweets.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created_at

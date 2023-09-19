@@ -1,0 +1,303 @@
+tap: zoom
+version: '1'
+tables:
+- name: meetings
+  description: 'The `{{ table.name }}` table contains information about instant, scheduled,
+    and recurring meetings in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetings
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meetings.json
+  table-details:
+    replication-method: Full Table
+    primary-key: uuid
+- name: meeting_files
+  description: 'The `{{ table.name }}` table contains information about files shared
+    during meetings in your {{ integration.display_name }} account. **Note**:{{ integration.display_name
+    }} deletes these files 24 hours after completion of the meeting.
+
+    '
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/listpastmeetingfiles
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meeting_files.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - meeting_uuid
+    - file_name
+- name: meeting_polls
+  description: 'The `{{table.name}}` table contains information about the polls from
+    your {{ integration.display_name }} meetings.
+
+    '
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingpolls
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meeting_polls.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - id
+    - meeting_id
+- name: meeting_poll_results
+  description: "The `{{ table.name }}` table contains information about the results\
+    \ of polls from your {{ integration.display_name }} meetings. \n\n**Note**: This\
+    \ data is available only if the host user's role is **Pro** and the meeting was\
+    \ scheduled.\n"
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/listpastmeetingpolls
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meeting_poll_results.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - email
+    - meeting_uuid
+- name: meeting_questions
+  description: 'The `{{ table.name }}` table contains questions that users will see
+    when registering for your {{ integration.display_name }} meetings.
+
+    '
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingregistrantsquestionsget
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meeting_questions.json
+  table-details:
+    replication-method: Full Table
+    primary-key: meeting_id
+- name: meeting_registrants
+  description: 'The `{{ table.name }}` table contains the list of users who have registered
+    for your {{ integration.display_name }} meetings.
+
+    '
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingregistrants
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meeting_registrants.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - id
+    - meeting_id
+- name: report_meetings
+  description: 'The `{{ table.name }}` table contains detailed reports about past
+    {{ integration.display_name }} meetings.
+
+    '
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportmeetingdetails
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/report_meetings.json
+  table-details:
+    replication-method: Full Table
+    primary-key: uuid
+- name: report_meeting_participants
+  description: "The `{{ table.name }}` table contains information about your {{ integration.display_name}}'s\
+    \ meeting participants. \n\n**Note**: [As per {{ integration.display_name }}'s\
+    \ docs]({{ table.api-method.doc-link }}){:target=\"new\"}, a {{ integration.display_name\
+    \ }} Pro plan or higher is required to retrieve this data.\n"
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportmeetingparticipants
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/report_meeting_participants.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - id
+    - meeting_id
+- name: report_webinars
+  description: 'The `{{ table.name }}` table contains information about past webinars
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportwebinardetails
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/report_webinars.json
+  table-details:
+    replication-method: Full Table
+    primary-key: uuid
+- name: report_webinar_participants
+  description: "The `{{ table.name }}` table contains information about your {{ integration.display_name}}'s\
+    \ webinar participants. \n\n**Note**: [As per {{ integration.display_name }}'s\
+    \ docs]({{ table.api-method.doc-link }}){:target=\"new\"}, a Pro plan or higher\
+    \ with with the webinar add-on enabled is required to retrieve this data.\n"
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportwebinarparticipants
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/report_webinar_participants.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - id
+    - webinar_id
+- name: users
+  description: 'The `{{ table.name }}` table contains user data from your {{ integration.display_name
+    }} account.
+
+    '
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/users/users
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/users.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: webinars
+  description: 'The `{{ table.name }}` table contains information bout webinars scheduled
+    from your {{ integration.display_name }} account.
+
+
+    **Note**: [As per {{ integration.display_name }}''s docs]({{ table.api-method.doc-link
+    }}){:target="new"}, the following requirements must be met to retrieve this data:
+
+
+    - A Pro plan or higher with a webinar add-on
+
+    - An authentication app with the `webinar:read:admin` and `webinar:read` scopes
+
+    '
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinars
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinars.json
+  table-details:
+    replication-method: Full Table
+    primary-key: uuid
+- name: webinar_absentees
+  description: 'The `{{ table.name }}` table contains information about webinar absentees
+    from your {{ integration.display_name }} webinars.
+
+    '
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarabsentees
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_absentees.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - id
+    - webinar_uuid
+- name: webinar_files
+  description: "The `{{ table.name }}` table contains information about files shared\
+    \ in-meeting in your {{ integration.display_name }} account. \n\n**Note**: {{\
+    \ integration.display_name }} deletes these files 24 hours after completion of\
+    \ the webinar.\n"
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_files.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - webinar_uuid
+    - file_name
+- name: webinar_panelists
+  description: "The `{{ table.name }}` table contains information about your {{ integration.display_name}}\
+    \ webinar panelists. \n\n**Note**: [As per {{ integration.display_name }}'s docs]({{\
+    \ table.api-method.doc-link }}){:target=\"new\"}, a Pro plan or higher with with\
+    \ the webinar add-on enabled is required to retrieve this data.\n"
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarpanelists
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_panelists.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - id
+    - webinar_id
+- name: webinar_polls
+  description: 'The `{{ table.name }}` table contains information about polls in your
+    {{ integration.display_name }} webinars.
+
+    '
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarpolls
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_polls.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - id
+    - webinar_id
+- name: webinar_poll_results
+  description: "The `{{ table.name }}` data contains information about poll results\
+    \ from specific {{ integration.display_name }} webinars. \n\n**Note**: [As per\
+    \ {{ integration.display_name }}'s docs]({{ table.api-method.doc-link }}){:target=\"\
+    new\"}, the following requirements must be met to retrieve this data:\n\n- A {{\
+    \ integration.display_name }} webinar license\n- A Pro plan or higher\n- An authentication\
+    \ app with the `webinar:read:admin` and `webinar:read` scopes\n"
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/listpastwebinarpollresults
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_poll_results.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - webinar_uuid
+    - email
+- name: webinar_qna_results
+  description: 'The `{{ table.name }}` table contains information about about the
+    questions and answers from specific {{ integration.display_name }} webinars.
+
+    '
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/listpastwebinarqa
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_qna_results.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - webinar_uuid
+    - email
+- name: webinar_questions
+  description: 'The `{{ table.name }}` table contains information about your questions
+    to be answered when registering for a {{ integration.display_name }} webinar.
+
+
+    **Note**: [As per {{ integration.display_name }}''s docs]({{ table.api-method.doc-link
+    }}){:target="new"}, the following requirements must be met to retrieve this data:
+
+
+    - A Pro plan or higher with a webinar add-on
+
+    - An authentication app with the `webinar:read:admin` and `webinar:read` scopes
+
+    '
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarregistrantsquestionsget
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_questions.json
+  table-details:
+    replication-method: Full Table
+    primary-key: webinar_id
+- name: webinar_registrants
+  description: 'The `{{ table.name }}` table contains information about the users
+    registered for a webinar in your {{ integration.display_name }} account. Only
+    webinars where registration is required are included in this table.
+
+
+    **Note**: [As per {{ integration.display_name }}''s docs]({{ table.api-method.doc-link
+    }}){:target="new"}, the following requirements must be met to retrieve this data:
+
+
+    - A Pro plan or higher with a webinar add-on
+
+    - An authentication app with the `webinar:read:admin` and `webinar:read` scopes
+
+    '
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarregistrants
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_registrants.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - webinar_id
+    - id
+- name: webinar_tracking_sources
+  description: 'The `{{ table.name }}` lists all information about tracking sources
+    in your {{ integration.display_name }} account. Only webinars where registration
+    is required will be included in this table.
+
+
+    **Note**: [As per {{ integration.display_name }}''s docs]({{ table.api-method.doc-link
+    }}){:target="new"}, the following requirements must be met to retrieve this data:
+
+
+    - A {{ integration.display_name }} [webinar license](https://zoom.us/webinar){:target="new"}
+
+    - An authentication app with the `webinar:read:admin` and `webinar:read` scopes
+
+    '
+  links:
+    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/gettrackingsources
+    singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_tracking_sources.json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - id
+    - webinar_id
