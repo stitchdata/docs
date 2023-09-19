@@ -71,8 +71,6 @@ def getTableData(integration, version, schema_list):
         print('The following tables exist in {} but were not found in the repository:'.format(file.replace('../../', '')))
         print(*not_found, sep='\n')
 
-
-
 def getTapData(setup_file):
 
     name_pattern = re.compile(r'name=\'([^\']+)\'')
@@ -85,7 +83,6 @@ def getTapData(setup_file):
 
     return [tap_name, tap_major_version]
 
-
 def getIntegrationId(repo):
     file = '../../_data/taps/integrations.yml'
 
@@ -95,15 +92,15 @@ def getIntegrationId(repo):
         integrations = data['integrations']
 
         for i in integrations:
-            tap = i['tap']
-            id = i['id']
+            tap = integrations[i]['tap']
+            id = integrations[i]['id']
 
             if tap == repo:
                 integration_id = id
-    
+
     return integration_id
 
-def getFiles(repo, branch): 
+def getFiles(repo, branch):
 
     # Get all PRs that are closed and had the default branch as base
     contents_api = host + '/repos/singer-io/' + repo + '/zipball/' + branch
