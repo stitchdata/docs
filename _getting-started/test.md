@@ -6,7 +6,7 @@ layout: new
 toc: false
 
 name: "3plcentral"
-version: "v1"
+version: "1"
 ---
 
 Here's some markdown content

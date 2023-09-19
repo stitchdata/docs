@@ -2,17 +2,19 @@
 {% include misc/data-files.html %}
 
 {% assign integration = page %}
-{% assign filename = integration.name | append: "-" | append: integration.version | append: "-tables" %}
-{% assign tables = site.data.schemas.[integration.name].[integration.version].[filename].tables %}
+{% assign version = integration.version | prepend: "v" %}
+
+{% assign filename = integration.name | append: "-" | append: version | append: "-tables" %}
+{% assign tables = site.data.schemas.[integration.name].[version].[filename].tables %}
 
 <div>
 {% for table in tables %}
 
     {% if table.status != "not found" %}
 
-        {% if site.data.schemas.[integration.name].[integration.version].json.[table.name].properties %}
+        {% if site.data.schemas.[integration.name].[version].json.[table.name].properties %}
 
-        {% assign data = site.data.schemas.[integration.name].[integration.version].json.[table.name].properties %}
+        {% assign data = site.data.schemas.[integration.name].[version].json.[table.name].properties %}
 
         <!-- Table Name -->
         <div class="table-heading">
