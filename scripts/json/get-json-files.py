@@ -8,8 +8,12 @@ host = 'https://api.github.com'
 github_headers = {'Authorization': github_token}
 
 # Get repository name
-# repo = sys.argv[2]
-# branch = sys.argv[3]
+repo = sys.argv[2]
+
+try:
+    branch = sys.argv[3]
+except:
+    branch = ''
 
 def getTableData(integration, version, schema_list):
 
@@ -18,17 +22,31 @@ def getTableData(integration, version, schema_list):
 
     new = []
 
-    file = '../../_data/schemas/{0}/v{1}/{0}-v{1}-tables.yml'.format(integration, version)
-
-    with open(file, 'r') as f:
-        data = yaml.safe_load(f)
-
-        tables = data['tables']
-
-        for table in tables:
-            table_name = table['name']
-            table_list.append(table_name)
     
+    folder = '../../_data/schemas/{0}/v{1}'.format(integration, version)
+    file = '{2}/{0}-v{1}-tables.yml'.format(integration, version, folder)
+
+    if os.path.exists(file):
+        with open(file, 'r') as f:
+            data = yaml.safe_load(f)
+
+            tables = data['tables']
+
+            for table in tables:
+                table_name = table['name']
+                table_list.append(table_name)
+    else:
+        if os.path.exists(folder):
+            pass
+        else:
+            os.makedirs(folder)
+
+        data = {
+            'tap': integration,
+            'version': version,
+            'tables': []
+        }
+
     for table in schema_list:
         if table not in table_list:
 
@@ -47,6 +65,7 @@ def getTableData(integration, version, schema_list):
                     'replication-key': ''
                 }
             }
+
             data['tables'].append(table_data)
 
     
@@ -59,7 +78,6 @@ def getTableData(integration, version, schema_list):
                     not_found.append(table)
 
     with open (file, 'w', encoding='utf-8') as out:
-
         yaml.dump(data, out, default_flow_style=False, sort_keys=False)
 
 
@@ -100,10 +118,14 @@ def getIntegrationId(repo):
 
     return integration_id
 
-def getFiles(repo):
+def getFiles(repo, branch):
 
     # Get all PRs that are closed and had the default branch as base
     contents_api = host + '/repos/singer-io/' + repo + '/zipball'
+
+    if branch != '':
+        contents_api = contents_api + '/' + branch
+
     repo_contents = requests.get(contents_api, headers=github_headers)
     output_dir = '../../../'
     output_file = '{0}{1}.zip'.format(output_dir, repo)
@@ -141,21 +163,35 @@ def getFiles(repo):
 
             getTableData(integration_id, tap_version, schema_list)
 
-issues = []
+def getAllTaps():
+    issues = []
 
-file = '../../_data/taps/integrations.yml'
+    file = '../../_data/taps/integrations.yml'
 
-with open(file, 'r') as f:
-    data = yaml.safe_load(f)
-    
-    integrations = data['integrations']
-    for i in integrations:
-        tap = integrations[i]['tap']
+    with open(file, 'r') as f:
+        data = yaml.safe_load(f)
+        
+        integrations = data['integrations']
+        for i in integrations:
+            tap = integrations[i]['tap']
 
-        if tap != '':
-            try:
-                getFiles(tap)
-            except:
-                issues.append(tap)
+            if tap != '':
+                try:
+                    print(tap)
+                    getFiles(tap, branch)
+                except:
+                    issues.append(tap)
 
+    print('Issues were found in the following repositories:')
+    print(*issues, spe='\n')
 
+if repo == 'all':
+    print('Fetching schemas from all tap repositories listed in _data/taps/integrations.yml')
+    getAllTaps()
+else:
+    if branch == '':
+        print('Fetching schemas from the main/master branch of the {} repository'.format(repo))
+    else:
+        print('Fetching schemas from the {0} branch of the {1} repository'.format(branch, repo))
+
+    getFiles(repo, branch)
