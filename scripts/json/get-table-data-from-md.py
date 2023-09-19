@@ -40,6 +40,7 @@ def getSchemaData(file):
                     primary_keys.append(attribute_name)
                 if 'replication-key' in attribute:
                     replication_keys.append(attribute_name)
+                    
             
             data = {
                 'tap': tap,
@@ -51,12 +52,21 @@ def getSchemaData(file):
                     'singer-schema': singer
                 },
                 'table-details': {
-                    'replication-method': replication,
-                    'primary-keys': primary_keys,
-                    'replication-keys': replication_keys
+                    'replication-method': replication
                 }
             }
+
+            if (len(primary_keys)) == 1:
+                data['table-details']['primary-key'] = primary_keys[0]
+            elif (len(primary_keys)) > 1:
+                data['table-details']['primary-keys'] = primary_keys
             
+            if (len(replication_keys)) == 1:
+                data['table-details']['replication-key'] = replication_keys[0]
+            elif (len(replication_keys)) > 1:
+                data['table-details']['replication-keys'] = replication_keys
+            
+
             tables.append(data)
 
 

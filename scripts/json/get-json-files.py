@@ -143,8 +143,6 @@ def getFiles(repo, branch):
             schema_list = formatJSON(schemas, json_output_folder)
 
             getTableData(integration_id, tap_version, schema_list)
-
-
-        
+ 
 getFiles(repo, branch)
 

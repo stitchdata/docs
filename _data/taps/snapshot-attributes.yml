@@ -35,12 +35,14 @@ field-names:
   replication-method: | 
     Replication Method <a href="{{ link.replication.rep-methods | prepend: site.baseurl }}" target="new">{{ info-icon | replace:"TOOLTIP","Defines how Stitch extracts data from a source. Click here for more details." }}</a>
   primary-key: "Primary Key {{ ui-icon.primary-key | flatify }}"
+  primary-keys: "Primary Keys {{ ui-icon.primary-key | flatify }}"
   replication-key: "Replication Key {{ ui-icon.replication-key | flatify }}"
+  replication-keys: "Replication Keys {{ ui-icon.replication-key | flatify }}"
   loading-behavior: "Loading Behavior"
   api-endpoint: "API endpoint"
   parent-table: "Parent table"
   doc-link: "{{ integration.name }} documentation"
-  singer-schema: "JSON schema on GitHub"
+  singer-schema: "{{ table.name }} schema on GitHub"
 
 field-values:
   replication-method: "{{ table.replication-method | flatify }}"
