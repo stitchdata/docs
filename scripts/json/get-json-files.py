@@ -11,6 +11,68 @@ github_headers = {'Authorization': github_token}
 repo = sys.argv[2]
 branch = sys.argv[3]
 
+def getTableData(integration, version, schema_list):
+
+    table_list = []
+    not_found = []
+
+    new = []
+
+    file = '../../_data/schemas/{0}/v{1}/{0}-v{1}-tables.yml'.format(integration, version)
+
+    with open(file, 'r') as f:
+        data = yaml.safe_load(f)
+
+        tables = data['tables']
+
+        for table in tables:
+            table_name = table['name']
+            table_list.append(table_name)
+    
+    for table in schema_list:
+        if table not in table_list:
+
+            new.append(table)
+
+            table_data = {
+                'name': table,
+                'description': '',
+                'links': {
+                    'singer-schema': '',
+                    'doc-link': ''
+                },
+                'table-details': {
+                    'replication-method': '',
+                    'primary-key': '',
+                    'replication-key': ''
+                }
+            }
+            data['tables'].append(table_data)
+
+    
+    for table in table_list:
+        if table not in schema_list:
+            status = 'not_found'
+            for t in data['tables']:
+                if t['name'] == table:
+                    t['status'] = status
+                    not_found.append(table)
+
+    with open (file, 'w', encoding='utf-8') as out:
+
+        yaml.dump(data, out, default_flow_style=False, sort_keys=False)
+
+
+    if len(new) > 0:
+        print('The following tables have been added to {}:'.format(file.replace('../../', '')))
+        print(*new, sep='\n')
+
+    if len(not_found) > 0:
+        print('The following tables exist in {} but were not found in the repository:'.format(file.replace('../../', '')))
+        print(*not_found, sep='\n')
+
+
+
 def getTapData(setup_file):
 
     name_pattern = re.compile(r'name=\'([^\']+)\'')
@@ -78,7 +140,11 @@ def getFiles(repo, branch):
 
         if item.startswith('tap'):
             schemas = item_path + '/schemas'
-            formatJSON(schemas, json_output_folder)
+            schema_list = formatJSON(schemas, json_output_folder)
+
+            getTableData(integration_id, tap_version, schema_list)
+
+
         
 getFiles(repo, branch)
 

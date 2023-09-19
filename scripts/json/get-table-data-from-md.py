@@ -95,12 +95,12 @@ for tap in taps:
     }
 
 
-    path = 'yaml/{0}/v{1}'.format(tap_name, tap_version)
+    path = 'yml/{0}/v{1}'.format(tap_name, tap_version)
     if os.path.exists(path):
         pass
     else:
         os.makedirs(path)
 
-    with open ('{2}/{0}-v{1}-tables.yaml'.format(tap_name, tap_version, path), 'w', encoding='utf-8') as out:
+    with open ('{2}/{0}-v{1}-tables.yml'.format(tap_name, tap_version, path), 'w', encoding='utf-8') as out:
 
-        y = yaml.dump(tap_dict, out, default_flow_style=None, sort_keys=False)
+        y = yaml.safe_dump(tap_dict, out, default_flow_style=False, sort_keys=False)

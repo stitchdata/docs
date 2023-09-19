@@ -128,12 +128,16 @@ def replaceRefs(json_content, folder):
 
 
 def formatJSON(folder, json_output_folder):
+
+    table_list = []
+
     for root, dirs, files in os.walk(folder, topdown=False):
         for file in files:
             filepath = os.path.join(root, file)
             if filepath.endswith('.json'):
                 change = 0
                 with open(filepath, 'r') as f:
+                    table_list.append(file.replace('.json', ''))
                     json_content = f.read()
                     if '$ref' in json_content:
                         json_content = json.dumps(replaceRefs(json_content, folder))
@@ -152,3 +156,5 @@ def formatJSON(folder, json_output_folder):
                     content = json.loads(json_content)
                     with open(json_output_folder + '/' + file, 'w') as j:
                         json.dump(content, j, indent=2)
+    
+    return table_list
