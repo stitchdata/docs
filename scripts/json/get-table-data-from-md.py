@@ -101,7 +101,7 @@ for tap in taps:
     tap_dict = {
         'tap': tap_name,
         'version': tap_version,
-        'schemas': tables_dict
+        'tables': tables_dict
     }
 
 

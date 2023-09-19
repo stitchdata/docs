@@ -147,10 +147,9 @@ def formatJSON(folder, json_output_folder):
                         json_content = replaceDatetimeFormat(json_content, 'str')
                         change +=1
 
-                    # if '"anyOf"' in json_content:
-                    #     print(filepath)
-                    #     json_content = replaceAnyof(json_content)
-                    #     change +=1
+                    if '"anyOf"' in json_content:
+                        json_content = replaceAnyof(json_content)
+                        change +=1
                 
                 if change > 0:
                     content = json.loads(json_content)
