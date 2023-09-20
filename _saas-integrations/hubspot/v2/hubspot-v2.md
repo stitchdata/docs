@@ -126,7 +126,7 @@ removal-steps:
     content: |
       To delete your {{ page.display_name }} integration from your Stitch account:
       1. Log in to your Stitch account and open the **Integrations** tab.
-      2. Click your HubSpot integration and click **Settings**.
+      2. Click your {{ page.display_name }} integration and click **Settings**.
       3. Scroll down to the bottom of the page and click **Delete**.
       4. Click **Delete** to confirm.
 
