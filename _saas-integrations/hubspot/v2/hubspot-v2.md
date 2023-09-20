@@ -122,7 +122,7 @@ removal-info: |
 
 removal-steps:
   - title: "Deleting your {{ page.display_name }} integration"
-    anchor: "delete-hubspot-integration"
+    anchor: "delete-integration"
     content: |
       To delete your {{ page.display_name }} integration from your Stitch account:
       1. Log in to your Stitch account and open the **Integrations** tab.
@@ -131,13 +131,13 @@ removal-steps:
       4. Click **Delete** to confirm.
 
   - title: "Uninstalling Stitch in your {{ page.display_name }} account"
-    anchor: "uninstall-stitch-in-hubspot"
+    anchor: "uninstall-stitch"
     content: |
       To uninstall Stitch in your {{ page.display_name }} account:
       1. Log in to your {{ page.display_name }} account and click the **Marketplaces** account in the navigation bar.
       2. Under **Manage**, click **Connected apps**.
       3. Click the **Actions** drop-down menu in the **Stitch** app, and click **Uninstall**.
-      4. In the dialog box that appears, enter `uninstall` in the text field and click **Uninstall** to confirm."
+      4. In the dialog box that appears, enter `uninstall` in the text field and click **Uninstall** to confirm.
 
 
 # -------------------------- #
