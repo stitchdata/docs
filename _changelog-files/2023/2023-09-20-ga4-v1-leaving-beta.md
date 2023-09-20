@@ -1,10 +1,10 @@
 ---
-title: "Pendo (v1) update: Leaving beta!"
+title: "Google Analytics 4 (v1) update: Leaving beta!"
 content-type: "changelog-entry"
-date: 2023-07-26
+date: 2023-09-20
 entry-type: "beta"
 entry-category: integration
-connection-id: pendo
+connection-id: google-analytics-4
 connection-version: 1
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
