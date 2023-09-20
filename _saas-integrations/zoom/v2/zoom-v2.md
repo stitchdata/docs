@@ -106,6 +106,30 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/data-selection/object-selection.html %}
 
+removal-info: |
+  To completely disconnect Stitch from your {{ page.display_name }} account, you need to delete the integration from Stitch, and uninstall the Stitch app from {{ page.display_name }}.
+  
+  Disconnecting {{ page.display_name }} from Stitch will stop the replication of {{ page.display_name }} data to your Stitch destination. There will be no impact to the {{ page.display_name }} data, as Stitch is a read-only integration with {{ page.display_name }}. All data that has already replicated to your Stitch destination will be maintained and under your control.
+
+removal-steps:
+  - title: "Deleting your {{ page.display_name }} integration"
+    anchor: "delete-integration"
+    content: |
+      To delete your {{ page.display_name }} integration from your Stitch account:
+      1. Log in to your Stitch account and open the **Integrations** tab.
+      2. Click your {{ page.display_name }} integration and click **Settings**.
+      3. Scroll down to the bottom of the page and click **Delete**.
+      4. Click **Delete** to confirm.
+
+  - title: "Uninstalling Stitch in your {{ page.display_name }} account"
+    anchor: "uninstall-stitch"
+    content: |
+      To uninstall Stitch in your {{ page.display_name }} account:
+      1. Log in to your {{ page.display_name }} account go to the [**Added Apps**](https://marketplace.zoom.us/user/installed) page in the App Marketplace.
+      2. Under **Apps in Production**, find the Stitch app and click **Remove**.
+      3. In the dialog box that appears, click **Remove** to confirm.
+
+      Once the Stitch app is removed from your {{ page.display_name }} App Marketplace, the access token credentials associated with your {{ page.display_name }} integration connection will no longer be authorized and will be deleted from the Stitch environment.
 
 # -------------------------- #
 #     Integration Tables     #
