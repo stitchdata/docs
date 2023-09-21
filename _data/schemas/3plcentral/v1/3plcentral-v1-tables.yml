@@ -9,6 +9,10 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: customer_id
+  foreign-keys:
+    - key:
+      target-table:
+      foreign-key:
 - name: inventory
   description: This table contains information about inventory resources.
   links:
