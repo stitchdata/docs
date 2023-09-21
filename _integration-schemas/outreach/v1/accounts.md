@@ -42,6 +42,7 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 
   - name: "custom1"
     type: "string"
@@ -702,6 +703,7 @@ attributes:
   - name: "ownerId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 
   - name: "sharingTeamId"
     type: "string"
@@ -722,6 +724,7 @@ attributes:
   - name: "updaterId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 
   - name: "websiteUrl"
     type: "string"

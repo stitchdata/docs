@@ -34,10 +34,12 @@ attributes:
   - name: "callDispositionId"
     type: "integer"
     description: ""
+    foreign-key-id: "call-disposition-id"
 
   - name: "callPurposeId"
     type: "integer"
     description: ""
+    foreign-key-id: "call-purpose-id"
 
   - name: "completedAt"
     type: "date-time"
@@ -70,6 +72,7 @@ attributes:
   - name: "opportunityId"
     type: "integer"
     description: ""
+    foreign-key-id: "opportunity-id"
 
   - name: "outcome"
     type: "string"
@@ -82,6 +85,7 @@ attributes:
   - name: "prospectId"
     type: "integer"
     description: ""
+    foreign-key-id: "prospect-id"
 
   - name: "recordingUrl"
     type: "string"
@@ -98,14 +102,17 @@ attributes:
   - name: "sequenceId"
     type: "integer"
     description: ""
+    foreign-key-id: "sequence-id"
 
   - name: "sequenceStateId"
     type: "integer"
     description: ""
+    foreign-key-id: "sequence-state-id"
 
   - name: "sequenceStepId"
     type: "integer"
     description: ""
+    foreign-key-id: "sequence-step-id"
 
   - name: "shouldRecordCall"
     type: "boolean"
@@ -130,6 +137,7 @@ attributes:
   - name: "taskId"
     type: "integer"
     description: ""
+    foreign-key-id: "task-id"
 
   - name: "to"
     type: "string"
@@ -146,6 +154,7 @@ attributes:
   - name: "userId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 
   - name: "vendorCallId"
     type: "string"

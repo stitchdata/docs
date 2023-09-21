@@ -50,6 +50,7 @@ attributes:
   - name: "mailingId"
     type: "integer"
     description: ""
+    foreign-key-id: "mailing-id"
 
   - name: "name"
     type: "string"
@@ -66,6 +67,7 @@ attributes:
   - name: "prospectId"
     type: "integer"
     description: ""
+    foreign-key-id: "prospect-id"
 
   - name: "requestCity"
     type: "string"
@@ -94,4 +96,5 @@ attributes:
   - name: "userId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 ---

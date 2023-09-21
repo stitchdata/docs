@@ -38,6 +38,7 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 
   - name: "name"
     type: "string"

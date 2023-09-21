@@ -62,6 +62,7 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 
   - name: "currentSignInAt"
     type: "date-time"
@@ -106,6 +107,7 @@ attributes:
     - name: "id"
       type: "integer"
       description: ""
+      foreign-key-id: "duty-id"
 
   - name: "email"
     type: "string"
@@ -178,6 +180,7 @@ attributes:
   - name: "mailboxId"
     type: "integer"
     description: ""
+    foreign-key-id: "mailbox-id"
 
   - name: "meetingEngagementNotificationEnabled"
     type: "boolean"
@@ -318,6 +321,7 @@ attributes:
   - name: "updaterId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 
   - name: "userGuid"
     type: "string"

@@ -30,6 +30,7 @@ attributes:
   - name: "accountId"
     type: "integer"
     description: ""
+    foreign-key-id: "account-id"
 
   - name: "activeAt"
     type: "date-time"
@@ -54,6 +55,7 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 
   - name: "deliverCount"
     type: "integer"
@@ -102,6 +104,7 @@ attributes:
   - name: "prospectId"
     type: "integer"
     description: ""
+    foreign-key-id: "prospect-id"
 
   - name: "repliedAt"
     type: "date-time"
@@ -118,6 +121,7 @@ attributes:
   - name: "sequenceId"
     type: "integer"
     description: ""
+    foreign-key-id: "sequence-id"
 
   - name: "sequenceStepId"
     type: "integer"

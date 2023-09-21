@@ -38,6 +38,7 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 
   - name: "editable"
     type: "boolean"
@@ -202,10 +203,12 @@ attributes:
   - name: "updaterId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 
   - name: "userId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 
   - name: "username"
     type: "string"

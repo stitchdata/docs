@@ -29,6 +29,7 @@ attributes:
   - name: "accountId"
     type: "integer"
     description: ""
+    foreign-key-id: "account-id"
 
   - name: "addedAt"
     type: "date-time"
@@ -105,6 +106,7 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 
   - name: "custom1"
     type: "string"
@@ -925,6 +927,7 @@ attributes:
   - name: "stageId"
     type: "integer"
     description: ""
+    foreign-key-id: "stage-id"
 
   - name: "tags"
     type: "array"
@@ -969,6 +972,7 @@ attributes:
   - name: "updaterId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 
   - name: "voipPhones"
     type: "array"

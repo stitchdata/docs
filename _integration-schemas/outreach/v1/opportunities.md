@@ -30,6 +30,7 @@ attributes:
   - name: "accountId"
     type: "integer"
     description: ""
+    foreign-key-id: "account-id"
 
   - name: "amount"
     type: "integer"
@@ -46,6 +47,7 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 
   - name: "currencyType"
     type: "string"
@@ -682,6 +684,7 @@ attributes:
   - name: "opportunityStageId"
     type: "integer"
     description: ""
+    foreign-key-id: "stage-id"
 
   - name: "opportunityType"
     type: "string"
@@ -690,6 +693,7 @@ attributes:
   - name: "ownerId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 
   - name: "probability"
     type: "integer"

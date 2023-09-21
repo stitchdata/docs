@@ -46,6 +46,7 @@ attributes:
   - name: "creatorId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 
   - name: "date"
     type: "date-time"
@@ -102,6 +103,7 @@ attributes:
   - name: "sequenceId"
     type: "integer"
     description: ""
+    foreign-key-id: "sequence-id"
 
   - name: "stepType"
     type: "string"
@@ -122,4 +124,5 @@ attributes:
   - name: "updaterId"
     type: "integer"
     description: ""
+    foreign-key-id: "user-id"
 ---
