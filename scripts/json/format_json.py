@@ -67,6 +67,26 @@ def replaceAnyof(json_content):
 
     return new_content
 
+def sameFileRef(ref, filepath):
+    split_ref = split_ref = ref.split('/')
+    steps = len(split_ref)
+
+    with open(filepath) as f:
+        file_content = json.load(f)
+        try:
+            path = file_content[split_ref[1]]
+        except:
+            path = file_content['properties'][split_ref[1]]
+        step = 2
+        while step < steps :
+            path = path[split_ref[step]]
+            step +=1
+
+        content = json.dumps(path, indent=2)
+    
+    return content
+
+
 def fullFileRef(path, folder):
     for root, dirs, files in os.walk(folder):
         for file in files:
@@ -90,7 +110,10 @@ def partialRef(ref, folder):
             if file == path:
                 with open(filepath) as f:
                     file_content = json.load(f)
-                    path = file_content[split_ref[1]]
+                    try:
+                        path = file_content[split_ref[1]]
+                    except:
+                        path = file_content['properties'][split_ref[1]]
                     step = 2
                     while step < steps :
                         path = path[split_ref[step]]
@@ -100,7 +123,7 @@ def partialRef(ref, folder):
     
     return content
 
-def replaceRefs(json_content, folder):
+def replaceRefs(json_content, folder, filepath):
 
     pattern = re.compile('(\{\s*\"\$ref\"\:\s\"([^\"]+)\"\s*\})')
 
@@ -110,12 +133,18 @@ def replaceRefs(json_content, folder):
         element = ref[0]
         path = ref[1]
 
+        print(filepath, ref)
+
         if path.endswith('.json') or path.endswith('.json#/'):
             content = fullFileRef(path, folder)
             json_content = json_content.replace(element, content)
-        else:
+        elif '.json' in path:
             content = partialRef(path, folder)
             json_content = json_content.replace(element, content)
+        else:
+            content = sameFileRef(path, filepath)
+            json_content = json_content.replace(element, content)
+
     
     
     if '"format": "date-time"' in json_content:
@@ -140,7 +169,7 @@ def formatJSON(folder, json_output_folder):
                     table_list.append(file.replace('.json', ''))
                     json_content = f.read()
                     if '$ref' in json_content:
-                        json_content = json.dumps(replaceRefs(json_content, folder))
+                        json_content = json.dumps(replaceRefs(json_content, folder, filepath))
                         change +=1
 
                     elif '"format": "date-time"' in json_content:
