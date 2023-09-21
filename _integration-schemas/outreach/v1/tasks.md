@@ -100,6 +100,7 @@ attributes:
   - name: "prospectId"
     type: "integer"
     description: ""
+    foreign-key-id: "prospect-id"
 
   - name: "scheduledAt"
     type: "date-time"
