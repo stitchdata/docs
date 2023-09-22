@@ -6,7 +6,7 @@
 title: Amazon S3 CSV (v1)
 keywords: amazon-s3-csv, database integration, etl amazon-s3-csv, amazon-s3-csv etl
 permalink: /integrations/databases/amazon-s3-csv
-summary: "Connect and replicate data from CSV files in your Amazon S3 bucket using Stitch's Amazon S3 CSV integration."
+summary: "Connect and replicate data from CSV and JSONL files in your Amazon S3 bucket using Stitch's Amazon S3 CSV integration."
 snapshot-type: "databases"
 show-in-menus: true
 no-schema: true
@@ -118,7 +118,7 @@ setup-steps:
   - title: "Configure tables"
     anchor: "configure-tables"
     content: |
-      Next, you'll indicate which CSV file(s) you want to include for replication. You can include a single CSV file, or map several CSV files to a table. Refer to the [Setup requirements section](#setup-requirements) for info about what Stitch supports for {{ integration.display_name }} files.
+      Next, you'll indicate which file(s) you want to include for replication. You can include a single file, or map several files to a table. Refer to the [Setup requirements section](#setup-requirements) for info about what Stitch supports for {{ integration.display_name }} files.
 
       In the following sections, we'll walk you through how to configure a table in Stitch:
 
@@ -267,9 +267,11 @@ replication-sections:
                 header-row: "id,name,has_magic,active"
                 included-in-discovery: "<strong>false</strong>"
             content: |
-              At the start of each replication job, Stitch will analyze the header rows in the first five files returned by the table's [search pattern](#define-table-search-pattern). The header rows in these files are used to determine the table's schema.
+              For CSV files, at the start of each replication job, Stitch will analyze the header rows in the first five files returned by the table's [search pattern](#define-table-search-pattern). The header rows in these files are used to determine the table's schema.
 
-              For this reason, the structure of files replicated using {{ integration.display_name }} should be the same for every file included in a table's configuration. If the header row in an included file changes after the fifth file, Stitch will not detect the difference.
+              For JSONL files, Stitch examines the keys of objects in the first five files identified by the table's search pattern. These keys are used to define the schema of the table.
+
+              For this reason, the structure of files replicated using {{ integration.display_name }} should be the same for every file included in a table's configuration. If the CSV header row or the JSON keys in an included file change after the fifth file, Stitch will not detect the difference.
 
               For example: Based on the files in the table below, the table created from these files would have `id`, `name`, and `active` columns. The `has_magic` column in the `customers-001.csv` file will not be detected, as it's not in the first five files.
 
