@@ -1,0 +1,91 @@
+tap: 3plcentral
+version: '1'
+keys:
+- customer_id:
+  - table: customers
+    keys:
+    - customer_id
+  - table: sku_items
+    keys:
+    - customer_id
+    - customer_identifier.id
+  - table: stock_details
+    keys:
+    - customer_id
+- item_id:
+  - table: sku_items
+    keys:
+    - item_id
+  - table: locations
+    keys:
+    - item_traits.item_identifier.id
+  - table: stock_summaries
+    keys:
+    - item_id
+tables:
+- table-name: customers
+  join:
+  - table-name: sku_items
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: customer_id
+      foreign-key: customer_identifier.id
+  - table-name: stock_details
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+- table-name: sku_items
+  join:
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: customer_identifier.id
+      foreign-key: customer_id
+  - table-name: stock_details
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: customer_identifier.id
+      foreign-key: customer_id
+  - table-name: locations
+    keys:
+    - key: item_id
+      foreign-key: item_traits.item_identifier.id
+  - table-name: stock_summaries
+    keys:
+    - key: item_id
+      foreign-key: item_id
+- table-name: stock_details
+  join:
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: sku_items
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: customer_id
+      foreign-key: customer_identifier.id
+- table-name: locations
+  join:
+  - table-name: sku_items
+    keys:
+    - key: item_traits.item_identifier.id
+      foreign-key: item_id
+  - table-name: stock_summaries
+    keys:
+    - key: item_traits.item_identifier.id
+      foreign-key: item_id
+- table-name: stock_summaries
+  join:
+  - table-name: sku_items
+    keys:
+    - key: item_id
+      foreign-key: item_id
+  - table-name: locations
+    keys:
+    - key: item_id
+      foreign-key: item_traits.item_identifier.id

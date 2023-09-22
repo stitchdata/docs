@@ -1,0 +1,37 @@
+{% assign join = fk-table.join %}
+
+<div class="panel-group" id="{{ table.name | slugify }}-foreign-keys">
+    <div class="panel panel-default">   
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ table.name | slugify }}-foreign-keys">{{ table.name }} table foreign keys</a>
+            </h4>
+        </div>
+    
+        <div id="collapse-{{ table.name | slugify }}-foreign-keys" class="panel-collapse collapse noCrossRef">
+            
+            <table style="margin-top: 0px; margin-bottom: 0px;">
+
+                <tr>
+                    <th>Join {{ table.name }} with</th>
+                    <th>on</th>
+                </tr>
+                {% for t in join %}
+                <tr>
+                    <td>
+                        <a href="#{{ t.table-name | slugify }}">{{t.table-name}}</a>
+                    </td>
+                    <td>
+                        {% for key in t.keys %}
+                            <pre>{{ table.name }}.{{key.key}} = {{t.table-name}}.{{key.foreign-key}}</pre>
+                        {% endfor %}
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </table>
+            
+        </div>
+    </div>
+</div>

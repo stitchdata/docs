@@ -7,6 +7,9 @@
 {% assign filename = integration.name | append: "-" | append: version | append: "-tables" %}
 {% assign tables = site.data.schemas.[integration.name].[version].[filename].tables %}
 
+{% assign fk-filename = integration.name | append: "-" | append: version | append: "-foreign-keys" %}
+{% assign fk-tables = site.data.schemas.[integration.name].[version].[fk-filename].tables %}
+
 <div>
 {% for table in tables %}
 
@@ -65,66 +68,12 @@
                     {% endif %}
                 </tr>
             </table>
-            
-            {% if table.foreign-keys %}
-            <div class="panel-group" id="{{ table.name | slugify }}-foreign-keys">
-                <div class="panel panel-default">   
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ table.name | slugify }}-foreign-keys">{{ table.name }} table foreign keys</a>
-                        </h4>
-                    </div>
-                
-                    <div id="collapse-{{ table.name | slugify }}-foreign-keys" class="panel-collapse collapse noCrossRef">
-                        
-                        <table style="margin-top: 0px; margin-bottom: 0px;">
 
-                            <tr>
-                                <th>Join {{ table.name }} with</th>
-                                <th>on</th>
-                            </tr>
-                            {% for target-table in table.foreign-keys %}
-                            <tr>
-                                <td>
-                                    <a href="#{{ target-table.table-name | slugify }}">{{target-table.table-name}}</a>
-                                </td>
-                                <td>
-                                    {% for key in target-table.keys %}
-                                        <pre>{{ table.name }}.{{key.key}} = {{target-table.table-name}}.{{key.foreign-key}}</pre>
-                                    {% endfor %}
-                                </td>
-                            </tr>
-
-                            {% endfor %}
-
-                            {% for t in tables %}
-
-                            {% for f in t.foreign-keys %}
-
-                            {% if f.table-name == table.name and t.status != "not found" %}
-
-                            <tr>
-                                <td>
-                                <a href="#{{ t.name | slugify }}">{{t.name}}</a>
-                                </td>
-                                <td>
-                                {% for k in f.keys %}
-                                    <pre>{{ table.name }}.{{k.foreign-key}} = {{t.name}}.{{k.key}}</pre>
-                                {% endfor %}
-                            </td>
-                            </tr>
-
-                            {% endif %}
-
-                            {% endfor %}
-
-                            {% endfor %}
-                        </table>
-                        
-                    </div>
-                </div>
-            </div>
-            {% endif %}
+            {% for fk-table in fk-tables %}
+                {% if fk-table.table-name == table.name %}
+                    {% include layout/new-foreign-keys.html %}
+                {% endif %}
+            {% endfor %}
             
         </div>
 
