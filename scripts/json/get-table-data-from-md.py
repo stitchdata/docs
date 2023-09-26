@@ -30,6 +30,21 @@ def getSchemaData(file):
             description = data['description']
             replication = data['replication-method']
 
+            parents = []
+
+            try:
+                parent = data['dependent-on']
+                parent_list = parent.split('|')
+                for p in parent_list:
+                    parents.append(p)
+
+            except:
+                try:
+                    parent = data['dependent-table-key']
+                    parents.append(parent)
+                except:
+                    parent = ''
+
             primary_keys = []
             replication_keys = []
 
@@ -65,6 +80,11 @@ def getSchemaData(file):
                 data['table-details']['replication-key'] = replication_keys[0]
             elif (len(replication_keys)) > 1:
                 data['table-details']['replication-keys'] = replication_keys
+
+            if (len(parents)) == 1:
+                data['table-details']['parent-table'] = parents[0]
+            elif (len(parents)) > 1:
+                data['table-details']['parent-tables'] = parents
             
 
             tables.append(data)

@@ -3,7 +3,7 @@ tap: "google-ads"
 version: "1"
 name: "mobile_device_constant"
 doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/MobileDeviceConstant
-dependent-on: "campaign-criterion"
+dependent-on: "campaign_criterion"
 description: |
   The `{{ table.name }}` table contains info about mobile devices.
 

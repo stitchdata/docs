@@ -46,6 +46,7 @@ tables:
     primary-keys:
     - deposit_id
     - reference_token
+    parent-table: deposit_account
 - name: centres
   description: 'This table contains information about centres.
 
@@ -218,6 +219,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: encoded_key
+    parent-table: loan_account
 - name: loan_transactions
   description: 'This table contains information about loan transactions.
 

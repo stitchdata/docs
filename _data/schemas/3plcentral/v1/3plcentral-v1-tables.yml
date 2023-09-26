@@ -9,17 +9,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: customer_id
-  foreign-keys:
-  - table-name: sku_items
-    keys:
-    - foreign-key: customer_id
-      key: customer_id
-    - foreign-key: customer_identifier.id
-      key: customer_id
-  - table-name: stock_details
-    keys:
-    - foreign-key: customer_id
-      key: customer_id
 - name: inventory
   description: This table contains information about inventory resources.
   links:
@@ -56,15 +45,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: item_id
     replication-key: last_modified_date
-  foreign-keys:
-  - table-name: locations
-    keys:
-    - foreign-key: item_traits.item_identifier.id
-      key: item_id
-  - table-name: stock_summaries
-    keys:
-    - foreign-key: item_id
-      key: item_id
 - name: stock_details
   description: This table contains information about stock details.
   links:

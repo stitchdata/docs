@@ -3,7 +3,7 @@ tap: "google-ads"
 version: "1"
 name: "operating_system_verison_constant"
 doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/OperatingSystemVersionConstant
-dependent-on: "campaign-criterion"
+dependent-on: "campaign_criterion"
 description: |
   The `{{ table.name }}` table contains info about mobile operating system versions.
 

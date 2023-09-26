@@ -12,7 +12,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: categories
   description: 'The `{{ table.name }}` table contains info about categories.
 
@@ -24,7 +23,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: comments
   description: 'The `{{ table.name }}` table contains info about comments.
 
@@ -36,7 +34,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: companies
   description: 'The `{{ table.name }}` table contains info about companies.
 
@@ -48,7 +45,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: company_periods
   description: 'The `{{ table.name }}` table contains info about company periods.
 
@@ -60,7 +56,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: contacts
   description: 'The `{{ table.name }}` table contains info about contacts.
 
@@ -72,7 +67,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: countries
   description: 'The `{{ table.name }}` table contains info about countries.
 
@@ -84,7 +78,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: custom_app_data
   description: 'The `{{ table.name }}` table contains info about custom app data.
 
@@ -96,7 +89,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: custom_fields
   description: "The `{{ table.name }}` table contains info about \n"
   links:
@@ -106,7 +98,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: custom_field_data
   description: 'The `{{ table.name }}` table contains info about custom field data.
 
@@ -118,7 +109,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: employee_agreements
   description: 'The `{{ table.name }}` table contains info about employee agreements.
 
@@ -130,7 +120,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: employee_agreement_history
   description: "The `{{ table.name }}` table contains info about \n"
   links:
@@ -140,7 +129,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: employee_appraisal
   description: 'The `{{ table.name }}` table contains info about employee appraisals.
 
@@ -152,7 +140,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: employee_availability
   description: 'The `{{ table.name }}` table contains info about employee availability.
 
@@ -164,7 +151,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: employee_contracts
   description: 'The `{{ table.name }}` table contains info about employee contracts.
 
@@ -176,7 +162,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: employee_contract_leave_rules
   description: 'The `{{ table.name }}` table contains info about employment contract
     leave rules.
@@ -189,7 +174,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: employee_history
   description: 'The `{{ table.name }}` table contains info about employee histories.
 
@@ -201,7 +185,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: employee_paycycles
   description: 'The `{{ table.name }}` table contains info about employee paycycles.
 
@@ -213,7 +196,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: employee_paycycle_returns
   description: 'The `{{ table.name }}` table contains info about employee paycycle
     returns.
@@ -226,7 +208,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: employee_roles
   description: 'The `{{ table.name }}` table contains info about employee roles.
 
@@ -238,7 +219,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: employee_salary_opunit_costing
   description: 'The `{{ table.name }}` table contains info about employee salary operational
     unit costs.
@@ -251,7 +231,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: employee_workplaces
   description: 'The `{{ table.name }}` table contains info about employee workplaces.
 
@@ -263,7 +242,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: employment_conditions
   description: 'The `{{ table.name }}` table contains info about employment conditions.
 
@@ -275,7 +253,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: events
   description: 'The `{{ table.name }}` table contains info about events.
 
@@ -287,7 +264,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: geo
   description: 'The `{{ table.name }}` table contains info about geographic locations.
 
@@ -299,7 +275,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: journal
   description: 'The `{{ table.name }}` table contains info about journals.
 
@@ -311,7 +286,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: kiosks
   description: 'The `{{ table.name }}` table contains info about kiosks.
 
@@ -323,7 +297,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: leaves
   description: 'The `{{ table.name }}` table contains info about employee leave.
 
@@ -335,7 +308,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: leave_accruals
   description: 'The `{{ table.name }}` table contains info about employee leave balances.
 
@@ -347,7 +319,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: leave_pay_lines
   description: 'The `{{ table.name }}` table contains info about employee leave pay
     lines.
@@ -360,7 +331,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: leave_rules
   description: 'The `{{ table.name }}` table contains info about employee leave rules.
 
@@ -372,7 +342,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: memos
   description: 'The `{{ table.name }}` table contains info about memos.
 
@@ -384,7 +353,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: operational_units
   description: 'The `{{ table.name }}` table contains info about operational units.
 
@@ -396,7 +364,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: pay_periods
   description: 'The `{{ table.name }}` table contains info about pay periods.
 
@@ -408,7 +375,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: pay_rules
   description: 'The `{{ table.name }}` table contains info about pay rules.
 
@@ -420,7 +386,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: public_holidays
   description: 'The `{{ table.name }}` table contains info about public holidays.
 
@@ -432,7 +397,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: rosters
   description: 'The `{{ table.name }}` table contains info about rosters.
 
@@ -444,7 +408,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: roster_opens
   description: 'The `{{ table.name }}` table contains info about roster opens.
 
@@ -456,7 +419,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: roster_swaps
   description: 'The `{{ table.name }}` table contains info about roster swaps.
 
@@ -468,7 +430,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: sales_data
   description: 'The `{{ table.name }}` table contains info about sales data.
 
@@ -480,7 +441,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: schedules
   description: 'The `{{ table.name }}` table contains info about schedules.
 
@@ -492,7 +452,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: sms_logs
   description: 'The `{{ table.name }}` table contains info about SMS logs.
 
@@ -504,7 +463,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: states
   description: 'The `{{ table.name }}` table contains info about states.
 
@@ -516,7 +474,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: stress_profiles
   description: 'The `{{ table.name }}` table contains info about stress profiles.
 
@@ -528,7 +485,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: system_usage_balances
   description: 'The `{{ table.name }}` table contains info about system usage balances.
 
@@ -540,7 +496,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: system_usage_tracking
   description: 'The `{{ table.name }}` table contains info about system usage tracking.
 
@@ -552,7 +507,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: tasks
   description: 'The `{{ table.name }}` table contains info about tasks.
 
@@ -564,7 +518,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: task_groups
   description: 'The `{{ table.name }}` table contains info about task groups.
 
@@ -576,7 +529,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: task_group_setups
   description: 'The `{{ table.name }}` table contains info about task group setups.
 
@@ -588,7 +540,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: task_opunit_configs
   description: 'The `{{ table.name }}` table contains info about task operational
     unit configurations.
@@ -601,7 +552,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: task_setups
   description: 'The `{{ table.name }}` table contains info about task setups.
 
@@ -613,7 +563,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: teams
   description: 'The `{{ table.name }}` table contains info about teams.
 
@@ -625,7 +574,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: timesheets
   description: 'The `{{ table.name }}` table contains info about timesheets.
 
@@ -637,7 +585,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: timesheet_pay_returns
   description: 'The `{{ table.name }}` table contains info about timesheet pay returns.
 
@@ -649,7 +596,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: training_modules
   description: 'The `{{ table.name }}` table contains info about training modules.
 
@@ -661,7 +607,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: training_records
   description: 'The `{{ table.name }}` table contains info about training records.
 
@@ -673,7 +618,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found
 - name: webhooks
   description: 'The `{{ table.name }}` table contains info about webhooks.
 
@@ -685,4 +629,3 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Modified
     replication-key: Modified
-  status: not_found

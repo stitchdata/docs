@@ -257,6 +257,7 @@ tables:
     singer-schema: ''
   table-details:
     replication-method: Full Table
+    parent-table: campaign_criterion
 - name: click_performance_report
   description: 'The `{{ table.name }}` table contains statistics aggregated at each
     click level, and includes both valid and invalid clicks.
@@ -326,6 +327,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+    parent-table: campaign_criterion
 - name: feed_item
   description: 'The `{{ table.name }}` table contains infor about a feed item.
 
@@ -437,6 +439,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+    parent-table: campaign_criterion
 - name: mobile_app_category_constant
   description: "The `{{ table.name }}` table contains info about mobile application\
     \ categories.\n\n[This is a **Core Object** table](#replication). \n\nThis table\
@@ -449,6 +452,9 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+    parent-tables:
+    - campaign_criterion
+    - ad_group_criterion
 - name: mobile_device_constant
   description: "The `{{ table.name }}` table contains info about mobile devices.\n\
     \n[This is a **Core Object** table](#replication). \n\nThis table is dependent\
@@ -459,6 +465,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+    parent-table: campaign_criterion
 - name: operating_system_verison_constant
   description: "The `{{ table.name }}` table contains info about mobile operating\
     \ system versions.\n\n[This is a **Core Object** table](#replication). \n\nThis\
@@ -470,6 +477,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+    parent-table: campaign_criterion
 - name: placeholder_feed_item_report
   description: "The `{{ table.name }}` table contains \n\n[This is a **Report** table](#replication).\
     \ See the **Replication** section for information on how data is replicated and\
@@ -542,6 +550,9 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+    parent-tables:
+    - campaign_criterion
+    - ad_group_criterion
 - name: user_interest
   description: "The `{{ table.name }}` table contains info about user interests to\
     \ be targeted.\n\n[This is a **Core Object** table](#replication). \n\nThis table\
@@ -554,6 +565,9 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+    parent-tables:
+    - campaign_criterion
+    - ad_group_criterion
 - name: user_list
   description: "The `{{ table.name }}` table contains info about lists of user that\
     \ can be targeted.\n\n[This is a **Core Object** table](#replication). \n\nThis\
@@ -566,6 +580,9 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+    parent-tables:
+    - campaign_criterion
+    - ad_group_criterion
 - name: user_location_performance_report
   description: "The `{{ table.name }}` table contains \n\n[This is a **Report** table](#replication).\
     \ See the **Replication** section for information on how data is replicated and\

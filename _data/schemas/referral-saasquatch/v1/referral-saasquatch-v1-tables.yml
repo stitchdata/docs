@@ -25,7 +25,6 @@ tables:
     primary-keys:
     - userId
     - accountId
-  status: not_found
 - name: users
   description: 'The `{{ table.name }}` table contains info about the users in your
     {{ integration.display_name }} tenant.
@@ -39,12 +38,3 @@ tables:
     primary-keys:
     - id
     - accountId
-- name: reward_balances
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''

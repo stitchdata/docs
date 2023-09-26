@@ -144,6 +144,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
+    parent-table: project
 - name: project_columns
   description: 'The `{{ table.name }}` table contains info about the columns of projects
     in the repositories specified for the integration.
@@ -155,6 +156,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
+    parent-table: project
 - name: pr_commits
   description: 'The `{{ table.name }}` table contains info about pull request commits
     and is a slight variation of the [`commits`](#commits) table. This allows you
@@ -167,6 +169,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
+    parent-table: pull_request
 - name: pull_requests
   description: 'The `{{ table.name }}` table contains info about pull requests made
     against the repositories specified for the integration.
@@ -205,6 +208,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
+    parent-table: pull_request
 - name: review_comments
   description: 'The `{{ table.name }}` table contains info about comments made on
     pull request reviews in the repositories specified for the integration.
@@ -216,6 +220,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
+    parent-table: pull_request
 - name: stargazers
   description: 'The `{{ table.name }}` table contains info about users who have starred
     the repositories specified for the integration.
@@ -250,6 +255,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
+    parent-table: team
 - name: team_memberships
   description: 'The `{{ table.name }}` table contains info about membership of users
     in of organization teams that are visible to the user who authorized the integration.
@@ -261,3 +267,4 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: url
+    parent-table: team

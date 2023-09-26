@@ -24,7 +24,7 @@ api-method:
 
 replication-method: "Full Table"
 
-dependent-table-key: "loan-account"
+dependent-table-key: "loan_account"
 
 
 # -------------------------- #

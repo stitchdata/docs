@@ -3,7 +3,7 @@ tap: "google-ads"
 version: "1"
 name: "language_constant"
 doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/LanguageConstant
-dependent-on: "campaign-criterion"
+dependent-on: "campaign_criterion"
 description: |
   The `{{ table.name }}` table contains info about about languages.
 

@@ -47,7 +47,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: currency
-  status: not_found
 - name: campaigns
   description: 'The `{{ table.name }}` table contains info about the campaigns associated
     with an account.
@@ -72,7 +71,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
-  status: not_found
 - name: cards_image_conversation
   description: 'The `{{ table.name }}` table contains info about image conversation
     cards associated with an account.
@@ -97,7 +95,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
-  status: not_found
 - name: cards_poll
   description: 'The `{{ table.name }}` table contains info about poll cards associated
     with an account.
@@ -122,7 +119,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
-  status: not_found
 - name: cards_video_conversation
   description: 'The `{{ table.name }}` table contains info about the video conversation
     cards associated with an account.
@@ -147,7 +143,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
-  status: not_found
 - name: cards_video_website
   description: 'The `{{ table.name }}` table contains info about the video website
     cards associated with an account.
@@ -160,7 +155,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
-  status: not_found
 - name: cards_website
   description: 'The `{{ table.name }}` table contains info about the website cards
     associated with an account.
@@ -173,7 +167,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
-  status: not_found
 - name: content_categories
   description: 'The `{{ table.name }}` table contains info about the content categories
     used as targeting criteria for ad groups.
@@ -210,7 +203,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.dimension-hash-key }}'
     replication-key: end_time
-  status: not_found
 - name: funding_instruments
   description: 'The `{{ table.name }}` table contains info about the funding instruments
     associated with an account.
@@ -492,174 +484,3 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: created_at
-- name: billing
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: dimensions
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: engagement_all
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: engagement_basic
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: media
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: mobile_conversion
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: mobile_conversion_obj
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: report_account
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: report_funding_instrument
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: report_mobile_conversion
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: report_organic_tweet
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: report_other
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: report_web_conversion
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: video
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: web_conversion
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: web_conversion_obj
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: cards
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: targeting_events
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: tracking_tags
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''

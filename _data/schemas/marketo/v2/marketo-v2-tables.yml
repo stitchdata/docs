@@ -25,7 +25,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: marketoGuid
     replication-key: activityDate
-  status: not_found
 - name: activity_types
   description: 'The `{{ table.name }}` table contains metadata about the activity
     types - form fill, web page visit, lead creation, and so on - available in {{
@@ -77,7 +76,6 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-  status: not_found
 - name: lists
   description: "The `{{ table.name }}` table contains info about the static lists\
     \ in your {{ integration.display_name }} account. \n\n**Note**: Due to some of\
