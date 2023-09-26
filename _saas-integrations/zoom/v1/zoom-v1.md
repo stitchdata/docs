@@ -77,14 +77,14 @@ feature-summary: |
 requirements-list:
   - item: |
       **A {{integration.display_name }} authentication app**. You'll need one of the following apps to connect your {{integration.display_name }} account to Stitch:
-        - **An OAuth app**. [Click here](https://marketplace.zoom.us/docs/guides/build/oauth-app){:target="new"} for more information on OAuth apps. If using a {{ integration.display_name }} OAuth App to connect to Stitch, make sure that the following scopes are included in the app:
+        - **An OAuth app**. [Click here](https://developers.zoom.us/docs/integrations/create/){:target="new"} for more information on OAuth apps. If using a {{ integration.display_name }} OAuth App to connect to Stitch, make sure that the following scopes are included in the app:
           - `account:read:admin`
           - `meeting:read:admin`
           - `report:read:admin`
           - `user:read:admin`
           - `webinar:read:admin`
 
-        - **A JSON Web Tokens (JWT) app**. [Click here](https://marketplace.zoom.us/docs/guides/build/jwt-app){:target="new"} for more information on JWT apps. 
+        - **A JSON Web Tokens (JWT) app**. [Click here](https://developers.zoom.us/docs/internal-apps/jwt/){:target="new"} for more information on JWT apps. 
   
 setup-steps:
   - title: "Obtain your {{ integration.display_name }} authentication app tokens"
