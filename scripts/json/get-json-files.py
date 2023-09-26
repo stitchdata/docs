@@ -15,6 +15,29 @@ try:
 except:
     branch = ''
 
+def getTags(repo):
+
+    major_versions = []
+    version_tags = []
+
+    tags_api = host + '/repos/singer-io/' + repo + '/tags'
+    tags = json.loads(requests.get(tags_api, headers=github_headers).content)
+
+    for tag in tags:
+        name = tag['name']
+        print(name)
+        version = name.replace('v', '')
+        major_version = version[0]
+        
+        if major_version not in major_versions:
+            if major_version == '0' and len(major_versions) > 0:
+                pass
+            else:
+                major_versions.append(major_version)
+                version_tags.append(name)
+    
+    return version_tags
+
 def getTableData(integration, version, schema_list):
 
     table_list = []
@@ -163,7 +186,7 @@ def getFiles(repo, branch):
 
             getTableData(integration_id, tap_version, schema_list)
 
-def getAllTaps():
+def getAllTaps(branch):
     issues = []
 
     file = '../../_data/taps/integrations.yml'
@@ -178,7 +201,13 @@ def getAllTaps():
             if tap != '':
                 try:
                     print(tap)
-                    getFiles(tap, branch)
+                    if branch == 'all':
+                        tags = getTags(tap)
+                        for tag in tags:
+                            print(tap, tag)
+                            getFiles(tap, tag)
+                    else:
+                        getFiles(tap, branch)
                 except:
                     issues.append(tap)
 
@@ -186,12 +215,24 @@ def getAllTaps():
     print(*issues, sep='\n')
 
 if repo == 'all':
-    print('Fetching schemas from all tap repositories listed in _data/taps/integrations.yml')
-    getAllTaps()
-else:
     if branch == '':
-        print('Fetching schemas from the main/master branch of the {} repository'.format(repo))
-    else:
-        print('Fetching schemas from the {0} branch of the {1} repository'.format(branch, repo))
+        print('Fetching schemas from the main/master branch of all tap repositories listed in _data/taps/integrations.yml')
+    elif branch == 'all':
+        print('Fetching schemas from each major version of all tap repositories listed in _data/taps/integrations.yml')
+    
+    getAllTaps(branch)
 
-    getFiles(repo, branch)
+else:
+    if branch == 'all':
+        print('Fetching schemas from each major version of the {} repository'.format(repo))
+        tags = getTags(repo)
+        for tag in tags:
+            print(repo, tag)
+            getFiles(repo, tag)
+    else:
+        if branch == '':
+            print('Fetching schemas from the main/master branch of the {} repository'.format(repo))
+        else:
+            print('Fetching schemas from the {0} branch of the {1} repository'.format(branch, repo))
+
+        getFiles(repo, branch)
