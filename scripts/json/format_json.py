@@ -91,7 +91,7 @@ def fullFileRef(path, folder):
     for root, dirs, files in os.walk(folder):
         for file in files:
             filepath = os.path.join(root, file)
-            if file == path:
+            if file in path:
                 with open(filepath) as f:
                     content = f.read()
     
@@ -107,7 +107,7 @@ def partialRef(ref, folder):
     for root, dirs, files in os.walk(folder):
         for file in files:
             filepath = os.path.join(root, file)
-            if file == path:
+            if file in path:
                 with open(filepath) as f:
                     file_content = json.load(f)
                     try:
@@ -132,8 +132,6 @@ def replaceRefs(json_content, folder, filepath):
     for ref in refs:
         element = ref[0]
         path = ref[1]
-
-        print(filepath, ref)
 
         if path.endswith('.json') or path.endswith('.json#/'):
             content = fullFileRef(path, folder)
@@ -180,9 +178,8 @@ def formatJSON(folder, json_output_folder):
                         json_content = replaceAnyof(json_content)
                         change +=1
                 
-                if change > 0:
-                    content = json.loads(json_content)
-                    with open(json_output_folder + '/' + file, 'w') as j:
-                        json.dump(content, j, indent=2)
+                content = json.loads(json_content)
+                with open(json_output_folder + '/' + file, 'w') as j:
+                    json.dump(content, j, indent=2)
     
     return table_list

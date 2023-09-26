@@ -91,11 +91,11 @@ def getTableData(integration, version, schema_list):
 
 def getTapData(setup_file):
 
-    name_pattern = re.compile(r'name=\'([^\']+)\'')
-    version_pattern = re.compile(r'version=\'([^\']+)\'')
+    name_pattern = re.compile(r'name=(\"|\')([^\'\"]+)(\'|\")')
+    version_pattern = re.compile(r'version=(\"|\')([^\'\"]+)(\'|\")')
 
-    tap_name = re.search(name_pattern, setup_file).group(1)
-    tap_version = re.search(version_pattern, setup_file).group(1)
+    tap_name = re.search(name_pattern, setup_file).group(2)
+    tap_version = re.search(version_pattern, setup_file).group(2)
 
     tap_major_version = tap_version[0]
 
@@ -183,7 +183,7 @@ def getAllTaps():
                     issues.append(tap)
 
     print('Issues were found in the following repositories:')
-    print(*issues, spe='\n')
+    print(*issues, sep='\n')
 
 if repo == 'all':
     print('Fetching schemas from all tap repositories listed in _data/taps/integrations.yml')
