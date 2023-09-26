@@ -1,0 +1,3734 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "addedByGoogleAds": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "appAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "descriptions": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "headlines": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "html5MediaBundles": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdMediaBundleAsset"
+          }
+        },
+        "images": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdImageAsset"
+          }
+        },
+        "mandatoryAdText": {
+          "$ref": "#/definitions/AdTextAsset"
+        },
+        "youtubeVideos": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdVideoAsset"
+          }
+        }
+      }
+    },
+    "appEngagementAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "descriptions": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "headlines": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "images": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdImageAsset"
+          }
+        },
+        "videos": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdVideoAsset"
+          }
+        }
+      }
+    },
+    "appPreRegistrationAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "descriptions": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "headlines": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "images": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdImageAsset"
+          }
+        },
+        "youtubeVideos": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdVideoAsset"
+          }
+        }
+      }
+    },
+    "callAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "businessName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "callTracked": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "conversionAction": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "conversionReportingState": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "countryCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "disableCallConversion": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "headline1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "headline2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "path1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "path2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phoneNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phoneNumberVerificationUrl": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "devicePreference": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "displayUploadAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "displayUploadProductType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "mediaBundle": {
+          "$ref": "#/definitions/AdMediaBundleAsset"
+        }
+      }
+    },
+    "displayUrl": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "expandedDynamicSearchAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "expandedTextAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "headlinePart1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "headlinePart2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "headlinePart3": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "path1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "path2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "finalAppUrls": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "osType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "finalMobileUrls": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "finalUrlSuffix": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "finalUrls": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "gmailAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "headerImage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "marketingImage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "marketingImageDescription": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "marketingImageDisplayCallToAction": {
+          "$ref": "#/definitions/DisplayCallToAction"
+        },
+        "marketingImageHeadline": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "productImages": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/ProductImage"
+          }
+        },
+        "productVideos": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/ProductVideo"
+          }
+        },
+        "teaser": {
+          "$ref": "#/definitions/GmailTeaser"
+        }
+      }
+    },
+    "hotelAd": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "imageAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "adIdToCopyImageFrom": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "imageUrl": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "mediaFile": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "mimeType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "pixelHeight": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "pixelWidth": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "previewImageUrl": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "previewPixelHeight": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "previewPixelWidth": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      }
+    },
+    "legacyAppInstallAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "appId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "appStore": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "headline": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "legacyResponsiveDisplayAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "accentColor": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "allowFlexibleColor": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "businessName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "callToActionText": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "formatSetting": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "logoImage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "longHeadline": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "mainColor": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "marketingImage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "pricePrefix": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "promoText": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "shortHeadline": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "squareLogoImage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "squareMarketingImage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "localAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "callToActions": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "descriptions": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "headlines": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "logoImages": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdImageAsset"
+          }
+        },
+        "marketingImages": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdImageAsset"
+          }
+        },
+        "path1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "path2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "videos": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdVideoAsset"
+          }
+        }
+      }
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "resourceName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "responsiveDisplayAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "accentColor": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "allowFlexibleColor": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "businessName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "callToActionText": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "controlSpec": {
+          "$ref": "#/definitions/ResponsiveDisplayAdControlSpec"
+        },
+        "descriptions": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "formatSetting": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "headlines": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "logoImages": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdImageAsset"
+          }
+        },
+        "longHeadline": {
+          "$ref": "#/definitions/AdTextAsset"
+        },
+        "mainColor": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "marketingImages": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdImageAsset"
+          }
+        },
+        "pricePrefix": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "promoText": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "squareLogoImages": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdImageAsset"
+          }
+        },
+        "squareMarketingImages": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdImageAsset"
+          }
+        },
+        "youtubeVideos": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdVideoAsset"
+          }
+        }
+      }
+    },
+    "responsiveSearchAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "descriptions": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "headlines": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "path1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "path2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "shoppingComparisonListingAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "headline": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "shoppingProductAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": null
+    },
+    "shoppingSmartAd": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "smartCampaignAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "descriptions": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "headlines": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        }
+      }
+    },
+    "systemManagedResourceSource": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "textAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "description1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "headline": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "trackingUrlTemplate": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "urlCollections": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "finalMobileUrls": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "finalUrls": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "trackingUrlTemplate": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "urlCollectionId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "urlCustomParameters": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "videoAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "bumper": {
+          "$ref": "#/definitions/VideoBumperInStreamAdInfo"
+        },
+        "discovery": {
+          "$ref": "#/definitions/VideoTrueViewDiscoveryAdInfo"
+        },
+        "inStream": {
+          "$ref": "#/definitions/VideoTrueViewInStreamAdInfo"
+        },
+        "nonSkippable": {
+          "$ref": "#/definitions/VideoNonSkippableInStreamAdInfo"
+        },
+        "outStream": {
+          "$ref": "#/definitions/VideoOutstreamAdInfo"
+        },
+        "video": {
+          "$ref": "#/definitions/AdVideoAsset"
+        }
+      }
+    },
+    "videoResponsiveAd": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "callToActions": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "companionBanners": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdImageAsset"
+          }
+        },
+        "descriptions": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "headlines": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "longHeadlines": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdTextAsset"
+          }
+        },
+        "videos": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/AdVideoAsset"
+          }
+        }
+      }
+    },
+    "definitions": {
+      "CountryConstraint": {
+        "countryCriterion": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "CountryConstraintList": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "countries": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "countryCriterion": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "totalTargetedCountries": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        }
+      },
+      "ResellerConstraint": {
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "PolicyTopicConstraint": {
+        "certificateDomainMismatchInCountryList": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "countries": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "$ref": "#/definitions/CountryConstraint"
+              }
+            },
+            "totalTargetedCountries": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          }
+        },
+        "certificateMissingInCountryList": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "countries": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "$ref": "#/definitions/CountryConstraint"
+              }
+            },
+            "totalTargetedCountries": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          }
+        },
+        "countryConstraintList": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "countries": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "$ref": "#/definitions/CountryConstraint"
+              }
+            },
+            "totalTargetedCountries": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          }
+        },
+        "resellerConstraint": {
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "DestinationMismatch": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "urlTypes": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          }
+        }
+      },
+      "DestinationNotWorking": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "device": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "dnsErrorType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "expandedUrl": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "httpErrorCode": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "lastCheckedDateTime": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          }
+        }
+      },
+      "DestinationTextList": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "destinationTexts": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      },
+      "TextList": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "texts": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      },
+      "WebsiteList": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "websites": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      },
+      "PolicyTopicEvidence": {
+        "destinationMismatch": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "urlTypes": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            }
+          }
+        },
+        "destinationNotWorking": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "device": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "dnsErrorType": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "expandedUrl": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "httpErrorCode": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "lastCheckedDateTime": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            }
+          }
+        },
+        "destinationTextList": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "destinationTexts": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        "languageCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "textList": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "texts": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        "websiteList": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "websites": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "PolicyTopicEntry": {
+        "constraints": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "certificateDomainMismatchInCountryList": {
+              "$ref": "#/definitions/CountryConstraintList"
+            },
+            "certificateMissingInCountryList": {
+              "$ref": "#/definitions/CountryConstraintList"
+            },
+            "countryConstraintList": {
+              "$ref": "#/definitions/CountryConstraintList"
+            },
+            "resellerConstraint": {
+              "$ref": "#/definitions/ResellerConstraint"
+            }
+          }
+        },
+        "evidences": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "destinationMismatch": {
+              "$ref": "#/definitions/DestinationMismatch"
+            },
+            "destinationNotWorking": {
+              "$ref": "#/definitions/DestinationNotWorking"
+            },
+            "destinationTextList": {
+              "$ref": "#/definitions/DestinationTextList"
+            },
+            "languageCode": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "textList": {
+              "$ref": "#/definitions/TextList"
+            },
+            "websiteList": {
+              "$ref": "#/definitions/WebsiteList"
+            }
+          }
+        },
+        "topic": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "AdAssetPolicySummary": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "approvalStatus": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "policyTopicEntries": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "constraints": {
+                "type": [
+                  "null",
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/PolicyTopicConstraint"
+                }
+              },
+              "evidences": {
+                "type": [
+                  "null",
+                  "array"
+                ],
+                "items": {
+                  "$ref": "#/definitions/PolicyTopicEvidence"
+                }
+              },
+              "topic": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "reviewStatus": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "AdTextAsset": {
+        "assetPerformanceLabel": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "pinnedField": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "policySummaryInfo": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "approvalStatus": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "policyTopicEntries": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "$ref": "#/definitions/PolicyTopicEntry"
+              }
+            },
+            "reviewStatus": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "text": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "AdMediaBundleAsset": {
+        "asset": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "AdImageAsset": {
+        "asset": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "AdVideoAsset": {
+        "asset": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "AppAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "descriptions": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "headlines": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "html5MediaBundles": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "asset": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "images": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "asset": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "mandatoryAdText": {
+            "assetPerformanceLabel": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "pinnedField": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "policySummaryInfo": {
+              "$ref": "#/definitions/AdAssetPolicySummary"
+            },
+            "text": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "youtubeVideos": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "asset": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "AppEngagementAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "descriptions": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "headlines": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "images": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "asset": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "videos": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "asset": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "AppPreRegistrationAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "descriptions": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "headlines": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "images": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "asset": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "youtubeVideos": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "asset": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "CallAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "businessName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "callTracked": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "conversionAction": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "conversionReportingState": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "countryCode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "disableCallConversion": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "headline1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "headline2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "path1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "path2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "phoneNumber": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "phoneNumberVerificationUrl": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "DisplayUploadAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "displayUploadProductType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "mediaBundle": {
+            "asset": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      },
+      "ExpandedDynamicSearchAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "ExpandedTextAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "headlinePart1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "headlinePart2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "headlinePart3": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "path1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "path2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "FinalAppUrl": {
+        "osType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "DisplayCallToAction": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "text": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "textColor": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "urlCollectionId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "ProductImage": {
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "displayCallToAction": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "text": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "textColor": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "urlCollectionId": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "productImage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "ProductVideo": {
+        "productVideo": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "GmailTeaser": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "businessName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "headline": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "logoImage": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "GmailAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "headerImage": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "marketingImage": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "marketingImageDescription": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "marketingImageDisplayCallToAction": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "textColor": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "urlCollectionId": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "marketingImageHeadline": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "productImages": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "description": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "displayCallToAction": {
+                "$ref": "#/definitions/DisplayCallToAction"
+              },
+              "productImage": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "productVideos": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "productVideo": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "teaser": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "businessName": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "description": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "headline": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "logoImage": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "HotelAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "ImageAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "adIdToCopyImageFrom": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "imageUrl": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "mediaFile": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "mimeType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "pixelHeight": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "pixelWidth": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "previewImageUrl": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "previewPixelHeight": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "previewPixelWidth": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        }
+      },
+      "LegacyAppInstallAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "appId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "appStore": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "headline": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "LegacyResponsiveDisplayAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "accentColor": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "allowFlexibleColor": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "businessName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "callToActionText": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "formatSetting": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "logoImage": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "longHeadline": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "mainColor": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "marketingImage": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "pricePrefix": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "promoText": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "shortHeadline": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "squareLogoImage": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "squareMarketingImage": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "LocalAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "callToActions": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "descriptions": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "headlines": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "logoImages": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "asset": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "marketingImages": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "asset": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "path1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "path2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "videos": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "asset": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "ResponsiveDisplayAdControlSpec": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "enableAssetEnhancements": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "enableAutogenVideo": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        }
+      },
+      "ResponsiveDisplayAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "accentColor": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "allowFlexibleColor": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "businessName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "callToActionText": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "controlSpec": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "enableAssetEnhancements": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "enableAutogenVideo": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              }
+            }
+          },
+          "descriptions": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "formatSetting": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "headlines": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "logoImages": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "asset": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "longHeadline": {
+            "assetPerformanceLabel": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "pinnedField": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "policySummaryInfo": {
+              "$ref": "#/definitions/AdAssetPolicySummary"
+            },
+            "text": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "mainColor": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "marketingImages": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "asset": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "pricePrefix": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "promoText": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "squareLogoImages": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "asset": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "squareMarketingImages": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "asset": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "youtubeVideos": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "asset": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "ResponsiveSearchAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "descriptions": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "headlines": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "path1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "path2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "ShoppingComparisonListingAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "headline": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "ShoppingProductAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": null
+      },
+      "ShoppingSmartAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "SmartCampaignAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "descriptions": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "headlines": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "TextAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "description1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "headline": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "UrlCollection": {
+        "finalMobileUrls": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "finalUrls": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "trackingUrlTemplate": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "urlCollectionId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "CustomParameter": {
+        "key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "VideoBumperInStreamAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "companionBanner": {
+            "asset": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      },
+      "VideoTrueViewDiscoveryAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "description1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "headline": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "thumbnail": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "VideoTrueViewInStreamAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "actionButtonLabel": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "actionHeadline": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "companionBanner": {
+            "asset": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      },
+      "VideoNonSkippableInStreamAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "actionButtonLabel": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "actionHeadline": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "companionBanner": {
+            "asset": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      },
+      "VideoOutstreamAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "headline": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "VideoAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "bumper": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "companionBanner": {
+                "$ref": "#/definitions/AdImageAsset"
+              }
+            }
+          },
+          "discovery": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "description1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "description2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "headline": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "thumbnail": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "inStream": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "actionButtonLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "actionHeadline": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "companionBanner": {
+                "$ref": "#/definitions/AdImageAsset"
+              }
+            }
+          },
+          "nonSkippable": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "actionButtonLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "actionHeadline": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "companionBanner": {
+                "$ref": "#/definitions/AdImageAsset"
+              }
+            }
+          },
+          "outStream": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "description": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "headline": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "video": {
+            "asset": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      },
+      "VideoResponsiveAdInfo": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "callToActions": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "companionBanners": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "asset": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "descriptions": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "headlines": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "longHeadlines": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "assetPerformanceLabel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "pinnedField": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "policySummaryInfo": {
+                "$ref": "#/definitions/AdAssetPolicySummary"
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "videos": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "asset": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

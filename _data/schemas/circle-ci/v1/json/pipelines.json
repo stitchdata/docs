@@ -1,0 +1,193 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "project_slug": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "errors": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of error"
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable error message."
+          }
+        }
+      }
+    },
+    "trigger_parameters": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "property_name": {
+          "type": [
+            "null",
+            "string",
+            "integer",
+            "boolean",
+            "object"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "trigger": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "received_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "actor": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "login": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "avatar_url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "vcs": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "origin_repository_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "target_repository_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "revision": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "provider_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "commit": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "body": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "subject": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "branch": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tag": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    }
+  }
+}

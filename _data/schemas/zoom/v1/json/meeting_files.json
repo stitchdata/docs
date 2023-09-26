@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "meeting_uuid": {
+      "type": [
+        "string"
+      ]
+    },
+    "file_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "download_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "file_size": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  }
+}

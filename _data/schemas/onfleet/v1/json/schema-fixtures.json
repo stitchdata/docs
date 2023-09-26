@@ -1,0 +1,194 @@
+{
+  "organizations": {
+    "id": "string",
+    "timeCreated": "2019-02-25T20:13:10Z",
+    "timeLastModified": "2019-02-25T20:13:10Z",
+    "name": "string",
+    "email": "string",
+    "image": "string",
+    "timezone": "string",
+    "country": "string",
+    "delegatees": []
+  },
+  "administrators": {
+    "id": "string",
+    "timeCreated": "2019-02-25T20:13:10Z",
+    "timeLastModified": "2019-02-25T20:13:10Z",
+    "organization": "string",
+    "email": "string",
+    "type": "string",
+    "name": "string",
+    "isActive": "boolean",
+    "phone": "string",
+    "metadata": [
+      "string"
+    ]
+  },
+  "workers": {
+    "id": "string",
+    "timeCreated": "2019-02-25T20:13:10Z",
+    "timeLastModified": "2019-02-25T20:13:10Z",
+    "organization": "string",
+    "name": "string",
+    "displayName": "string",
+    "phone": "string",
+    "activeTask": "string",
+    "tasks": [
+      "string"
+    ],
+    "onDuty": "boolean",
+    "timeLastSeen": "2019-02-25T20:13:10Z",
+    "capacity": "number",
+    "userData": {
+      "deviceDescription": "string",
+      "batteryLevel": "number",
+      "appVersion": "string",
+      "platform": "string"
+    },
+    "accountStatus": "string",
+    "metadata": [
+      "string"
+    ],
+    "imageUrl": "string",
+    "teams": [
+      "string",
+      "string"
+    ],
+    "delayTime": "number",
+    "location": "string",
+    "vehicle": {
+      "id": "string",
+      "type": "string",
+      "description": "string",
+      "licensePlate": "string",
+      "color": "string",
+      "timeLastModified": "2019-02-25T20:13:10Z"
+    }
+  },
+  "hubs": {
+    "id": "string",
+    "name": "string",
+    "location": [
+      "number",
+      "number"
+    ],
+    "address": {
+      "number": "string",
+      "street": "string",
+      "city": "string",
+      "state": "string",
+      "country": "string",
+      "postalCode": "string",
+      "apartment": "string"
+    },
+    "teams": [
+      "string"
+    ]
+  },
+  "teams": {
+    "id": "string",
+    "timeCreated": "2019-02-25T20:13:10Z",
+    "timeLastModified": "2019-02-25T20:13:10Z",
+    "name": "string",
+    "workers": [
+      "string"
+    ],
+    "managers": [
+      "string"
+    ],
+    "hub": "string",
+    "tasks": [
+      "string"
+    ]
+  },
+  "tasks": {
+    "id": "string",
+    "timeCreated": "2019-02-25T20:13:10Z",
+    "timeLastModified": "2019-02-25T20:13:10Z",
+    "organization": "string",
+    "shortId": "string",
+    "trackingURL": "string",
+    "worker": "string",
+    "merchant": "string",
+    "executor": "string",
+    "creator": "string",
+    "dependencies": [
+      "string"
+    ],
+    "state": "number",
+    "completeAfter": "number",
+    "completeBefore": "number",
+    "pickupTask": "boolean",
+    "notes": "string",
+    "completionDetails": {
+      "events": [
+        "string"
+      ],
+      "failureReason": "string",
+      "time": "2019-02-25T20:13:10Z",
+      "firstLocation": [
+        "string"
+      ],
+      "lastLocation": [
+        "string"
+      ],
+      "unavailableAttachments": [
+        "string"
+      ]
+    },
+    "feedback": [
+      "string"
+    ],
+    "metadata": [
+      "string"
+    ],
+    "overrides": {},
+    "quantity": "number",
+    "serviceTime": "number",
+    "identity": {
+      "failedScanCount": "number",
+      "checksum": "string"
+    },
+    "sourceTaskId": "string",
+    "trackingViewed": "boolean",
+    "estimatedCompletionTime": "number",
+    "delayTime": "number",
+    "recipients": [
+      {
+        "id": "string",
+        "organization": "string",
+        "timeCreated": "2019-02-25T20:13:10Z",
+        "timeLastModified": "2019-02-25T20:13:10Z",
+        "name": "string",
+        "phone": "string",
+        "notes": "string",
+        "skipSMSNotifications": "boolean",
+        "metadata": [
+          "string"
+        ]
+      }
+    ],
+    "destination": {
+      "id": "string",
+      "timeCreated": "2019-02-25T20:13:10Z",
+      "timeLastModified": "2019-02-25T20:13:10Z",
+      "location": [
+        "number",
+        "number"
+      ],
+      "address": {
+        "apartment": "string",
+        "state": "string",
+        "postalCode": "string",
+        "number": "string",
+        "street": "string",
+        "city": "string",
+        "country": "string"
+      },
+      "notes": "string",
+      "metadata": [
+        "string"
+      ]
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "type": "object",
+  "properties": {
+    "_meta": {
+      "type": "object",
+      "properties": {
+        "startTime": {
+          "type": "integer"
+        },
+        "endTime": {
+          "type": "integer"
+        }
+      }
+    },
+    "id": {
+      "type": "string"
+    },
+    "agentID": {
+      "type": "object",
+      "properties": {
+        "long": {
+          "type": "integer"
+        }
+      }
+    },
+    "type": {
+      "type": "object",
+      "properties": {
+        "long": {
+          "type": "integer"
+        }
+      }
+    },
+    "state": {
+      "type": "object",
+      "properties": {
+        "long": {
+          "type": "integer"
+        }
+      }
+    },
+    "timestamp": {
+      "type": "object",
+      "properties": {
+        "long": {
+          "type": "integer"
+        }
+      }
+    },
+    "prevState": {
+      "type": "object",
+      "properties": {
+        "long": {
+          "type": "integer"
+        }
+      }
+    },
+    "agentEmployeeId": {
+      "type": "object",
+      "properties": {
+        "string": {
+          "type": "string"
+        }
+      }
+    },
+    "agentUsername": {
+      "type": "object",
+      "properties": {
+        "string": {
+          "type": "string"
+        }
+      }
+    },
+    "agentNickname": {
+      "type": "object",
+      "properties": {
+        "string": {
+          "type": "string"
+        }
+      }
+    },
+    "agentLoginname": {
+      "type": "object",
+      "properties": {
+        "string": {
+          "type": "string"
+        }
+      }
+    },
+    "prevConcurrentEng": {
+      "type": "object",
+      "properties": {
+        "long": {
+          "type": "integer"
+        }
+      }
+    },
+    "concurrentEng": {
+      "type": "object",
+      "properties": {
+        "long": {
+          "type": "integer"
+        }
+      }
+    },
+    "maxConcurrentEng": {
+      "type": "object",
+      "properties": {
+        "long": {
+          "type": "integer"
+        }
+      }
+    },
+    "agentGroupID": {
+      "type": "object",
+      "properties": {
+        "long": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

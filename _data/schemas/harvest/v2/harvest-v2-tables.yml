@@ -115,6 +115,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
+  status: not_found
 - name: invoices
   description: 'The `{{ table.name }}` table contains info about the invoices in your
     Harvest account.
@@ -327,3 +328,12 @@ tables:
     primary-keys:
     - user_id
     - role_id
+- name: external_reference
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''

@@ -1,0 +1,110 @@
+{
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "content": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "score": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "votes_up": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "votes_down": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "sentiment": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "sku": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reviewer_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "description": "Available in APi Response Object"
+    },
+    "archived": {
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "description": "Available in APi Response Object"
+    },
+    "escalated": {
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "description": "Available in APi Response Object"
+    },
+    "user_reference": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

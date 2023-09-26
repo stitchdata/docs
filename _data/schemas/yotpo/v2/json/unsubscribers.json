@@ -1,0 +1,30 @@
+{
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "user_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "email_type_id": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "unsubscirbed_by_name": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "This field is misspelled in the api response!"
+    }
+  },
+  "additionalProperties": false
+}

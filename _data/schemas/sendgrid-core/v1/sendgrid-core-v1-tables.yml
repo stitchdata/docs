@@ -90,6 +90,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: email
+  status: not_found
 - name: invalids
   description: 'The `{{ table.name }}` table contains info about invalid email addresses.
     An invalid email occurs when you attempt to send an email to an address that is
@@ -190,3 +191,12 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+- name: groups_members
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''

@@ -1,0 +1,120 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "column_limit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dynamic_fields": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pivots": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "result_maker_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sorts": {
+      "items": {},
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "source_queries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "merge_fields": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "field_name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "source_field_name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "query_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "total": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "vis_config": {
+      "additionalProperties": true,
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {}
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

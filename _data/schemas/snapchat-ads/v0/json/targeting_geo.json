@@ -1,0 +1,189 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "targeting_group": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "targeting_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "path": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "source": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "parent_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "country_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "continent": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "full_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "country": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "code2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "region": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "metro": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "regions": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "city": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    }
+  }
+}

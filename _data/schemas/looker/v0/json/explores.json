@@ -1,0 +1,2336 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "access_filter_fields": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ],
+      "x-looker-deprecated": true
+    },
+    "access_filters": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "user_attribute": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "aliases": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "always_filter": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "can_explain": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "can_pivot_in_db": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "can_save": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "can_subtotal": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "can_total": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "conditionally_filter": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "connection_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "errors": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "details": {
+            "format": "any",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "error_pos": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "field_error": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "message": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "fields": {
+      "additionalProperties": false,
+      "properties": {
+        "dimensions": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "align": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "can_filter": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "can_time_filter": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "category": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "default_filter_value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "description": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "dynamic": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "enumerations": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "label": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "error": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "field_group_label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "field_group_variant": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "fill_style": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "fiscal_month_offset": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "has_allowed_values": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "hidden": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "is_filter": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "is_fiscal": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "is_numeric": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "is_timeframe": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "label_from_parameter": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "label_short": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "lookml_link": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "map_layer": {
+                "additionalProperties": false,
+                "properties": {
+                  "extents_json_url": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "feature_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "format": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "max_zoom_level": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "min_zoom_level": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "projection": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "property_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "property_label_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "url": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "measure": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "parameter": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "permanent": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "primary_key": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "project_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "requires_refresh_on_sort": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "scope": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "sortable": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "source_file": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "source_file_path": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "sql": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "sql_case": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "condition": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "strict_value_format": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "suggest_dimension": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "suggest_explore": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "suggestable": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "suggestions": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "tags": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "time_interval": {
+                "additionalProperties": false,
+                "properties": {
+                  "count": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "user_attribute_filter_types": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "value_format": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "view": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "view_label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "week_start_day": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "filters": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "align": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "can_filter": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "can_time_filter": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "category": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "default_filter_value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "description": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "dynamic": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "enumerations": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "label": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "error": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "field_group_label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "field_group_variant": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "fill_style": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "fiscal_month_offset": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "has_allowed_values": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "hidden": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "is_filter": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "is_fiscal": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "is_numeric": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "is_timeframe": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "label_from_parameter": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "label_short": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "lookml_link": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "map_layer": {
+                "additionalProperties": false,
+                "properties": {
+                  "extents_json_url": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "feature_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "format": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "max_zoom_level": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "min_zoom_level": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "projection": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "property_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "property_label_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "url": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "measure": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "parameter": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "permanent": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "primary_key": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "project_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "requires_refresh_on_sort": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "scope": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "sortable": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "source_file": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "source_file_path": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "sql": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "sql_case": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "condition": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "strict_value_format": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "suggest_dimension": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "suggest_explore": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "suggestable": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "suggestions": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "tags": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "time_interval": {
+                "additionalProperties": false,
+                "properties": {
+                  "count": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "user_attribute_filter_types": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "value_format": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "view": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "view_label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "week_start_day": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "measures": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "align": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "can_filter": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "can_time_filter": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "category": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "default_filter_value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "description": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "dynamic": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "enumerations": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "label": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "error": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "field_group_label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "field_group_variant": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "fill_style": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "fiscal_month_offset": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "has_allowed_values": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "hidden": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "is_filter": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "is_fiscal": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "is_numeric": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "is_timeframe": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "label_from_parameter": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "label_short": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "lookml_link": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "map_layer": {
+                "additionalProperties": false,
+                "properties": {
+                  "extents_json_url": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "feature_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "format": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "max_zoom_level": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "min_zoom_level": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "projection": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "property_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "property_label_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "url": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "measure": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "parameter": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "permanent": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "primary_key": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "project_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "requires_refresh_on_sort": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "scope": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "sortable": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "source_file": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "source_file_path": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "sql": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "sql_case": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "condition": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "strict_value_format": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "suggest_dimension": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "suggest_explore": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "suggestable": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "suggestions": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "tags": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "time_interval": {
+                "additionalProperties": false,
+                "properties": {
+                  "count": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "user_attribute_filter_types": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "value_format": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "view": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "view_label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "week_start_day": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "parameters": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "align": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "can_filter": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "can_time_filter": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "category": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "default_filter_value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "description": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "dynamic": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "enumerations": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "label": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "error": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "field_group_label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "field_group_variant": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "fill_style": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "fiscal_month_offset": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "has_allowed_values": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "hidden": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "is_filter": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "is_fiscal": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "is_numeric": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "is_timeframe": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "label_from_parameter": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "label_short": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "lookml_link": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "map_layer": {
+                "additionalProperties": false,
+                "properties": {
+                  "extents_json_url": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "feature_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "format": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "max_zoom_level": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "min_zoom_level": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "projection": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "property_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "property_label_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "url": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "measure": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "parameter": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "permanent": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "primary_key": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "project_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "requires_refresh_on_sort": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "scope": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "sortable": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "source_file": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "source_file_path": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "sql": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "sql_case": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "condition": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "strict_value_format": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "suggest_dimension": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "suggest_explore": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "suggestable": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "suggestions": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "tags": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "time_interval": {
+                "additionalProperties": false,
+                "properties": {
+                  "count": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "user_attribute_filter_types": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "value_format": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "view": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "view_label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "week_start_day": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "files": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "group_label": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "has_timezone_support": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "hidden": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "index_fields": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "joins": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "dependent_fields": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "fields": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "foreign_key": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "from": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "outer_only": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "relationship": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "required_joins": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "sql_foreign_key": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sql_on": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sql_table_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "view_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "label": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "model_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "null_sort_treatment": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "project_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "scopes": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "sets": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "source_file": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sql_table_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "supported_measure_types": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "dimension_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "measure_types": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "supports_cost_estimate": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "tags": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "view_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sent_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sent_by_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sent_from": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sent_from_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subject": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "body": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "send_me_a_copy": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "event_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "estimate_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "recipients": {
+      "items": {
+        "properties": {
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "email": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    }
+  }
+}

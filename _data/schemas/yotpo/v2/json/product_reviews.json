@@ -1,0 +1,192 @@
+{
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "domain_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "product_yotpo_id": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "description": "Available in APi Response Object"
+    },
+    "score": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "votes_up": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "votes_down": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "content": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "verified_buyer": {
+      "type": "boolean"
+    },
+    "source_review_id": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "sentiment": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "custom_fields": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "product_id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "user": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "user_id": {
+          "type": "integer"
+        },
+        "display_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "social_image": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "user_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "is_social_connected": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      }
+    },
+    "images_data": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "original_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "thumb_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    },
+    "comment": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "content": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "created_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "display_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "comments_avatar": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

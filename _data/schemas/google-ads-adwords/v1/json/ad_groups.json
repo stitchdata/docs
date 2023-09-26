@@ -1,0 +1,258 @@
+{
+  "additionalProperties": false,
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "campaignName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "campaignId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "baseCampaignId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "adGroupType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "settings": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "details": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "targetAll": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "criterionTypeGroup": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              }
+            }
+          },
+          "Setting.Type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "optIn": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        }
+      }
+    },
+    "biddingStrategyConfiguration": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "bids": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "bid": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "properties": {
+                  "ComparableValue.Type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "microAmount": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                }
+              },
+              "bidSource": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "Bids.Type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "baseAdGroupId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "labels": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "attribute": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "backgroundColor": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "LabelAttribute.Type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "Label.Type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    },
+    "urlCustomParameters": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "parameters": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "value": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "isRemove": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "doReplace": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

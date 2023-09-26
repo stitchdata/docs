@@ -1,0 +1,234 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "handle": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "accounting_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "request_credit_card": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "expiration_interval": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "expiration_interval_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "price_in_cents": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "interval": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "interval_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "initial_charge_in_cents": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "trial_price_in_cents": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "trial_interval": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "trial_interval_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "archived_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "require_credit_card": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "return_params": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "taxable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "update_return_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tax_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "initial_charge_after_trial": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "version_number": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "update_return_params": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "product_family": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "handle": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "accounting_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "public_signup_pages": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "return_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "return_params": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

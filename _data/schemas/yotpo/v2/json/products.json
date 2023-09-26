@@ -1,0 +1,166 @@
+{
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "yotpo_id": {
+      "type": "integer"
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "external_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_valid_url_format": {
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "description": "Actual response displays `is_valid_url_format` whereas documentation mention `is_valid_url`"
+    },
+    "image_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "compare_at_price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "inventory_quantity": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_discontinued": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "group_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "brand": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sku": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "mpn": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "handle": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Actual response shows `handle` whereas documentation does not mention it"
+    },
+    "external_created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "external_updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "gtins": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "declared_type": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "detected_type": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Actual response shows `detected_type` whereas documentation does not mention it"
+          }
+        }
+      }
+    },
+    "custom_properties": {
+      "type": [
+        "null",
+        "object"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

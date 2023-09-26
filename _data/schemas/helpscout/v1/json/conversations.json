@@ -1,0 +1,351 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "number": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "threads": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "folder_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subject": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "preview": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "mailbox_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "assignee": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "photo_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "created_by": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "photo_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "closed_by": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "closed_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "user_updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "customer_waiting_since": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "time": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "friendly": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_reply_from": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "source": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "via": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "tags": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "cc": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "bcc": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "primary_customer": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "photo_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "custom_fields": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  }
+}

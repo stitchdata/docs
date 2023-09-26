@@ -1,0 +1,116 @@
+{
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Actual response displays `id` whereas documentation mention `yotpo_id`"
+    },
+    "external_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "order_id": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "description": "Actual response shows `order_id` whereas documentation mention `yotpo_order_id`"
+    },
+    "fulfillment_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "shipment_info": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "shipment_status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tracking_company": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tracking_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tracking_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "fulfilled_items": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "yotpo_product_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "external_product_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "quantity": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

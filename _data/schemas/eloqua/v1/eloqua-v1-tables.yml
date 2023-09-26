@@ -24,6 +24,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Id
     replication-key: UpdatedAt
+  status: not_found
 - name: activity_bounceback
   description: 'The `{{ table.name }}` table contains info about `Bounceback` contact
     activities.
@@ -40,6 +41,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedAt
+  status: not_found
 - name: activity_email_clickthrough
   description: 'The `{{ table.name }}` table contains info about `EmailClickthrough`
     contact activities.
@@ -56,6 +58,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedAt
+  status: not_found
 - name: activity_email_open
   description: 'The `{{ table.name }}` table contains info about `EmailOpen` contact
     activities.
@@ -72,6 +75,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedAt
+  status: not_found
 - name: activity_email_send
   description: 'The `{{ table.name }}` table contains info about `EmailSend` contact
     activities.
@@ -88,6 +92,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedAt
+  status: not_found
 - name: activity_form_submit
   description: 'The `{{ table.name }}` table contains info about `FormSubmit` contact
     activities.
@@ -104,6 +109,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedAt
+  status: not_found
 - name: activity_page_view
   description: 'The `{{ table.name }}` table contains info about `PageView` contact
     activities.
@@ -120,6 +126,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedAt
+  status: not_found
 - name: activity_subscribe
   description: 'The `{{ table.name }}` table contains info about `Subscribe` contact
     activities.
@@ -136,6 +143,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedAt
+  status: not_found
 - name: activity_unsubscribe
   description: 'The `{{ table.name }}` table contains info about `Unsubscribe` contact
     activities.
@@ -152,6 +160,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedAt
+  status: not_found
 - name: activity_web_visit
   description: 'The `{{ table.name }}` table contains info about `WebVisit` contact
     activities.
@@ -168,6 +177,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedAt
+  status: not_found
 - name: assets
   description: 'The `{{ table.name }}` table contains info about the external assets
     associated with your {{ integration.display_name }} account. External assets are
@@ -227,6 +237,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Id
     replication-key: UpdatedAt
+  status: not_found
 - name: Custom Objects
   description: 'For each custom object in your {{ integration.display_name }} account,
     Stitch will display a table as available for selection. The name of the table
@@ -247,6 +258,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: UpdatedAt
+  status: not_found
 - name: emails
   description: 'The `{{ table.name }}` table contains details about the emails sent
     from your {{ integration.display_name }} account.
@@ -279,6 +291,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedAt
+  status: not_found
 - name: forms
   description: 'The `{{ table.name }}` table contains info about the forms in your
     {{ integration.display_name }} account.
@@ -314,3 +327,12 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: V_LastVisitDateAndTime
+- name: emailGroups
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''

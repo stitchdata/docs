@@ -1,0 +1,169 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "amount_in_cents": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "product_family_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "start_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "end_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "percentage": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "recurring": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "duration_period_count": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "duration_interval": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "duration_interval_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "allow_negative_balance": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "archived_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "conversion_limit": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "stackable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "compounding_strategy": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "coupon_restrictions": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "item_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "item_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "handle": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "yotpo_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "external_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_valid_url_format": {
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "description": "Actual response shows `is_valid_url_format` whereas documentation mention `is_valid_url`"
+    },
+    "image_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "compare_at_price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "inventory_quantity": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_discontinued": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "sku": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gtins": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "declared_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    },
+    "options": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "yotpo_product_id": {
+      "type": [
+        "null",
+        "integer"
+      ],
+      "description": "Actual response shows `yotpo_product_id` whereas documentation does not mention it"
+    }
+  },
+  "additionalProperties": false
+}

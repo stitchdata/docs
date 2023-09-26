@@ -1,0 +1,684 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "balance_in_cents": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "total_revenue_in_cents": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "product_price_in_cents": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "product_version_number": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "current_period_ends_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "next_assessment_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "trial_started_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "trial_ended_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "activated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "expires_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "cancellation_message": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "cancellation_method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "cancel_at_end_of_period": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "canceled_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "current_period_started_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "previous_state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "signup_payment_id": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "signup_revenue": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "delayed_cancel_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "coupon_codes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "payment_collection_method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "snap_day": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reason_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "receives_invoice_emails": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "net_terms": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "customer": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "first_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "cc_emails": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "organization": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "reference": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "created_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "updated_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "address": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address_2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "city": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "zip": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phone": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "verified": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "portal_customer_created_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "portal_invite_last_sent_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "portal_invite_last_accepted_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "tax_exempt": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "vat_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "product": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "handle": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "accounting_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "price_in_cents": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "interval": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "interval_unit": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "initial_charge_in_cents": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "expiration_interval": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "expiration_interval_unit": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "trial_price_in_cents": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "trial_interval": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "trial_interval_unit": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "initial_charge_after_trial": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "return_params": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "request_credit_card": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "require_credit_card": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "created_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "updated_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "archived_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "update_return_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "update_return_params": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "product_family": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "handle": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "accounting_code": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "description": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "public_signup_pages": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        "taxable": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "version_number": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      }
+    },
+    "credit_card": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "payment_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "masked_card_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "card_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "expiration_month": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "expiration_year": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "billing_address": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "billing_address_2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "billing_city": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "billing_state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "billing_country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "billing_zip": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "current_vault": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "vault_token": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "customer_vault_token": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "customer_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      }
+    },
+    "payment_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "referral_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "next_product_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "stored_credential_transaction_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  }
+}

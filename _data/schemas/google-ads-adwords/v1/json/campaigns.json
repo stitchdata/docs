@@ -1,0 +1,294 @@
+{
+  "additionalProperties": false,
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "campaignTrialType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "endDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "settings": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "details": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "criterionTypeGroup": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "targetAll": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                }
+              }
+            }
+          },
+          "languageCode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "negativeGeoTargetType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Setting.Type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "positiveGeoTargetType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "domainName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "startDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "budgetId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "adServingOptimizationStatus": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "conversionOptimizerEligibility": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "eligible": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      }
+    },
+    "advertisingChannelType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "networkSetting": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "targetGoogleSearch": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      }
+    },
+    "baseCampaignId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "frequencyCap": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "impressions": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "timeUnit": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "labels": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "attribute": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "LabelAttribute.Type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "backgroundColor": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "description": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Label.Type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "servingStatus": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "urlCustomParameters": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "parameters": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "value": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "isRemove": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "doReplace": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

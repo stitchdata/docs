@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "merged": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "protected": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "developers_can_push": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "developers_can_merge": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "commit_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}
