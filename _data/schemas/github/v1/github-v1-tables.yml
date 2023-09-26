@@ -170,6 +170,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     parent-table: pull_request
+  status: not_found
 - name: pull_requests
   description: 'The `{{ table.name }}` table contains info about pull requests made
     against the repositories specified for the integration.

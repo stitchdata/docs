@@ -1,0 +1,55 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "automation": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "template": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "initial": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": true,
+          "properties": {}
+        },
+        "detailed": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": true,
+          "properties": {}
+        }
+      }
+    },
+    "ldate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  }
+}

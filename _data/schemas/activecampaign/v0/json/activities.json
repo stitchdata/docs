@@ -1,0 +1,93 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "tstamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "subscriberid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reference_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reference_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reference_action": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "json_data": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "userid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "permission": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reference_model_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reference": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "user": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  }
+}
