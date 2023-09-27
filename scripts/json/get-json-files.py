@@ -191,6 +191,9 @@ def getFiles(repo, branch):
 
 
 def getIntegrationVersions(integration):
+
+    # To remove before going to prod
+
     integration_path = '../../_integration-schemas/' + integration
     integration_versions = []
 
