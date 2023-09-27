@@ -123,7 +123,7 @@ def getTapData(setup_file):
 
     return [tap_name, tap_major_version]
 
-def getIntegrationId(repo):
+def getIntegrationData(repo):
     file = '../../_data/taps/integrations.yml'
 
     with open(file, 'r') as f:
@@ -134,11 +134,13 @@ def getIntegrationId(repo):
         for i in integrations:
             tap = integrations[i]['tap']
             id = integrations[i]['id']
-
+            type = integrations[i]['type']
+            
             if tap == repo:
                 integration_id = id
+                integration_type = type
 
-    return integration_id
+    return [integration_id, integration_type]
 
 def getFiles(repo, branch):
 
@@ -169,25 +171,33 @@ def getFiles(repo, branch):
     tap_name = tap_data[0]
     tap_version = tap_data[1]
 
-    integration_id = getIntegrationId(tap_name)
+    integration_data = getIntegrationData(tap_name)
+    integration_id = integration_data[0]
+    integration_type = integration_data[1]
+    print(integration_id, integration_type)
 
-    json_output_folder = '../../_data/schemas/{0}/v{1}/json'.format(integration_id, tap_version)
+    if integration_type != 'database':
 
-    if os.path.exists(json_output_folder):
-        pass
-    else:
-        os.makedirs(json_output_folder)
+        json_output_folder = '../../_data/schemas/{0}/v{1}/json'.format(integration_id, tap_version)
 
-    for item in os.listdir(tap_folder):
-        item_path = tap_folder + '/' + item
+        if os.path.exists(json_output_folder):
+            pass
+        else:
+            os.makedirs(json_output_folder)
 
-        if item.startswith('tap'):
-            schemas = item_path + '/schemas'
-            schema_list = formatJSON(schemas, json_output_folder)
+        for item in os.listdir(tap_folder):
+            item_path = tap_folder + '/' + item
 
-            getTableData(integration_id, tap_version, schema_list)
+            if item.startswith('tap'):
+                schemas = item_path + '/schemas'
+                schema_list = formatJSON(schemas, json_output_folder)
+
+                getTableData(integration_id, tap_version, schema_list)
+        
+        shutil.rmtree(zip_output)
     
-    shutil.rmtree(zip_output)
+    else:
+        print('Ignoring database integration {}'.format(integration_id))
 
 
 def getIntegrationVersions(integration):
