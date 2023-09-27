@@ -1,0 +1,660 @@
+{
+  "type": "object",
+  "properties": {
+    "custom_fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "value": {
+            "type": [
+              "null",
+              "string",
+              "number",
+              "boolean",
+              "object",
+              "array"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "integration_links": {
+      "$ref": "integration_links"
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "opportunities": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "integration_links": {
+            "$ref": "integration_links"
+          },
+          "value": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "date_lost": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "created_by": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "user_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "contact_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "updated_by_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "updated_by": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "user_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "organization_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value_formatted": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "date_created": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value_currency": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value_period": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "lead_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "confidence": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "contact_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "date_updated": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "status_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "note": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "lead_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "created_by_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "date_won": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "organization_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_updated": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tasks": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "created_by": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "updated_by_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "view": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "object_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "text": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "updated_by": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "due_date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "organization_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "object_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "is_dateless": {
+            "type": [
+              "null",
+              "integer",
+              "boolean"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "lead_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "contact_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "assigned_to": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "date_updated": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "assigned_to_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "lead_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "created_by_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "date_created": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "contact_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "is_complete": {
+            "type": [
+              "null",
+              "integer",
+              "boolean"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "status_label": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_by_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "contacts": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "urls": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "display_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "integration_links": {
+            "$ref": "integration_links"
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "created_by": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "phones": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "phone": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "phone_formatted": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "lead_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "organization_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "date_updated": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "updated_by": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "emails": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "email": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "date_created": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "updated_by_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "display_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "html_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "addresses": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "city": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "state": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "address_2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "zipcode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "country": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "address_1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "additionalProperties": true,
+  "tap_schema_dependencies": [
+    "integration_links"
+  ]
+}
