@@ -1,0 +1,149 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "itemStatus": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "isBillItem": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "isInvoiceItem": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "modifiedDate": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sourceModifiedDate": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billItem": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "unitPrice": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "accountRef": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "taxRateRef": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "invoiceItem": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "unitPrice": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "accountRef": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "taxRateRef": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

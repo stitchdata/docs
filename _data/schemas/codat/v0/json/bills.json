@@ -1,0 +1,312 @@
+{
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "companyId": {
+      "type": [
+        "string"
+      ]
+    },
+    "reference": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "totalAmount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "amountDue": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "supplierRef": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "companyId": {
+          "type": [
+            "string"
+          ]
+        },
+        "emailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "contactName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "registrationNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "supplierName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "string"
+          ]
+        },
+        "phone": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "addresses": {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": true,
+            "properties": {
+              "region": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "postalCode": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "line2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "line1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "country": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "city": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "taxNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "issueDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "subTotal": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "dueDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "taxAmount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "lineItems": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "unitAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "quantity": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "discountAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "subTotal": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "taxAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "totalAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "accountRef": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "discountPercentage": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "taxRateRef": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "itemRef": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true,
+  "tap_schema_dependencies": [
+    "suppliers"
+  ]
+}

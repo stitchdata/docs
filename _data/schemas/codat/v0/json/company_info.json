@@ -1,0 +1,172 @@
+{
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "companyId": {
+      "type": [
+        "string"
+      ]
+    },
+    "registrationNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "createdDate": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "companyLegalName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "addresses": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "country": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "region": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "postalCode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "line1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "line2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "city": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "financialYearStartDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "accountingPlatformRef": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "webLinks": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "phoneNumbers": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "baseCurrency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "companyName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "taxNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

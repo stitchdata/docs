@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "type": "string"
+    },
+    "accountName": {
+      "type": "string"
+    },
+    "_lineIndex": {
+      "type": "integer"
+    },
+    "balance": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reconciled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    }
+  }
+}

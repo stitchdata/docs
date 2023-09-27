@@ -1,0 +1,102 @@
+{
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "postedOn": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "createdOn": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "modifiedDate": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sourceModifiedDate": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "journalLines": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "grossAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "netAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "taxAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "currency": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "accountRef": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "companyId": {
+      "type": [
+        "string"
+      ]
+    },
+    "remainingCredit": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "paymentAllocations": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "string"
+          },
+          "id": {
+            "type": [
+              "string"
+            ]
+          },
+          "date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "currency": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "totalAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "note": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "totalAmount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "issueDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "customerRef": {
+      "additionalProperties": true,
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "companyName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "creditNoteNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "additionalProperties": true,
+  "tap_schema_dependencies": [
+    "payment_allocations"
+  ]
+}

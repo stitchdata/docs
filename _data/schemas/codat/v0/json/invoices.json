@@ -1,0 +1,215 @@
+{
+  "type": [
+    "object"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "companyId": {
+      "type": [
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "issueDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "dueDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "customerRef": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "companyName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "amountDue": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "totalAmount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "paymentAllocations": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "string"
+          },
+          "id": {
+            "type": [
+              "string"
+            ]
+          },
+          "date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "currency": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "totalAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "note": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "paidOnDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "modifiedDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "lineItems": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "discountAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "quantity": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "subTotal": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "taxAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "totalAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "unitAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "totalDiscount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "totalTaxAmount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "subTotal": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "invoiceNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "tap_schema_dependencies": [
+    "payment_allocations"
+  ]
+}

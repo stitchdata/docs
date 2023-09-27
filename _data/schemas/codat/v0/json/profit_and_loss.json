@@ -1,0 +1,232 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "companyId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reportBasis": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reports": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "fromDate": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "netProfit": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "netOtherIncome": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "otherExpenses": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "accountId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "patternProperties": {
+                "name_\\d+": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "netOperatingProfit": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "expenses": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "accountId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "patternProperties": {
+                "name_\\d+": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "costOfSales": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "accountId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "patternProperties": {
+                "name_\\d+": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "grossProfit": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "otherIncome": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "accountId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "patternProperties": {
+                "name_\\d+": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "toDate": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "income": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "accountId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "patternProperties": {
+                "name_\\d+": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        }
+      }
+    },
+    "mostRecentAvailableMonth": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "tap_schema_dependencies": [
+    "flattened_report"
+  ]
+}
