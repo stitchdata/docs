@@ -1,0 +1,399 @@
+{
+  "title": "Change History",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "issueId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "author": {
+      "title": "User",
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "self": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "accountId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "emailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "avatarUrls": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "patternProperties": {
+            ".+": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "displayName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "active": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "timeZone": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "items": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "title": "Change Item",
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "field": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "fieldtype": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "fieldId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "from": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "fromString": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "to": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "toString": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    },
+    "historyMetadata": {
+      "title": "History Metadata",
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "descriptionKey": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "activityDescription": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "activityDescriptionKey": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "emailDescription": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "emailDescriptionKey": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "actor": {
+          "title": "History Metadata Participant",
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "displayName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "displayNameKey": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "avatarUrl": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "generator": {
+          "title": "History Metadata Participant",
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "displayName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "displayNameKey": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "avatarUrl": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "cause": {
+          "title": "History Metadata Participant",
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "displayName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "displayNameKey": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "avatarUrl": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "extraData": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "patternProperties": {
+            ".+": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "history-metadata-participant": {
+      "title": "History Metadata Participant",
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "displayName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "displayNameKey": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "avatarUrl": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    }
+  }
+}

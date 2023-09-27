@@ -1,0 +1,749 @@
+{
+  "title": "Issue",
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "expand": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "self": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "uri"
+    },
+    "key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "renderedFields": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "patternProperties": {
+        ".+": {}
+      }
+    },
+    "properties": {
+      "title": "Properties",
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "properties": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "patternProperties": {
+            ".+": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "names": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "patternProperties": {
+        ".+": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "schema": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "patternProperties": {
+        ".+": {
+          "title": "Json Type",
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "system": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "custom": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "customId": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "editmeta": {
+      "title": "Edit Meta",
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "fields": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "patternProperties": {
+            ".+": {
+              "title": "Field Meta",
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "required": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "schema": {
+                  "$ref": "json-type"
+                },
+                "name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "key": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "autoCompleteUrl": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "hasDefaultValue": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "operations": {
+                  "type": [
+                    "null",
+                    "array"
+                  ],
+                  "items": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "allowedValues": {
+                  "type": [
+                    "null",
+                    "array"
+                  ],
+                  "items": {}
+                },
+                "defaultValue": {}
+              },
+              "required": [
+                "required"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "versionedRepresentations": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "patternProperties": {
+        ".+": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "patternProperties": {
+            ".+": {}
+          }
+        }
+      }
+    },
+    "fieldsToInclude": {
+      "title": "Included Fields",
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "fields": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "updated": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "created": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "lastViewed": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "attachment": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "properties": {
+              "self": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "thumbnail": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "filename": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "created": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "author": {
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "self": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "timeZone": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "accountId": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "active": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "avatarUrls": {
+                    "properties": {
+                      "16x16": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "24x24": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "48x48": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "32x32": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "emailAddress": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "displayName": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "size": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "mimeType": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "content": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        }
+      },
+      "patternProperties": {
+        ".+": {}
+      }
+    }
+  },
+  "definitions": {
+    "field-meta": {
+      "title": "Field Meta",
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "required": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "schema": {
+          "title": "Json Type",
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "system": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "custom": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "customId": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          }
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "autoCompleteUrl": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "hasDefaultValue": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "operations": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "allowedValues": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {}
+        },
+        "defaultValue": {}
+      },
+      "required": [
+        "required"
+      ]
+    },
+    "json-type": {
+      "title": "Json Type",
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "items": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "system": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "custom": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "customId": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      }
+    },
+    "simple-link": {
+      "title": "Simple Link",
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "styleClass": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "iconClass": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "label": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "title": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "href": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "weight": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      }
+    },
+    "attachment": {
+      "properties": {
+        "self": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "thumbnail": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "filename": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "created": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "author": {
+          "properties": {
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "self": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "timeZone": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "accountId": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "active": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "key": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "avatarUrls": {
+              "properties": {
+                "16x16": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "24x24": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "48x48": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "32x32": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "emailAddress": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "displayName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "size": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "mimeType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "content": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    }
+  }
+}

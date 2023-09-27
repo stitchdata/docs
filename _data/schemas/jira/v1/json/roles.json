@@ -1,0 +1,81 @@
+{
+  "id": "https://docs.atlassian.com/jira/REST/schema/project-role#",
+  "title": "Project Role",
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "self": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "uri"
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "actors": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "title": "Role Actor",
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "displayName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "avatarUrl": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uri"
+          }
+        }
+      }
+    }
+  }
+}

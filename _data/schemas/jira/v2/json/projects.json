@@ -1,0 +1,898 @@
+{
+  "title": "Project",
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "simplified": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "expand": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "self": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "uri"
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lead": {
+      "title": "User",
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "self": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "format": "uri"
+        },
+        "key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "accountId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "emailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "avatarUrls": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "patternProperties": {
+            ".+": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uri"
+            }
+          }
+        },
+        "displayName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "active": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "timeZone": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "locale": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "groups": {
+          "$ref": "simple-list-wrapper"
+        },
+        "applicationRoles": {
+          "$ref": "simple-list-wrapper"
+        },
+        "expand": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "components": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "title": "Component",
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "self": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uri"
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "lead": {
+            "title": "User",
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "self": {
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "format": "uri"
+              },
+              "key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "accountId": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "emailAddress": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "avatarUrls": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "patternProperties": {
+                  ".+": {
+                    "type": [
+                      "null",
+                      "string"
+                    ],
+                    "format": "uri"
+                  }
+                }
+              },
+              "displayName": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "active": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "timeZone": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "locale": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "groups": {
+                "$ref": "simple-list-wrapper"
+              },
+              "applicationRoles": {
+                "$ref": "simple-list-wrapper"
+              },
+              "expand": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "leadUserName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "assigneeType": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "enum": [
+              "PROJECT_DEFAULT",
+              "COMPONENT_LEAD",
+              "PROJECT_LEAD",
+              "UNASSIGNED"
+            ]
+          },
+          "assignee": {
+            "title": "User",
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "self": {
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "format": "uri"
+              },
+              "key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "accountId": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "emailAddress": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "avatarUrls": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "patternProperties": {
+                  ".+": {
+                    "type": [
+                      "null",
+                      "string"
+                    ],
+                    "format": "uri"
+                  }
+                }
+              },
+              "displayName": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "active": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "timeZone": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "locale": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "groups": {
+                "$ref": "simple-list-wrapper"
+              },
+              "applicationRoles": {
+                "$ref": "simple-list-wrapper"
+              },
+              "expand": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "realAssigneeType": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "enum": [
+              "PROJECT_DEFAULT",
+              "COMPONENT_LEAD",
+              "PROJECT_LEAD",
+              "UNASSIGNED"
+            ]
+          },
+          "realAssignee": {
+            "title": "User",
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "self": {
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "format": "uri"
+              },
+              "key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "accountId": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "emailAddress": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "avatarUrls": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "patternProperties": {
+                  ".+": {
+                    "type": [
+                      "null",
+                      "string"
+                    ],
+                    "format": "uri"
+                  }
+                }
+              },
+              "displayName": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "active": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "timeZone": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "locale": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "groups": {
+                "$ref": "simple-list-wrapper"
+              },
+              "applicationRoles": {
+                "$ref": "simple-list-wrapper"
+              },
+              "expand": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "isAssigneeTypeValid": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "project": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "projectId": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        }
+      }
+    },
+    "issueTypes": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "title": "Issue Type",
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "self": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "iconUrl": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "subtask": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "avatarId": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        }
+      }
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "assigneeType": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "enum": [
+        "PROJECT_LEAD",
+        "UNASSIGNED"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "roles": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "patternProperties": {
+        ".+": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "format": "uri"
+        }
+      }
+    },
+    "avatarUrls": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "patternProperties": {
+        ".+": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "projectKeys": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "projectCategory": {
+      "title": "Project Category",
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "self": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "format": "uri"
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "projectTypeKey": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "definitions": {
+    "simple-list-wrapper": {
+      "title": "Simple List Wrapper",
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "size": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "max-results": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "items": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "title": "Group",
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "self": {
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "format": "uri"
+              }
+            }
+          }
+        }
+      }
+    },
+    "user": {
+      "title": "User",
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "self": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "format": "uri"
+        },
+        "key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "accountId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "emailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "avatarUrls": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "patternProperties": {
+            ".+": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "uri"
+            }
+          }
+        },
+        "displayName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "active": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "timeZone": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "locale": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "groups": {
+          "title": "Simple List Wrapper",
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "size": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "max-results": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "items": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "title": "Group",
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "self": {
+                    "type": [
+                      "null",
+                      "string"
+                    ],
+                    "format": "uri"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "applicationRoles": {
+          "title": "Simple List Wrapper",
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "size": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "max-results": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "items": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "title": "Group",
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "self": {
+                    "type": [
+                      "null",
+                      "string"
+                    ],
+                    "format": "uri"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "expand": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    }
+  }
+}

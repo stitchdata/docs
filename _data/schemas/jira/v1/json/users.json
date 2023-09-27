@@ -1,0 +1,85 @@
+{
+  "title": "User",
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "self": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "uri"
+    },
+    "key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "accountId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "emailAddress": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "avatarUrls": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "patternProperties": {
+        ".+": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "format": "uri"
+        }
+      }
+    },
+    "displayName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "timeZone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "accountType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "expand": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}

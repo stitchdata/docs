@@ -1,0 +1,187 @@
+{
+  "title": "Version",
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "expand": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "self": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "uri"
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "archived": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "released": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "releaseDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "overdue": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "userStartDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "startDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "userReleaseDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "project": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "projectId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "moveUnfixedIssuesTo": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "uri"
+    },
+    "operations": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "title": "Simple Link",
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "styleClass": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "iconClass": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "href": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "weight": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        }
+      }
+    },
+    "remotelinks": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "title": "Remote Entity Link",
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "self": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uri"
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "link": {}
+        }
+      }
+    }
+  }
+}
