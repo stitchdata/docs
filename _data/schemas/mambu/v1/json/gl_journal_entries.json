@@ -1,0 +1,206 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "entry_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "creation_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "entry_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "transaction_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "account_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "product_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "amount": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "singer.decimal"
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "booking_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "gl_account": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "encoded_key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "entry_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "creation_date": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "last_modified_date": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "gl_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "usage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "activated": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "allow_manual_journal_entries": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "strip_trailing_zeros": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "symbol": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "digits_after_decimal": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "currency_symbol_position": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "is_base_currency": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "last_modified_date": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            }
+          }
+        },
+        "balance": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "format": "singer.decimal"
+        }
+      }
+    }
+  }
+}

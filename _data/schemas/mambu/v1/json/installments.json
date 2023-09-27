@@ -1,0 +1,288 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "due_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_paid_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "repaid_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fee": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "expected": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            },
+            "paid": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            },
+            "due": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            }
+          }
+        },
+        "tax": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "expected": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            },
+            "paid": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            },
+            "due": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            }
+          }
+        }
+      }
+    },
+    "penalty": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "expected": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            },
+            "paid": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            },
+            "due": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            }
+          }
+        },
+        "tax": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "expected": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            },
+            "paid": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            },
+            "due": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            }
+          }
+        }
+      }
+    },
+    "interest": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "expected": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            },
+            "paid": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            },
+            "due": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            }
+          }
+        },
+        "tax": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "expected": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            },
+            "paid": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            },
+            "due": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            }
+          }
+        }
+      }
+    },
+    "principal": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "expected": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            },
+            "paid": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            },
+            "due": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "multipleOf": 1e-10
+            }
+          }
+        }
+      }
+    }
+  }
+}

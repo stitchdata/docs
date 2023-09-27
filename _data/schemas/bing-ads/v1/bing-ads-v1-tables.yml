@@ -19,6 +19,7 @@ tables:
     - id
     - lastModifiedTime
     replication-key: lastModifiedTime
+  status: not_found
 - name: adgroup_performance_report
   description: 'The `adgroup_performance_report` table contains performance data for
     ad groups, aggregated by day.
@@ -38,6 +39,7 @@ tables:
     - '{{ system-column.report-date-time }}'
     - gregorianDate
     replication-key: gregorianDate
+  status: not_found
 - name: ads
   description: 'The `ads` table contains info about the following ad types:
 
@@ -64,6 +66,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  status: not_found
 - name: ad_groups
   description: 'The `ad_groups` table contains info about the ad groups associated
     with the campaigns in your Bing Ads account.
@@ -78,6 +81,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  status: not_found
 - name: ad_performance_report
   description: 'The `ad_performance_report` table contains performance info about
     ads, including clicks and conversions. This data can be used to identify and improve
@@ -98,6 +102,7 @@ tables:
     - '{{ system-column.report-date-time }}'
     - gregorianDate
     replication-key: gregorianDate
+  status: not_found
 - name: age_gender_performance_report
   description: 'The `age_gender_performance_report` table contains info about the
     age and gender demographics of people interacting with your campaigns and ad groups.
@@ -117,6 +122,7 @@ tables:
     - '{{ system-column.report-date-time }}'
     - gregorianDate
     replication-key: gregorianDate
+  status: not_found
 - name: campaigns
   description: 'The `campaigns` table contains info about the campaigns in your Bing
     Ads account.
@@ -131,6 +137,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  status: not_found
 - name: campaign_performance_report
   description: 'The `campaign_performance_report` table contains performance data
     for campaigns, aggregated by day..
@@ -150,6 +157,7 @@ tables:
     - '{{ system-column.report-date-time }}'
     - gregorianDate
     replication-key: gregorianDate
+  status: not_found
 - name: geographic_performance_report
   description: 'The `geographic_performance_report` table contains info about the
     physical locations of people searching for an ad or the locations people are searching
@@ -170,6 +178,7 @@ tables:
     - '{{ system-column.report-date-time }}'
     - gregorianDate
     replication-key: gregorianDate
+  status: not_found
 - name: goals_and_funnels_report
   description: 'The `goals_and_funnels_report` table contains information about your
     audience''s progression through your conversion funnel. Use this report to determine
@@ -191,6 +200,7 @@ tables:
     - '{{ system-column.report-date-time }}'
     - gregorianDate
     replication-key: gregorianDate
+  status: not_found
 - name: keyword_performance_report
   description: 'The `keyword_performance_report` table contains performance data about
     keywords.
@@ -210,6 +220,7 @@ tables:
     - '{{ system-column.report-date-time }}'
     - gregorianDate
     replication-key: gregorianDate
+  status: not_found
 - name: search_query_performance_report
   description: 'The `search_query_performance_report` table contains performance data
     for search terms that resulted in a significant number of clicks in the last 30
@@ -234,3 +245,4 @@ tables:
     - '{{ system-column.report-date-time }}'
     - gregorianDate
     replication-key: gregorianDate
+  status: not_found

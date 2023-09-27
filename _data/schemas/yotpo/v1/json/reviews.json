@@ -1,0 +1,68 @@
+{
+  "type": [
+    "object"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "created_at": {
+      "type": "date-time"
+    },
+    "updated_at": {
+      "type": "date-time"
+    },
+    "votes_up": {
+      "type": "number"
+    },
+    "votes_down": {
+      "type": "number"
+    },
+    "score": {
+      "type": "number"
+    },
+    "content": {
+      "type": "string"
+    },
+    "title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "email": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sentiment": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "sku": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "reviewer_type": {
+      "type": "string"
+    },
+    "deleted": {
+      "type": "boolean"
+    },
+    "user_reference": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

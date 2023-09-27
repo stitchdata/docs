@@ -1,0 +1,175 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "webinar_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "questions": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "answer_max_character": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "answer_min_character": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "answer_required": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "case_sensitive": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "rating_max_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "rating_max_value": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "rating_min_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "rating_min_value": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "right_answers": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "show_as_dropdown": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "prompts": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "prompt_question": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "prompt_right_answers": {
+                  "type": [
+                    "null",
+                    "array"
+                  ],
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "answers": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": [
+                "string"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "anonymous": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "poll_type": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  }
+}

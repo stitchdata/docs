@@ -31,6 +31,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: __sdc_row
+  status: not_found
 - name: sheets_loaded
   description: 'The `{{ table.name }}` table contains metadata about individual sheets
     loaded to your destination.

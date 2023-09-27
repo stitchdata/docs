@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "webinar_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "source_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tracking_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "registration_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "visitor_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  }
+}

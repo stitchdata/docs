@@ -1,0 +1,187 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "address_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "cancellation_reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "cancellation_reason_comments": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "cancelled_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "charge_interval_frequency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "expire_after_specific_number_of_charges": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "has_queued_charges": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_skippable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_swappable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "max_retries_reached": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "next_charge_scheduled_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "order_day_of_month": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "order_day_of_week": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "order_interval_frequency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "order_interval_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "price": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "product_title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "properties": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "quantity": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "recharge_product_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "shopify_product_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "shopify_variant_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sku": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sku_override": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "variant_title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}

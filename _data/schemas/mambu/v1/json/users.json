@@ -1,0 +1,243 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "last_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "access": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "can_manage_entities_assigned_to_other_officers": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "mambu_access": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "administrator_access": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "api_access": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "permissions": {
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "credit_officer_access": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "can_manage_all_branches": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "support_access": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "managed_branches": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "branch_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "teller_access": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      }
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_logged_in_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "home_phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "language": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "creation_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "assigned_branch_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "first_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "mobile_phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "two_factor_authentication": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "username": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom_field_sets": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "custom_field_set_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "custom_field_values": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "custom_field_id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "custom_field_value": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  }
+}

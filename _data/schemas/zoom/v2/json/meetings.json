@@ -1,0 +1,713 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "meeting_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "assistant_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "host_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "uuid": {
+      "type": [
+        "string"
+      ]
+    },
+    "host_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "topic": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "duration": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "timezone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "agenda": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "join_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "password": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "h323_password": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "encrypted_password": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pmi": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pre_schedule": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "tracking_fields": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "visible": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        }
+      }
+    },
+    "occurrences": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "occurrence_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "start_time": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "duration": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    },
+    "settings": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "allow_multiple_devices": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "calendar_type": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "email_notification": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "encryption_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "focus_mode": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "show_share_button": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "host_video": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "participant_video": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "private_meeting": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "jbh_time": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "join_before_host": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "mute_upon_entry": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "watermark": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "use_pmi": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "approval_type": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "registration_type": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "audio": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "audio_conference_info": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "auto_recording": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "alternative_hosts": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "alternative_hosts_email_notification": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "alternative_host_update_polls": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "close_registration": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "waiting_room": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "host_save_video_order": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "global_dial_in_countries": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "string"
+            ]
+          }
+        },
+        "language_interpretation": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "enable": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "interpreters": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "email": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "languages": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "global_dial_in_numbers": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "country": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "country_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "city": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "number": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        "breakout_room": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "enable": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "rooms": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "participants": {
+                    "type": [
+                      "null",
+                      "array"
+                    ],
+                    "items": {
+                      "type": [
+                        "string"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "custom_keys": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        "approved_or_denied_countries_or_regions": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "approved_list": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "type": [
+                  "string"
+                ]
+              }
+            },
+            "denied_list": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "items": {
+                "type": [
+                  "string"
+                ]
+              }
+            },
+            "enable": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "method": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "authentication_exception": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "email": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "join_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        "contact_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "contact_email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "registrants_confirmation_email": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "registrants_email_notification": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "meeting_authentication": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "authentication_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "authentication_option": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "authentication_domains": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "recurrence": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "repeat_interval": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "weekly_days": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "monthly_day": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "monthly_week": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "monthly_week_day": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "end_times": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "end_date_time": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      }
+    }
+  }
+}
