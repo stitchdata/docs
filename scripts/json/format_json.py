@@ -189,21 +189,17 @@ def formatJSON(folder, json_output_folder):
         for file in files:
             filepath = os.path.join(root, file)
             if filepath.endswith('.json'):
-                change = 0
                 with open(filepath, 'r') as f:
                     table_list.append(file.replace('.json', ''))
                     json_content = f.read()
                     if '$ref' in json_content:
                         json_content = json.dumps(replaceRefs(json_content, folder, filepath))
-                        change +=1
 
                     elif '"format": "date-time"' in json_content:
                         json_content = replaceDatetimeFormat(json_content, 'str')
-                        change +=1
 
                     if '"anyOf"' in json_content:
                         json_content = replaceAnyof(json_content)
-                        change +=1
                 
                 content = json.loads(json_content)
                 with open(json_output_folder + '/' + file, 'w') as j:
