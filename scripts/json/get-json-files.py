@@ -174,7 +174,6 @@ def getFiles(repo, branch):
     integration_data = getIntegrationData(tap_name)
     integration_id = integration_data[0]
     integration_type = integration_data[1]
-    print(integration_id, integration_type)
 
     if integration_type != 'database':
 
@@ -193,11 +192,11 @@ def getFiles(repo, branch):
                 schema_list = formatJSON(schemas, json_output_folder)
 
                 getTableData(integration_id, tap_version, schema_list)
-        
-        shutil.rmtree(zip_output)
     
     else:
         print('Ignoring database integration {}'.format(integration_id))
+    
+    shutil.rmtree(zip_output)
 
 
 def getIntegrationVersions(integration):
