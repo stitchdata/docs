@@ -1,0 +1,223 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "address_line1": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "address_line2": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "campaigns": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "city": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "contact": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "email_address": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phone_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "country_state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "groups": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "group_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "group_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "mp_value1": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "mp_value2": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "mp_value3": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "partner_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "phone_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "postal_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "primary_promotional_method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "promoting_countries": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "promotional_methods": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "rating": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "relationship_state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "timezone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "website": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}

@@ -1,0 +1,353 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "categories": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "additional_category": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "additional_sub_categories": {
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "primary_category": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "primary_sub_categories": {
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      }
+    },
+    "company_contacts": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "email_address": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "first_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "last_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "phone_number": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "direct_tracking_settings": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "session_window_length": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "unidentified_source_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "display_future_ads": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "display_servicing_agency": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "gateway_tracking_settings": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "campaign_tracking_template": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "deep_link_domains": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "deep_linking": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "default_landing_page": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "media_partner_tracking_template": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ssl_support": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "third_party_gateway_query_string_parameters": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "third_party_gateway_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "unique_click_window_length": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "unique_click_window_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "gift_card_payouts": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "identity_collapsing": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "impression_tracking": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "list_in_marketplace": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "long_description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "mobile_ready_ads": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "promo_code_tracking": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "rating": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "resources": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "additional_related_links": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "link_display_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "link_type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "link_url": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "company_homepage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "example_landing_page": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "information_page": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "search_keywords": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "shipping_regions": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "short_description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "site_definition": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "third_party_impression_pixel": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tracking_domain": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "trademark_bidding": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "view_through_crediting": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    }
+  }
+}

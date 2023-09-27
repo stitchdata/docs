@@ -1,0 +1,150 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "ItemID": {
+      "type": [
+        "string"
+      ]
+    },
+    "Code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "IsSold": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "IsPurchased": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "Description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "PurchaseDescription": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "PurchaseDetails": {
+      "properties": {
+        "TaxType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "COGSAccountCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "UnitPrice": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "minimum": -1e+33,
+          "maximum": 1e+33,
+          "multipleOf": 1e-05,
+          "exclusiveMinimum": true,
+          "exclusiveMaximum": true
+        },
+        "AccountCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false
+    },
+    "SalesDetails": {
+      "properties": {
+        "TaxType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "UnitPrice": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "minimum": -1e+33,
+          "maximum": 1e+33,
+          "multipleOf": 1e-05,
+          "exclusiveMinimum": true,
+          "exclusiveMaximum": true
+        },
+        "AccountCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false
+    },
+    "IsTrackedAsInventory": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "InventoryAssetAccountCode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "TotalCostPool": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "QuantityOnHand": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "UpdatedDateUTC": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

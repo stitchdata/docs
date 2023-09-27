@@ -1,0 +1,477 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ad_code_template": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ad_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "allow_deep_linking": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "banner_alternative_tag": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_buy_image_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_buy_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_buy_quantity": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_buy_scope": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_get_discount_amount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "bogo_get_discount_currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_get_discount_percent": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "bogo_get_discount_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_get_image_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_get_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_get_quantity": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bogo_get_scope": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "campaign_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "campaign_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "coupon_allow_custom_promo_code": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "coupon_link_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom_ad_serving_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customisation_charge": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "deal_categories": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deal_default_promo_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deal_description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deal_end_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "deal_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deal_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deal_products": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "deal_restricted_media_partner_groups": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "deal_restricted_media_partners": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "deal_scope": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deal_start_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "deal_state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deal_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "discount_amount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "discount_currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "discount_maximum_percent": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "discount_percent": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "discount_percent_range_end": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "discount_percent_range_start": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "discount_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "get_html_code_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gift": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "iab_ad_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "labels": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "landing_page": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "language": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "limited_time_end_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "limited_time_start_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "link_text": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "maximum_savings_amount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "maximum_savings_currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "minimum_purchase_amount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "minimum_purchase_amount_currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "mobile_ready": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "phone_tracking": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "promo_code_tracking": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "purchase_limit_quantity": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "rebate_amount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "multipleOf": 1e-08
+    },
+    "rebate_currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "restricted_media_partner_groups": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "restricted_media_partners": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "season": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "synch_ads_promo_codes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "third_party_servable_ad_creative_height": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "third_party_servable_ad_creative_width": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "top_seller": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}

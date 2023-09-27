@@ -1,0 +1,313 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "FromBankAccount": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "Code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "UpdatedDateUTC": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "ReportingCodeName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "SystemAccount": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "BankAccountType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "TaxType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Class": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "AccountID": {
+          "type": [
+            "string"
+          ]
+        },
+        "BankAccountNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ShowInExpenseClaims": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "CurrencyCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ReportingCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "EnablePaymentsToAccount": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "HasAttachments": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "ToBankAccount": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "Code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "UpdatedDateUTC": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "ReportingCodeName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "SystemAccount": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "BankAccountType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "TaxType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Class": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "AccountID": {
+          "type": [
+            "string"
+          ]
+        },
+        "BankAccountNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ShowInExpenseClaims": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "CurrencyCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ReportingCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "EnablePaymentsToAccount": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "HasAttachments": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Amount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "minimum": -1e+33,
+      "maximum": 1e+33,
+      "multipleOf": 1e-05,
+      "exclusiveMinimum": true,
+      "exclusiveMaximum": true
+    },
+    "Date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "DateString": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "BankTransferID": {
+      "type": [
+        "string"
+      ]
+    },
+    "CurrencyRate": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "minimum": -1e+33,
+      "maximum": 1e+33,
+      "multipleOf": 1e-06,
+      "exclusiveMinimum": true,
+      "exclusiveMaximum": true
+    },
+    "FromBankTransactionID": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ToBankTransactionID": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "HasAttachments": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "CreatedDateUTC": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "CreatedDateUTCString": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "tap_schema_dependencies": [
+    "accounts"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,336 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "billing_address": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "address_line1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address_line2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "city": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "postal_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "commercial_contact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cell_phone_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "cell_phone_number_country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "user_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "work_phone_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "work_phone_number_country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "company_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "corporate_address": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "address_line1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address_line2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "city": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "postal_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ein_ssn_foreign_tax_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "financial_contact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cell_phone_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "cell_phone_number_country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "user_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "work_phone_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "work_phone_number_country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "indirect_tax_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "industry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "industry_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "industry_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "minimum_contact_rating": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "organization_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "primary_phone_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "primary_phone_number_country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "registered_for_indirect_tax": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "secondary_phone_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "secondary_phone_number_country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "technical_contact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cell_phone_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "cell_phone_number_country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "user_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "work_phone_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "work_phone_number_country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "timezone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "website": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}

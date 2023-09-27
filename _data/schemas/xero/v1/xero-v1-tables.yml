@@ -263,6 +263,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: QuoteID
     replication-key: UpdatedDateUTC
+  status: not_found
 - name: receipts
   description: 'The `{{ table.name }}` table contains info about invoice receipts,
     which are receipts sent to customers after an invoice has been received.
@@ -321,3 +322,75 @@ tables:
     replication-method: Key-based Incremental
     primary-key: UserID
     replication-key: UpdatedDateUTC
+- name: addresses
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
+- name: allocations
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
+- name: attachments
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
+- name: line_items
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
+- name: nested_invoice
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
+- name: payment_terms
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
+- name: phones
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
+- name: validation_errors
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
