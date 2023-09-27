@@ -67,10 +67,10 @@ def replaceAnyof(json_content):
 
     return new_content
 
-def sameFileRef(ref, filepath):
+def sameFileRef(ref, filepath, folder):
     split_ref = split_ref = ref.split('/')
     steps = len(split_ref)
-
+    
     if steps > 1:
         ref_index = 1
     else:
@@ -80,18 +80,36 @@ def sameFileRef(ref, filepath):
         file_content = json.load(f)
         try:
             path = file_content[split_ref[ref_index]]
+            status = 'found'
         except:
             try:
                 path = file_content['properties'][split_ref[ref_index]]
+                status = 'found'
             except:
-                path = file_content['definitions'][split_ref[ref_index]]
+                try:
+                    path = file_content['definitions'][split_ref[ref_index]]
+                    status = 'found'
+                except:
+                    split_ref[ref_index] = split_ref[ref_index] + '.json'
+                    out_ref = '/'.join(split_ref)
+                    for root, dirs, files in os.walk(folder):
+                        for file in files:
+                            if file == split_ref[ref_index]:
+                                status = 'external_file'
+                                if steps == 1:
+                                    content = fullFileRef(split_ref[ref_index], folder)
+                                else:
+                                    content = partialRef(out_ref, folder)
 
-        step = ref_index + 1
-        while step < steps :
-            path = path[split_ref[step]]
-            step +=1
+        if status == 'external_file':
+            pass
+        elif status == 'found':
+            step = ref_index + 1
+            while step < steps :
+                path = path[split_ref[step]]
+                step +=1
 
-        content = json.dumps(path, indent=2)
+            content = json.dumps(path, indent=2)
     
     return content
 
@@ -149,7 +167,7 @@ def replaceRefs(json_content, folder, filepath):
             content = partialRef(path, folder)
             json_content = json_content.replace(element, content)
         else:
-            content = sameFileRef(path, filepath)
+            content = sameFileRef(path, filepath, folder)
             json_content = json_content.replace(element, content)
 
     
