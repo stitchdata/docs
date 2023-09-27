@@ -8,7 +8,7 @@ host = 'https://api.github.com'
 github_headers = {'Authorization': github_token}
 
 # Get repository name
-repo = sys.argv[2]
+repos = sys.argv[2].split(',')
 
 try:
     branch = sys.argv[3]
@@ -239,7 +239,7 @@ def getAllTaps(branch):
     print('Issues were found in the following repositories:')
     print(*issues, sep='\n')
 
-if repo == 'all':
+if repos[0] == 'all':
     if branch == '':
         print('Fetching schemas from the main/master branch of all tap repositories listed in _data/taps/integrations.yml')
     elif branch == 'all':
@@ -248,15 +248,16 @@ if repo == 'all':
     getAllTaps(branch)
 
 else:
-    if branch == 'all':
-        print('Fetching schemas from each major version of the {} repository'.format(repo))
-        tags = getTags(repo)
-        for tag in tags:
-            getFiles(repo, tag)
-    else:
-        if branch == '':
-            print('Fetching schemas from the main/master branch of the {} repository'.format(repo))
+    for repo in repos:
+        if branch == 'all':
+            print('Fetching schemas from each major version of the {} repository'.format(repo))
+            tags = getTags(repo)
+            for tag in tags:
+                getFiles(repo, tag)
         else:
-            print('Fetching schemas from the {0} branch of the {1} repository'.format(branch, repo))
+            if branch == '':
+                print('Fetching schemas from the main/master branch of the {} repository'.format(repo))
+            else:
+                print('Fetching schemas from the {0} branch of the {1} repository'.format(branch, repo))
 
-        getFiles(repo, branch)
+            getFiles(repo, branch)
