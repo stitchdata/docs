@@ -71,13 +71,22 @@ def sameFileRef(ref, filepath):
     split_ref = split_ref = ref.split('/')
     steps = len(split_ref)
 
+    if steps > 1:
+        ref_index = 1
+    else:
+        ref_index = 0
+
     with open(filepath) as f:
         file_content = json.load(f)
         try:
-            path = file_content[split_ref[1]]
+            path = file_content[split_ref[ref_index]]
         except:
-            path = file_content['properties'][split_ref[1]]
-        step = 2
+            try:
+                path = file_content['properties'][split_ref[ref_index]]
+            except:
+                path = file_content['definitions'][split_ref[ref_index]]
+
+        step = ref_index + 1
         while step < steps :
             path = path[split_ref[step]]
             step +=1
