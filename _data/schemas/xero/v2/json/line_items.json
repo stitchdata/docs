@@ -1,0 +1,209 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "Description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Quantity": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "minimum": -1e+33,
+      "maximum": 1e+33,
+      "multipleOf": 1e-05,
+      "exclusiveMinimum": true,
+      "exclusiveMaximum": true
+    },
+    "UnitAmount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "minimum": -1e+33,
+      "maximum": 1e+33,
+      "multipleOf": 1e-05,
+      "exclusiveMinimum": true,
+      "exclusiveMaximum": true
+    },
+    "AccountCode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ItemCode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "LineItemID": {
+      "type": [
+        "string"
+      ]
+    },
+    "TaxType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "LineAmount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "minimum": -1e+33,
+      "maximum": 1e+33,
+      "multipleOf": 1e-05,
+      "exclusiveMinimum": true,
+      "exclusiveMaximum": true
+    },
+    "TaxAmount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "minimum": -1e+33,
+      "maximum": 1e+33,
+      "multipleOf": 1e-05,
+      "exclusiveMinimum": true,
+      "exclusiveMaximum": true
+    },
+    "DiscountRate": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "minimum": -1e+33,
+      "maximum": 1e+33,
+      "multipleOf": 1e-05,
+      "exclusiveMinimum": true,
+      "exclusiveMaximum": true
+    },
+    "Tracking": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "Status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "TrackingCategoryID": {
+            "type": [
+              "string"
+            ]
+          },
+          "Option": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "TrackingCategoryName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "TrackingOptionID": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "TrackingOptionName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Options": {
+            "items": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "IsActive": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "IsDeleted": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "TrackingOptionID": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "IsArchived": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "Status": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "Name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "HasValidationErrors": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "Name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    }
+  },
+  "tap_schema_dependencies": [
+    "tracking_categories"
+  ],
+  "additionalProperties": false
+}

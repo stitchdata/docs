@@ -1,0 +1,439 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "User": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "UserID": {
+          "type": [
+            "string"
+          ]
+        },
+        "EmailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "FirstName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "LastName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "UpdatedDateUTC": {
+          "format": "date-time",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "IsSubscriber": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "OrganisationRole": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ValidationErrors": {
+          "$ref": "validation_errors"
+        }
+      },
+      "additionalProperties": false,
+      "tap_schema_dependencies": [
+        "validation_errors"
+      ]
+    },
+    "Receipts": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "Date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "Contact": {
+            "$ref": "contacts"
+          },
+          "LineItems": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "line_items"
+            }
+          },
+          "User": {
+            "$ref": "users"
+          },
+          "Reference": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "LineAmountTypes": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "SubTotal": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "minimum": -1e+33,
+            "maximum": 1e+33,
+            "multipleOf": 1e-05,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
+          },
+          "TotalTax": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "minimum": -1e+33,
+            "maximum": 1e+33,
+            "multipleOf": 1e-05,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
+          },
+          "Total": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "minimum": -1e+33,
+            "maximum": 1e+33,
+            "multipleOf": 1e-05,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
+          },
+          "ReceiptID": {
+            "type": [
+              "string"
+            ]
+          },
+          "Status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ReceiptNumber": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "UpdatedDateUTC": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "HasAttachments": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "Url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ID": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ValidationErrors": {
+            "$ref": "validation_errors"
+          },
+          "Attachments": {
+            "$ref": "attachments"
+          }
+        },
+        "tap_schema_dependencies": [
+          "contacts",
+          "line_items",
+          "users",
+          "validation_errors",
+          "attachments"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "ExpenseClaimID": {
+      "type": [
+        "string"
+      ]
+    },
+    "Payments": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "Date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "CurrencyRate": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "minimum": -1e+33,
+            "maximum": 1e+33,
+            "multipleOf": 1e-10,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
+          },
+          "Amount": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "minimum": -1e+33,
+            "maximum": 1e+33,
+            "multipleOf": 1e-05,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
+          },
+          "Reference": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "IsReconciled": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "Status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "PaymentType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "UpdatedDateUTC": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "Account": {
+            "$ref": "accounts"
+          },
+          "Invoice": {
+            "$ref": "nested_invoice"
+          },
+          "CreditNote": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "CreditNoteNumber": {
+                "type": [
+                  "string"
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "Prepayments": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "PrepaymentID": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "Overpayment": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "OverpaymentID": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "BankAmount": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "minimum": -1e+33,
+            "maximum": 1e+33,
+            "multipleOf": 1e-05,
+            "exclusiveMinimum": true,
+            "exclusiveMaximum": true
+          },
+          "HasValidationErrors": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "PaymentID": {
+            "type": [
+              "string"
+            ]
+          },
+          "HasAccount": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "BatchPaymentID": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "tap_schema_dependencies": [
+          "accounts",
+          "nested_invoice"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "Status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "UpdatedDateUTC": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "Total": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "minimum": -1e+33,
+      "maximum": 1e+33,
+      "multipleOf": 1e-05,
+      "exclusiveMinimum": true,
+      "exclusiveMaximum": true
+    },
+    "AmountDue": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "minimum": -1e+33,
+      "maximum": 1e+33,
+      "multipleOf": 1e-05,
+      "exclusiveMinimum": true,
+      "exclusiveMaximum": true
+    },
+    "AmountPaid": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "minimum": -1e+33,
+      "maximum": 1e+33,
+      "multipleOf": 1e-05,
+      "exclusiveMinimum": true,
+      "exclusiveMaximum": true
+    },
+    "PaymentDueDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "ReportingDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "tap_schema_dependencies": [
+    "users",
+    "receipts",
+    "payments"
+  ],
+  "additionalProperties": false
+}

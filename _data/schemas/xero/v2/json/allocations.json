@@ -1,0 +1,273 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "Date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "Amount": {
+      "type": [
+        "null",
+        "number"
+      ],
+      "minimum": -1e+33,
+      "maximum": 1e+33,
+      "multipleOf": 1e-05,
+      "exclusiveMinimum": true,
+      "exclusiveMaximum": true
+    },
+    "Invoice": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "Type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Contact": {
+          "$ref": "contacts"
+        },
+        "Date": {
+          "format": "date-time",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "DueDate": {
+          "format": "date-time",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "LineAmountTypes": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "LineItems": {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "line_items"
+          }
+        },
+        "SubTotal": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "minimum": -1e+33,
+          "maximum": 1e+33,
+          "multipleOf": 1e-05,
+          "exclusiveMinimum": true,
+          "exclusiveMaximum": true
+        },
+        "TotalTax": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "minimum": -1e+33,
+          "maximum": 1e+33,
+          "multipleOf": 1e-05,
+          "exclusiveMinimum": true,
+          "exclusiveMaximum": true
+        },
+        "Total": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "minimum": -1e+33,
+          "maximum": 1e+33,
+          "multipleOf": 1e-05,
+          "exclusiveMinimum": true,
+          "exclusiveMaximum": true
+        },
+        "TotalDiscount": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "minimum": -1e+33,
+          "maximum": 1e+33,
+          "multipleOf": 1e-05,
+          "exclusiveMinimum": true,
+          "exclusiveMaximum": true
+        },
+        "UpdatedDateUTC": {
+          "format": "date-time",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "CurrencyCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "CurrencyRate": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "minimum": -1e+33,
+          "maximum": 1e+33,
+          "multipleOf": 1e-10,
+          "exclusiveMinimum": true,
+          "exclusiveMaximum": true
+        },
+        "InvoiceID": {
+          "type": [
+            "string"
+          ]
+        },
+        "InvoiceNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Reference": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "BrandingThemeID": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "SentToContact": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "ExpectedPaymentDate": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "PlannedPaymentDate": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "HasAttachments": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "AmountDue": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "minimum": -1e+33,
+          "maximum": 1e+33,
+          "multipleOf": 1e-05,
+          "exclusiveMinimum": true,
+          "exclusiveMaximum": true
+        },
+        "AmountPaid": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "minimum": -1e+33,
+          "maximum": 1e+33,
+          "multipleOf": 1e-05,
+          "exclusiveMinimum": true,
+          "exclusiveMaximum": true
+        },
+        "FullyPaidOnDate": {
+          "format": "date-time",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "AmountCredited": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "minimum": -1e+33,
+          "maximum": 1e+33,
+          "multipleOf": 1e-05,
+          "exclusiveMinimum": true,
+          "exclusiveMaximum": true
+        },
+        "DueDateString": {
+          "format": "date-time",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "IsDiscounted": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "HasErrors": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "DateString": {
+          "format": "date-time",
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "tap_schema_dependencies": [
+        "contacts",
+        "line_items"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "tap_schema_dependencies": [
+    "nested_invoice"
+  ]
+}
