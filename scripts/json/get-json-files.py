@@ -1,4 +1,4 @@
-import requests, re, base64, json, datetime, os, pandas, sys, zipfile, yaml
+import requests, re, base64, json, datetime, os, pandas, sys, zipfile, yaml, shutil
 from datetime import datetime as dt
 from format_json import formatJSON
 
@@ -25,7 +25,6 @@ def getTags(repo):
 
     for tag in tags:
         name = tag['name']
-        print(name)
         version = name.replace('v', '')
         major_version = version[0]
         
@@ -146,7 +145,7 @@ def getFiles(repo, branch):
     # Get all PRs that are closed and had the default branch as base
     contents_api = host + '/repos/singer-io/' + repo + '/zipball'
 
-    if branch != '':
+    if branch != '' and branch != 'all':
         contents_api = contents_api + '/' + branch
 
     repo_contents = requests.get(contents_api, headers=github_headers)
@@ -159,6 +158,8 @@ def getFiles(repo, branch):
     
     with zipfile.ZipFile(output_file, 'r') as zip_file:
         zip_file.extractall(zip_output)
+    
+    os.remove(output_file)
     
     tap_folder = zip_output + '/' + os.listdir(zip_output)[0]
 
@@ -185,6 +186,24 @@ def getFiles(repo, branch):
             schema_list = formatJSON(schemas, json_output_folder)
 
             getTableData(integration_id, tap_version, schema_list)
+    
+    shutil.rmtree(zip_output)
+
+
+def getIntegrationVersions(integration):
+    integration_path = '../../_integration-schemas/' + integration
+    integration_versions = []
+
+    if os.path.exists(integration_path):
+
+        for item in os.listdir(integration_path):
+            item_path = integration_path + '/' + item
+            if os.path.isdir(item_path):
+                integration_versions.append(item)
+    
+    else:
+        print('{} not found'.format(integration_path))
+    return len(integration_versions)
 
 def getAllTaps(branch):
     issues = []
@@ -197,15 +216,18 @@ def getAllTaps(branch):
         integrations = data['integrations']
         for i in integrations:
             tap = integrations[i]['tap']
+            id = integrations[i]['id']
+
+            version_count = getIntegrationVersions(id)
 
             if tap != '':
                 try:
-                    print(tap)
-                    if branch == 'all':
+                    if branch == 'all' and version_count > 1:
                         tags = getTags(tap)
                         for tag in tags:
-                            print(tap, tag)
                             getFiles(tap, tag)
+                    elif branch == 'all' and version_count <= 1:
+                        getFiles(tap, '')
                     else:
                         getFiles(tap, branch)
                 except:
@@ -227,7 +249,6 @@ else:
         print('Fetching schemas from each major version of the {} repository'.format(repo))
         tags = getTags(repo)
         for tag in tags:
-            print(repo, tag)
             getFiles(repo, tag)
     else:
         if branch == '':
