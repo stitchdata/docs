@@ -1,34 +1,62 @@
 import json, re, os
 from jsonpath_ng import parse
 
-def replaceDatetimeFormat(json_content, output_type):
+def getType(format):
+    type_formats = ['date-time', 'date', 'time', 'any']
+    number_formats = ['singer.decimal', 'singer-decimal', 'float']
+    string_formats = ['uri']
+
+    if format in type_formats:
+        type = format
+    elif format in number_formats:
+        type = 'number'
+    elif format in string_formats:
+        type = 'string'
     
-    pattern_single_type = re.compile('"type":\s"string",\s*"format":\s"date-time"')
-    pattern_multi_types = re.compile('(("type":\s\[[^\]]*")string("[^\]]*\]),\s*"format":\s"date-time")')
+    return type
+
+def replaceFormat(json_content):
+    
+    pattern_single_type = re.compile('("type":\s"string",\s*"format":\s"([^\"]+)")')
+    pattern_multi_types_v1 = re.compile('(("type":\s\[[^\]]*")string("[^\]]*\]),\s*"format":\s"([^\"]+)")')
+    pattern_multi_types_v2 = re.compile('("format":\s"([^\"]+)",\s*("type":\s\[[^\]]*")string("[^\]]*\]))')
 
     single_dt = re.findall(pattern_single_type, json_content)
-    multi_dt = re.findall(pattern_multi_types, json_content)
+    multi_dt_v1 = re.findall(pattern_multi_types_v1, json_content)
+    multi_dt_v2 = re.findall(pattern_multi_types_v2, json_content)
     
 
     for i in single_dt:
-        new_single_type = '"type": "date-time"'
-        json_content = json_content.replace(i, new_single_type)
+        full = i[0]
+        format = i[1]
+        type = getType(format)
+
+        new_single_type = '"type": "{}"'.format(type)
+        json_content = json_content.replace(full, new_single_type)
     
-    for j in multi_dt:
+    for j in multi_dt_v1:
+        format = j[3]
         full = j[0]
         p1 = j[1]
-        p2 = 'date-time'
+        p2 = getType(format)
         p3 = j[2]
 
         new_multi_type = p1 + p2 + p3
+
         json_content = json_content.replace(full, new_multi_type)
     
-    if output_type == 'dict':
-        j = json.loads(json_content)
-    elif output_type == 'str':
-        j = json_content
+    for k in multi_dt_v2:
+        format = k[1]
+        full = k[0]
+        p1 = k[2]
+        p2 = getType(format)
+        p3 = k[3]
+
+        new_multi_type = p1 + p2 + p3
+
+        json_content = json_content.replace(full, new_multi_type)
     
-    return j
+    return json_content
 
 def replaceAnyof(json_content):
     json_data = json.loads(json_content)
@@ -113,7 +141,6 @@ def sameFileRef(ref, filepath, folder):
     
     return content
 
-
 def fullFileRef(path, folder):
     for root, dirs, files in os.walk(folder):
         for file in files:
@@ -172,14 +199,13 @@ def replaceRefs(json_content, folder, filepath):
 
     
     
-    if '"format": "date-time"' in json_content:
-        json_content = replaceDatetimeFormat(json_content, 'str')
+    if '"format": "' in json_content:
+        json_content = replaceFormat(json_content)
     
 
     j = json.loads(json_content)
     
     return j
-
 
 def formatJSON(folder, json_output_folder):
 
@@ -195,8 +221,8 @@ def formatJSON(folder, json_output_folder):
                     if '$ref' in json_content:
                         json_content = json.dumps(replaceRefs(json_content, folder, filepath))
 
-                    elif '"format": "date-time"' in json_content:
-                        json_content = replaceDatetimeFormat(json_content, 'str')
+                    if '"format": "' in json_content:
+                        json_content = replaceFormat(json_content)
 
                     if '"anyOf"' in json_content:
                         json_content = replaceAnyof(json_content)
