@@ -151,7 +151,7 @@ attributes:
         description: |
           The response code from the credit card company indicating whether the customer entered the card security code or card verification value (CVV) correctly. Refer to [Electronic Merchant System's documentation](http://www.emsecommerce.net/avs_cvv2_response_codes.htm){:target="new"} for a list of possible codes and definitions.
 
-  - name: "payment_id_"
+  - name: "payment_id"
     type: "string"
     description: ""
 

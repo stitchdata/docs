@@ -1033,7 +1033,7 @@ attributes:
   - name: "original_total_additional_fees_set"
     type: "objects"
     description: ""
-    subattributes: &additional-fees-set
+    subattributes: *additional-fees-set
 
   - name: "payment_gateway_names"
     type: "array"
