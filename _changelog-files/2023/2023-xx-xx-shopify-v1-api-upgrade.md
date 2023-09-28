@@ -1,7 +1,7 @@
 ---
 title: "Shopify (v1) update: API upgraded to Shopify v2023-04"
 content-type: "changelog-entry"
-date: ""
+date: 2023-09-28
 entry-type: updated-feature
 entry-category: integration
 connection-id: shopify
