@@ -204,7 +204,7 @@ attributes:
         subattributes: &money-attributes
           - name: "amount"
             description: ""
-            type: "decimal"
+            type: "number"
             
           - name: "currency"
             description: ""
