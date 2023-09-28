@@ -194,6 +194,28 @@ attributes:
     description: |
       The three-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217){:target="new"} code for the currency used for the payment.
 
+  - name: "current_total_additional_fees_set"
+    type: "objects"
+    description: ""
+    subattributes: &additional-fees-set
+      - name: "presentment_money"
+        description: ""
+        type: "object"
+        subattributes: &money-attributes
+          - name: "amount"
+            description: ""
+            type: "decimal"
+            
+          - name: "currency"
+            description: ""
+            type: "string"
+        
+      - name: "shop_money"
+        description: ""
+        type: "object"
+        subattributes: *money-attributes
+
+
   - name: "customer"
     type: "object"
     description: "Details about the customer associated with the abandoned checkout."
@@ -775,10 +797,6 @@ attributes:
         description: |
           {{ table.date-time | replace: "[ITEM]","fulfillment" | replace: "[ACTION]","last updated" }}
 
-  - name: "gateway"
-    type: "string"
-    description: "The payment gateway used by the checkout."
-
   - name: "landing_site"
     type: "string"
     description: "The URL for the page where the customer entered the shop."
@@ -938,6 +956,10 @@ attributes:
     type: "integer"
     description: "The ID of the physical location where the order was processed."
 
+  - name: "merchant_of_record_app_id"
+    type: "integer"
+    description: ""
+
   - name: "name"
     type: "string"
     description: "The order name as represented by a number."
@@ -1006,34 +1028,12 @@ attributes:
 
   - name: "order_status_url"
     type: "string"
-    description: "The URL of the order's status page."
-
-  - name: "payment_details"
-    type: "object"
-    description: "Details about the payment used for the order."
-    subattributes:
-      - name: "avs_result_code"
-        type: "string"
-        description: |
-          The response code from the [address verification system](https://en.wikipedia.org/wiki/Address_Verification_System){:target="new"}. Refer to [Electronic Merchant System's documentation](http://www.emsecommerce.net/avs_cvv2_response_codes.htm){:target="new"} for a list of possible codes and definitions.
-
-      - name: "credit_card_bin"
-        type: "string"
-        description: |
-          The [issuer identification number](https://en.wikipedia.org/wiki/ISO/IEC_7812){:target="new"} (IIN), formerly known as bank identification number (BIN) of the customer's credit card. This is made up of the first few digits of the credit card number.
-
-      - name: "credit_card_company"
-        type: "string"
-        description: "The name of the company that issued the customer's credit card."
-
-      - name: "credit_card_number"
-        type: "string"
-        description: "The customer's credit card number, **with most of the leading digits redacted**."
-
-      - name: "cvv_result_code"
-        type: "string"
-        description: |
-          The response code from the credit card company indicating whether the customer entered the card security code or card verification value (CVV) correctly. Refer to [Electronic Merchant System's documentation](http://www.emsecommerce.net/avs_cvv2_response_codes.htm){:target="new"} for a list of possible codes and defintions.
+    description: "The URL of the order's status page."  
+    
+  - name: "original_total_additional_fees_set"
+    type: "objects"
+    description: ""
+    subattributes: &additional-fees-set
 
   - name: "payment_gateway_names"
     type: "array"
@@ -1051,17 +1051,6 @@ attributes:
     type: "date-time"
     description: |
       {{ table.date-time | replace: "[ITEM]","order" | replace: "[ACTION]","processed" }}
-
-  - name: "processing_method"
-    type: "string"
-    description: |
-      Indicates how the payment was processed. Possible values are:
-
-      - `checkout`
-      - `direct`
-      - `manual`
-      - `offsite`
-      - `express`
 
   - name: "reference"
     type: "string"
@@ -1408,10 +1397,6 @@ attributes:
   - name: "total_price"
     type: "number"
     description: "The sum of all line item prices, discounts, shipping, taxes, and tips."
-
-  - name: "total_price_usd"
-    type: "number"
-    description: "The sum of all line item prices, discounts, shipping, taxes, and tips in USD."
 
   - name: "total_tax"
     type: "number"
