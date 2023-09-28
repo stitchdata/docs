@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-looker
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} v3.1 API](https://docs.looker.com/reference/api-and-integration/api-reference/v3.1){:target="new"}
+  [{{ integration.display_name }} v4 API](https://developers.looker.com/api/explorer/4.0){:target="new"}
 
 
 # -------------------------- #
