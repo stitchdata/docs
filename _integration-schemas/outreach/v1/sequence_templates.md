@@ -86,6 +86,14 @@ attributes:
     type: "integer"
     description: ""
 
+  - name: "sequenceStepId"
+    type: "integer"
+    description: ""
+
+  - name: "templateId"
+    type: "integer"
+    description: ""
+
   - name: "updatedAt"
     type: "date-time"
     description: ""

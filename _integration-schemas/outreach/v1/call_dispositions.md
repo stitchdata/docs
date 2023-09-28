@@ -31,6 +31,10 @@ attributes:
     type: "date-time"
     description: ""
 
+  - name: "createdAt"
+    type: "date-time"
+    description: ""
+
   - name: "creatorId"
     type: "integer"
     description: ""

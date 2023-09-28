@@ -9,7 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outrea
 description: |
   The `{{ table.name}}` table contains information about groups of users in {{ integration.display_name }}.
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: "Get teams"
@@ -29,8 +29,29 @@ attributes:
   - name: "createdAt"
     type: "date-time"
     description: ""
-    
+
+  - name: "creatorId"
+    type: "integer"
+    description: ""
+
   - name: "name"
     type: "string"
+    description: ""
+
+  - name: "scimExternalId"
+    type: "string"
+    description: ""
+
+  - name: "scimSource"
+    type: "string"
+    description: ""
+
+  - name: "updatedAt"
+    type: "date-time"
+    description: ""
+    replication-key: true
+
+  - name: "updaterId"
+    type: "integer"
     description: ""
 ---

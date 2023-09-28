@@ -84,6 +84,10 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "opportunityAssociation"
+    type: "string"
+    description: ""
+
   - name: "opportunityId"
     type: "integer"
     description: ""
@@ -116,6 +120,10 @@ attributes:
     type: "integer"
     description: ""
     foreign-key-id: "sequence-step-id"
+
+  - name: "sequenceTemplateId"
+    type: "integer"
+    description: ""
 
   - name: "state"
     type: "string"

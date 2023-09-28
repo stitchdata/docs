@@ -31,6 +31,10 @@ attributes:
     type: "integer"
     description: ""
 
+  - name: "callPurposeId"
+    type: "integer"
+    description: ""
+
   - name: "clickCount"
     type: "integer"
     description: ""
@@ -45,7 +49,7 @@ attributes:
     foreign-key-id: "user-id"
 
   - name: "date"
-    type: "date"
+    type: "date-time"
     description: ""
 
   - name: "deliverCount"
@@ -111,6 +115,10 @@ attributes:
 
   - name: "taskNote"
     type: "string"
+    description: ""
+
+  - name: "taskPriorityId"
+    type: "integer"
     description: ""
 
   - name: "updaterId"

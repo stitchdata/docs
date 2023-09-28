@@ -27,8 +27,16 @@ attributes:
     replication-key: true
     description: "The time the event occurred."
 
+  - name: "accountId"
+    type: "integer"
+    description: ""
+
   - name: "body"
     type: "string"
+    description: ""
+
+  - name: "callId"
+    type: "integer"
     description: ""
 
   - name: "createdAt"
@@ -48,10 +56,13 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "opportunityId"
+    type: "integer"
+    description: ""
+
   - name: "payload"
     type: "object"
     description: ""
-    # subattributes: ""
 
   - name: "prospectId"
     type: "integer"
@@ -76,6 +87,10 @@ attributes:
 
   - name: "requestRegion"
     type: "boolean"
+    description: ""
+
+  - name: "taskId"
+    type: "integer"
     description: ""
 
   - name: "userId"
