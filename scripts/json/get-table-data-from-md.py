@@ -22,10 +22,6 @@ def getSchemaData(file):
 
             name = data['name']
             doc = data['doc-link']
-            try:
-                singer = data['singer-schema']
-            except:
-                singer = ''
             
             description = data['description']
             replication = data['replication-method']
@@ -63,13 +59,33 @@ def getSchemaData(file):
                 'name': name,
                 'description': description,
                 'links': {
-                    'doc-link': doc,
-                    'singer-schema': singer
+                    'doc-link': doc
                 },
                 'table-details': {
                     'replication-method': replication
                 }
             }
+
+            
+            try:
+                singer = data['singer-schema']
+                data['links']['singer-schema'] = singer
+            except:
+                pass
+
+            try:
+                api = data['api-method']
+                api_link = api['doc-link']
+                data['links']['api-method'] = api_link
+            except:
+                pass
+
+            try:
+                loading = data['loading-behavior']
+                data['table-details']['loading-behavior'] = loading
+            except:
+                pass
+
 
             if (len(primary_keys)) == 1:
                 data['table-details']['primary-key'] = primary_keys[0]
