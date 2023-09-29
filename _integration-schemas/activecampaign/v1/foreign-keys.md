@@ -217,7 +217,7 @@ foreign-keys:
       - table: "activities"
         join-on: "userid"
       - table: "campaign_lists"
-        join: "userid"
+        join-on: "userid"
       - table: "configs"
         join-on: "userid"
       - table: "contact_emails"
