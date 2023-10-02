@@ -1,6 +1,5 @@
 import os, frontmatter, yaml, pandas
 
-file = 'foreign-keys.md'
 issues = []
 
 def convertForeignKeys(file):
@@ -27,33 +26,39 @@ def convertForeignKeys(file):
 
         output_data['keys'][id] = []
 
-
-        source_table_data = {
-            'table': table,
-            'keys': [source_key]
-        }
-
-        output_data['keys'][id].append(source_table_data)
-
-
         foreign_keys_list = []
         target_tables = []
 
         foreign_keys = key['all-foreign-keys']
 
         for join in foreign_keys:
+            print(join)
             target_table = join['table']
 
             if target_table not in target_tables:
                 target_tables.append(target_table)
             try:
                 path = join['subattribute']
-                element = join['join-on']
+                try:
+                    element = join['join-on']
+                except:
+                    element = source_key
 
                 foreign_key = path + '.' + element
             except:
-                foreign_key = join['join-on']
+                try:
+                    path = join['subtable']
+                    try:
+                        element = join['join-on']  
+                    except:
+                        element = source_key
 
+                    foreign_key = path + '.' + element
+                except:
+                    try:
+                        foreign_key = join['join-on']
+                    except:
+                        foreign_key = source_key
 
             foreign_keys_list.append([target_table, foreign_key])
 
