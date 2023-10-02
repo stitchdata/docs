@@ -1,4 +1,6 @@
-import yaml, pandas
+import yaml, pandas, os
+
+issues = []
 
 def getFKByTable(file):
 
@@ -14,18 +16,16 @@ def getFKByTable(file):
         keys = content['keys']
 
         for key in keys:
-            for item in key:
-                key_id = item
-                key_tables = key[item]
-                for table in key_tables:
-                    name = table['table']
-                    k = table['keys']
-                    for i in k:
-                        data = [name, key_id, i]
-                        if data not in key_data:
-                            key_data.append(data)
-                    if name not in table_names:
-                        table_names.append(name)
+            key_tables = keys[key]
+            for table in key_tables:
+                name = table['table']
+                k = table['keys']
+                for i in k:
+                    data = [name, key, i]
+                    if data not in key_data:
+                        key_data.append(data)
+                if name not in table_names:
+                    table_names.append(name)
 
         key_df = pandas.DataFrame(key_data, columns=['table_name', 'key_id', 'table_key'])
 
@@ -89,3 +89,15 @@ def getFKByTable(file):
 
     with open(file, 'w', encoding='utf-8') as f:
         yaml.safe_dump(content, f, default_flow_style=False, sort_keys=False)
+
+
+for root, dirs, files in os.walk('../../_data/schemas'):
+    for file in files:
+        if file.endswith('-foreign-keys.yml'):
+            file = os.path.join(root, file)
+            try:
+                getFKByTable(file)
+            except:
+                issues.append(file)
+
+print(*issues, sep='\n')
