@@ -4,7 +4,7 @@ version: "2"
 key: ""
 
 name: "transfers"
-doc-link: 
+
 singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/transfers.json
 description: |
   The `{{ table.name }}` table contains info about transfers sent to connected accounts.

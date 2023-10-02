@@ -3,7 +3,7 @@ tap: "harvest"
 version: "2"
 
 name: "external_references"
-doc-link: 
+
 singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/external_reference.json
 description: |
   The `{{ table.name }}` table contains info about external references. External references are references to external services where time is tracked.
@@ -16,9 +16,7 @@ replication-key:
   name: "updated_at"
   ## This is replicated as part of the parent table, time_entries
 
-api-method:
-  name: 
-  doc-link: 
+
 
 attributes:
   - name: "id"

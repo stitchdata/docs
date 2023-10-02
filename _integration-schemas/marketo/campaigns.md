@@ -3,7 +3,7 @@ tap: "marketo"
 version: "2"
 
 name: "campaigns"
-doc-link: 
+
 singer-schema: https://github.com/singer-io/tap-marketo/blob/master/tap_marketo/schemas/campaigns.json
 description: |
   The `{{ table.name }}` table contains info about the campaigns in your {{ integration.display_name }} account.

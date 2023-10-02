@@ -4,14 +4,12 @@ version: "1"
 
 name: "processedUsage"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Accounts
-#singer-schema: 
+#
 description: |
   The `{{ table.name }}` table contains information about usage.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link:
+
 
 attributes:
   - name: "id"

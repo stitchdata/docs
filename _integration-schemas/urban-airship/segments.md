@@ -4,7 +4,7 @@ version: "1"
 
 name: "segments"
 doc-link: http://docs.urbanairship.com/api/ua.html#segments
-singer-schema: 
+
 description: |
   The `{{ table.name }}` table contains info about segments, or portions of your audience that have arbitrary metadata attached.
 

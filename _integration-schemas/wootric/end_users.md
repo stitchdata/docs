@@ -3,7 +3,7 @@ tap: "wootric"
 version: "1"
 
 name: "end_users"
-doc-link: 
+
 singer-schema: https://github.com/singer-io/tap-wootric/blob/master/tap_wootric/schemas/end_users.json
 description: |
   The `{{ table.name }}` table contains info about the end users associated with survey opportunities.

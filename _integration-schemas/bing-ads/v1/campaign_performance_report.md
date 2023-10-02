@@ -4,7 +4,7 @@ version: "1"
 
 name: "campaign_performance_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportcolumn#values
-singer-schema: 
+
 description: |
   The `campaign_performance_report` table contains performance data for campaigns, aggregated by day..
 
@@ -12,9 +12,7 @@ description: |
 
 replication-method: "Append-Only (Incremental)"
 attribution-window: true
-api-method:
-  name:
-  doc-link: 
+
 
 attributes:
   - name: "accountId"

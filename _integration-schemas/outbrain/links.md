@@ -5,7 +5,7 @@
 # Not currently persisted as endpoint is too slow
 
 name: "links"
-doc-link: 
+
 description: "info about links in your Outbrain campaigns."
 notes: 
 replication-method: "Key-based Incremental"

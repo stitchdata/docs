@@ -4,16 +4,14 @@ version: "1"
 
 name: "accountingCode"
 doc-link: https://live-www.zuora.com/developer/api-reference/#operation/GET_AllAccountingCodes
-#singer-schema: 
+#
 description: |
   The `{{ table.name }}` table contains information about the accounting codes in your {{ integration.display_name }} instance. Accounting codes are used to categorize transactions for accounting purposes.
 
   **Note**: To replicate this table, you must have {{ integration.display_name }} Finance enabled.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link:
+
 
 attributes:
   - name: "id"

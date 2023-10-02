@@ -4,7 +4,7 @@ version: "2"
 
 name: "ads"
 doc-link: https://docs.microsoft.com/en-us/advertising/campaign-management-service/getadsbyids?view=bingads-13
-singer-schema: 
+
 description: |
   The `{{ table.name }}` table contains info about the following ad types:
 

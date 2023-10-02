@@ -4,7 +4,7 @@ version: "2"
 
 name: "audience_performance_report"
 doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/audienceperformancereportfilter?view=bingads-13
-singer-schema: 
+
 description: |
   The `{{ table.name }}` table contains info about performance statistics for various audiences.
 

@@ -3,7 +3,7 @@ tap: "sendgrid-core"
 version: "1"
 
 name: "lists_all"
-doc-link: 
+
 singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/lists_all.json
 description: |
   The `{{ table.name }}` table contains info about your recipient lists.

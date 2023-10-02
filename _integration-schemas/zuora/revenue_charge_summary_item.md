@@ -4,14 +4,12 @@ version: "1"
 
 name: "revenueChargeSummaryItem"
 doc-link: https://live-www.zuora.com/developer/api-reference/#operation/GET_CRSByCRSNumber
-#singer-schema: 
+#
 description: |
   The `{{ table.name }}` table contains information about [charge revenue summaries](https://knowledgecenter.zuora.com/CC_Finance/Revenue_Recognition/G_Revenue_Schedules/M_Charge_Revenue_Summary){:target="new"}, which are summaries of all revenue distributions associated with a subscription charge.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link:
+
 
 attributes:
   - name: "id"

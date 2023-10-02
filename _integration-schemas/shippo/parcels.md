@@ -4,7 +4,7 @@ version: "1"
 
 name: "parcels"
 doc-link: https://goshippo.com/docs/reference#parcels
-singer-schema: 
+
 description: |
   The `{{ table.name }}` table contains info about parcel objects. Parcels are used to create shipments, obtain rates, and print labels.
 

@@ -4,7 +4,7 @@ version: "1"
 
 name: "account"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_account.htm#!
-singer-schema: 
+
 description: |
   The `{{ table.name }}` table contains info about the individual accounts (organizations and persons) involved with your business. This could be a customer, a competitor, a partner, and so on.
 

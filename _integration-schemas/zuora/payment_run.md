@@ -4,14 +4,12 @@ version: "1"
 
 name: "paymentRun"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Payment-Runs
-#singer-schema: 
+#
 description: |
   The `{{ table.name }}` table contains information about payment runs.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link:
+
 
 attributes:
   - name: "id"

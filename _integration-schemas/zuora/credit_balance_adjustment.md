@@ -4,14 +4,12 @@ version: "1"
 
 name: "creditBalanceAdjustment"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/credit balance adjustments
-#singer-schema: 
+#
 description: |
   The `{{ table.name }}` table contains information about [credit balance adjustments](https://knowledgecenter.zuora.com/CB_Billing/G_Credit_Balances){:target="new"}, or the application of credit balances to invoices, payments, and refunds.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link:
+
 
 attributes:
   - name: "id"

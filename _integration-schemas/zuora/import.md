@@ -4,14 +4,12 @@ version: "1"
 
 name: "import"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/imports
-#singer-schema: 
+#
 description: |
   The `{{ table.name }}` table contains information about content uploads.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link:
+
 
 attributes:
   - name: "id"

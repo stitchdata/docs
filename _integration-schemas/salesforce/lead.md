@@ -4,7 +4,7 @@ version: "1"
 
 name: "lead"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_lead.htm
-singer-schema: 
+
 description: |
   The `{{ table.name }}` table contains info about your leads, who are prospects or potential Opportunities.
 

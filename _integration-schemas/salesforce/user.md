@@ -4,7 +4,7 @@ version: "1"
 
 name: "user"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_user.htm
-singer-schema: 
+
 description: |
   The `user` table contains info about the users in your organization.
 

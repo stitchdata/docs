@@ -9,7 +9,7 @@
 
 # name: "link_performance"
 # doc-link: 
-# singer-schema: 
+# 
 # description: |
 #   The `link_performance` table contains performance metrics for links in your Outbrain campaigns.
 

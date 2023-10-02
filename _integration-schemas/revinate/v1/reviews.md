@@ -4,7 +4,7 @@ version: "1"
 
 name: "reviews"
 doc-link: https://porter.revinate.com/documentation#reviews
-singer-schema: ## link to the JSON schema file in the integration's Singer repo
+
 description: |
   The `table_name` table contains a subset of the latest reviews for the hotels in your {{ integration.display_name }} account.
 

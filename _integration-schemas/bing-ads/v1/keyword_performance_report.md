@@ -4,16 +4,14 @@ version: "1"
 
 name: "keyword_performance_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportcolumn#values
-singer-schema: 
+
 description: |
   The `keyword_performance_report` table contains performance data about keywords.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
 replication-method: "Append-Only (Incremental)"
-api-method:
-  name:
-  doc-link: 
+
 
 attributes:
   - name: "accountId"

@@ -4,7 +4,7 @@ version: "2"
 
 name: "campaign_performance_report"
 doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/dsacategoryperformancereportfilter?view=bingads-13
-singer-schema: 
+
 description: |
   The `{{ table.name }}` table contains performance data for campaigns, aggregated by day..
 

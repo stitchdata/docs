@@ -4,14 +4,12 @@ version: "1"
 
 name: "account"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Accounts
-#singer-schema: 
+#
 description: |
   The `{{ table.name }}` table contains information about the customer accounts in your {{ integration.display_name }} instance.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link:
+
 
 attributes:
   - name: "id"

@@ -4,14 +4,12 @@ version: "1"
 
 name: "export"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Exports
-#singer-schema: 
+#
 description: |
   The `{{ table.name }}` table contains information about export jobs and files.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link:
+
 
 attributes:
   - name: "id"

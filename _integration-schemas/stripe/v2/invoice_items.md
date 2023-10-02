@@ -4,7 +4,7 @@ version: "2"
 key: ""
 
 name: "invoice_items"
-doc-link: 
+
 singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/invoice_items.json
 description: |
   The `{{ table.name }}` table contains info about items contained in customer invoices.

@@ -4,14 +4,12 @@ version: "1"
 
 name: "journalRun"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Journal-Runs
-#singer-schema: 
+#
 description: |
   The `{{ table.name }}` table contains information about journal runs.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link:
+
 
 attributes:
   - name: "id"

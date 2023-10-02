@@ -4,14 +4,12 @@ version: "1"
 
 name: "revenueEventItemInvoiceItem"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Revenue-Events
-#singer-schema: 
+#
 description: |
   The `{{ table.name }}` table contains information about revenue event items that are associated with invoice items.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link:
+
 
 attributes:
   - name: "id"

@@ -9,9 +9,7 @@ description: |
   The `invoices` table contains info about the invoices in your Harvest account.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link:
+
 
 attributes:
   - name: "id"

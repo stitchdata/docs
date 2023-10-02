@@ -3,7 +3,7 @@ tap: "sendgrid-core"
 version: "1"
 
 name: "segments_all"
-doc-link: 
+
 singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/segments_all.json
 description: |
   The `{{ table.name }}` table contains info about the segments in your SendGrid account, and the conditions required for recipients to be added to the segment.

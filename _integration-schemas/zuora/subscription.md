@@ -12,9 +12,7 @@ description: |
   If your {{ integration.display_name }} subscription records contain custom attributes, Stitch will replicate them.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link:
+
 
 attributes:
   - name: "id"

@@ -4,7 +4,7 @@ version: "1"
 
 name: "companies"
 doc-link: https://developers.freshdesk.com/api/#companies
-singer-schema: 
+
 description: |
   The `{{ table.name }}` table contains info about the companies your various customers and contacts belong to.
 

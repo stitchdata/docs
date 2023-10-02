@@ -4,14 +4,12 @@ version: "1"
 
 name: "journalEntryItem"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Summary-Journal-Entries
-#singer-schema: 
+#
 description: |
   The `{{ table.name }}` table contains information about journal entry items.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link:
+
 
 attributes:
   - name: "id"

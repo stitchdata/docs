@@ -4,14 +4,12 @@ version: "1"
 
 name: "discountAppliedMetrics"
 doc-link: https://knowledgecenter.zuora.com/CD_Reporting/D_Data_Sources_and_Exports/C_Data_Source_Reference/Discount_Applied_Metrics_Data_Sourceadjustments
-#singer-schema: 
+#
 description: |
   The `{{ table.name }}` table contains information about rate plan charges that use either a discount-fixed amount or discount-percentage charge model.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link:
+
 
 attributes:
   - name: "id"

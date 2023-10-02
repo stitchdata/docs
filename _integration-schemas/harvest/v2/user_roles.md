@@ -16,9 +16,7 @@ replication-key:
   name: "updated_at"
   ## This is replicated as part of the parent table, users
 
-api-method:
-  name: 
-  doc-link:
+
 
 attributes:
   - name: "user_id"

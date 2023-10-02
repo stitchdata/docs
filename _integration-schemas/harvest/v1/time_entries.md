@@ -9,9 +9,7 @@ description: |
   The `time_entries` table contains info about the time entries in your Harvest account.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link:
+
 
 attributes:
   - name: "id"

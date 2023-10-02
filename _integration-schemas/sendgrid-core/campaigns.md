@@ -3,7 +3,7 @@ tap: "sendgrid-core"
 version: "1"
 
 name: "campaigns"
-doc-link: 
+
 singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/campaigns.json
 description: |
   The `{{ table.name }}` table contains info about all your campaigns.

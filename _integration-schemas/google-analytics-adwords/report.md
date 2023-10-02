@@ -3,7 +3,7 @@ tap: "google-analytics-adwords"
 version: "05-12-2017"
 
 name: "report"
-doc-link: 
+
 description: |
   The `report` table contains info about your active campaigns and the ads contained within those campaigns.
 

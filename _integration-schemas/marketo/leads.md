@@ -4,7 +4,7 @@ version: "2"
 
 name: "leads"
 doc-link: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/getLeadsByFilterUsingGET
-singer-schema:
+
 description: |
   The `{{ table.name }}` table contains info about your {{ integration.display_name }} leads.
 

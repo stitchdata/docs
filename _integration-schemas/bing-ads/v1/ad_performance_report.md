@@ -4,7 +4,7 @@ version: "1"
 
 name: "ad_performance_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportcolumn#values
-singer-schema: 
+
 description: |
   The `ad_performance_report` table contains performance info about ads, including clicks and conversions. This data can be used to identify and improve under-performing ads.
 

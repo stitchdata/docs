@@ -4,7 +4,7 @@ version: "1"
 key: ""
 
 name: "owner"
-doc-link: 
+
 singer-schema: https://github.com/singer-io/tap-selligent/blob/master/tap_selligent/schemas.py
 description: "This table contains owner data."
 

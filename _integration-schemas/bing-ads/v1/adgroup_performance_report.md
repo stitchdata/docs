@@ -4,7 +4,7 @@ version: "1"
 
 name: "adgroup_performance_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportcolumn#values
-singer-schema: 
+
 description: |
   The `adgroup_performance_report` table contains performance data for ad groups, aggregated by day.
 

@@ -4,7 +4,7 @@ version: "2"
 
 name: "geographic_performance_report"
 doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/geographicperformancereportfilter?view=bingads-13
-singer-schema: 
+
 description: |
   The `{{ table.name }}` table contains info about the physical locations of people searching for an ad or the locations people are searching for. This data can be used to validate or improve location targeting strategies.
 

@@ -4,7 +4,7 @@ version: "1"
 
 name: "search_query_performance_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryperformancereportcolumn#values
-singer-schema: 
+
 description: |
   The `search_query_performance_report` table contains performance data for search terms that resulted in a significant number of clicks in the last 30 days. As this data may change over time, use the `keyword_performance_report` table to analyze the overall performance of keywords.
 
@@ -13,9 +13,7 @@ description: |
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
 replication-method: "Append-Only (Incremental)"
-api-method:
-  name:
-  doc-link: 
+
 
 attributes:
   - name: "accountId"

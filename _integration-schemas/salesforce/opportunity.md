@@ -4,7 +4,7 @@ version: "1"
 
 name: "opportunity"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_opportunity.htm
-singer-schema: 
+
 description: |
   The `{{ table.name }}` table contains info about your opportunities, which are sales or pending deals.
 

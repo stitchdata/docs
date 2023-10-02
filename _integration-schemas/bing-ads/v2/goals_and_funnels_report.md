@@ -4,7 +4,7 @@ version: "2"
 
 name: "goals_and_funnels_report"
 doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/goalsandfunnelsreportfilter?view=bingads-13
-singer-schema: 
+
 description: |
   The `{{ table.name }}` table contains information about your audience's progression through your conversion funnel. Use this report to determine the point at which users leave the funnel, thereby allowing you to improve and increase conversion.
 

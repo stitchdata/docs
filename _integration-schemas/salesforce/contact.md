@@ -4,7 +4,7 @@ version: "1"
 
 name: "contact"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_contact.htm
-singer-schema: 
+
 description: |
   The `{{ table.name }}` table contains info about your contacts, who are individuals associated with accounts in your {{ integration.display_name }} instance.
 

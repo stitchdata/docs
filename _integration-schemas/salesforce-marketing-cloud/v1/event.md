@@ -12,7 +12,7 @@ tap: "salesforce-marketing-cloud"
 version: "1"
 
 name: "event"
-doc-link: 
+
 singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/endpoints/events.py
 description: |
   The `{{ table.name }}` table contains info about the following event types:

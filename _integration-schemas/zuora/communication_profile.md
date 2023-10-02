@@ -4,14 +4,12 @@ version: "1"
 
 name: "communicationProfile"
 doc-link: https://live-www.zuora.com/developer/api-reference/#operation/Object_GETCommunicationProfile
-#singer-schema: 
+#
 description: |
   The `{{ table.name }}` table contains information about communication profiles, which are sets of policies that determine how to communicate with the contacts associated with a specific customer account.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link:
+
 
 attributes:
   - name: "id"

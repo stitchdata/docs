@@ -3,7 +3,7 @@ tap: "netsuite"
 version: "10-15-2015"	
 
 name: "netsuite_deleted"	
-doc-link: 
+
 description: |	
   The `{{ table.name }}` table contains info about deleted records.	
 

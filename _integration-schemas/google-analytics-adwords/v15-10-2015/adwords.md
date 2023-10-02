@@ -3,7 +3,7 @@ tap: "google-analytics-adwords"
 version: "15-10-2015"
 
 name: "adwords123456789_v2"
-doc-link: 
+
 description: |
   The `adwords` table contains daily info about each of your active campaigns and the ads contained within those campaigns.
 

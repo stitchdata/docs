@@ -4,14 +4,12 @@ version: "1"
 
 name: "billingRun"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/billing-Run
-#singer-schema: 
+#
 description: |
   The `{{ table.name }}` table contains information about billing runs.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link:
+
 
 attributes:
   - name: "id"

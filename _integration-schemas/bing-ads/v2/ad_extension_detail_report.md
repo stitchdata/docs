@@ -5,7 +5,7 @@
 
 name: "ad_extension_detail_report"
 doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/adextensiondetailreportfilter?view=bingads-13
-singer-schema: 
+
 description: |
   The `{{ table.name }}` table contains info about ad extension items.
 
