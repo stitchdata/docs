@@ -32,7 +32,6 @@ def convertForeignKeys(file):
         foreign_keys = key['all-foreign-keys']
 
         for join in foreign_keys:
-            print(join)
             target_table = join['table']
 
             if target_table not in target_tables:
