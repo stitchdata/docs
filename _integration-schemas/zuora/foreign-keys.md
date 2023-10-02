@@ -598,13 +598,4 @@ foreign-keys:
       - table: "revenueEventItemInvoiceItemAdjustment"
       - table: "revenueScheduleItemInvoiceItemAdjustment"
 
-  - id: "taxation-id"
-    attribute: "taxationId"
-    table: ""
-    join-on: "id"
-
-  - id: "usage-id"
-    attribute: "usageId"
-    table: "usage"
-    join-on: "id"
 ---

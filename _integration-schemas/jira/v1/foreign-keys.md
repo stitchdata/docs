@@ -108,7 +108,7 @@ foreign-keys:
     attribute: "versionId"
     table: "versions"
     all-foreign-keys:
-      - tables: "versions"
+      - table: "versions"
         join-on: "id"
 
   - id: "worklog-id"

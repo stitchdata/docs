@@ -1,0 +1,886 @@
+tap: zuora
+version: '1'
+keys:
+  account_accountId:
+  - table: account
+    keys:
+    - id
+  - table: contactSnapshot
+    keys:
+    - accountId
+  - table: invoice
+    keys:
+    - accountId
+  - table: payment
+    keys:
+    - accountId
+  - table: refund
+    keys:
+    - accountId
+  - table: subscription
+    keys:
+    - accountId
+  accountingCode_accountingCode:
+  - table: accountingCode
+    keys:
+    - id
+  - table: creditBalanceAdjustment
+    keys:
+    - accountingCode
+  - table: invoiceItem
+    keys:
+    - accountingCode
+  - table: invoiceItemAdjustment
+    keys:
+    - accountingCode
+  - table: productRatePlanCharge
+    keys:
+    - accountingCode
+  accountingPeriod_accountingPeriodId:
+  - table: accountingPeriod
+    keys:
+    - id
+  - table: creditBalanceAdjustment
+    keys:
+    - accountingPeriodId
+  - table: invoiceItemAdjustment
+    keys:
+    - accountingPeriodId
+  - table: journalEntry
+    keys:
+    - accountingPeriodId
+  - table: revenueChargeSummaryItem
+    keys:
+    - accountingPeriodId
+  - table: revenueEventItemInvoiceItem
+    keys:
+    - accountingPeriodId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - accountingPeriodId
+  - table: revenueScheduleItem
+    keys:
+    - accountingPeriodId
+  - table: revenueScheduleItemInvoiceItem
+    keys:
+    - accountingPeriodId
+  - table: revenueScheduleItemInvoiceItemAdjustment
+    keys:
+    - accountingPeriodId
+  accountingCode_accountReceivableAccountingCodeId:
+  - table: accountingCode
+    keys:
+    - id
+  - table: creditBalanceAdjustment
+    keys:
+    - accountReceivableAccountingCodeId
+  - table: invoiceItemAdjustment
+    keys:
+    - accountReceivableAccountingCodeId
+  amendment_amendmentId:
+  - table: amendment
+    keys:
+    - id
+  - table: discountAppliedMetrics
+    keys:
+    - amendmentId
+  - table: invoiceItemAdjustment
+    keys:
+    - amendmentId
+  - table: processedUsage
+    keys:
+    - amendmentId
+  - table: ratePlan
+    keys:
+    - amendmentId
+  - table: ratePlanChargeTier
+    keys:
+    - amendmentId
+  - table: revenueChargeSummaryItem
+    keys:
+    - amendmentId
+  - table: revenueEventItem
+    keys:
+    - amendmentId
+  - table: revenueEventItemInvoiceItem
+    keys:
+    - amendmentId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - amendmentId
+  - table: revenueScheduleItem
+    keys:
+    - amendmentId
+  - table: revenueScheduleItemInvoiceItem
+    keys:
+    - amendmentId
+  - table: revenueScheduleItemInvoiceItemAdjustment
+    keys:
+    - amendmentId
+  billingRun_billingRunId:
+  - table: billingRun
+    keys:
+    - id
+  - table: paymentRun
+    keys:
+    - billingRunId
+  contact_billToContactId:
+  - table: account
+    keys:
+    - billToContactId
+  - table: contact
+    keys:
+    - id
+  - table: contactSnapshot
+    keys:
+    - contactId
+  - table: creditBalanceAdjustment
+    keys:
+    - billToContactId
+  - table: discountAppliedMetrics
+    keys:
+    - billToContactId
+  - table: invoice
+    keys:
+    - billToContactId
+  - table: invoiceItemAdjustment
+    keys:
+    - billToContactId
+  - table: processedUsage
+    keys:
+    - billToContactId
+  - table: ratePlan
+    keys:
+    - billToContactId
+  - table: refund
+    keys:
+    - billToContactId
+  - table: revenueChargeSummaryItem
+    keys:
+    - billToContactId
+  - table: revenueEventItem
+    keys:
+    - billToContactId
+  - table: revenueEventItemInvoiceItem
+    keys:
+    - billToContactId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - billToContactId
+  - table: revenueScheduleItem
+    keys:
+    - billToContactId
+  - table: revenueScheduleItemInvoiceItem
+    keys:
+    - billToContactId
+  - table: revenueScheduleItemInvoiceItemAdjustment
+    keys:
+    - billToContactId
+  contactSnapshot_billToContactSnapshotId:
+  - table: contactSnapshot
+    keys:
+    - contactId
+  - table: invoice
+    keys:
+    - billToContactSnapshotId
+  accountingCode_cashOnAccountAccountingCodeId:
+  - table: accountingCode
+    keys:
+    - id
+  - table: creditBalanceAdjustment
+    keys:
+    - cashOnAccountAccountingCodeId
+  contact_contactId:
+  - table: account
+    keys:
+    - billToContactId
+    - soldToContactId
+  - table: contact
+    keys:
+    - id
+  - table: contactSnapshot
+    keys:
+    - contactId
+  - table: creditBalanceAdjustment
+    keys:
+    - billToContactId
+    - soldToContactId
+  - table: discountAppliedMetrics
+    keys:
+    - billToContactId
+    - soldToContactId
+  - table: invoice
+    keys:
+    - billToContactId
+    - soldToContactId
+  - table: invoiceItemAdjustment
+    keys:
+    - billToContactId
+    - soldToContactId
+  - table: processedUsage
+    keys:
+    - billToContactId
+    - soldToContactId
+  - table: ratePlan
+    keys:
+    - billToContactId
+    - soldToContactId
+  - table: refund
+    keys:
+    - billToContactId
+    - soldToContactId
+  - table: revenueChargeSummaryItem
+    keys:
+    - billToContactId
+    - soldToContactId
+  - table: revenueEventItem
+    keys:
+    - billToContactId
+    - soldToContactId
+  - table: revenueEventItemInvoiceItem
+    keys:
+    - billToContactId
+    - soldToContactId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - billToContactId
+    - soldToContactId
+  - table: revenueScheduleItem
+    keys:
+    - billToContactId
+    - soldToContactId
+  - table: revenueScheduleItemInvoiceItem
+    keys:
+    - billToContactId
+    - soldToContactId
+  - table: revenueScheduleItemInvoiceItemAdjustment
+    keys:
+    - billToContactId
+    - soldToContactId
+  contactSnapshot_contactSnapshotId:
+  - table: contactSnapshot
+    keys:
+    - contactId
+  - table: invoice
+    keys:
+    - billToContactSnapshotId
+    - soldToContactSnapshotId
+  communicationProfile_communicationProfileId:
+  - table: communicationProfile
+    keys:
+    - id
+  - table: account
+    keys:
+    - communicationProfileId
+  account_creatorInvoiceOwnerId:
+  - table: account
+    keys:
+    - creatorInvoiceOwnerId
+  paymentMethod_defaultPaymentMethodId:
+  - table: paymentMethod
+    keys:
+    - id
+  - table: account
+    keys:
+    - defaultPaymentMethodId
+  - table: invoice
+    keys:
+    - defaultPaymentMethodId
+  accountingCode_deferredRevenueAccountingCodeId:
+  - table: account
+    keys:
+    - id
+  - table: revenueEventItem
+    keys:
+    - deferredRevenueAccountingCodeId
+  - table: revenueEventItemInvoiceItem
+    keys:
+    - deferredRevenueAccountingCodeId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - deferredRevenueAccountingCodeId
+  - table: revenueScheduleItem
+    keys:
+    - deferredRevenueAccountingCodeId
+  - table: revenueScheduleItemInvoiceItem
+    keys:
+    - deferredRevenueAccountingCodeId
+  - table: revenueScheduleItemInvoiceItemAdjustment
+    keys:
+    - deferredRevenueAccountingCodeId
+  ratePlanCharge_discountRatePlanChargeId:
+  - table: ratePlanCharge
+    keys:
+    - id
+  - table: discountAppliedMetrics
+    keys:
+    - discountRatePlanChargeId
+  invoice_invoiceId:
+  - table: invoice
+    keys:
+    - id
+  - table: creditBalanceAdjustment
+    keys:
+    - invoiceId
+    - sourceTransactionId
+  invoiceItemAdjustment_invoiceItemAdjustmentId:
+  - table: invoiceItemAdjustment
+    keys:
+    - id
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - invoiceItemAdjustmentId
+  - table: revenueScheduleItemInvoiceItemAdjustment
+    keys:
+    - invoiceItemAdjustmentId
+  invoice_invoiceNumber:
+  - table: invoice
+    keys:
+    - invoiceNumber
+  - table: creditBalanceAdjustment
+    keys:
+    - invoiceNumber
+    - sourceTransactionNumber
+  account_invoiceOwnerId:
+  - table: account
+    keys:
+    - invoiceOwnerId
+  invoiceItem_invoiceItemId:
+  - table: invoiceItem
+    keys:
+    - id
+  - table: processedUsage
+    keys:
+    - invoiceItemId
+  - table: revenueEventItemInvoiceItem
+    keys:
+    - invoiceItemId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - invoiceItemId
+  - table: revenueScheduleItemInvoiceItem
+    keys:
+    - invoiceItemId
+  - table: revenueScheduleItemInvoiceItemAdjustment
+    keys:
+    - invoiceItemId
+  journalEntry_journalEntryId:
+  - table: journalEntry
+    keys:
+    - id
+  - table: creditBalanceAdjustment
+    keys:
+    - journalEntryId
+  - table: invoiceItemAdjustment
+    keys:
+    - journalEntryId
+  - table: journalEntryItem
+    keys:
+    - journalEntryId
+  - table: revenueEventItem
+    keys:
+    - journalEntryId
+  - table: revenueEventItemInvoiceItem
+    keys:
+    - journalEntryId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - journalEntryId
+  journalRun_journalRunId:
+  - table: journalRun
+    keys:
+    - id
+  - table: creditBalanceAdjustment
+    keys:
+    - journalRunId
+  - table: invoiceItemAdjustment
+    keys:
+    - journalRunId
+  - table: journalEntryItem
+    keys:
+    - journalRunId
+  - table: revenueEventItem
+    keys:
+    - journalRunId
+  - table: revenueEventItemInvoiceItem
+    keys:
+    - journalRunId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - journalRunId
+  account_parentAccountId:
+  - table: account
+    keys:
+    - parentAccountId
+  - table: creditBalanceAdjustment
+    keys:
+    - parentAccountId
+  - table: discountAppliedMetrics
+    keys:
+    - parentAccountId
+  - table: invoice
+    keys:
+    - parentAccountId
+  - table: invoiceItemAdjustment
+    keys:
+    - parentAccountId
+  - table: processedUsage
+    keys:
+    - parentAccountId
+  - table: refund
+    keys:
+    - parentAccountId
+  - table: revenueChargeSummaryItem
+    keys:
+    - parentAccountId
+  - table: revenueEventItem
+    keys:
+    - parentAccountId
+  - table: revenueEventItemInvoiceItem
+    keys:
+    - parentAccountId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - parentAccountId
+  - table: revenueScheduleItem
+    keys:
+    - parentAccountId
+  - table: revenueScheduleItemInvoiceItem
+    keys:
+    - parentAccountId
+  - table: revenueScheduleItemInvoiceItemAdjustment
+    keys:
+    - parentAccountId
+  payment_paymentId:
+  - table: payment
+    keys:
+    - id
+  - table: creditBalanceAdjustment
+    keys:
+    - paymentId
+    - sourceTransactionId
+  paymentMethod_paymentMethodId:
+  - table: paymentMethod
+    keys:
+    - id
+  - table: creditBalanceAdjustment
+    keys:
+    - paymentMethodId
+  - table: payment
+    keys:
+    - paymentMethodId
+  - table: refund
+    keys:
+    - paymentMethodId
+  paymentRun_paymentRunId:
+  - table: paymentRun
+    keys:
+    - paymentRunId
+  paymentMethodSnapshot_paymentMethodSnapshotId:
+  - table: paymentMethodSnapshot
+    keys:
+    - id
+  - table: creditBalanceAdjustment
+    keys:
+    - paymentMethodSnapshotId
+  - table: payment
+    keys:
+    - paymentMethodSnapshotId
+  - table: refund
+    keys:
+    - paymentMethodSnapshotId
+  product_productId:
+  - table: product
+    keys:
+    - id
+  - table: discountAppliedMetrics
+    keys:
+    - productId
+  - table: invoiceItem
+    keys:
+    - productId
+  - table: invoiceItemAdjustment
+    keys:
+    - productId
+  - table: processedUsage
+    keys:
+    - productId
+  - table: productRatePlan
+    keys:
+    - productId
+  - table: revenueChargeSummaryItem
+    keys:
+    - productId
+  - table: revenueEventItem
+    keys:
+    - productId
+  - table: revenueEventItemInvoiceItem
+    keys:
+    - productId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - productId
+  - table: revenueScheduleItem
+    keys:
+    - productId
+  - table: revenueScheduleItemInvoiceItem
+    keys:
+    - productId
+  - table: revenueScheduleItemInvoiceItemAdjustment
+    keys:
+    - productId
+  productRatePlanCharge_productRatePlanChargeId:
+  - table: productRatePlanCharge
+    keys:
+    - id
+  - table: discountAppliedMetrics
+    keys:
+    - productRatePlanChargeId
+  - table: invoiceItem
+    keys:
+    - productRatePlanChargeId
+  - table: invoiceItemAdjustment
+    keys:
+    - productRatePlanChargeId
+  - table: processedUsage
+    keys:
+    - productRatePlanChargeId
+  - table: productRatePlanChargeTier
+    keys:
+    - productRatePlanChargeId
+  - table: revenueChargeSummaryItem
+    keys:
+    - productRatePlanChargeId
+  - table: revenueEventItem
+    keys:
+    - productRatePlanChargeId
+  - table: revenueEventItemInvoiceItem
+    keys:
+    - productRatePlanChargeId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - productRatePlanChargeId
+  - table: revenueScheduleItem
+    keys:
+    - productRatePlanChargeId
+  - table: revenueScheduleItemInvoiceItem
+    keys:
+    - productRatePlanChargeId
+  - table: revenueScheduleItemInvoiceItemAdjustment
+    keys:
+    - productRatePlanChargeId
+  productRatePlan_productRatePlanId:
+  - table: productRatePlan
+    keys:
+    - id
+  - table: discountAppliedMetrics
+    keys:
+    - productRatePlanId
+  - table: processedUsage
+    keys:
+    - productRatePlanId
+  - table: productRatePlanCharge
+    keys:
+    - productRatePlanId
+  - table: productRatePlanChargeTier
+    keys:
+    - productRatePlanId
+  - table: ratePlan
+    keys:
+    - productRatePlanId
+  - table: ratePlanChargeTier
+    keys:
+    - productRatePlanId
+  - table: revenueChargeSummaryItem
+    keys:
+    - productRatePlanId
+  - table: revenueEventItem
+    keys:
+    - productRatePlanId
+  - table: revenueEventItemInvoiceItem
+    keys:
+    - productRatePlanId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - productRatePlanId
+  - table: revenueScheduleItem
+    keys:
+    - productRatePlanId
+  - table: revenueScheduleItemInvoiceItem
+    keys:
+    - productRatePlanId
+  - table: revenueScheduleItemInvoiceItemAdjustment
+    keys:
+    - productRatePlanId
+  ratePlanCharge_ratePlanChargeId:
+  - table: ratePlanCharge
+    keys:
+    - id
+  - table: discountAppliedMetrics
+    keys:
+    - ratePlanChargeId
+  - table: invoiceItem
+    keys:
+    - ratePlanChargeId
+  - table: invoiceItemAdjustment
+    keys:
+    - ratePlanChargeId
+  - table: processedUsage
+    keys:
+    - ratePlanChargeId
+  - table: productRatePlanChargeTier
+    keys:
+    - ratePlanChargeId
+  - table: ratePlanChargeTier
+    keys:
+    - ratePlanChargeId
+  - table: revenueChargeSummaryItem
+    keys:
+    - ratePlanChargeId
+  - table: revenueEventItem
+    keys:
+    - ratePlanChargeId
+  - table: revenueEventItemInvoiceItem
+    keys:
+    - ratePlanChargeId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - ratePlanChargeId
+  - table: revenueScheduleItem
+    keys:
+    - ratePlanChargeId
+  - table: revenueScheduleItemInvoiceItem
+    keys:
+    - ratePlanChargeId
+  - table: revenueScheduleItemInvoiceItemAdjustment
+    keys:
+    - ratePlanChargeId
+  ratePlan_ratePlanId:
+  - table: ratePlan
+    keys:
+    - id
+  - table: discountAppliedMetrics
+    keys:
+    - ratePlanId
+  - table: invoiceItem
+    keys:
+    - ratePlanId
+  - table: invoiceItemAdjustment
+    keys:
+    - ratePlanId
+  - table: processedUsage
+    keys:
+    - ratePlanId
+  - table: productRatePlanChargeTier
+    keys:
+    - ratePlanId
+  - table: ratePlanChargeTier
+    keys:
+    - ratePlanId
+  - table: revenueChargeSummaryItem
+    keys:
+    - ratePlanId
+  - table: revenueEventItem
+    keys:
+    - ratePlanId
+  - table: revenueEventItemInvoiceItem
+    keys:
+    - ratePlanId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - ratePlanId
+  - table: revenueScheduleItem
+    keys:
+    - ratePlanId
+  - table: revenueScheduleItemInvoiceItem
+    keys:
+    - ratePlanId
+  - table: revenueScheduleItemInvoiceItemAdjustment
+    keys:
+    - ratePlanId
+  accountingCode_recognizedRevenueAccountingCodeId:
+  - table: accountingCode
+    keys:
+    - id
+  - table: invoiceItemAdjustment
+    keys:
+    - recognizedRevenueAccountingCodeId
+  - table: revenueEventItem
+    keys:
+    - recognizedRevenueAccountingCodeId
+  - table: revenueEventItemInvoiceItem
+    keys:
+    - recognizedRevenueAccountingCodeId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - recognizedRevenueAccountingCodeId
+  - table: revenueScheduleItem
+    keys:
+    - recognizedRevenueAccountingCodeId
+  - table: revenueScheduleItemInvoiceItem
+    keys:
+    - recognizedRevenueAccountingCodeId
+  - table: revenueScheduleItemInvoiceItemAdjustment
+    keys:
+    - recognizedRevenueAccountingCodeId
+  refund_refundId:
+  - table: refund
+    keys:
+    - id
+  - table: creditBalanceAdjustment
+    keys:
+    - refundId
+    - sourceTransactionId
+  revenueChargeSummary_revenueChargeSummaryId:
+  - table: revenueChargeSummaryItem
+    keys:
+    - revenueChargeSummaryId
+  - table: revenueEventItem
+    keys:
+    - revenueChargeSummaryId
+  - table: RevenutEventItemInvoiceItem
+    keys:
+    - revenueChargeSummaryId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - revenueChargeSummaryId
+  - table: revenueScheduleItem
+    keys:
+    - revenueChargeSummaryId
+  - table: revenueScheduleItemInvoiceItem
+    keys:
+    - revenueChargeSummaryId
+  - table: revenueScheduleItemInvoiceItemAdjustment
+    keys:
+    - revenueChargeSummaryId
+  revenueEventType_revenueEventTypeId:
+  - table: revenueEventType
+    keys:
+    - id
+  revenueScheduleInvoiceItem_revenueScheduleInvoiceItemId:
+  - table: revenueScheduleInvoiceItem
+    keys:
+    - id
+  accountingCode_salesTaxPayableAccountingCodeId:
+  - table: accountingCode
+    keys:
+    - id
+  - table: invoiceItemAdjustment
+    keys:
+    - salesTaxPayableAccountingCodeId
+  contact_soldToContactId:
+  - table: account
+    keys:
+    - soldToContactId
+  - table: contact
+    keys:
+    - id
+  - table: contactSnapshot
+    keys:
+    - contactId
+  - table: creditBalanceAdjustment
+    keys:
+    - soldToContactId
+  - table: discountAppliedMetrics
+    keys:
+    - soldToContactId
+  - table: invoice
+    keys:
+    - soldToContactId
+  - table: invoiceItemAdjustment
+    keys:
+    - soldToContactId
+  - table: processedUsage
+    keys:
+    - soldToContactId
+  - table: ratePlan
+    keys:
+    - soldToContactId
+  - table: refund
+    keys:
+    - soldToContactId
+  - table: revenueChargeSummaryItem
+    keys:
+    - soldToContactId
+  - table: revenueEventItem
+    keys:
+    - soldToContactId
+  - table: revenueEventItemInvoiceItem
+    keys:
+    - soldToContactId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - soldToContactId
+  - table: revenueScheduleItem
+    keys:
+    - soldToContactId
+  - table: revenueScheduleItemInvoiceItem
+    keys:
+    - soldToContactId
+  - table: revenueScheduleItemInvoiceItemAdjustment
+    keys:
+    - soldToContactId
+  contactSnapshot_soldToContactSnapshotId:
+  - table: contactSnapshot
+    keys:
+    - contactId
+  - table: invoice
+    keys:
+    - soldToContactSnapshotId
+  creditBalanceAdjustment_sourceTransactionId:
+  - table: invoice
+    keys:
+    - id
+  - table: payment
+    keys:
+    - id
+  - table: refund
+    keys:
+    - id
+  creditBalanceAdjustment_sourceTransactionNumber:
+  - table: invoice
+    keys:
+    - invoiceNumber
+  - table: payment
+    keys:
+    - number
+  - table: refund
+    keys:
+    - number
+  subscription_subscriptionId:
+  - table: subscription
+    keys:
+    - id
+  - table: amendment
+    keys:
+    - subscriptionId
+  - table: discountAppliedMetrics
+    keys:
+    - subscriptionId
+  - table: invoiceItem
+    keys:
+    - subscriptionId
+  - table: invoiceItemAdjustment
+    keys:
+    - subscriptionId
+  - table: ratePlan
+    keys:
+    - subscriptionId
+  - table: ratePlanChargeTier
+    keys:
+    - subscriptionId
+  - table: revenueChargeSummaryItem
+    keys:
+    - subscriptionId
+  - table: revenueEventItem
+    keys:
+    - subscriptionId
+  - table: revenueEventItemInvoiceItem
+    keys:
+    - subscriptionId
+  - table: revenueEventItemInvoiceItemAdjustment
+    keys:
+    - subscriptionId
+  - table: revenueScheduleItemInvoiceItemAdjustment
+    keys:
+    - subscriptionId

@@ -18,11 +18,16 @@ def convertForeignKeys(file):
         'keys': {}
     }
 
-    for key in key_list:
-        table = key['table']
+    for key in key_list:    
+
         source_key = key['attribute']
-        
-        id = table + '_' + source_key
+
+        try:
+            table = key['table']
+            
+            id = table + '_' + source_key
+        except:
+            id = source_key
 
         output_data['keys'][id] = []
 
@@ -79,7 +84,6 @@ def convertForeignKeys(file):
             if target_table_data not in output_data['keys'][id]:
 
                 output_data['keys'][id].append(target_table_data)
-
 
     with open ('../../_data/schemas/{0}/v{1}/{0}-v{1}-foreign-keys.yml'.format(integration, version), 'w', encoding='utf-8') as out:
 

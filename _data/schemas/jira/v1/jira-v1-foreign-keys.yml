@@ -1,0 +1,89 @@
+tap: jira
+version: '1'
+keys:
+  changelogs_:
+  - table: changelogs
+    keys:
+    - id
+  issue_comments_issueCommentId:
+  - table: issue_comments
+    keys:
+    - id
+  issues_issueId:
+  - table: changelogs
+    keys:
+    - issueId
+  - table: issue_comments
+    keys:
+    - issueId
+  - table: issue_transitions
+    keys:
+    - issueId
+  - table: issues
+    keys:
+    - id
+  - table: worklogs
+    keys:
+    - issueId
+  issue_transitions_issueTransitionId:
+  - table: issue_transitions
+    keys:
+    - id
+  project_types_projectTypeKey:
+  - table: project_types
+    keys:
+    - key
+  project_categories_projectCategoryId:
+  - table: project_categories
+    keys:
+    - id
+  - table: projects
+    keys:
+    - projectCategory.id
+  projects_projectId:
+  - table: projects
+    keys:
+    - id
+  - table: versions
+    keys:
+    - projectId
+  resolutions_resolutionId:
+  - table: resolutions
+    keys:
+    - id
+  roles_roleId:
+  - table: roles
+    keys:
+    - id
+  users_key:
+  - table: changelogs
+    keys:
+    - author.key
+  - table: issue_comments
+    keys:
+    - author.key
+    - updateAuthor.key
+  - table: issues
+    keys:
+    - attachment.key
+  - table: projects
+    keys:
+    - components__assignee.key
+    - components__lead.key
+    - components__realAssignee.key
+    - lead.key
+  - table: users
+    keys:
+    - key
+  - table: worklogs
+    keys:
+    - author.key
+    - updateAuthor.key
+  versions_versionId:
+  - table: versions
+    keys:
+    - id
+  worklogs_worklogId:
+  - table: worklogs
+    keys:
+    - id

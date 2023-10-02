@@ -1,0 +1,105 @@
+tap: jira
+version: '2'
+keys:
+  changelogs_:
+  - table: changelogs
+    keys:
+    - id
+  components_:
+  - table: component
+    keys:
+    - id
+  issue_comments_issueCommentId:
+  - table: issue_comments
+    keys:
+    - id
+  issues_issueId:
+  - table: changelogs
+    keys:
+    - issueId
+  - table: issue_comments
+    keys:
+    - issueId
+  - table: issue_transitions
+    keys:
+    - issueId
+  - table: issues
+    keys:
+    - id
+  - table: worklogs
+    keys:
+    - issueId
+  issue_transitions_issueTransitionId:
+  - table: issue_transitions
+    keys:
+    - id
+  project_types_projectTypeKey:
+  - table: project_types
+    keys:
+    - key
+  project_categories_projectCategoryId:
+  - table: project_categories
+    keys:
+    - id
+  - table: projects
+    keys:
+    - projectCategory.id
+  projects_projectId:
+  - table: components
+    keys:
+    - componentBean.projectId
+    - projectId
+  - table: projects
+    keys:
+    - id
+  - table: versions
+    keys:
+    - projectId
+  resolutions_resolutionId:
+  - table: resolutions
+    keys:
+    - id
+  roles_roleId:
+  - table: roles
+    keys:
+    - id
+  users_accountId:
+  - table: changelogs
+    keys:
+    - author.accountId
+  - table: components
+    keys:
+    - assignee.accountId
+    - componentBean.assignee.accountId
+    - componentBean.lead.accountId
+    - componentBean.realAssignee.accountId
+    - lead.accountId
+    - realAssignee.accountId
+  - table: issue_comments
+    keys:
+    - author.accountId
+    - updateAuthor.accountId
+  - table: issues
+    keys:
+    - accountId
+  - table: projects
+    keys:
+    - components.assignee.accountId
+    - components.lead.accountId
+    - components.realAssignee.accountId
+    - lead.accountId
+  - table: users
+    keys:
+    - accountId
+  - table: worklogs
+    keys:
+    - author.accountId
+    - updateAuthor.accountId
+  versions_versionId:
+  - table: versions
+    keys:
+    - id
+  worklogs_worklogId:
+  - table: worklogs
+    keys:
+    - id
