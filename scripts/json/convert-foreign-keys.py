@@ -48,6 +48,7 @@ def convertForeignKeys(file):
             except:
                 try:
                     path = join['subtable']
+                    path = path.replace('__', '.')
                     try:
                         element = join['join-on']  
                     except:
