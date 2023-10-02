@@ -45,7 +45,7 @@
 															</div>
 		
 															<div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
-																{% include layout/new-schemas-table.html jsondata=item.properties %}
+																{% include integrations/templates/schemas/new-schemas-table.html jsondata=item.properties %}
 															</div>
 														</div>
 													</div>
@@ -73,7 +73,7 @@
 						        </div>
 
 						        <div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
-									{% include layout/new-schemas-table.html jsondata=data.properties %}
+									{% include integrations/templates/schemas/new-schemas-table.html jsondata=data.properties %}
 								</div>
 						    </div>
 						</div>

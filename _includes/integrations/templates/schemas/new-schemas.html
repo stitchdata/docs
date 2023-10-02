@@ -2,7 +2,7 @@
 {% include misc/data-files.html %}
 
 {% assign integration = page %}
-{% assign version = integration.version | prepend: "v" %}
+{% assign version = integration.this-version | prepend: "v" %}
 
 {% assign filename = integration.name | append: "-" | append: version | append: "-tables" %}
 {% assign tables = site.data.schemas.[integration.name].[version].[filename].tables %}
@@ -71,7 +71,7 @@
 
             {% for fk-table in fk-tables %}
                 {% if fk-table.table-name == table.name %}
-                    {% include layout/new-foreign-keys.html %}
+                    {% include integrations/templates/schemas/new-foreign-keys.html %}
                 {% endif %}
             {% endfor %}
             
@@ -118,7 +118,7 @@
                 </div>
             
                 <div id="collapse-{{ table.name | slugify }}-table" class="panel-collapse collapse noCrossRef">
-                    {% include layout/new-schemas-table.html jsondata=data table-data=table %}
+                    {% include integrations/templates/schemas/new-schemas-table.html jsondata=data table-data=table %}
                 </div>
             </div>
         </div>
