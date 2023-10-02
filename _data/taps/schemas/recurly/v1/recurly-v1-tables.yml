@@ -17,6 +17,7 @@ tables:
   links:
     doc-link: https://dev.recurly.com/docs/account-object
     singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/accounts.json
+    api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_accounts
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -29,6 +30,7 @@ tables:
   links:
     doc-link: https://dev.recurly.com/docs/adjustment-object
     singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/adjustments.json
+    api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_account_line_items
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -52,6 +54,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/billing_info.json
+    api-method: https://partner-docs.recurly.com/v2018-08-09#operation/get_billing_info
   table-details:
     replication-method: Key-based Incremental
     primary-key: account_id
@@ -64,6 +67,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/coupons.json
+    api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_coupons
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -77,6 +81,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/plans.json
+    api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_plans
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -94,6 +99,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/plans_add_ons.json
+    api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_plan_add_ons
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -115,6 +121,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/subscriptions.json
+    api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_subscriptions
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -127,6 +134,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/transactions.json
+    api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_transactions
   table-details:
     replication-method: Key-based Incremental
     primary-key: id

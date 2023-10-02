@@ -10,6 +10,7 @@ tables:
   links:
     doc-link: https://stripe.com/docs/api/balance/balance_transaction
     singer-schema: https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/balance_transactions.json
+    api-method: https://stripe.com/docs/api/balance/balance_history
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -22,6 +23,7 @@ tables:
   links:
     doc-link: https://stripe.com/docs/api/charges/object
     singer-schema: https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/charges.json
+    api-method: https://stripe.com/docs/api/charges/list
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -35,6 +37,7 @@ tables:
   links:
     doc-link: https://stripe.com/docs/api/coupons
     singer-schema: https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/coupons.json
+    api-method: https://stripe.com/docs/api/coupons/list
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -45,6 +48,7 @@ tables:
   links:
     doc-link: https://stripe.com/docs/api/disputes/object
     singer-schema: https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/disputes.json
+    api-method: https://stripe.com/docs/api/disputes/list
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -69,6 +73,7 @@ tables:
   links:
     doc-link: https://stripe.com/docs/api/events
     singer-schema: https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/events.json
+    api-method: https://stripe.com/docs/api/events/list
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -90,6 +95,7 @@ tables:
   links:
     doc-link: https://stripe.com/docs/api/invoices
     singer-schema: https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/invoices.json
+    api-method: https://stripe.com/docs/api/invoices/list
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -102,6 +108,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/invoice_items.json
+    api-method: https://stripe.com/docs/api/invoiceitems/list
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -133,6 +140,7 @@ tables:
   links:
     doc-link: https://stripe.com/docs/api/invoices/line_item
     singer-schema: https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/invoice_line_items.json
+    api-method: https://stripe.com/docs/api/invoices/invoice_lines
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -149,6 +157,7 @@ tables:
   links:
     doc-link: https://stripe.com/docs/api/payouts
     singer-schema: https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/payouts.json
+    api-method: https://stripe.com/docs/api/payouts/list
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -158,6 +167,7 @@ tables:
   links:
     doc-link: https://stripe.com/docs/api/payouts
     singer-schema: https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/payout_transactions.json
+    api-method: https://stripe.com/docs/api/payouts/list
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -170,6 +180,7 @@ tables:
   links:
     doc-link: https://stripe.com/docs/api/plans
     singer-schema: https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/plans.json
+    api-method: https://stripe.com/docs/api/plans/list
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -182,6 +193,7 @@ tables:
   links:
     doc-link: https://stripe.com/docs/api/products
     singer-schema: https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/products.json
+    api-method: https://stripe.com/docs/api/products/list
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -195,6 +207,7 @@ tables:
   links:
     doc-link: https://stripe.com/docs/api/subscriptions
     singer-schema: https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/subscriptions.json
+    api-method: https://stripe.com/docs/api/subscriptions/list
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -208,6 +221,7 @@ tables:
   links:
     doc-link: https://stripe.com/docs/api/subscription_items
     singer-schema: https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/subscription_items.json
+    api-method: https://stripe.com/docs/api/subscription_items/list
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -220,6 +234,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/transfers.json
+    api-method: https://stripe.com/docs/api/transfers/list
   table-details:
     replication-method: Key-based Incremental
     primary-key: id

@@ -33,7 +33,6 @@ tables:
     '
   links:
     doc-link: https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13
-    singer-schema: null
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -79,7 +78,7 @@ tables:
     '
   links:
     doc-link: https://docs.microsoft.com/en-us/advertising/campaign-management-service/getadsbyids?view=bingads-13
-    singer-schema: null
+    api-method: https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadsbyadgroupid
   table-details:
     replication-method: Full Table
     primary-key: Id
@@ -121,7 +120,7 @@ tables:
     '
   links:
     doc-link: https://docs.microsoft.com/en-us/advertising/campaign-management-service/getadgroupsbyids?view=bingads-13
-    singer-schema: null
+    api-method: https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadgroupsbycampaignid
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -165,9 +164,9 @@ tables:
     '
   links:
     doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/adgroupperformancereportfilter?view=bingads-13
-    singer-schema: null
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-keys:
     - AccountId
     - '{{ system-column.report-date-time }}'
@@ -201,9 +200,9 @@ tables:
     '
   links:
     doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/adperformancereportfilter?view=bingads-13
-    singer-schema: null
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-keys:
     - AccountId
     - '{{ system-column.report-date-time }}'
@@ -221,9 +220,9 @@ tables:
     '
   links:
     doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/agegenderaudiencereportfilter?view=bingads-13
-    singer-schema: null
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-keys:
     - AccountId
     - '{{ system-column.report-date-time }}'
@@ -241,9 +240,9 @@ tables:
     '
   links:
     doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/audienceperformancereportfilter?view=bingads-13
-    singer-schema: null
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-keys:
     - AccountId
     - AudienceId
@@ -276,7 +275,7 @@ tables:
     '
   links:
     doc-link: https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignsbyids?view=bingads-13
-    singer-schema: null
+    api-method: https://docs.microsoft.com/en-us/bingads/campaign-management-service/getcampaignsbyaccountid
   table-details:
     replication-method: Full Table
     primary-key: Id
@@ -320,9 +319,9 @@ tables:
     '
   links:
     doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/dsacategoryperformancereportfilter?view=bingads-13
-    singer-schema: null
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-keys:
     - AccountId
     - '{{ system-column.report-date-time }}'
@@ -341,9 +340,9 @@ tables:
     '
   links:
     doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/geographicperformancereportfilter?view=bingads-13
-    singer-schema: null
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-keys:
     - AccountId
     - '{{ system-column.report-date-time }}'
@@ -363,9 +362,9 @@ tables:
     '
   links:
     doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/goalsandfunnelsreportfilter?view=bingads-13
-    singer-schema: null
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-keys:
     - AccountId
     - '{{ system-column.report-date-time }}'
@@ -409,9 +408,9 @@ tables:
     '
   links:
     doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/keywordperformancereportfilter?view=bingads-13
-    singer-schema: null
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-keys:
     - AccountId
     - '{{ system-column.report-date-time }}'
@@ -434,9 +433,9 @@ tables:
     '
   links:
     doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/searchqueryperformancereportfilter?view=bingads-13
-    singer-schema: null
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-keys:
     - AccountId
     - '{{ system-column.report-date-time }}'

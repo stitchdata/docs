@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#accounts
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/accounts.json
+    api-method: https://developers.activecampaign.com/reference#list-all-accounts
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -21,6 +22,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#account-contacts
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/account_contacts.json
+    api-method: https://developers.activecampaign.com/reference#list-all-associations-1
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -33,6 +35,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#custom-account-fields-1
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/account_custom_fields.json
+    api-method: https://developers.activecampaign.com/reference#list-all-custom-fields
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -45,6 +48,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#custom-account-field-values
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/account_custom_field_values.json
+    api-method: https://developers.activecampaign.com/reference#list-all-custom-field-values-2
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -54,6 +58,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/activities.json
+    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -66,6 +71,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#address
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/addresses.json
+    api-method: https://developers.activecampaign.com/reference#list-all-addresses
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -77,6 +83,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#automation
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/automations.json
+    api-method: https://developers.activecampaign.com/reference#list-all-automations
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -86,6 +93,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/automation_blocks.json
+    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -94,6 +102,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/bounce_logs.json
+    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     replication-key: updated_timestamp
@@ -105,6 +114,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#branding
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/brandings.json
+    api-method: https://developers.activecampaign.com/reference#brandings
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -116,6 +126,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#calendar-feeds
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/calendars.json
+    api-method: https://developers.activecampaign.com/reference#list-all-calendar-feeds
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -128,6 +139,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#test-1
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/campaigns.json
+    api-method: https://developers.activecampaign.com/reference#list-all-campaigns
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -140,6 +152,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#test-1
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/campaign_links.json
+    api-method: https://developers.activecampaign.com/reference#retrieve-links-associated-campaign
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -149,6 +162,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/campaign_lists.json
+    api-method: ''
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -157,6 +171,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/campaign_messages.json
+    api-method: ''
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -165,6 +180,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/configs.json
+    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -177,6 +193,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#contact
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contacts.json
+    api-method: https://developers.activecampaign.com/reference#list-all-contacts
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -189,6 +206,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#automations
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contact_automations.json
+    api-method: https://developers.activecampaign.com/reference#list-all-contact-automations
   table-details:
     replication-method: Key-based Incremental
 - name: contact_conversions
@@ -196,6 +214,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contact_conversions.json
+    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -208,6 +227,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#fields
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contact_custom_fields.json
+    api-method: https://developers.activecampaign.com/reference#retrieve-fields-1
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -219,6 +239,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#fields
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contact_custom_fields.json
+    api-method: https://developers.activecampaign.com/reference#retrieve-fields-1
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -230,6 +251,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#fields
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contact_custom_fields.json
+    api-method: https://developers.activecampaign.com/reference#retrieve-fields-1
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -241,6 +263,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#fieldvalues
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contact_custom_field_values.json
+    api-method: https://developers.activecampaign.com/reference#list-all-custom-field-values-1
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -250,6 +273,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contact_data.json
+    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -262,6 +286,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#secondary-contacts
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contact_deals.json
+    api-method: https://developers.activecampaign.com/reference#list-all-secondary-contacts
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -271,6 +296,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contact_emails.json
+    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -280,6 +306,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contact_lists.json
+    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -289,6 +316,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/contact_tags.json
+    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -298,6 +326,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/conversions.json
+    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -307,6 +336,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/conversion_triggers.json
+    api-method: ''
   table-details:
     replication-method: null
     primary-key: id
@@ -319,6 +349,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#deal
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/deals.json
+    api-method: https://developers.activecampaign.com/reference#list-all-deals
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -328,6 +359,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/deal_activities.json
+    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -340,6 +372,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#dealcustomfieldmeta
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/deal_custom_fields.json
+    api-method: https://developers.activecampaign.com/reference#retrieve-all-dealcustomfielddata-resources
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -352,6 +385,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#dealcustomfielddata
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/deal_custom_field_values.json
+    api-method: https://developers.activecampaign.com/reference#list-all-custom-field-values
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -364,6 +398,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#pipelines
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/deal_groups.json
+    api-method: https://developers.activecampaign.com/reference#list-all-pipelines
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -373,6 +408,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/deal_group_users.json
+    api-method: ''
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -384,6 +420,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#deal-stages
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/deal_stages.json
+    api-method: https://developers.activecampaign.com/reference#list-all-deal-stages
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -397,6 +434,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#connections
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/ecommerce_connections.json
+    api-method: https://developers.activecampaign.com/reference#list-all-connections
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -410,6 +448,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#customers
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/ecommerce_customers.json
+    api-method: https://developers.activecampaign.com/reference#list-all-customers
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -422,6 +461,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#orders
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/ecommerce_orders.json
+    api-method: https://developers.activecampaign.com/reference#list-all-orders
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -431,6 +471,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/ecommerce_order_activities.json
+    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -444,6 +485,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#e-commerce-order-products
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/ecommerce_order_products.json
+    api-method: https://developers.activecampaign.com/reference#list-products-for-order
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -452,6 +494,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/email_activities.json
+    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -464,6 +507,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#forms
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/forms.json
+    api-method: https://developers.activecampaign.com/reference#forms-1
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -473,6 +517,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/goals.json
+    api-method: ''
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -484,6 +529,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#groups
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/groups.json
+    api-method: https://developers.activecampaign.com/reference#list-all-groups
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -496,6 +542,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#lists
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/lists.json
+    api-method: https://developers.activecampaign.com/reference#retrieve-all-lists
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -508,6 +555,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#messages
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/messages.json
+    api-method: https://developers.activecampaign.com/reference#list-all-messages
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -520,6 +568,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#saved-responses-1
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/saved_responses.json
+    api-method: https://developers.activecampaign.com/reference#list-all-saved-responses
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -532,6 +581,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/scores.json
+    api-method: https://developers.activecampaign.com/reference#list-all-scores
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -545,6 +595,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#segments
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/segments.json
+    api-method: https://developers.activecampaign.com/reference#list-all-segments
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -553,6 +604,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/site_messages.json
+    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -562,6 +614,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/sms.json
+    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -574,6 +627,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/tags.json
+    api-method: https://developers.activecampaign.com/reference#retrieve-all-tags
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -585,6 +639,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#tasks
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/tasks.json
+    api-method: https://developers.activecampaign.com/reference#list-all-tasks
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -597,6 +652,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#deal-task-types
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/task_types.json
+    api-method: https://developers.activecampaign.com/reference#list-all-deal-task-types
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -608,6 +664,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/templates.json
+    api-method: https://developers.activecampaign.com/reference#templates
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -620,6 +677,7 @@ tables:
   links:
     doc-link: https://developers.activecampaign.com/reference#users
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/users.json
+    api-method: https://developers.activecampaign.com/reference#list-all-users
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -632,6 +690,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/webhooks.json
+    api-method: https://developers.activecampaign.com/reference#get-a-list-of-webhook-events
   table-details:
     replication-method: Full Table
     primary-key: id

@@ -16,7 +16,6 @@ tables:
     '
   links:
     doc-link: https://help.heap.io/heap-connect/heap-connect-guide/data-schema/#event-tables
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: event_id
@@ -32,7 +31,6 @@ tables:
     '
   links:
     doc-link: https://help.heap.io/heap-connect/heap-connect-guide/data-schema/#pageviews-table
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: event_id
@@ -50,7 +48,6 @@ tables:
     '
   links:
     doc-link: https://help.heap.io/heap-connect/heap-connect-guide/data-schema/#sessions-table
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: event_id
@@ -66,7 +63,6 @@ tables:
     '
   links:
     doc-link: https://help.heap.io/heap-connect/heap-connect-guide/data-schema/#users-table
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: user_id
@@ -82,7 +78,6 @@ tables:
     '
   links:
     doc-link: https://help.heap.io/heap-connect/heap-connect-guide/data-schema/#user-migrations-table
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: from_user_id

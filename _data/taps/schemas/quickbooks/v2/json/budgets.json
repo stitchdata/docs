@@ -25,17 +25,15 @@
       ]
     },
     "EndDate": {
-      "format": "date-time",
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "StartDate": {
-      "format": "date-time",
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "BudgetType": {
@@ -140,17 +138,15 @@
             ]
           },
           "BudgetDate": {
-            "format": "date-time",
             "type": [
               "null",
-              "string"
+              "date-time"
             ]
           },
           "Amount": {
-            "format": "singer.decimal",
             "type": [
               "null",
-              "string"
+              "number"
             ]
           }
         },
@@ -167,17 +163,15 @@
     "MetaData": {
       "properties": {
         "CreateTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         },
         "LastUpdatedTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         }
       },

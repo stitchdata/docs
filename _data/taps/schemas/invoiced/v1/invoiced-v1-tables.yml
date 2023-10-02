@@ -10,6 +10,7 @@ tables:
   links:
     doc-link: https://invoiced.com/docs/api/#credit-note-object
     singer-schema: https://github.com/singer-io/tap-invoiced/blob/master/tap_invoiced/schemas/credit_notes.json
+    api-method: https://invoiced.com/docs/api/#list-all-credit-notes
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -22,6 +23,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-invoiced/blob/master/tap_invoiced/schemas/customers.json
+    api-method: https://invoiced.com/docs/api/#list-all-customers
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -35,6 +37,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-invoiced/blob/master/tap_invoiced/schemas/invoices.json
+    api-method: https://invoiced.com/docs/api/#list-all-invoices
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -48,6 +51,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-invoiced/blob/master/tap_invoiced/schemas/plans.json
+    api-method: https://www.invoiced.com/resources/docs/api/#list-all-plans
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -60,6 +64,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-invoiced/blob/master/tap_invoiced/schemas/subscriptions.json
+    api-method: https://invoiced.com/docs/api/#list-all-subscriptions
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -72,6 +77,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-invoiced/blob/master/tap_invoiced/schemas/transactions.json
+    api-method: https://invoiced.com/docs/api/#list-all-transactions
   table-details:
     replication-method: Key-based Incremental
     primary-key: id

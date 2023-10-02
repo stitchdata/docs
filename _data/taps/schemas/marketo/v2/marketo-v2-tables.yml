@@ -21,6 +21,7 @@ tables:
   links:
     doc-link: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Activities/getLeadActivitiesUsingGET
     singer-schema: https://github.com/singer-io/tap-marketo/blob/master/tap_marketo/schemas/activities.json
+    api-method: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Activities/getLeadActivitiesUsingGET
   table-details:
     replication-method: Key-based Incremental
     primary-key: marketoGuid
@@ -35,21 +36,10 @@ tables:
   links:
     doc-link: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Activities/getAllActivityTypesUsingGET
     singer-schema: https://github.com/singer-io/tap-marketo/blob/master/tap_marketo/schemas/activity_types.json
+    api-method: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Activities/getAllActivityTypesUsingGET
   table-details:
     replication-method: Full Table
     primary-key: id
-- name: campaigns
-  description: 'The `{{ table.name }}` table contains info about the campaigns in
-    your {{ integration.display_name }} account.
-
-    '
-  links:
-    doc-link: null
-    singer-schema: https://github.com/singer-io/tap-marketo/blob/master/tap_marketo/schemas/campaigns.json
-  table-details:
-    replication-method: Key-based Incremental
-    primary-key: id
-    replication-key: updatedAt
 - name: leads
   description: 'The `{{ table.name }}` table contains info about your {{ integration.display_name
     }} leads.
@@ -73,7 +63,7 @@ tables:
     '
   links:
     doc-link: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/getLeadsByFilterUsingGET
-    singer-schema: null
+    api-method: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/getLeadsByFilterUsingGET
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -86,6 +76,7 @@ tables:
   links:
     doc-link: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Static_Lists/getListsUsingGET
     singer-schema: https://github.com/singer-io/tap-marketo/blob/master/tap_marketo/schemas/lists.json
+    api-method: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Static_Lists/getListsUsingGET
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -99,7 +90,17 @@ tables:
   links:
     doc-link: http://developers.marketo.com/rest-api/assets/programs/
     singer-schema: https://github.com/singer-io/tap-marketo/blob/master/tap_marketo/schemas/programs.json
+    api-method: https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Programs/browseProgramsUsingGET
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedAt
+- name: campaigns
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''

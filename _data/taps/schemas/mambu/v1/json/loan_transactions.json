@@ -51,65 +51,56 @@
         "fees_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "overdraft_interest_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "overdraft_fees_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "fraction_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "technical_overdraft_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "overdraft_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "interest_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "technical_overdraft_interest_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "funds_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         }
       }
     },
@@ -123,46 +114,40 @@
         "tax_interest_from_arrears_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "tax_on_fees_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "tax_rate": {
           "type": [
             "null",
-            "string"
+            "number"
           ],
-          "format": "singer.decimal",
           "minimum": -1000000000000000,
           "maximum": 1000000000000000
         },
         "tax_on_interest_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "tax_on_penalty_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "deferred_tax_on_interest_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         }
       }
     },
@@ -207,18 +192,16 @@
             "interest_rate": {
               "type": [
                 "null",
-                "string"
+                "number"
               ],
-              "format": "singer.decimal",
               "minimum": -1000000000000000,
               "maximum": 1000000000000000
             },
             "index_interest_rate": {
               "type": [
                 "null",
-                "string"
+                "number"
               ],
-              "format": "singer.decimal",
               "minimum": -1000000000000000,
               "maximum": 1000000000000000
             }
@@ -227,16 +210,14 @@
         "principal_payment_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "principal_payment_percentage": {
           "type": [
             "null",
-            "string"
+            "number"
           ],
-          "format": "singer.decimal",
           "minimum": -1000000000000000,
           "maximum": 1000000000000000
         }
@@ -280,16 +261,14 @@
               "tax_on_amount": {
                 "type": [
                   "null",
-                  "string"
-                ],
-                "format": "singer.decimal"
+                  "number"
+                ]
               },
               "amount": {
                 "type": [
                   "null",
-                  "string"
-                ],
-                "format": "singer.decimal"
+                  "number"
+                ]
               },
               "custom_payment_amount_type": {
                 "type": [
@@ -332,9 +311,8 @@
     "amount": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "centre_key": {
       "type": [
@@ -375,9 +353,8 @@
     "original_amount": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "linked_loan_transaction_key": {
       "type": [
@@ -395,44 +372,38 @@
         "redraw_balance": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "principal_balance": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "total_balance": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "expected_principal_redraw": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "advance_position": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "arrears_position": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         }
       }
     },

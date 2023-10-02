@@ -12,9 +12,7 @@ description: |
 
 replication-method: "Append-Only (Incremental)"
 attribution-window: true
-api-method:
-  name:
-  doc-link: 
+
 
 attributes:
   - name: "accountId"

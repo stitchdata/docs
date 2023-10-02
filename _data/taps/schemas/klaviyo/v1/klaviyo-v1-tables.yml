@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/bounce.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -21,6 +22,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/campaigns.json
+    api-method: https://apidocs.klaviyo.com/reference/campaigns#get-campaigns
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -32,6 +34,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/click.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -44,6 +47,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/clicked_sms.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -56,6 +60,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/consented_to_receive.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -68,6 +73,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/dropped_email.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -80,6 +86,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/failed_to_deliver.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -92,6 +99,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/failed_to_deliver_automated_response.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -104,6 +112,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/global_exclusions.json
+    api-method: https://apidocs.klaviyo.com/reference/lists-segments#get-global-exclusions
   table-details:
     replication-method: Full Table
     primary-key: email
@@ -115,6 +124,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/lists.json
+    api-method: https://apidocs.klaviyo.com/reference/lists-segments#get-lists
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -126,6 +136,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/mark_as_spam.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -138,6 +149,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/open.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -150,6 +162,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/receive.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -162,6 +175,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/received_automated_response.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -174,6 +188,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/received_sms.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -186,6 +201,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/sent_sms.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -198,6 +214,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/subscribe_list.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     replication-key: timestamp
@@ -209,6 +226,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/unsubscribe.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     replication-key: timestamp
@@ -220,6 +238,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/unsub_list.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     replication-key: timestamp
@@ -231,6 +250,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/update_email_preferences.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     replication-key: timestamp

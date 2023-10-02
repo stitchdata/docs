@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: https://developer.typeform.com/responses/
     singer-schema: https://github.com/singer-io/tap-typeform/blob/master/tap_typeform/schemas/answers.json
+    api-method: https://developer.typeform.com/responses/reference/retrieve-responses
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -24,6 +25,7 @@ tables:
   links:
     doc-link: https://developer.typeform.com/responses/
     singer-schema: https://github.com/singer-io/tap-typeform/blob/master/tap_typeform/schemas/forms.json
+    api-method: https://developer.typeform.com/create/reference/retrieve-forms/
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -37,6 +39,7 @@ tables:
   links:
     doc-link: https://developer.typeform.com/responses/reference/retrieve-responses
     singer-schema: https://github.com/singer-io/tap-typeform/blob/master/tap_typeform/schemas/landings.json
+    api-method: https://developer.typeform.com/responses/reference/retrieve-responses
   table-details:
     replication-method: Key-based Incremental
     primary-key: landing_id
@@ -49,6 +52,7 @@ tables:
   links:
     doc-link: https://developer.typeform.com/create/reference/retrieve-form/
     singer-schema: https://github.com/singer-io/tap-typeform/blob/master/tap_typeform/schemas/questions.json
+    api-method: https://developer.typeform.com/create/reference/retrieve-form/
   table-details:
     replication-method: Full Table
     primary-keys:

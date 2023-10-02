@@ -127,10 +127,9 @@
       ]
     },
     "Balance": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "TaxIdentifier": {
@@ -246,17 +245,15 @@
     "MetaData": {
       "properties": {
         "CreateTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         },
         "LastUpdatedTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         }
       },
@@ -344,10 +341,9 @@
       ]
     },
     "BillRate": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "BusinessNumber": {
@@ -430,9 +426,8 @@
     "CostRate": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "Source": {
       "type": [

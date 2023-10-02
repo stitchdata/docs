@@ -8,6 +8,7 @@ tables:
   links:
     doc-link: https://developer.mixpanel.com/docs/data-export-api#section-annotations
     singer-schema: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/schemas/annotations.json
+    api-method: https://mixpanel.com/api/2.0/annotations
   table-details:
     replication-method: Full Table
     primary-key: date
@@ -19,6 +20,7 @@ tables:
   links:
     doc-link: https://developer.mixpanel.com/docs/cohorts#section-list-cohorts
     singer-schema: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/schemas/cohorts.json
+    api-method: https://developer.mixpanel.com/docs/cohorts#section-list-cohorts
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -30,6 +32,7 @@ tables:
   links:
     doc-link: https://developer.mixpanel.com/docs/data-export-api#section-engage
     singer-schema: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/schemas/cohort_members.json
+    api-method: https://mixpanel.com/api/2.0/cohorts/list
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -49,6 +52,7 @@ tables:
   links:
     doc-link: https://developer.mixpanel.com/docs/data-export-api#section-engage
     singer-schema: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/schemas/engage.json
+    api-method: https://developer.mixpanel.com/docs/data-export-api#section-engage
   table-details:
     replication-method: Full Table
     primary-key: distinct_id
@@ -91,8 +95,10 @@ tables:
   links:
     doc-link: https://developer.mixpanel.com/docs/exporting-raw-data#section-export-api-reference
     singer-schema: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/schemas/export.json
+    api-method: https://developer.mixpanel.com/docs/exporting-raw-data#section-export-api-reference
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: time
 - name: funnels
   description: 'The `{{ table.name }}` table contains data about your {{ integration.display_name
@@ -107,6 +113,7 @@ tables:
   links:
     doc-link: https://developer.mixpanel.com/docs/data-export-api#section-funnels
     singer-schema: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/schemas/funnels.json
+    api-method: https://developer.mixpanel.com/docs/data-export-api#section-funnels
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -127,6 +134,7 @@ tables:
   links:
     doc-link: https://developer.mixpanel.com/docs/data-export-api#hrspan-stylefont-family-courierrevenuespan
     singer-schema: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/schemas/revenue.json
+    api-method: https://developer.mixpanel.com/docs/data-export-api#hrspan-stylefont-family-courierrevenuespan
   table-details:
     replication-method: Key-based Incremental
     primary-key: date

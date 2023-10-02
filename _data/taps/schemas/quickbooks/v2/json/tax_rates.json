@@ -41,17 +41,15 @@
     "MetaData": {
       "properties": {
         "CreateTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         },
         "LastUpdatedTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         }
       },
@@ -79,10 +77,9 @@
       ]
     },
     "RateValue": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "Name": {
@@ -103,9 +100,8 @@
           "RateValue": {
             "type": [
               "null",
-              "string"
-            ],
-            "format": "singer.decimal"
+              "number"
+            ]
           },
           "EndDate": {
             "type": [

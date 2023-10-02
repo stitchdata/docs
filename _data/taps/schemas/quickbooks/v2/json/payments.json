@@ -188,9 +188,8 @@
           "Amount": {
             "type": [
               "null",
-              "string"
-            ],
-            "format": "singer.decimal"
+              "number"
+            ]
           }
         }
       }
@@ -216,16 +215,14 @@
     "ExchangeRate": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "TotalAmt": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "LinkedTxn": {
       "items": {
@@ -260,10 +257,9 @@
       ]
     },
     "UnappliedAmt": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "domain": {
@@ -415,9 +411,8 @@
             "Amount": {
               "type": [
                 "null",
-                "string"
-              ],
-              "format": "singer.decimal"
+                "number"
+              ]
             },
             "NameOnAcct": {
               "type": [

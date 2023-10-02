@@ -10,6 +10,7 @@ tables:
   links:
     doc-link: https://developer.atlassian.com/cloud/trello/rest/#api-boards-boardId-actions-get
     singer-schema: https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/actions.json
+    api-method: https://developer.atlassian.com/cloud/trello/rest/#api-boards-boardId-actions-get
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -28,6 +29,7 @@ tables:
   links:
     doc-link: https://developer.atlassian.com/cloud/trello/rest/#api-boards-id-get
     singer-schema: https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/boards.json
+    api-method: https://developer.atlassian.com/cloud/trello/rest/#api-members-id-boards-get
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -46,6 +48,7 @@ tables:
   links:
     doc-link: https://developer.atlassian.com/cloud/trello/rest/#api-cards-id-get
     singer-schema: https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/cards.json
+    api-method: https://developer.atlassian.com/cloud/trello/rest/#api-boards-id-cards-filter-get
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -57,6 +60,7 @@ tables:
   links:
     doc-link: https://developer.atlassian.com/cloud/trello/rest/#api-checklists-id-get
     singer-schema: https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/checklists.json
+    api-method: https://developer.atlassian.com/cloud/trello/rest/#api-checklists-id-get
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -72,6 +76,7 @@ tables:
   links:
     doc-link: https://developer.atlassian.com/cloud/trello/rest/#api-boards-id-lists-get
     singer-schema: https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/lists.json
+    api-method: https://developer.atlassian.com/cloud/trello/rest/#api-boards-id-lists-get
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -84,6 +89,7 @@ tables:
   links:
     doc-link: https://developer.atlassian.com/cloud/trello/rest/#api-boards-id-members-get
     singer-schema: https://github.com/singer-io/tap-trello/blob/master/tap_trello/schemas/users.json
+    api-method: https://developer.atlassian.com/cloud/trello/rest/#api-boards-id-members-get
   table-details:
     replication-method: Full Table
     primary-keys:

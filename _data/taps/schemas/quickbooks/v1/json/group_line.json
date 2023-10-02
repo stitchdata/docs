@@ -21,10 +21,9 @@
       ]
     },
     "Quantity": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "Line": {
@@ -53,17 +52,15 @@
                 ]
               },
               "DiscountAmt": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "DiscountRate": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "ItemAccountRef": {
@@ -133,10 +130,9 @@
                     ]
                   },
                   "Percent": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   },
                   "PriceLevelRef": {
@@ -168,10 +164,9 @@
                 ]
               },
               "ServiceDate": {
-                "format": "date-time",
                 "type": [
                   "null",
-                  "string"
+                  "date-time"
                 ]
               },
               "TaxClassificationRef": {
@@ -215,17 +210,15 @@
                 ]
               },
               "TaxInclusiveAmt": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "UnitPrice": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               }
             },
@@ -235,10 +228,9 @@
             ]
           },
           "LineNum": {
-            "format": "singer.decimal",
             "type": [
               "null",
-              "string"
+              "number"
             ]
           },
           "Description": {
@@ -248,10 +240,9 @@
             ]
           },
           "Amount": {
-            "format": "singer.decimal",
             "type": [
               "null",
-              "string"
+              "number"
             ]
           },
           "DetailType": {

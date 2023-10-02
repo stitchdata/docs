@@ -16,6 +16,7 @@ tables:
   links:
     doc-link: https://api.slack.com/types/channel
     singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/channels.json
+    api-method: https://api.slack.com/methods/conversations.list
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -28,6 +29,7 @@ tables:
   links:
     doc-link: https://api.slack.com/docs/conversations-api
     singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/channel_members.json
+    api-method: https://api.slack.com/methods/conversations.members
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -41,6 +43,7 @@ tables:
   links:
     doc-link: https://api.slack.com/types/file
     singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/files.json
+    api-method: https://api.slack.com/methods/files.list
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -53,6 +56,7 @@ tables:
   links:
     doc-link: https://api.slack.com/types/conversation
     singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/messages.json
+    api-method: https://api.slack.com/methods/conversations.history
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -67,6 +71,7 @@ tables:
   links:
     doc-link: https://api.slack.com/methods/files.remote.list
     singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/remote_files.json
+    api-method: https://api.slack.com/methods/files.remote.list
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -79,6 +84,7 @@ tables:
   links:
     doc-link: https://api.slack.com/methods/team.info
     singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/teams.json
+    api-method: https://api.slack.com/methods/team.info
   table-details:
     replication-method: Full Table
 - name: threads
@@ -91,6 +97,7 @@ tables:
   links:
     doc-link: https://api.slack.com/docs/conversations-api
     singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/threads.json
+    api-method: https://api.slack.com/methods/conversations.replies
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -105,6 +112,7 @@ tables:
   links:
     doc-link: https://api.slack.com/methods/users.list
     singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/users.json
+    api-method: https://api.slack.com/methods/users.list
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -117,6 +125,7 @@ tables:
   links:
     doc-link: https://api.slack.com/methods/usergroups.list
     singer-schema: https://github.com/singer-io/tap-slack/blob/master/tap_slack/schemas/user_groups.json
+    api-method: https://api.slack.com/methods/usergroups.list
   table-details:
     replication-method: Full Table
     primary-key: id

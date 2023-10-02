@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/accounts.json
+    api-method: https://saasoptics.zendesk.com/hc/en-us/articles/115013751507-Accounts-R-
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -20,6 +21,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/auto_renewal_profiles.json
+    api-method: https://saasoptics.zendesk.com/hc/en-us/articles/115013918268-Auto-Renewal-Profiles-R-
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -31,6 +33,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/billing_descriptions.json
+    api-method: https://saasoptics.zendesk.com/hc/en-us/articles/115013751807-Billing-Line-Item-Descriptions-R-
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -43,6 +46,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/billing_methods.json
+    api-method: https://saasoptics.zendesk.com/hc/en-us/articles/115003604433-Billing-Methods-R-
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -54,6 +58,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/contracts.json
+    api-method: https://saasoptics.zendesk.com/hc/en-us/articles/115013751607-Contracts-CRUD-
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -65,6 +70,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/country_codes.json
+    api-method: https://saasoptics.zendesk.com/hc/en-us/articles/115003604453-Country-Codes-R-
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -75,6 +81,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/currency_codes.json
+    api-method: https://saasoptics.zendesk.com/hc/en-us/articles/115003604453-Country-Codes-R-
   table-details:
     replication-method: Full Table
     primary-key: code
@@ -85,6 +92,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/customers.json
+    api-method: https://saasoptics.zendesk.com/hc/en-us/articles/115013751587-Customers-CRUD-
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -145,6 +153,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/invoices.json
+    api-method: https://saasoptics.zendesk.com/hc/en-us/articles/115013918148-Invoices-CRUD-
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -157,6 +166,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/items.json
+    api-method: https://saasoptics.zendesk.com/hc/en-us/articles/115013751567-Items-R-
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -167,6 +177,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/payment_terms.json
+    api-method: https://saasoptics.zendesk.com/hc/en-us/articles/115003642673-Payment-Terms-R-
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -178,6 +189,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/registers.json
+    api-method: https://saasoptics.zendesk.com/hc/en-us/articles/115013751707-Registers-R-
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -189,6 +201,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/revenue_entries.json
+    api-method: https://saasoptics.zendesk.com/hc/en-us/articles/115003674273-Revenue-Entries-R-
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -202,6 +215,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/revenue_recognition_methods.json
+    api-method: https://saasoptics.zendesk.com/hc/en-us/articles/115003617774-Revenue-Recognition-Methods-R-
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -214,6 +228,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/sales_orders.json
+    api-method: https://saasoptics.zendesk.com/hc/en-us/articles/360000738813-Sales-Orders-CR-
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -225,6 +240,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-saasoptics/blob/master/tap_saasoptics/schemas/transactions.json
+    api-method: https://saasoptics.zendesk.com/hc/en-us/articles/360000066333-Transactions-CRUD-
   table-details:
     replication-method: Key-based Incremental
     primary-key: id

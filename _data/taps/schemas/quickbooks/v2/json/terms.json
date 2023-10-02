@@ -9,9 +9,8 @@
     "DiscountPercent": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "DayOfMonthDue": {
       "type": [
@@ -76,17 +75,15 @@
     "MetaData": {
       "properties": {
         "CreateTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         },
         "LastUpdatedTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         }
       },

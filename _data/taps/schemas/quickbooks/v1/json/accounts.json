@@ -1,10 +1,9 @@
 {
   "properties": {
     "CurrentBalanceWithSubAccounts": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "AcctNum": {
@@ -78,17 +77,15 @@
     "MetaData": {
       "properties": {
         "CreateTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         },
         "LastUpdatedTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         }
       },
@@ -98,10 +95,9 @@
       ]
     },
     "CurrentBalance": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "Active": {

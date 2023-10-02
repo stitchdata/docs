@@ -25,10 +25,9 @@
     "TxnTaxDetail": {
       "properties": {
         "TotalTax": {
-          "format": "singer.decimal",
           "type": [
             "null",
-            "string"
+            "number"
           ]
         },
         "TxnTaxCodeRef": {
@@ -61,10 +60,9 @@
                 ]
               },
               "Amount": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "TaxLineDetail": {
@@ -90,10 +88,9 @@
                     ]
                   },
                   "NetAmountTaxable": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   },
                   "PercentBased": {
@@ -103,24 +100,21 @@
                     ]
                   },
                   "TaxInclusiveAmount": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   },
                   "OverrideDeltaAmount": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   },
                   "TaxPercent": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   }
                 },
@@ -523,16 +517,14 @@
     "ExchangeRate": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "TotalAmt": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "POStatus": {
       "type": [
@@ -606,9 +598,8 @@
           "Amount": {
             "type": [
               "null",
-              "string"
-            ],
-            "format": "singer.decimal"
+              "number"
+            ]
           },
           "LineNum": {
             "type": [
@@ -631,10 +622,9 @@
           "ItemBasedExpenseLineDetail": {
             "properties": {
               "TaxInclusiveAmt": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "ItemRef": {
@@ -764,10 +754,9 @@
                     ]
                   },
                   "Percent": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   },
                   "PriceLevelRef": {
@@ -805,10 +794,9 @@
                 ]
               },
               "UnitPrice": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               }
             },
@@ -901,10 +889,9 @@
                     "$ref": "shared/ref_schema.json"
                   },
                   "Percent": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   },
                   "PriceLevelRef": {
@@ -913,10 +900,9 @@
                 }
               },
               "TaxAmount": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "TaxCodeRef": {
@@ -940,10 +926,9 @@
                 ]
               },
               "TaxInclusiveAmt": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               }
             },

@@ -17,6 +17,7 @@ tables:
   links:
     doc-link: https://developers.asana.com/docs/portfolios
     singer-schema: https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/portfolios.json
+    api-method: https://developers.asana.com/docs/get-multiple-portfolios
   table-details:
     replication-method: Full Table
     primary-key: gid
@@ -42,6 +43,7 @@ tables:
   links:
     doc-link: https://developers.asana.com/docs/sections
     singer-schema: https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/sections.json
+    api-method: https://developers.asana.com/docs/get-sections-in-a-project
   table-details:
     replication-method: Full Table
     primary-key: gid
@@ -53,6 +55,7 @@ tables:
   links:
     doc-link: https://developers.asana.com/docs/stories
     singer-schema: https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/stories.json
+    api-method: https://developers.asana.com/docs/get-stories-from-a-task
   table-details:
     replication-method: Key-based Incremental
     primary-key: gid
@@ -98,6 +101,7 @@ tables:
   links:
     doc-link: https://developers.asana.com/docs/teams
     singer-schema: https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/teams.json
+    api-method: https://developers.asana.com/docs/get-teams-for-a-user
   table-details:
     replication-method: Full Table
     primary-key: gid

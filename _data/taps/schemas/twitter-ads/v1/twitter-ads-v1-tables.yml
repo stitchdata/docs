@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/accounts#accounts
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/accounts.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/accounts#accounts
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -21,6 +22,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/account-media#account-media
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/account_media.json
+    api-method: https://developer.twitter.com/en/docs/ads/creatives/api-reference/account-media#account-media
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -33,6 +35,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/advertiser-business-categories#advertiser-business-categories
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/advertiser_business_categories.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/advertiser-business-categories#advertiser-business-categories
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -44,6 +47,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/bidding-rules#bidding-rules
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/bidding_rules.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/bidding-rules#bidding-rules
   table-details:
     replication-method: Full Table
     primary-key: currency
@@ -56,6 +60,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/campaigns#campaigns
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/campaigns.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/campaigns#campaigns
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -68,6 +73,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_image_app_download.json
+    api-method: https://developer.twitter.com/en/docs/ads/creatives/api-reference/image-app-download#image-app-download-cards
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -81,6 +87,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/image-conversation#image-conversation-cards
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_image_conversation.json
+    api-method: https://developer.twitter.com/en/docs/ads/creatives/api-reference/image-conversation#image-conversation-cards
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -93,6 +100,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/image-direct-message#image-direct-message-cards
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_image_direct_message.json
+    api-method: https://developer.twitter.com/en/docs/ads/creatives/api-reference/image-direct-message#image-direct-message-cards
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -106,6 +114,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/poll#poll-cards
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_poll.json
+    api-method: https://developer.twitter.com/en/docs/ads/creatives/api-reference/poll#poll-cards
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -118,6 +127,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/video-app-download#video-app-download-cards
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_video_app_download.json
+    api-method: https://developer.twitter.com/en/docs/ads/creatives/api-reference/video-app-download#video-app-download-cards
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -131,6 +141,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/video-conversation#video-conversation-cards
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_video_conversation.json
+    api-method: https://developer.twitter.com/en/docs/ads/creatives/api-reference/video-conversation#video-conversation-cards
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -143,6 +154,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/video-direct-message#video-direct-message-cards
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_video_direct_message.json
+    api-method: https://developer.twitter.com/en/docs/ads/creatives/api-reference/video-direct-message#video-direct-message-cards
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -156,6 +168,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/video-website#video-website-cards
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_video_website.json
+    api-method: https://developer.twitter.com/en/docs/ads/creatives/api-reference/video-website#video-website-cards
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -169,6 +182,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/website#website-cards
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/cards_website.json
+    api-method: https://developer.twitter.com/en/docs/ads/creatives/api-reference/website#website-cards
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -182,6 +196,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/content-categories#content-categories
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/content_categories.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/content-categories#content-categories
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -205,9 +220,9 @@ tables:
     '
   links:
     doc-link: active_entities
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.dimension-hash-key }}'
     replication-key: end_time
   status: not_found
@@ -219,6 +234,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/funding-instruments#funding-instruments
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/funding_instruments.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/funding-instruments#funding-instruments
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -231,6 +247,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/iab-categories#iab-categories
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/iab_categories.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/iab-categories#iab-categories
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -242,6 +259,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/line-items#line-items
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/line_items.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/line-items#line-items
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -254,6 +272,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/line-item-apps#line-item-apps
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/line_item_apps.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/line-item-apps#line-item-apps
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -266,6 +285,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/media-creatives#media-creatives
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/media_creatives.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/media-creatives#media-creatives
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -278,6 +298,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/preroll-call-to-actions#preroll-call-to-actions
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/preroll_call_to_actions.json
+    api-method: https://developer.twitter.com/en/docs/ads/creatives/api-reference/preroll-call-to-actions#preroll-call-to-actions
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -290,6 +311,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/promotable-users#promotable-users
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/promotable_users.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/promotable-users#promotable-users
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -302,6 +324,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/promoted-accounts#promoted-accounts
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/promoted_accounts.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/promoted-accounts#promoted-accounts
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -314,6 +337,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/promoted-tweets#promoted-tweets
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/promoted_tweets.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/promoted-tweets#promoted-tweets
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -326,6 +350,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/scheduled-promoted-tweets#scheduled-promoted-tweets
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/scheduled_promoted_tweets.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/scheduled-promoted-tweets#scheduled-promoted-tweets
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -338,6 +363,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/audiences/api-reference/tailored-audiences#tailored-audiences
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/tailored_audiences.json
+    api-method: https://developer.twitter.com/en/docs/ads/audiences/api-reference/tailored-audiences#tailored-audiences
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -350,6 +376,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-conversations
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_app_store_categories.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-conversations
   table-details:
     replication-method: Full Table
     primary-key: targeting_value
@@ -361,6 +388,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-conversations
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_conversations.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-conversations
   table-details:
     replication-method: Full Table
     primary-key: targeting_value
@@ -372,6 +400,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-criteria#targeting-criteria
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_criteria.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-criteria#targeting-criteria
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -385,6 +414,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-devices
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_devices.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-devices
   table-details:
     replication-method: Full Table
     primary-key: targeting_value
@@ -396,6 +426,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-interests
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_interests.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-interests
   table-details:
     replication-method: Full Table
     primary-key: targeting_value
@@ -407,6 +438,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-languages
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_languages.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-languages
   table-details:
     replication-method: Full Table
     primary-key: targeting_value
@@ -420,6 +452,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-locations
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_locations.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-locations
   table-details:
     replication-method: Full Table
     primary-key: targeting_value
@@ -431,6 +464,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-network-operators
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_network_operators.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-network-operators
   table-details:
     replication-method: Full Table
     primary-key: targeting_value
@@ -442,6 +476,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-platforms
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_platforms.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-platforms
   table-details:
     replication-method: Full Table
     primary-key: targeting_value
@@ -453,6 +488,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-platform-versions
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_platform_versions.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-platform-versions
   table-details:
     replication-method: Full Table
     primary-key: targeting_value
@@ -465,6 +501,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-tv-markets
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_tv_markets.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-tv-markets
   table-details:
     replication-method: Full Table
     primary-key: locale
@@ -476,6 +513,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-tv-shows
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/targeting_tv_shows.json
+    api-method: https://developer.twitter.com/en/docs/ads/campaign-management/api-reference/targeting-options#get-targeting-criteria-tv-shows
   table-details:
     replication-method: Full Table
     primary-key: targeting_value
@@ -488,6 +526,7 @@ tables:
   links:
     doc-link: https://developer.twitter.com/en/docs/ads/creatives/api-reference/tweets#get-accounts-account-id-scoped-timeline
     singer-schema: https://github.com/singer-io/tap-twitter-ads/blob/master/tap_twitter_ads/schemas/tweets.json
+    api-method: https://developer.twitter.com/en/docs/ads/creatives/api-reference/tweets#get-accounts-account-id-scoped-timeline
   table-details:
     replication-method: Key-based Incremental
     primary-key: id

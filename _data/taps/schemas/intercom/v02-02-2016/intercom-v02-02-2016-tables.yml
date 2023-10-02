@@ -8,7 +8,7 @@ tables:
     '
   links:
     doc-link: https://developers.intercom.io/docs/admins
-    singer-schema: ''
+    api-method: https://developers.intercom.io/docs/list-admins
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -26,7 +26,7 @@ tables:
     '
   links:
     doc-link: https://developers.intercom.com/reference#companies
-    singer-schema: ''
+    api-method: https://developers.intercom.com/reference#iterating-over-all-companies
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -38,7 +38,7 @@ tables:
     '
   links:
     doc-link: https://developers.intercom.io/docs/companies
-    singer-schema: ''
+    api-method: https://developers.intercom.io/docs/list-segments
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -61,7 +61,7 @@ tables:
     '
   links:
     doc-link: https://developers.intercom.com/reference#leads
-    singer-schema: ''
+    api-method: https://developers.intercom.com/reference#list-leads
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -85,7 +85,7 @@ tables:
     '
   links:
     doc-link: https://developers.intercom.com/reference#conversations
-    singer-schema: ''
+    api-method: https://developers.intercom.io/docs/list-conversations
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -98,7 +98,7 @@ tables:
     '
   links:
     doc-link: https://developers.intercom.com/reference#segments
-    singer-schema: ''
+    api-method: https://developers.intercom.io/docs/list-segments
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -109,7 +109,7 @@ tables:
     '
   links:
     doc-link: https://developers.intercom.io/docs/tags
-    singer-schema: ''
+    api-method: https://developers.intercom.io/docs/list-tags
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -127,7 +127,7 @@ tables:
     '
   links:
     doc-link: https://developers.intercom.io/docs/users
-    singer-schema: ''
+    api-method: https://developers.intercom.com/intercom-api-reference/reference#list-users
   table-details:
     replication-method: Key-based Incremental
     primary-key: id

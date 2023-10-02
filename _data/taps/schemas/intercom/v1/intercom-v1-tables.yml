@@ -10,6 +10,7 @@ tables:
   links:
     doc-link: https://developers.intercom.com/intercom-api-reference/reference#admin-model
     singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/admins.json
+    api-method: https://developers.intercom.com/intercom-api-reference/reference#list-admins
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -52,6 +53,7 @@ tables:
   links:
     doc-link: https://developers.intercom.com/intercom-api-reference/v2.0/reference#company-model
     singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/companies.json
+    api-method: https://developers.intercom.com/intercom-api-reference/v2.0/reference#iterating-over-all-companies
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -64,6 +66,7 @@ tables:
   links:
     doc-link: https://developers.intercom.com/intercom-api-reference/v2.0/reference#data-attribute-model
     singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/company_attributes.json
+    api-method: https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-data-attributes
   table-details:
     replication-method: Full Table
     primary-key: name
@@ -75,6 +78,7 @@ tables:
   links:
     doc-link: https://developers.intercom.com/intercom-api-reference/v2.0/reference#company-model
     singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/company_segments.json
+    api-method: https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-segments
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -94,6 +98,7 @@ tables:
   links:
     doc-link: https://developers.intercom.com/intercom-api-reference/v2.0/reference#contacts-model
     singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/contacts.json
+    api-method: https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-contacts
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -106,6 +111,7 @@ tables:
   links:
     doc-link: https://developers.intercom.com/intercom-api-reference/v2.0/reference#data-attribute-model
     singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/contact_attributes.json
+    api-method: https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-data-attributes
   table-details:
     replication-method: Full Table
     primary-key: name
@@ -117,6 +123,7 @@ tables:
   links:
     doc-link: https://developers.intercom.com/intercom-api-reference/v2.0/reference#conversation-model
     singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/conversations.json
+    api-method: https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-conversations
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -133,6 +140,7 @@ tables:
   links:
     doc-link: https://developers.intercom.com/intercom-api-reference/v2.0/reference#conversation-model
     singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/conversation_parts.json
+    api-method: https://developers.intercom.com/intercom-api-reference/v2.0/reference#retrieve-a-conversation
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -143,6 +151,7 @@ tables:
   links:
     doc-link: https://developers.intercom.com/intercom-api-reference/v2.0/reference#segment-model
     singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/segments.json
+    api-method: https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-segments
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -155,6 +164,7 @@ tables:
   links:
     doc-link: https://developers.intercom.com/intercom-api-reference/reference#tag-model
     singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/tags.json
+    api-method: https://developers.intercom.com/intercom-api-reference/reference#list-tags-for-an-app
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -166,6 +176,7 @@ tables:
   links:
     doc-link: https://developers.intercom.com/intercom-api-reference/reference#teams-model
     singer-schema: https://github.com/singer-io/tap-intercom/blob/master/tap_intercom/schemas/teams.json
+    api-method: https://developers.intercom.com/intercom-api-reference/reference#list-teams
   table-details:
     replication-method: Full Table
     primary-key: id

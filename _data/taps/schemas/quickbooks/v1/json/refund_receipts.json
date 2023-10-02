@@ -88,10 +88,9 @@
             ]
           },
           "Amount": {
-            "format": "singer.decimal",
             "type": [
               "null",
-              "string"
+              "number"
             ]
           },
           "SalesItemLineDetail": {
@@ -117,17 +116,15 @@
                 ]
               },
               "DiscountAmt": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "DiscountRate": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "ItemAccountRef": {
@@ -197,10 +194,9 @@
                     ]
                   },
                   "Percent": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   },
                   "PriceLevelRef": {
@@ -226,17 +222,15 @@
                 }
               },
               "Qty": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "ServiceDate": {
-                "format": "date-time",
                 "type": [
                   "null",
-                  "string"
+                  "date-time"
                 ]
               },
               "TaxClassificationRef": {
@@ -280,10 +274,9 @@
                 ]
               },
               "TaxInclusiveAmt": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "UnitPrice": {
@@ -367,10 +360,9 @@
                 ]
               },
               "DiscountPercent": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               }
             },
@@ -430,10 +422,9 @@
                 ]
               },
               "Quantity": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "Line": {
@@ -445,17 +436,15 @@
                           "$ref": "shared/ref_schema.json"
                         },
                         "DiscountAmt": {
-                          "format": "singer.decimal",
                           "type": [
                             "null",
-                            "string"
+                            "number"
                           ]
                         },
                         "DiscountRate": {
-                          "format": "singer.decimal",
                           "type": [
                             "null",
-                            "string"
+                            "number"
                           ]
                         },
                         "ItemAccountRef": {
@@ -491,10 +480,9 @@
                               ]
                             },
                             "Percent": {
-                              "format": "singer.decimal",
                               "type": [
                                 "null",
-                                "string"
+                                "number"
                               ]
                             },
                             "PriceLevelRef": {
@@ -526,10 +514,9 @@
                           ]
                         },
                         "ServiceDate": {
-                          "format": "date-time",
                           "type": [
                             "null",
-                            "string"
+                            "date-time"
                           ]
                         },
                         "TaxClassificationRef": {
@@ -539,17 +526,15 @@
                           "$ref": "shared/ref_schema.json"
                         },
                         "TaxInclusiveAmt": {
-                          "format": "singer.decimal",
                           "type": [
                             "null",
-                            "string"
+                            "number"
                           ]
                         },
                         "UnitPrice": {
-                          "format": "singer.decimal",
                           "type": [
                             "null",
-                            "string"
+                            "number"
                           ]
                         }
                       },
@@ -559,10 +544,9 @@
                       ]
                     },
                     "LineNum": {
-                      "format": "singer.decimal",
                       "type": [
                         "null",
-                        "string"
+                        "number"
                       ]
                     },
                     "Description": {
@@ -572,10 +556,9 @@
                       ]
                     },
                     "Amount": {
-                      "format": "singer.decimal",
                       "type": [
                         "null",
-                        "string"
+                        "number"
                       ]
                     },
                     "DetailType": {
@@ -630,10 +613,9 @@
                 ]
               },
               "ServiceDate": {
-                "format": "date-time",
                 "type": [
                   "null",
-                  "string"
+                  "date-time"
                 ]
               }
             },
@@ -717,10 +699,9 @@
                 ]
               },
               "Amount": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "TaxLineDetail": {
@@ -746,10 +727,9 @@
                     ]
                   },
                   "NetAmountTaxable": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   },
                   "PercentBased": {
@@ -759,24 +739,21 @@
                     ]
                   },
                   "TaxInclusiveAmount": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   },
                   "OverrideDeltaAmount": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   },
                   "TaxPercent": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   }
                 },
@@ -825,17 +802,15 @@
     "MetaData": {
       "properties": {
         "CreateTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         },
         "LastUpdatedTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         }
       },
@@ -871,10 +846,9 @@
       ]
     },
     "TxnDate": {
-      "format": "date-time",
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "ClassRef": {
@@ -1056,22 +1030,19 @@
     "ExchangeRate": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "HomeTotalAmt": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "TotalAmt": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "CheckPayment": {
@@ -1177,9 +1148,8 @@
             "Amount": {
               "type": [
                 "null",
-                "string"
-              ],
-              "format": "singer.decimal"
+                "number"
+              ]
             },
             "NameOnAcct": {
               "type": [
@@ -1216,10 +1186,9 @@
       ]
     },
     "HomeBalance": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "PaymentRefNum": {

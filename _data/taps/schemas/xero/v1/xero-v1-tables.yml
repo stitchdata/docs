@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/accounts
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/accounts.json
+    api-method: https://developer.xero.com/documentation/api/accounts
   table-details:
     replication-method: Key-based Incremental
     primary-key: AccountId
@@ -21,6 +22,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/banktransactions
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/bank_transactions.json
+    api-method: https://developer.xero.com/documentation/api/banktransactions
   table-details:
     replication-method: Key-based Incremental
     primary-key: BankTransactionId
@@ -30,6 +32,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/bank-transfers
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/bank_transfers.json
+    api-method: https://developer.xero.com/documentation/api/bank-transfers
   table-details:
     replication-method: Key-based Incremental
     primary-key: BankTransferID
@@ -43,6 +46,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/branding-themes
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/branding_themes.json
+    api-method: https://developer.xero.com/documentation/api/branding-themes
   table-details:
     replication-method: Full Table
     primary-key: BrandingThemeID
@@ -54,6 +58,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/contacts
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/contacts.json
+    api-method: https://developer.xero.com/documentation/api/contacts
   table-details:
     replication-method: Key-based Incremental
     primary-key: ContactID
@@ -70,6 +75,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/contactgroups
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/contact_groups.json
+    api-method: https://developer.xero.com/documentation/api/contactgroups
   table-details:
     replication-method: Full Table
     primary-key: ContactGroupID
@@ -82,6 +88,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/credit-notes
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/credit_notes.json
+    api-method: https://developer.xero.com/documentation/api/credit-notes
   table-details:
     replication-method: Key-based Incremental
     primary-key: CreditNoteID
@@ -94,6 +101,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/currencies
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/currencies.json
+    api-method: https://developer.xero.com/documentation/api/currencies
   table-details:
     replication-method: Full Table
     primary-key: Code
@@ -117,6 +125,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/employees
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/employees.json
+    api-method: https://developer.xero.com/documentation/api/employees
   table-details:
     replication-method: Key-based Incremental
     primary-key: EmployeeID
@@ -128,6 +137,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/expense-claims
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/expense_claims.json
+    api-method: https://developer.xero.com/documentation/api/expense-claims
   table-details:
     replication-method: Key-based Incremental
     primary-key: ExpenseClaimID
@@ -140,6 +150,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/invoices
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/invoices.json
+    api-method: https://developer.xero.com/documentation/api/invoices
   table-details:
     replication-method: Key-based Incremental
     primary-key: InvoiceID
@@ -152,6 +163,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/items
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/items.json
+    api-method: https://developer.xero.com/documentation/api/items
   table-details:
     replication-method: Key-based Incremental
     primary-key: ItemID
@@ -163,6 +175,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/journals
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/journals.json
+    api-method: https://developer.xero.com/documentation/api/journals
   table-details:
     replication-method: Key-based Incremental
     primary-key: JournalID
@@ -176,6 +189,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/linked-transactions
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/linked_transactions.json
+    api-method: https://developer.xero.com/documentation/api/linked-transactions
   table-details:
     replication-method: Key-based Incremental
     primary-key: LinkedTransactionID
@@ -189,6 +203,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/manual-journals
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/manual_journals.json
+    api-method: https://developer.xero.com/documentation/api/manual-journals
   table-details:
     replication-method: Key-based Incremental
     primary-key: ManualJournalID
@@ -201,6 +216,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/organisation
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/organisations.json
+    api-method: https://developer.xero.com/documentation/api/organisation
   table-details:
     replication-method: Full Table
     primary-key: OrganisationID
@@ -212,6 +228,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/overpayments
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/overpayments.json
+    api-method: https://developer.xero.com/documentation/api/overpayments
   table-details:
     replication-method: Key-based Incremental
     primary-key: OverpaymentID
@@ -222,6 +239,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/payments
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/payments.json
+    api-method: https://developer.xero.com/documentation/api/payments
   table-details:
     replication-method: Key-based Incremental
     primary-key: PaymentID
@@ -235,6 +253,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/prepayments
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/prepayments.json
+    api-method: https://developer.xero.com/documentation/api/prepayments
   table-details:
     replication-method: Key-based Incremental
     primary-key: PrepaymentID
@@ -247,6 +266,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/purchase-orders
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/purchase_orders.json
+    api-method: https://developer.xero.com/documentation/api/purchase-orders
   table-details:
     replication-method: Key-based Incremental
     primary-key: PurchaseOrderID
@@ -259,11 +279,11 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/quotes
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/quotes.json
+    api-method: https://developer.xero.com/documentation/api/quotes
   table-details:
     replication-method: Key-based Incremental
     primary-key: QuoteID
     replication-key: UpdatedDateUTC
-  status: not_found
 - name: receipts
   description: 'The `{{ table.name }}` table contains info about invoice receipts,
     which are receipts sent to customers after an invoice has been received.
@@ -272,6 +292,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/receipts
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/receipts.json
+    api-method: https://developer.xero.com/documentation/api/receipts
   table-details:
     replication-method: Key-based Incremental
     primary-key: ReceiptID
@@ -285,6 +306,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/repeating-invoices
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/repeating_invoices.json
+    api-method: https://developer.xero.com/documentation/api/repeating-invoices
   table-details:
     replication-method: Full Table
     primary-key: RepeatingInvoiceID
@@ -296,6 +318,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/tax-rates
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/tax_rates.json
+    api-method: https://developer.xero.com/documentation/api/tax-rates
   table-details:
     replication-method: Full Table
     primary-key: Name
@@ -308,6 +331,7 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/tracking-categories
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/tracking_categories.json
+    api-method: https://developer.xero.com/documentation/api/tracking-categories
   table-details:
     replication-method: Full Table
     primary-key: TrackingCategoryID
@@ -318,79 +342,8 @@ tables:
   links:
     doc-link: https://developer.xero.com/documentation/api/users
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/users.json
+    api-method: https://developer.xero.com/documentation/api/users
   table-details:
     replication-method: Key-based Incremental
     primary-key: UserID
     replication-key: UpdatedDateUTC
-- name: addresses
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: allocations
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: attachments
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: line_items
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: nested_invoice
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: payment_terms
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: phones
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: validation_errors
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''

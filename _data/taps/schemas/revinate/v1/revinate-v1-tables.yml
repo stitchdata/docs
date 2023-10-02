@@ -15,6 +15,7 @@ tables:
   links:
     doc-link: https://porter.revinate.com/documentation#hotels
     singer-schema: https://github.com/singer-io/tap-revinate/blob/master/tap_revinate/schemas.py#L1
+    api-method: https://porter.revinate.com/documentation#hotels
   table-details:
     replication-method: Full Table
     primary-key: hotel_id
@@ -41,6 +42,7 @@ tables:
   links:
     doc-link: https://porter.revinate.com/documentation#hotels
     singer-schema: https://github.com/singer-io/tap-revinate/blob/master/tap_revinate/schemas.py#L26
+    api-method: https://porter.revinate.com/documentation#hotels
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -70,6 +72,7 @@ tables:
   links:
     doc-link: https://porter.revinate.com/documentation#review-sites
     singer-schema: https://github.com/singer-io/tap-revinate/blob/master/tap_revinate/schemas.py#L47
+    api-method: https://porter.revinate.com/documentation#hotels
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -100,6 +103,7 @@ tables:
   links:
     doc-link: https://porter.revinate.com/documentation#review-sites
     singer-schema: https://github.com/singer-io/tap-revinate/blob/master/tap_revinate/schemas.py#L70
+    api-method: https://porter.revinate.com/documentation#hotels
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -115,7 +119,7 @@ tables:
     \ those hotels in {{ integration.display_name }}.\n"
   links:
     doc-link: https://porter.revinate.com/documentation#reviews
-    singer-schema: null
+    api-method: https://porter.revinate.com/documentation#reviews
   table-details:
     replication-method: Key-based Incremental
     primary-key: review_id

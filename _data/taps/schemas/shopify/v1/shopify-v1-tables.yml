@@ -10,6 +10,7 @@ tables:
   links:
     doc-link: https://shopify.dev/docs/admin-api/rest/reference/orders/abandoned-checkouts?api[version]=2019-07
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/abandoned_checkouts.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/orders/abandoned-checkouts?api[version]=2019-07
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -24,6 +25,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/collects.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/products/collect?api[version]=2019-07
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -43,6 +45,7 @@ tables:
   links:
     doc-link: https://shopify.dev/docs/admin-api/rest/reference/customers
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/customers.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/customers/customer?api[version]=2019-07
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -56,6 +59,7 @@ tables:
   links:
     doc-link: https://shopify.dev/docs/admin-api/rest/reference/products/customcollection?api[version]=2019-07
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/custom_collections.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/products/customcollection?api[version]=2019-07
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -67,6 +71,7 @@ tables:
   links:
     doc-link: https://shopify.dev/api/admin-rest/2022-01/resources/event#top
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/events.json
+    api-method: https://shopify.dev/api/admin-rest/2022-01/resources/event#get-events
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -78,6 +83,7 @@ tables:
   links:
     doc-link: https://shopify.dev/api/admin-rest/2022-01/resources/inventoryitem#top
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/inventory_items.json
+    api-method: https://shopify.dev/api/admin-rest/2022-01/resources/inventoryitem#get-inventory-items
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -90,6 +96,7 @@ tables:
   links:
     doc-link: https://shopify.dev/api/admin-rest/2022-01/resources/inventorylevel#top
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/inventory_levels.json
+    api-method: https://shopify.dev/api/admin-rest/2022-01/resources/inventorylevel#get-inventory-levels
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -103,6 +110,7 @@ tables:
   links:
     doc-link: https://shopify.dev/api/admin-rest/2022-01/resources/location#top
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/locations.json
+    api-method: https://shopify.dev/api/admin-rest/2022-01/resources/location#get-locations
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -131,6 +139,7 @@ tables:
   links:
     doc-link: https://shopify.dev/docs/admin-api/rest/reference/metafield?api[version]=2019-07
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/metafields.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/metafield?api[version]=2019-07
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -150,6 +159,7 @@ tables:
   links:
     doc-link: https://shopify.dev/docs/admin-api/rest/reference/orders/
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/orders.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/orders/order?api[version]=2019-07
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -162,6 +172,7 @@ tables:
   links:
     doc-link: https://shopify.dev/docs/admin-api/rest/reference/orders/refund?api[version]=2019-07
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/order_refunds.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/orders/refund?api[version]=2019-07
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -180,6 +191,7 @@ tables:
   links:
     doc-link: https://shopify.dev/docs/admin-api/rest/reference/products
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/products.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/products/product?api[version]=2019-07
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -191,6 +203,7 @@ tables:
   links:
     doc-link: https://shopify.dev/docs/admin-api/rest/reference/orders/transaction?api[version]=2019-07
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/transactions.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/orders/transaction?api[version]=2019-07
   table-details:
     replication-method: Key-based Incremental
     primary-key: id

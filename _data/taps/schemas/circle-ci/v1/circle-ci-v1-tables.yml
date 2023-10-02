@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: https://circleci.com/docs/api/v2/index.html#operation/listWorkflowJobs
     singer-schema: https://github.com/singer-io/tap-circle-ci/tree/master/tap_circle_ci/schemas/jobs.json
+    api-method: https://circleci.com/docs/api/v2/index.html#operation/listWorkflowJobs
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -22,6 +23,7 @@ tables:
   links:
     doc-link: https://circleci.com/docs/api/v2/index.html#operation/listPipelinesForProject
     singer-schema: https://github.com/singer-io/tap-circle-ci/tree/master/tap_circle_ci/schemas/pipelines.json
+    api-method: https://circleci.com/docs/api/v2/index.html#operation/listPipelinesForProject
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -34,6 +36,7 @@ tables:
   links:
     doc-link: https://circleci.com/docs/api/v2/index.html#operation/listWorkflowsByPipelineId
     singer-schema: https://github.com/singer-io/tap-circle-ci/tree/master/tap_circle_ci/schemas/workflows.json
+    api-method: https://circleci.com/docs/api/v2/index.html#operation/listWorkflowsByPipelineId
   table-details:
     replication-method: Key-based Incremental
     primary-key: id

@@ -10,6 +10,7 @@ tables:
   links:
     doc-link: http://docs.urbanairship.com/api/ua.html#channels
     singer-schema: https://github.com/singer-io/tap-urban-airship/blob/master/tap_urban_airship/schemas/channels.json
+    api-method: https://docs.urbanairship.com/api/ua/#channel-list-api
   table-details:
     replication-method: Key-based Incremental
     primary-key: channel_id
@@ -24,6 +25,7 @@ tables:
   links:
     doc-link: http://docs.urbanairship.com/api/ua.html#static-lists
     singer-schema: https://github.com/singer-io/tap-urban-airship/blob/master/tap_urban_airship/schemas/lists.json
+    api-method: https://docs.urbanairship.com/api/ua/#all-lists
   table-details:
     replication-method: Key-based Incremental
     primary-key: name
@@ -38,6 +40,7 @@ tables:
   links:
     doc-link: http://docs.urbanairship.com/api/ua.html#named-users
     singer-schema: https://github.com/singer-io/tap-urban-airship/blob/master/tap_urban_airship/schemas/named_users.json
+    api-method: https://docs.urbanairship.com/api/ua/#api-named-users-listing
   table-details:
     replication-method: Full Table
     primary-key: named_user_id
@@ -48,7 +51,7 @@ tables:
     '
   links:
     doc-link: http://docs.urbanairship.com/api/ua.html#segments
-    singer-schema: null
+    api-method: https://docs.urbanairship.com/api/ua/#segment-listing
   table-details:
     replication-method: Key-based Incremental
     primary-key: id

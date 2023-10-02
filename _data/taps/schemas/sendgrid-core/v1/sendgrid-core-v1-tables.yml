@@ -11,6 +11,7 @@ tables:
   links:
     doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/blocks.html#List-all-blocks-GET
     singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/blocks.json
+    api-method: https://sendgrid.com/docs/API_Reference/Web_API_v3/blocks.html#List-all-blocks-GET
   table-details:
     replication-method: Key-based Incremental
     primary-key: email
@@ -23,19 +24,10 @@ tables:
   links:
     doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/bounces.html#List-all-bounces-GET
     singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/bounces.json
+    api-method: https://sendgrid.com/docs/API_Reference/Web_API_v3/bounces.html#List-all-bounces-GET
   table-details:
     replication-method: Key-based Incremental
     primary-key: email
-- name: campaigns
-  description: 'The `{{ table.name }}` table contains info about all your campaigns.
-
-    '
-  links:
-    doc-link: null
-    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/campaigns.json
-  table-details:
-    replication-method: Key-based Incremental
-    primary-key: id
 - name: contacts
   description: 'The `{{ table.name }}` table contains info about the contacts in your
     SendGrid account.
@@ -51,6 +43,7 @@ tables:
   links:
     doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/Marketing_Campaigns/contactdb.html#Get-Recipients-Matching-Search-Criteria-GET
     singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/contacts.json
+    api-method: https://sendgrid.com/docs/API_Reference/Web_API_v3/Marketing_Campaigns/contactdb.html#Get-Recipients-Matching-Search-Criteria-GET
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -63,6 +56,7 @@ tables:
   links:
     doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/global_suppressions.html#-Global-Unsubscribes
     singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/global_suppressions.json
+    api-method: https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/global_suppressions.html#-Global-Unsubscribes
   table-details:
     replication-method: Key-based Incremental
     primary-key: email
@@ -76,6 +70,7 @@ tables:
   links:
     doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/groups.html#-GET
     singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/groups_all.json
+    api-method: https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/groups.html#-GET
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -87,111 +82,84 @@ tables:
   links:
     doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/suppressions.html#-GET
     singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/groups_members.json
+    api-method: https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/suppressions.html#-GET
   table-details:
     replication-method: Full Table
     primary-key: email
   status: not_found
-- name: invalids
-  description: 'The `{{ table.name }}` table contains info about invalid email addresses.
-    An invalid email occurs when you attempt to send an email to an address that is
-    formatted in a manner that doesn''t meet internet email format standards, or the
-    email doesn''t exist at the recipient''s email server.
-
-
-    For example: Email addresses that don''t include the `@` symbol.
-
-    '
+- name: campaigns
+  description: ''
   links:
-    doc-link: null
-    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/invalids.json
+    singer-schema: ''
+    doc-link: ''
   table-details:
-    replication-method: Key-based Incremental
-    primary-key: email
-- name: lists_all
-  description: 'The `{{ table.name }}` table contains info about your recipient lists.
-
-    '
-  links:
-    doc-link: null
-    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/lists_all.json
-  table-details:
-    replication-method: Full Table
-    primary-key: id
-- name: lists_members
-  description: 'The `{{ table.name }}` table contains info about members of your lists.
-
-
-    #### List member custom fields
-
-
-    Stitch''s {{ integration.display_name }} integration will replicate any custom
-    fields associated with list member records.
-
-    '
-  links:
-    doc-link: null
-    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/lists_members.json
-  table-details:
-    replication-method: Full Table
-    primary-key: id
-- name: segments_all
-  description: 'The `{{ table.name }}` table contains info about the segments in your
-    SendGrid account, and the conditions required for recipients to be added to the
-    segment.
-
-
-    For example: A segment for recipients with email addresses that contain `@stitchdata.com`
-
-    '
-  links:
-    doc-link: null
-    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/segments_all.json
-  table-details:
-    replication-method: Full Table
-    primary-key: id
-- name: segments_members
-  description: 'The `{{ table.name }}` table contains info about the members of your
-    segments.
-
-
-    #### Segment member custom fields
-
-
-    Stitch''s {{ integration.display_name }} integration will replicate any custom
-    fields associated with segment member records.
-
-    '
-  links:
-    doc-link: null
-    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/segments_members.json
-  table-details:
-    replication-method: Full Table
-    primary-key: id
-- name: spam_reports
-  description: 'The `{{ table.name }}` table contains info about spam reports made
-    against your messages. Spam reports occur when a recipient indicates they think
-    your message is spam, which their email provider then reports to SendGrid.
-
-    '
-  links:
-    doc-link: null
-    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/spam_reports.json
-  table-details:
-    replication-method: Key-based Incremental
-    primary-key: email
-- name: templates_all
-  description: 'The `{{ table.name }}` table contains info about the transactional
-    templates in your SendGrid account. Transactional templates are templates specifically
-    created for transactional email and are different than Marketing Campaign templates.
-
-    '
-  links:
-    doc-link: null
-    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/templates_all.json
-  table-details:
-    replication-method: Full Table
-    primary-key: id
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
 - name: groups_members
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
+- name: invalids
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
+- name: lists_all
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
+- name: lists_members
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
+- name: segments_all
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
+- name: segments_members
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
+- name: spam_reports
+  description: ''
+  links:
+    singer-schema: ''
+    doc-link: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
+- name: templates_all
   description: ''
   links:
     singer-schema: ''

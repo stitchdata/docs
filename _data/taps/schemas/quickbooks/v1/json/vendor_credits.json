@@ -23,23 +23,20 @@
     "ExchangeRate": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "Balance": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "TotalAmt": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "SyncToken": {
       "type": [
@@ -218,10 +215,9 @@
                     "$ref": "shared/ref_schema.json"
                   },
                   "Percent": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   },
                   "PriceLevelRef": {
@@ -230,10 +226,9 @@
                 }
               },
               "TaxAmount": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "TaxCodeRef": {
@@ -257,10 +252,9 @@
                 ]
               },
               "TaxInclusiveAmt": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               }
             },
@@ -272,10 +266,9 @@
           "ItemBasedExpenseLineDetail": {
             "properties": {
               "TaxInclusiveAmt": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "ItemRef": {
@@ -388,10 +381,9 @@
                     "$ref": "shared/ref_schema.json"
                   },
                   "Percent": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   },
                   "PriceLevelRef": {
@@ -432,9 +424,8 @@
           "Amount": {
             "type": [
               "null",
-              "string"
-            ],
-            "format": "singer.decimal"
+              "number"
+            ]
           },
           "DetailType": {
             "type": [

@@ -14,6 +14,7 @@ tables:
   links:
     doc-link: https://gitlab.com/help/api/branches.html
     singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/branches.json
+    api-method: https://gitlab.com/help/api/branches.html#list-repository-branches
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -32,6 +33,7 @@ tables:
   links:
     doc-link: https://gitlab.com/help/api/commits.md
     singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/commits.json
+    api-method: https://gitlab.com/help/api/commits.md#list-repository-commits
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -43,6 +45,7 @@ tables:
   links:
     doc-link: https://gitlab.com/help/api/issues.md#list-project-issues
     singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/issues.json
+    api-method: https://gitlab.com/help/api/issues.md#list-project-issues
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -59,6 +62,7 @@ tables:
   links:
     doc-link: https://gitlab.com/help/api/milestones.md#list-project-milestones
     singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/milestones.json
+    api-method: https://gitlab.com/help/api/milestones.md#list-project-milestones
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -70,6 +74,7 @@ tables:
   links:
     doc-link: https://gitlab.com/help/api/projects.md#list-all-projects
     singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/projects.json
+    api-method: https://gitlab.com/help/api/projects.md#list-all-projects
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -82,6 +87,7 @@ tables:
   links:
     doc-link: https://gitlab.com/help/api/users.md#list-users
     singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/users.json
+    api-method: https://gitlab.com/help/api/users.md#list-users
   table-details:
     replication-method: Full Table
     primary-key: id

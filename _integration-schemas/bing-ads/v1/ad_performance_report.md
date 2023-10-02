@@ -11,9 +11,7 @@ description: |
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
 replication-method: "Append-Only (Incremental)"
-api-method:
-  name:
-  doc-link: 
+
 
 attributes:
   - name: "accountId"

@@ -10,6 +10,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-recharge/blob/master/tap_recharge/schemas/addresses.json
+    api-method: https://developer.rechargepayments.com/#list-addresses
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -22,6 +23,7 @@ tables:
   links:
     doc-link: https://developer.rechargepayments.com/#list-charges
     singer-schema: https://github.com/singer-io/tap-recharge/blob/master/tap_recharge/schemas/charges.json
+    api-method: https://developer.rechargepayments.com/#list-charges
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -33,6 +35,7 @@ tables:
   links:
     doc-link: https://developer.rechargepayments.com/#list-collections-alpha
     singer-schema: https://github.com/singer-io/tap-recharge/blob/master/tap_recharge/schemas/collections.json
+    api-method: https://developer.rechargepayments.com/#list-collections-alpha
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -45,6 +48,7 @@ tables:
   links:
     doc-link: https://developer.rechargepayments.com/#list-customers
     singer-schema: https://github.com/singer-io/tap-recharge/blob/master/tap_recharge/schemas/customers.json
+    api-method: https://developer.rechargepayments.com/#list-customers
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -56,6 +60,7 @@ tables:
   links:
     doc-link: https://developer.rechargepayments.com/#list-discounts
     singer-schema: https://github.com/singer-io/tap-recharge/blob/master/tap_recharge/schemas/discounts.json
+    api-method: https://developer.rechargepayments.com/#list-discounts
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -68,6 +73,7 @@ tables:
   links:
     doc-link: https://developer.rechargepayments.com/#list-metafields
     singer-schema: https://github.com/singer-io/tap-recharge/blob/master/tap_recharge/schemas/metafields_customer.json
+    api-method: https://developer.rechargepayments.com/#list-metafields
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -80,6 +86,7 @@ tables:
   links:
     doc-link: https://developer.rechargepayments.com/#list-metafields
     singer-schema: https://github.com/singer-io/tap-recharge/blob/master/tap_recharge/schemas/metafields_store.json
+    api-method: https://developer.rechargepayments.com/#list-metafields
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -92,6 +99,7 @@ tables:
   links:
     doc-link: https://developer.rechargepayments.com/#metafields
     singer-schema: https://github.com/singer-io/tap-recharge/blob/master/tap_recharge/schemas/metafields_subscription.json
+    api-method: https://developer.rechargepayments.com/#list-metafields
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -103,6 +111,7 @@ tables:
   links:
     doc-link: https://developer.rechargepayments.com/#list-onetimes-alpha
     singer-schema: https://github.com/singer-io/tap-recharge/blob/master/tap_recharge/schemas/onetimes.json
+    api-method: https://developer.rechargepayments.com/#list-onetimes-alpha
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -115,6 +124,7 @@ tables:
   links:
     doc-link: https://developer.rechargepayments.com/#list-orders
     singer-schema: https://github.com/singer-io/tap-recharge/blob/master/tap_recharge/schemas/orders.json
+    api-method: https://developer.rechargepayments.com/#list-orders
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -126,6 +136,7 @@ tables:
   links:
     doc-link: https://developer.rechargepayments.com/#list-products-beta
     singer-schema: https://github.com/singer-io/tap-recharge/blob/master/tap_recharge/schemas/products.json
+    api-method: https://developer.rechargepayments.com/#list-products-beta
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -137,6 +148,7 @@ tables:
   links:
     doc-link: https://developer.rechargepayments.com/#retrieve-shop
     singer-schema: https://github.com/singer-io/tap-recharge/blob/master/tap_recharge/schemas/shop.json
+    api-method: https://developer.rechargepayments.com/#retrieve-shop
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -148,6 +160,7 @@ tables:
   links:
     doc-link: https://developer.rechargepayments.com/#list-subscriptions
     singer-schema: https://github.com/singer-io/tap-recharge/blob/master/tap_recharge/schemas/subscriptions.json
+    api-method: https://developer.rechargepayments.com/#list-subscriptions
   table-details:
     replication-method: Key-based Incremental
     primary-key: id

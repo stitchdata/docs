@@ -74,10 +74,9 @@
             ]
           },
           "Amount": {
-            "format": "singer.decimal",
             "type": [
               "null",
-              "string"
+              "number"
             ]
           },
           "JournalEntryLineDetail": {
@@ -195,10 +194,9 @@
                 ]
               },
               "TaxAmount": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "Entity": {
@@ -244,9 +242,8 @@
               "TaxInclusiveAmt": {
                 "type": [
                   "null",
-                  "string"
-                ],
-                "format": "singer.decimal"
+                  "number"
+                ]
               }
             },
             "type": [
@@ -267,10 +264,9 @@
             ]
           },
           "LineNum": {
-            "format": "singer.decimal",
             "type": [
               "null",
-              "string"
+              "number"
             ]
           },
           "DescriptionLineDetail": {
@@ -296,10 +292,9 @@
                 ]
               },
               "ServiceDate": {
-                "format": "date-time",
                 "type": [
                   "null",
-                  "string"
+                  "date-time"
                 ]
               }
             },
@@ -320,10 +315,9 @@
       ]
     },
     "TxnDate": {
-      "format": "date-time",
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "PrivateNote": {
@@ -335,24 +329,21 @@
     "ExchangeRate": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "MetaData": {
       "properties": {
         "CreateTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         },
         "LastUpdatedTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         }
       },
@@ -374,10 +365,9 @@
       ]
     },
     "HomeTotalAmt": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "JournalCodeRef": {
@@ -421,10 +411,9 @@
       ]
     },
     "TotalAmt": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "TransactionLocationType": {
@@ -436,10 +425,9 @@
     "TxnTaxDetail": {
       "properties": {
         "TotalTax": {
-          "format": "singer.decimal",
           "type": [
             "null",
-            "string"
+            "number"
           ]
         },
         "TxnTaxCodeRef": {
@@ -455,10 +443,9 @@
                 ]
               },
               "Amount": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "TaxLineDetail": {
@@ -467,10 +454,9 @@
                     "$ref": "shared/ref_schema.json"
                   },
                   "NetAmountTaxable": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   },
                   "PercentBased": {
@@ -480,24 +466,21 @@
                     ]
                   },
                   "TaxInclusiveAmount": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   },
                   "OverrideDeltaAmount": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   },
                   "TaxPercent": {
-                    "format": "singer.decimal",
                     "type": [
                       "null",
-                      "string"
+                      "number"
                     ]
                   }
                 },

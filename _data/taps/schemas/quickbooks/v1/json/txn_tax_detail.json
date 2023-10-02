@@ -1,10 +1,9 @@
 {
   "properties": {
     "TotalTax": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "TxnTaxCodeRef": {
@@ -37,10 +36,9 @@
             ]
           },
           "Amount": {
-            "format": "singer.decimal",
             "type": [
               "null",
-              "string"
+              "number"
             ]
           },
           "TaxLineDetail": {
@@ -66,10 +64,9 @@
                 ]
               },
               "NetAmountTaxable": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "PercentBased": {
@@ -79,24 +76,21 @@
                 ]
               },
               "TaxInclusiveAmount": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "OverrideDeltaAmount": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
               "TaxPercent": {
-                "format": "singer.decimal",
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               }
             },

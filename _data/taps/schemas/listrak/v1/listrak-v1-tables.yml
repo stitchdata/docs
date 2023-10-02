@@ -8,6 +8,7 @@ tables:
   links:
     doc-link: null
     singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/lists.json
+    api-method: https://webservices.listrak.com/v31/IntegrationService.asmx?op=GetContactListCollection
   table-details:
     replication-method: Full Table
     primary-key: ListID
@@ -18,6 +19,7 @@ tables:
   links:
     doc-link: null
     singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/messages.json
+    api-method: https://webservices.listrak.com/v31/IntegrationService.asmx?op=ReportListMessageActivity
   table-details:
     replication-method: Full Table
     primary-key: MsgID
@@ -29,6 +31,7 @@ tables:
   links:
     doc-link: null
     singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/message_bounces.json
+    api-method: https://webservices.listrak.com/v31/IntegrationService.asmx?op=ReportRangeMessageContactBounces
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -42,6 +45,7 @@ tables:
   links:
     doc-link: null
     singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/message_clicks.json
+    api-method: https://webservices.listrak.com/v31/IntegrationService.asmx?op=ReportRangeMessageContactClick
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -55,6 +59,7 @@ tables:
   links:
     doc-link: null
     singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/message_opens.json
+    api-method: https://webservices.listrak.com/v31/IntegrationService.asmx?op=ReportRangeMessageContactOpen
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -68,6 +73,7 @@ tables:
   links:
     doc-link: null
     singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/message_reads.json
+    api-method: https://webservices.listrak.com/v31/IntegrationService.asmx?op=ReportRangeMessageContactRead
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -81,6 +87,7 @@ tables:
   links:
     doc-link: null
     singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/message_sends.json
+    api-method: https://webservices.listrak.com/v31/IntegrationService.asmx?op=ReportMessageContactSent
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -94,6 +101,7 @@ tables:
   links:
     doc-link: null
     singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/message_unsubs.json
+    api-method: https://webservices.listrak.com/v31/IntegrationService.asmx?op=ReportRangeMessageContactRemoval
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -107,6 +115,7 @@ tables:
   links:
     doc-link: null
     singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/subscribed_contacts.json
+    api-method: https://webservices.listrak.com/v31/IntegrationService.asmx?op=ReportRangeSubscribedContacts
   table-details:
     replication-method: Full Table
     primary-keys:

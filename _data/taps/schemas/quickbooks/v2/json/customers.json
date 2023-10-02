@@ -187,10 +187,9 @@
       ]
     },
     "Balance": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "CompanyName": {
@@ -226,10 +225,9 @@
       ]
     },
     "BalanceWithJobs": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "BillWithParent": {
@@ -317,17 +315,15 @@
     "MetaData": {
       "properties": {
         "CreateTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         },
         "LastUpdatedTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         }
       },
@@ -547,10 +543,9 @@
       ]
     },
     "OpenBalanceDate": {
-      "format": "date-time",
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "PrimaryTaxIdentifier": {

@@ -47,17 +47,15 @@
     "MetaData": {
       "properties": {
         "CreateTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         },
         "LastUpdatedTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         }
       },
@@ -99,10 +97,9 @@
       ]
     },
     "TxnDate": {
-      "format": "date-time",
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "SyncToken": {
@@ -262,9 +259,8 @@
     "CostRate": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "patternProperties": {
       ".+": {}

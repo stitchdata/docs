@@ -11,6 +11,7 @@ tables:
   links:
     doc-link: https://hire.lever.co/developer/documentation#archive-reasons
     singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/archive_reasons.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-archive-reasons
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -48,6 +49,7 @@ tables:
   links:
     doc-link: https://hire.lever.co/developer/documentation#candidates
     singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/candidates.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-candidates
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -59,6 +61,7 @@ tables:
   links:
     doc-link: https://hire.lever.co/developer/documentation#applications
     singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/candidate_applications.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-applications
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -71,6 +74,7 @@ tables:
   links:
     doc-link: https://hire.lever.co/developer/documentation#offers
     singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/candidate_offers.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-offers
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -82,6 +86,7 @@ tables:
   links:
     doc-link: https://hire.lever.co/developer/documentation#referrals
     singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/candidate_referrals.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-referrals
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -92,6 +97,7 @@ tables:
   links:
     doc-link: https://hire.lever.co/developer/documentation#resumes
     singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/candidate_resumes.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-resumes
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -130,6 +136,7 @@ tables:
   links:
     doc-link: https://hire.lever.co/developer/documentation#opportunities
     singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/opportunities.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-opportunities
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -145,6 +152,7 @@ tables:
   links:
     doc-link: https://hire.lever.co/developer/documentation#list-all-opportunities
     singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/opportunity_applications.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-opportunities
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -155,6 +163,7 @@ tables:
   links:
     doc-link: https://hire.lever.co/developer/documentation#opportunities
     singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/opportunity_offers.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-opportunities
   table-details:
     replication-method: Key-based Incremental
 - name: opportunity_referrals
@@ -169,6 +178,7 @@ tables:
   links:
     doc-link: https://hire.lever.co/developer/documentation#opportunities
     singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/opportunity_referrals.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-opportunities
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -183,6 +193,7 @@ tables:
   links:
     doc-link: https://hire.lever.co/developer/documentation#opportunities
     singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/opportunity_resumes.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-opportunities
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -194,6 +205,7 @@ tables:
   links:
     doc-link: https://hire.lever.co/developer/documentation#postings
     singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/postings.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-postings
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -206,6 +218,7 @@ tables:
   links:
     doc-link: https://hire.lever.co/developer/documentation#requisitions
     singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/requisitions.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-requisitions
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -218,6 +231,7 @@ tables:
   links:
     doc-link: https://hire.lever.co/developer/documentation#sources
     singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/sources.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-sources
   table-details:
     replication-method: Full Table
     primary-key: text
@@ -229,6 +243,7 @@ tables:
   links:
     doc-link: https://hire.lever.co/developer/documentation#stages
     singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/stages.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-stages
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -241,6 +256,7 @@ tables:
   links:
     doc-link: https://hire.lever.co/developer/documentation#users
     singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/users.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-users
   table-details:
     replication-method: Full Table
     primary-key: id

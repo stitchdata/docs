@@ -14,6 +14,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/account
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/accounts.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/account#query-an-account
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -25,6 +26,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/bill
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/bills.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/bill#query-a-bill
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -36,6 +38,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/billpayment
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/bill_payments.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/billpayment#query-a-billpayment
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -48,6 +51,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/budget
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/budgets.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/budget#query-the-budget
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -60,6 +64,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/class
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/classes.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/class#query-a-class
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -73,6 +78,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/creditmemo
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/credit_memos.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/creditmemo#query-a-credit-memo
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -85,6 +91,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/customer
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/customers.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/customer#query-a-customer
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -95,6 +102,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/changedatacapture#the-changedatacapture-object
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/customer_types.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/customertype#query-a-customertype
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -106,6 +114,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/changedatacapture#the-changedatacapture-object
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/deleted_objects.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/changedatacapture#get-a-list-of-changed-entities
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -118,6 +127,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/department
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/departments.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/department#query-a-department
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -130,6 +140,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/deposit
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/deposits.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/deposit#query-a-deposit
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -142,6 +153,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/employee
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/employees.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/employee#query-an-employee
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -154,6 +166,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/estimate
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/estimates.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/estimate#read-an-estimate
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -165,6 +178,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/invoice
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/invoices.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/invoice#query-an-invoice
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -177,6 +191,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/item
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/items.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/item/#query-an-item
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -196,6 +211,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/journalentry
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/journal_entries.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/journalentry/#query-a-journalentry
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -207,6 +223,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/payment
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/payments.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/payment/#query-a-payment
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -219,6 +236,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/paymentmethod
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/payment_methods.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/paymentmethod/#query-a-paymentmethod
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -230,6 +248,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/profitandloss
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/profit_loss_report.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/profitandloss#query-a-report
   table-details:
     replication-method: Key-based Incremental
     primary-key: ReportDate
@@ -242,6 +261,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/purchase
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/purchases.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/purchase/#query-a-purchase
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -254,6 +274,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/purchaseorder
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/purchase_orders.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/purchaseorder/#query-a-purchaseorder
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -265,6 +286,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/refundreceipt
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/refund_receipts.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/refundreceipt/#query-a-refundreceipt
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -276,6 +298,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/salesreceipt
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/sales_receipts.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/salesreceipt/#query-a-salesreceipt
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -287,6 +310,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/taxagency
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/tax_agencies.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/taxagency/#query-a-taxagency
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -299,6 +323,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/taxcode
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/tax_codes.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/taxcode
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -311,6 +336,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/taxrate
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/tax_rates.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/taxrate#query-a-taxrate
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -323,6 +349,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/term
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/terms.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/term#query-a-term
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -334,6 +361,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/timeactivity
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/time_activities.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/timeactivity#query-a-timeactivity
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -345,6 +373,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/transfer
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/transfers.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/transfer#query-a-transfer
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -357,6 +386,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/vendor
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/vendors.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/vendor#query-a-vendor
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id
@@ -368,6 +398,7 @@ tables:
   links:
     doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/vendorcredit
     singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/vendor_credits.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/vendorcredit#query-a-vendorcredit
   table-details:
     replication-method: Key-based Incremental
     primary-key: Id

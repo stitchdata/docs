@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: https://developer.github.com/v3/issues/assignees/
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/assignees.json
+    api-method: https://docs.github.com/en/rest/reference/issues#list-assignees
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -25,6 +26,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/collaborators.json
+    api-method: https://docs.github.com/en/rest/reference/repos#list-repository-collaborators
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -36,6 +38,7 @@ tables:
   links:
     doc-link: https://developer.github.com/v3/comments/
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/comments.json
+    api-method: https://docs.github.com/en/rest/reference/issues#list-issue-comments-for-a-repository
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -47,6 +50,7 @@ tables:
   links:
     doc-link: null
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/commits.json
+    api-method: https://docs.github.com/en/rest/reference/repos#list-commits
   table-details:
     replication-method: Key-based Incremental
     primary-key: sha
@@ -58,6 +62,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/commit_comments.json
+    api-method: https://docs.github.com/en/rest/reference/repos#list-commit-comments-for-a-repository
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -70,6 +75,7 @@ tables:
   links:
     doc-link: https://developer.github.com/v3/activity/events/
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/events.json
+    api-method: https://docs.github.com/en/rest/activity/events#list-repository-events
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -88,6 +94,7 @@ tables:
   links:
     doc-link: https://developer.github.com/v3/issues/
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/issues.json
+    api-method: https://docs.github.com/en/rest/reference/issues#list-repository-issues
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -99,6 +106,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/issue_events.json
+    api-method: https://docs.github.com/en/rest/reference/issues#list-issue-events-for-a-repository
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -110,6 +118,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/issue_labels.json
+    api-method: https://docs.github.com/en/rest/reference/issues#list-labels-for-a-repository
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -121,6 +130,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/issue_milestones.json
+    api-method: https://docs.github.com/en/rest/reference/issues#list-milestones
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -130,6 +140,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/projects.json
+    api-method: https://docs.github.com/en/rest/reference/projects#list-repository-projects
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -141,6 +152,7 @@ tables:
   links:
     doc-link: https://docs.github.com/en/rest/reference/projects#cards
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/project_cards.json
+    api-method: https://docs.github.com/en/rest/reference/projects#list-project-cards
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -152,6 +164,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/project_columns.json
+    api-method: https://docs.github.com/en/rest/reference/projects#list-project-columns
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -164,6 +177,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: ''
+    api-method: https://docs.github.com/en/rest/reference/pulls#list-commits-on-a-pull-request
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -175,6 +189,7 @@ tables:
   links:
     doc-link: https://developer.github.com/v3/pulls/
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/pull_requests.json
+    api-method: https://docs.github.com/en/rest/reference/pulls#list-pull-requests
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -190,6 +205,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/releases.json
+    api-method: https://docs.github.com/en/rest/reference/repos#list-releases
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -202,6 +218,7 @@ tables:
   links:
     doc-link: https://developer.github.com/v3/pulls/reviews/
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/reviews.json
+    api-method: https://docs.github.com/en/rest/reference/pulls#list-reviews-for-a-pull-request
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -213,6 +230,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/review_comments.json
+    api-method: https://docs.github.com/en/rest/reference/pulls#list-review-comments-on-a-pull-request
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -224,6 +242,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/stargazers.json
+    api-method: https://docs.github.com/en/rest/reference/activity#list-stargazers
   table-details:
     replication-method: Full Table
     primary-key: user_id
@@ -236,6 +255,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/teams.json
+    api-method: https://docs.github.com/en/rest/reference/teams#list-teams
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -247,6 +267,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/team_members.json
+    api-method: https://docs.github.com/en/rest/reference/teams#list-team-members
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -258,6 +279,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/team_memberships.json
+    api-method: https://docs.github.com/en/rest/reference/teams#get-team-membership-for-a-user
   table-details:
     replication-method: Full Table
     primary-key: url

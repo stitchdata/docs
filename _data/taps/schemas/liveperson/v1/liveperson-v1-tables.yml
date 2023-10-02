@@ -10,6 +10,7 @@ tables:
   links:
     doc-link: https://developers.liveperson.com/data-access-api-methods-agent-activity.html
     singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/agent_activity.json
+    api-method: https://developers.liveperson.com/data-access-api-methods-agent-activity.html
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -24,6 +25,7 @@ tables:
   links:
     doc-link: https://developers.liveperson.com/agent-groups-api-overview.html#use-cases-for-the-agent-groups-api
     singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/agent_groups.json
+    api-method: https://developers.liveperson.com/agent-groups-api-methods-get-all-agent-groups.html#request
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -33,6 +35,7 @@ tables:
   links:
     doc-link: https://developers.liveperson.com/operational-realtime-api-methods-agent-activity.html
     singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/agent_state_distribution.json
+    api-method: https://developers.liveperson.com/operational-realtime-api-methods-agent-activity.html
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -47,6 +50,7 @@ tables:
   links:
     doc-link: https://developers.liveperson.com/agent-status-reason-api-overview.html#status-reason-object-description
     singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/agent_status.json
+    api-method: https://developers.liveperson.com/agent-status-reason-api-methods-agent-status-list.html#description
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -58,6 +62,7 @@ tables:
   links:
     doc-link: https://developers.liveperson.com/engagement-history-api-overview.html
     singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/engagement_history.json
+    api-method: https://developers.liveperson.com/engagement-history-api-methods.html
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -69,6 +74,7 @@ tables:
   links:
     doc-link: https://developers.liveperson.com/messaging-interactions-api-overview.html#getting-started
     singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/messaging_interactions.json
+    api-method: https://developers.liveperson.com/messaging-interactions-api-methods-conversations.html
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -79,6 +85,7 @@ tables:
   links:
     doc-link: https://developers.liveperson.com/messaging-operations-api-methods-messaging-queue-health.html
     singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/messaging_queue_health.json
+    api-method: https://developers.liveperson.com/messaging-operations-api-methods-messaging-queue-health.html
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -89,6 +96,7 @@ tables:
   links:
     doc-link: https://developers.liveperson.com/operational-realtime-api-methods-queue-health.html
     singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/queue_health.json
+    api-method: https://developers.liveperson.com/operational-realtime-api-methods-queue-health.html
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -103,6 +111,7 @@ tables:
   links:
     doc-link: https://developers.liveperson.com/skills-api-overview.html
     singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/skills.json
+    api-method: https://developers.liveperson.com/skills-api-methods-get-all-skills.html
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -118,6 +127,7 @@ tables:
   links:
     doc-link: https://developers.liveperson.com/users-api-overview.html
     singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/users.json
+    api-method: https://developers.liveperson.com/users-api-methods-get-all-users.html
   table-details:
     replication-method: Full Table
     primary-key: id

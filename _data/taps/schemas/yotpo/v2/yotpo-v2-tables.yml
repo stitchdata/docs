@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: https://core-api.yotpo.com/reference/collections
     singer-schema: https://github.com/singer-io/tap-yotpo/tree/master/tap_yotpo/schemas/collections.json
+    api-method: https://core-api.yotpo.com/reference/retrieve-collections
   table-details:
     replication-method: Key-based Incremental
     primary-key: yotpo_id
@@ -34,6 +35,7 @@ tables:
   links:
     doc-link: https://apidocs.yotpo.com/v1.0/reference#email-analytics-intro
     singer-schema: https://github.com/singer-io/tap-yotpo/tree/master/tap_yotpo/schemas/emails.json
+    api-method: https://apidocs.yotpo.com/v1.0/reference#raw-data
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -48,6 +50,7 @@ tables:
   links:
     doc-link: https://core-api.yotpo.com/reference/orders
     singer-schema: https://github.com/singer-io/tap-yotpo/tree/master/tap_yotpo/schemas/orders.json
+    api-method: https://core-api.yotpo.com/reference/retrieve-orders
   table-details:
     replication-method: Key-based Incremental
     primary-key: yotpo_id
@@ -60,6 +63,7 @@ tables:
   links:
     doc-link: https://core-api.yotpo.com/reference/order-fulfillments
     singer-schema: https://github.com/singer-io/tap-yotpo/tree/master/tap_yotpo/schemas/order_fulfillments.json
+    api-method: https://core-api.yotpo.com/reference/retrieve-order-fulfillments
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -72,6 +76,7 @@ tables:
   links:
     doc-link: https://apidocs.yotpo.com/reference#introduction-to-products
     singer-schema: https://github.com/singer-io/tap-yotpo/tree/master/tap_yotpo/schemas/products.json
+    api-method: https://apidocs.yotpo.com/reference#retrieve-all-products
   table-details:
     replication-method: Full Table
     primary-key: yotpo_id
@@ -88,6 +93,7 @@ tables:
   links:
     doc-link: https://apidocs.yotpo.com/reference/about-storefront-reviews
     singer-schema: https://github.com/singer-io/tap-yotpo/tree/master/tap_yotpo/schemas/product_reviews.json
+    api-method: https://apidocs.yotpo.com/reference/retrieve-reviews-for-a-product
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -100,6 +106,7 @@ tables:
   links:
     doc-link: https://core-api.yotpo.com/reference/product-variants
     singer-schema: https://github.com/singer-io/tap-yotpo/tree/master/tap_yotpo/schemas/product_variants.json
+    api-method: https://core-api.yotpo.com/reference/retrieve-product-variants
   table-details:
     replication-method: Key-based Incremental
     primary-key: yotpo_id
@@ -129,6 +136,7 @@ tables:
   links:
     doc-link: https://apidocs.yotpo.com/reference#section-what-are-reviews
     singer-schema: https://github.com/singer-io/tap-yotpo/tree/master/tap_yotpo/schemas/reviews.json
+    api-method: https://apidocs.yotpo.com/reference#retrieve-all-reviews
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -141,6 +149,7 @@ tables:
   links:
     doc-link: https://apidocs.yotpo.com/reference#introduction-to-unsubscribers
     singer-schema: https://github.com/singer-io/tap-yotpo/tree/master/tap_yotpo/schemas/unsubscribers.json
+    api-method: https://apidocs.yotpo.com/reference#retrieve-a-list-of-unsubscribers
   table-details:
     replication-method: Full Table
     primary-key: id

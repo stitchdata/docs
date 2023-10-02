@@ -47,10 +47,9 @@
       ]
     },
     "InvStartDate": {
-      "format": "date-time",
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "Name": {
@@ -146,11 +145,10 @@
       ]
     },
     "PurchaseCost": {
-      "format": "singer.decimal",
       "type": [
         "null",
         "integer",
-        "string"
+        "number"
       ]
     },
     "ParentRef": {
@@ -176,17 +174,15 @@
     "MetaData": {
       "properties": {
         "CreateTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         },
         "LastUpdatedTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         }
       },
@@ -196,10 +192,9 @@
       ]
     },
     "AbatementRate": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "ClassRef": {
@@ -281,17 +276,15 @@
       ]
     },
     "ReorderPoint": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "ReverseChargeRate": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "SalesTaxCodeRef": {

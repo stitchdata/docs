@@ -10,6 +10,7 @@ tables:
   links:
     doc-link: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-ad-get
     singer-schema: https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/ads.json
+    api-method: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get_ads
   table-details:
     replication-method: Full Table
     primary-key: eid
@@ -21,6 +22,7 @@ tables:
   links:
     doc-link: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get
     singer-schema: https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/advertisables.json
+    api-method: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-organization-get_advertisables
   table-details:
     replication-method: Full Table
     primary-key: eid
@@ -32,6 +34,7 @@ tables:
   links:
     doc-link: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-adgroup-get
     singer-schema: https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/ad_groups.json
+    api-method: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get_adgroups
   table-details:
     replication-method: Full Table
     primary-key: eid
@@ -43,6 +46,7 @@ tables:
   links:
     doc-link: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-report-ad
     singer-schema: https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/ad_reports.json
+    api-method: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-report-ad
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -57,6 +61,7 @@ tables:
   links:
     doc-link: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-campaign-get
     singer-schema: https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/campaigns.json
+    api-method: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get_campaigns
   table-details:
     replication-method: Full Table
     primary-key: eid
@@ -68,6 +73,7 @@ tables:
   links:
     doc-link: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-segment-get
     singer-schema: https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/segments.json
+    api-method: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get_segments
   table-details:
     replication-method: Full Table
     primary-key: eid

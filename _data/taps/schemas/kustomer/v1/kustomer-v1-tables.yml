@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: https://dev.kustomer.com/v1/conversations/
     singer-schema: https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/conversations.json
+    api-method: https://dev.kustomer.com/v1/conversations/get-conversations
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -22,6 +23,7 @@ tables:
   links:
     doc-link: https://dev.kustomer.com/v1/customers/
     singer-schema: https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/customers.json
+    api-method: https://dev.kustomer.com/v1/customers/get-customers
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -35,6 +37,7 @@ tables:
   links:
     doc-link: https://dev.kustomer.com/v1/klasses/
     singer-schema: https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/kobjects.json
+    api-method: https://dev.kustomer.com/v1/klasses/get-kobject
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -48,6 +51,7 @@ tables:
   links:
     doc-link: https://dev.kustomer.com/v1/messages/
     singer-schema: https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/messages.json
+    api-method: https://dev.kustomer.com/v1/messages/get-message
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -61,6 +65,7 @@ tables:
   links:
     doc-link: https://dev.kustomer.com/v1/notes/
     singer-schema: https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/notes.json
+    api-method: https://dev.kustomer.com/v1/notes/get-notes
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -74,6 +79,7 @@ tables:
   links:
     doc-link: https://dev.kustomer.com/v1/shortcuts
     singer-schema: https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/shortcuts.json
+    api-method: https://dev.kustomer.com/v1/shortcuts/KaRhy9CmfHsmaG4gZ
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -87,6 +93,7 @@ tables:
   links:
     doc-link: https://dev.kustomer.com/v1/tags/
     singer-schema: https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/tags.json
+    api-method: https://dev.kustomer.com/v1/tags/NWydnz3xaPBWCePQp
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -100,6 +107,7 @@ tables:
   links:
     doc-link: https://dev.kustomer.com/v1/teams/
     singer-schema: https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/teams.json
+    api-method: https://dev.kustomer.com/v1/teams/get-team
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -113,6 +121,7 @@ tables:
   links:
     doc-link: https://dev.kustomer.com/v1/users/
     singer-schema: https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/users.json
+    api-method: https://dev.kustomer.com/v1/users/get-user
   table-details:
     replication-method: Key-based Incremental
     primary-key: id

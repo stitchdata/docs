@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/clients-api/clients/clients/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/clients.json
+    api-method: https://help.getharvest.com/api-v2/clients-api/clients/clients/#list-all-clients
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -21,6 +22,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/clients-api/clients/contacts/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/contacts.json
+    api-method: https://help.getharvest.com/api-v2/clients-api/clients/contacts/#list-all-contacts
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -33,6 +35,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/estimates-api/estimates/estimates/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/estimates.json
+    api-method: https://help.getharvest.com/api-v2/estimates-api/estimates/estimate-messages/#list-all-messages-for-an-estimate
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -45,6 +48,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/estimates-api/estimates/estimate-item-categories/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/estimate_item_categories.json
+    api-method: https://help.getharvest.com/api-v2/estimates-api/estimates/estimate-item-categories/#list-all-estimate-item-categories
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -61,6 +65,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/estimates-api/estimates/estimates/#the-estimate-line-item-object
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/estimate_line_items.json
+    api-method: https://help.getharvest.com/api-v2/estimates-api/estimates/estimates/#get-all-estimates
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -72,6 +77,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/estimates-api/estimates/estimate-messages/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/estimate_messages.json
+    api-method: https://help.getharvest.com/api-v2/estimates-api/estimates/estimate-messages/#list-all-messages-for-an-estimate
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -84,6 +90,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/expenses-api/expenses/expenses/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/expenses.json
+    api-method: https://help.getharvest.com/api-v2/expenses-api/expenses/expenses#list-all-expenses
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -96,26 +103,11 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/expenses-api/expenses/expense-categories/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/expense_categories.json
+    api-method: https://help.getharvest.com/api-v2/expenses-api/expenses/expense-categories/#list-all-expense-categories
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
-- name: external_references
-  description: 'The `{{ table.name }}` table contains info about external references.
-    External references are references to external services where time is tracked.
-
-
-    **Note**: This table is updated based on new and updated `time_entries`. This
-    means that when an time entry is updated, this table will also be updated.
-
-    '
-  links:
-    doc-link: null
-    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/external_reference.json
-  table-details:
-    replication-method: Key-based Incremental
-    primary-key: id
-  status: not_found
 - name: invoices
   description: 'The `{{ table.name }}` table contains info about the invoices in your
     Harvest account.
@@ -124,6 +116,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/invoices-api/invoices/invoices/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/invoices.json
+    api-method: https://help.getharvest.com/api-v2/invoices-api/invoices/invoices#list-all-invoices
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -140,6 +133,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/invoices-api/invoices/invoice-item-categories/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/invoice_item_categories.json
+    api-method: http://help.getharvest.com/api-v1/invoices-api/invoices/invoice-messages-payments/#show-all-categories
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -156,6 +150,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/invoices-api/invoices/invoices#the-invoice-line-item-object
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/invoice_line_items.json
+    api-method: https://help.getharvest.com/api-v2/invoices-api/invoices/invoices#list-all-invoices
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -167,6 +162,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/invoices-api/invoices/invoice-messages/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/invoice_messages.json
+    api-method: https://help.getharvest.com/api-v2/invoices-api/invoices/invoice-messages/
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -179,6 +175,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/invoices-api/invoices/invoice-payments/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/invoice_payments.json
+    api-method: https://help.getharvest.com/api-v2/invoices-api/invoices/invoice-payments#list-all-payments-for-an-invoice
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -191,6 +188,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/projects-api/projects/projects/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/projects.json
+    api-method: https://help.getharvest.com/api-v2/projects-api/projects/projects#list-all-projects
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -203,6 +201,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/projects-api/projects/task-assignments/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/project_tasks.json
+    api-method: https://help.getharvest.com/api-v2/projects-api/projects/task-assignments#list-all-task-assignments
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -215,6 +214,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/projects-api/projects/user-assignments/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/project_users.json
+    api-method: https://help.getharvest.com/api-v2/projects-api/projects/user-assignments/
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -227,6 +227,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/roles-api/roles/roles/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/roles.json
+    api-method: https://help.getharvest.com/api-v2/roles-api/roles/roles#list-all-roles
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -239,6 +240,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/tasks-api/tasks/tasks/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/tasks.json
+    api-method: https://help.getharvest.com/api-v2/tasks-api/tasks/tasks#list-all-tasks
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -251,6 +253,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/timesheets-api/timesheets/time-entries/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/time_entries.json
+    api-method: https://help.getharvest.com/api-v2/timesheets-api/timesheets/time-entries#list-all-time-entries
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -268,6 +271,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/timesheets-api/timesheets/time-entries/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/time_entry_external_reference.json
+    api-method: https://help.getharvest.com/api-v2/timesheets-api/timesheets/time-entries#list-all-time-entries
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -281,6 +285,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/users-api/users/users/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/users.json
+    api-method: https://help.getharvest.com/api-v2/users-api/users/users#list-all-users
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -293,6 +298,7 @@ tables:
   links:
     doc-link: https://help.getharvest.com/api-v2/users-api/users/project-assignments/
     singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/user_projects.json
+    api-method: https://help.getharvest.com/api-v2/users-api/users/project-assignments/
   table-details:
     replication-method: Key-based Incremental
     primary-key: id

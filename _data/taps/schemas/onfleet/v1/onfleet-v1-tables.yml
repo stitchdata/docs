@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: http://docs.onfleet.com/docs/administrators#list-administrators
     singer-schema: https://github.com/singer-io/tap-onfleet/blob/master/tap_onfleet/schemas/administrators.json
+    api-method: http://docs.onfleet.com/docs/administrators#list-administrators
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -22,6 +23,7 @@ tables:
   links:
     doc-link: http://docs.onfleet.com/docs/hubs
     singer-schema: https://github.com/singer-io/tap-onfleet/blob/master/tap_onfleet/schemas/hubs.json
+    api-method: http://docs.onfleet.com/docs/hubs#list-hubs
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -35,6 +37,7 @@ tables:
   links:
     doc-link: http://docs.onfleet.com/docs/organizations
     singer-schema: https://github.com/singer-io/tap-onfleet/blob/master/tap_onfleet/schemas/organizations.json
+    api-method: http://docs.onfleet.com/docs/organizations#get-details
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -48,6 +51,7 @@ tables:
   links:
     doc-link: http://docs.onfleet.com/docs/tasks
     singer-schema: https://github.com/singer-io/tap-onfleet/blob/master/tap_onfleet/schemas/tasks.json
+    api-method: http://docs.onfleet.com/docs/tasks#list-tasks
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -60,6 +64,7 @@ tables:
   links:
     doc-link: http://docs.onfleet.com/docs/teams
     singer-schema: https://github.com/singer-io/tap-onfleet/blob/master/tap_onfleet/schemas/teams.json
+    api-method: http://docs.onfleet.com/docs/teams#list-teams
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -73,6 +78,7 @@ tables:
   links:
     doc-link: http://docs.onfleet.com/docs/workers
     singer-schema: https://github.com/singer-io/tap-onfleet/blob/master/tap_onfleet/schemas/workers.json
+    api-method: http://docs.onfleet.com/docs/workers#list-workers
   table-details:
     replication-method: Key-based Incremental
     primary-key: id

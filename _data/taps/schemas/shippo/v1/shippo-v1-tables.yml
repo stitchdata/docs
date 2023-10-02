@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: https://goshippo.com/docs/reference#addresses
     singer-schema: https://github.com/singer-io/tap-shippo/blob/master/tap_shippo/schemas/addresses.json
+    api-method: https://goshippo.com/docs/reference?version=2016-10-25
   table-details:
     replication-method: Key-based Incremental
     primary-key: object_id
@@ -20,7 +21,7 @@ tables:
     '
   links:
     doc-link: https://goshippo.com/docs/reference#parcels
-    singer-schema: null
+    api-method: https://goshippo.com/docs/reference?version=2016-10-25#parcels-list
   table-details:
     replication-method: Key-based Incremental
     primary-key: object_id
@@ -40,6 +41,7 @@ tables:
   links:
     doc-link: https://goshippo.com/docs/reference#refunds
     singer-schema: https://github.com/singer-io/tap-shippo/blob/master/tap_shippo/schemas/refunds.json
+    api-method: https://goshippo.com/docs/reference?version=2016-10-25#refunds-list
   table-details:
     replication-method: Key-based Incremental
     primary-key: object_id
@@ -52,6 +54,7 @@ tables:
   links:
     doc-link: https://goshippo.com/docs/reference#shipments
     singer-schema: https://github.com/singer-io/tap-shippo/blob/master/tap_shippo/schemas/shipments.json
+    api-method: https://goshippo.com/docs/reference?version=2016-10-25#shipments-list
   table-details:
     replication-method: Key-based Incremental
     primary-key: object_id
@@ -64,6 +67,7 @@ tables:
   links:
     doc-link: https://goshippo.com/docs/reference#transactions
     singer-schema: https://github.com/singer-io/tap-shippo/blob/master/tap_shippo/schemas/transactions.json
+    api-method: https://goshippo.com/docs/reference?version=2016-10-25#transactions-list
   table-details:
     replication-method: Key-based Incremental
     primary-key: object_id

@@ -61,9 +61,8 @@
             "interest_rate": {
               "type": [
                 "null",
-                "string"
+                "number"
               ],
-              "format": "singer.decimal",
               "minimum": -1000000000000000,
               "maximum": 1000000000000000
             },
@@ -154,65 +153,56 @@
         "overdraft_interest_due": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "total_balance": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "locked_balance": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "technical_overdraft_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "overdraft_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "hold_balance": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "technical_overdraft_interest_due": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "fees_due": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "available_balance": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         }
       }
     },
@@ -256,9 +246,8 @@
         "overdraft_limit": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "overdraft_expiry_date": {
           "type": [
@@ -303,18 +292,16 @@
             "interest_rate": {
               "type": [
                 "null",
-                "string"
+                "number"
               ],
-              "format": "singer.decimal",
               "minimum": -1000000000000000,
               "maximum": 1000000000000000
             },
             "interest_spread": {
               "type": [
                 "null",
-                "string"
+                "number"
               ],
-              "format": "singer.decimal",
               "minimum": -1000000000000000,
               "maximum": 1000000000000000
             },
@@ -428,23 +415,20 @@
         "overdraft_interest_accrued": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "interest_accrued": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "technical_overdraft_interest_accrued": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         }
       }
     },
@@ -482,23 +466,20 @@
         "recommended_deposit_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "target_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         },
         "max_withdrawal_amount": {
           "type": [
             "null",
-            "string"
-          ],
-          "format": "singer.decimal"
+            "number"
+          ]
         }
       }
     },

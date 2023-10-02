@@ -10,6 +10,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/docs/accounts-1
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/accounts.json
+    api-method: https://docs.codat.io/reference/accounts#accounts_list
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -25,6 +26,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/docs/balance-sheet-2
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/balance_sheets.json
+    api-method: https://docs.codat.io/reference/financials#financials_balancesheet
   table-details:
     replication-method: Full Table
     primary-key: companyId
@@ -36,6 +38,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/docs/bank-accounts
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/bank_accounts.json
+    api-method: https://docs.codat.io/reference/bankaccounts#bankaccounts_listaccountspaged
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -51,6 +54,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/docs/bank-transactions
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/bank_account_transactions.json
+    api-method: https://docs.codat.io/reference/bankaccounts#bankaccounts_getaccounttransactions
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -65,6 +69,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/docs/bank-accounts
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/bank_statements.json
+    api-method: https://docs.codat.io/reference/bankstatements#bankstatements_listpaged
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -78,6 +83,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/docs/bank-transactions
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/bank_statement_lines.json
+    api-method: https://docs.codat.io/reference/bankstatements#bankstatements_listpaged
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -93,6 +99,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/docs/bills-1
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/bills.json
+    api-method: https://docs.codat.io/reference/bills#bills_listpaged
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -106,6 +113,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/docs/billpayments-1
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/bill_payments.json
+    api-method: https://docs.codat.io/reference/billpayments#billpayments_listpaged
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -121,6 +129,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/reference/companies
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/companies.json
+    api-method: https://docs.codat.io/reference/companies#companies_listpaged
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -133,6 +142,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/reference/info
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/company_info.json
+    api-method: https://docs.codat.io/reference/info#info_list
   table-details:
     replication-method: Full Table
     primary-key: companyId
@@ -144,6 +154,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/reference/connection#connection_getconnection
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/connections.json
+    api-method: https://docs.codat.io/reference/connection#connection_getconnection
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -157,6 +168,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/docs/credit-notes
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/credit_notes.json
+    api-method: https://docs.codat.io/reference/creditnotes#creditnotes_listpaged
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -171,6 +183,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/reference/customers
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/customers.json
+    api-method: https://docs.codat.io/reference/customers#customers_listpaged
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -185,6 +198,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/reference/reports#reports_companyevents
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/events.json
+    api-method: https://docs.codat.io/reference/reports#reports_companyevents
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -199,6 +213,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/docs/invoices-1
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/invoices.json
+    api-method: https://docs.codat.io/reference/invoices#invoices_listpaged
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -213,6 +228,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/reference/items
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/items.json
+    api-method: https://docs.codat.io/reference/items#items_listpaged
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -227,6 +243,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/reference/journals
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/journal_entries.json
+    api-method: https://docs.codat.io/reference/journals#journals_listpaged
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -242,6 +259,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/docs/payments-1
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/payments.json
+    api-method: https://docs.codat.io/reference/payments#payments_listpaged
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -255,6 +273,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/docs/profit-and-loss-2
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/profit_and_loss.json
+    api-method: https://docs.codat.io/reference/financials#financials_profitandloss
   table-details:
     replication-method: Full Table
     primary-key: companyId
@@ -267,6 +286,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/docs/suppliers-2
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/suppliers.json
+    api-method: https://docs.codat.io/reference/suppliers#suppliers_listpaged
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -280,6 +300,7 @@ tables:
   links:
     doc-link: https://docs.codat.io/reference/taxrates
     singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/tax_rates.json
+    api-method: https://docs.codat.io/reference/taxrates#taxrates_listpaged
   table-details:
     replication-method: Key-based Incremental
     primary-keys:

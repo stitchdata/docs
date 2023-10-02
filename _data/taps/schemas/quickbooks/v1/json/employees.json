@@ -1,10 +1,9 @@
 {
   "properties": {
     "HiredDate": {
-      "format": "date-time",
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "PrimaryPhone": {
@@ -70,10 +69,9 @@
       ]
     },
     "BirthDate": {
-      "format": "date-time",
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "PrintOnCheckName": {
@@ -85,17 +83,15 @@
     "MetaData": {
       "properties": {
         "CreateTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         },
         "LastUpdatedTime": {
-          "format": "date-time",
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         }
       },
@@ -239,9 +235,8 @@
     "BillRate": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "Suffix": {
       "type": [
@@ -276,9 +271,8 @@
     "CostRate": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     }
   },
   "type": [

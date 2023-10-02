@@ -21,17 +21,15 @@
       ]
     },
     "DiscountAmt": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "DiscountRate": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "ItemAccountRef": {
@@ -101,10 +99,9 @@
           ]
         },
         "Percent": {
-          "format": "singer.decimal",
           "type": [
             "null",
-            "string"
+            "number"
           ]
         },
         "PriceLevelRef": {
@@ -136,10 +133,9 @@
       ]
     },
     "ServiceDate": {
-      "format": "date-time",
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "TaxClassificationRef": {
@@ -183,10 +179,9 @@
       ]
     },
     "TaxInclusiveAmt": {
-      "format": "singer.decimal",
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "UnitPrice": {

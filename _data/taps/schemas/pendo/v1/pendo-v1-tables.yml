@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: https://developers.pendo.io/docs/?bash#account
     singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/accounts.json
+    api-method: https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation
   table-details:
     replication-method: Key-based Incremental
     primary-key: account_id
@@ -33,6 +34,7 @@ tables:
   links:
     doc-link: https://developers.pendo.io/docs/?bash#events
     singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/events.json
+    api-method: https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -47,6 +49,7 @@ tables:
   links:
     doc-link: https://developers.pendo.io/docs/?bash#feature
     singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/features.json
+    api-method: https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -62,6 +65,7 @@ tables:
   links:
     doc-link: https://developers.pendo.io/docs/?bash#events
     singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/feature_events.json
+    api-method: https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -76,6 +80,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/guides.json
+    api-method: https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -91,6 +96,7 @@ tables:
   links:
     doc-link: https://developers.pendo.io/docs/?bash#guide-events
     singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/guide_events.json
+    api-method: https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -106,6 +112,7 @@ tables:
   links:
     doc-link: https://developers.pendo.io/docs/?bash#metadata
     singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/metadata_accounts.json
+    api-method: https://developers.pendo.io/docs/?bash#get-a-metadata-schema
   table-details:
     replication-method: Full Table
 - name: metadata_visitors
@@ -116,6 +123,7 @@ tables:
   links:
     doc-link: https://developers.pendo.io/docs/?bash#metadata
     singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/metadata_visitors.json
+    api-method: https://developers.pendo.io/docs/?bash#get-a-metadata-schema
   table-details:
     replication-method: Full Table
 - name: pages
@@ -126,6 +134,7 @@ tables:
   links:
     doc-link: https://developers.pendo.io/docs/?bash#page
     singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/pages.json
+    api-method: https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -141,6 +150,7 @@ tables:
   links:
     doc-link: https://developers.pendo.io/docs/?bash#events
     singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/page_events.json
+    api-method: https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -158,6 +168,7 @@ tables:
   links:
     doc-link: https://developers.pendo.io/docs/?bash#events
     singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/poll_events.json
+    api-method: https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -176,6 +187,7 @@ tables:
   links:
     doc-link: https://developers.pendo.io/docs/?bash#track-events
     singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/track_events.json
+    api-method: https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -188,6 +200,7 @@ tables:
   links:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/track_types.json
+    api-method: https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -199,6 +212,7 @@ tables:
   links:
     doc-link: https://developers.pendo.io/docs/?bash#visitor
     singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/visitors.json
+    api-method: https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation
   table-details:
     replication-method: Key-based Incremental
     primary-key: visitor_id
@@ -210,6 +224,7 @@ tables:
   links:
     doc-link: https://developers.pendo.io/docs/?bash#visitor
     singer-schema: https://github.com/singer-io/tap-pendo/blob/master/tap_pendo/schemas/visitor_history.json
+    api-method: https://developers.pendo.io/docs/api/v1/aggregation/?bash#aggregation
   table-details:
     replication-method: Key-based Incremental
     primary-key: visitor_id

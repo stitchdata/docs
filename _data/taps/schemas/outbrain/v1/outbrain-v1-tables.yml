@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: http://docs.amplifyv01.apiary.io/#reference/campaigns
     singer-schema: https://github.com/singer-io/tap-outbrain/blob/master/tap_outbrain/schemas.py#L86
+    api-method: http://docs.amplifyv01.apiary.io/#reference/campaigns/campaigns-collection-via-marketer/list-all-campaigns-associated-with-a-marketer
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -20,6 +21,7 @@ tables:
   links:
     doc-link: http://docs.amplifyv01.apiary.io/#reference/performance-reporting/campaigns
     singer-schema: https://github.com/singer-io/tap-outbrain/blob/master/tap_outbrain/schemas.py#L218
+    api-method: http://docs.amplifyv01.apiary.io/#reference/performance-reporting/campaigns/retrieve-campaigns-with-performance-statistics-for-a-marketer
   table-details:
     replication-method: Key-based Incremental
     primary-keys:

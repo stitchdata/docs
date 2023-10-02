@@ -10,6 +10,7 @@ tables:
   links:
     doc-link: https://apidocs.chargebee.com/docs/api/addons
     singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/addons.json
+    api-method: https://apidocs.chargebee.com/docs/api/addons#list_addons
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -22,6 +23,7 @@ tables:
   links:
     doc-link: https://apidocs.chargebee.com/docs/api/coupons
     singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/coupons.json
+    api-method: https://apidocs.chargebee.com/docs/api/coupons#list_coupons
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -35,6 +37,7 @@ tables:
   links:
     doc-link: https://apidocs.chargebee.com/docs/api/credit_notes
     singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/credit_notes.json
+    api-method: https://apidocs.chargebee.com/docs/api/credit_notes#list_credit_notes
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -47,6 +50,7 @@ tables:
   links:
     doc-link: https://apidocs.chargebee.com/docs/api/customers
     singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/customers.json
+    api-method: https://apidocs.chargebee.com/docs/api/customers#list_customers
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -62,6 +66,7 @@ tables:
   links:
     doc-link: https://apidocs.chargebee.com/docs/api/events
     singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/events.json
+    api-method: https://apidocs.chargebee.com/docs/api/events#list_events
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -75,6 +80,7 @@ tables:
   links:
     doc-link: https://apidocs.chargebee.com/docs/api/invoices
     singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/invoices.json
+    api-method: https://apidocs.chargebee.com/docs/api/invoices#list_invoices
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -87,6 +93,7 @@ tables:
   links:
     doc-link: https://apidocs.chargebee.com/docs/api/payment_sources
     singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/payment_sources.json
+    api-method: https://apidocs.chargebee.com/docs/api/payment_sources#list_payment_sources
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -100,6 +107,7 @@ tables:
   links:
     doc-link: https://apidocs.chargebee.com/docs/api/plans
     singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/plans.json
+    api-method: https://apidocs.chargebee.com/docs/api/plans#list_plans
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -132,6 +140,7 @@ tables:
   links:
     doc-link: https://apidocs.chargebee.com/docs/api/subscriptions
     singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/subscriptions.json
+    api-method: https://apidocs.chargebee.com/docs/api/subscriptions#list_subscriptions
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -144,6 +153,7 @@ tables:
   links:
     doc-link: https://apidocs.chargebee.com/docs/api/transactions
     singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/transactions.json
+    api-method: https://apidocs.chargebee.com/docs/api/transactions#list_transactions
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -158,6 +168,7 @@ tables:
   links:
     doc-link: https://apidocs.chargebee.com/docs/api/virtual_bank_accounts
     singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/virtual_bank_accounts.json
+    api-method: https://apidocs.chargebee.com/docs/api/virtual_bank_accounts#list_virtual_bank_accounts
   table-details:
     replication-method: Key-based Incremental
     primary-key: id

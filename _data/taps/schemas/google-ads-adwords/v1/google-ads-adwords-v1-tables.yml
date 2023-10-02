@@ -22,9 +22,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/account-performance-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found
@@ -39,9 +39,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/adgroup-performance-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found
@@ -84,9 +84,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/ad-performance-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found
@@ -101,9 +101,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/age-range-performance-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found
@@ -119,9 +119,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/age-range-performance-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found
@@ -136,9 +136,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/call-metrics-call-details-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found
@@ -167,9 +167,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/campaign-performance-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found
@@ -184,9 +184,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/click-performance-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found
@@ -201,9 +201,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/criteria-performance-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found
@@ -218,9 +218,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/display-keyword-performance-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found
@@ -235,9 +235,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/display-topics-performance-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found
@@ -252,9 +252,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/gender-performance-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found
@@ -269,9 +269,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/gender-performance-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found
@@ -286,9 +286,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/geo-performance-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found
@@ -303,9 +303,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/keywordless-query-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found
@@ -320,9 +320,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/keywords-performance-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found
@@ -337,9 +337,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/search-query-performance-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found
@@ -354,9 +354,9 @@ tables:
     '
   links:
     doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/video-performance-report
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.primary-key }}'
     replication-key: day
   status: not_found

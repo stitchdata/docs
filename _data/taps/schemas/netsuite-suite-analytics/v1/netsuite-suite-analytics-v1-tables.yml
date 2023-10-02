@@ -5,7 +5,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/accountingbook.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -16,7 +15,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/accountingperiod.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -28,7 +26,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/account.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -37,7 +34,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/account_activity.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -45,7 +41,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/account_period_activity.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -53,7 +48,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/account_period_activity_pe.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -61,7 +55,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/account_subsidiary_map.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -74,9 +67,9 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/activities.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: addresses
   description: 'The `{{ table.name }}` table contains info about all address instances.
@@ -84,7 +77,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/addresses.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -93,7 +85,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/address_book.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -102,7 +93,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/amortizationschedule.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -110,7 +100,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/amortization_sched_lines.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -124,7 +113,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billingaccount.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -133,7 +121,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billing_classes.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -141,7 +128,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billing_class_rates.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -149,7 +135,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billingratecard.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -158,7 +143,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billing_rate_cards_prices.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -166,7 +150,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billing_rate_cards_versions.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -177,9 +160,9 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billingschedule.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: billing_schedule
   description: 'The `{{ table.name }}` table contains info about the billing schedules
     in your NetSuite account.
@@ -187,14 +170,12 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billingschedule.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
 - name: billing_schedule_descriptions
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billing_schedule_descriptions.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -202,7 +183,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billing_subscriptions.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -211,7 +191,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billing_subscription_lines.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -220,7 +199,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/bill_of_distributions.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -228,7 +206,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/bill_of_materials.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -239,7 +216,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/bin.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -247,21 +223,20 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/bin_number.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: bin_number_counts
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/bin_number_counts.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: bom_revisions
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/bomrevision.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -269,7 +244,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/bom_revision_components.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -281,7 +255,6 @@ tables:
     \ criteria. \n"
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/budget.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -289,7 +262,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/budgetcategory.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -299,9 +271,9 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/calls.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: campaignchannel
   description: '{{ integration.append-only-loading | flatify }}
@@ -309,15 +281,14 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignchannel.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: campaignevent
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignevent.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -325,14 +296,13 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignitem.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: campaignoffer
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignoffer.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -341,15 +311,14 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignresponse.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
     primary-key: '{{ system-column.record-hash }}'
 - name: campaignresponse
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignresponsehisstory.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
 - name: campaigns
@@ -359,7 +328,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaign.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -368,7 +336,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignaudience.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -377,7 +344,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaign_categories.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -386,7 +352,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaign_families.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -395,7 +360,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignsearchengine.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -404,7 +368,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignsubscription.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -415,7 +378,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaign_subscription_statuses.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -426,7 +388,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignvertical.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -435,14 +396,13 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/caseescalationhistory.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: caseissue
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/caseissue.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -454,7 +414,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/caseorigin.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -466,7 +425,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/casetype.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -475,7 +433,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/case_origins.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -483,9 +440,9 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/case_stage_changes.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: case_types
   description: '**Note**: This table contains the same data as the [`casetype`](#casetype)
     table.
@@ -493,7 +450,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/case_types.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -508,15 +464,14 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/charge.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: classes
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/classes.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -525,7 +480,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/commissionplan.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -534,14 +488,13 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/commissionrate.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: commissionschedule
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/commissionschedule.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -549,9 +502,9 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/commission_authorization_link.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: companies
   description: '{{ integration.netsuite-replication-keys | flatify }}
 
@@ -561,9 +514,9 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/companies.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-keys:
     - date_last_modified
     - last_modified_date
@@ -571,7 +524,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/company_status.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -580,7 +532,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/company_status.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -589,7 +540,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/competitor.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -598,16 +548,16 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/competitoroppmap.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: components_per_routing_steps
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/components_per_routing_steps.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: consolidated_exchange_rates
   description: 'The `{{ table.name }}` table contains info about consolidated exchange
     rates. This is used in {{ integration.display_name }} OneWorld for consolidation
@@ -616,7 +566,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/consolidatedexchangerate.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -624,7 +573,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/contactrole.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -635,7 +583,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/contact.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -646,15 +593,14 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/contact_types.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: countries
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/countries.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -662,7 +608,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/couponcode.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -670,7 +615,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/crmgroup.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -678,14 +622,13 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/crmgroupmap.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: crmtemplate
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/crmtemplate.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -694,7 +637,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/currencies.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -703,7 +645,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/currencyrate.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -712,7 +653,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/currency_exchange_rates.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -721,7 +661,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/currency_exchange_rate_types.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -732,7 +671,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/customer.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -743,7 +681,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/customer_currencies.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -751,7 +688,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/customer_group_pricing.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -759,14 +695,13 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/customer_item_pricing.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: customer_partner_sales_teams
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/customer_partner_sales_teams.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -775,7 +710,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/customer_sales_teams.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -784,7 +718,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/customer_subsidiary_map.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -792,7 +725,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/customer_types.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -803,15 +735,14 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/deletedrecord.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_deleted
 - name: departments
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/department.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -820,7 +751,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/distribution_categories.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -829,7 +759,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/distribution_networks.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -838,7 +767,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/employee.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -849,7 +777,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/employee_currency_map.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -857,7 +784,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/employee_time.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -866,7 +792,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/employeetype.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -876,7 +801,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/entity.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -887,7 +811,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/entitycategory.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -895,28 +818,27 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/entityeventmap.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: entityterritorymap
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/entityterritorymap.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: entity_role_map
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/entity_role_map.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: entity_status
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/entity_status.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -925,31 +847,30 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/entity_status_history.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: eventattendees
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/eventattendees.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: events1
   description: '{{ integration.append-only-loading | flatify }}
 
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/calendarevent.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: expense_accounts
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expense_accounts.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -958,7 +879,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expense_amortization_rules.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -969,15 +889,14 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expense_based_charge_rules.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: expense_categories
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expense_categories.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -985,7 +904,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expense_categories_rates.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -993,7 +911,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expense_categories_subs_map.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1001,7 +918,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expense_detail.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1009,7 +925,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expenseplan.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1020,9 +935,9 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expense_plan_lines.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: fair_value_prices
   description: '{{ integration.append-only-loading | flatify }}
@@ -1030,9 +945,9 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/fairvalueprice.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: fixed_fee_charge_rules
   description: '{{ integration.append-only-loading | flatify }}
@@ -1040,9 +955,9 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/fixed_fee_charge_rules.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: generic_resources
   description: '{{ integration.append-only-loading | flatify }}
@@ -1050,9 +965,9 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/genericresource.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: gift_certificates
   description: '{{ integration.append-only-loading | flatify }}
@@ -1060,15 +975,14 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/giftcertificate.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: global_account_map
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/global_account_map.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1077,7 +991,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/globalinventoryrelationship.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1086,7 +999,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/group_test_cell.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1094,7 +1006,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/inboundshipment.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1108,7 +1019,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/inboundshipment.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1116,7 +1026,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/income_accounts.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1125,7 +1034,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/inventory_cost_template.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1134,7 +1042,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/inventory_cost_template_items.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1144,9 +1051,9 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/inventoryitem.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: inventory_number
   description: '{{ integration.append-only-loading | flatify }}
@@ -1154,15 +1061,14 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/inventorynumber.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: items
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1171,7 +1077,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_account_map.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1180,7 +1085,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_billing_rates.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1189,7 +1093,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/itemcollection.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1197,7 +1100,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/itemcollectionitemmap.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1210,9 +1112,9 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/itemdemandplan.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-keys:
     - date_last_modified
     - last_modified_date
@@ -1220,24 +1122,23 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_demand_plan_lines.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: item_fulfillments
   description: '{{ integration.append-only-loading | flatify }}
 
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/itemfulfillment.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: item_group
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/itemgroup.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1245,31 +1146,30 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_location_map.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: item_prices
   description: '{{ integration.append-only-loading | flatify }}
 
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_prices.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: item_price_history
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_price_history.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: item_quantity
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_quantity.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1277,7 +1177,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/itemrevision.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1286,7 +1185,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_shipmethods.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1294,14 +1192,13 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_site_categories.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: item_subsidiary_map
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_subsidiary_map.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1314,9 +1211,9 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/itemsupplyplan.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-keys:
     - date_last_modified
     - last_modified_date
@@ -1324,35 +1221,34 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_supply_plan_attributes.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: item_supply_plan_lines
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_supply_plan_lines.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: item_supply_plan_source
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_supply_plan_source.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: item_supply_plan_source_types
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_supply_plan_source_types.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: item_vendor_map
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_vendor_map.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1360,14 +1256,13 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_vendor_pricing.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: job_resources
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/job_resources.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1375,7 +1270,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/job_resource_role.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1383,7 +1277,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/jobtype.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1391,7 +1284,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/location.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1400,7 +1292,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/location_costing_groups.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1408,7 +1299,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/location_costing_grp_locations.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1416,14 +1306,13 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/memorized_trans.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: message
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/message.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1432,14 +1321,13 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/messagerecipient.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: mfg_cost_template
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/mfg_cost_template.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1448,7 +1336,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/mfg_cost_template_items.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1458,22 +1345,21 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/mfg_routing.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: mfg_routing_steps
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/mfg_routing_steps.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: nexus
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/nexus.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1487,9 +1373,9 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/notes_system.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: notes_system_custom
   description: 'From NetSuite''s documentation:
@@ -1504,15 +1390,14 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/notes_system_custom.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: notes_user
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/notes_user.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1521,7 +1406,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/notetype.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1532,15 +1416,14 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/opportunities.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: opportunitycontactmap
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/opportunitycontactmap.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1549,7 +1432,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/opportunity_lines.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1560,7 +1442,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/originatinglead.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1576,9 +1457,9 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/othername.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-keys:
     - date_last_modified
     - last_modified_date
@@ -1588,7 +1469,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/partner.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1599,7 +1479,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/partner_sales_roles.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1610,15 +1489,14 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/partner_types.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: payment_methods
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/paymentmethod.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1627,7 +1505,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/payment_terms.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1636,7 +1513,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/payrollitem.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1645,7 +1521,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/payroll_item_types.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1654,14 +1529,13 @@ tables:
     \ that have Advanced Revenue Management enabled.\n"
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/percent_complete_overrides.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: planassignmap
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/planassignmap.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1669,7 +1543,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/planned_standard_costs.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1678,7 +1551,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/planschedulemap.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1686,9 +1558,9 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/posting_account_activity.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: posting_account_activity_pe
   description: 'From NetSuite''s documentation:
 
@@ -1702,14 +1574,13 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/posting_account_activity_pe.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: price_books
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/pricebook.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1719,7 +1590,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/price_book_line_intervals.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1727,7 +1597,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/priceplan.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1735,7 +1604,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/price_tiers.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1743,7 +1611,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/price_tiers.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1752,7 +1619,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/pricinggroup.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1760,14 +1626,13 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_billing_budgets.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: project_cost_budgets
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_cost_budgets.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1775,7 +1640,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_cost_categories.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1783,7 +1647,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/projectexpensetype.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1791,7 +1654,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_revenue_rls_charge_rls.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1799,7 +1661,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_revenue_rl_plans.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1807,7 +1668,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_revenue_rules.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1818,50 +1678,49 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/projecttask.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: project_task_assignments
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/projecttaskassignment.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: project_task_billing_budgets
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_task_billing_budgets.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: project_task_cost_budgets
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_task_cost_budgets.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: project_task_dependencies
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_task_dependencies.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: project_templates
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/projecttemplate.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: project_time_approval_types
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_time_approval_types.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1869,7 +1728,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/promotioncode.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1878,7 +1736,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/purchase_charge_rules.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1887,7 +1744,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/quota1.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1897,15 +1753,14 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/resourceallocation.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: resource_groups
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/resource_groups.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1917,7 +1772,6 @@ tables:
     \ accounts with Project Management enabled.\n"
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/resource_group_entity_map.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1925,14 +1779,13 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revaluation.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: revenue_elements
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revenue_elements.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1942,7 +1795,6 @@ tables:
     \ only to NetSuite accounts that have Advanced Revenue Management enabled.\n"
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revenueplan.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1953,15 +1805,14 @@ tables:
     {{ integration.append-only-loading | flatify }}\n"
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revenue_plan_lines.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: revenue_plan_versions
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revenue_plan_versions.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -1969,15 +1820,14 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revenue_plan_version_lines.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: revenue_recognition_rules
   description: "From NetSuite's documentation:\n\n> This table\u2019s data is available\
     \ only to NetSuite accounts that have Advanced Revenue Management enabled.\n"
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revenue_recognition_rules.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -1986,14 +1836,13 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revrecschedulelines.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: revrecschedules
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revrecschedule.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2003,15 +1852,14 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/role.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: role_subsidiary_map
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/role_subsidiary_map.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2019,7 +1867,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/salesforecast.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2027,7 +1874,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/sales_reps.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2036,7 +1882,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/salesrole.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2045,7 +1890,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/sales_territories.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2054,7 +1898,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/serviceitem.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2063,18 +1906,18 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/shipment_packages.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: shipping_items
   description: '{{ integration.append-only-loading | flatify }}
 
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/shipping_items.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: solution
   description: '{{ integration.append-only-loading | flatify }}
@@ -2082,15 +1925,14 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/solution.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: solutioncasemap
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/solutioncasemap.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2098,7 +1940,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/solutiontopicmap.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2106,7 +1947,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/standard_cost_components.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2114,7 +1954,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/state.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2122,7 +1961,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subscriptionchangeorder.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2131,24 +1969,23 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subscription_co_lines.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: subscription_line_revisions
   description: '{{ integration.append-only-loading | flatify }}
 
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subscription_line_revisions.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: subscription_plans
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subscriptionplan.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2157,7 +1994,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subscription_plan_lines.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2165,7 +2001,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subscription_terms.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2173,16 +2008,15 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subscript_line_price_intervals.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: subsidiaries
   description: "The `{{ table.name }}` table contains info about the subsidiary records\
     \ in your NetSuite account. A subsidiary represents a separate company within\
     \ your global organization. \n"
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subsidiaries.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2191,7 +2025,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subsidiary_book_map.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2199,7 +2032,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subsidiary_class_map.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2207,7 +2039,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subsidiary_department_map.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2215,7 +2046,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subsidiary_location_map.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2223,7 +2053,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subsidiary_nexus_map.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2231,21 +2060,20 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/supplier_categories.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: supportcasehistory
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/supportcasehistory.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: support_incidents
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/support_incidents.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2256,15 +2084,14 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/support_reps.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: support_territories
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/support_territories.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2273,14 +2100,13 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/system_notes.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: system_notes_custom
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/system_notes_custom.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
 - name: tasks
@@ -2289,22 +2115,21 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/task.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: task_contacts
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/task_contacts.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: tax_items
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/tax_items.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2313,7 +2138,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/territory.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2324,9 +2148,9 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/timesheet.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: time_based_charge_rules
   description: '{{ integration.append-only-loading | flatify }}
@@ -2334,15 +2158,14 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/time_based_charge_rules.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
+    loading-behavior: Append-Only
     replication-key: date_last_modified
 - name: topic
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/topic.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2366,7 +2189,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2377,7 +2199,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_address.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2391,14 +2212,13 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_bin_numbers.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: transaction_book_map
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_book_map.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2406,23 +2226,23 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_cost_components.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: transaction_history
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_history.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: transaction_inventory_numbers
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_inventory_numbers.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: transaction_lines
   description: 'From NetSuite''s documentation:
 
@@ -2438,7 +2258,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_lines.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2447,7 +2266,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_line_book_map.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2456,7 +2274,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_links.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2465,7 +2282,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_sales_teams.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2474,7 +2290,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_shipping_groups.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2482,7 +2297,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_tax_detail.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2490,14 +2304,13 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_tracking_numbers.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: trans_partner_sales_teams
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/trans_partner_sales_teams.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2506,7 +2319,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/unitstype.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2515,7 +2327,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/unlockedtimeperiod.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2524,7 +2335,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/uom.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2533,7 +2343,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/usage.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2543,7 +2352,6 @@ tables:
     '
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/vendor.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2554,14 +2362,13 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/vendor_currencies.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
+    loading-behavior: Append-Only
 - name: vendor_subsidiary_map
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/vendor_subsidiary_map.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2569,7 +2376,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/vendor_types.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2577,7 +2383,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/winlossreason.html
-    singer-schema: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -2586,7 +2391,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/work_calendars.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'
@@ -2594,7 +2398,6 @@ tables:
   description: ''
   links:
     doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/work_calendar_holidays.html
-    singer-schema: ''
   table-details:
     replication-method: Full Table
     primary-key: '{{ system-column.record-hash }}'

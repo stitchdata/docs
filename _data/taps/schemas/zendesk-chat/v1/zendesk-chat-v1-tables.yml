@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: https://developer.zendesk.com/api-reference/live-chat/chat-api/accounts/
     singer-schema: https://github.com/singer-io/tap-zendesk-chat/blob/master/tap_zendesk_chat/schemas/account.json
+    api-method: https://developer.zendesk.com/api-reference/live-chat/chat-api/accounts/
   table-details:
     replication-method: Full Table
     primary-key: account_key
@@ -20,6 +21,7 @@ tables:
   links:
     doc-link: https://developer.zendesk.com/api-reference/live-chat/chat-api/agents/
     singer-schema: https://github.com/singer-io/tap-zendesk-chat/blob/master/tap_zendesk_chat/schemas/agents.json
+    api-method: https://developer.zendesk.com/api-reference/live-chat/chat-api/agents/
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -31,6 +33,7 @@ tables:
   links:
     doc-link: https://developer.zendesk.com/api-reference/live-chat/chat-api/bans/
     singer-schema: https://github.com/singer-io/tap-zendesk-chat/blob/master/tap_zendesk_chat/schemas/bans.json
+    api-method: https://developer.zendesk.com/api-reference/live-chat/chat-api/bans/
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -42,6 +45,7 @@ tables:
   links:
     doc-link: https://developer.zendesk.com/api-reference/live-chat/chat-api/chats/
     singer-schema: https://github.com/singer-io/tap-zendesk-chat/blob/master/tap_zendesk_chat/schemas/chats.json
+    api-method: https://developer.zendesk.com/api-reference/live-chat/chat-api/chats/
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -54,6 +58,7 @@ tables:
   links:
     doc-link: https://developer.zendesk.com/api-reference/live-chat/chat-api/departments/
     singer-schema: https://github.com/singer-io/tap-zendesk-chat/blob/master/tap_zendesk_chat/schemas/departments.json
+    api-method: https://developer.zendesk.com/api-reference/live-chat/chat-api/departments/
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -65,6 +70,7 @@ tables:
   links:
     doc-link: https://developer.zendesk.com/api-reference/live-chat/chat-api/goals/
     singer-schema: https://github.com/singer-io/tap-zendesk-chat/blob/master/tap_zendesk_chat/schemas/goals.json
+    api-method: https://developer.zendesk.com/api-reference/live-chat/chat-api/goals/
   table-details:
     replication-method: Full Table
 - name: shortcuts
@@ -75,6 +81,7 @@ tables:
   links:
     doc-link: https://developer.zendesk.com/api-reference/live-chat/chat-api/shortcuts/
     singer-schema: https://github.com/singer-io/tap-zendesk-chat/blob/master/tap_zendesk_chat/schemas/shortcuts.json
+    api-method: https://developer.zendesk.com/api-reference/live-chat/chat-api/shortcuts/
   table-details:
     replication-method: Full Table
     primary-key: name
@@ -86,6 +93,7 @@ tables:
   links:
     doc-link: https://developer.zendesk.com/api-reference/live-chat/chat-api/triggers/
     singer-schema: https://github.com/singer-io/tap-zendesk-chat/blob/master/tap_zendesk_chat/schemas/triggers.json
+    api-method: https://developer.zendesk.com/api-reference/live-chat/chat-api/triggers/
   table-details:
     replication-method: Full Table
     primary-key: id

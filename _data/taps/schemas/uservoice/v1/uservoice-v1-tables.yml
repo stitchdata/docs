@@ -10,6 +10,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/categories
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/categories.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-categories
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -23,6 +24,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/comments,comments_0?q=comments
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/comments.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-comments
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -36,6 +38,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/ExternalAccount
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/external_accounts.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-external-accounts
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -49,6 +52,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/ExternalUser
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/external_users.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-external-users
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -61,6 +65,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Feature
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/feature_statuses.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-features
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -74,6 +79,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Feature
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/feature_statuses.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-feature-statuses
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -86,6 +92,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Forum
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/forums.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -99,6 +106,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Forum
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/forums.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-labels
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -112,6 +120,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/nps_ratings.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-nps-ratings
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -125,6 +134,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-product-areas
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -142,6 +152,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/requests.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-requests
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -155,6 +166,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/segmented_values.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-segmented-values
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -168,6 +180,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Segments
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/segments.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-segments
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -179,6 +192,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Stauses
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-statuses
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -192,6 +206,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/status_updates
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/status_updates.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-status-updates
   table-details:
     replication-method: Key-based Incremental
     replication-key: updated_at
@@ -209,6 +224,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Suggestions
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/suggestions.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-suggestions
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -222,6 +238,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Supporters
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/supporters.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-supporters
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -237,6 +254,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Teams
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/teams.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -247,6 +265,7 @@ tables:
   links:
     doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Users
     singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/.py
+    api-method: https://developer.uservoice.com/docs/api/v2/reference/#list-users
   table-details:
     replication-method: Key-based Incremental
     primary-key: id

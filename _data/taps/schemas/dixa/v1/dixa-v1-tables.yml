@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: https://docs.dixa.io/openapi/dixa-api/tag/Conversations/#tag/Conversations/operation/getConversationsActivitylog
     singer-schema: https://github.com/singer-io/tap-dixa/blob/main/tap_dixa/schemas/activity_logs.json
+    api-method: https://docs.dixa.io/openapi/dixa-api/tag/Conversations/#tag/Conversations/operation/getConversationsActivitylog
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -21,6 +22,7 @@ tables:
   links:
     doc-link: https://docs.dixa.io/openapi/dixa-api/tag/Conversations/
     singer-schema: https://github.com/singer-io/tap-dixa/blob/main/tap_dixa/schemas/conversations.json
+    api-method: https://docs.dixa.io/openapi/dixa-api/tag/Conversations/
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -33,6 +35,7 @@ tables:
   links:
     doc-link: https://docs.dixa.io/openapi/dixa-api/tag/Messages/
     singer-schema: https://github.com/singer-io/tap-dixa/blob/main/tap_dixa/schemas/messages.json
+    api-method: https://docs.dixa.io/openapi/dixa-api/tag/Messages/
   table-details:
     replication-method: Key-based Incremental
     primary-key: id

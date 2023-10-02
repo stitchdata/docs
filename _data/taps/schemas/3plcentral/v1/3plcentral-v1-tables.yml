@@ -6,6 +6,7 @@ tables:
   links:
     doc-link: http://api.3plcentral.com/rels/
     singer-schema: https://github.com/singer-io/tap-3plcentral/blob/master/tap_3plcentral/schemas/customers.json
+    api-method: http://api.3plcentral.com/rels/customers/customers
   table-details:
     replication-method: Full Table
     primary-key: customer_id
@@ -14,6 +15,7 @@ tables:
   links:
     doc-link: http://api.3plcentral.com/rels/
     singer-schema: https://github.com/singer-io/tap-3plcentral/blob/master/tap_3plcentral/schemas/inventory.json
+    api-method: http://api.3plcentral.com/rels/inventory/inventory
   table-details:
     replication-method: Full Table
     primary-key: receive_item_id
@@ -22,6 +24,7 @@ tables:
   links:
     doc-link: http://api.3plcentral.com/rels/
     singer-schema: https://github.com/singer-io/tap-3plcentral/blob/master/tap_3plcentral/schemas/locations.json
+    api-method: http://api.3plcentral.com/rels/inventory/locations
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -32,6 +35,7 @@ tables:
   links:
     doc-link: http://api.3plcentral.com/rels/
     singer-schema: https://github.com/singer-io/tap-3plcentral/blob/master/tap_3plcentral/schemas/orders.json
+    api-method: http://api.3plcentral.com/rels/orders/orders
   table-details:
     replication-method: Key-based Incremental
     primary-key: order_id
@@ -41,6 +45,7 @@ tables:
   links:
     doc-link: http://api.3plcentral.com/rels/
     singer-schema: https://github.com/singer-io/tap-3plcentral/blob/master/tap_3plcentral/schemas/sku_items.json
+    api-method: http://api.3plcentral.com/rels/customers/items
   table-details:
     replication-method: Key-based Incremental
     primary-key: item_id
@@ -50,6 +55,7 @@ tables:
   links:
     doc-link: http://api.3plcentral.com/rels/
     singer-schema: https://github.com/singer-io/tap-3plcentral/blob/master/tap_3plcentral/schemas/stock_details.json
+    api-method: http://api.3plcentral.com/rels/inventory/stockdetails
   table-details:
     replication-method: Full Table
     primary-key: receive_item_id
@@ -58,6 +64,7 @@ tables:
   links:
     doc-link: http://api.3plcentral.com/rels/
     singer-schema: https://github.com/singer-io/tap-3plcentral/blob/master/tap_3plcentral/schemas/stock_summaries.json
+    api-method: http://api.3plcentral.com/rels/inventory/stocksummaries
   table-details:
     replication-method: Full Table
     primary-keys:

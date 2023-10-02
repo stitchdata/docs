@@ -51,9 +51,8 @@
     "total_price": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "line_items": {
       "items": {
@@ -62,12 +61,6 @@
       "type": [
         "null",
         "array"
-      ]
-    },
-    "processing_method": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "order_number": {
@@ -85,16 +78,14 @@
     "total_discounts": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "total_line_items_price": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "order_adjustments": {
       "items": {
@@ -120,9 +111,8 @@
           "tax_amount": {
             "type": [
               "null",
-              "string"
-            ],
-            "format": "singer.decimal"
+              "number"
+            ]
           },
           "refund_id": {
             "type": [
@@ -133,9 +123,8 @@
           "amount": {
             "type": [
               "null",
-              "string"
-            ],
-            "format": "singer.decimal"
+              "number"
+            ]
           },
           "kind": {
             "type": [
@@ -176,9 +165,8 @@
                 "price": {
                   "type": [
                     "null",
-                    "string"
-                  ],
-                  "format": "singer.decimal"
+                    "number"
+                  ]
                 },
                 "title": {
                   "type": [
@@ -189,9 +177,8 @@
                 "rate": {
                   "type": [
                     "null",
-                    "string"
-                  ],
-                  "format": "singer.decimal"
+                    "number"
+                  ]
                 },
                 "compare_at": {
                   "type": [
@@ -248,9 +235,8 @@
           "price": {
             "type": [
               "null",
-              "string"
-            ],
-            "format": "singer.decimal"
+              "number"
+            ]
           },
           "title": {
             "type": [
@@ -970,46 +956,7 @@
     "total_tax": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
-    },
-    "payment_details": {
-      "properties": {
-        "avs_result_code": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "credit_card_company": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "cvv_result_code": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "credit_card_bin": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "credit_card_number": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
+        "number"
       ]
     },
     "number": {
@@ -1134,13 +1081,6 @@
         "object"
       ]
     },
-    "total_price_usd": {
-      "type": [
-        "null",
-        "string"
-      ],
-      "format": "singer.decimal"
-    },
     "closed_at": {
       "type": [
         "null",
@@ -1242,9 +1182,8 @@
     "subtotal_price": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "billing_address": {
       "properties": {
@@ -1392,9 +1331,8 @@
           "amount": {
             "type": [
               "null",
-              "string"
-            ],
-            "format": "singer.decimal"
+              "number"
+            ]
           },
           "type": {
             "type": [
@@ -1420,9 +1358,8 @@
           "price": {
             "type": [
               "null",
-              "string"
-            ],
-            "format": "singer.decimal"
+              "number"
+            ]
           },
           "title": {
             "type": [
@@ -1433,9 +1370,8 @@
           "rate": {
             "type": [
               "null",
-              "string"
-            ],
-            "format": "singer.decimal"
+              "number"
+            ]
           },
           "compare_at": {
             "type": [
@@ -1609,12 +1545,6 @@
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "gateway": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "cart_token": {
@@ -1809,9 +1739,8 @@
                     "total_discount": {
                       "type": [
                         "null",
-                        "string"
-                      ],
-                      "format": "singer.decimal"
+                        "number"
+                      ]
                     },
                     "name": {
                       "type": [
@@ -1859,9 +1788,8 @@
                     "price": {
                       "type": [
                         "null",
-                        "string"
-                      ],
-                      "format": "singer.decimal"
+                        "number"
+                      ]
                     },
                     "requires_shipping": {
                       "type": [
@@ -2031,9 +1959,8 @@
                 "tax_amount": {
                   "type": [
                     "null",
-                    "string"
-                  ],
-                  "format": "singer.decimal"
+                    "number"
+                  ]
                 },
                 "refund_id": {
                   "type": [
@@ -2044,9 +1971,8 @@
                 "amount": {
                   "type": [
                     "null",
-                    "string"
-                  ],
-                  "format": "singer.decimal"
+                    "number"
+                  ]
                 },
                 "kind": {
                   "type": [
@@ -2109,37 +2035,32 @@
     "current_subtotal_price": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "current_total_discounts": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "current_total_price": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "current_total_tax": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "total_outstanding": {
       "type": [
         "null",
-        "string"
-      ],
-      "format": "singer.decimal"
+        "number"
+      ]
     },
     "payment_terms": {
       "type": [
@@ -2236,6 +2157,108 @@
         "null",
         "boolean"
       ]
+    },
+    "merchant_of_record_app_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "current_total_additional_fees_set": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "presentment_money": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "shop_money": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "original_total_additional_fees_set": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "presentment_money": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "shop_money": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      }
     }
   },
   "type": "object"

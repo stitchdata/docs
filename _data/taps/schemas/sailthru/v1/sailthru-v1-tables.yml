@@ -9,6 +9,7 @@ tables:
   links:
     doc-link: https://getstarted.sailthru.com/email/ad-targeter/ad-targeter-overview/
     singer-schema: https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/ad_targeter_plans.json
+    api-method: https://getstarted.sailthru.com/developers/api/ad-plan/
   table-details:
     replication-method: Full Table
     primary-key: plan_id
@@ -22,6 +23,7 @@ tables:
   links:
     doc-link: https://getstarted.sailthru.com/developers/api/blast/
     singer-schema: https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/blasts.json
+    api-method: https://getstarted.sailthru.com/developers/api/blast/
   table-details:
     replication-method: Key-based Incremental
     primary-key: blast_id
@@ -36,6 +38,7 @@ tables:
   links:
     doc-link: https://getstarted.sailthru.com/developers/api/job/#blast-query
     singer-schema: https://github.com/singer-io/tap-sailthru/tree/master/tap_sailthru/schemas/blast_query.json
+    api-method: https://getstarted.sailthru.com/developers/api/job/#blast-query
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -50,6 +53,7 @@ tables:
   links:
     doc-link: https://getstarted.sailthru.com/developers/api/blast_repeat/
     singer-schema: https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/blast_repeats.json
+    api-method: https://getstarted.sailthru.com/developers/api/blast_repeat/
   table-details:
     replication-method: Key-based Incremental
     primary-key: repeat_id
@@ -64,6 +68,7 @@ tables:
   links:
     doc-link: https://getstarted.sailthru.com/developers/api/job/#blast-save-list
     singer-schema: https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/blast_save_list.json
+    api-method: https://getstarted.sailthru.com/developers/api/job/#blast-save-list
   table-details:
     replication-method: Full Table
     primary-key: profile_id
@@ -76,6 +81,7 @@ tables:
   links:
     doc-link: https://getstarted.sailthru.com/audience/managing-lists/lists-overview/
     singer-schema: https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/lists.json
+    api-method: https://getstarted.sailthru.com/developers/api/list/
   table-details:
     replication-method: Full Table
     primary-key: list_id
@@ -88,6 +94,7 @@ tables:
   links:
     doc-link: https://getstarted.sailthru.com/developers/api/job/#export-purchase-log
     singer-schema: https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/purchase_log.json
+    api-method: https://getstarted.sailthru.com/developers/api/job/#export-purchase-log
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
@@ -106,6 +113,7 @@ tables:
   links:
     doc-link: https://getstarted.sailthru.com/developers/api/user/
     singer-schema: https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/users.json
+    api-method: https://getstarted.sailthru.com/developers/api/user/
   table-details:
     replication-method: Full Table
     primary-key: profile_id
