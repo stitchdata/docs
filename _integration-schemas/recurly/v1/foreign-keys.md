@@ -60,7 +60,7 @@ foreign-keys:
         join-on: "id"
       - table: "subscriptions"
         subtable: "coupon_redemptions__coupon"
-        join-id: "id"
+        join-on: "id"
 
   - id: "coupon-redemption-id"
     attribute: ""
@@ -70,7 +70,7 @@ foreign-keys:
         join-on: "id"
       - table: "subscriptions"
         subtable: "coupon_redemptions"
-        join-id: "id"
+        join-on: "id"
 
   - id: "invoice-id"
     attribute: "invoice_id"

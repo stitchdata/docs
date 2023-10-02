@@ -19,7 +19,7 @@ foreign-keys:
       - table: "meeting_poll_results"
         join-on: "meeting_uuid"
       - table: "meeting_files"
-        joini-on: "meeting_uuid"
+        join-on: "meeting_uuid"
       - table: "meetings"
         join-on: "uuid"
 

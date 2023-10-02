@@ -15,7 +15,7 @@ foreign-keys:
       - table: "campaign_performance_report"
       - table: "geographic_performance_report"
       - table: "goals_and_funnels_report"
-      - table: "keyword_performanc_report"
+      - table: "keyword_performance_report"
       - table: "search_query_performance_report"
 
   - id: "ad-id"
@@ -37,7 +37,7 @@ foreign-keys:
       - table: "campaign_performance_report"
       - table: "geographic_performance_report"
       - table: "goals_and_funnels_report"
-      - table: "keyword_performanc_report"
+      - table: "keyword_performance_report"
       - table: "search_query_performance_report"
 
   - id: "campaign-id"
