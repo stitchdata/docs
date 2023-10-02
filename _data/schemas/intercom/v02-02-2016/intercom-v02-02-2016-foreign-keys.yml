@@ -21,7 +21,7 @@ keys:
     - id
   - table: conversations
     keys:
-    - conversation_parts__author.id
+    - conversation_parts.author.id
   companies_id:
   - table: companies
     keys:
@@ -53,32 +53,32 @@ keys:
   segments_id:
   - table: companies
     keys:
-    - segments__segments.id
+    - segments.segments.id
   - table: contacts
     keys:
-    - segments__segments.id
+    - segments.segments.id
   - table: segments
     keys:
     - id
   - table: users
     keys:
-    - segments__segments.id
+    - segments.segments.id
   tags_id:
   - table: companies
     keys:
-    - tags__tags.id
+    - tags.tags.id
   - table: contacts
     keys:
-    - tags__tags.id
+    - tags.tags.id
   - table: conversations
     keys:
-    - tags__tags.id
+    - tags.tags.id
   - table: tags
     keys:
     - id
   - table: users
     keys:
-    - tags__tags.id
+    - tags.tags.id
   users_id:
   - table: users
     keys:

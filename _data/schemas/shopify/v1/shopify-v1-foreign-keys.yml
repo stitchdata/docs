@@ -39,7 +39,7 @@ keys:
   - table: orders
     keys:
     - id
-    - refunds__order_adjustments.order_id
+    - refunds.order_adjustments.order_id
   - table: transactions
     keys:
     - order_id
@@ -50,7 +50,7 @@ keys:
   - table: orders
     keys:
     - refunds.id
-    - refunds__order_adjustments.refund_id
+    - refunds.order_adjustments.refund_id
   product_product_id:
   - table: abandoned_checkouts
     keys:
@@ -63,8 +63,8 @@ keys:
     - line_item.product_id
   - table: orders
     keys:
-    - fulfillments__line_items.product_id
-    - refunds__refund_line_items.product_id
+    - fulfillments.line_items.product_id
+    - refunds.refund_line_items.product_id
   - table: products
     keys:
     - id

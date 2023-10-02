@@ -4,7 +4,7 @@ keys:
   credit_notes_id:
   - table: credit_notes
     keys:
-    - items__taxes.id
+    - items.taxes.id
     - taxes.id
   - table: customers
     keys:
@@ -12,7 +12,7 @@ keys:
   - table: estimates
     keys:
     - taxes.id
-    - items__taxes.id
+    - items.taxes.id
   - table: subscriptions
     keys:
     - taxes.id

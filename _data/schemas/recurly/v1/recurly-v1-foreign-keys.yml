@@ -43,7 +43,7 @@ keys:
     - id
   - table: subscriptions
     keys:
-    - coupon_redemptions__coupon.id
+    - coupon_redemptions.coupon.id
   coupon_redemptions_:
   - table: coupon_redemptions
     keys:
@@ -83,7 +83,7 @@ keys:
     - plan_id
   - table: subscriptions
     keys:
-    - pending_change__plan.id
+    - pending_change.plan.id
   plan_add_ons_add_on_id:
   - table: adjustments
     keys:
@@ -96,7 +96,7 @@ keys:
     - id
   - table: subscriptions
     keys:
-    - add_ons__ad_on.id
+    - add_ons.ad_on.id
   subscriptions_subscription_id:
   - table: invoices
     keys:
@@ -106,7 +106,7 @@ keys:
     keys:
     - id
     - add_ons.subscription_id
-    - pending_change__add_ons.subscription_id
+    - pending_change.add_ons.subscription_id
     - pending_change.subscription_id
   - table: transactions
     keys:

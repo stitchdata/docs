@@ -27,10 +27,10 @@ keys:
     - company-id
   - table: deals
     keys:
-    - associations__associatedCompanyIds.value
+    - associations.associatedCompanyIds.value
   - table: engagements
     keys:
-    - associations__companyIds.value
+    - associations.companyIds.value
   contact_lists_listId:
   - table: contact_lists
     keys:
@@ -40,15 +40,15 @@ keys:
     - list-memberships.internal-list-id
   - table: engagements
     keys:
-    - associations__contactIds.value
+    - associations.contactIds.value
   deals_dealId:
   - table: deals
     keys:
     - dealId
-    - associations__associatedDealIds.value
+    - associations.associatedDealIds.value
   - table: engagements
     keys:
-    - associations__dealIds.value
+    - associations.dealIds.value
   deal_pipelines_pipelineId:
   - table: deal_pipelines
     keys:

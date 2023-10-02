@@ -18,7 +18,7 @@ keys:
     - id
   - table: shipments
     keys:
-    - orders__line_items.product_id
+    - orders.line_items.product_id
   _warehouse_id:
   - table: orders
     keys:
@@ -28,4 +28,4 @@ keys:
     - warehouses.warehouse_id
   - table: shipments
     keys:
-    - orders__line_items.warehouse_id
+    - orders.line_items.warehouse_id

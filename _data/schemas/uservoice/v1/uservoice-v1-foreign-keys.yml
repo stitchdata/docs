@@ -25,7 +25,7 @@ keys:
     - id
   - table: users
     keys:
-    - links__external_users.value
+    - links.external_users.value
   feature_statuses_feature_status:
   - table: features
     keys:
@@ -50,7 +50,7 @@ keys:
     - links.parent
   - table: suggestions
     keys:
-    - links__labels.value
+    - links.labels.value
   nps_ratings_:
   - table: nps_ratings
     keys:
@@ -122,7 +122,7 @@ keys:
     - id
   - table: users
     keys:
-    - links__teams.value
+    - links.teams.value
   users_user:
   - table: comments
     keys:
