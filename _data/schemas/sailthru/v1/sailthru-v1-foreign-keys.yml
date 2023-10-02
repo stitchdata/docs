@@ -1,0 +1,33 @@
+tap: sailthru
+version: '1'
+keys:
+  lists_list_id:
+  - table: lists
+    keys:
+    - list_id
+  - table: ad_targeter_plans
+    keys:
+    - list
+  - table: blast_save_list
+    keys:
+    - lists
+  - table: users
+    keys:
+    - users.lists.value
+  - table: blasts
+    keys:
+    - list
+  - table: blast_repeats
+    keys:
+    - list_id
+  blasts_blast_id:
+  - table: blasts
+    keys:
+    - blast_id
+  - table: blast_query
+    keys:
+    - blast_id
+  _:
+  - table: ''
+    keys:
+    - ''
