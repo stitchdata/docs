@@ -1,0 +1,75 @@
+tap: sendgrid-core
+version: '1'
+keys:
+  campaigns_id:
+  - table: campaigns
+    keys:
+    - id
+  contacts_id:
+  - table: contacts
+    keys:
+    - id
+  _email:
+  - table: blocks
+    keys:
+    - email
+  - table: bounces
+    keys:
+    - email
+  - table: contacts
+    keys:
+    - email
+  - table: group_members
+    keys:
+    - email
+  - table: invalids
+    keys:
+    - email
+  - table: lists_members
+    keys:
+    - email
+  - table: segments_members
+    keys:
+    - email
+  - table: spam_reports
+    keys:
+    - email
+  lists_all_list_id:
+  - table: lists_all
+    keys:
+    - list_id
+  - table: campaigns
+    keys:
+    - list_ids.list_id
+  lists_members_id:
+  - table: lists_members
+    keys:
+    - id
+  segments_segment_id:
+  - table: segments_all
+    keys:
+    - id
+  - table: campaigns
+    keys:
+    - segment_ids.segment_id
+  - table: segments_members
+    keys:
+    - segment_id
+  segments_members_id:
+  - table: segments_members
+    keys:
+    - id
+  groups_all_suppression_group_id:
+  - table: campaigns
+    keys:
+    - suppression_group_id
+  - table: global_suppressions
+    keys:
+    - id
+  - table: group_members
+    keys:
+    - group_id
+  templates_all_id:
+  - table: templates_all
+    keys:
+    - id

@@ -1,0 +1,65 @@
+tap: onfleet
+version: '1'
+keys:
+  administrators_:
+  - table: administrators
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - creator
+  - table: teams
+    keys:
+    - managers.value
+  hubs_hub:
+  - table: hubs
+    keys:
+    - id
+  - table: teams
+    keys:
+    - hub
+  organizations_organization:
+  - table: administrators
+    keys:
+    - organization
+  - table: organizations
+    keys:
+    - id
+    - delegatees.value
+  - table: tasks
+    keys:
+    - organization
+  - table: workers
+    keys:
+    - organization
+  tasks_:
+  - table: task
+    keys:
+    - id
+  - table: teams
+    keys:
+    - tasks.value
+  - table: workers
+    keys:
+    - activeTask
+    - tasks.value
+  teams_team:
+  - table: hubs
+    keys:
+    - teams.value
+  - table: teams
+    keys:
+    - id
+  - table: workers
+    keys:
+    - teams.value
+  workers_worker:
+  - table: tasks
+    keys:
+    - worker
+  - table: teams
+    keys:
+    - workers.value
+  - table: workers
+    keys:
+    - id

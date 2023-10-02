@@ -1,0 +1,30 @@
+tap: autopilot
+version: '1'
+keys:
+  contacts_contact_id:
+  - table: contacts
+    keys:
+    - id
+  - table: list_contacts
+    keys:
+    - contact_id
+  - table: smart_segments_contacts
+    keys:
+    - contact_id
+  smart_segments_segment_id:
+  - table: smart_segments
+    keys:
+    - segment_id
+  - table: smart_segments_contacts
+    keys:
+    - segment_id
+  lists_list_id:
+  - table: contacts
+    keys:
+    - lists.value
+  - table: lists
+    keys:
+    - id
+  - table: list_contacts
+    keys:
+    - list_id

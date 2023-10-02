@@ -1,0 +1,84 @@
+tap: zoom
+version: '1'
+keys:
+  meetings_uuid:
+  - table: meeting_poll_results
+    keys:
+    - meeting_uuid
+  - table: meeting_files
+    keys:
+    - meeting_uuid
+  - table: meetings
+    keys:
+    - uuid
+  meeting_registrants_meeting_id:
+  - table: meeting_polls
+    keys:
+    - meeting_id
+  - table: meeting_questions
+    keys:
+    - meeting_id
+  - table: meeting_registrants
+    keys:
+    - meeting_id
+  - table: meetings
+    keys:
+    - meeting_id
+  - table: report_meeting_participants
+    keys:
+    - meeting_id
+  - table: report_meetings
+    keys:
+    - meeting_id
+  users_user_id:
+  - table: users
+    keys:
+    - id
+  - table: report_meeting_participants
+    keys:
+    - user_id
+  - table: report_webinar_participants
+    keys:
+    - user_id
+  webinar_panelists_webinar_id:
+  - table: report_webinar_participants
+    keys:
+    - webinar_id
+  - table: report_webinars
+    keys:
+    - webinar_id
+  - table: webinar_panelists
+    keys:
+    - webinar_id
+  - table: webinar_registrants
+    keys:
+    - webinar_id
+    - webinar_id
+  - table: webinar_polls
+    keys:
+    - webinar_id
+  - table: webinar_questions
+    keys:
+    - webinar_id
+  - table: webinar_tracking_sources
+    keys:
+    - webinar_id
+  webinars_webinar_uuid:
+  - table: report_webinars
+    keys:
+    - uuid
+  - table: webinar_absentees
+    keys:
+    - webinar_uuid
+  - table: webinar_files
+    keys:
+    - webinar_uuid
+  - table: webinar_poll_results
+    keys:
+    - webinar_uuid
+  - table: webinar_qna_results
+    keys:
+    - webinar_uuid
+  - table: webinars
+    keys:
+    - uuid

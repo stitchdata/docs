@@ -1,0 +1,102 @@
+tap: asana
+version: '2'
+keys:
+  projects_gid:
+  - table: projects
+    keys:
+    - gid
+  - table: tasks
+    keys:
+    - projects.gid
+  - table: stories
+    keys:
+    - projects.gid
+  - table: sections
+    keys:
+    - project.gid
+    - projects.gid
+  tags_gid:
+  - table: tags
+    keys:
+    - gid
+  - table: stories
+    keys:
+    - tag.gid
+  tasks_gid:
+  - table: tasks
+    keys:
+    - gid
+  - table: stories
+    keys:
+    - task.gid
+  users_gid:
+  - table: projects
+    keys:
+    - followers.gid
+    - members.gid
+    - owner.gid
+  - table: tags
+    keys:
+    - followers.gid
+  - table: tasks
+    keys:
+    - assignees.gid
+    - followers.gid
+  - table: users
+    keys:
+    - gid
+  - table: stories
+    keys:
+    - assignees.gid
+    - created_by.gid
+    - dependency.gid
+  - table: portfolios
+    keys:
+    - created_by.gid
+    - members.gid
+  - table: porfolios
+    keys:
+    - owner.gid
+  - table: teams
+    keys:
+    - users.gid
+  workspace_gid:
+  - table: projects
+    keys:
+    - workspace.gid
+  - table: tags
+    keys:
+    - workspace.gid
+  - table: tasks
+    keys:
+    - workspace.gid
+  - table: users
+    keys:
+    - workspace.gid
+  - table: workspace
+    keys:
+    - gid
+  - table: portfolios
+    keys:
+    - workspace.gid
+  - table: teams
+    keys:
+    - organization.gid
+  sections_gid:
+  - table: sections
+    keys:
+    - gid
+  - table: stories
+    keys:
+    - new_section.gid
+    - old_section.gid
+  stories_gid:
+  - table: stories
+    keys:
+    - gid
+    - story.gid
+  porfolios_gid:
+  - table: portfolios
+    keys:
+    - gid
+    - portfolio_items.gid

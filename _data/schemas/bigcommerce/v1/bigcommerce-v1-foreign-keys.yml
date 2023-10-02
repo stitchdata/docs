@@ -1,0 +1,29 @@
+tap: bigcommerce
+version: '1'
+keys:
+  coupons_:
+  - table: coupons
+    keys:
+    - id
+  - table: orders
+    keys:
+    - coupons.
+    - products__applied_discounts.id
+  customers_customer_id:
+  - table: customers
+    keys:
+    - id
+  - table: orders
+    keys:
+    - customer_id
+  products_product_id:
+  - table: products
+    keys:
+    - id
+    - images.product_id
+    - related_products.value
+    - variants.product_id
+  - table: orders
+    keys:
+    - products.product_id
+    - products.parent_order_product_id

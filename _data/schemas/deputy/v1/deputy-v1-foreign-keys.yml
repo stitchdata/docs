@@ -1,0 +1,471 @@
+tap: deputy
+version: '1'
+keys:
+  _:
+  - table: ''
+    keys:
+    - Id
+  addresses_Address:
+  - table: addresses
+    keys:
+    - Id
+  - table: companies
+    keys:
+    - Address
+  - table: employee_history
+    keys:
+    - MailAddress
+    - PostalAddress
+    - EmergencyAddress
+  - table: operational_units
+    keys:
+    - Address
+  categories_EmploymentCategory:
+  - table: categories
+    keys:
+    - Id
+  - table: employee_contracts
+    keys:
+    - EmploymentCategory
+  - table: employment_conditions
+    keys:
+    - EmploymentCategory
+  companies_Company:
+  - table: companies
+    keys:
+    - Id
+    - ParentCompany
+  - table: company_periods
+    keys:
+    - Company
+  - table: employee_history
+    keys:
+    - Company
+  - table: employee_workplaces
+    keys:
+    - Company
+  - table: kiosk
+    keys:
+    - Company
+  - table: leaves
+    keys:
+    - Company
+  - table: system_usage_tracking
+    keys:
+    - Company
+  company_periods_Period:
+  - table: company_periods
+    keys:
+    - Id
+  - table: employee_paycycles
+    keys:
+    - PeriodId
+  contacts_Contact:
+  - table: contacts
+    keys:
+    - Id
+  - table: companies
+    keys:
+    - Contact
+  - table: operational_units
+    keys:
+    - Contact
+  countries_Country:
+  - table: countries
+    keys:
+    - Id
+  - table: geo
+    keys:
+    - Country
+  - table: states
+    keys:
+    - Country
+  custom_field_data_CustomFieldData:
+  - table: custom_field_data
+    keys:
+    - Id
+  - table: timesheets
+    keys:
+    - CustomFieldData
+  custom_fields_CustomField:
+  - table: custom_fields
+    keys:
+    - Id
+  employees_Employee:
+  - table: employees
+    keys:
+    - Id
+  - table: custom_app_data
+    keys:
+    - Employee
+  - table: employee_agreements
+    keys:
+    - EmployeeId
+  - table: employee_appraisal
+    keys:
+    - EmployeeId
+  - table: employee_availability
+    keys:
+    - EmployeeId
+  - table: employee_history
+    keys:
+    - EmployeeId
+  - table: employee_paycycles
+    keys:
+    - EmployeeId
+  - table: employee_salary_opunit_costing
+    keys:
+    - Employee
+  - table: employee_workplaces
+    keys:
+    - EmployeeId
+  - table: geo
+    keys:
+    - Employee
+  - table: journal
+    keys:
+    - Employee
+  - table: kiosk
+    keys:
+    - Employee
+  - table: leave_accruals
+    keys:
+    - Employee
+  - table: leaves
+    keys:
+    - Employee
+  - table: roster_opens
+    keys:
+    - Employee
+  - table: roster_swaps
+    keys:
+    - Employee
+  - table: rosters
+    keys:
+    - Employee
+    - ConfirmBy
+  - table: sales_data
+    keys:
+    - Employee
+  - table: teams
+    keys:
+    - LeaderEmployee
+  - table: timesheets
+    keys:
+    - Employee
+  - table: training_records
+    keys:
+    - Employee
+  - table: '[any_table]'
+    keys:
+    - Creator
+  employee_agreements_history_EmployeeAgreementHistory:
+  - table: employee_agreements_history
+    keys:
+    - Id
+  - table: employee_agreementss
+    keys:
+    - HistoryId
+  - table: employee_paycycles
+    keys:
+    - EmployeeAgreementHistoryId
+  - table: employee_salary_opunit_costing
+    keys:
+    - EmployeeAgreementHistory
+  employee_agreements_EmployeeAgreement:
+  - table: employee_agreements_history
+    keys:
+    - EmployeeAgreement
+  - table: employee_agreements
+    keys:
+    - Id
+  - table: employee_paycycles
+    keys:
+    - EmployeeAgreement
+  - table: employee_salary_opunit_costing
+    keys:
+    - EmployeeAgreement
+  - table: employee_workplaces
+    keys:
+    - Agreement1
+    - Agreement2
+    - Agreement3
+  - table: leave_pay_lines
+    keys:
+    - EmployeeAgreement
+  - table: timesheets
+    keys:
+    - EmployeeAgreement
+  employee_availability_:
+  - table: employee_availability
+    keys:
+    - Id
+  employee_contracts_Contract:
+  - table: employee_agreements_history
+    keys:
+    - Contract
+  - table: employee_agreements
+    keys:
+    - Contract
+  - table: employee_contract_leave_rules
+    keys:
+    - ContractId
+  - table: employee_contracts
+    keys:
+    - Id
+  employee_contract_leave_rules_:
+  - table: employee_contract_leave_rules
+    keys:
+    - Id
+  employee_history_EmployeeHistory:
+  - table: employee_history
+    keys:
+    - Id
+  - table: leaves
+    keys:
+    - EmployeeHistory
+  - table: timesheets
+    keys:
+    - EmployeeHistory
+  employee_paycycle_returns_PaycycleId:
+  - table: employee_paycycle_returns
+    keys:
+    - Id
+  - table: timesheets
+    keys:
+    - PaycycleId
+  employee_paycycles_Paycycle:
+  - table: employee_paycycle_returns
+    keys:
+    - PaycycleId
+  - table: employee_paycycles
+    keys:
+    - Id
+  employee_roles_Role:
+  - table: employee_history
+    keys:
+    - Role
+  - table: employee_roles
+    keys:
+    - Id
+  employment_conditions_EmploymentCondition:
+  - table: employee_contracts
+    keys:
+    - EmploymentCondition
+  - table: employment_conditions
+    keys:
+    - Id
+  events_Event:
+  - table: events
+    keys:
+    - Id
+  journal_Journal:
+  - table: journal
+    keys:
+    - Id
+  kiosk_Kiosk:
+  - table: kiosk
+    keys:
+    - Id
+  leaves_Leave:
+  - table: leave_pay_lines
+    keys:
+    - LeaveId
+  - table: leaves
+    keys:
+    - Id
+  - table: timesheets
+    keys:
+    - LeaveId
+  leave_accruals_LeaveAccrual:
+  - table: leave_accruals
+    keys:
+    - Id
+  leave_pay_lines_LeavePayLine:
+  - table: leave_pay_lines
+    keys:
+    - Id
+  leave_rules_LeaveRule:
+  - table: employee_contract_leave_rules
+    keys:
+    - LeaveRuleId
+  - table: leave_accruals
+    keys:
+    - LeaveRule
+  - table: leave_pay_lines
+    keys:
+    - LeaveRule
+  - table: leave_rules
+    keys:
+    - Id
+  - table: timesheets
+    keys:
+    - LeaveRule
+  operational_units_OpUnit:
+  - table: employee_salary_opunit_costing
+    keys:
+    - OpUnit
+  - table: operational_units
+    keys:
+    - Id
+    - ParentOperationalUnit
+  - table: rosters
+    keys:
+    - OperationalUnit
+  - table: sales_data
+    keys:
+    - OpUnit
+  - table: task_groups
+    keys:
+    - OpUnitId
+  - table: task_opunit_configs
+    keys:
+    - OpUnitId
+  - table: tasks
+    keys:
+    - OpUnitId
+  - table: timesheets
+    keys:
+    - OperationalUnit
+  pay_periods_PayPeriod:
+  - table: pay_periods
+    keys:
+    - Id
+  - table: company_periods
+    keys:
+    - PayPeriod
+  - table: employee_agreements_history
+    keys:
+    - PayPeriod
+  - table: employee_agreements
+    keys:
+    - PayPeriod
+  pay_rules_PayRule:
+  - table: employee_agreements_history
+    keys:
+    - SalaryPayRule
+  - table: employee_agreements
+    keys:
+    - SalaryPayRule
+  - table: employee_contract_leave_rules
+    keys:
+    - LoadingPayRule1
+    - LoadingPayRule2
+    - LoadingPayRule3
+  - table: pay_rules
+    keys:
+    - Id
+  - table: employee_contracts
+    keys:
+    - BasePayRule
+  - table: employee_paycycle_returns
+    keys:
+    - PayRule
+  - table: timesheet_pay_returns
+    keys:
+    - PayRule
+  rosters_Roster:
+  - table: roster_opens
+    keys:
+    - Roster
+  - table: roster_swaps
+    keys:
+    - SourceRoster
+    - TargetRoster
+  - table: rosters
+    keys:
+    - Id
+  - table: timesheets
+    keys:
+    - Roster
+  schedules_Schedule:
+  - table: employee_availability
+    keys:
+    - Schedule
+  - table: events
+    keys:
+    - Schedule
+  - table: operational_units
+    keys:
+    - RosterActiveHoursSchedule
+  - table: pay_rules
+    keys:
+    - Schedule
+  - table: schedules
+    keys:
+    - Id
+  - table: task_opunit_configs
+    keys:
+    - Schedule
+  - table: task_setups
+    keys:
+    - Schedule
+  system_usage_balances_BalanceId:
+  - table: system_usage_balances
+    keys:
+    - Id
+  - table: system_usage_tracking
+    keys:
+    - BalanceId
+  system_usage_tracking_TrackingId:
+  - table: system_usage_tracking
+    keys:
+    - Id
+  tasks_Task:
+  - table: tasks
+    keys:
+    - Id
+  task_group_setups_GroupSetupId:
+  - table: task_group_setups
+    keys:
+    - Id
+  - table: task_groups
+    keys:
+    - GroupSetupId
+  - table: task_setups
+    keys:
+    - GroupId
+  task_groups_GroupId:
+  - table: task_groups
+    keys:
+    - Id
+  - table: task_opunit_configs
+    keys:
+    - GroupId
+  - table: tasks
+    keys:
+    - GroupId
+  task_opunit_configs_:
+  - table: task_opunit_configs
+    keys:
+    - Id
+  task_setups_TaskSetupId:
+  - table: task_opunit_configs
+    keys:
+    - TaskSetupId
+  - table: task_setups
+    keys:
+    - Id
+  - table: tasks
+    keys:
+    - TaskSetupId
+  timesheets_Timesheet:
+  - table: leave_pay_lines
+    keys:
+    - TimesheetId
+  - table: rosters
+    keys:
+    - MatchedByTimesheet
+  - table: timesheet_pay_returns
+    keys:
+    - Timesheet
+  - table: timesheets
+    keys:
+    - Id
+  training_modules_Module:
+  - table: training_modules
+    keys:
+    - Id
+  - table: training_records
+    keys:
+    - Module

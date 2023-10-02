@@ -1,0 +1,92 @@
+tap: intercom
+version: 02-02-2016
+keys:
+  admins_id:
+  - table: admins
+    keys:
+    - id
+  - table: conversations
+    keys:
+    - conversation_parts.assigned_to
+    - assignee.id
+  authors_id:
+  - table: admins
+    keys:
+    - id
+  - table: contacts
+    keys:
+    - id
+  - table: users
+    keys:
+    - id
+  - table: conversations
+    keys:
+    - conversation_parts__author.id
+  companies_id:
+  - table: companies
+    keys:
+    - id
+  - table: contacts
+    keys:
+    - companies.id
+  - table: users
+    keys:
+    - companies.id
+  company_segments_id:
+  - table: company_segments
+    keys:
+    - id
+  - table: contacts
+    keys:
+    - segments.id
+  contacts_id:
+  - table: contacts
+    keys:
+    - id
+  - table: conversations
+    keys:
+    - user.id
+  conversations_id:
+  - table: conversations
+    keys:
+    - id
+  segments_id:
+  - table: companies
+    keys:
+    - segments__segments.id
+  - table: contacts
+    keys:
+    - segments__segments.id
+  - table: segments
+    keys:
+    - id
+  - table: users
+    keys:
+    - segments__segments.id
+  tags_id:
+  - table: companies
+    keys:
+    - tags__tags.id
+  - table: contacts
+    keys:
+    - tags__tags.id
+  - table: conversations
+    keys:
+    - tags__tags.id
+  - table: tags
+    keys:
+    - id
+  - table: users
+    keys:
+    - tags__tags.id
+  users_id:
+  - table: users
+    keys:
+    - id
+  - table: contacts
+    keys:
+    - id
+  - table: conversations
+    keys:
+    - user.id
+    - customers.id

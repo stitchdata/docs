@@ -1,0 +1,109 @@
+tap: trello
+version: '1'
+keys:
+  actions_id:
+  - table: actions
+    keys:
+    - id
+  boards_idBoard:
+  - table: boards
+    keys:
+    - id
+  - table: actions
+    keys:
+    - data.board.id
+  - table: cards
+    keys:
+    - idBoard
+    - labels.idBoard
+  - table: checklists
+    keys:
+    - data.board.id
+    - idBoard
+  - table: lists
+    keys:
+    - idBoard
+  - table: users
+    keys:
+    - boardId
+  cards_idCard:
+  - table: actions
+    keys:
+    - data.card.id
+  - table: cards
+    keys:
+    - id
+  - table: checklists
+    keys:
+    - idCard
+    - data.card.id
+  checklists_idCheckList:
+  - table: cards
+    keys:
+    - idChecklists.value
+  - table: checklists
+    keys:
+    - id
+    - checkItems.idCheckList
+    - data.checklist.id
+  lists_idList:
+  - table: actions
+    keys:
+    - data.card.idList
+    - data.list.id
+    - data.listAfter.id
+    - data.listBefore.id
+    - data.old.idList
+  - table: cards
+    keys:
+    - idList
+  - table: checklists
+    keys:
+    - idList
+    - data.list.id
+  - table: lists
+    keys:
+    - id
+  _idOrganization:
+  - table: actions
+    keys:
+    - data.organization.id
+  - table: boards
+    keys:
+    - idOrganization
+  - table: checklists
+    keys:
+    - idOrganization
+    - data.organization.id
+  _:
+  - table: boards
+    keys:
+    - idTags.value
+  users_idMember:
+  - table: actions
+    keys:
+    - idMemberCreator
+    - data.idMember
+    - data.idMemberAdded
+    - data.idMemberInviter
+    - data.card.idMembers.value
+    - data.member.id
+    - data.old.idMembers.value
+    - member.idMember
+    - memberCreator.idMember
+  - table: boards
+    keys:
+    - memberships.idMember
+  - table: cards
+    keys:
+    - idMembers.value
+    - idMembersVoted.value
+  - table: checklists
+    keys:
+    - checkItems.idMember
+    - idMemberCreator
+    - memberCreator.id
+    - memberships.idMember
+  - table: users
+    keys:
+    - idMember

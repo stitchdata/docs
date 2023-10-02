@@ -1,0 +1,545 @@
+tap: looker
+version: '1'
+keys:
+  color_collections_color_collection_id:
+  - table: color_collections
+    keys:
+    - id
+  - table: themes
+    keys:
+    - settings.color_collection_id
+  content_favorites_content_favorite_id:
+  - table: content_favorites
+    keys:
+    - id
+    - dashboard.content_favorite_id
+  - table: dashboard_elements
+    keys:
+    - look.content_favorite_id
+  - table: dashboards
+    keys:
+    - content_favorite_id
+  - table: folders
+    keys:
+    - dashboards.content_favorite_id
+    - looks.content_favorite_id
+  - table: hompeages
+    keys:
+    - homepage_sections.homepage_items.content_favorite_id
+  - table: lookml_dashboards
+    keys:
+    - content_favorite_id
+  - table: looks
+    keys:
+    - content_favorite_id
+  - table: spaces
+    keys:
+    - dashboards.content_favorite_id
+    - looks.content_favorite_id
+    - looks.dashboards.content_favorite_id
+  content_metadata_content_metadata_id:
+  - table: content_favorites
+    keys:
+    - content_metadata_id
+    - dashboard.content_metadata_id
+    - dashboard.folder.content_metadata_id
+    - dashboard.space.content_metadata_id
+    - look.content_metadata_id
+  - table: content_metadata
+    keys:
+    - id
+    - parent_id
+  - table: content_metadata_access
+    keys:
+    - content_metadata_id
+  - table: content_views
+    keys:
+    - content_metadata_id
+  - table: dashboard_elements
+    keys:
+    - look.content_metadata_id
+    - look.folder.content_metadata_id
+    - look.space.content_metadata_id
+  - table: dashboards
+    keys:
+    - content_metadata_id
+    - folder.content_metadata_id
+    - space.content_metadata_id
+  - table: folders
+    keys:
+    - dashboards.folder.content_metadata_id
+    - dashboards.space.content_metadata_id
+    - looks.content_metadata_id
+    - looks.folder.content_metadata_id
+  - table: homepages
+    keys:
+    - content_metadata_id
+  - table: hompeages
+    keys:
+    - homepage_sections.homepage_items.content_metadata_id
+  - table: lookml_dashboards
+    keys:
+    - content_metadata_id
+    - folder.content_metadata_id
+    - space.content_metadata_id
+  - table: looks
+    keys:
+    - content_metadata_id
+  - table: spaces
+    keys:
+    - content_metadata_id
+    - dashboards.content_metadata_id
+    - dashboards.folder.content_metadata_id
+    - dashboards.space.content_metadata_id
+    - looks.dashboards.content_metadata_id
+    - looks.dashboards.folder.content_metadata_id
+    - looks.folder.content_metadata_id
+    - looks.space.content_metadata_id
+  dashboards_dashboard_id:
+  - table: content_favorites
+    keys:
+    - dashboard.id
+    - dashboard_id
+  - table: content_metadata
+    keys:
+    - dashboard_id
+  - table: content_views
+    keys:
+    - dashboard_id
+  - table: dashboard_elements
+    keys:
+    - dashboard_id
+  - table: dashboard_filters
+    keys:
+    - dashboard_id
+  - table: dashboard_layouts
+    keys:
+    - dashboard_id
+  - table: dashboards
+    keys:
+    - id
+  - table: folders
+    keys:
+    - dashboards.id
+  - table: hompeages
+    keys:
+    - homepage_sections.homepage_items.dashboard_id
+  - table: scheduled_plans
+    keys:
+    - dashboard_id
+  - table: spaces
+    keys:
+    - dashboards.id
+    - looks.dashboards.id
+  dashboard_elements_dashboard_element_id:
+  - table: dashboard_elements
+    keys:
+    - id
+  - table: dashboard_layouts
+    keys:
+    - dashboard_layout_components.dashboard_element_id
+  dashboard_filters_dashboard_filter_id:
+  - table: dashboard_filters
+    keys:
+    - id
+  dashboard_layouts_dashboard_layout_id:
+  - table: dashboard_layouts
+    keys:
+    - id
+    - dashboard_layout_components.dashboard_layout_id
+  folders_folder.id:
+  - table: content_favorites
+    keys:
+    - dashboard.folder.id
+    - dashboard.folder.parent_id
+  - table: dashboard_elements
+    keys:
+    - look.folder.id
+    - look.folder.parent_id
+    - look.folder_id
+  - table: dashboards
+    keys:
+    - folder.id
+    - folder.parent_id
+  - table: folders
+    keys:
+    - id
+    - dashboards.folder.id
+    - dashboards.folder.parent_id
+    - looks.folder.id
+    - looks.folder.parent_id
+    - parent_id
+  - table: lookml_dashboards
+    keys:
+    - folder.id
+    - folder.parent_id
+  - table: looks
+    keys:
+    - folder.id
+    - folder_id
+    - folder.parent_id
+  - table: spaces
+    keys:
+    - dashboards.folder.id
+    - dashboards.folder.parent_id
+    - looks.dashboards.folder.id
+    - looks.dashboards.folder.parent_id
+    - looks.folder.id
+    - looks.folder.parent_id
+  - table: users
+    keys:
+    - home_folder_id
+    - personal_folder_id
+  groups_group_id:
+  - table: content_metadata_access
+    keys:
+    - group_id
+  - table: content_views
+    keys:
+    - group_id
+  - table: groups
+    keys:
+    - id
+  - table: groups_in_group
+    keys:
+    - id
+    - parent_group_id
+  - table: user_attribute_group_values
+    keys:
+    - group_id
+  - table: users
+    keys:
+    - group_ids.value
+  homepages_homepage_id:
+  - table: hompeages
+    keys:
+    - id
+    - homepage_sections.homepage_id
+  integration_hubs_integration_hub_id:
+  - table: integration_hubs
+    keys:
+    - id
+  - table: integrations
+    keys:
+    - integration_hub_id
+  integrations_integration_id:
+  - table: integrations
+    keys:
+    - id
+  looks_look_id:
+  - table: content_favorites
+    keys:
+    - look_id
+    - look.id
+  - table: content_metadata
+    keys:
+    - look_id
+  - table: content_views
+    keys:
+    - look_id
+  - table: dashboard_elements
+    keys:
+    - look.look_id
+    - look_id
+  - table: folders
+    keys:
+    - looks.id
+  - table: hompeages
+    keys:
+    - homepage_sections.homepage_items.look_id
+  - table: looks
+    keys:
+    - id
+  - table: scheduled_plans
+    keys:
+    - look_id
+  - table: spaces
+    keys:
+    - looks.id
+    - looks.id
+  versions_full_version:
+  - table: users
+    keys:
+    - looker_versions.value
+  - table: versions
+    keys:
+    - looker_release_version
+    - current_version.full_version
+    - supported_versions.full_version
+  lookml_dashboards_lookml_dashboard_id:
+  - table: hompeages
+    keys:
+    - homepage_sections.homepage_items.lookml_dashboard_id
+  - table: lookml_dashboards
+    keys:
+    - id
+  - table: scheduled_plans
+    keys:
+    - lookml_dashboard_id
+  merge_queries_merge_query_id:
+  - table: merge_queries
+    keys:
+    - id
+  model_sets_model_set.id:
+  - table: model_sets
+    keys:
+    - id
+  - table: roles
+    keys:
+    - model_set.id
+    - model_set_id
+  models_model.id:
+  - table: content_favorites
+    keys:
+    - dashboard.model.id
+  - table: dashboard_elements
+    keys:
+    - look.model.id
+  - table: dashboards
+    keys:
+    - model.id
+  - table: folders
+    keys:
+    - dashboards.model.id
+    - looks.model.id
+  - table: lookml_dashboards
+    keys:
+    - model.id
+  - table: looks
+    keys:
+    - model.id
+  - table: models
+    keys:
+    - id
+  - table: roles
+    keys:
+    - model_set.models.value
+  - table: spaces
+    keys:
+    - dashboards.model.id
+    - looks.dashboards.model.id
+    - looks.model.id
+  permission_sets_permission_set_id:
+  - table: permission_sets
+    keys:
+    - id
+  - table: roles
+    keys:
+    - permission_set_id
+    - id
+  permissions_permissions.value:
+  - table: permission_sets
+    keys:
+    - permissions.value
+  - table: permissions
+    keys:
+    - id
+  - table: roles
+    keys:
+    - permissions.value
+  project_files_:
+  - table: project_files
+    keys:
+    - id
+  projects_project_id:
+  - table: git_branches
+    keys:
+    - project_id
+  - table: project_files
+    keys:
+    - project_id
+  - table: projects
+    keys:
+    - id
+  - table: workspaces
+    keys:
+    - projects.id
+  queries_query.id:
+  - table: dashboard_elements
+    keys:
+    - look.query.id
+    - look.query_id
+    - query.id
+    - query_id
+    - result_maker.query.id
+    - result_maker.query_id
+  - table: folders
+    keys:
+    - looks.query_id
+  - table: looks
+    keys:
+    - query_id
+  - table: scheduled_plans
+    keys:
+    - query_id
+  - table: spaces
+    keys:
+    - looks.query_id
+  - table: queries
+    keys:
+    - id
+  role_groups_role_group_id:
+  - table: role_groups
+    keys:
+    - id
+  roles_role_id:
+  - table: role_groups
+    keys:
+    - role_id
+  - table: roles
+    keys:
+    - id
+  - table: users
+    keys:
+    - role_ids.id
+  scheduled_plans_scheduled_plan_id:
+  - table: scheduled_plans
+    keys:
+    - id
+    - scheduled_plan_destination.scheduled_plan_id
+  spaces_space.id:
+  - table: content_favorites
+    keys:
+    - dashboard.space.id
+    - dashboard.space.parent_id
+  - table: content_metadata
+    keys:
+    - space_id
+  - table: dashboard_elements
+    keys:
+    - look.space.id
+    - look.space.parent_id
+  - table: dashboards
+    keys:
+    - space.id
+    - space.parent_id
+  - table: folders
+    keys:
+    - dashboards.space.id
+    - dashboards.space.parent_id
+    - looks.space.id
+    - looks.space.parent_id
+    - looks.space_id
+  - table: lookml_dashboards
+    keys:
+    - space.id
+    - space.parent_id
+  - table: looks
+    keys:
+    - space.id
+    - space.parent_id
+    - space_id
+  - table: spaces
+    keys:
+    - id
+    - dashboards.space.id
+    - dashboards.space.parent_id
+    - looks.space.id
+    - looks.space.parent_id
+    - looks.space_id
+  - table: users
+    keys:
+    - home_space_id
+    - personal_space_id
+  themes_theme_id:
+  - table: themes
+    keys:
+    - id
+  user_attribute_group_values_:
+  - table: user_attribute_group_values
+    keys:
+    - id
+  user_attributes_user_attribute_id:
+  - table: user_attributes
+    keys:
+    - user_attribute_id
+  - table: user_attribute_group_values
+    keys:
+    - user_attribute_id
+  user_sessions_sessions.id:
+  - table: user_sessions
+    keys:
+    - id
+  - table: users
+    keys:
+    - sessions.id
+  users_creator_id:
+  - table: connections
+    keys:
+    - user_id
+  - table: content_favorites
+    keys:
+    - dashboard.folder.creator_id
+    - dashboard.space.creator_id
+    - dashboard.creator_id
+    - user_id
+  - table: content_views
+    keys:
+    - user_id
+  - table: dashboard_elements
+    keys:
+    - look.deleter_id
+    - look.folder.creator_id
+    - look.last_updater_id
+    - look.space.creator_id
+    - look.user.id
+    - look.user_id
+  - table: dashboards
+    keys:
+    - space.creator_id
+    - user_id
+  - table: folders
+    keys:
+    - creator_id
+    - dashboards.user_id
+    - dashboards.folder.creator_id
+    - dashboards.space.creator_id
+    - dashboards.user_id
+    - looks.deleter_id
+    - looks.last_updater_id
+    - looks.user.id
+    - looks.creator_id
+  - table: groups
+    keys:
+    - user_id
+  - table: hompeages
+    keys:
+    - user_id
+  - table: lookml_dashboards
+    keys:
+    - folder.creator_id
+    - space.creator_id
+    - user_id
+  - table: looks
+    keys:
+    - deleter_id
+    - folder.creator_id
+    - user.id
+    - user_id
+  - table: scheduled_plans
+    keys:
+    - user.id
+    - user_id
+  - table: spaces
+    keys:
+    - creator_id
+    - dashboards.folder.creator_id
+    - dashboards.space.creator_id
+    - dashboards.user_id
+    - looks.dashboards.folder.creator_id
+    - looks.dashboards.user_id
+    - looks.dashboards.deleter_id
+    - looks.folder.creator_id
+    - looks.space.creator_id
+    - looks.user.id
+    - looks.user_id
+    - parent_id
+  - table: user_attributes
+    keys:
+    - user_id
+  - table: user_login_lockouts
+    keys:
+    - user_id
+  - table: users
+    keys:
+    - id

@@ -1,0 +1,131 @@
+tap: iterable-core
+version: '1'
+keys:
+  campaigns_id:
+  - table: campaigns
+    keys:
+    - id
+  - table: email_bounce
+    keys:
+    - campaignId
+  - table: email_click
+    keys:
+    - campaignId
+    - campaignId
+  - table: email_complaint
+    keys:
+    - campaignId
+  - table: email_open
+    keys:
+    - campaignId
+  - table: email_send
+    keys:
+    - campaignId
+  - table: email_send_skip
+    keys:
+    - campaignId
+  - table: email_subscribe
+    keys:
+    - campaignId
+  - table: email_unsubscribe
+    keys:
+    - campaignId
+  - table: templates
+    keys:
+    - campaignId
+  channels_id:
+  - table: channels
+    keys:
+    - id
+  - table: email_send
+    keys:
+    - channelId
+  - table: email_send_skip
+    keys:
+    - channelId
+  - table: email_subscribe
+    keys:
+    - channelIds.items
+  - table: email_unsubscribe
+    keys:
+    - channelIds.items
+    - channelId
+  - table: message_types
+    keys:
+    - channelId
+  users_email:
+  - table: users
+    keys:
+    - email
+  - table: email_ _bounce
+    keys:
+    - email
+  - table: email_click
+    keys:
+    - email
+  - table: email_complaint
+    keys:
+    - email
+  - table: email_open
+    keys:
+    - email
+  - table: email_send
+    keys:
+    - email
+  - table: email_send_skip
+    keys:
+    - email
+  - table: email_subscribe
+    keys:
+    - email
+  - table: email_unsubscribe
+    keys:
+    - email
+  - table: list_users
+    keys:
+    - email
+  lists_id:
+  - table: lists
+    keys:
+    - id
+  - table: list_users
+    keys:
+    - listId
+  message_types_id:
+  - table: message_types
+    keys:
+    - id
+  - table: templates
+    keys:
+    - messageTypeId
+  templates_templateId:
+  - table: templates
+    keys:
+    - templateId
+  - table: campaigns
+    keys:
+    - templateId
+  - table: email_bounce
+    keys:
+    - templateId
+  - table: email_click
+    keys:
+    - templateId
+  - table: email_complaint
+    keys:
+    - templateId
+  - table: email_open
+    keys:
+    - templateId
+  - table: email_send
+    keys:
+    - templateId
+  - table: email_send_skip
+    keys:
+    - templateId
+  - table: email_subscribe
+    keys:
+    - templateId
+  - table: email_unsubscribe
+    keys:
+    - templateId

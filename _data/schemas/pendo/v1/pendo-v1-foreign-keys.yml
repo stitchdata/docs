@@ -1,0 +1,182 @@
+tap: pendo
+version: '1'
+keys:
+  accounts_account_id:
+  - table: accounts
+    keys:
+    - id
+  - table: events
+    keys:
+    - account_id
+  - table: feature_events
+    keys:
+    - account_id
+  - table: guide_events
+    keys:
+    - account_id
+    - account_ids.value
+  - table: page_events
+    keys:
+    - account_id
+  - table: poll_events
+    keys:
+    - account_id
+    - account_ids.value
+  - table: track_events
+    keys:
+    - account_id
+  - table: visitors
+    keys:
+    - metadata_auto.accountid.account_id
+    - metadata_auto.accountids.value
+  _app_id:
+  - table: events
+    keys:
+    - app_id
+  - table: feature_events
+    keys:
+    - app_id
+  - table: features
+    keys:
+    - created_by_user.app_id
+  - table: guide_events
+    keys:
+    - app_id
+  - table: page_events
+    keys:
+    - app_id
+  - table: track_events
+    keys:
+    - app_id
+  - table: visitor_history
+    keys:
+    - app_id
+  _feature_id:
+  - table: events
+    keys:
+    - feature_id
+  - table: feature_events
+    keys:
+    - feature_id
+  - table: features
+    keys:
+    - id
+  - table: visitor_history
+    keys:
+    - feature_id
+  _group.id:
+  - table: features
+    keys:
+    - group.id
+  - table: pages
+    keys:
+    - group.id
+  - table: track_types
+    keys:
+    - group.id
+  guides_guide_id:
+  - table: guide_events
+    keys:
+    - guide_id
+  - table: guides
+    keys:
+    - id
+    - steps.guide_id
+  - table: poll_events
+    keys:
+    - guide_id
+  - table: visitor_history
+    keys:
+    - guide_id
+  guides_id:
+  - table: guides
+    keys:
+    - steps.id
+  - table: visitor_history
+    keys:
+    - id
+  _page_id:
+  - table: events
+    keys:
+    - page_id
+  - table: feature_events
+    keys:
+    - page_id
+  - table: features
+    keys:
+    - page_id
+  - table: guides
+    keys:
+    - steps.page_id
+  - table: page_events
+    keys:
+    - page_id
+  - table: pages
+    keys:
+    - page_id
+  - table: visitor_history
+    keys:
+    - page_id
+  _poll_id:
+  - table: guide_events
+    keys:
+    - poll_id
+  - table: poll_events
+    keys:
+    - poll_id
+  track_types_track_type_id:
+  - table: track_events
+    keys:
+    - track_type_id
+  - table: track_types
+    keys:
+    - id
+  _id:
+  - table: features
+    keys:
+    - created_by_user.id
+    - group.created_by_user.id
+    - group.last_updated_by_user.id
+    - last_updated_by_user.id
+  - table: guides
+    keys:
+    - created_by_user.id
+    - lastUpdated_by_user.id
+  - table: pages
+    keys:
+    - created_by_user.id
+    - group.created_by_user.id
+    - group.last_updated_by_user.id
+    - last_updated_by_user.id
+  - table: track_types
+    keys:
+    - created_by_user.id
+    - last_updated_by_user.id
+  visitors_visitor_id:
+  - table: events
+    keys:
+    - visitor_id
+  - table: feature_events
+    keys:
+    - visitor_id
+  - table: guide_events
+    keys:
+    - visitor_id
+  - table: guides
+    keys:
+    - audience.select.visitor_id
+  - table: page_events
+    keys:
+    - visitor_id
+  - table: poll_events
+    keys:
+    - visitor_id
+  - table: track_events
+    keys:
+    - visitor_id
+  - table: visitor_history
+    keys:
+    - visitor_id
+  - table: visitors
+    keys:
+    - visitor_id

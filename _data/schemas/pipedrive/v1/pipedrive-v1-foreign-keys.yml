@@ -1,0 +1,171 @@
+tap: pipedrive
+version: '1'
+keys:
+  activities_activity_id:
+  - table: activities
+    keys:
+    - id
+  - table: deals
+    keys:
+    - last_activity_id
+    - next_activity_id
+  - table: delete_log
+    keys:
+    - id
+  - table: files
+    keys:
+    - activity_id
+  - table: organizations
+    keys:
+    - last_activity_id
+    - next_activity_id
+  - table: persons
+    keys:
+    - last_activity_id
+    - next_activity_id
+  activity_types_activity_type_id:
+  - table: activity_types
+    keys:
+    - id
+  currency_currency_id:
+  - table: currency
+    keys:
+    - id
+  deals_deal_id:
+  - table: activities
+    keys:
+    - deal_id
+  - table: deals
+    keys:
+    - id
+  - table: deal_products
+    keys:
+    - deal_id
+  - table: delete_log
+    keys:
+    - id
+  - table: files
+    keys:
+    - deal_id
+  - table: notes
+    keys:
+    - deal_id
+  deal_products_deal_product_id:
+  - table: deal_products
+    keys:
+    - id
+  filters_filter_id:
+  - table: filters
+    keys:
+    - id
+  pipelines_pipeline_id:
+  - table: deals
+    keys:
+    - pipeline_id
+  - table: delete_log
+    keys:
+    - id
+  - table: pipelines
+    keys:
+    - id
+  - table: stages
+    keys:
+    - pipeline_id
+  notes_note_id:
+  - table: files
+    keys:
+    - note_id
+  - table: notes
+    keys:
+    - id
+  organizations_org_id:
+  - table: activities
+    keys:
+    - org_id
+  - table: deals
+    keys:
+    - org_id
+  - table: delete_log
+    keys:
+    - id
+  - table: files
+    keys:
+    - org_id
+  - table: notes
+    keys:
+    - org_id
+  - table: organizations
+    keys:
+    - id
+  persons_person_id:
+  - table: activities
+    keys:
+    - participants.person_id
+    - person_id
+  - table: delete_log
+    keys:
+    - id
+  - table: files
+    keys:
+    - person_id
+  - table: notes
+    keys:
+    - person_id
+  - table: persons
+    keys:
+    - id
+  - table: ''
+    keys:
+    - person_id
+  products_product_id:
+  - table: deal_products
+    keys:
+    - product_id
+  - table: delete_log
+    keys:
+    - id
+  - table: files
+    keys:
+    - product_id
+  - table: products
+    keys:
+    - id
+  stages_stage_id:
+  - table: deals
+    keys:
+    - stage_id
+  - table: delete_log
+    keys:
+    - id
+  - table: stages
+    keys:
+    - id
+  users_user_id:
+  - table: activities
+    keys:
+    - assigned_to_user_id
+    - created_by_user_id
+    - user_id
+  - table: dealflow
+    keys:
+    - user_id
+  - table: deals
+    keys:
+    - creator_user_id
+    - user_id
+  - table: delete_log
+    keys:
+    - id
+  - table: files
+    keys:
+    - user_id
+  - table: filters
+    keys:
+    - user_id
+  - table: notes
+    keys:
+    - last_update_user_id
+    - user_id
+  - table: users
+    keys:
+    - id

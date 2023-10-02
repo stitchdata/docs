@@ -1,0 +1,170 @@
+tap: uservoice
+version: '1'
+keys:
+  categories_category:
+  - table: categories
+    keys:
+    - id
+  - table: suggestions
+    keys:
+    - links.category
+  comments_comment:
+  - table: comments
+    keys:
+    - id
+  external_accounts_:
+  - table: external_accounts
+    keys:
+    - id
+  - table: external_users
+    keys:
+    - links.external_accounts
+  external_users_external_user:
+  - table: external_users
+    keys:
+    - id
+  - table: users
+    keys:
+    - links__external_users.value
+  feature_statuses_feature_status:
+  - table: features
+    keys:
+    - links.feature_status
+  - table: feature_statuses
+    keys:
+    - id
+  forums_forum:
+  - table: categories
+    keys:
+    - links.forum
+  - table: forums
+    keys:
+    - id
+  - table: suggestions
+    keys:
+    - links.forum
+  labels_:
+  - table: labels
+    keys:
+    - id
+    - links.parent
+  - table: suggestions
+    keys:
+    - links__labels.value
+  nps_ratings_:
+  - table: nps_ratings
+    keys:
+    - id
+  product_areas_product_area:
+  - table: features
+    keys:
+    - product_area
+  - table: product_areas
+    keys:
+    - id
+  requests_:
+  - table: requests
+    keys:
+    - id
+  segmented_values_:
+  - table: segmented_values
+    keys:
+    - id
+  segments_segment:
+  - table: segments
+    keys:
+    - id
+  statuses_:
+  - table: status_updates
+    keys:
+    - links.new_status
+    - links.old_status
+  - table: statuses
+    keys:
+    - id
+  - table: suggestions
+    keys:
+    - links.
+  status_updates_:
+  - table: status_updates
+    keys:
+    - id
+  - table: suggestions
+    keys:
+    - links.last_status_update
+  suggestions_suggestion:
+  - table: comments
+    keys:
+    - links.suggestion
+  - table: requests
+    keys:
+    - links.suggestion
+  - table: status_updates
+    keys:
+    - links.suggestion
+  - table: suggestions
+    keys:
+    - id
+    - links.parent_suggestion
+  - table: supporter-id
+    keys:
+    - links.suggestion
+  supporters_supporter:
+  - table: requests
+    keys:
+    - links.supporter
+  - table: supporters
+    keys:
+    - id
+  teams_team:
+  - table: teams
+    keys:
+    - id
+  - table: users
+    keys:
+    - links__teams.value
+  users_user:
+  - table: comments
+    keys:
+    - links.created_by
+  - table: features
+    keys:
+    - links.updated_by
+    - links.created_by
+  - table: feature_statuses
+    keys:
+    - links.updated_by
+    - links.created_by
+  - table: forums
+    keys:
+    - links.updated_by
+  - table: nps_ratings
+    keys:
+    - links.user
+  - table: product_areas
+    keys:
+    - links.updated_by
+    - links.created_by
+  - table: requests
+    keys:
+    - links.user
+    - links.created_by
+    - links.updated_by
+  - table: segmented_values
+    keys:
+    - links.created_by
+    - links.updated_by
+  - table: status_updates
+    keys:
+    - links.user
+  - table: suggestions
+    keys:
+    - links.created_by
+  - table: supporters
+    keys:
+    - links.created_by
+    - links.updated_by
+    - links.user
+  - table: users
+    keys:
+    - id

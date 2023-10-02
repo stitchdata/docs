@@ -1,0 +1,27 @@
+tap: typeform
+version: '2'
+keys:
+  forms_form_id:
+  - table: forms
+    keys:
+    - form_id
+  - table: questions
+    keys:
+    - form_id
+  submitted_landings_landing_id:
+  - table: answers
+    keys:
+    - landing_id
+  - table: submitted_landings
+    keys:
+    - landing_id
+  - table: unsubmitted_landings
+    keys:
+    - landing_id
+  questions_question_id:
+  - table: answers
+    keys:
+    - question_id
+  - table: questions
+    keys:
+    - question_id

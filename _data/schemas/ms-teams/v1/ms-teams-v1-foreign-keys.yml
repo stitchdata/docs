@@ -1,0 +1,107 @@
+tap: ms-teams
+version: '1'
+keys:
+  channels_id:
+  - table: channels
+    keys:
+    - id
+  - table: channel
+    keys:
+    - id
+  - table: channel_members
+    keys:
+    - channel_id
+  - table: channel_tabs
+    keys:
+    - channel_id
+  - table: channel_messages
+    keys:
+    - channel_identity.channel_id
+  - table: channel_message_replies
+    keys:
+    - channel_identity.channel_id
+  channel_members_id:
+  - table: channel_members
+    keys:
+    - id
+  conversations_id:
+  - table: conversation
+    keys:
+    - id
+  - table: conversation_threads
+    keys:
+    - conversation_id
+  - table: conversation_posts
+    keys:
+    - conversation_id
+  team_drives_id:
+  - table: team_drives
+    keys:
+    - id
+  groups_id:
+  - table: groups
+    keys:
+    - id
+  - table: group_owners
+    keys:
+    - group_id
+  - table: channel_tabs
+    keys:
+    - group_id
+  - table: conversations
+    keys:
+    - group_id
+  - table: conversation_threads
+    keys:
+    - group_id
+  - table: team_drives
+    keys:
+    - owner.group.id
+  group_members_id:
+  - table: group_members
+    keys:
+    - id
+  channel_messages_id:
+  - table: channel_messages
+    keys:
+    - id
+  group_owners_id:
+  - table: group_owners
+    keys:
+    - id
+  conversation_posts_id:
+  - table: conversation_posts
+    keys:
+    - id
+  channel_message_replies_id:
+  - table: channel_messages_replies
+    keys:
+    - id
+  channel_tabs_id:
+  - table: channel_tabs
+    keys:
+    - id
+  conversation_threads_id:
+  - table: conversation_threads
+    keys:
+    - id
+  - table: conversation_posts
+    keys:
+    - thread_id
+  users_user.id:
+  - table: users
+    keys:
+    - id
+  - table: channel_members
+    keys:
+    - user_id
+  - table: channel_message_replies
+    keys:
+    - from.user.id
+    - mentions.mentioned.user.id
+    - reactions.user.user.id
+  - table: channel_messages
+    keys:
+    - from.user.id
+    - mentions.mentioned.user.id
+    - reactions.user.user.id

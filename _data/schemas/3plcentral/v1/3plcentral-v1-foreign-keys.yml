@@ -1,7 +1,7 @@
 tap: 3plcentral
 version: '1'
 keys:
-- customer_id:
+  customers_customer_id:
   - table: customers
     keys:
     - customer_id
@@ -12,80 +12,112 @@ keys:
   - table: stock_details
     keys:
     - customer_id
-- item_id:
+  - table: inventory
+    keys:
+    - customer_identifier.id
+  - table: locations
+    keys:
+    - customer_identifier.id
+  - table: orders
+    keys:
+    - customer_identifier.id
+    - batch_identifier.name_key.customer_identifier.id
+    - retailer_info.name_key.customer_identifier.id
+  facilities_facility_id:
+  - table: customers
+    keys:
+    - facilities.id
+    - primary_facility_identifier.id
+  - table: inventory
+    keys:
+    - facility_identifier.id
+    - location_identifier.name_key.facility_identifier.id
+    - pallet_identifier.name_key.facility_identifier.id
+  - table: locations
+    keys:
+    - facility_id
+    - item_traits.pallet_identifier.name_key.facility_identifier.id
+    - location_identifier.name_key.facility_identifier.id
+  - table: orders
+    keys:
+    - facility_identifier.id
   - table: sku_items
     keys:
-    - item_id
+    - options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+  - table: stock_details
+    keys:
+    - location_identifier.name_key.facility_identifier.id
+    - pallet_identifier.name_key.facility_identifier.id
+  - table: stock_summaries
+    keys:
+    - facility_id
+  sku_items_item_identifier:
+  - table: inventory
+    keys:
+    - item_identifier.id
+  - table: sku_items
+    keys:
+    - item_identifier.id
+    - kit.components.item_identifier.id
+  - table: stock_details
+    keys:
+    - item_identifier.id
+  sku_items_item_id:
   - table: locations
     keys:
     - item_traits.item_identifier.id
+  - table: sku_items
+    keys:
+    - item_id
   - table: stock_summaries
     keys:
     - item_id
-tables:
-- table-name: customers
-  join:
-  - table-name: sku_items
+  locations_location_id:
+  - table: inventory
     keys:
-    - key: customer_id
-      foreign-key: customer_id
-    - key: customer_id
-      foreign-key: customer_identifier.id
-  - table-name: stock_details
+    - location_identifier.id
+  - table: locations
     keys:
-    - key: customer_id
-      foreign-key: customer_id
-- table-name: sku_items
-  join:
-  - table-name: customers
+    - location_id
+    - location_identifier.id
+  - table: sku_items
     keys:
-    - key: customer_id
-      foreign-key: customer_id
-    - key: customer_identifier.id
-      foreign-key: customer_id
-  - table-name: stock_details
+    - options.directed_put_away.preferred_location_identifier.id
+  - table: stock_details
     keys:
-    - key: customer_id
-      foreign-key: customer_id
-    - key: customer_identifier.id
-      foreign-key: customer_id
-  - table-name: locations
+    - location_identifier.id
+  orders_order_id:
+  - table: orders
     keys:
-    - key: item_id
-      foreign-key: item_traits.item_identifier.id
-  - table-name: stock_summaries
+    - order_id
+  pallets_id:
+  - table: inventory
     keys:
-    - key: item_id
-      foreign-key: item_id
-- table-name: stock_details
-  join:
-  - table-name: customers
+    - pallet_identifier.id
+  - table: locations
     keys:
-    - key: customer_id
-      foreign-key: customer_id
-  - table-name: sku_items
+    - item_traits.pallet_identifier.id
+  - table: stock_details
     keys:
-    - key: customer_id
-      foreign-key: customer_id
-    - key: customer_id
-      foreign-key: customer_identifier.id
-- table-name: locations
-  join:
-  - table-name: sku_items
+    - pallet_identifier.id
+  receivers_id:
+  - table: inventory
     keys:
-    - key: item_traits.item_identifier.id
-      foreign-key: item_id
-  - table-name: stock_summaries
+    - receiver_id
+  - table: stock_details
     keys:
-    - key: item_traits.item_identifier.id
-      foreign-key: item_id
-- table-name: stock_summaries
-  join:
-  - table-name: sku_items
+    - receiver_id
+  stock_details_receive_item_id:
+  - table: stock_details
     keys:
-    - key: item_id
-      foreign-key: item_id
-  - table-name: locations
+    - receive_item_id
+  - table: inventory
     keys:
-    - key: item_id
-      foreign-key: item_traits.item_identifier.id
+    - receive_item_id
+  suppliers_id:
+  - table: inventory
+    keys:
+    - supplier_identifier.id
+  - table: stock_details
+    keys:
+    - supplier_identifier.id

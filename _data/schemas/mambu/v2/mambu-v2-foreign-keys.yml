@@ -1,0 +1,273 @@
+tap: mambu
+version: '2'
+keys:
+  activities_encoded_key:
+  - table: activities
+    keys:
+    - encoded_key
+  branches_encoded_key:
+  - table: branches
+    keys:
+    - encoded_key
+  - table: centres
+    keys:
+    - assigned_branch_key
+  - table: deposit_transactions
+    keys:
+    - branch_key
+  - table: groups
+    keys:
+    - assigned_branch_key
+  - table: loan_accounts
+    keys:
+    - assigned_branch_key
+  - table: loan_transactions
+    keys:
+    - branch_key
+  - table: users
+    keys:
+    - access.managed_branches.branch_key
+  centres_encoded_key:
+  - table: centres
+    keys:
+    - encoded_key
+  - table: clients
+    keys:
+    - assigned_centre_key
+  - table: deposit_transactions
+    keys:
+    - centre_key
+  - table: groups
+    keys:
+    - assigned_centre_key
+  - table: loan_accounts
+    keys:
+    - assigned_centre_key
+  - table: loan_transactions
+    keys:
+    - centre_key
+  clients_client_key:
+  - table: activities
+    keys:
+    - client_key
+  - table: clients
+    keys:
+    - encoded_key
+  - table: communications
+    keys:
+    - client_key
+  - table: groups
+    keys:
+    - group_members.clientKey
+  communications_encoded_key:
+  - table: communications
+    keys:
+    - encoded_key
+  credit_arrangements_credit_arrangement_key:
+  - table: credit_arrangements
+    keys:
+    - encoded_key
+  - table: deposit_accounts
+    keys:
+    - credit_arrangement_key
+  - table: loan_accounts
+    keys:
+    - credit_arrangement_key
+  custom_field_sets_custom_fields.field_set_id:
+  - table: branches
+    keys:
+    - custom_fields.field_set_id
+  - table: centres
+    keys:
+    - custom_fields.field_set_id
+  - table: clients
+    keys:
+    - custom_fields.field_set_id
+  - table: communications
+    keys:
+    - custom_fields.field_set_id
+  - table: credit_arrangements
+    keys:
+    - custom_fields.field_set_id
+  - table: custom_field_sets
+    keys:
+    - id
+  - table: deposit_accounts
+    keys:
+    - custom_fields.field_set_id
+  - table: deposit_products
+    keys:
+    - custom_field_values.custom_field.custom_field_set.id
+  - table: deposit_transactions
+    keys:
+    - custom_fields.field_set_id
+  - table: groups
+    keys:
+    - custom_fields.field_set_id
+  - table: loan_accounts
+    keys:
+    - custom_fields.field_set_id
+  - table: loan_products
+    keys:
+    - custom_field_values.custom_field.custom_field_set.id
+  - table: loan_transactions
+    keys:
+    - custom_fields.field_set_id
+  - table: tasks
+    keys:
+    - custom_fields.field_set_id
+  - table: users
+    keys:
+    - custom_fields.field_set_id
+  custom_field_sets_custom_fields.id:
+  - table: branches
+    keys:
+    - custom_fields.id
+  - table: centres
+    keys:
+    - custom_fields.id
+  - table: clients
+    keys:
+    - custom_fields.id
+  - table: communications
+    keys:
+    - custom_fields.id
+  - table: credit_arrangements
+    keys:
+    - custom_fields.id
+  - table: custom_field_sets
+    keys:
+    - custom_fields.id
+  - table: deposit_accounts
+    keys:
+    - custom_fields.id
+  - table: deposit_products
+    keys:
+    - custom_field_values.custom_field.id
+    - custom_field_values.custom_field_id
+  - table: deposit_transactions
+    keys:
+    - custom_fields.id
+  - table: groups
+    keys:
+    - custom_fields.id
+  - table: loan_accounts
+    keys:
+    - custom_fields.id
+  - table: loan_products
+    keys:
+    - custom_field_values.custom_field.id
+    - custom_field_values.custom_field_id
+  - table: loan_transactions
+    keys:
+    - custom_fields.id
+  - table: tasks
+    keys:
+    - custom_fields.id
+  - table: users
+    keys:
+    - custom_fields.id
+  deposits_deposit_id:
+  - table: cards
+    keys:
+    - deposit_id
+  deposit_accounts_deposit_account_key:
+  - table: communications
+    keys:
+    - deposit_account_key
+  - table: deposit_accounts
+    keys:
+    - encoded_key
+  - table: loan_accounts
+    keys:
+    - disbursement_details.transaction_details.target_deposit_account_key
+    - funding_sources.deposit_account_key
+    - guarantors.deposit_account_key
+  deposit_products_id:
+  - table: deposit_products
+    keys:
+    - id
+  deposit_transactions_transfer_details.linked_deposit_transaction_key:
+  - table: deposit_transactions
+    keys:
+    - transfer_details.linked_deposit_transaction_key
+  - table: loan_transactions
+    keys:
+    - transfer_details.linked_deposit_transaction_key
+  gl_accounts_gl_code:
+  - table: gl_accounts
+    keys:
+    - gl_code
+  - table: gl_journal_entries
+    keys:
+    - gl_account.gl_code
+  groups_group_key:
+  - table: communications
+    keys:
+    - group_key
+  - table: groups
+    keys:
+    - encoded_key
+  index_rate_sources_:
+  - table: index_rate_sources
+    keys:
+    - ''
+  installments_:
+  - table: installments
+    keys:
+    - encoded_key
+  loan_accounts_encoded_key:
+  - table: communications
+    keys:
+    - loan_account_key
+  - table: loan_accounts
+    keys:
+    - encoded_key
+  loan_products_:
+  - table: loan_products
+    keys:
+    - encoded_key
+  loan_transactions_linked_loan_transaction_key:
+  - table: deposit_transactions
+    keys:
+    - linked_loan_transaction_key
+    - transfer_details.linked_loan_transaction_key
+  - table: loan_transactions
+    keys:
+    - encoded_key
+    - linked_loan_transaction_key
+    - parent_loan_transaction_key
+    - transfer_details.linked_loan_transaction_key
+  users_user_key:
+  - table: activities
+    keys:
+    - user_key
+  - table: clients
+    keys:
+    - assigned_user_key
+  - table: communications
+    keys:
+    - user_key
+    - sender_key
+  - table: deposit_transactions
+    keys:
+    - user_key
+  - table: gl_journal_entries
+    keys:
+    - user_key
+  - table: groups
+    keys:
+    - assigned_user_key
+  - table: loan_accounts
+    keys:
+    - assigned_user_key
+  - table: loan_transactions
+    keys:
+    - user_key
+  - table: tasks
+    keys:
+    - created_by_user_key
+    - assigned_user_key
+  - table: users
+    keys:
+    - encoded_key

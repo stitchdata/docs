@@ -1,0 +1,140 @@
+tap: recharge
+version: '1'
+keys:
+  addresses_address_id:
+  - table: addresses
+    keys:
+    - id
+  - table: charges
+    keys:
+    - address_id
+  - table: onetimes
+    keys:
+    - address_id
+  - table: orders
+    keys:
+    - address_id
+  - table: subscriptions
+    keys:
+    - address_id
+  charges_charge_id:
+  - table: charges
+    keys:
+    - id
+  - table: orders
+    keys:
+    - charge_id
+  collections_collection_id:
+  - table: collections
+    keys:
+    - id
+  - table: products
+    keys:
+    - collection_id
+  customers_customer_id:
+  - table: addresses
+    keys:
+    - customer_id
+  - table: charges
+    keys:
+    - customer_id
+  - table: customers
+    keys:
+    - id
+  - table: onetimes
+    keys:
+    - customer_id
+  - table: orders
+    keys:
+    - customer_id
+  - table: subscriptions
+    keys:
+    - customer_id
+  discounts_discount_id:
+  - table: addresses
+    keys:
+    - discount_id
+  - table: discounts
+    keys:
+    - id
+  onetimes_onetime_id:
+  - table: onetimes
+    keys:
+    - id
+  orders_order_id:
+  - table: orders
+    keys:
+    - id
+  _owner_id:
+  - table: metafields_customer
+    keys:
+    - owner_id
+  - table: metafields_store
+    keys:
+    - owner_id
+  - table: metafields_subscription
+    keys:
+    - owner_id
+  products_product_id:
+  - table: charges
+    keys:
+    - line_items.shopify_product_id
+  - table: onetimes
+    keys:
+    - shopify_product_id
+  - table: orders
+    keys:
+    - line_items.shopify_product_id
+  - table: products
+    keys:
+    - id
+  - table: subscriptions
+    keys:
+    - product_id
+  _shopify_customer_id:
+  - table: customers
+    keys:
+    - shopify_customer_id
+  - table: orders
+    keys:
+    - shopify_customer_id
+  _shopify_order_id:
+  - table: charges
+    keys:
+    - shopify_order_id
+  - table: orders
+    keys:
+    - shopify_order_id
+  subscriptions_subscription_id:
+  - table: charges
+    keys:
+    - line_items.subscription_id
+  - table: orders
+    keys:
+    - line_items.subscription_id
+  - table: subscriptions
+    keys:
+    - id
+  transactions_transaction_id:
+  - table: charges
+    keys:
+    - transaction_id
+  - table: orders
+    keys:
+    - transaction_id
+  - table: transactions
+    keys:
+    - id
+  _shopify_variant_id:
+  - table: charges
+    keys:
+    - line_items.shopify_variant_id
+  - table: orders
+    keys:
+    - line_items.shopify_variant_id
+  - table: onetimes
+    keys:
+    - shopify_variant_id
+  - table: subscriptions
+    keys:
+    - shopify_variant_id

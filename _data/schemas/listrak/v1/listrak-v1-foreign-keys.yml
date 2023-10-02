@@ -1,0 +1,54 @@
+tap: listrak
+version: '1'
+keys:
+  subscribed_contacts_ContactID:
+  - table: message_bounces
+    keys:
+    - ContactID
+  - table: message_clicks
+    keys:
+    - ContactID
+  - table: message_opens
+    keys:
+    - ContactID
+  - table: message_reads
+    keys:
+    - ContactID
+  - table: message_unsubs
+    keys:
+    - ContactID
+  - table: subscribed_contacts
+    keys:
+    - ContactID
+  messages_MsgID:
+  - table: message_bounces
+    keys:
+    - MsgID
+  - table: message_clicks
+    keys:
+    - MsgID
+  - table: message_opens
+    keys:
+    - MsgID
+  - table: message_reads
+    keys:
+    - MsgID
+  - table: message_sends
+    keys:
+    - MsgID
+  - table: message_unsubs
+    keys:
+    - MsgID
+  - table: messages
+    keys:
+    - MsgID
+  lists_ListID:
+  - table: lists
+    keys:
+    - ListID
+  - table: messages
+    keys:
+    - ListID
+  - table: subscribed_contacts
+    keys:
+    - ListID

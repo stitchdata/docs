@@ -1,0 +1,39 @@
+tap: heap
+version: '1'
+keys:
+  events_event_id:
+  - table: '[event_type]'
+    keys:
+    - event_id
+  - table: pageviews
+    keys:
+    - event_id
+  - table: sessions
+    keys:
+    - event_id
+  sessions_session_id:
+  - table: '[event_type]'
+    keys:
+    - session_id
+  - table: pageviews
+    keys:
+    - session_id
+  - table: sessions
+    keys:
+    - session_id
+  users_user_id:
+  - table: '[event_type]'
+    keys:
+    - user_id
+  - table: pageviews
+    keys:
+    - user_id
+  - table: sessions
+    keys:
+    - user_id
+  - table: user_migrations
+    keys:
+    - to_user_id
+  - table: users
+    keys:
+    - user_id

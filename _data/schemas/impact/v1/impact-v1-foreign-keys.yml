@@ -1,0 +1,248 @@
+tap: impact
+version: '1'
+keys:
+  _account_id:
+  - table: api_submissions
+    keys:
+    - account_id
+  - table: ftp_file_submissions
+    keys:
+    - account_id
+  action_inquiries_:
+  - table: action_inquiries
+    keys:
+    - id
+  _action_tracker_id:
+  - table: action_updates
+    keys:
+    - action_tracker_id
+  - table: actions
+    keys:
+    - action_tracker_id
+  - table: api_submissions
+    keys:
+    - action_tracker_id
+  - table: conversion_paths
+    keys:
+    - events.action_tracker_id
+  - table: exception_lists
+    keys:
+    - action_trackers.action_tracker_id
+  action_updates_action_update_id:
+  - table: action_updates
+    keys:
+    - action_update_id
+  actions_action_id:
+  - table: action_inquiries
+    keys:
+    - action_id
+  - table: action_updates
+    keys:
+    - action_id
+  - table: actions
+    keys:
+    - id
+  - table: conversion_paths
+    keys:
+    - events.action_id
+  ads_ad_id:
+  - table: action_updates
+    keys:
+    - ad_id
+  - table: actions
+    keys:
+    - ad_id
+  - table: ads
+    keys:
+    - ad_id
+  - table: conversion_paths
+    keys:
+    - events.ad_id
+  _advertiser_id:
+  - table: catalogs
+    keys:
+    - advertiser_id
+  campaigns_campaign_id:
+  - table: action_inquiries
+    keys:
+    - campaign_id
+  - table: action_updates
+    keys:
+    - campaign_id
+  - table: actions
+    keys:
+    - campaign_id
+  - table: ads
+    keys:
+    - campaign_id
+  - table: api_submissions
+    keys:
+    - campaign_id
+  - table: campaigns
+    keys:
+    - id
+  - table: catalogs
+    keys:
+    - campaign_id
+  - table: clicks
+    keys:
+    - campaign_id
+  - table: contacts
+    keys:
+    - campaign_id
+  - table: conversion_paths
+    keys:
+    - campaign_id
+  - table: deals
+    keys:
+    - campaign_id
+  - table: exception_lists
+    keys:
+    - campaign_id
+  - table: invoices
+    keys:
+    - line_items.campaign_id
+  - table: media_partner_groups
+    keys:
+    - campaign_id
+  - table: media_partners
+    keys:
+    - campaigns.campaign_id
+  - table: notes
+    keys:
+    - campaign_id
+  - table: promo_codes
+    keys:
+    - campaign_id
+  - table: tracking_value_requests
+    keys:
+    - campaign_id
+  - table: unique_urls
+    keys:
+    - campaign_id
+  catalog_items_catalog_item_id:
+  - table: catalog_items
+    keys:
+    - id
+  catalogs_catalog_id:
+  - table: catalog_items
+    keys:
+    - catalog_id
+  - table: catalogs
+    keys:
+    - id
+  contacts_contact_id:
+  - table: contacts
+    keys:
+    - contact_id
+  _customer_id:
+  - table: action_updates
+    keys:
+    - customer_id
+  - table: actions
+    keys:
+    - customer_id
+  - table: conversion_paths
+    keys:
+    - customer_id
+  deals_deal_id:
+  - table: ads
+    keys:
+    - deal_id
+  - table: deals
+    keys:
+    - id
+  - table: promo_codes
+    keys:
+    - deal_id
+  - table: tracking_value_requests
+    keys:
+    - deal_id
+  exception_list_items_exception_list_item_id:
+  - table: exception_list_items
+    keys:
+    - exception_list_item_id
+  exception_lists_list_id:
+  - table: exception_list_items
+    keys:
+    - list_id
+  - table: exception_lists
+    keys:
+    - id
+  invoices_invoice_id:
+  - table: invoices
+    keys:
+    - id
+  _media_id:
+  - table: clicks
+    keys:
+    - media_id
+  - table: conversion_paths
+    keys:
+    - events.media_id
+  - table: invoices
+    keys:
+    - media_id
+  - table: notes
+    keys:
+    - media_id
+  media_partner_groups_group_id:
+  - table: media_partner_groups
+    keys:
+    - id
+  - table: media_partners
+    keys:
+    - groups.group_id
+  media_partners_media_partner_id:
+  - table: action_inquiries
+    keys:
+    - media_partner_id
+  - table: action_updates
+    keys:
+    - media_partner_id
+  - table: actions
+    keys:
+    - media_partner_id
+  - table: api_submissions
+    keys:
+    - media_partner_id
+  - table: media_partner_groups
+    keys:
+    - media_partners.media_partner_id
+  - table: media_partners
+    keys:
+    - id
+  - table: tracking_value_requests
+    keys:
+    - media_partner_id
+  - table: unique_urls
+    keys:
+    - media_partner_id
+  phone_numbers_phone_number_id:
+  - table: phone_numbers
+    keys:
+    - id
+  - table: tracking_value_requests
+    keys:
+    - phone_numbers.id
+  promo_codes_promo_code_id:
+  - table: promo_codes
+    keys:
+    - id
+  - table: tracking_value_requests
+    keys:
+    - promo_codes.id
+  reports_id:
+  - table: report_metadata
+    keys:
+    - id
+  - table: reports
+    keys:
+    - id
+  unique_urls_id:
+  - table: tracking_value_requests
+    keys:
+    - unique_urls.id
+  - table: unique_urls
+    keys:
+    - id

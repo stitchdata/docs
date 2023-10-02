@@ -1,0 +1,52 @@
+tap: ujet
+version: '1'
+keys:
+  agents_agent_id:
+  - table: agents
+    keys:
+    - id
+  - table: agent_activity_logs
+    keys:
+    - agent_id
+  - table: calls
+    keys:
+    - agent_id
+    - transfers.from_agent.id
+    - transfers.to_agent.id
+  - table: chats
+    keys:
+    - transfers.from_agent.id
+    - transfers.to_agent.id
+  - table: menus
+    keys:
+    - agent_assignments.assignees.id
+    - team_assignments.assignees.id
+  - table: trees
+    keys:
+    - assignees.id
+  calls_call_id:
+  - table: agent_activity_logs
+    keys:
+    - call_id
+  - table: calls
+    keys:
+    - id
+    - participants.call_id
+  chats_chat_id:
+  - table: agent_activity_logs
+    keys:
+    - chat_id
+  - table: chats
+    keys:
+    - id
+    - participants.chat_id
+  teams_team_id:
+  - table: agents
+    keys:
+    - teams.id
+  - table: menus
+    keys:
+    - team_assignments.team.id
+  - table: teams
+    keys:
+    - id

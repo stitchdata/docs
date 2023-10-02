@@ -1,0 +1,69 @@
+tap: salesforce-marketing-cloud
+version: '1'
+keys:
+  campaign_:
+  - table: campaign
+    keys:
+    - ID
+  content_area_:
+  - table: content_area
+    keys:
+    - ID
+  - table: email
+    keys:
+    - ContentAreaIDs.value
+  email_EmailID:
+  - table: email
+    keys:
+    - ID
+    - ClonedFromID
+  - table: send
+    keys:
+    - EmailID
+  folder_CategoryID:
+  - table: content_area
+    keys:
+    - CategoryID
+  - table: email
+    keys:
+    - CategoryID
+  - table: folder
+    keys:
+    - ID
+    - ParentFolder
+  - table: list
+    keys:
+    - Category
+  list_ListID:
+  - table: list
+    keys:
+    - ID
+  - table: list_send
+    keys:
+    - ListID
+  - table: list_subscriber
+    keys:
+    - ListID
+  - table: subscriber
+    keys:
+    - ListIDs.value
+  event_SendID:
+  - table: event
+    keys:
+    - SendID
+  - table: list_send
+    keys:
+    - SendID
+  - table: send
+    keys:
+    - ID
+  subscriber_SubscriberKey:
+  - table: event
+    keys:
+    - SubscriberKey
+  - table: list_subscriber
+    keys:
+    - SubscriberKey
+  - table: subscriber
+    keys:
+    - ID

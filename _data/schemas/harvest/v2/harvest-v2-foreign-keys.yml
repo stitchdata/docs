@@ -1,0 +1,206 @@
+tap: harvest
+version: '2'
+keys:
+  clients_client_id:
+  - table: clients
+    keys:
+    - id
+  - table: contacts
+    keys:
+    - client_id
+  - table: estimates
+    keys:
+    - client_id
+  - table: expenses
+    keys:
+    - client_id
+  - table: invoices
+    keys:
+    - client_id
+  - table: projects
+    keys:
+    - client_id
+  - table: time_entries
+    keys:
+    - client_id
+  - table: user_projects
+    keys:
+    - client_id
+  contacts_contact_id:
+  - table: contacts
+    keys:
+    - id
+  estimate_item_categories_:
+  - table: estimate_item_categories
+    keys:
+    - id
+  estimate_line_items_:
+  - table: estimate_line_items
+    keys:
+    - id
+  estimate_messages_:
+  - table: estimate_messages
+    keys:
+    - id
+  estimates_estimate_id:
+  - table: estimate_line_items
+    keys:
+    - estimate_id
+  - table: estimate_messages
+    keys:
+    - estimate_id
+  - table: estimates
+    keys:
+    - id
+  - table: invoices
+    keys:
+    - estimate_id
+  expense_categories_expense_category_id:
+  - table: expense_categories
+    keys:
+    - id
+  - table: expenses
+    keys:
+    - expense_category_id
+  expenses_expense_id:
+  - table: expenses
+    keys:
+    - id
+  external_references_external_reference_id:
+  - table: external_references
+    keys:
+    - id
+  - table: time_entries
+    keys:
+    - external_reference_id
+  - table: time_entry_external_reference
+    keys:
+    - external_reference_id
+  invoice_item_categories_invoice_item_category_id:
+  - table: invoice_item_categories
+    keys:
+    - id
+  invoice_line_items_invoice_line_item_id:
+  - table: invoice_line_items
+    keys:
+    - invoice_line_item_id
+  - table: invoices
+    keys:
+    - id
+  invoice_messages_invoice_message_id:
+  - table: invoice_messages
+    keys:
+    - id
+  invoices_invoice_id:
+  - table: expenses
+    keys:
+    - invoice_id
+  - table: invoice_line_items
+    keys:
+    - invoice_id
+  - table: invoice_messages
+    keys:
+    - invoice_id
+  - table: invoice-payments
+    keys:
+    - invoice_id
+  - table: invoices
+    keys:
+    - id
+  - table: time_entries
+    keys:
+    - invoice_id
+  invoice_payments_invoice_payment_id:
+  - table: invoice_payments
+    keys:
+    - id
+  projects_project_id:
+  - table: expenses
+    keys:
+    - project_id
+  - table: invoice_line_items
+    keys:
+    - project_id
+  - table: project_tasks
+    keys:
+    - project_id
+  - table: project_users
+    keys:
+    - project_id
+  - table: projects
+    keys:
+    - id
+  - table: time_entries
+    keys:
+    - project_id
+  - table: user_projects
+    keys:
+    - project_id
+  project_tasks_project_task_id:
+  - table: project_tasks
+    keys:
+    - id
+  - table: user_project_tasks
+    keys:
+    - project_task_id
+  project_users_project_user_id:
+  - table: project_users
+    keys:
+    - id
+  roles_role_id:
+  - table: roles
+    keys:
+    - id
+  - table: user_roles
+    keys:
+    - role_id
+  tasks_task_id:
+  - table: external_references
+    keys:
+    - task_id
+  - table: tasks
+    keys:
+    - id
+  - table: time_entries
+    keys:
+    - task_id
+  time_entries_time_entry_id:
+  - table: time_entries
+    keys:
+    - id
+  - table: time_entry_external_reference
+    keys:
+    - time_entry_id
+  users_user_id:
+  - table: estimates
+    keys:
+    - creator_id
+  - table: invoices
+    keys:
+    - creator_id
+  - table: project_tasks
+    keys:
+    - user_id
+  - table: time_entries
+    keys:
+    - user_id
+  - table: users
+    keys:
+    - id
+  - table: user_project_tasks
+    keys:
+    - user_id
+  - table: user_projects
+    keys:
+    - user_id
+  - table: user_roles
+    keys:
+    - user_id
+  user_project_tasks_user_project_task_id:
+  - table: user_project_tasks
+    keys:
+    - id
+  user_projects_user_project_id:
+  - table: user_projects
+    keys:
+    - id

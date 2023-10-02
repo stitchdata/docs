@@ -1,0 +1,49 @@
+tap: adroll
+version: '1'
+keys:
+  ad_groups_eid:
+  - table: ad_groups
+    keys:
+    - eid
+  - table: ads
+    keys:
+    - adgroups.id
+  - table: campaigns
+    keys:
+    - adgroups.value
+  ad_reports_eid:
+  - table: ad_reports
+    keys:
+    - eid
+  ads_id:
+  - table: ad_groups
+    keys:
+    - ads.id
+  - table: ad_reports
+    keys:
+    - ad
+  - table: ads
+    keys:
+    - eid
+    - original_ad
+  advertisables_eid:
+  - table: advertisables
+    keys:
+    - eid
+  - table: campaigns
+    keys:
+    - advertisable
+  - table: segments
+    keys:
+    - advertisable_eid
+  campaigns_eid:
+  - table: campaigns
+    keys:
+    - eid
+  segments_eid:
+  - table: ad_groups
+    keys:
+    - segments.id
+  - table: segments
+    keys:
+    - eid

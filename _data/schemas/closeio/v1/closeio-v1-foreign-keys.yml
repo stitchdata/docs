@@ -1,0 +1,106 @@
+tap: closeio
+version: '1'
+keys:
+  activities_activity_id:
+  - table: activities
+    keys:
+    - id
+  _contact_id:
+  - table: activities
+    keys:
+    - contact_id
+  - table: leads
+    keys:
+    - contacts.id
+    - opportunities.contact_id
+    - tasks.contact_id
+  - table: tasks
+    keys:
+    - contact_id
+  event_log_event_id:
+  - table: event_log
+    keys:
+    - id
+  leads_lead_id:
+  - table: activities
+    keys:
+    - lead_id
+  - table: event_log
+    keys:
+    - lead_id
+  - table: leads
+    keys:
+    - id
+    - contacts.lead_id
+    - opportunities.lead_id
+    - tasks.lead_id
+  - table: tasks
+    keys:
+    - lead_id
+  _organization_id:
+  - table: activities
+    keys:
+    - organization_id
+  - table: custom_fields
+    keys:
+    - organization_id
+  - table: event_log
+    keys:
+    - organization_id
+  - table: leads
+    keys:
+    - contacts.organization_id
+    - opportunities.organization_id
+    - organization_id
+    - tasks.organization_id
+  - table: tasks
+    keys:
+    - organization_id
+  - table: users
+    keys:
+    - organizations.id
+  tasks_task_id:
+  - table: activities
+    keys:
+    - task_id
+  - table: leads
+    keys:
+    - tasks.id
+  - table: tasks
+    keys:
+    - id
+  users_user_id:
+  - table: activities
+    keys:
+    - created_by
+    - updated_by
+    - user_id
+    - task_assigned_to
+    - users.id
+  - table: custom_fields
+    keys:
+    - created_by
+    - updated_by
+  - table: event_log
+    keys:
+    - user_id
+  - table: leads
+    keys:
+    - contacts.created_by
+    - contacts.updated_by
+    - created_by
+    - opportunities.created_by
+    - opportunities.updated_by
+    - opportunities.user_id
+    - tasks.assigned_to
+    - tasks.created_by
+    - tasks.updated_by
+    - updated_by
+  - table: tasks
+    keys:
+    - assigned_to
+    - created_by
+    - updated_by
+  - table: users
+    keys:
+    - id

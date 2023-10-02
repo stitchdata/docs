@@ -1,0 +1,20 @@
+tap: circle-ci
+version: '1'
+keys:
+  pipelines_id:
+  - table: pipelines
+    keys:
+    - id
+  - table: jobs
+    keys:
+    - _pipeline_id
+  - table: workflows
+    keys:
+    - pipeline_id
+  workflows_id:
+  - table: workflows
+    keys:
+    - id
+  - table: jobs
+    keys:
+    - _workflow_id

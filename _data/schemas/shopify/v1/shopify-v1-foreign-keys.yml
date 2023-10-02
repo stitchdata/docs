@@ -1,0 +1,76 @@
+tap: shopify
+version: '1'
+keys:
+  collects_collects_id:
+  - table: collects
+    keys:
+    - id
+  custom_collections_collection_id:
+  - table: collects
+    keys:
+    - collection_id
+  - table: custom_collections
+    keys:
+    - id
+  customers_customer_id:
+  - table: abandoned_checkouts
+    keys:
+    - customer__default_address.customer_id
+    - customer.id
+    - customer_id
+  - table: customers
+    keys:
+    - id
+    - addresses.id
+  metafields_metafield_id:
+  - table: metafields
+    keys:
+    - id
+  orders_order_id:
+  - table: abandoned_checkouts
+    keys:
+    - customer.last_order_id
+  - table: customers
+    keys:
+    - last_order_id
+  - table: order_refunds
+    keys:
+    - order_id
+  - table: orders
+    keys:
+    - id
+    - refunds__order_adjustments.order_id
+  - table: transactions
+    keys:
+    - order_id
+  order_refunds_refund_id:
+  - table: order_refunds
+    keys:
+    - id
+  - table: orders
+    keys:
+    - refunds.id
+    - refunds__order_adjustments.refund_id
+  product_product_id:
+  - table: abandoned_checkouts
+    keys:
+    - product_id
+  - table: collects
+    keys:
+    - product_id
+  - table: order_refunds
+    keys:
+    - line_item.product_id
+  - table: orders
+    keys:
+    - fulfillments__line_items.product_id
+    - refunds__refund_line_items.product_id
+  - table: products
+    keys:
+    - id
+    - options.product_id
+  transactions_transaction_id:
+  - table: transactions
+    keys:
+    - id
+    - parent_id

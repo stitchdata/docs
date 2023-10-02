@@ -1,0 +1,75 @@
+tap: freshdesk
+version: '1'
+keys:
+  agents_agent_id:
+  - table: agents
+    keys:
+    - id
+  - table: groups
+    keys:
+    - agent_ids.value
+  - table: satisfaction_ratings
+    keys:
+    - agent_id
+  - table: tickets
+    keys:
+    - responder_id
+  - table: time_entries
+    keys:
+    - agent_id
+  companies_company_id:
+  - table: companies
+    keys:
+    - id
+  - table: tickets
+    keys:
+    - company_id
+  contacts_contact_id:
+  - table: contacts
+    keys:
+    - id
+  conversations_conversation_id:
+  - table: conversations
+    keys:
+    - id
+  groups_group_id:
+  - table: agents
+    keys:
+    - group_ids.type
+  - table: groups
+    keys:
+    - id
+  - table: satisfaction_ratings
+    keys:
+    - group_id
+  - table: tickets
+    keys:
+    - group_id
+  - table: time_entries
+    keys:
+    - group_id
+  roles_role_id:
+  - table: agents
+    keys:
+    - role_ids.type
+  - table: roles
+    keys:
+    - id
+  satisfaction_ratings_satisfaction_rating_id:
+  - table: satisfaction_ratings
+    keys:
+    - id
+  tickets_ticket_id:
+  - table: conversations
+    keys:
+    - ticket_id
+  - table: tickets
+    keys:
+    - id
+  - table: satisfaction_ratings
+    keys:
+    - ticket_id
+  time_entries_time_entry_id:
+  - table: time_entries
+    keys:
+    - id

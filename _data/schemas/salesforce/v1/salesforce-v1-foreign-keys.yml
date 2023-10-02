@@ -1,0 +1,62 @@
+tap: salesforce
+version: '1'
+keys:
+  account_accountId:
+  - table: account
+    keys:
+    - id
+  - table: contact
+    keys:
+    - accountId
+  - table: lead
+    keys:
+    - convertedAccountId
+  - table: opportunity
+    keys:
+    - accountId
+  - table: user
+    keys:
+    - accountId
+  contact_contactId:
+  - table: contact
+    keys:
+    - id
+  - table: lead
+    keys:
+    - convertedContactId
+  - table: user
+    keys:
+    - contactId
+  lead_leadId:
+  - table: lead
+    keys:
+    - id
+  opportunity_opportunityId:
+  - table: lead
+    keys:
+    - convertedOpportunityId
+  - table: opportunity
+    keys:
+    - id
+  user_ownerId:
+  - table: account
+    keys:
+    - ownerId
+  - table: contact
+    keys:
+    - ownerId
+  - table: lead
+    keys:
+    - ownerId
+  - table: opportunity
+    keys:
+    - ownerId
+  - table: user
+    keys:
+    - id
+    - delegatedApproverId
+    - managerId
+  users_userRoleId:
+  - table: user
+    keys:
+    - userRoleId

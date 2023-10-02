@@ -1,0 +1,207 @@
+tap: codat
+version: '1'
+keys:
+  accounts_name:
+  - table: accounts
+    keys:
+    - name
+  - table: bank_accounts
+    keys:
+    - accountName
+  accounts_accountId:
+  - table: accounts
+    keys:
+    - id
+  - table: balance_sheets
+    keys:
+    - reports.assets.accountId
+    - reports.equity.accountId
+    - reports.liabilities.accountId
+  - table: profit_and_loss
+    keys:
+    - reports.costOfSales.accountId
+    - reports.expenses.accountId
+    - reports.income.accountId
+    - reports.otherExpenses.accountId
+    - reports.otherIncome.accountId
+  - table: bills
+    keys:
+    - lineItems.accountRef.id
+  - table: items
+    keys:
+    - billItem.accountRef.id
+    - invoiceItem.accountRef.id
+  - table: journal_entries
+    keys:
+    - journalLines.accountRef.id
+  accounts_accountName:
+  - table: accounts
+    keys:
+    - name
+  - table: bank_accounts
+    keys:
+    - accountName
+  - table: bank_statement_lines
+    keys:
+    - accountName
+  bank_accounts_id:
+  - table: bank_accounts
+    keys:
+    - id
+  - table: bank_account_transactions
+    keys:
+    - bankAccountId
+  bank_statements_:
+  - table: bank_statements
+    keys:
+    - id
+  bills_billId:
+  - table: bills
+    keys:
+    - id
+  bill_payments_id:
+  - table: bill_payments
+    keys:
+    - id
+  companies_companyId:
+  - table: companies
+    keys:
+    - id
+  - table: balance_sheets
+    keys:
+    - companyId
+  - table: bank_statements
+    keys:
+    - companyId
+  - table: bank_statement_lines
+    keys:
+    - companyId
+  - table: bill_payments
+    keys:
+    - supplierRef.companyId
+  - table: bills
+    keys:
+    - companyId
+  - table: company_info
+    keys:
+    - companyId
+  - table: customers
+    keys:
+    - companyId
+  - table: invoices
+    keys:
+    - companyId
+  - table: payments
+    keys:
+    - companyId
+  - table: profit_and_loss
+    keys:
+    - companyId
+  - table: suppliers
+    keys:
+    - companyId
+  - table: connections
+    keys:
+    - companyId
+  - table: events
+    keys:
+    - companyId
+  - table: items
+    keys:
+    - companyId
+  - table: journal_entries
+    keys:
+    - companyId
+  - table: tax_rates
+    keys:
+    - companyId
+  - table: bill_payment
+    keys:
+    - companyId
+  - table: bank_account_transactions
+    keys:
+    - companyId
+  - table: bank_accounts
+    keys:
+    - companyId
+  connections_connectionId:
+  - table: bank_accounts
+    keys:
+    - connectionId
+  - table: connections
+    keys:
+    - id
+  credit_notes_creditNoteId:
+  - table: credit_notes
+    keys:
+    - id
+  - table: payments
+    keys:
+    - lines.links.id
+  customers_customerId:
+  - table: credit_notes
+    keys:
+    - customerRef.id
+    - customerRef.id
+  - table: customers
+    keys:
+    - id
+  - table: payments
+    keys:
+    - customerRef.id
+  invoices_invoiceId:
+  - table: invoices
+    keys:
+    - id
+  - table: payments
+    keys:
+    - lines.links.id
+  items_id:
+  - table: bills
+    keys:
+    - lineItems.itemRef.id
+  - table: items
+    keys:
+    - id
+  journal_entries_id:
+  - table: journal_entries
+    keys:
+    - id
+  payments_paymentId:
+  - table: payments
+    keys:
+    - id
+    - lines.links.id
+  suppliers_supplierId:
+  - table: bills
+    keys:
+    - supplierRef
+  - table: suppliers
+    keys:
+    - id
+  events_eventTimeUtc:
+  - table: events
+    keys:
+    - eventTimeUtc
+  suppliers_supplierRef:
+  - table: bill_payments
+    keys:
+    - supplierRef.id
+  - table: bills
+    keys:
+    - supplierRef
+  tax_rates_id:
+  - table: bills
+    keys:
+    - lineItems.taxRateRef.id
+  - table: items
+    keys:
+    - billItem.taxRateRef.id
+    - invoiceItem.taxRateRef.id
+  - table: tax_rates
+    keys:
+    - id
+  bank_account_transactions_transactionIndex:
+  - table: bank_account_transactions
+    keys:
+    - _transactionIndex

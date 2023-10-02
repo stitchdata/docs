@@ -1,0 +1,356 @@
+tap: activecampaign
+version: '1'
+keys:
+  account_custom_fields_id:
+  - table: account_custom_fields
+    keys:
+    - id
+  - table: account_custom_field_values
+    keys:
+    - custom_field_id
+  addresses_id:
+  - table: addresses
+    keys:
+    - id
+  - table: campaigns
+    keys:
+    - addressid
+  - table: forms
+    keys:
+    - addressid
+  campaigns_id:
+  - table: campaigns
+    keys:
+    - id
+  - table: campaign_links
+    keys:
+    - campaignid
+  - table: bounce_logs
+    keys:
+    - campaignid
+  - table: campaign_lists
+    keys:
+    - campaignid
+  - table: campaign_messages
+    keys:
+    - campaignid
+  - table: contact_lists
+    keys:
+    - campaign
+  deal_custom_fields_id:
+  - table: deal_custom_fields
+    keys:
+    - id
+  - table: deal_custom_field_values
+    keys:
+    - custom_field_id
+  deals_id:
+  - table: deals
+    keys:
+    - id
+  - table: deal_custom_field_values
+    keys:
+    - deal_id
+  - table: contact_deals
+    keys:
+    - deal
+  - table: forms
+    keys:
+    - deals
+  - table: deal_activities
+    keys:
+    - deal
+  - table: email_activities
+    keys:
+    - deal
+  - table: contact_emails
+    keys:
+    - deal
+  deal_stages_id:
+  - table: deal_stages
+    keys:
+    - id
+  - table: deals
+    keys:
+    - stage
+  - table: deal_groups
+    keys:
+    - stages
+  - table: deal_activities
+    keys:
+    - stage
+  deal_groups_id:
+  - table: deal_groups
+    keys:
+    - id
+  - table: deals
+    keys:
+    - group
+  - table: deal_stages
+    keys:
+    - group
+  - table: deal_group_users
+    keys:
+    - deal_group
+  accounts_id:
+  - table: accounts
+    keys:
+    - id
+  - table: deals
+    keys:
+    - account
+  - table: contact_emails
+    keys:
+    - account
+  - table: email_activities
+    keys:
+    - account
+  - table: account_contacts
+    keys:
+    - account
+  - table: account_custom_field_values
+    keys:
+    - account_id
+  contacts_id:
+  - table: contacts
+    keys:
+    - id
+  - table: deals
+    keys:
+    - contact
+  - table: forms
+    keys:
+    - contacts
+  - table: bounce_logs
+    keys:
+    - contact
+  - table: contact_data
+    keys:
+    - contact
+  - table: contact_emails
+    keys:
+    - contact
+  - table: contact_lists
+    keys:
+    - contact
+  - table: contact_tags
+    keys:
+    - contact
+  - table: contact_conversions
+    keys:
+    - contact
+  - table: email_activities
+    keys:
+    - contact
+  - table: account_contacts
+    keys:
+    - contact
+  - table: contact_automations
+    keys:
+    - contact
+  - table: contact_custom_field_values
+    keys:
+    - contact
+  - table: contact_deals
+    keys:
+    - contact
+  ecommerce_connections_id:
+  - table: ecommerce_connections
+    keys:
+    - id
+  - table: ecommerce_customers
+    keys:
+    - connectionid
+  - table: ecommerce_orders
+    keys:
+    - connectionid
+    - connectionid
+  - table: ecommerce_order_products
+    keys:
+    - connectionid
+  - table: ecommerce_order_activities
+    keys:
+    - connectionid
+  ecommerce_customers_id:
+  - table: ecommerce_customers
+    keys:
+    - id
+  - table: ecommerce_orders
+    keys:
+    - customer
+  - table: ecommerce_order_activities
+    keys:
+    - customerid
+  ecommerce_orders_id:
+  - table: ecommerce_orders
+    keys:
+    - id
+  - table: ecommerce_order_products
+    keys:
+    - orderid
+  - table: ecommerce_order_activities
+    keys:
+    - orderid
+  - table: contact_custom_field_options
+    keys:
+    - orderid
+  - table: deal_stages
+    keys:
+    - order
+  users_id:
+  - table: users
+    keys:
+    - id
+  - table: forms
+    keys:
+    - userid
+  - table: lists
+    keys:
+    - userid
+  - table: messages
+    keys:
+    - userid
+  - table: saved_responses
+    keys:
+    - last_sent_user_id
+  - table: tasks
+    keys:
+    - user
+  - table: templates
+    keys:
+    - userid
+  - table: activities
+    keys:
+    - userid
+  - table: campaign_lists
+    keys:
+    - userid
+  - table: configs
+    keys:
+    - userid
+  - table: contact_emails
+    keys:
+    - userid
+  - table: deal_activities
+    keys:
+    - userid
+  - table: deal_group_users
+    keys:
+    - user
+  - table: email_activities
+    keys:
+    - userid
+  - table: sms
+    keys:
+    - userid
+  - table: automations
+    keys:
+    - userid
+  - table: calendars
+    keys:
+    - userid
+  - table: campaigns
+    keys:
+    - userid
+  task_types_id:
+  - table: task_types
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - deal_task_type
+  lists_id:
+  - table: lists
+    keys:
+    - id
+  - table: webhooks
+    keys:
+    - listid
+  - table: campaign_lists
+    keys:
+    - listid
+  - table: contact_lists
+    keys:
+    - list
+  messages_id:
+  - table: messages
+    keys:
+    - id
+  - table: bounce_logs
+    keys:
+    - messageid
+  - table: campaign_messages
+    keys:
+    - messageid
+  - table: contact_emails
+    keys:
+    - messageid
+  - table: contact_lists
+    keys:
+    - message
+  - table: campaign_links
+    keys:
+    - messageid
+  tags_id:
+  - table: tags
+    keys:
+    - id
+  - table: contact_tags
+    keys:
+    - tag
+  conversions_id:
+  - table: conversions
+    keys:
+    - id
+  - table: contact_conversions
+    keys:
+    - conversion
+  - table: conversion_triggers
+    keys:
+    - conversion
+  conversion_triggers_id:
+  - table: conversion_triggers
+    keys:
+    - id
+  - table: contact_conversions
+    keys:
+    - conversiontrigger
+  automations_id:
+  - table: automations
+    keys:
+    - id
+  - table: deal_activities
+    keys:
+    - automation
+  - table: goals
+    keys:
+    - automation
+  - table: site_messages
+    keys:
+    - automation
+  - table: sms
+    keys:
+    - automation
+  - table: automation_blocks
+    keys:
+    - automation
+  - table: campaigns
+    keys:
+    - automation
+  - table: contact_automations
+    keys:
+    - automation
+  segments_id:
+  - table: segments
+    keys:
+    - id
+  - table: campaigns
+    keys:
+    - segmentid
+  forms_id:
+  - table: form
+    keys:
+    - id
+  - table: contact_lists
+    keys:
+    - form

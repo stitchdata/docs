@@ -1,0 +1,174 @@
+tap: twitter-ads
+version: '1'
+keys:
+  accounts_account_id:
+  - table: account_media
+    keys:
+    - account_id
+  - table: accounts
+    keys:
+    - id
+  - table: campaigns
+    keys:
+    - account_id
+  - table: cards_image_app_download
+    keys:
+    - account_id
+  - table: cards_image_conversation
+    keys:
+    - account_id
+  - table: cards_image_direct_message
+    keys:
+    - account_id
+  - table: cards_poll
+    keys:
+    - account_id
+  - table: cards_video_app_download
+    keys:
+    - account_id
+  - table: cards_video_conversation
+    keys:
+    - account_id
+  - table: cards_video_direct_message
+    keys:
+    - account_id
+  - table: cards_video_website
+    keys:
+    - account_id
+  - table: cards_website
+    keys:
+    - account_id
+  - table: funding_instruments
+    keys:
+    - account_id
+  - table: line_item_apps
+    keys:
+    - account_id
+  - table: line_items
+    keys:
+    - account_id
+  - table: media_creatives
+    keys:
+    - account_id
+  - table: preroll_call_to_actions
+    keys:
+    - account_id
+  - table: promoted_accounts
+    keys:
+    - account_id
+  - table: promoted_tweets
+    keys:
+    - account_id
+  - table: scheduled_promoted_tweets
+    keys:
+    - account_id
+  - table: tailored_audiences
+    keys:
+    - account_id
+  - table: targeting_criteria
+    keys:
+    - account_id
+  - table: tweets
+    keys:
+    - account_id
+  account_media_account_media_id:
+  - table: media_creatives
+    keys:
+    - account_media_id
+  - table: account_media
+    keys:
+    - id
+  line_items_line_item_id:
+  - table: line_item_apps
+    keys:
+    - line_item_id
+  - table: media_creatives
+    keys:
+    - line_item_id
+  - table: preroll_call_to_actions
+    keys:
+    - line_item_id
+  - table: promoted_accounts
+    keys:
+    - line_item_id
+  - table: promoted_tweets
+    keys:
+    - line_item_id
+  - table: scheduled_promoted_tweets
+    keys:
+    - line_item_id
+  - table: targeting_criteria
+    keys:
+    - line_item_id
+  campaigns_campaign_id:
+  - table: campaigns
+    keys:
+    - id
+  - table: line_items
+    keys:
+    - campaign_id
+  funding_instruments_funding_instrument_id:
+  - table: account_media
+    keys:
+    - funding_instrument_id
+  - table: campaigns
+    keys:
+    - funding_instrument_id
+  - table: funding_instruments
+    keys:
+    - id
+  iab_categories_value:
+  - table: advertiser_business_categories
+    keys:
+    - iab_categories.value
+  - table: content_categories
+    keys:
+    - iab_categories.value
+  - table: iab_categories
+    keys:
+    - id
+  line_item_apps_line_item_app_id:
+  - table: line_item_apps
+    keys:
+    - line_item_app_id
+  tweets_tweet_id:
+  - table: promoted_tweets
+    keys:
+    - tweet_id
+  - table: scheduled_promoted_tweets
+    keys:
+    - tweet_id
+  - table: tweets
+    keys:
+    - tweet_id
+  _user_id:
+  - table: cards_image_direct_message
+    keys:
+    - recipient_user_id
+  - table: cards_video_direct_message
+    keys:
+    - recipient_user_id
+  - table: promotable_users
+    keys:
+    - user_id
+  - table: promoted_accounts
+    keys:
+    - user_id
+  - table: tweets
+    keys:
+    - entities.user_mentions.id
+    - in_reply_to_user_id
+    - users.id
+  _video_owner_id:
+  - table: cards_video_app_download
+    keys:
+    - video_owner_id
+  - table: cards_video_conversation
+    keys:
+    - video_owner_id
+  - table: cards_video_direct_message
+    keys:
+    - video_owner_id
+  - table: cards_video_website
+    keys:
+    - video_owner_id

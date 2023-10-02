@@ -1,0 +1,25 @@
+tap: referral-saasquatch
+version: '1'
+keys:
+  users_userId:
+  - table: referrals
+    keys:
+    - referredUser
+    - referrerUser
+  - table: reward_balance
+    keys:
+    - userId
+  - table: users
+    keys:
+    - id
+  users_accountId:
+  - table: referrals
+    keys:
+    - referredAccount
+    - referrerAccount
+  - table: reward_balance
+    keys:
+    - accountId
+  - table: users
+    keys:
+    - accountId

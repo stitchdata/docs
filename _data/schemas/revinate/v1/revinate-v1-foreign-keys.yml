@@ -1,0 +1,34 @@
+tap: revinate
+version: '1'
+keys:
+  hotels_hotel_id:
+  - table: hotel_reviews_snapshot
+    keys:
+    - hotel_id
+  - table: hotel_reviews_snapshot_by_site
+    keys:
+    - hotel_id
+  - table: hotel_reviews_snapshot_by_time
+    keys:
+    - hotel_id
+  - table: hotels
+    keys:
+    - hotel_id
+  - table: reviews
+    keys:
+    - hotel_id
+  _review_site_id:
+  - table: hotel_reviews_snapshot_by_site
+    keys:
+    - review_site_id
+  - table: reviews
+    keys:
+    - review_site_id
+  hotels_trip_advisor_id:
+  - table: hotels
+    keys:
+    - trip_advisor_id
+  reviews_review_id:
+  - table: reviews
+    keys:
+    - review_id

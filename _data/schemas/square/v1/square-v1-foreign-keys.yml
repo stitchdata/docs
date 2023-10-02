@@ -1,0 +1,142 @@
+tap: square
+version: '1'
+keys:
+  bank_accounts_id:
+  - table: bank_accounts
+    keys:
+    - id
+  - table: settlements
+    keys:
+    - bank_account_id
+  categories_category_id:
+  - table: categories
+    keys:
+    - id
+  - table: items
+    keys:
+    - item_data.category_id
+  discounts_:
+  - table: discounts
+    keys:
+    - id
+  employees_id:
+  - table: employees
+    keys:
+    - id
+  - table: shifts
+    keys:
+    - employee_id
+  items_item_id:
+  - table: items
+    keys:
+    - id
+    - item_data.variations.item_variation_data.item_id
+  - table: orders
+    keys:
+    - item_data.variations.item_variation_data.item_id
+  locations_id:
+  - table: bank_accounts
+    keys:
+    - id
+  - table: categories
+    keys:
+    - absent_at_location_ids.value
+  - table: discounts
+    keys:
+    - absent_at_location_ids.value
+  - table: employees
+    keys:
+    - location_ids.value
+  - table: inventories
+    keys:
+    - id
+  - table: items
+    keys:
+    - absent_at_location_ids.value
+    - item_data.variations.item_variation_data.location_overrides.id
+    - item_data.variations.item_variation_data.present_at_location_ids.value
+    - present_at_location_ids.value
+  - table: location
+    keys:
+    - id
+  - table: modifier_lists
+    keys:
+    - absent_at_location_ids.value
+  - table: orders
+    keys:
+    - item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+    - id
+    - refunds.id
+    - tenders.id
+  - table: payments
+    keys:
+    - id
+  - table: refunds
+    keys:
+    - id
+  - table: shifts
+    keys:
+    - id
+  - table: taxes
+    keys:
+    - absent_at_location_ids.value
+  modifier_lists_modifier_list_id:
+  - table: items
+    keys:
+    - item_data.modifier_list_info.modifier_list_id
+  - table: modifier_lists
+    keys:
+    - id
+    - modifier_list_data.modifiers.modifier_data.modifier_list_id
+  orders_id:
+  - table: orders
+    keys:
+    - id
+    - order_id
+    - returns.source_order_id
+  - table: payments
+    keys:
+    - order_id
+  - table: refunds
+    keys:
+    - order_id
+  payments_id:
+  - table: orders
+    keys:
+    - payment_id
+    - tenders.id
+  - table: payments
+    keys:
+    - id
+  - table: refunds
+    keys:
+    - payment_id
+  refunds_id:
+  - table: orders
+    keys:
+    - refund_ids.value
+    - refunds.id
+  - table: payments
+    keys:
+    - order_id
+    - refund_ids.value
+  - table: refunds
+    keys:
+    - id
+  roles_id:
+  - table: roles
+    keys:
+    - id
+  taxes_id:
+  - table: items
+    keys:
+    - item_data.tax_ids.value
+  - table: taxes
+    keys:
+    - id
+  _tender_id:
+  - table: orders
+    keys:
+    - tender_id
+    - refunds.tender_id
+    - tenders.id

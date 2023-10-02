@@ -1,0 +1,50 @@
+tap: asana
+version: '1'
+keys:
+  projects_id:
+  - table: projects
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - projects.id
+  tags_id:
+  - table: tags
+    keys:
+    - id
+  tasks_id:
+  - table: tasks
+    keys:
+    - id
+  users_id:
+  - table: projects
+    keys:
+    - followers.id
+    - members.id
+    - owner.id
+  - table: tags
+    keys:
+    - followers.id
+  - table: tasks
+    keys:
+    - assignees.id
+    - followers.id
+  - table: users
+    keys:
+    - id
+  workspace_id:
+  - table: projects
+    keys:
+    - workspace.id
+  - table: tags
+    keys:
+    - workspace.id
+  - table: tasks
+    keys:
+    - workspace.id
+  - table: users
+    keys:
+    - workspace.id
+  - table: workspace
+    keys:
+    - id

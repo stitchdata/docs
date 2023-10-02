@@ -1,0 +1,243 @@
+tap: outreach
+version: '1'
+keys:
+  accounts_id:
+  - table: accounts
+    keys:
+    - id
+  - table: opportunities
+    keys:
+    - id
+  - table: prospects
+    keys:
+    - id
+  - table: sequence_states
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - id
+  call_dispositions_callDispositionId:
+  - table: call_dispositions
+    keys:
+    - id
+  - table: calls
+    keys:
+    - callDispositionId
+  call_purposes_callPurposeId:
+  - table: call_purposes
+    keys:
+    - id
+  - table: calls
+    keys:
+    - callPurposeId
+  calls_callId:
+  - table: calls
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - callId
+  content_categories_id:
+  - table: content_categories
+    keys:
+    - id
+  duties_id:
+  - table: duties
+    keys:
+    - id
+  - table: users
+    keys:
+    - duties.id
+  events_id:
+  - table: event
+    keys:
+    - id
+  mailboxes_mailboxId:
+  - table: mailboxes
+    keys:
+    - id
+  - table: mailings
+    keys:
+    - mailboxId
+  - table: users
+    keys:
+    - mailboxId
+  mailings_mailingId:
+  - table: events
+    keys:
+    - mailingId
+  - table: mailings
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - mailingId
+  opportunities_opportunityId:
+  - table: calls
+    keys:
+    - opportunityId
+  - table: mailings
+    keys:
+    - opportunityId
+  - table: opportunities
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - opportunityId
+  personas_personaId:
+  - table: personas
+    keys:
+    - id
+  - table: prospects
+    keys:
+    - personaId
+  prospects_prospectId:
+  - table: calls
+    keys:
+    - prospectId
+  - table: events
+    keys:
+    - prospectId
+  - table: mailings
+    keys:
+    - prospectId
+  - table: prospects
+    keys:
+    - id
+  - table: sequence_states
+    keys:
+    - prospectId
+  - table: tasks
+    keys:
+    - prospectId
+  sequences_sequenceId:
+  - table: calls
+    keys:
+    - sequenceId
+  - table: mailings
+    keys:
+    - sequenceId
+  - table: sequence_states
+    keys:
+    - sequenceId
+  - table: sequence_steps
+    keys:
+    - sequenceId
+  - table: tasks
+    keys:
+    - sequenceId
+  sequence_states_sequenceStateId:
+  - table: calls
+    keys:
+    - sequenceStateId
+  - table: mailings
+    keys:
+    - sequenceStateId
+  - table: sequence_states
+    keys:
+    - sequenceStateId
+  - table: tasks
+    keys:
+    - sequenceStateId
+  sequence_steps_sequenceStepId:
+  - table: calls
+    keys:
+    - sequenceStepId
+  - table: mailings
+    keys:
+    - sequenceStepId
+  - table: sequence_steps
+    keys:
+    - sequenceStepId
+  - table: tasks
+    keys:
+    - sequenceStepId
+  stages_opportunityStageId:
+  - table: opportunities
+    keys:
+    - opportunityStageId
+  - table: prospects
+    keys:
+    - stageId
+  - table: stages
+    keys:
+    - id
+  tasks_id:
+  - table: calls
+    keys:
+    - id
+  - table: mailings
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - id
+  teams_id:
+  - table: team
+    keys:
+    - id
+  users_creatorId:
+  - table: accounts
+    keys:
+    - creatorId
+    - ownerId
+    - updaterId
+  - table: call_dispositions
+    keys:
+    - creatorId
+  - table: call_purposes
+    keys:
+    - creatorId
+  - table: calls
+    keys:
+    - userId
+  - table: content_categories
+    keys:
+    - creatorId
+  - table: events
+    keys:
+    - creatorId
+  - table: mailboxes
+    keys:
+    - creatorId
+    - updaterId
+    - userId
+  - table: opportunities
+    keys:
+    - creatorId
+    - ownerId
+  - table: prospects
+    keys:
+    - creatorId
+    - updaterId
+  - table: sequence_states
+    keys:
+    - creatorId
+  - table: sequence_steps
+    keys:
+    - creatorId
+    - updaterId
+  - table: sequence_templates
+    keys:
+    - creatorId
+    - updaterId
+  - table: sequences
+    keys:
+    - creatorId
+    - ownerId
+    - updaterId
+  - table: stages
+    keys:
+    - creatorId
+    - updaterId
+  - table: tasks
+    keys:
+    - creatorId
+    - completerId
+  - table: users
+    keys:
+    - creatorId
+    - id
+    - updaterId

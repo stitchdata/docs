@@ -1,0 +1,78 @@
+tap: mailshake
+version: '1'
+keys:
+  campaigns_id:
+  - table: campaigns
+    keys:
+    - id
+    - messages.id
+  - table: clicks
+    keys:
+    - campaign.id
+  - table: leads
+    keys:
+    - campaign.id
+  - table: opens
+    keys:
+    - campaign.id
+  - table: recipients
+    keys:
+    - campaignId
+  - table: replies
+    keys:
+    - campaign.id
+  - table: sent_messages
+    keys:
+    - campaign.id
+  _id:
+  - table: campaigns
+    keys:
+    - messages.id
+  - table: clicks
+    keys:
+    - parent.message.id
+  - table: leads
+    keys:
+    - parent.message.id
+  - table: opens
+    keys:
+    - parent.message.id
+  - table: replies
+    keys:
+    - parent.message.id
+  - table: sent_messages
+    keys:
+    - message.id
+  recipients_id:
+  - table: clicks
+    keys:
+    - recipient.id
+  - table: leads
+    keys:
+    - recipient.id
+  - table: opens
+    keys:
+    - recipient.id
+  - table: recipients
+    keys:
+    - id
+  - table: replies
+    keys:
+    - parent.message.id
+  - table: sent_messages
+    keys:
+    - recipient.id
+  senders_id:
+  - table: campaigns
+    keys:
+    - sender.id
+  - table: senders
+    keys:
+    - id
+  team_members_id:
+  - table: leads
+    keys:
+    - assignedTo.id
+  - table: team_members
+    keys:
+    - id

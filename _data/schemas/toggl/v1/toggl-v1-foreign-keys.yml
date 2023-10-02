@@ -1,0 +1,70 @@
+tap: toggl
+version: '1'
+keys:
+  workspaces_wid:
+  - table: workspaces
+    keys:
+    - id
+  - table: clients
+    keys:
+    - wid
+  - table: groups
+    keys:
+    - wid
+  - table: projects
+    keys:
+    - wid
+  - table: tags
+    keys:
+    - wid
+  - table: tasks
+    keys:
+    - wid
+  - table: users
+    keys:
+    - default_wid
+  - table: workspace_users
+    keys:
+    - wid
+  clients_cid:
+  - table: clients
+    keys:
+    - id
+  - table: projects
+    keys:
+    - cid
+  groups_:
+  - table: groups
+    keys:
+    - id
+  projects_:
+  - table: projects
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - ''
+  - table: time_entries
+    keys:
+    - ''
+  tags_:
+  - table: tags
+    keys:
+    - id
+  tasks_tid:
+  - table: tasks
+    keys:
+    - id
+  - table: time_entries
+    keys:
+    - tid
+  users_uid:
+  - table: tasks
+    keys:
+    - uid
+  - table: time_entries
+    keys:
+    - uid
+  - table: users
+    keys:
+    - id

@@ -1,0 +1,32 @@
+tap: yotpo
+version: '2'
+keys:
+  emails_email_address:
+  - table: emails
+    keys:
+    - email_address
+  - table: unsubscribers
+    keys:
+    - user_email
+  orders_order_id:
+  - table: emails
+    keys:
+    - order_id
+  products_product_id:
+  - table: products
+    keys:
+    - product_id
+  - table: product_reviews
+    keys:
+    - product_id
+  product_reviews_product_review_id:
+  - table: product_reviews
+    keys:
+    - id
+  reviews_source_review_id:
+  - table: product_reviews
+    keys:
+    - source_review_id
+  - table: reviews
+    keys:
+    - id

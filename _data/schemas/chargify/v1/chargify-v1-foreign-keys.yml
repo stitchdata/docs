@@ -1,0 +1,153 @@
+tap: chargify
+version: '1'
+keys:
+  components_component_id:
+  - table: components
+    keys:
+    - id
+    - prices.id
+  - table: invoices
+    keys:
+    - charges.component_id
+    - payments_and_credits.component_id
+  - table: price_points
+    keys:
+    - component_id
+    - prices.component_id
+  - table: statements
+    keys:
+    - transactions.component_id
+  - table: transactions
+    keys:
+    - component_id
+  coupons_coupon_id:
+  - table: coupons
+    keys:
+    - id
+  customers_customer_id:
+  - table: customers
+    keys:
+    - id
+    - parent_id
+  - table: invoices
+    keys:
+    - charges.customer_id
+    - payments_and_credits.customer_id
+  - table: statements
+    keys:
+    - transactions.customer_id
+  - table: subscriptions
+    keys:
+    - credit_card.customer_id
+    - customer.id
+  - table: transactions
+    keys:
+    - customer_id
+  events_event_id:
+  - table: events
+    keys:
+    - id
+  - table: statements
+    keys:
+    - events.event.id
+  invoices_invoice_id:
+  - table: invoices
+    keys:
+    - id
+  price_points_price_point_id:
+  - table: components
+    keys:
+    - default_price_point_id
+    - prices.price_point_id
+  - table: price_points
+    keys:
+    - id
+  product_families_product_family_id:
+  - table: components
+    keys:
+    - product_family_id
+  - table: coupons
+    keys:
+    - product_family_id
+  - table: product_family
+    keys:
+    - id
+  - table: products
+    keys:
+    - product_family.id
+  - table: subscriptions
+    keys:
+    - product.product_family.id
+  products_product_id:
+  - table: events
+    keys:
+    - event_specific_data.product_id
+  - table: invoices
+    keys:
+    - charges.product_id
+    - payments_and_credits.product_id
+  - table: products
+    keys:
+    - id
+  - table: statements
+    keys:
+    - events.event.event_specific_data.product_id
+    - transactions.product_id
+  - table: subscriptions
+    keys:
+    - next_product_id
+    - product.id
+  - table: transactions
+    keys:
+    - product_id
+  statements_statement_id:
+  - table: invoices
+    keys:
+    - statement_id
+  - table: statements
+    keys:
+    - id
+    - transactions.statement_id
+  - table: transactions
+    keys:
+    - statement_id
+  subscriptions_subscription_id:
+  - table: events
+    keys:
+    - subscription_id
+  - table: invoices
+    keys:
+    - charges.subscription_id
+    - payments_and_credits.subscription_id
+    - subscription_id
+  - table: statements
+    keys:
+    - events.event.subscription_id
+    - subscription_id
+    - transactions.subscription_id
+  - table: subscriptions
+    keys:
+    - id
+  - table: transactions
+    keys:
+    - subscription_id
+  transactions_transaction-id:
+  - table: events
+    keys:
+    - event_specific_data.account_transaction_id
+  - table: invoices
+    keys:
+    - charges.payment_id
+    - payments_and_credits.payment_id
+  - table: statements
+    keys:
+    - transactions.id
+  - table: subscriptions
+    keys:
+    - signup_payment_id
+    - stored_credential_transaction_id
+  - table: transactions
+    keys:
+    - id
+    - parent_id
+    - payment_id

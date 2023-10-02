@@ -1,0 +1,73 @@
+tap: bronto
+version: '1'
+keys:
+  contact_contactId:
+  - table: contact
+    keys:
+    - id
+  - table: inbound_activity
+    keys:
+    - contactId
+  - table: outbound_activity
+    keys:
+    - contactId
+  _deliveryId:
+  - table: inbound_activity
+    keys:
+    - deliveryId
+  - table: outbound_activity
+    keys:
+    - deliveryId
+  list_listId:
+  - table: list
+    keys:
+    - id
+  - table: inbound_activity
+    keys:
+    - listId
+  - table: outbound_activity
+    keys:
+    - listId
+  inbound_activity_:
+  - table: inbound_activity
+    keys:
+    - id
+  _keywordId:
+  - table: inbound_activity
+    keys:
+    - keywordId
+  - table: outbound_activity
+    keys:
+    - keywordId
+  _messageId:
+  - table: inbound_activity
+    keys:
+    - messageId
+  - table: outbound_activity
+    keys:
+    - messageId
+  _orderId:
+  - table: inbound_activity
+    keys:
+    - orderId
+  - table: outbound_activity
+    keys:
+    - orderId
+  outbound_activity_:
+  - table: outbound_activity
+    keys:
+    - id
+  _segmentId:
+  - table: inbound_activity
+    keys:
+    - segmentId
+  - table: outbound_activity
+    keys:
+    - segmentId
+  _workflowId:
+  - table: inbound_activity
+    keys:
+    - workflowId
+  - table: outbound_activity
+    keys:
+    - workflowId

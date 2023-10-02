@@ -1,0 +1,289 @@
+tap: xero
+version: '1'
+keys:
+  accounts_AccountID:
+  - table: accounts
+    keys:
+    - AccountID
+  - table: bank_transactions
+    keys:
+    - BankAccount.AccountID
+  - table: bank_transfers
+    keys:
+    - FromBankAccount.AccountID
+    - ToBankAccount.AccountID
+  - table: journals
+    keys:
+    - JournalLines.AccountID
+  - table: payments
+    keys:
+    - Account.AccountID
+  bank_transfers_BankTransferID:
+  - table: bank_transfers
+    keys:
+    - BankTransferID
+  bank_transactions_BankTransactionID:
+  - table: bank_transactions
+    keys:
+    - BankTransactionID
+  - table: linked_transactions
+    keys:
+    - SourceTransactionID
+  branding_themes_BrandingThemeID:
+  - table: branding_themes
+    keys:
+    - BrandingThemeID
+  - table: contacts
+    keys:
+    - BrandingTheme.BrandingThemeID
+  - table: credit_notes
+    keys:
+    - BrandingThemeID
+  - table: invoices
+    keys:
+    - BrandingThemeID
+  - table: purchase_orders
+    keys:
+    - BrandingThemeID
+  - table: quotes
+    keys:
+    - BrandingThemeID
+    - Contact.BrandingTheme.BrandingThemeID
+  - table: repeating_invoices
+    keys:
+    - BrandingThemeID
+  contact_groups_ContactGroupID:
+  - table: contact_groups
+    keys:
+    - ContactGroupID
+  - table: contacts
+    keys:
+    - ContactGroups.ContactGroupID
+  - table: quotes
+    keys:
+    - Contacts.ContactGroups.ContactGroupID
+  contacts_ContactID:
+  - table: contacts
+    keys:
+    - ContactID
+  - table: credit_notes
+    keys:
+    - Contact.ContactID
+  - table: invoices
+    keys:
+    - Contact.ContactID
+  - table: linked_transactions
+    keys:
+    - ContactID
+  - table: overpayments
+    keys:
+    - Contact.ContactID
+  - table: prepayments
+    keys:
+    - Contact.ContactID
+  - table: quotes
+    keys:
+    - Contact.ContactID
+  - table: receipts
+    keys:
+    - Contact.ContactID
+  - table: repeating_invoices
+    keys:
+    - Contact.ContactID
+  credit_notes_CreditNoteID:
+  - table: credit_notes
+    keys:
+    - CreditNoteID
+  - table: invoices
+    keys:
+    - CreditNotes.CreditNoteID
+  currencies_CurrencyCode:
+  - table: accounts
+    keys:
+    - CurrencyCode
+  - table: bank_transactions
+    keys:
+    - CurrencyCode
+  - table: credit_notes
+    keys:
+    - CurrencyCode
+  - table: currencies
+    keys:
+    - CurrencyCode
+  - table: invoices
+    keys:
+    - CurrencyCode
+  - table: prepayments
+    keys:
+    - CurrencyCode
+  - table: purchase_orders
+    keys:
+    - CurrencyCode
+  - table: repeating_invoices
+    keys:
+    - CurrencyCode
+  employees_EmployeeID:
+  - table: employees
+    keys:
+    - EmployeeID
+  expense_claims_ExpenseClaimID:
+  - table: expense_claims
+    keys:
+    - ExpenseClaimID
+  invoices_IvoiceID:
+  - table: invoices
+    keys:
+    - IvoiceID
+  - table: linked_transactions
+    keys:
+    - SourceTransactionID.IvoiceID
+    - TargetTransactionID
+  - table: overpayments
+    keys:
+    - Allocations.Invoice.IvoiceID
+  - table: payments
+    keys:
+    - Invoice.IvoiceID
+  - table: prepayments
+    keys:
+    - Allocations.Invoice.IvoiceID
+  items_ItemID:
+  - table: items
+    keys:
+    - ItemID
+  journals_JournalID:
+  - table: journals
+    keys:
+    - JournalID
+  linked_transactions_LinkedTransactionID:
+  - table: linked_transactions
+    keys:
+    - LinkedTransactionID
+  manual_journals_ManualJournalID:
+  - table: manial_journals
+    keys:
+    - ManualJournalID
+  organisations_OrganisationID:
+  - table: organisations
+    keys:
+    - OrganisationID
+  overpayments_OverpaymentID:
+  - table: bank_transactions
+    keys:
+    - OverpaymentID
+  - table: invoices
+    keys:
+    - Overpayments.OverpaymentID
+  - table: overpayments
+    keys:
+    - OverpaymentID
+  - table: payments
+    keys:
+    - Overpayment.OverpaymentID
+  payments_PaymentID:
+  - table: expense_claims
+    keys:
+    - Payments.PaymentID
+  - table: invoices
+    keys:
+    - Payments.PaymentID
+  - table: overpayments
+    keys:
+    - Payments.PaymentID
+  - table: payments
+    keys:
+    - PaymentID
+  prepayments_PrepaymentID:
+  - table: bank_transactions
+    keys:
+    - PrepaymentID
+  - table: invoices
+    keys:
+    - Prepayments.PrepaymentID
+  - table: payments
+    keys:
+    - Prepayments.PrepaymentID
+  - table: prepayments
+    keys:
+    - PrepaymentID
+  purchase_orders_PurchaseOrderID:
+  - table: purchase_orders
+    keys:
+    - PurchaseOrderID
+  quotes_QuoteID:
+  - table: quotes
+    keys:
+    - QuoteID
+  receipts_ReceiptID:
+  - table: expense_claims
+    keys:
+    - Receipts.ReceiptID
+  - table: receipts
+    keys:
+    - ReceiptID
+  repeating_invoices_RepeatingInvoiceID:
+  - table: repeating_invoices
+    keys:
+    - RepeatingInvoiceID
+  linked_transactions_SourceTransactionID:
+  - table: bank_transactions
+    keys:
+    - BankTransactionID
+  - table: invoices
+    keys:
+    - InvoiceID
+  tax_rates_TaxName:
+  - table: tax_rates
+    keys:
+    - TaxName
+  - table: journals
+    keys:
+    - JournalLines.TaxName
+  tracking_categories_TrackingCategoryID:
+  - table: contacts
+    keys:
+    - SalesTrackingCategories.TrackingCategoryID
+    - PurchasesTrackingCategories.TrackingCategoryID
+  - table: credit_notes
+    keys:
+    - LineItems.Tracking.TrackingCategoryID
+  - table: invoices
+    keys:
+    - LineItems.Tracking.TrackingCategoryID
+  - table: journals
+    keys:
+    - JournalLines.TrackingCategories.TrackingCategoryID
+  - table: manual_journals
+    keys:
+    - JournalLines.TrackingCategories.TrackingCategoryID
+  - table: overpayments
+    keys:
+    - LineItems.Tracking.TrackingCategoryID
+  - table: prepayments
+    keys:
+    - LineItems.Tracking.TrackingCategoryID
+  - table: purchase_orders
+    keys:
+    - LineItems.Tracking.TrackingCategoryID
+  - table: quotes
+    keys:
+    - LineItems.Tracking.TrackingCategoryID
+    - LineItems.Tracking.SalesTrackingCategories.TrackingCategoryID
+    - LineItems.Tracking.PurchasesTrackingCategories.TrackingCategoryID
+    - TrackingCategory.TrackingCategoryID
+  - table: receipts
+    keys:
+    - LineItems.Tracking.TrackingCategoryID
+  - table: repeating_invoices
+    keys:
+    - LineItems.Tracking.TrackingCategoryID
+  - table: tracking_categories
+    keys:
+    - TrackingCategoryID
+  users_UserID:
+  - table: expense_claims
+    keys:
+    - User.UserID
+  - table: receipts
+    keys:
+    - User.UserID

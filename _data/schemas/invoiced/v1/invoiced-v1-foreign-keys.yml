@@ -1,0 +1,71 @@
+tap: invoiced
+version: '1'
+keys:
+  credit_notes_id:
+  - table: credit_notes
+    keys:
+    - items__taxes.id
+    - taxes.id
+  - table: customers
+    keys:
+    - taxes.id
+  - table: estimates
+    keys:
+    - taxes.id
+    - items__taxes.id
+  - table: subscriptions
+    keys:
+    - taxes.id
+  customers_customer:
+  - table: credit_notes
+    keys:
+    - customer
+  - table: customers
+    keys:
+    - id
+  - table: estimates
+    keys:
+    - customer
+  - table: invoices
+    keys:
+    - customer
+  - table: subscriptions
+    keys:
+    - customer
+  - table: transactions
+    keys:
+    - customer
+  estimates_id:
+  - table: estimates
+    keys:
+    - id
+  invoices_id:
+  - table: credit_notes
+    keys:
+    - id
+  - table: estimates
+    keys:
+    - id
+  - table: invoices
+    keys:
+    - id
+  - table: transactions
+    keys:
+    - id
+  _plan:
+  - table: subscriptions
+    keys:
+    - plan
+    - addons.plan
+  subscriptions_subscription:
+  - table: invoices
+    keys:
+    - subscription
+  - table: subscriptions
+    keys:
+    - id
+  transactions_id:
+  - table: transactions
+    keys:
+    - id
+    - parent_transaction

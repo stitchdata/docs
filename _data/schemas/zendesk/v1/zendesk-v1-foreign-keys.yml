@@ -1,0 +1,139 @@
+tap: zendesk
+version: '1'
+keys:
+  groups_group_id:
+  - table: groups
+    keys:
+    - id
+  - table: group_memberships
+    keys:
+    - group_id
+  - table: organizations
+    keys:
+    - group_id
+  - table: satisfaction_ratings
+    keys:
+    - group_id
+  - table: tickets
+    keys:
+    - group_id
+  - table: users
+    keys:
+    - default_group_id
+  groups_group_membership_id:
+  - table: group_memberships
+    keys:
+    - id
+  - table: ''
+    keys:
+    - group_membership_id
+  macros_macro_id:
+  - table: macros
+    keys:
+    - id
+  - table: ticket_audits
+    keys:
+    - events.macro_id
+  organizations_organization_id:
+  - table: organizations
+    keys:
+    - id
+  - table: tickets
+    keys:
+    - organization_id
+  - table: users
+    keys:
+    - organization_id
+  _restriction_id:
+  - table: macros
+    keys:
+    - restriction.id
+  - table: groups
+    keys:
+    - id
+  - table: users
+    keys:
+    - id
+  _sla_policy_id:
+  - table: sla_policies
+    keys:
+    - id
+  tags_name:
+  - table: tags
+    keys:
+    - name
+  - table: organizations
+    keys:
+    - tags.value
+  - table: tickets
+    keys:
+    - tags.value
+  - table: users
+    keys:
+    - tags.value
+  ticket_audits_audit_id:
+  - table: ticket_audits
+    keys:
+    - id
+    - events.audit_id
+  - table: ticket_comments
+    keys:
+    - audit_id
+  ticket_fields_ticket_field_id:
+  - table: ticket_fields
+    keys:
+    - id
+  - table: ticket_forms
+    keys:
+    - ticket_field_ids.value
+  - table: tickets
+    keys:
+    - custom_fields.id
+  ticket_forms_ticket_form_id:
+  - table: ticket_forms
+    keys:
+    - id
+  - table: tickets
+    keys:
+    - ticket_form_id
+  tickets_ticket_id:
+  - table: satisfaction_ratings
+    keys:
+    - ticket_id
+  - table: tickets
+    keys:
+    - id
+  - table: ticket_audits
+    keys:
+    - ticket_id
+  - table: ticket_comments
+    keys:
+    - ticket_id
+  - table: ticket_metrics
+    keys:
+    - ticket_id
+  ticket_metrics_ticket_metric_id:
+  - table: ticket_metrics
+    keys:
+    - id
+  users_user_id:
+  - table: satisfaction_ratings
+    keys:
+    - assignee_id
+    - requester_id
+  - table: ticket_audits
+    keys:
+    - author_id
+  - table: ticket_comments
+    keys:
+    - author_id
+  - table: tickets
+    keys:
+    - requester_id
+    - follower_ids.value
+    - submitter_id
+    - collaborator_ids.value
+    - assignee_id
+  - table: users
+    keys:
+    - id

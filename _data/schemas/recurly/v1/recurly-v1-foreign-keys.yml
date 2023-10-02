@@ -1,0 +1,123 @@
+tap: recurly
+version: '1'
+keys:
+  accounts_account_id:
+  - table: accounts
+    keys:
+    - id
+    - parent_account_id
+    - shipping_addresses.account_id
+  - table: adjustments
+    keys:
+    - account.id
+    - account.parent_account_id
+  - table: billing_info
+    keys:
+    - account_id
+  - table: coupon_redemptions
+    keys:
+    - account_id
+  - table: invoices
+    keys:
+    - account.id
+    - account.parent_account_id
+    - credit_payments.refund_transaction.account.id
+    - line_items.shipping_addresses.account_id
+  - table: subscriptions
+    keys:
+    - shipping_addresses.account_id
+  - table: transactions
+    keys:
+    - account.id
+    - account.parent_account_id
+  adjustments_adjustment_id:
+  - table: adjustments
+    keys:
+    - id
+  coupons_coupon_id:
+  - table: coupon_redemptions
+    keys:
+    - coupon.id
+  - table: coupons
+    keys:
+    - id
+  - table: subscriptions
+    keys:
+    - coupon_redemptions__coupon.id
+  coupon_redemptions_:
+  - table: coupon_redemptions
+    keys:
+    - id
+  - table: subscriptions
+    keys:
+    - coupon_redemptions.id
+  invoices_invoice_id:
+  - table: adjustments
+    keys:
+    - invoice_id
+  - table: invoices
+    keys:
+    - id
+    - credit_payments.applied_to_invoice.id
+    - credit_payments.original_invoice.id
+    - credit_payments.refund_transaction.invoice.id
+    - credit_payments.refund_transaction.voided_by_invoice.id
+    - line_items.invoice_id
+    - subscription_ids.value
+  - table: transactions
+    keys:
+    - invoice.id
+    - voided_by_invoice.id
+  plans_plan_id:
+  - table: adjustments
+    keys:
+    - plan_id
+  - table: invoices
+    keys:
+    - line_items.plan_id
+  - table: plans
+    keys:
+    - id
+  - table: plan_add_ons
+    keys:
+    - plan_id
+  - table: subscriptions
+    keys:
+    - pending_change__plan.id
+  plan_add_ons_add_on_id:
+  - table: adjustments
+    keys:
+    - add_on_id
+  - table: invoices
+    keys:
+    - line_items.add_on_id
+  - table: plan_add_ons
+    keys:
+    - id
+  - table: subscriptions
+    keys:
+    - add_ons__ad_on.id
+  subscriptions_subscription_id:
+  - table: invoices
+    keys:
+    - credit_payments.refund_transaction.subscription_ids.subscription_id
+    - line_items.subscription_id
+  - table: subscriptions
+    keys:
+    - id
+    - add_ons.subscription_id
+    - pending_change__add_ons.subscription_id
+    - pending_change.subscription_id
+  - table: transactions
+    keys:
+    - subscription_ids.value
+  transactions_:
+  - table: invoices
+    keys:
+    - credit_payments.refund_transaction.id
+    - credit_payments.refund_transaction.original_transaction_id
+    - transactions.id
+  - table: transactions
+    keys:
+    - id
+    - original_transaction_id

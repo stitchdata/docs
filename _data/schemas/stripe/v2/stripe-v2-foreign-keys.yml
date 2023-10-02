@@ -1,0 +1,194 @@
+tap: stripe
+version: '2'
+keys:
+  balance_transactions_balance_transaction:
+  - table: balance_transactions
+    keys:
+    - id
+  - table: charges
+    keys:
+    - balance_transaction
+  - table: payouts
+    keys:
+    - balance_transaction
+    - failure_balance_transaction
+  - table: transfers
+    keys:
+    - balance_transaction
+    - failure_balance_transaction
+  - table: disputes
+    keys:
+    - balance_transactions.id
+  _card:
+  - table: charges
+    keys:
+    - card.id
+    - source.id
+  - table: customers
+    keys:
+    - cards.id
+  charges_charge:
+  - table: charges
+    keys:
+    - id
+  - table: invoices
+    keys:
+    - charge
+  - table: disputes
+    keys:
+    - charge-id
+  coupons_coupon:
+  - table: coupon
+    keys:
+    - id
+  - table: customers
+    keys:
+    - discount__coupon.id
+  - table: invoices
+    keys:
+    - discount__coupon.id
+  - table: subscription_items
+    keys:
+    - discount__coupon.id
+  - table: subscriptions
+    keys:
+    - discount__coupon.id
+  customers_customer:
+  - table: charges
+    keys:
+    - customer
+    - card.customer
+  - table: customers
+    keys:
+    - id
+    - cards.customer
+    - discount__coupon.customer
+  - table: invoice_items
+    keys:
+    - customer
+  - table: invoices
+    keys:
+    - customer
+    - discount.customer
+  - table: subscription_items
+    keys:
+    - customer
+  - table: subscriptions
+    keys:
+    - customer
+  events_event:
+  - table: events
+    keys:
+    - id
+  invoices_invoice:
+  - table: charges
+    keys:
+    - invoice
+  - table: invoice_items
+    keys:
+    - invoice
+  - table: invoice_line_items
+    keys:
+    - invoice
+  - table: invoices
+    keys:
+    - id
+  invoice_items_invoice_item:
+  - table: invoice_items
+    keys:
+    - id
+  - table: invoice_line_items
+    keys:
+    - invoice_item
+  invoice_line_items_invoice_line_item:
+  - table: invoice_line_items
+    keys:
+    - id
+  - table: invoices
+    keys:
+    - lines.value
+  plans_plan:
+  - table: invoice_items
+    keys:
+    - plan.id
+  - table: plans
+    keys:
+    - id
+  - table: subscription_items
+    keys:
+    - plan.id
+  - table: subscriptions
+    keys:
+    - plan.id
+  payouts_payout:
+  - table: payouts
+    keys:
+    - id
+  - table: payout_transactions
+    keys:
+    - payout_id
+  products_product:
+  - table: invoice_items
+    keys:
+    - plan.product
+  - table: invoice_line_items
+    keys:
+    - plan.product
+  - table: plans
+    keys:
+    - product
+  - table: products
+    keys:
+    - id
+  - table: subscription_items
+    keys:
+    - plan.product
+  - table: subscriptions
+    keys:
+    - plan.product
+  subscription_items_subscription_item:
+  - table: invoice_items
+    keys:
+    - subscription_item
+  - table: subscription_items
+    keys:
+    - id
+  - table: subscriptions
+    keys:
+    - items.value
+  subscriptions_subscription:
+  - table: customers
+    keys:
+    - subscriptions.id
+    - discount__coupon.subscription
+  - table: invoice_items
+    keys:
+    - subscription
+  - table: invoice_line_items
+    keys:
+    - subscription
+  - table: invoices
+    keys:
+    - subscription
+    - discount.subscription
+  - table: subscriptions
+    keys:
+    - id
+  - table: subscription_items
+    keys:
+    - subscription
+  transfers_transfer:
+  - table: charges
+    keys:
+    - source_transfer
+  - table: transfers
+    keys:
+    - id
+  disputes_id:
+  - table: disputes
+    keys:
+    - id
+  payout_transactions_id:
+  - table: payout_transactions
+    keys:
+    - id

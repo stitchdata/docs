@@ -1,0 +1,197 @@
+tap: chargebee
+version: 20-05-2019
+keys:
+  addons_:
+  - table: addon
+    keys:
+    - id
+  - table: events
+    keys:
+    - content.subscription.addons.id
+    - content.subscription.charged_event_based_addons.id
+    - content.subscription.event_based_addons.id
+  - table: invoices
+    keys:
+    - notes.entity_id
+  - table: subscriptions
+    keys:
+    - addons.id
+    - charged_event_based_addons.id
+    - event_based_addons.id
+  coupons_coupon_id:
+  - table: coupons
+    keys:
+    - id
+  - table: credit_notes
+    keys:
+    - discounts.entity_id
+    - line_item_discounts.coupon_id
+  - table: events
+    keys:
+    - content.coupon.id
+    - content.invoice.discounts.entity_id
+    - content.invoice.line_item_discounts.coupon_id
+    - content.subscription.coupons.coupon_id
+  - table: invoices
+    keys:
+    - discounts.entity_id
+    - line_item_discounts.coupon_id
+    - notes.entity_id
+  - table: subscriptions
+    keys:
+    - coupons.coupon_id
+  credit_notes_cn_id:
+  - table: credit_notes
+    keys:
+    - id
+  - table: events
+    keys:
+    - content.invoice.adjustment_credit_notes.cn_id
+    - content.invoice.applied_credits.cn_id
+    - content.invoice.issued_credit_notes.cn_id
+  - table: invoices
+    keys:
+    - adjustment_credit_notes.cn_id
+    - adjustment_applied_credits.cn_id
+    - linked_credit_notes.cn_id
+  customers_customer_id:
+  - table: credit_notes
+    keys:
+    - customer_id
+  - table: customers
+    keys:
+    - id
+  - table: events
+    keys:
+    - content.customer.id
+    - content.invoice.customer_id
+    - content.subscription.customer_id
+    - content.transaction.customer_id
+  - table: invoices
+    keys:
+    - customer_id
+    - notes.entity_id
+  - table: payment_sources
+    keys:
+    - customer_id
+  - table: subscriptions
+    keys:
+    - customer_id
+  - table: transactions
+    keys:
+    - customer_id
+  - table: virtual_bank_accounts
+    keys:
+    - customer_id
+  - table: gifts
+    keys:
+    - gift_receiver.customer_id
+  _line_item_id:
+  - table: credit_notes
+    keys:
+    - line_item_discounts.line_item_id
+    - line_item_taxes.line_item_id
+    - line_item_tiers.line_item_id
+    - line_items.line_item_id
+  - table: events
+    keys:
+    - content.invoice.line_item_discounts.line_item_id
+    - content.invoice.line_item_taxes.line_item_id
+    - content.invoice.line_items.id
+  - table: invoices
+    keys:
+    - line_item_discounts.line_item_id
+    - line_item_taxes.line_item_id
+    - line_item_tiers.line_item_id
+    - line_items.line_item_id
+  invoices_invoice_id:
+  - table: credit_notes
+    keys:
+    - allocations.invoice_id
+    - reference_invoice_id
+  - table: events
+    keys:
+    - content.invoice.id
+    - content.transaction.linked_credit_notes.cn_reference_invoice_id
+    - content.transaction.linked_payments.invoice_id
+  - table: invoices
+    keys:
+    - id
+  - table: transactions
+    keys:
+    - linked_credit_notes.cn_reference_invoice_id
+    - linked_payments.invoice_id
+  plans_plan_id:
+  - table: events
+    keys:
+    - content.plan.id
+    - content.subscription.plan_id
+  - table: plans
+    keys:
+    - id
+  - table: invoices
+    keys:
+    - notes.entity_id
+  - table: subscriptions
+    keys:
+    - plan_id
+  payment_sources_payment_source_id:
+  - table: customers
+    keys:
+    - primary_payment_sources_id
+  - table: events
+    keys:
+    - content.subscription.payment_source_id
+    - content.transaction.payment_source_id
+  - table: payment_sources
+    keys:
+    - id
+  - table: subscriptions
+    keys:
+    - payment_source_id
+  - table: transactions
+    keys:
+    - payment_source_id
+  subscriptions_subscription_id:
+  - table: credit_notes
+    keys:
+    - subscription_id
+    - line_items.subscription_id
+  - table: events
+    keys:
+    - content.invoice.linked_payments.subscription_id
+    - content.subscription.id
+    - content.invoice.subscription_id
+    - content.transaction.subscription_id
+  - table: invoices
+    keys:
+    - line_items.subscription_id
+    - notes.entity_id
+    - subscription_id
+  - table: subscriptions
+    keys:
+    - id
+  - table: transactions
+    keys:
+    - subscription_id
+  transactions_txn_id:
+  - table: credit_notes
+    keys:
+    - linked_refunds.txn_id
+  - table: events
+    keys:
+    - content.invoice.linked_payments.txn_id
+    - content.transaction.id
+    - content.transaction.id
+    - content.transaction.linked_refunds.txn_id
+    - content.transaction.reference_transaction_id
+    - content.transaction.refunded_txn_id
+  - table: invoices
+    keys:
+    - linked_payments.txn_id
+  - table: transactions
+    keys:
+    - id
+    - linked_refunds.txn_id
+    - reference_transaction_id
+    - refunded_txn_id

@@ -1,0 +1,44 @@
+tap: gitlab
+version: '1'
+keys:
+  projects_project_id:
+  - table: branches
+    keys:
+    - project_id
+  - table: commits
+    keys:
+    - project_id
+  - table: issues
+    keys:
+    - project_id
+  - table: milestones
+    keys:
+    - project_id
+  - table: projects
+    keys:
+    - project_id
+  commits_commit_id:
+  - table: commits
+    keys:
+    - id
+  - table: branches
+    keys:
+    - commit_id
+  issues_issue_id:
+  - table: issues
+    keys:
+    - id
+  milestones_milestone_id:
+  - table: issues
+    keys:
+    - milestone_id
+  - table: milestones
+    keys:
+    - id
+  users_user_id:
+  - table: projects
+    keys:
+    - creator_id
+  - table: users
+    keys:
+    - id

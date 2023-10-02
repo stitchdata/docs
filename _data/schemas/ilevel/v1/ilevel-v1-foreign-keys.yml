@@ -1,0 +1,74 @@
+tap: ilevel
+version: '1'
+keys:
+  assets_asset_id:
+  - table: asset_to_asset_relations
+    keys:
+    - from_id
+    - to_id
+  - table: assets
+    keys:
+    - id
+  - table: data_items
+    keys:
+    - asset_id
+  - table: fund_to_asset_relations
+    keys:
+    - to_id
+  - table: securities
+    keys:
+    - asset_id
+  data_items_data_item_id:
+  - table: data_items
+    keys:
+    - id
+  - table: periodic_data_calculated
+    keys:
+    - data_item_id
+  - table: periodic_data_standardized
+    keys:
+    - data_item_id
+  funds_fund_id:
+  - table: assets
+    keys:
+    - lead_fund_id
+  - table: fund_to_asset_relations
+    keys:
+    - from_id
+  - table: fund_to_fund_relations
+    keys:
+    - from_id
+    - to_id
+  - table: funds
+    keys:
+    - id
+  investments_id:
+  - table: investment_transactions
+    keys:
+    - investment.id
+  - table: investments
+    keys:
+    - id
+  scenarios_id:
+  - table: investment_transactions
+    keys:
+    - scenario.id
+  - table: periodic_data_calculated
+    keys:
+    - id
+  - table: periodic_data_standardized
+    keys:
+    - id
+  - table: scenarios
+    keys:
+    - id
+  securities_id:
+  - table: investment_transactions
+    keys:
+    - security.id
+  - table: investments
+    keys:
+    - id
+  - table: securities
+    keys:
+    - id

@@ -1,0 +1,30 @@
+tap: google-sheets
+version: '1'
+keys:
+  file_metadata_id:
+  - table: file_metadata
+    keys:
+    - id
+  spreadsheet_metadata_spreadsheetId:
+  - table: spreadsheet_metadata
+    keys:
+    - spreadsheetId
+  - table: sheet_metadata
+    keys:
+    - spreadsheetId
+  - table: sheets_loaded
+    keys:
+    - spreadsheetId
+  - table: sample_table
+    keys:
+    - __sdc_spreadsheet_id
+  sheet_metadata_sheetId:
+  - table: sheet_metadata
+    keys:
+    - sheetId
+  - table: sheets_loaded
+    keys:
+    - sheetId
+  - table: sample_table
+    keys:
+    - __sdc_sheet_id

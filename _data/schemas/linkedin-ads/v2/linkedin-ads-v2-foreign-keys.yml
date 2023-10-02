@@ -1,0 +1,55 @@
+tap: linkedin-ads
+version: '2'
+keys:
+  accounts_id:
+  - table: account_users
+    keys:
+    - account_id
+  - table: accounts
+    keys:
+    - id
+  - table: campaigns
+    keys:
+    - account_id
+  - table: campaign_groups
+    keys:
+    - account_id
+  - table: video_ads
+    keys:
+    - account_id
+  _:
+  - table: video_ads
+    keys:
+    - owner_organization_id
+  account_users_user_person_id:
+  - table: account_users
+    keys:
+    - user_person_id
+  campaign_groups_id:
+  - table: campaign_groups
+    keys:
+    - id
+  - table: campaigns
+    keys:
+    - campaign_group_id
+  campaigns_id:
+  - table: campaigns
+    keys:
+    - id
+  - table: creatives
+    keys:
+    - campaign_id
+  - table: ad_analytics_by_campaign
+    keys:
+    - campaign_id
+  creatives_id:
+  - table: creatives
+    keys:
+    - id
+  - table: ad_analytics_by_creative
+    keys:
+    - creative_id
+  video_ads_content_reference:
+  - table: video_ads
+    keys:
+    - content_reference

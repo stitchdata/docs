@@ -1,0 +1,56 @@
+tap: helpscout
+version: '1'
+keys:
+  conversations_conversation_id:
+  - table: conversation_threads
+    keys:
+    - conversation_id
+  - table: conversations
+    keys:
+    - id
+  customers_id:
+  - table: conversation_threads
+    keys:
+    - customer.id
+  - table: conversations
+    keys:
+    - primary_customer.id
+  - table: customers
+    keys:
+    - id
+  mailbox_folders_folder_id:
+  - table: conversations
+    keys:
+    - folder_id
+  - table: mailbox_folders
+    keys:
+    - id
+  mailboxes_mailbox_id:
+  - table: conversations
+    keys:
+    - mailbox_id
+  - table: mailbox_fields
+    keys:
+    - mailbox_id
+  - table: mailbox_folders
+    keys:
+    - mailbox_id
+  - table: mailboxes
+    keys:
+    - id
+  - table: wofkflows
+    keys:
+    - mailbox_id
+  users_id:
+  - table: conversation_threads
+    keys:
+    - assigned_to.id
+    - created_by.id
+  - table: conversations
+    keys:
+    - assignee.id
+    - closed_by
+    - created_by.id
+  - table: users
+    keys:
+    - id

@@ -1,0 +1,102 @@
+tap: slack
+version: '1'
+keys:
+  channels_id:
+  - table: channels
+    keys:
+    - id
+  - table: channel_members
+    keys:
+    - channel_id
+  - table: files
+    keys:
+    - channels.value
+    - pinned_to.value
+  - table: messages
+    keys:
+    - channel_id
+    - pinned_to.value
+  - table: remote_files
+    keys:
+    - channels.value
+    - pinned_to.value
+  - table: threads
+    keys:
+    - id
+  user_groups_id:
+  - table: files
+    keys:
+    - groups.value
+  - table: remote_files
+    keys:
+    - groups.value
+  - table: user_groups
+    keys:
+    - id
+    - parent_group
+  files_id:
+  - table: files
+    keys:
+    - id
+  - table: messages
+    keys:
+    - file_ids.value
+  teams_id:
+  - table: channels
+    keys:
+    - pending_connected_team_ids.value
+    - value
+  - table: files
+    keys:
+    - source_team
+    - user_team
+  - table: messages
+    keys:
+    - bot_profile.team_id
+    - team
+    - source_team
+    - user_team
+  - table: remote_files
+    keys:
+    - source_team
+    - user_team
+  - table: teams
+    keys:
+    - id
+  - table: threads
+    keys:
+    - team
+  - table: users
+    keys:
+    - team_id
+  users_user:
+  - table: channel_members
+    keys:
+    - user_id
+  - table: channels
+    keys:
+    - creator
+    - members.value
+  - table: files
+    keys:
+    - user
+  - table: messages
+    keys:
+    - reply_users.value
+    - reactions.users.value
+    - user
+  - table: remote_files
+    keys:
+    - user
+  - table: threads
+    keys:
+    - user
+    - reply_users.value
+  - table: user_groups
+    keys:
+    - members.value
+    - purpose.creator
+    - topic.creator
+  - table: users
+    keys:
+    - id

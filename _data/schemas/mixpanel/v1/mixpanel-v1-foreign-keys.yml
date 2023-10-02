@@ -1,0 +1,17 @@
+tap: mixpanel
+version: '1'
+keys:
+  cohorts_cohort_id:
+  - table: cohort_members
+    keys:
+    - cohort_id
+  - table: cohorts
+    keys:
+    - cohort_id
+  _project_id:
+  - table: annotations
+    keys:
+    - project_id
+  - table: cohorts
+    keys:
+    - project_id

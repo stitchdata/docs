@@ -1,0 +1,34 @@
+tap: shippo
+version: '1'
+keys:
+  addresses_:
+  - table: addresses
+    keys:
+    - object_id
+  - table: shipments
+    keys:
+    - object_from
+    - object_to
+    - object_return
+  parcels_:
+  - table: parcels
+    keys:
+    - object_id
+  - table: shipments
+    keys:
+    - object_parcel
+  refunds_:
+  - table: refunds
+    keys:
+    - object_id
+  shipments_shipment:
+  - table: shipment
+    keys:
+    - shipment
+  transactions_transaction:
+  - table: refunds
+    keys:
+    - transaction
+  - table: transactions
+    keys:
+    - object_id

@@ -1,0 +1,109 @@
+tap: hubspot
+version: '2'
+keys:
+  campaigns_leadNurturingCampaignId:
+  - table: campaigns
+    keys:
+    - id
+  - table: email_events
+    keys:
+    - emailCampaignId
+  - table: forms
+    keys:
+    - leadNurturingCampaignId
+  contacts_canonical-vid:
+  - table: contacts
+    keys:
+    - canonical-vid
+  - table: contacts_by_company
+    keys:
+    - contact-id
+  companies_company-id:
+  - table: companies
+    keys:
+    - companyId
+  - table: contacts_by_company
+    keys:
+    - company-id
+  - table: deals
+    keys:
+    - associations__associatedCompanyIds.value
+  - table: engagements
+    keys:
+    - associations__companyIds.value
+  contact_lists_listId:
+  - table: contact_lists
+    keys:
+    - listId
+  - table: contacts
+    keys:
+    - list-memberships.internal-list-id
+  - table: engagements
+    keys:
+    - associations__contactIds.value
+  deals_dealId:
+  - table: deals
+    keys:
+    - dealId
+    - associations__associatedDealIds.value
+  - table: engagements
+    keys:
+    - associations__dealIds.value
+  deal_pipelines_pipelineId:
+  - table: deal_pipelines
+    keys:
+    - pipelineId
+  email_events_emailEventId:
+  - table: email_events
+    keys:
+    - emailEventId
+  engagements_engagementId:
+  - table: engagements
+    keys:
+    - engagementId
+  forms_form-id:
+  - table: forms
+    keys:
+    - form-id
+  - table: contacts
+    keys:
+    - form-submissions.form-id
+  owners_ownerId:
+  - table: engagements
+    keys:
+    - ownerId
+  - table: owners
+    keys:
+    - ownerId
+    - remoteList.ownerId
+  _portalId:
+  - table: companies
+    keys:
+    - portalId
+  - table: contact_lists
+    keys:
+    - portalId
+  - table: contacts
+    keys:
+    - portal-id
+    - form-submissions.portal-id
+  - table: deals
+    keys:
+    - portalId
+  - table: email_events
+    keys:
+    - portalId
+  - table: engagements
+    keys:
+    - portalId
+  - table: forms
+    keys:
+    - portalId
+  - table: owners
+    keys:
+    - portalId
+    - remoteList.portalId
+  - table: subscription_changes
+    keys:
+    - portalId
+    - changes.portalId

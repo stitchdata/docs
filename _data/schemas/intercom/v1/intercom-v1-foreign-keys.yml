@@ -1,0 +1,81 @@
+tap: intercom
+version: '1'
+keys:
+  admins_admin_id:
+  - table: admins
+    keys:
+    - id
+  - table: company_attributes
+    keys:
+    - admin_id
+  - table: contact_attributes
+    keys:
+    - admin_id
+  - table: contacts
+    keys:
+    - owner_id
+  - table: conversation_parts
+    keys:
+    - assigned_to
+  - table: conversations
+    keys:
+    - conversation_rating.teammate.id
+    - tags.applied_by.id
+    - teammates.admins.id
+  - table: teams
+    keys:
+    - admin_ids.id
+  companies_id:
+  - table: companies
+    keys:
+    - id
+  - table: contacts
+    keys:
+    - companies.data.id
+  company_segments_id:
+  - table: company_segments
+    keys:
+    - id
+  conversations_id:
+  - table: conversations
+    keys:
+    - id
+  - table: conversation_parts
+    keys:
+    - conversation_id
+  contacts_id:
+  - table: contacts
+    keys:
+    - id
+  - table: conversations
+    keys:
+    - conversation_rating.customer.id
+    - customers.id
+    - contacts.id
+  segment_id:
+  - table: companies
+    keys:
+    - segments.id
+  - table: segment
+    keys:
+    - id
+  tags_id:
+  - table: contacts
+    keys:
+    - tags.data.id
+  - table: conversations
+    keys:
+    - tags.id
+  - table: companies
+    keys:
+    - tags.id
+  - table: tags
+    keys:
+    - id
+  teams_id:
+  - table: admins
+    keys:
+    - team_ids.value
+  - table: teams
+    keys:
+    - id

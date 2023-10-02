@@ -1,0 +1,72 @@
+tap: harvest-forecast
+version: '1'
+keys:
+  assignments_:
+  - table: assignments
+    keys:
+    - id
+  clients_client_id:
+  - table: clients
+    keys:
+    - id
+  - table: projects
+    keys:
+    - client_id
+  milestones_:
+  - table: milestones
+    keys:
+    - id
+  people_updated_by_id:
+  - table: assignments
+    keys:
+    - person_id
+    - updated_by_id
+  - table: clients
+    keys:
+    - updated_by_id
+  - table: milestones
+    keys:
+    - updated_by_id
+  - table: people
+    keys:
+    - id
+    - updated_by_id
+  - table: projects
+    keys:
+    - updated_by_id
+  - table: placeholders
+    keys:
+    - updated_by_id
+  - table: roles
+    keys:
+    - updated_by_id
+  projects_project_id:
+  - table: assignments
+    keys:
+    - project_id
+  - table: milestones
+    keys:
+    - project_id
+  - table: projects
+    keys:
+    - id
+  placeholders_placeholder_id:
+  - table: assignments
+    keys:
+    - placeholder_id
+  - table: placeholders
+    keys:
+    - id
+  - table: roles
+    keys:
+    - placeholder_ids.value
+  roles_value:
+  - table: people
+    keys:
+    - roles.value
+  - table: placeholders
+    keys:
+    - roles.value
+  - table: roles
+    keys:
+    - id

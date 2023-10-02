@@ -1,0 +1,17 @@
+tap: dixa
+version: '1'
+keys:
+  conversations_id:
+  - table: conversations
+    keys:
+    - id
+  - table: activity_logs
+    keys:
+    - conversationId
+  messages_id:
+  - table: messages
+    keys:
+    - id
+  - table: activity_logs
+    keys:
+    - attributes.messageId

@@ -1,0 +1,599 @@
+tap: quickbooks
+version: '1'
+keys:
+  accounts_value:
+  - table: accounts
+    keys:
+    - Id
+    - ParentRef.value
+  - table: bill_payments
+    keys:
+    - APAccountRef.value
+    - CheckPayment.BankAccountRef.value
+    - CreditCardPayment.CCAccountRef.value
+  - table: bills
+    keys:
+    - APAccountRef.value
+    - Line.AccountBasedExpenseLineDetail.value
+  - table: budgets
+    keys:
+    - BudgetDetail.AccountRef.value
+  - table: deposits
+    keys:
+    - CashBack.AccountRef.value
+    - DepositToAccountRef.value
+    - Line.DepositLineDetail.AccountRef.value
+  - table: invoices
+    keys:
+    - DepositToAccountRef.value
+    - Line.DiscountLineDetail.DiscountAccountRef.value
+  - table: items
+    keys:
+    - AssetAccountRef.value
+    - ExpenseAccountRef.value
+    - IncomeAccountRef.value
+  - table: journal_entries
+    keys:
+    - ARAccountRef.value
+    - Line.JournalEntryLineDetail.AccountRef.value
+  - table: payments
+    keys:
+    - DepositToAccountRef.value
+  - table: purchase_orders
+    keys:
+    - APAccountRef.value
+  - table: purchases
+    keys:
+    - AccountRef.value
+    - Line.AccountBasedExpenseLineDetail.AccountRef.value
+  - table: refund_receipts
+    keys:
+    - DepositToAccountRef.value
+  - table: sales_receipts
+    keys:
+    - DepositToAccountRef.value
+    - Line.DiscountLineDetail.DiscountAccountRef.value
+  - table: transfers
+    keys:
+    - FromAccountRef.value
+    - ToAccountRef.value
+  - table: vendor_credits
+    keys:
+    - APAccountRef.value
+    - Line.AccountBasedExpenseLineDetail.AccountRef.value
+  bill_payments_:
+  - table: bill_payments
+    keys:
+    - Id
+  - table: bills
+    keys:
+    - LinkedTxn.TxnId
+  bills_LinkedTxn.TxnId:
+  - table: bill_payments
+    keys:
+    - Line.LinkedTxn.TxnId
+  - table: bills
+    keys:
+    - Id
+  - table: purchase_orders
+    keys:
+    - LinkedTxn.TxnId
+  classes_ClassRef.value:
+  - table: budgets
+    keys:
+    - BudgetDetail.ClassRef.value
+  - table: classes
+    keys:
+    - Id
+    - ParentRef.value
+  - table: credit_memos
+    keys:
+    - ClassRef.value
+  - table: estimates
+    keys:
+    - ClassRef.value
+  - table: invoices
+    keys:
+    - ClassRef.value
+    - Line.SalesItemLineDetail.ClassRef.value
+  - table: items
+    keys:
+    - ClassRef.value
+  - table: purchase_orders
+    keys:
+    - ClassRef.value
+    - Line.ItemBasedExpenseLineDetail.ClassRef.value
+  - table: purchases
+    keys:
+    - Line.AccountBasedExpenseLineDetail.ClassRef.value
+  - table: refund_receipts
+    keys:
+    - ClassRef.value
+  - table: sales_receipts
+    keys:
+    - ClassRef.value
+  - table: time_activities
+    keys:
+    - ClassRef.value
+  - table: vendor_credits
+    keys:
+    - Line.AccountBasedExpenseLineDetail.ClassRef.value
+  credit_memos_value:
+  - table: credit_memos
+    keys:
+    - Id
+  - table: payments
+    keys:
+    - Line.LinkedTxn.TxnId
+  _CurrencyRef.value:
+  - table: accounts
+    keys:
+    - CurrencyRef.value
+  - table: bill_payments
+    keys:
+    - CurrencyRef.value
+  - table: bills
+    keys:
+    - CurrencyRef.value
+  - table: credit_memos
+    keys:
+    - CurrencyRef.value
+  - table: customers
+    keys:
+    - CurrencyRef.value
+  - table: deposits
+    keys:
+    - CurrencyRef.value
+  - table: estimates
+    keys:
+    - CurrencyRef.value
+  - table: invoices
+    keys:
+    - CurrencyRef.value
+  - table: journal_entries
+    keys:
+    - CurrencyRef.value
+  - table: payments
+    keys:
+    - CurrencyRef.value
+  - table: purchase_orders
+    keys:
+    - CurrencyRef.value
+  - table: purchases
+    keys:
+    - CurrencyRef.value
+  - table: refund_receipts
+    keys:
+    - CurrencyRef.value
+  - table: sales_receipts
+    keys:
+    - CurrencyRef.value
+  - table: transfers
+    keys:
+    - CurrencyRef.value
+  - table: vendor_credits
+    keys:
+    - CurrencyRef.value
+  - table: vendors
+    keys:
+    - CurrencyRef.value
+  customers_CustomerRef.value:
+  - table: bills
+    keys:
+    - Line.AccountBasedExpenseLineDetail.CustomerRef.value
+  - table: budgets
+    keys:
+    - BudgetDetail.CustomerRef.value
+  - table: credit_memos
+    keys:
+    - CustomerRef.value
+  - table: customers
+    keys:
+    - Id
+    - ParentRef.CustomerRef.value
+  - table: estimates
+    keys:
+    - CustomerRef.value
+  - table: invoices
+    keys:
+    - CustomerRef.value
+  - table: payments
+    keys:
+    - CustomerRef.value
+  - table: purchase_orders
+    keys:
+    - Line.ItemBasedExpenseLineDetail.CustomerRef.value
+  - table: purchases
+    keys:
+    - Line.AccountBasedExpenseLineDetail.CustomerRef.value
+    - EntityRef.CustomerRef.value
+  - table: refund_receipt
+    keys:
+    - CustomerRef.value
+  - table: sales_receipt
+    keys:
+    - CustomerRef.value
+  - table: vendor_credits
+    keys:
+    - Line.AccountBasedExpenseLineDetail.CustomerRef.value
+  departments_DepartmentRef.value:
+  - table: bills
+    keys:
+    - DepartmentRef.value
+  - table: bill_payments
+    keys:
+    - DepartmentRef.value
+  - table: budgets
+    keys:
+    - BudgetDetail.DepartmentRef.value
+  - table: departments
+    keys:
+    - ParentRef.value
+    - Id
+  - table: deposits
+    keys:
+    - DepartmentRef.value
+  - table: estimates
+    keys:
+    - DepartmentRef.value
+  - table: invoices
+    keys:
+    - DepartmentRef.value
+  - table: purchase_orders
+    keys:
+    - DepartmentRef.value
+  - table: purchases
+    keys:
+    - DepartmentRef.value
+  - table: refund_receipts
+    keys:
+    - DepartmentRef.value
+  - table: sales_receipts
+    keys:
+    - DepartmentRef.value
+  - table: time_activities
+    keys:
+    - DepartmentRef.value
+  - table: vendor_credits
+    keys:
+    - DepartmentRef.value
+  deposits_value:
+  - table: deposits
+    keys:
+    - Id
+  employees_value:
+  - table: employees
+    keys:
+    - Id
+  - table: purchases
+    keys:
+    - EntityRef.value
+  - table: time_activities
+    keys:
+    - EmployeeRef.value
+  purchases_value:
+  - table: customers
+    keys:
+    - value
+  - table: employees
+    keys:
+    - value
+  - table: vendors
+    keys:
+    - value
+  estimates_value:
+  - table: estimates
+    keys:
+    - Id
+  - table: invoices
+    keys:
+    - LinkedTxn.TxnId
+  invoices_LinkedTxn.TxnId:
+  - table: estimates
+    keys:
+    - LinkedTxn.TxnId
+  - table: invoices
+    keys:
+    - Id
+  - table: payments
+    keys:
+    - Line.LinkedTxn.TxnId
+  items_ItemRef.value:
+  - table: bills
+    keys:
+    - Line.ItemBasedExpenseLineDetail.ItemRef.value
+  - table: credit_memos
+    keys:
+    - Line.SalesItemLineDetail.ItemRef.value
+  - table: estimates
+    keys:
+    - Line.SalesItemLineDetail.ItemRef.value
+  - table: invoices
+    keys:
+    - Line.SalesItemLineDetail.ItemRef.value
+  - table: items
+    keys:
+    - Id
+    - ParentRef.value
+  - table: purchase_orders
+    keys:
+    - Line.ItemBasedExpenseLineDetail.ItemRef.value
+  - table: purchases
+    keys:
+    - Line.ItemBasedExpenseLineDetail.ItemRef.value
+  - table: refund_receipts
+    keys:
+    - Line.SalesItemLineDetail.ItemRef.value
+  - table: sales_receipts
+    keys:
+    - Line.SalesItemLineDetail.ItemRef.value
+  - table: time_activities
+    keys:
+    - ItemRef.value
+  journal_entries_LinkedTxn.TxnId:
+  - table: bill_payments
+    keys:
+    - Line.LinkedTxn.TxnId
+  - table: deposits
+    keys:
+    - Line.LinkedTxn.TxnId
+  - table: journal_entries
+    keys:
+    - Id
+  payments_LinkedTxn.TxnId:
+  - table: deposits
+    keys:
+    - Line.LinkedTxn.TxnId
+  - table: invoices
+    keys:
+    - LinkedTxn.TxnId
+  - table: payments
+    keys:
+    - Id
+  payment_methods_PaymentMethodRef.value:
+  - table: customers
+    keys:
+    - PaymentMethodRef.value
+  - table: deposits
+    keys:
+    - Line.DepositLineDetail.PaymentMethodRef.value
+  - table: payment_methods
+    keys:
+    - Id
+  - table: payments
+    keys:
+    - PaymentMethodRef.value
+  - table: purchases
+    keys:
+    - PaymentMethodRef.value
+  - table: refund_receipts
+    keys:
+    - PaymentMethodRef.value
+  - table: sales_receipts
+    keys:
+    - PaymentMethodRef.value
+  purchases_LinkedTxn.TxnId:
+  - table: invoices
+    keys:
+    - LinkedTxn.TxnId
+  - table: payments
+    keys:
+    - Line.LinkedTxn.TxnId
+  - table: purchases
+    keys:
+    - Id
+  purchase_orders_value:
+  - table: bills
+    keys:
+    - LinkedTxn.TxnId
+  - table: purchase_orders
+    keys:
+    - Id
+  refund_receipts_LinkedTxn.TxnId:
+  - table: deposits
+    keys:
+    - Line.LinkedTxn.TxnId
+  - table: refund_receipts
+    keys:
+    - Id
+  sales_receipts_LinkedTxn.TxnId:
+  - table: deposits
+    keys:
+    - Line.LinkedTxn.TxnId
+  - table: sales_receipts
+    keys:
+    - Id
+  tax_agencies_value:
+  - table: tax_agencies
+    keys:
+    - Id
+  - table: tax_rates
+    keys:
+    - AgencyRef.value
+  tax_codes_TaxCodeRef.value:
+  - table: bills
+    keys:
+    - Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
+    - Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
+  - table: credit_memos
+    keys:
+    - Line.SalesItemLineDetail.TaxCodeRef.value
+  - table: customers
+    keys:
+    - DefaultTaxCodeRef.value
+  - table: estimates
+    keys:
+    - Line.SalesItemLineDetail.TaxCodeRef.value
+    - TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+  - table: invoices
+    keys:
+    - Line.SalesItemLineDetail.TaxCodeRef.value
+    - TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+  - table: items
+    keys:
+    - PurchaseTaxCodeRef.value.TaxCodeRef.value
+    - SalesTaxCodeRef.value.TaxCodeRef.value
+  - table: journal_entries
+    keys:
+    - TxnTaxDetail.TxnTaxCodeRef.value
+  - table: purchase_orders
+    keys:
+    - Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
+  - table: purchases
+    keys:
+    - Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
+    - Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
+  - table: refund_receipts
+    keys:
+    - Line.SalesItemLineDetail.TaxCodeRef.value
+  - table: sales_receipts
+    keys:
+    - Line.SalesItemLineDetail.TaxCodeRef.value
+  - table: vendor_credits
+    keys:
+    - Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
+  tax_rates_TaxRateRef.value:
+  - table: estimates
+    keys:
+    - TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
+  - table: invoices
+    keys:
+    - TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
+  - table: journal_entries
+    keys:
+    - TaxRateRef.value
+    - TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
+  - table: tax_codes
+    keys:
+    - PurchaseTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+    - SalesTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+  - table: tax_rates
+    keys:
+    - Id
+  terms_SalesTermRef.value:
+  - table: bills
+    keys:
+    - SalesTermRef.value
+  - table: credit_memos
+    keys:
+    - SalesTermRef.value
+  - table: customers
+    keys:
+    - SalesTermRef.value
+  - table: estimates
+    keys:
+    - SalesTermRef.value
+  - table: invoices
+    keys:
+    - SalesTermRef.value
+  - table: purchase_orders
+    keys:
+    - SalesTermRef.value
+  - table: terms
+    keys:
+    - Id
+  - table: vendors
+    keys:
+    - TermRef.SalesTermRef.value
+  time_activities_value:
+  - table: invoices
+    keys:
+    - LinkedTxn.TxnId
+  - table: time_activities
+    keys:
+    - Id
+  bill_payments_Id:
+  - table: bills
+    keys:
+    - Id
+  - table: journal_entries
+    keys:
+    - Id
+  - table: vendor_credits
+    keys:
+    - Id
+  bills_Id:
+  - table: bill_payment
+    keys:
+    - Id
+  - table: purchase_orders
+    keys:
+    - Id
+  deposits_Id:
+  - table: journal_entries
+    keys:
+    - Id
+  - table: payments
+    keys:
+    - Id
+  - table: refund_receipts
+    keys:
+    - Id
+  - table: sales_receipts
+    keys:
+    - Id
+  - table: transfers
+    keys:
+    - Id
+  invoices_Id:
+  - table: estimates
+    keys:
+    - Id
+  - table: payments
+    keys:
+    - Id
+  - table: purchases
+    keys:
+    - Id
+  - table: time_activities
+    keys:
+    - Id
+  payments_Id:
+  - table: credit_memos
+    keys:
+    - Id
+  - table: invoices
+    keys:
+    - Id
+  - table: purchases
+    keys:
+    - Id
+  transfers_LinkedTxn.TxnId:
+  - table: deposits
+    keys:
+    - Line.LinkedTxn.TxnId
+  - table: transfers
+    keys:
+    - Id
+  vendor_credits_:
+  - table: bill_payments
+    keys:
+    - Line.LinkedTxn.TxnId
+  - table: vendor_credits
+    keys:
+    - Id
+  vendors_VendorRef.value:
+  - table: bill_payments
+    keys:
+    - VendorRef.value
+  - table: bills
+    keys:
+    - VendorRef.value
+  - table: items
+    keys:
+    - PrefVendorRef.value
+  - table: purchase_orders
+    keys:
+    - VendorRef.value
+  - table: purchases
+    keys:
+    - EntityRef.VendorRef.value
+  - table: time_activities
+    keys:
+    - VendorRef.value
+  - table: vendor_credits
+    keys:
+    - VendorRef.value
+  - table: vendors
+    keys:
+    - Id

@@ -1,0 +1,36 @@
+tap: mailchimp
+version: '1'
+keys:
+  automations_automation_id:
+  - table: automations
+    keys:
+    - id
+  campaigns_campaign_id:
+  - table: campaigns
+    keys:
+    - id
+  - table: reports_email_activity
+    keys:
+    - campaign_id
+  lists_list_id:
+  - table: automations
+    keys:
+    - recipients.list_id
+  - table: campaigns
+    keys:
+    - recipients.list_id
+  - table: list_members
+    keys:
+    - list_id
+  - table: list_segment_members
+    keys:
+    - list_id
+  - table: list_segments
+    keys:
+    - list_id
+  - table: lists
+    keys:
+    - id
+  - table: reports_email_activity
+    keys:
+    - list_id

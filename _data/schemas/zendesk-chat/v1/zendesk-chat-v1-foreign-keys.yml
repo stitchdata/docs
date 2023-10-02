@@ -1,0 +1,60 @@
+tap: zendesk-chat
+version: '1'
+keys:
+  account_account-key:
+  - table: account
+    keys:
+    - id
+  agents_id:
+  - table: agents
+    keys:
+    - id
+  - table: chats
+    keys:
+    - agent_ids.value
+    - agent_id
+    - agent
+    - agent_id
+  bans_id:
+  - table: bans
+    keys:
+    - id
+  chats_id:
+  - table: chats
+    keys:
+    - id
+  departments_id:
+  - table: departments
+    keys:
+    - id
+  - table: shortcuts
+    keys:
+    - departments.id
+  - table: chats
+    keys:
+    - department_id
+    - department_id
+    - department_id
+    - prev_department_id
+  - table: agents
+    keys:
+    - value
+  goals_id:
+  - table: goals
+    keys:
+    - id
+  - table: chats
+    keys:
+    - conversions.goal_id
+    - history.conversion.goal_id
+  - table: account
+    keys:
+    - plan.goals
+  shortcuts_name:
+  - table: shortcuts
+    keys:
+    - id
+  triggers_id:
+  - table: triggers
+    keys:
+    - id

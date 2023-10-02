@@ -1,0 +1,28 @@
+tap: google-analytics-360
+version: '1'
+keys:
+  ga_sessions_visitId:
+  - table: ga_sessions
+    keys:
+    - visitId
+  - table: ga_session_hits
+    keys:
+    - visitId
+  ga_sessions_fullVisitorId:
+  - table: ga_sessions
+    keys:
+    - fullVisitorId
+  - table: ga_session_hits
+    keys:
+    - fullVisitorId
+  ga_sessions_visitStartTime:
+  - table: ga_sessions
+    keys:
+    - visitStartTime
+  - table: ga_session_hits
+    keys:
+    - visitStartTime
+  ga_session_hits_hitNumber:
+  - table: ga_sessions_hits
+    keys:
+    - hitNumber

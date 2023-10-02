@@ -1,0 +1,79 @@
+tap: pardot
+version: '1'
+keys:
+  campaigns_campaign_id:
+  - table: campaigns
+    keys:
+    - id
+  - table: opportunities
+    keys:
+    - campaign_id
+  - table: prospects
+    keys:
+    - campaign_id
+  _email_template_id:
+  - table: email_clicks
+    keys:
+    - email_template_id
+  - table: visitor_activities
+    keys:
+    - email_template_id
+  _list_email_id:
+  - table: email_clicks
+    keys:
+    - list_email_id
+  - table: visitor_activities
+    keys:
+    - list_email_id
+  list_memberships_:
+  - table: list_memberships
+    keys:
+    - id
+  lists_list_id:
+  - table: list_memberships
+    keys:
+    - list_id
+  - table: lists
+    keys:
+    - id
+  opportunities_opportunity_id:
+  - table: opportunities
+    keys:
+    - id
+  prospects_prospect_id:
+  - table: email_clicks
+    keys:
+    - prospect_id
+  - table: list_memberships
+    keys:
+    - prospect_id
+  - table: prospects
+    keys:
+    - id
+  - table: visitor_activities
+    keys:
+    - prospect_id
+  - table: visits
+    keys:
+    - prospect_id
+  users_:
+  - table: prospect_accounts
+    keys:
+    - assigned_to.user.id
+  - table: users
+    keys:
+    - id
+  visitors_visitor_id:
+  - table: visitor_activities
+    keys:
+    - visitor_id
+  - table: visitors
+    keys:
+    - id
+  - table: visits
+    keys:
+    - visitor_id
+  visits_visit_id:
+  - table: visits
+    keys:
+    - id

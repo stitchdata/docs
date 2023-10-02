@@ -1,0 +1,185 @@
+tap: eloqua
+version: '1'
+keys:
+  accounts_id:
+  - table: accounts
+    keys:
+    - id
+  assets_AssetId:
+  - table: assets
+    keys:
+    - id
+  - table: activity_bounceback
+    keys:
+    - AssetId
+  - table: activity_email_clickthrough
+    keys:
+    - AssetId
+  - table: activity_email_open
+    keys:
+    - AssetId
+  - table: activity_email_send
+    keys:
+    - AssetId
+  - table: activity_form_submit
+    keys:
+    - AssetId
+  - table: activity_page_view
+    keys:
+    - AssetId
+  - table: activity_subscribe
+    keys:
+    - AssetId
+  - table: activity_unsubscribe
+    keys:
+    - AssetId
+  - table: activity_web_visit
+    keys:
+    - AssetId
+  campaigns_CampaignId:
+  - table: campaigns
+    keys:
+    - id
+  - table: activity_bounceback
+    keys:
+    - CampaignId
+  - table: activity_email_clickthrough
+    keys:
+    - CampaignId
+  - table: activity_email_open
+    keys:
+    - CampaignId
+  - table: activity_email_send
+    keys:
+    - CampaignId
+  - table: activity_form_submit
+    keys:
+    - CampaignId
+  - table: activity_page_view
+    keys:
+    - CampaignId
+  - table: activity_subscribe
+    keys:
+    - CampaignId
+  - table: activity_unsubscribe
+    keys:
+    - CampaignId
+  - table: forms
+    keys:
+    - processingSteps.campaignId
+  contacts_ContactId:
+  - table: contacts
+    keys:
+    - id
+  - table: activity_bounceback
+    keys:
+    - ContactId
+  - table: activity_email_clickthrough
+    keys:
+    - ContactId
+  - table: activity_email_open
+    keys:
+    - ContactId
+  - table: activity_email_send
+    keys:
+    - ContactId
+  - table: activity_form_submit
+    keys:
+    - ContactId
+  - table: activity_page_view
+    keys:
+    - ContactId
+  - table: activity_subscribe
+    keys:
+    - ContactId
+  - table: activity_unsubscribe
+    keys:
+    - ContactId
+  - table: visitors
+    keys:
+    - contactId
+  emails_emailId:
+  - table: emails
+    keys:
+    - id
+  - table: forms
+    keys:
+    - processingSteps.emailId
+  _emailFooterId:
+  - table: email_groups
+    keys:
+    - emailFooterId
+  - table: emails
+    keys:
+    - emailFooterId
+  _emailHeaderId:
+  - table: email_groups
+    keys:
+    - emailHeaderId
+  - table: emails
+    keys:
+    - emailHeaderId
+  _folderId:
+  - table: assets
+    keys:
+    - folderId
+  - table: campaigns
+    keys:
+    - folderId
+  - table: emails
+    keys:
+    - dynamicContents.folderId
+    - hyperlinks.folderId
+    - images.folderId
+  - table: forms
+    keys:
+    - folderId
+  forms_id:
+  - table: forms
+    keys:
+    - id
+  - table: emails
+    keys:
+    - forms.id
+  _:
+  - table: assets
+    keys:
+    - createdBy
+    - updatedBy
+  - table: campaigns
+    keys:
+    - createdBy
+    - updatedBy
+    - runAsUserId
+  - table: emails
+    keys:
+    - createdBy
+    - dynamicContents.createdBy
+    - dynamicContents.updatedBy
+    - fieldMerges.createdBy
+    - fieldMerges.updatedBy
+    - forms.createdBy
+    - forms.updatedBy
+    - forms.elements.createdBy
+    - forms.elements.updatedBy
+    - hyperlinks.createdBy
+    - hyperlinks.updatedBy
+    - images.createdBy
+    - images.updatedBy
+    - updatedBy
+  visitors_VisitorId:
+  - table: activity_email_clickthrough
+    keys:
+    - VisitorId
+  - table: activity_email_open
+    keys:
+    - VisitorId
+  - table: activity_form_submit
+    keys:
+    - VisitorId
+  - table: activity_page_view
+    keys:
+    - VisitorId
+  - table: visitors
+    keys:
+    - id

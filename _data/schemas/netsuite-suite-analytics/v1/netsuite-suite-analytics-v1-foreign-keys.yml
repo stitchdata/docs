@@ -1,0 +1,1559 @@
+tap: netsuite-suite-analytics
+version: '1'
+keys:
+  accounts_account_id:
+  - table: account_activity
+    keys:
+    - account_id
+  - table: account_period_activity
+    keys:
+    - account_id
+  - table: account_period_activity_pe
+    keys:
+    - account_id
+  - table: account_subsidiary_map
+    keys:
+    - account_id
+  - table: accounts
+    keys:
+    - deferral_account_id
+    - parent_id
+  - table: amortization_sched_lines
+    keys:
+    - account_id
+  - table: budget
+    keys:
+    - account_id
+  - table: customers
+    keys:
+    - default_receivables_account_id
+  - table: employees
+    keys:
+    - def_acct_corp_card_expenses_id
+  - table: expense_accounts
+    keys:
+    - expense_account_id
+  - table: expense_amortization_rules
+    keys:
+    - contra_account_id
+  - table: expense_plan_lines
+    keys:
+    - deferred_expense_account_id
+    - expense_account_id
+  - table: global_account_map
+    keys:
+    - destination_account_id
+    - source_account_id
+  - table: income_accounts
+    keys:
+    - income_account_id
+  - table: income_account_map
+    keys:
+    - destination_account_id
+    - source_account_id
+  - table: opportunity_lines
+    keys:
+    - account_id
+  - table: posting_account_activity
+    keys:
+    - account_id
+  - table: posting_account_activity_pe
+    keys:
+    - account_id
+  - table: revaluation
+    keys:
+    - variance_account_id
+  - table: revenue_plan_lines
+    keys:
+    - deferral_account_id
+    - recognition_account_id
+  - table: revrecschedulelines
+    keys:
+    - account_id
+  - table: sales_reps
+    keys:
+    - def_acct_corp_card_expenses_id
+  - table: support_reps
+    keys:
+    - def_acct_corp_card_expenses_id
+  - table: transaction_history
+    keys:
+    - account_id
+  - table: transaction_line_book_map
+    keys:
+    - account_id
+  - table: transaction_lines
+    keys:
+    - account_id
+  - table: transaction_tax_detail
+    keys:
+    - account_id
+  - table: transactions
+    keys:
+    - account_id
+  accounting_books_accounting_book_id:
+  - table: account_activity
+    keys:
+    - accounting_book_id
+  - table: accounting_books
+    keys:
+    - accounting_book_id
+    - base_book_id
+  - table: account_period_activity
+    keys:
+    - accounting_book_id
+  - table: account_period_activity_pe
+    keys:
+    - accounting_book_id
+  - table: budget
+    keys:
+    - accounting_book_id
+  - table: expense_plans
+    keys:
+    - transaction_book_id
+  - table: global_account_map
+    keys:
+    - accounting_book_id
+  - table: item_account_map
+    keys:
+    - accounting_book_id
+  - table: posting_account_activity
+    keys:
+    - accounting_book_id
+  - table: posting_account_activity_pe
+    keys:
+    - accounting_book_id
+  - table: transaction_book_map
+    keys:
+    - accounting_book_id
+  - table: transaction_line_book_map
+    keys:
+    - accounting_book_id
+  accounting_periods_accounting_period_id:
+  - table: account_period_activity
+    keys:
+    - accounting_period_id
+  - table: account_period_activity_pe
+    keys:
+    - accounting_period_id
+  - table: accounting_periods
+    keys:
+    - accounting_period_id
+    - parent_id
+    - year_id
+  - table: amortization_sched_lines
+    keys:
+    - accounting_period_id
+  - table: budget
+    keys:
+    - accounting_period_id
+  - table: consolidated_exchange_rates
+    keys:
+    - accounting_period_id
+  - table: customers
+    keys:
+    - first_sale_period_id
+    - last_sale_period_id
+  - table: expense_plan_lines
+    keys:
+    - accounting_period_id
+  - table: expense_plans
+    keys:
+    - accounting_period_id
+  - table: opportunities
+    keys:
+    - accounting_period_id
+  - table: posting_account_activity
+    keys:
+    - accounting_period_id
+  - table: posting_account_activity_pe
+    keys:
+    - accounting_period_id
+  - table: revenue_plan_lines
+    keys:
+    - accounting_period_id
+  - table: revenue_plan_version_lines
+    keys:
+    - accounting_period_id
+  - table: revenue_plans
+    keys:
+    - accounting_period_id
+  - table: revrecschedulelines
+    keys:
+    - accounting_period_id
+  address_books_address_book_id:
+  - table: address_books
+    keys:
+    - address_book_id
+  - table: billing_accounts
+    keys:
+    - address_book_id
+    - bill_to_address_book_id
+    - ship_to_address_book_id
+  addresses_address_id:
+  - table: addresses
+    keys:
+    - address_id
+  - table: address_book
+    keys:
+    - address_id
+  amortization_schedules_schedule_id:
+  - table: amortization_sched_lines
+    keys:
+    - schedule_id
+  - table: amortization_schedules
+    keys:
+    - schedule_id
+  billing_accounts_billing_account_id:
+  - table: billing_accounts
+    keys:
+    - billing_account_id
+  - table: billing_subscriptions
+    keys:
+    - billing_account_id
+  bill_of_materials_bill_of_materials_id:
+  - table: bill_of_materials
+    keys:
+    - bill_of_materials_id
+  - table: bom_revisions
+    keys:
+    - bill_of_materials_id
+  billing_schedule_descriptions_billing_schedule_id:
+  - table: billing_accounts
+    keys:
+    - billing_schedule_id
+  - table: billing_schedule_descriptions
+    keys:
+    - billing_schedule_id
+  - table: charges
+    keys:
+    - billing_schedule_id
+  - table: customers
+    keys:
+    - billing_schedule_id
+  - table: transaction_lines
+    keys:
+    - billing_schedule_id
+  billing_classes_billing_class_id:
+  - table: billing_class_rates
+    keys:
+    - billing_class_id
+  - table: billing_rate_card_prices
+    keys:
+    - billing_class_id
+  - table: employee_time
+    keys:
+    - billing_class_id
+  - table: employees
+    keys:
+    - billing_class_id
+  - table: item_billing_rates
+    keys:
+    - billing_class_id
+  billing_rate_cards_billing_rate_card_id:
+  - table: billing_class_rates
+    keys:
+    - billing_rate_card_id
+  - table: billing_rate_cards_prices
+    keys:
+    - billing_rate_card_id
+  - table: billing_rate_cards_versions
+    keys:
+    - billing_rate_card_id
+  - table: project_templates
+    keys:
+    - template_id
+  - table: time_based_charge_rules
+    keys:
+    - billing_rate_card_id
+  billing_rate_cards_versions_version0:
+  - table: billing_rate_cards_prices
+    keys:
+    - version0
+  - table: billing_rate_cards_versions
+    keys:
+    - version0
+  billing_subscription_lines_subscription_line_id:
+  - table: billing_subscription_lines
+    keys:
+    - subline_id
+    - usage_multiplier_line_id
+  - table: subscript_line_price_intervals
+    keys:
+    - subscription_line_id
+  - table: subscription_co_lines
+    keys:
+    - subscription_line_id
+  - table: subscription_line_revisions
+    keys:
+    - subscription_line_id
+  billing_subscriptions_subscription_id:
+  - table: billing_subscriptions
+    keys:
+    - subscription_id
+  - table: billing_subscription_lines
+    keys:
+    - subscription_id
+  - table: subscription_change_orders
+    keys:
+    - subscription_id
+  - table: subscription_co_lines
+    keys:
+    - subscription_id
+  bins_bin_id:
+  - table: bins
+    keys:
+    - bin_id
+  bom_revisions_bom_revision_id:
+  - table: bom_revision_components
+    keys:
+    - bom_revision_id
+  - table: bom_revisions
+    keys:
+    - bom_revision_id
+  budget_budget_id:
+  - table: budget
+    keys:
+    - budget_id
+  budget_category_category_id:
+  - table: budget
+    keys:
+    - category_id
+  - table: budget_category
+    keys:
+    - category_id
+  campaigns_campaign_id:
+  - table: campaign_categories
+    keys:
+    - default_campaign_id
+  - table: campaignevent
+    keys:
+    - campaign_id
+  - table: campaignitem
+    keys:
+    - campaign_id
+  - table: campaigns
+    keys:
+    - campaign_id
+  - table: customers
+    keys:
+    - lead_source_id
+  - table: opportunities
+    keys:
+    - lead_source_id
+  campaign_audiences_campaignaudience_id:
+  - table: campaigns
+    keys:
+    - audience_id
+  - table: campaign_audiences
+    keys:
+    - campaignaudience_id
+  campaign_category_category_id:
+  - table: campaigns
+    keys:
+    - category_id
+  - table: campaign_categories
+    keys:
+    - campaigncategory_id
+    - parent_id
+  campaignchannel_campaign_channel_id:
+  - table: campaignchannel
+    keys:
+    - campaign_channel_id
+  - table: campaignevent
+    keys:
+    - channel_id
+  campaignevent_campaign_event_id:
+  - table: campaignevent
+    keys:
+    - campaign_event_id
+  - table: campaignresponse
+    keys:
+    - campaign_event_id
+  campaign_families_family_id:
+  - table: campaign_families
+    keys:
+    - campaignfamily_id
+  - table: campaigns
+    keys:
+    - family_id
+  campaignoffer_offer_id:
+  - table: campaignoffer
+    keys:
+    - offer_id
+  - table: campaigns
+    keys:
+    - offer_id
+  campaignresponse_campaign_response_id:
+  - table: campaignresponse
+    keys:
+    - campaign_response_id
+  - table: campaignresponsehistory
+    keys:
+    - campaign_response_id
+  campaign_subscriptions_subscription_id:
+  - table: campaign_subscription_statuses
+    keys:
+    - subscription_id
+  - table: campaign_subscriptions
+    keys:
+    - campaignsubscription_id
+  - table: campaignevent
+    keys:
+    - subscription_id
+  campaign_verticals_vertical_id:
+  - table: campaign_verticals
+    keys:
+    - vertical_id
+  - table: campaigns
+    keys:
+    - vertical_id
+  caseissue_case_issue_id:
+  - table: caseissue
+    keys:
+    - case_issue_id
+  - table: support_incidents
+    keys:
+    - case_issue_id
+  case_origins_case_origin_id:
+  - table: case_origins
+    keys:
+    - case_origin_id
+  - table: support_incidents
+    keys:
+    - case_origin_id
+  support_incidents_case_id:
+  - table: case_stage_changes
+    keys:
+    - case_id
+  - table: caseescalationhistory
+    keys:
+    - case_id
+  - table: support_incidents
+    keys:
+    - case_id
+  case_types_case_type_id:
+  - table: case_types
+    keys:
+    - case_type_id
+  - table: casetypes
+    keys:
+    - case_type_id
+  - table: support_incidents
+    keys:
+    - case_type_id
+  classes_class_id:
+  - table: accounts
+    keys:
+    - class_id
+  - table: budget
+    keys:
+    - class_id
+  - table: classes
+    keys:
+    - class_id
+    - parent_id
+  - table: employee_time
+    keys:
+    - class_id
+  - table: employees
+    keys:
+    - class_id
+  - table: global_account_map
+    keys:
+    - class_id
+  - table: item_account_map
+    keys:
+    - class_id
+  - table: opportunity_lines
+    keys:
+    - class_id
+  - table: posting_account_activity
+    keys:
+    - class_id
+  - table: posting_account_activity_pe
+    keys:
+    - class_id
+  - table: subscription_plans
+    keys:
+    - class_id
+  - table: subsidiary_class_map
+    keys:
+    - class_id
+  company_status_company_status_id:
+  - table: company_status
+    keys:
+    - company_status_id
+  - table: opportunities
+    keys:
+    - company_status_id
+  consolidated_exchange_rates_consolidated_exchange_rate_id:
+  - table: consolidated_exchange_rates
+    keys:
+    - consolidated_exchange_rate_id
+  contacts_contact_id:
+  - table: campaignresponse
+    keys:
+    - contact_id
+  - table: customers
+    keys:
+    - primary_contact_id
+    - alternate_contact_id
+  - table: entity_role_map
+    keys:
+    - contact_id
+  - table: support_incidents
+    keys:
+    - contact_id
+  countries_country_id:
+  - table: countries
+    keys:
+    - country_id
+  - table: states
+    keys:
+    - country_id
+  coupon_codes_coupon_code_id:
+  - table: coupon_codes
+    keys:
+    - coupon_code_id
+  - table: opportunities
+    keys:
+    - promotion_code_instance_id
+  crmgroup_group_id:
+  - table: campaignevent
+    keys:
+    - group_id
+  - table: crmgroup
+    keys:
+    - group_id
+  crmtemplate_template_id:
+  - table: campaignevent
+    keys:
+    - template_id
+  - table: crmtemplate
+    keys:
+    - crmtemplate_id
+  currencies_currency_id:
+  - table: accounts
+    keys:
+    - currency_id
+  - table: billing_class_rates
+    keys:
+    - currency_id
+  - table: companies
+    keys:
+    - currency_id
+  - table: currencies
+    keys:
+    - currency_id
+  - table: customer_currencies
+    keys:
+    - currency_id
+  - table: employee_currency_map
+    keys:
+    - currency_id
+  - table: employees
+    keys:
+    - def_expense_report_currency_id
+  - table: inbound_shipments
+    keys:
+    - currency_id
+  - table: item_billing_rates
+    keys:
+    - currency_id
+  - table: item_price_history
+    keys:
+    - currency_id
+  - table: item_vendor_pricing
+    keys:
+    - currency_id
+  - table: location_costing_groups
+    keys:
+    - currency_id
+  - table: opportunities
+    keys:
+    - currency_id
+  - table: sales_reps
+    keys:
+    - currency_id
+  - table: support_reps
+    keys:
+    - currency_id
+  currency_exchange_rate_types_currency_rate_type_id:
+  - table: currency_exchange_rate_types
+    keys:
+    - currency_rate_type_id
+  - table: currency_exchange_rates
+    keys:
+    - currency_rate_type_id
+  currency_exchange_rates_currency_rate_id:
+  - table: currency_exchange_rate_types
+    keys:
+    - currency_rate_id
+  - table: currency_exchange_rates
+    keys:
+    - currency_rate_id
+  customers_customer_id:
+  - table: billing_rate_cards
+    keys:
+    - customer_id
+  - table: budget
+    keys:
+    - customer_id
+  - table: customer_currencies
+    keys:
+    - customer_id
+  - table: customer_subsidiary_map
+    keys:
+    - customer_id
+  - table: customers
+    keys:
+    - customer_id
+    - top_level_parent_id
+  - table: employee_time
+    keys:
+    - customer_id
+  customer_types_customer_type_id:
+  - table: customer_types
+    keys:
+    - customer_type_id
+  - table: customers
+    keys:
+    - customer_type_id
+  departments_department_id:
+  - table: account_activity
+    keys:
+    - department_id
+  - table: account_period_activity
+    keys:
+    - department_id
+  - table: account_period_activity_pe
+    keys:
+    - department_id
+  - table: accounts
+    keys:
+    - department_id
+  - table: budget
+    keys:
+    - department_id
+  - table: departments
+    keys:
+    - department_id
+    - parent_id
+  - table: employee_time
+    keys:
+    - department_id
+  - table: employees
+    keys:
+    - department_id
+  - table: global_account_map
+    keys:
+    - department_id
+  - table: item_account_map
+    keys:
+    - department_id
+  - table: opportunity_lines
+    keys:
+    - department_id
+  - table: posting_account_activity
+    keys:
+    - department_id
+  - table: posting_account_activity_pe
+    keys:
+    - department_id
+  - table: subscription_plans
+    keys:
+    - department_id
+  - table: subsidiary_department_map
+    keys:
+    - department_id
+  employee_types_employee_type_id:
+  - table: employee_types
+    keys:
+    - employee_type_id
+  - table: employees
+    keys:
+    - employee_type_id
+  employees_employee_id:
+  - table: billing_rate_cards_versions
+    keys:
+    - last_modified_by_id
+  - table: customers
+    keys:
+    - project_manager_id
+  - table: employee_currency_map
+    keys:
+    - employee_id
+  - table: employees
+    keys:
+    - employee_id
+    - approver_id
+    - supervisor_id
+  - table: project_revenue_rules
+    keys:
+    - created_by
+    - last_modified_by
+  - table: project_templates
+    keys:
+    - project_manager_id
+  - table: revenue_plan_versions
+    keys:
+    - created_by_id
+  - table: subscription_change_orders
+    keys:
+    - requester_id
+  - table: unlocked_time_periods
+    keys:
+    - last_modified_by_id
+    - employee_id
+  - table: vendors
+    keys:
+    - time_approver_id
+  entities_entity_id:
+  - table: campaign_subscription_statuses
+    keys:
+    - entity_id
+  - table: campaignresponse
+    keys:
+    - entity_id
+  - table: campaignresponsehistory
+    keys:
+    - author
+  - table: campaigns
+    keys:
+    - organizer_id
+  - table: caseescalationhistory
+    keys:
+    - escalator_id
+    - entity_id
+  - table: contact_types
+    keys:
+    - contact_id
+    - owner_id
+  - table: currency_exchange_rates
+    keys:
+    - entity_id
+  - table: currencyrates
+    keys:
+    - entity_id
+  - table: customers
+    keys:
+    - converted_to_id
+    - converted_to_contact_id
+    - sales_rep_id
+    - parent_id
+  - table: entity_role_map
+    keys:
+    - entity_id
+  - table: entityterritorymap
+    keys:
+    - entity_id
+  - table: messagerecipient
+    keys:
+    - entity_id
+  - table: notes_system_custom
+    keys:
+    - company_id
+    - author_id
+  - table: notes_system
+    keys:
+    - company_id
+    - author_id
+  - table: notes_user
+    keys:
+    - company_id
+  - table: opportunities
+    keys:
+    - sales_rep_id
+  - table: opportunity_lines
+    keys:
+    - company_id
+    - related_company_id
+  - table: resource_group_entity_map
+    keys:
+    - entity_id
+  - table: resource_groups
+    keys:
+    - resource_group_id
+  - table: support_incidents
+    keys:
+    - owner_id
+    - assigned_id
+    - company_id
+  - table: supportcasehistory
+    keys:
+    - employee_id
+  - table: system_notes_custom
+    keys:
+    - company_id
+    - author_id
+    - customfield_created_by_id
+    - customfield_modified_by_id
+  - table: system_notes
+    keys:
+    - company_id
+    - author_id
+  - table: transaction_address
+    keys:
+    - created_by_id
+    - last_modified_by_id
+  - table: transaction_history
+    keys:
+    - user_id
+    - entity_id
+  expense_amortization_rules_expense_rule_id:
+  - table: expense_amortization_rules
+    keys:
+    - expense_rule_id
+  - table: expense_plans
+    keys:
+    - expense_rule_id
+  expense_categories_expense_category_id:
+  - table: expense_categories
+    keys:
+    - expense_category_id
+  - table: expense_categories_subs_map
+    keys:
+    - expense_category_id
+  - table: opportunity_lines
+    keys:
+    - expense_category_id
+  expense_plans_plan_id:
+  - table: expense_plan_lines
+    keys:
+    - plan_id
+  - table: expense_plans
+    keys:
+    - plan_id
+  item_collections_item_collection_id:
+  - table: item_collection_item_map
+    keys:
+    - item_collection_id
+  - table: item_collections
+    keys:
+    - item_collection_id
+  items_item_id:
+  - table: bill_of_materials
+    keys:
+    - original_assembly_id
+  - table: billing_rate_cards_prices
+    keys:
+    - service_item_id
+  - table: billing_subscription_lines
+    keys:
+    - item_id
+  - table: bom_revision_components
+    keys:
+    - item_id
+  - table: budget
+    keys:
+    - item_id
+  - table: campaignitem
+    keys:
+    - item_id
+  - table: customers
+    keys:
+    - tax_item_id
+  - table: item_collection_item_map
+    keys:
+    - item_id
+  - table: item_price_history
+    keys:
+    - item_id
+  - table: item_subsidiary_map
+    keys:
+    - item_id
+  - table: item_vendor_map
+    keys:
+    - item_id
+  - table: item_vendor_pricing
+    keys:
+    - item_id
+  - table: items
+    keys:
+    - item_id
+  - table: notes_system_custom
+    keys:
+    - item_id
+  - table: notes_system
+    keys:
+    - item_id
+  - table: notes_user
+    keys:
+    - item_id
+  - table: opportunity_lines
+    keys:
+    - item_id
+    - tax_item_id
+  - table: planned_standard_costs
+    keys:
+    - item_id
+  - table: posting_account_activity
+    keys:
+    - item_id
+  - table: posting_account_activity_pe
+    keys:
+    - item_id
+  - table: purchase_charge_rules
+    keys:
+    - mark_up_item_id
+  - table: standard_cost_components
+    keys:
+    - component_id
+  - table: subscription_co_lines
+    keys:
+    - plan_item_id
+  - table: subscription_plan_lines
+    keys:
+    - item_id
+  - table: support_incidents
+    keys:
+    - item_id
+  - table: system_notes_custom
+    keys:
+    - item_id
+  - table: system_notes
+    keys:
+    - item_id
+  - table: transaction_tax_detail
+    keys:
+    - item_id
+  job_resource_roles_job_resource_role_id:
+  - table: employees
+    keys:
+    - default_job_resource_role_id
+  - table: job_resource_roles
+    keys:
+    - job_resource_role_id
+  location_costing_groups_location_costing_group_id:
+  - table: location_costing_groups
+    keys:
+    - location_costing_group_id
+  - table: location_costing_grp_locations
+    keys:
+    - location_costing_group_id
+  locations_location_id:
+  - table: accounts
+    keys:
+    - location_id
+  - table: billing_accounts
+    keys:
+    - location_id
+  - table: budget
+    keys:
+    - location_id
+  - table: employee_time
+    keys:
+    - location_id
+  - table: employees
+    keys:
+    - location_id
+  - table: global_account_map
+    keys:
+    - location_id
+  - table: item_account_map
+    keys:
+    - location_id
+  - table: location_costing_grp_locations
+    keys:
+    - location_id
+  - table: locations
+    keys:
+    - location_id
+    - parent_id
+  - table: opportunity_lines
+    keys:
+    - location_id
+  - table: planned_standard_costs
+    keys:
+    - location_id
+  - table: posting_account_activity
+    keys:
+    - location_id
+  - table: posting_account_activity_pe
+    keys:
+    - location_id
+  - table: subscription_plans
+    keys:
+    - location_id
+  - table: subsidiary_location_map
+    keys:
+    - location_id
+  message_message_id:
+  - table: message
+    keys:
+    - message_id
+  - table: messagerecipient
+    keys:
+    - message_id
+  notetype_note_type_id:
+  - table: notes_system_custom
+    keys:
+    - note_type_id
+  - table: notes_system
+    keys:
+    - note_type_id
+  - table: notes_user
+    keys:
+    - note_type_id
+  - table: notetype
+    keys:
+    - note_type_id
+  - table: system_notes_custom
+    keys:
+    - note_type_id
+  - table: system_notes
+    keys:
+    - note_type_id
+  partners_partner_id:
+  - table: customers
+    keys:
+    - partner_id
+  - table: opportunities
+    keys:
+    - partner_id
+  - table: partners
+    keys:
+    - partner_id
+  - table: posting_account_activity
+    keys:
+    - partner_id
+  - table: posting_account_activity_pe
+    keys:
+    - partner_id
+  payment_methods_payment_method_id:
+  - table: opportunity_lines
+    keys:
+    - payment_method_id
+  - table: payment_methods
+    keys:
+    - payment_method_id
+  payment_terms_payment_terms_id:
+  - table: customers
+    keys:
+    - payment_terms_id
+  - table: opportunities
+    keys:
+    - payment_terms_id
+  - table: payment_terms
+    keys:
+    - payment_terms_id
+  payroll_items_payroll_item_id:
+  - table: employee_time
+    keys:
+    - payroll_item_id
+  - table: opportunity_lines
+    keys:
+    - payroll_item_id
+  - table: payroll_item_id
+    keys:
+    - payroll_item_id
+  planned_standard_costs_planned_standard_cost_id:
+  - table: planned_standard_costs
+    keys:
+    - planned_standard_cost_id
+  - table: standard_cost_components
+    keys:
+    - planned_standard_cost_id
+  price_books_price_book_id:
+  - table: price_books
+    keys:
+    - price_book_id
+  - table: price_book_line_intervals
+    keys:
+    - price_book_id
+  price_plans_price_plan_id:
+  - table: price_book_line_intervals
+    keys:
+    - price_plan_id
+    - overage_price_plan_id
+  - table: price_plans
+    keys:
+    - price_plan_id
+  - table: price_tiers
+    keys:
+    - price_plan_id
+  - table: subscription_line_revisions
+    keys:
+    - price_plan_id
+    - overage_price_plan_id
+  price_types_price_type_id:
+  - table: employee_time
+    keys:
+    - price_type_id
+  - table: item_billing_rates
+    keys:
+    - price_type_id
+  - table: item_price_history
+    keys:
+    - price_type_id
+  - table: opportunity_lines
+    keys:
+    - price_type_id
+  - table: price_types
+    keys:
+    - price_type_id
+  project_expense_types_project_expense_type_id:
+  - table: customers
+    keys:
+    - project_expense_type_id
+  - table: project_expense_types
+    keys:
+    - project_expense_type_id
+  project_revenue_rls_charge_rls_project_revenue_rule_id:
+  - table: project_revenue_rls_charge_rls
+    keys:
+    - project_revenue_rule_id
+  - table: project_revenue_rules
+    keys:
+    - project_revenue_rule_id
+  promotion_codes_promotion_code_id:
+  - table: campaignevent
+    keys:
+    - promotion_code_id
+  - table: posting_account_activity
+    keys:
+    - promotion_code_id
+  - table: posting_account_activity_pe
+    keys:
+    - promotion_code_id
+  - table: promotion_codes
+    keys:
+    - promotion_code_id
+  project_time_approval_types_project_time_approval_type_id:
+  - table: customers
+    keys:
+    - time_approval_type_id
+  - table: project_time_approval_types
+    keys:
+    - project_time_approval_type_id
+  resource_group_entity_map_resource_group_id:
+  - table: resource_group_entity_map
+    keys:
+    - resource_group_id
+  revenue_elements_revenue_element_id:
+  - table: expense_plans
+    keys:
+    - related_revenue_element_id
+  - table: revenue_elements
+    keys:
+    - revenue_element_id
+  - table: revenue_plans
+    keys:
+    - revenue_element_id
+  - table: subscription_line_revisions
+    keys:
+    - revenue_element_id
+  revenue_plan_versions_plan_version_id:
+  - table: revenue_plan_version_lines
+    keys:
+    - plan_version_id
+  - table: revenue_plan_versions
+    keys:
+    - plan_version_id
+  revenue_plans_plan_id:
+  - table: revenue_plans
+    keys:
+    - plan_id
+  - table: revenue_plan_lines
+    keys:
+    - plan_id
+  - table: revenue_plan_versions
+    keys:
+    - plan_id
+  revrecschedules_schedule_id:
+  - table: customers
+    keys:
+    - rev_rec_forecast_template
+  - table: revrecschedules
+    keys:
+    - schedule_id
+  - table: transaction_line_book_map
+    keys:
+    - schedule_id
+  revenue_recognition_rules_rev_rec_rule_id:
+  - table: revenue_recognition_rules
+    keys:
+    - rev_rec_rule_id
+  - table: revenue_plans
+    keys:
+    - rev_rec_rule_id
+  sales_reps_sales_rep_id:
+  - table: posting_account_activity
+    keys:
+    - sales_rep_id
+  - table: posting_account_activity_pe
+    keys:
+    - sales_rep_id
+  - table: sales_reps
+    keys:
+    - sales_rep_id
+  campaign_search_engine_search_engine_id:
+  - table: campaign_search_engine
+    keys:
+    - search_engine_id
+  - table: campaigns
+    keys:
+    - search_engine_id
+  service_items_item_id:
+  - table: employee_time
+    keys:
+    - item_id
+  - table: item_billing_rates
+    keys:
+    - item_id
+  - table: project_revenue_rules
+    keys:
+    - service_item_id
+  - table: service_items
+    keys:
+    - item_id
+  subscription_change_orders_change_order_id:
+  - table: subscription_change_orders
+    keys:
+    - change_order_id
+  - table: subscription_co_lines
+    keys:
+    - change_order_id
+  - table: subscription_line_revisions
+    keys:
+    - change_order_id
+  subscription_plans_plan_id:
+  - table: billing_subscriptions
+    keys:
+    - default_renewal_plan_id
+    - plan_id
+  - table: price_books
+    keys:
+    - plan_id
+  - table: subscription_change_orders
+    keys:
+    - renewal_subscription_plan_id
+  - table: subscription_plan_lines
+    keys:
+    - parent_id
+  - table: subscription_plans
+    keys:
+    - plan_id
+    - default_renewal_plan_id
+  subscription_terms_term_id:
+  - table: billing_subscriptions
+    keys:
+    - default_renewal_term_id
+    - initial_term_id
+  - table: subscription_change_orders
+    keys:
+    - renewal_term_id
+  - table: subscription_plans
+    keys:
+    - initial_term_id
+    - default_renewal_term_id
+  - table: subscription_terms
+    keys:
+    - term_id
+  subscription_plan_lines_plan_line_id:
+  - table: billing_subscription_lines
+    keys:
+    - subscription_plan_line_id
+  - table: price_book_line_intervals
+    keys:
+    - plan_line_id
+    - usage_multiplier_line_id
+  - table: subscript_line_price_intervals
+    keys:
+    - plan_line_id
+  - table: subscription_plan_lines
+    keys:
+    - plan_line_id
+    - usage_multiplier_line_id
+  subsidiaries_subsidiary_id:
+  - table: account_activity
+    keys:
+    - subsidiary_id
+  - table: account_period_activity
+    keys:
+    - subsidiary_id
+  - table: account_period_activity_pe
+    keys:
+    - balance_from_subsidiary_id
+    - subsidiary_id
+  - table: account_subsidiary_map
+    keys:
+    - subsidiary_id
+  - table: budget
+    keys:
+    - subsidiary_id
+  - table: companies
+    keys:
+    - subsidiary_id
+  - table: consolidated_exchange_rates
+    keys:
+    - from_subsidiary_id
+    - to_subsidiary_id
+  - table: customer_subsidiary_map
+    keys:
+    - subsidiary_id
+  - table: customers
+    keys:
+    - subsidiary_id
+    - represents_subsidiary_id
+  - table: employee_time
+    keys:
+    - billing_subsidiary_id
+    - subsidiary_id
+  - table: employees
+    keys:
+    - subsidiary_id
+  - table: expense_categories_subs_map
+    keys:
+    - subsidiary_id
+  - table: global_account_map
+    keys:
+    - subsidiary_id
+  - table: global_inventory_relationships
+    keys:
+    - inventory_subsidiary_id
+    - originating_subsidiary_id
+  - table: item_account_map
+    keys:
+    - subsidiary_id
+  - table: item_subsidiary_map
+    keys:
+    - subsidiary_id
+  - table: item_vendor_map
+    keys:
+    - subsidiary_id
+  - table: opportunity_lines
+    keys:
+    - subsidiary_id
+  - table: partners
+    keys:
+    - subsidiary
+  - table: posting_account_activity
+    keys:
+    - subsidiary_id
+  - table: posting_account_activity_pe
+    keys:
+    - subsidiary_id
+    - balance_from_subsidiary_id
+  - table: role_subsidiary_map
+    keys:
+    - subsidiary_id
+  - table: subscription_plans
+    keys:
+    - subsidiary_id
+  - table: subsidiary_class_map
+    keys:
+    - subsidiary_id
+  - table: subsidiary_department_map
+    keys:
+    - subsidiary_id
+  - table: support_incidents
+    keys:
+    - subsidiary_id
+  - table: subsidiaries
+    keys:
+    - billing_subsidiary_id
+  - table: transaction_lines
+    keys:
+    - subsidiary_id
+    - source_subsidiary_id
+  - table: vendor_subsidiary_map
+    keys:
+    - subsidiary_id
+  - table: vendors
+    keys:
+    - subsidiary
+    - represents_subsidiary_id
+  tax_items_item_id:
+  - table: tax_items
+    keys:
+    - item_id
+  - table: transaction_tax_detail
+    keys:
+    - tax_item_id
+  territory_territory_id:
+  - table: customers
+    keys:
+    - sales_territory_id
+  - table: entityterritorymap
+    keys:
+    - territory_id
+  - table: support_incidents
+    keys:
+    - territory_id
+  - table: territory
+    keys:
+    - territory_id
+  group_test_cell_test_cell_id:
+  - table: campaignevent
+    keys:
+    - test_cell_id
+  - table: group_test_cell
+    keys:
+    - test_cell_id
+  transactions_transaction_id:
+  - table: amortization_sched_lines
+    keys:
+    - journal_id
+  - table: billing_subscription_lines
+    keys:
+    - purchase_order_id
+    - sales_order_id
+  - table: billing_subscriptions
+    keys:
+    - sales_order_id
+  - table: campaignresponsehistory
+    keys:
+    - transaction_id
+  - table: employee_time
+    keys:
+    - transaction_id
+  - table: expense_plan_lines
+    keys:
+    - journal_id
+  - table: expense_plans
+    keys:
+    - related_revenue_arrangement_id
+  - table: notes_system_custom
+    keys:
+    - transaction_id
+  - table: notes_system
+    keys:
+    - transaction_id
+  - table: notes_user
+    keys:
+    - transaction_id
+  - table: opportunities
+    keys:
+    - reversing-transaction-id
+  - table: revenue_plan_lines
+    keys:
+    - journal_id
+  - table: revenue_plan_version_lines
+    keys:
+    - journal_id
+  - table: revrecschedulelines
+    keys:
+    - journal_id
+  - table: system_notes_custom
+    keys:
+    - transaction_id
+  - table: system_notes
+    keys:
+    - transaction_id
+  - table: transaction_address
+    keys:
+    - transaction_id
+  - table: transaction_book_map
+    keys:
+    - transaction_id
+  - table: transaction_history
+    keys:
+    - transaction_id
+  - table: transaction_lines
+    keys:
+    - transaction_id
+  - table: transaction_links
+    keys:
+    - applied_transaction_id
+    - original_transaction_id
+  - table: transaction_shipping_groups
+    keys:
+    - transaction_id
+  transaction_lines_transaction_line_id:
+  - table: employee_time
+    keys:
+    - transaction_line_id
+  - table: expense_plans
+    keys:
+    - transaction_line_id
+  - table: notes_system_custom
+    keys:
+    - line_id
+  - table: notes_system
+    keys:
+    - line_id
+  - table: system_notes_custom
+    keys:
+    - line_id
+  - table: system_notes
+    keys:
+    - line_id
+  - table: transaction_line_book_map
+    keys:
+    - transaction_line_id
+  - table: transaction_lines
+    keys:
+    - transaction_line_id
+  - table: transaction_links
+    keys:
+    - applied_transaction_line_id
+    - original_transaction_line_id
+  - table: transaction_tax_detail
+    keys:
+    - transaction_line_id
+  transaction_shipping_groups_shipping_group_id:
+  - table: transaction_lines
+    keys:
+    - shipping_group_id
+  - table: transaction_shipping_groups
+    keys:
+    - shipping_group_id
+  unit_types_unit_type_id:
+  - table: billing_rate_cards_prices
+    keys:
+    - unit_type_id
+  - table: unit_types
+    keys:
+    - unit_type_id
+  uom_unit_of_measure_id:
+  - table: billing_rate_cards_prices
+    keys:
+    - sales_unit_id
+  - table: bom_revision_components
+    keys:
+    - unit_of_measure_id
+  - table: item_group
+    keys:
+    - unit_of_measure_id
+  - table: uom
+    keys:
+    - uom_id
+  vendor_types_vendor_type_id:
+  - table: vendor_types
+    keys:
+    - vendor_type_id
+  - table: vendors
+    keys:
+    - vendor_type_id
+  vendors_vendor_id:
+  - table: item_vendor_map
+    keys:
+    - vendor_id
+  - table: item_vendor_pricing
+    keys:
+    - vendor_id
+  - table: vendor_subsidiary_map
+    keys:
+    - vendor_id
+  - table: vendors
+    keys:
+    - vendor_id
+  winlossreason_win_loss_reason_id:
+  - table: opportunities
+    keys:
+    - win_loss_reason_id
+  - table: winlossreason
+    keys:
+    - win_loss_reason_id
+  work_calendars_work_calendar_id:
+  - table: employees
+    keys:
+    - work_calendar_id
+  - table: work_calendar_holidays
+    keys:
+    - work_calendar_id
+  - table: work_calendars
+    keys:
+    - work_calendar_id

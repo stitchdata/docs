@@ -1,0 +1,36 @@
+tap: marketo
+version: '2'
+keys:
+  activities_[activity_type]_marketoGuid:
+  - table: activities_[activity_type]
+    keys:
+    - marketoGuid
+  activity_types_activityTypeId:
+  - table: activities_[activity_type]
+    keys:
+    - activityTypeId
+  - table: activity_types
+    keys:
+    - id
+  campaigns_campaignId:
+  - table: campaigns
+    keys:
+    - id
+  leads_leadId:
+  - table: activities
+    keys:
+    - leadId
+  - table: leads
+    keys:
+    - id
+  lists_listId:
+  - table: lists
+    keys:
+    - id
+  programs_programId:
+  - table: campaigns
+    keys:
+    - programId
+  - table: programs
+    keys:
+    - id

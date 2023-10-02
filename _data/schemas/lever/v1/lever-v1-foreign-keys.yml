@@ -1,0 +1,172 @@
+tap: lever
+version: '1'
+keys:
+  archive_reasons_:
+  - table: archive_reasons
+    keys:
+    - id
+  - table: candidate_applications
+    keys:
+    - archived.reason
+  - table: candidates
+    keys:
+    - archived.reason
+  - table: opportunity_applications
+    keys:
+    - archived.reason
+  - table: opportunities
+    keys:
+    - archived.reason
+  opportunity_applications_:
+  - table: candidate_applications
+    keys:
+    - id
+  - table: candidates
+    keys:
+    - applications.value
+  - table: opportunities
+    keys:
+    - applications.value
+  - table: opportunity_applications
+    keys:
+    - id
+  _contact:
+  - table: candidates
+    keys:
+    - contact
+  - table: opportunities
+    keys:
+    - contact
+  opportunity_offers_:
+  - table: candidate_offers
+    keys:
+    - id
+  - table: opportunity_offers
+    keys:
+    - id
+  - table: requisitions
+    keys:
+    - offerIds.value
+  opportunities_opportunityId:
+  - table: candidate_applications
+    keys:
+    - candidateId
+  - table: candidates
+    keys:
+    - id
+  - table: opportunity_applications
+    keys:
+    - candidateId
+  - table: opportunity_offers
+    keys:
+    - opportunityId
+  - table: opportunities
+    keys:
+    - id
+  postings_posting:
+  - table: candidate_applications
+    keys:
+    - posting
+  - table: opportunity_applications
+    keys:
+    - posting
+  - table: opportunity_offers
+    keys:
+    - posting
+  - table: postings
+    keys:
+    - id
+  - table: requisitions
+    keys:
+    - postings.value
+  opportunity_referrals_:
+  - table: candidate_referrals
+    keys:
+    - id
+  - table: opportunity_referrals
+    keys:
+    - id
+  opportunity_resumes_:
+  - table: candidate_resumes
+    keys:
+    - id
+  - table: opportunity_resumes
+    keys:
+    - id
+  requisitions_:
+  - table: candidate_applications
+    keys:
+    - requisitionForHire.id
+  - table: opportunity_applications
+    keys:
+    - requisitionForHire.id
+  - table: requisitions
+    keys:
+    - id
+  sources_:
+  - table: candidates
+    keys:
+    - sources.value
+  - table: sources
+    keys:
+    - id
+  stages_stage:
+  - table: candidates
+    keys:
+    - stage
+    - stageChanges.toStageId
+  - table: opportunities
+    keys:
+    - stage
+    - stageChanges.toStageId
+  - table: stages
+    keys:
+    - id
+  users_user:
+  - table: candidate_applications
+    keys:
+    - postingHiringManager
+    - postingOwner
+    - requisitionForHire.hiringManagerOnHire
+    - user
+  - table: candidate_offers
+    keys:
+    - creator
+  - table: candidate_referrals
+    keys:
+    - referrer
+    - user
+  - table: candidates
+    keys:
+    - followers.value
+    - owner
+    - stageChanges.userId
+  - table: opportunities
+    keys:
+    - followers.value
+    - owner
+    - stageChanges.userId
+  - table: opportunity_applications
+    keys:
+    - postingHiringManager
+    - postingOwner
+    - requisitionForHire.hiringManagerOnHire
+    - user
+  - table: opportunity_offers
+    keys:
+    - creator
+  - table: opportunity_referrals
+    keys:
+    - referrer
+    - user
+  - table: postings
+    keys:
+    - followers.value
+    - hiringManager
+    - owner
+    - user
+  - table: requisitions
+    keys:
+    - creator
+    - hiringManager
+    - owner

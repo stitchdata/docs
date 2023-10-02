@@ -1,0 +1,24 @@
+tap: wootric
+version: '1'
+keys:
+  declines_:
+  - table: declines
+    keys:
+    - id
+  end_users_end_user_id:
+  - table: declines
+    keys:
+    - end_user_id
+  - table: end_users
+    keys:
+    - id
+  - table: responses
+    keys:
+    - end_user_id
+  responses_survey_id:
+  - table: declines
+    keys:
+    - survey_id
+  - table: responses
+    keys:
+    - survey_id

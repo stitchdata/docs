@@ -1,0 +1,20 @@
+tap: surveymonkey
+version: '1'
+keys:
+  responses_id:
+  - table: responses
+    keys:
+    - id
+  - table: simplified_responses
+    keys:
+    - id
+  survey_details_id:
+  - table: survey_details
+    keys:
+    - id
+  - table: responses
+    keys:
+    - survey_id
+  - table: simplified_responses
+    keys:
+    - survey_id

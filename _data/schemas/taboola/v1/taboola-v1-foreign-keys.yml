@@ -1,0 +1,10 @@
+tap: taboola
+version: '1'
+keys:
+  campaign_campaign_id:
+  - table: campaign
+    keys:
+    - id
+  - table: campaign_performance
+    keys:
+    - campaign_id
