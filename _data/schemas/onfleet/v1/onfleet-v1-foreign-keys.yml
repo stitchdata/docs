@@ -63,3 +63,166 @@ keys:
   - table: workers
     keys:
     - id
+tables:
+- table-name: administrators
+  join:
+  - table-name: tasks
+    keys:
+    - key: id
+      foreign-key: creator
+    - key: organization
+      foreign-key: organization
+  - table-name: teams
+    keys:
+    - key: id
+      foreign-key: managers.value
+  - table-name: organizations
+    keys:
+    - key: organization
+      foreign-key: id
+    - key: organization
+      foreign-key: delegatees.value
+  - table-name: workers
+    keys:
+    - key: organization
+      foreign-key: organization
+- table-name: tasks
+  join:
+  - table-name: administrators
+    keys:
+    - key: creator
+      foreign-key: id
+    - key: organization
+      foreign-key: organization
+  - table-name: teams
+    keys:
+    - key: creator
+      foreign-key: managers.value
+    - key: worker
+      foreign-key: workers.value
+  - table-name: organizations
+    keys:
+    - key: organization
+      foreign-key: id
+    - key: organization
+      foreign-key: delegatees.value
+  - table-name: workers
+    keys:
+    - key: organization
+      foreign-key: organization
+    - key: worker
+      foreign-key: id
+- table-name: teams
+  join:
+  - table-name: administrators
+    keys:
+    - key: managers.value
+      foreign-key: id
+  - table-name: tasks
+    keys:
+    - key: managers.value
+      foreign-key: creator
+    - key: workers.value
+      foreign-key: worker
+  - table-name: hubs
+    keys:
+    - key: hub
+      foreign-key: id
+    - key: id
+      foreign-key: teams.value
+  - table-name: task
+    keys:
+    - key: tasks.value
+      foreign-key: id
+  - table-name: workers
+    keys:
+    - key: tasks.value
+      foreign-key: activeTask
+    - key: tasks.value
+      foreign-key: tasks.value
+    - key: id
+      foreign-key: teams.value
+    - key: workers.value
+      foreign-key: id
+- table-name: hubs
+  join:
+  - table-name: teams
+    keys:
+    - key: id
+      foreign-key: hub
+    - key: teams.value
+      foreign-key: id
+  - table-name: workers
+    keys:
+    - key: teams.value
+      foreign-key: teams.value
+- table-name: organizations
+  join:
+  - table-name: administrators
+    keys:
+    - key: id
+      foreign-key: organization
+    - key: delegatees.value
+      foreign-key: organization
+  - table-name: tasks
+    keys:
+    - key: id
+      foreign-key: organization
+    - key: delegatees.value
+      foreign-key: organization
+  - table-name: workers
+    keys:
+    - key: id
+      foreign-key: organization
+    - key: delegatees.value
+      foreign-key: organization
+- table-name: workers
+  join:
+  - table-name: administrators
+    keys:
+    - key: organization
+      foreign-key: organization
+  - table-name: organizations
+    keys:
+    - key: organization
+      foreign-key: id
+    - key: organization
+      foreign-key: delegatees.value
+  - table-name: tasks
+    keys:
+    - key: organization
+      foreign-key: organization
+    - key: id
+      foreign-key: worker
+  - table-name: task
+    keys:
+    - key: activeTask
+      foreign-key: id
+    - key: tasks.value
+      foreign-key: id
+  - table-name: teams
+    keys:
+    - key: activeTask
+      foreign-key: tasks.value
+    - key: tasks.value
+      foreign-key: tasks.value
+    - key: teams.value
+      foreign-key: id
+    - key: id
+      foreign-key: workers.value
+  - table-name: hubs
+    keys:
+    - key: teams.value
+      foreign-key: teams.value
+- table-name: task
+  join:
+  - table-name: teams
+    keys:
+    - key: id
+      foreign-key: tasks.value
+  - table-name: workers
+    keys:
+    - key: id
+      foreign-key: activeTask
+    - key: id
+      foreign-key: tasks.value

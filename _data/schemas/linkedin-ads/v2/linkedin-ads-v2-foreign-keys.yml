@@ -53,3 +53,136 @@ keys:
   - table: video_ads
     keys:
     - content_reference
+tables:
+- table-name: account_users
+  join:
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: campaign_groups
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: video_ads
+    keys:
+    - key: account_id
+      foreign-key: account_id
+- table-name: accounts
+  join:
+  - table-name: account_users
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: campaigns
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: campaign_groups
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: video_ads
+    keys:
+    - key: id
+      foreign-key: account_id
+- table-name: campaigns
+  join:
+  - table-name: account_users
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaign_groups
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: campaign_group_id
+      foreign-key: id
+  - table-name: video_ads
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: creatives
+    keys:
+    - key: id
+      foreign-key: campaign_id
+  - table-name: ad_analytics_by_campaign
+    keys:
+    - key: id
+      foreign-key: campaign_id
+- table-name: campaign_groups
+  join:
+  - table-name: account_users
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: id
+      foreign-key: campaign_group_id
+  - table-name: video_ads
+    keys:
+    - key: account_id
+      foreign-key: account_id
+- table-name: video_ads
+  join:
+  - table-name: account_users
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: campaign_groups
+    keys:
+    - key: account_id
+      foreign-key: account_id
+- table-name: creatives
+  join:
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: ad_analytics_by_campaign
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ad_analytics_by_creative
+    keys:
+    - key: id
+      foreign-key: creative_id
+- table-name: ad_analytics_by_campaign
+  join:
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: creatives
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+- table-name: ad_analytics_by_creative
+  join:
+  - table-name: creatives
+    keys:
+    - key: creative_id
+      foreign-key: id

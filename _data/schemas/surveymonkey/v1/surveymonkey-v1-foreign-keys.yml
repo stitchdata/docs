@@ -18,3 +18,38 @@ keys:
   - table: simplified_responses
     keys:
     - survey_id
+tables:
+- table-name: responses
+  join:
+  - table-name: simplified_responses
+    keys:
+    - key: id
+      foreign-key: id
+    - key: survey_id
+      foreign-key: survey_id
+  - table-name: survey_details
+    keys:
+    - key: survey_id
+      foreign-key: id
+- table-name: simplified_responses
+  join:
+  - table-name: responses
+    keys:
+    - key: id
+      foreign-key: id
+    - key: survey_id
+      foreign-key: survey_id
+  - table-name: survey_details
+    keys:
+    - key: survey_id
+      foreign-key: id
+- table-name: survey_details
+  join:
+  - table-name: responses
+    keys:
+    - key: id
+      foreign-key: survey_id
+  - table-name: simplified_responses
+    keys:
+    - key: id
+      foreign-key: survey_id

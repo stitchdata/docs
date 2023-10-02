@@ -28,3 +28,66 @@ keys:
   - table: list_contacts
     keys:
     - list_id
+tables:
+- table-name: contacts
+  join:
+  - table-name: list_contacts
+    keys:
+    - key: id
+      foreign-key: contact_id
+    - key: lists.value
+      foreign-key: list_id
+  - table-name: smart_segments_contacts
+    keys:
+    - key: id
+      foreign-key: contact_id
+  - table-name: lists
+    keys:
+    - key: lists.value
+      foreign-key: id
+- table-name: list_contacts
+  join:
+  - table-name: contacts
+    keys:
+    - key: contact_id
+      foreign-key: id
+    - key: list_id
+      foreign-key: lists.value
+  - table-name: smart_segments_contacts
+    keys:
+    - key: contact_id
+      foreign-key: contact_id
+  - table-name: lists
+    keys:
+    - key: list_id
+      foreign-key: id
+- table-name: smart_segments_contacts
+  join:
+  - table-name: contacts
+    keys:
+    - key: contact_id
+      foreign-key: id
+  - table-name: list_contacts
+    keys:
+    - key: contact_id
+      foreign-key: contact_id
+  - table-name: smart_segments
+    keys:
+    - key: segment_id
+      foreign-key: segment_id
+- table-name: smart_segments
+  join:
+  - table-name: smart_segments_contacts
+    keys:
+    - key: segment_id
+      foreign-key: segment_id
+- table-name: lists
+  join:
+  - table-name: contacts
+    keys:
+    - key: id
+      foreign-key: lists.value
+  - table-name: list_contacts
+    keys:
+    - key: id
+      foreign-key: list_id

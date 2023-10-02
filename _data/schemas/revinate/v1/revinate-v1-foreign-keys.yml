@@ -32,3 +32,98 @@ keys:
   - table: reviews
     keys:
     - review_id
+tables:
+- table-name: hotel_reviews_snapshot
+  join:
+  - table-name: hotel_reviews_snapshot_by_site
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+  - table-name: hotel_reviews_snapshot_by_time
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+  - table-name: hotels
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+  - table-name: reviews
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+- table-name: hotel_reviews_snapshot_by_site
+  join:
+  - table-name: hotel_reviews_snapshot
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+  - table-name: hotel_reviews_snapshot_by_time
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+  - table-name: hotels
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+  - table-name: reviews
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+    - key: review_site_id
+      foreign-key: review_site_id
+- table-name: hotel_reviews_snapshot_by_time
+  join:
+  - table-name: hotel_reviews_snapshot
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+  - table-name: hotel_reviews_snapshot_by_site
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+  - table-name: hotels
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+  - table-name: reviews
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+- table-name: hotels
+  join:
+  - table-name: hotel_reviews_snapshot
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+  - table-name: hotel_reviews_snapshot_by_site
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+  - table-name: hotel_reviews_snapshot_by_time
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+  - table-name: reviews
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+- table-name: reviews
+  join:
+  - table-name: hotel_reviews_snapshot
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+  - table-name: hotel_reviews_snapshot_by_site
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+    - key: review_site_id
+      foreign-key: review_site_id
+  - table-name: hotel_reviews_snapshot_by_time
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id
+  - table-name: hotels
+    keys:
+    - key: hotel_id
+      foreign-key: hotel_id

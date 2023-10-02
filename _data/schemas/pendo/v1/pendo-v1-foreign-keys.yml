@@ -180,3 +180,1082 @@ keys:
   - table: visitors
     keys:
     - visitor_id
+tables:
+- table-name: accounts
+  join:
+  - table-name: events
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: feature_events
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: guide_events
+    keys:
+    - key: id
+      foreign-key: account_id
+    - key: id
+      foreign-key: account_ids.value
+  - table-name: page_events
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: poll_events
+    keys:
+    - key: id
+      foreign-key: account_id
+    - key: id
+      foreign-key: account_ids.value
+  - table-name: track_events
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: visitors
+    keys:
+    - key: id
+      foreign-key: metadata_auto.accountid.account_id
+    - key: id
+      foreign-key: metadata_auto.accountids.value
+- table-name: events
+  join:
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: feature_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: app_id
+      foreign-key: app_id
+    - key: feature_id
+      foreign-key: feature_id
+    - key: page_id
+      foreign-key: page_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: guide_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_id
+      foreign-key: account_ids.value
+    - key: app_id
+      foreign-key: app_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: page_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: app_id
+      foreign-key: app_id
+    - key: page_id
+      foreign-key: page_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: poll_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_id
+      foreign-key: account_ids.value
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: track_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: app_id
+      foreign-key: app_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: visitors
+    keys:
+    - key: account_id
+      foreign-key: metadata_auto.accountid.account_id
+    - key: account_id
+      foreign-key: metadata_auto.accountids.value
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: features
+    keys:
+    - key: app_id
+      foreign-key: created_by_user.app_id
+    - key: feature_id
+      foreign-key: id
+    - key: page_id
+      foreign-key: page_id
+  - table-name: visitor_history
+    keys:
+    - key: app_id
+      foreign-key: app_id
+    - key: feature_id
+      foreign-key: feature_id
+    - key: page_id
+      foreign-key: page_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: guides
+    keys:
+    - key: page_id
+      foreign-key: steps.page_id
+    - key: visitor_id
+      foreign-key: audience.select.visitor_id
+  - table-name: pages
+    keys:
+    - key: page_id
+      foreign-key: page_id
+- table-name: feature_events
+  join:
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: app_id
+      foreign-key: app_id
+    - key: feature_id
+      foreign-key: feature_id
+    - key: page_id
+      foreign-key: page_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: guide_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_id
+      foreign-key: account_ids.value
+    - key: app_id
+      foreign-key: app_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: page_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: app_id
+      foreign-key: app_id
+    - key: page_id
+      foreign-key: page_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: poll_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_id
+      foreign-key: account_ids.value
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: track_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: app_id
+      foreign-key: app_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: visitors
+    keys:
+    - key: account_id
+      foreign-key: metadata_auto.accountid.account_id
+    - key: account_id
+      foreign-key: metadata_auto.accountids.value
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: features
+    keys:
+    - key: app_id
+      foreign-key: created_by_user.app_id
+    - key: feature_id
+      foreign-key: id
+    - key: page_id
+      foreign-key: page_id
+  - table-name: visitor_history
+    keys:
+    - key: app_id
+      foreign-key: app_id
+    - key: feature_id
+      foreign-key: feature_id
+    - key: page_id
+      foreign-key: page_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: guides
+    keys:
+    - key: page_id
+      foreign-key: steps.page_id
+    - key: visitor_id
+      foreign-key: audience.select.visitor_id
+  - table-name: pages
+    keys:
+    - key: page_id
+      foreign-key: page_id
+- table-name: guide_events
+  join:
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+    - key: account_ids.value
+      foreign-key: id
+  - table-name: events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_ids.value
+      foreign-key: account_id
+    - key: app_id
+      foreign-key: app_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: feature_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_ids.value
+      foreign-key: account_id
+    - key: app_id
+      foreign-key: app_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: page_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_ids.value
+      foreign-key: account_id
+    - key: app_id
+      foreign-key: app_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: poll_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_ids.value
+      foreign-key: account_id
+    - key: account_id
+      foreign-key: account_ids.value
+    - key: account_ids.value
+      foreign-key: account_ids.value
+    - key: guide_id
+      foreign-key: guide_id
+    - key: poll_id
+      foreign-key: poll_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: track_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_ids.value
+      foreign-key: account_id
+    - key: app_id
+      foreign-key: app_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: visitors
+    keys:
+    - key: account_id
+      foreign-key: metadata_auto.accountid.account_id
+    - key: account_ids.value
+      foreign-key: metadata_auto.accountid.account_id
+    - key: account_id
+      foreign-key: metadata_auto.accountids.value
+    - key: account_ids.value
+      foreign-key: metadata_auto.accountids.value
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: features
+    keys:
+    - key: app_id
+      foreign-key: created_by_user.app_id
+  - table-name: visitor_history
+    keys:
+    - key: app_id
+      foreign-key: app_id
+    - key: guide_id
+      foreign-key: guide_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: guides
+    keys:
+    - key: guide_id
+      foreign-key: id
+    - key: guide_id
+      foreign-key: steps.guide_id
+    - key: visitor_id
+      foreign-key: audience.select.visitor_id
+- table-name: page_events
+  join:
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: app_id
+      foreign-key: app_id
+    - key: page_id
+      foreign-key: page_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: feature_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: app_id
+      foreign-key: app_id
+    - key: page_id
+      foreign-key: page_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: guide_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_id
+      foreign-key: account_ids.value
+    - key: app_id
+      foreign-key: app_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: poll_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_id
+      foreign-key: account_ids.value
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: track_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: app_id
+      foreign-key: app_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: visitors
+    keys:
+    - key: account_id
+      foreign-key: metadata_auto.accountid.account_id
+    - key: account_id
+      foreign-key: metadata_auto.accountids.value
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: features
+    keys:
+    - key: app_id
+      foreign-key: created_by_user.app_id
+    - key: page_id
+      foreign-key: page_id
+  - table-name: visitor_history
+    keys:
+    - key: app_id
+      foreign-key: app_id
+    - key: page_id
+      foreign-key: page_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: guides
+    keys:
+    - key: page_id
+      foreign-key: steps.page_id
+    - key: visitor_id
+      foreign-key: audience.select.visitor_id
+  - table-name: pages
+    keys:
+    - key: page_id
+      foreign-key: page_id
+- table-name: poll_events
+  join:
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+    - key: account_ids.value
+      foreign-key: id
+  - table-name: events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_ids.value
+      foreign-key: account_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: feature_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_ids.value
+      foreign-key: account_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: guide_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_ids.value
+      foreign-key: account_id
+    - key: account_id
+      foreign-key: account_ids.value
+    - key: account_ids.value
+      foreign-key: account_ids.value
+    - key: guide_id
+      foreign-key: guide_id
+    - key: poll_id
+      foreign-key: poll_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: page_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_ids.value
+      foreign-key: account_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: track_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_ids.value
+      foreign-key: account_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: visitors
+    keys:
+    - key: account_id
+      foreign-key: metadata_auto.accountid.account_id
+    - key: account_ids.value
+      foreign-key: metadata_auto.accountid.account_id
+    - key: account_id
+      foreign-key: metadata_auto.accountids.value
+    - key: account_ids.value
+      foreign-key: metadata_auto.accountids.value
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: guides
+    keys:
+    - key: guide_id
+      foreign-key: id
+    - key: guide_id
+      foreign-key: steps.guide_id
+    - key: visitor_id
+      foreign-key: audience.select.visitor_id
+  - table-name: visitor_history
+    keys:
+    - key: guide_id
+      foreign-key: guide_id
+    - key: visitor_id
+      foreign-key: visitor_id
+- table-name: track_events
+  join:
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: app_id
+      foreign-key: app_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: feature_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: app_id
+      foreign-key: app_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: guide_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_id
+      foreign-key: account_ids.value
+    - key: app_id
+      foreign-key: app_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: page_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: app_id
+      foreign-key: app_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: poll_events
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_id
+      foreign-key: account_ids.value
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: visitors
+    keys:
+    - key: account_id
+      foreign-key: metadata_auto.accountid.account_id
+    - key: account_id
+      foreign-key: metadata_auto.accountids.value
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: features
+    keys:
+    - key: app_id
+      foreign-key: created_by_user.app_id
+  - table-name: visitor_history
+    keys:
+    - key: app_id
+      foreign-key: app_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: track_types
+    keys:
+    - key: track_type_id
+      foreign-key: id
+  - table-name: guides
+    keys:
+    - key: visitor_id
+      foreign-key: audience.select.visitor_id
+- table-name: visitors
+  join:
+  - table-name: accounts
+    keys:
+    - key: metadata_auto.accountid.account_id
+      foreign-key: id
+    - key: metadata_auto.accountids.value
+      foreign-key: id
+  - table-name: events
+    keys:
+    - key: metadata_auto.accountid.account_id
+      foreign-key: account_id
+    - key: metadata_auto.accountids.value
+      foreign-key: account_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: feature_events
+    keys:
+    - key: metadata_auto.accountid.account_id
+      foreign-key: account_id
+    - key: metadata_auto.accountids.value
+      foreign-key: account_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: guide_events
+    keys:
+    - key: metadata_auto.accountid.account_id
+      foreign-key: account_id
+    - key: metadata_auto.accountids.value
+      foreign-key: account_id
+    - key: metadata_auto.accountid.account_id
+      foreign-key: account_ids.value
+    - key: metadata_auto.accountids.value
+      foreign-key: account_ids.value
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: page_events
+    keys:
+    - key: metadata_auto.accountid.account_id
+      foreign-key: account_id
+    - key: metadata_auto.accountids.value
+      foreign-key: account_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: poll_events
+    keys:
+    - key: metadata_auto.accountid.account_id
+      foreign-key: account_id
+    - key: metadata_auto.accountids.value
+      foreign-key: account_id
+    - key: metadata_auto.accountid.account_id
+      foreign-key: account_ids.value
+    - key: metadata_auto.accountids.value
+      foreign-key: account_ids.value
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: track_events
+    keys:
+    - key: metadata_auto.accountid.account_id
+      foreign-key: account_id
+    - key: metadata_auto.accountids.value
+      foreign-key: account_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: guides
+    keys:
+    - key: visitor_id
+      foreign-key: audience.select.visitor_id
+  - table-name: visitor_history
+    keys:
+    - key: visitor_id
+      foreign-key: visitor_id
+- table-name: features
+  join:
+  - table-name: events
+    keys:
+    - key: created_by_user.app_id
+      foreign-key: app_id
+    - key: id
+      foreign-key: feature_id
+    - key: page_id
+      foreign-key: page_id
+  - table-name: feature_events
+    keys:
+    - key: created_by_user.app_id
+      foreign-key: app_id
+    - key: id
+      foreign-key: feature_id
+    - key: page_id
+      foreign-key: page_id
+  - table-name: guide_events
+    keys:
+    - key: created_by_user.app_id
+      foreign-key: app_id
+  - table-name: page_events
+    keys:
+    - key: created_by_user.app_id
+      foreign-key: app_id
+    - key: page_id
+      foreign-key: page_id
+  - table-name: track_events
+    keys:
+    - key: created_by_user.app_id
+      foreign-key: app_id
+  - table-name: visitor_history
+    keys:
+    - key: created_by_user.app_id
+      foreign-key: app_id
+    - key: id
+      foreign-key: feature_id
+    - key: page_id
+      foreign-key: page_id
+  - table-name: pages
+    keys:
+    - key: group.id
+      foreign-key: group.id
+    - key: page_id
+      foreign-key: page_id
+    - key: created_by_user.id
+      foreign-key: created_by_user.id
+    - key: group.created_by_user.id
+      foreign-key: created_by_user.id
+    - key: group.last_updated_by_user.id
+      foreign-key: created_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: created_by_user.id
+    - key: created_by_user.id
+      foreign-key: group.created_by_user.id
+    - key: group.created_by_user.id
+      foreign-key: group.created_by_user.id
+    - key: group.last_updated_by_user.id
+      foreign-key: group.created_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: group.created_by_user.id
+    - key: created_by_user.id
+      foreign-key: group.last_updated_by_user.id
+    - key: group.created_by_user.id
+      foreign-key: group.last_updated_by_user.id
+    - key: group.last_updated_by_user.id
+      foreign-key: group.last_updated_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: group.last_updated_by_user.id
+    - key: created_by_user.id
+      foreign-key: last_updated_by_user.id
+    - key: group.created_by_user.id
+      foreign-key: last_updated_by_user.id
+    - key: group.last_updated_by_user.id
+      foreign-key: last_updated_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: last_updated_by_user.id
+  - table-name: track_types
+    keys:
+    - key: group.id
+      foreign-key: group.id
+    - key: created_by_user.id
+      foreign-key: created_by_user.id
+    - key: group.created_by_user.id
+      foreign-key: created_by_user.id
+    - key: group.last_updated_by_user.id
+      foreign-key: created_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: created_by_user.id
+    - key: created_by_user.id
+      foreign-key: last_updated_by_user.id
+    - key: group.created_by_user.id
+      foreign-key: last_updated_by_user.id
+    - key: group.last_updated_by_user.id
+      foreign-key: last_updated_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: last_updated_by_user.id
+  - table-name: guides
+    keys:
+    - key: page_id
+      foreign-key: steps.page_id
+    - key: created_by_user.id
+      foreign-key: created_by_user.id
+    - key: group.created_by_user.id
+      foreign-key: created_by_user.id
+    - key: group.last_updated_by_user.id
+      foreign-key: created_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: created_by_user.id
+    - key: created_by_user.id
+      foreign-key: lastUpdated_by_user.id
+    - key: group.created_by_user.id
+      foreign-key: lastUpdated_by_user.id
+    - key: group.last_updated_by_user.id
+      foreign-key: lastUpdated_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: lastUpdated_by_user.id
+- table-name: visitor_history
+  join:
+  - table-name: events
+    keys:
+    - key: app_id
+      foreign-key: app_id
+    - key: feature_id
+      foreign-key: feature_id
+    - key: page_id
+      foreign-key: page_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: feature_events
+    keys:
+    - key: app_id
+      foreign-key: app_id
+    - key: feature_id
+      foreign-key: feature_id
+    - key: page_id
+      foreign-key: page_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: features
+    keys:
+    - key: app_id
+      foreign-key: created_by_user.app_id
+    - key: feature_id
+      foreign-key: id
+    - key: page_id
+      foreign-key: page_id
+  - table-name: guide_events
+    keys:
+    - key: app_id
+      foreign-key: app_id
+    - key: guide_id
+      foreign-key: guide_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: page_events
+    keys:
+    - key: app_id
+      foreign-key: app_id
+    - key: page_id
+      foreign-key: page_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: track_events
+    keys:
+    - key: app_id
+      foreign-key: app_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: guides
+    keys:
+    - key: guide_id
+      foreign-key: id
+    - key: guide_id
+      foreign-key: steps.guide_id
+    - key: id
+      foreign-key: steps.id
+    - key: page_id
+      foreign-key: steps.page_id
+    - key: visitor_id
+      foreign-key: audience.select.visitor_id
+  - table-name: poll_events
+    keys:
+    - key: guide_id
+      foreign-key: guide_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: pages
+    keys:
+    - key: page_id
+      foreign-key: page_id
+  - table-name: visitors
+    keys:
+    - key: visitor_id
+      foreign-key: visitor_id
+- table-name: pages
+  join:
+  - table-name: features
+    keys:
+    - key: group.id
+      foreign-key: group.id
+    - key: page_id
+      foreign-key: page_id
+    - key: created_by_user.id
+      foreign-key: created_by_user.id
+    - key: group.created_by_user.id
+      foreign-key: created_by_user.id
+    - key: group.last_updated_by_user.id
+      foreign-key: created_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: created_by_user.id
+    - key: created_by_user.id
+      foreign-key: group.created_by_user.id
+    - key: group.created_by_user.id
+      foreign-key: group.created_by_user.id
+    - key: group.last_updated_by_user.id
+      foreign-key: group.created_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: group.created_by_user.id
+    - key: created_by_user.id
+      foreign-key: group.last_updated_by_user.id
+    - key: group.created_by_user.id
+      foreign-key: group.last_updated_by_user.id
+    - key: group.last_updated_by_user.id
+      foreign-key: group.last_updated_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: group.last_updated_by_user.id
+    - key: created_by_user.id
+      foreign-key: last_updated_by_user.id
+    - key: group.created_by_user.id
+      foreign-key: last_updated_by_user.id
+    - key: group.last_updated_by_user.id
+      foreign-key: last_updated_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: last_updated_by_user.id
+  - table-name: track_types
+    keys:
+    - key: group.id
+      foreign-key: group.id
+    - key: created_by_user.id
+      foreign-key: created_by_user.id
+    - key: group.created_by_user.id
+      foreign-key: created_by_user.id
+    - key: group.last_updated_by_user.id
+      foreign-key: created_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: created_by_user.id
+    - key: created_by_user.id
+      foreign-key: last_updated_by_user.id
+    - key: group.created_by_user.id
+      foreign-key: last_updated_by_user.id
+    - key: group.last_updated_by_user.id
+      foreign-key: last_updated_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: last_updated_by_user.id
+  - table-name: events
+    keys:
+    - key: page_id
+      foreign-key: page_id
+  - table-name: feature_events
+    keys:
+    - key: page_id
+      foreign-key: page_id
+  - table-name: guides
+    keys:
+    - key: page_id
+      foreign-key: steps.page_id
+    - key: created_by_user.id
+      foreign-key: created_by_user.id
+    - key: group.created_by_user.id
+      foreign-key: created_by_user.id
+    - key: group.last_updated_by_user.id
+      foreign-key: created_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: created_by_user.id
+    - key: created_by_user.id
+      foreign-key: lastUpdated_by_user.id
+    - key: group.created_by_user.id
+      foreign-key: lastUpdated_by_user.id
+    - key: group.last_updated_by_user.id
+      foreign-key: lastUpdated_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: lastUpdated_by_user.id
+  - table-name: page_events
+    keys:
+    - key: page_id
+      foreign-key: page_id
+  - table-name: visitor_history
+    keys:
+    - key: page_id
+      foreign-key: page_id
+- table-name: track_types
+  join:
+  - table-name: features
+    keys:
+    - key: group.id
+      foreign-key: group.id
+    - key: created_by_user.id
+      foreign-key: created_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: created_by_user.id
+    - key: created_by_user.id
+      foreign-key: group.created_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: group.created_by_user.id
+    - key: created_by_user.id
+      foreign-key: group.last_updated_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: group.last_updated_by_user.id
+    - key: created_by_user.id
+      foreign-key: last_updated_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: last_updated_by_user.id
+  - table-name: pages
+    keys:
+    - key: group.id
+      foreign-key: group.id
+    - key: created_by_user.id
+      foreign-key: created_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: created_by_user.id
+    - key: created_by_user.id
+      foreign-key: group.created_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: group.created_by_user.id
+    - key: created_by_user.id
+      foreign-key: group.last_updated_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: group.last_updated_by_user.id
+    - key: created_by_user.id
+      foreign-key: last_updated_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: last_updated_by_user.id
+  - table-name: track_events
+    keys:
+    - key: id
+      foreign-key: track_type_id
+  - table-name: guides
+    keys:
+    - key: created_by_user.id
+      foreign-key: created_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: created_by_user.id
+    - key: created_by_user.id
+      foreign-key: lastUpdated_by_user.id
+    - key: last_updated_by_user.id
+      foreign-key: lastUpdated_by_user.id
+- table-name: guides
+  join:
+  - table-name: guide_events
+    keys:
+    - key: id
+      foreign-key: guide_id
+    - key: steps.guide_id
+      foreign-key: guide_id
+    - key: audience.select.visitor_id
+      foreign-key: visitor_id
+  - table-name: poll_events
+    keys:
+    - key: id
+      foreign-key: guide_id
+    - key: steps.guide_id
+      foreign-key: guide_id
+    - key: audience.select.visitor_id
+      foreign-key: visitor_id
+  - table-name: visitor_history
+    keys:
+    - key: id
+      foreign-key: guide_id
+    - key: steps.guide_id
+      foreign-key: guide_id
+    - key: steps.id
+      foreign-key: id
+    - key: steps.page_id
+      foreign-key: page_id
+    - key: audience.select.visitor_id
+      foreign-key: visitor_id
+  - table-name: events
+    keys:
+    - key: steps.page_id
+      foreign-key: page_id
+    - key: audience.select.visitor_id
+      foreign-key: visitor_id
+  - table-name: feature_events
+    keys:
+    - key: steps.page_id
+      foreign-key: page_id
+    - key: audience.select.visitor_id
+      foreign-key: visitor_id
+  - table-name: features
+    keys:
+    - key: steps.page_id
+      foreign-key: page_id
+    - key: created_by_user.id
+      foreign-key: created_by_user.id
+    - key: lastUpdated_by_user.id
+      foreign-key: created_by_user.id
+    - key: created_by_user.id
+      foreign-key: group.created_by_user.id
+    - key: lastUpdated_by_user.id
+      foreign-key: group.created_by_user.id
+    - key: created_by_user.id
+      foreign-key: group.last_updated_by_user.id
+    - key: lastUpdated_by_user.id
+      foreign-key: group.last_updated_by_user.id
+    - key: created_by_user.id
+      foreign-key: last_updated_by_user.id
+    - key: lastUpdated_by_user.id
+      foreign-key: last_updated_by_user.id
+  - table-name: page_events
+    keys:
+    - key: steps.page_id
+      foreign-key: page_id
+    - key: audience.select.visitor_id
+      foreign-key: visitor_id
+  - table-name: pages
+    keys:
+    - key: steps.page_id
+      foreign-key: page_id
+    - key: created_by_user.id
+      foreign-key: created_by_user.id
+    - key: lastUpdated_by_user.id
+      foreign-key: created_by_user.id
+    - key: created_by_user.id
+      foreign-key: group.created_by_user.id
+    - key: lastUpdated_by_user.id
+      foreign-key: group.created_by_user.id
+    - key: created_by_user.id
+      foreign-key: group.last_updated_by_user.id
+    - key: lastUpdated_by_user.id
+      foreign-key: group.last_updated_by_user.id
+    - key: created_by_user.id
+      foreign-key: last_updated_by_user.id
+    - key: lastUpdated_by_user.id
+      foreign-key: last_updated_by_user.id
+  - table-name: track_types
+    keys:
+    - key: created_by_user.id
+      foreign-key: created_by_user.id
+    - key: lastUpdated_by_user.id
+      foreign-key: created_by_user.id
+    - key: created_by_user.id
+      foreign-key: last_updated_by_user.id
+    - key: lastUpdated_by_user.id
+      foreign-key: last_updated_by_user.id
+  - table-name: track_events
+    keys:
+    - key: audience.select.visitor_id
+      foreign-key: visitor_id
+  - table-name: visitors
+    keys:
+    - key: audience.select.visitor_id
+      foreign-key: visitor_id

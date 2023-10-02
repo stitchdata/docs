@@ -140,3 +140,1090 @@ keys:
     - tender_id
     - refunds.tender_id
     - tenders.id
+tables:
+- table-name: bank_accounts
+  join:
+  - table-name: settlements
+    keys:
+    - key: id
+      foreign-key: bank_account_id
+  - table-name: categories
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: discounts
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: employees
+    keys:
+    - key: id
+      foreign-key: location_ids.value
+  - table-name: inventories
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: items
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.location_overrides.id
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.present_at_location_ids.value
+    - key: id
+      foreign-key: present_at_location_ids.value
+  - table-name: location
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: modifier_lists
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+    - key: id
+      foreign-key: id
+    - key: id
+      foreign-key: refunds.id
+    - key: id
+      foreign-key: tenders.id
+  - table-name: payments
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: refunds
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: shifts
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: taxes
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+- table-name: settlements
+  join:
+  - table-name: bank_accounts
+    keys:
+    - key: bank_account_id
+      foreign-key: id
+- table-name: categories
+  join:
+  - table-name: items
+    keys:
+    - key: id
+      foreign-key: item_data.category_id
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+    - key: absent_at_location_ids.value
+      foreign-key: item_data.variations.item_variation_data.location_overrides.id
+    - key: absent_at_location_ids.value
+      foreign-key: item_data.variations.item_variation_data.present_at_location_ids.value
+    - key: absent_at_location_ids.value
+      foreign-key: present_at_location_ids.value
+  - table-name: bank_accounts
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: discounts
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+  - table-name: employees
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: location_ids.value
+  - table-name: inventories
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: location
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: modifier_lists
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+  - table-name: orders
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+    - key: absent_at_location_ids.value
+      foreign-key: id
+    - key: absent_at_location_ids.value
+      foreign-key: refunds.id
+    - key: absent_at_location_ids.value
+      foreign-key: tenders.id
+  - table-name: payments
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: refunds
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: shifts
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: taxes
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+- table-name: items
+  join:
+  - table-name: categories
+    keys:
+    - key: item_data.category_id
+      foreign-key: id
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+    - key: item_data.variations.item_variation_data.location_overrides.id
+      foreign-key: absent_at_location_ids.value
+    - key: item_data.variations.item_variation_data.present_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+    - key: present_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.item_id
+    - key: item_data.variations.item_variation_data.item_id
+      foreign-key: item_data.variations.item_variation_data.item_id
+    - key: absent_at_location_ids.value
+      foreign-key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+    - key: item_data.variations.item_variation_data.location_overrides.id
+      foreign-key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+    - key: item_data.variations.item_variation_data.present_at_location_ids.value
+      foreign-key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+    - key: present_at_location_ids.value
+      foreign-key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+    - key: absent_at_location_ids.value
+      foreign-key: id
+    - key: item_data.variations.item_variation_data.location_overrides.id
+      foreign-key: id
+    - key: item_data.variations.item_variation_data.present_at_location_ids.value
+      foreign-key: id
+    - key: present_at_location_ids.value
+      foreign-key: id
+    - key: absent_at_location_ids.value
+      foreign-key: refunds.id
+    - key: item_data.variations.item_variation_data.location_overrides.id
+      foreign-key: refunds.id
+    - key: item_data.variations.item_variation_data.present_at_location_ids.value
+      foreign-key: refunds.id
+    - key: present_at_location_ids.value
+      foreign-key: refunds.id
+    - key: absent_at_location_ids.value
+      foreign-key: tenders.id
+    - key: item_data.variations.item_variation_data.location_overrides.id
+      foreign-key: tenders.id
+    - key: item_data.variations.item_variation_data.present_at_location_ids.value
+      foreign-key: tenders.id
+    - key: present_at_location_ids.value
+      foreign-key: tenders.id
+  - table-name: bank_accounts
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+    - key: item_data.variations.item_variation_data.location_overrides.id
+      foreign-key: id
+    - key: item_data.variations.item_variation_data.present_at_location_ids.value
+      foreign-key: id
+    - key: present_at_location_ids.value
+      foreign-key: id
+  - table-name: discounts
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+    - key: item_data.variations.item_variation_data.location_overrides.id
+      foreign-key: absent_at_location_ids.value
+    - key: item_data.variations.item_variation_data.present_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+    - key: present_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+  - table-name: employees
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: location_ids.value
+    - key: item_data.variations.item_variation_data.location_overrides.id
+      foreign-key: location_ids.value
+    - key: item_data.variations.item_variation_data.present_at_location_ids.value
+      foreign-key: location_ids.value
+    - key: present_at_location_ids.value
+      foreign-key: location_ids.value
+  - table-name: inventories
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+    - key: item_data.variations.item_variation_data.location_overrides.id
+      foreign-key: id
+    - key: item_data.variations.item_variation_data.present_at_location_ids.value
+      foreign-key: id
+    - key: present_at_location_ids.value
+      foreign-key: id
+  - table-name: location
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+    - key: item_data.variations.item_variation_data.location_overrides.id
+      foreign-key: id
+    - key: item_data.variations.item_variation_data.present_at_location_ids.value
+      foreign-key: id
+    - key: present_at_location_ids.value
+      foreign-key: id
+  - table-name: modifier_lists
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+    - key: item_data.variations.item_variation_data.location_overrides.id
+      foreign-key: absent_at_location_ids.value
+    - key: item_data.variations.item_variation_data.present_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+    - key: present_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+    - key: item_data.modifier_list_info.modifier_list_id
+      foreign-key: id
+    - key: item_data.modifier_list_info.modifier_list_id
+      foreign-key: modifier_list_data.modifiers.modifier_data.modifier_list_id
+  - table-name: payments
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+    - key: item_data.variations.item_variation_data.location_overrides.id
+      foreign-key: id
+    - key: item_data.variations.item_variation_data.present_at_location_ids.value
+      foreign-key: id
+    - key: present_at_location_ids.value
+      foreign-key: id
+  - table-name: refunds
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+    - key: item_data.variations.item_variation_data.location_overrides.id
+      foreign-key: id
+    - key: item_data.variations.item_variation_data.present_at_location_ids.value
+      foreign-key: id
+    - key: present_at_location_ids.value
+      foreign-key: id
+  - table-name: shifts
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+    - key: item_data.variations.item_variation_data.location_overrides.id
+      foreign-key: id
+    - key: item_data.variations.item_variation_data.present_at_location_ids.value
+      foreign-key: id
+    - key: present_at_location_ids.value
+      foreign-key: id
+  - table-name: taxes
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+    - key: item_data.variations.item_variation_data.location_overrides.id
+      foreign-key: absent_at_location_ids.value
+    - key: item_data.variations.item_variation_data.present_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+    - key: present_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+    - key: item_data.tax_ids.value
+      foreign-key: id
+- table-name: discounts
+  join:
+  - table-name: bank_accounts
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: categories
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+  - table-name: employees
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: location_ids.value
+  - table-name: inventories
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: items
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+    - key: absent_at_location_ids.value
+      foreign-key: item_data.variations.item_variation_data.location_overrides.id
+    - key: absent_at_location_ids.value
+      foreign-key: item_data.variations.item_variation_data.present_at_location_ids.value
+    - key: absent_at_location_ids.value
+      foreign-key: present_at_location_ids.value
+  - table-name: location
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: modifier_lists
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+  - table-name: orders
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+    - key: absent_at_location_ids.value
+      foreign-key: id
+    - key: absent_at_location_ids.value
+      foreign-key: refunds.id
+    - key: absent_at_location_ids.value
+      foreign-key: tenders.id
+  - table-name: payments
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: refunds
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: shifts
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: taxes
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+- table-name: employees
+  join:
+  - table-name: shifts
+    keys:
+    - key: id
+      foreign-key: employee_id
+    - key: location_ids.value
+      foreign-key: id
+  - table-name: bank_accounts
+    keys:
+    - key: location_ids.value
+      foreign-key: id
+  - table-name: categories
+    keys:
+    - key: location_ids.value
+      foreign-key: absent_at_location_ids.value
+  - table-name: discounts
+    keys:
+    - key: location_ids.value
+      foreign-key: absent_at_location_ids.value
+  - table-name: inventories
+    keys:
+    - key: location_ids.value
+      foreign-key: id
+  - table-name: items
+    keys:
+    - key: location_ids.value
+      foreign-key: absent_at_location_ids.value
+    - key: location_ids.value
+      foreign-key: item_data.variations.item_variation_data.location_overrides.id
+    - key: location_ids.value
+      foreign-key: item_data.variations.item_variation_data.present_at_location_ids.value
+    - key: location_ids.value
+      foreign-key: present_at_location_ids.value
+  - table-name: location
+    keys:
+    - key: location_ids.value
+      foreign-key: id
+  - table-name: modifier_lists
+    keys:
+    - key: location_ids.value
+      foreign-key: absent_at_location_ids.value
+  - table-name: orders
+    keys:
+    - key: location_ids.value
+      foreign-key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+    - key: location_ids.value
+      foreign-key: id
+    - key: location_ids.value
+      foreign-key: refunds.id
+    - key: location_ids.value
+      foreign-key: tenders.id
+  - table-name: payments
+    keys:
+    - key: location_ids.value
+      foreign-key: id
+  - table-name: refunds
+    keys:
+    - key: location_ids.value
+      foreign-key: id
+  - table-name: taxes
+    keys:
+    - key: location_ids.value
+      foreign-key: absent_at_location_ids.value
+- table-name: shifts
+  join:
+  - table-name: employees
+    keys:
+    - key: employee_id
+      foreign-key: id
+    - key: id
+      foreign-key: location_ids.value
+  - table-name: bank_accounts
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: categories
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: discounts
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: inventories
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: items
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.location_overrides.id
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.present_at_location_ids.value
+    - key: id
+      foreign-key: present_at_location_ids.value
+  - table-name: location
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: modifier_lists
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+    - key: id
+      foreign-key: id
+    - key: id
+      foreign-key: refunds.id
+    - key: id
+      foreign-key: tenders.id
+  - table-name: payments
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: refunds
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: taxes
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+- table-name: orders
+  join:
+  - table-name: items
+    keys:
+    - key: item_data.variations.item_variation_data.item_id
+      foreign-key: id
+    - key: item_data.variations.item_variation_data.item_id
+      foreign-key: item_data.variations.item_variation_data.item_id
+    - key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+      foreign-key: absent_at_location_ids.value
+    - key: id
+      foreign-key: absent_at_location_ids.value
+    - key: refunds.id
+      foreign-key: absent_at_location_ids.value
+    - key: tenders.id
+      foreign-key: absent_at_location_ids.value
+    - key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+      foreign-key: item_data.variations.item_variation_data.location_overrides.id
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.location_overrides.id
+    - key: refunds.id
+      foreign-key: item_data.variations.item_variation_data.location_overrides.id
+    - key: tenders.id
+      foreign-key: item_data.variations.item_variation_data.location_overrides.id
+    - key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+      foreign-key: item_data.variations.item_variation_data.present_at_location_ids.value
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.present_at_location_ids.value
+    - key: refunds.id
+      foreign-key: item_data.variations.item_variation_data.present_at_location_ids.value
+    - key: tenders.id
+      foreign-key: item_data.variations.item_variation_data.present_at_location_ids.value
+    - key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+      foreign-key: present_at_location_ids.value
+    - key: id
+      foreign-key: present_at_location_ids.value
+    - key: refunds.id
+      foreign-key: present_at_location_ids.value
+    - key: tenders.id
+      foreign-key: present_at_location_ids.value
+  - table-name: bank_accounts
+    keys:
+    - key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+      foreign-key: id
+    - key: id
+      foreign-key: id
+    - key: refunds.id
+      foreign-key: id
+    - key: tenders.id
+      foreign-key: id
+  - table-name: categories
+    keys:
+    - key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+      foreign-key: absent_at_location_ids.value
+    - key: id
+      foreign-key: absent_at_location_ids.value
+    - key: refunds.id
+      foreign-key: absent_at_location_ids.value
+    - key: tenders.id
+      foreign-key: absent_at_location_ids.value
+  - table-name: discounts
+    keys:
+    - key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+      foreign-key: absent_at_location_ids.value
+    - key: id
+      foreign-key: absent_at_location_ids.value
+    - key: refunds.id
+      foreign-key: absent_at_location_ids.value
+    - key: tenders.id
+      foreign-key: absent_at_location_ids.value
+  - table-name: employees
+    keys:
+    - key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+      foreign-key: location_ids.value
+    - key: id
+      foreign-key: location_ids.value
+    - key: refunds.id
+      foreign-key: location_ids.value
+    - key: tenders.id
+      foreign-key: location_ids.value
+  - table-name: inventories
+    keys:
+    - key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+      foreign-key: id
+    - key: id
+      foreign-key: id
+    - key: refunds.id
+      foreign-key: id
+    - key: tenders.id
+      foreign-key: id
+  - table-name: location
+    keys:
+    - key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+      foreign-key: id
+    - key: id
+      foreign-key: id
+    - key: refunds.id
+      foreign-key: id
+    - key: tenders.id
+      foreign-key: id
+  - table-name: modifier_lists
+    keys:
+    - key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+      foreign-key: absent_at_location_ids.value
+    - key: id
+      foreign-key: absent_at_location_ids.value
+    - key: refunds.id
+      foreign-key: absent_at_location_ids.value
+    - key: tenders.id
+      foreign-key: absent_at_location_ids.value
+  - table-name: payments
+    keys:
+    - key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+      foreign-key: id
+    - key: id
+      foreign-key: id
+    - key: refunds.id
+      foreign-key: id
+    - key: tenders.id
+      foreign-key: id
+    - key: id
+      foreign-key: order_id
+    - key: order_id
+      foreign-key: order_id
+    - key: returns.source_order_id
+      foreign-key: order_id
+    - key: payment_id
+      foreign-key: id
+    - key: refund_ids.value
+      foreign-key: order_id
+    - key: refunds.id
+      foreign-key: order_id
+    - key: refund_ids.value
+      foreign-key: refund_ids.value
+    - key: refunds.id
+      foreign-key: refund_ids.value
+  - table-name: refunds
+    keys:
+    - key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+      foreign-key: id
+    - key: id
+      foreign-key: id
+    - key: refunds.id
+      foreign-key: id
+    - key: tenders.id
+      foreign-key: id
+    - key: id
+      foreign-key: order_id
+    - key: order_id
+      foreign-key: order_id
+    - key: returns.source_order_id
+      foreign-key: order_id
+    - key: payment_id
+      foreign-key: payment_id
+    - key: tenders.id
+      foreign-key: payment_id
+    - key: refund_ids.value
+      foreign-key: id
+  - table-name: shifts
+    keys:
+    - key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+      foreign-key: id
+    - key: id
+      foreign-key: id
+    - key: refunds.id
+      foreign-key: id
+    - key: tenders.id
+      foreign-key: id
+  - table-name: taxes
+    keys:
+    - key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+      foreign-key: absent_at_location_ids.value
+    - key: id
+      foreign-key: absent_at_location_ids.value
+    - key: refunds.id
+      foreign-key: absent_at_location_ids.value
+    - key: tenders.id
+      foreign-key: absent_at_location_ids.value
+- table-name: inventories
+  join:
+  - table-name: bank_accounts
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: categories
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: discounts
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: employees
+    keys:
+    - key: id
+      foreign-key: location_ids.value
+  - table-name: items
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.location_overrides.id
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.present_at_location_ids.value
+    - key: id
+      foreign-key: present_at_location_ids.value
+  - table-name: location
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: modifier_lists
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+    - key: id
+      foreign-key: id
+    - key: id
+      foreign-key: refunds.id
+    - key: id
+      foreign-key: tenders.id
+  - table-name: payments
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: refunds
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: shifts
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: taxes
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+- table-name: location
+  join:
+  - table-name: bank_accounts
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: categories
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: discounts
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: employees
+    keys:
+    - key: id
+      foreign-key: location_ids.value
+  - table-name: inventories
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: items
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.location_overrides.id
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.present_at_location_ids.value
+    - key: id
+      foreign-key: present_at_location_ids.value
+  - table-name: modifier_lists
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+    - key: id
+      foreign-key: id
+    - key: id
+      foreign-key: refunds.id
+    - key: id
+      foreign-key: tenders.id
+  - table-name: payments
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: refunds
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: shifts
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: taxes
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+- table-name: modifier_lists
+  join:
+  - table-name: bank_accounts
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: categories
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+  - table-name: discounts
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+  - table-name: employees
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: location_ids.value
+  - table-name: inventories
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: items
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+    - key: absent_at_location_ids.value
+      foreign-key: item_data.variations.item_variation_data.location_overrides.id
+    - key: absent_at_location_ids.value
+      foreign-key: item_data.variations.item_variation_data.present_at_location_ids.value
+    - key: absent_at_location_ids.value
+      foreign-key: present_at_location_ids.value
+    - key: id
+      foreign-key: item_data.modifier_list_info.modifier_list_id
+    - key: modifier_list_data.modifiers.modifier_data.modifier_list_id
+      foreign-key: item_data.modifier_list_info.modifier_list_id
+  - table-name: location
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: orders
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+    - key: absent_at_location_ids.value
+      foreign-key: id
+    - key: absent_at_location_ids.value
+      foreign-key: refunds.id
+    - key: absent_at_location_ids.value
+      foreign-key: tenders.id
+  - table-name: payments
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: refunds
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: shifts
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: taxes
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+- table-name: payments
+  join:
+  - table-name: bank_accounts
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: categories
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: discounts
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: employees
+    keys:
+    - key: id
+      foreign-key: location_ids.value
+  - table-name: inventories
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: items
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.location_overrides.id
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.present_at_location_ids.value
+    - key: id
+      foreign-key: present_at_location_ids.value
+  - table-name: location
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: modifier_lists
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+    - key: id
+      foreign-key: id
+    - key: id
+      foreign-key: refunds.id
+    - key: id
+      foreign-key: tenders.id
+    - key: order_id
+      foreign-key: id
+    - key: order_id
+      foreign-key: order_id
+    - key: order_id
+      foreign-key: returns.source_order_id
+    - key: id
+      foreign-key: payment_id
+    - key: order_id
+      foreign-key: refund_ids.value
+    - key: refund_ids.value
+      foreign-key: refund_ids.value
+    - key: order_id
+      foreign-key: refunds.id
+    - key: refund_ids.value
+      foreign-key: refunds.id
+  - table-name: refunds
+    keys:
+    - key: id
+      foreign-key: id
+    - key: order_id
+      foreign-key: order_id
+    - key: id
+      foreign-key: payment_id
+    - key: order_id
+      foreign-key: id
+    - key: refund_ids.value
+      foreign-key: id
+  - table-name: shifts
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: taxes
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+- table-name: refunds
+  join:
+  - table-name: bank_accounts
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: categories
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: discounts
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: employees
+    keys:
+    - key: id
+      foreign-key: location_ids.value
+  - table-name: inventories
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: items
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.location_overrides.id
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.present_at_location_ids.value
+    - key: id
+      foreign-key: present_at_location_ids.value
+  - table-name: location
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: modifier_lists
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+    - key: id
+      foreign-key: id
+    - key: id
+      foreign-key: refunds.id
+    - key: id
+      foreign-key: tenders.id
+    - key: order_id
+      foreign-key: id
+    - key: order_id
+      foreign-key: order_id
+    - key: order_id
+      foreign-key: returns.source_order_id
+    - key: payment_id
+      foreign-key: payment_id
+    - key: payment_id
+      foreign-key: tenders.id
+    - key: id
+      foreign-key: refund_ids.value
+  - table-name: payments
+    keys:
+    - key: id
+      foreign-key: id
+    - key: order_id
+      foreign-key: order_id
+    - key: payment_id
+      foreign-key: id
+    - key: id
+      foreign-key: order_id
+    - key: id
+      foreign-key: refund_ids.value
+  - table-name: shifts
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: taxes
+    keys:
+    - key: id
+      foreign-key: absent_at_location_ids.value
+- table-name: taxes
+  join:
+  - table-name: bank_accounts
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: categories
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+  - table-name: discounts
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+  - table-name: employees
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: location_ids.value
+  - table-name: inventories
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: items
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+    - key: absent_at_location_ids.value
+      foreign-key: item_data.variations.item_variation_data.location_overrides.id
+    - key: absent_at_location_ids.value
+      foreign-key: item_data.variations.item_variation_data.present_at_location_ids.value
+    - key: absent_at_location_ids.value
+      foreign-key: present_at_location_ids.value
+    - key: id
+      foreign-key: item_data.tax_ids.value
+  - table-name: location
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: modifier_lists
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: absent_at_location_ids.value
+  - table-name: orders
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: item_data.variations.item_variation_data.item_variation_data.location_overrides.id
+    - key: absent_at_location_ids.value
+      foreign-key: id
+    - key: absent_at_location_ids.value
+      foreign-key: refunds.id
+    - key: absent_at_location_ids.value
+      foreign-key: tenders.id
+  - table-name: payments
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: refunds
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+  - table-name: shifts
+    keys:
+    - key: absent_at_location_ids.value
+      foreign-key: id
+- table-name: roles
+  join: []

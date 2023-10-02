@@ -91,3 +91,270 @@ keys:
   - table: subscriptions
     keys:
     - id
+tables:
+- table-name: addresses
+  join:
+  - table-name: charges
+    keys:
+    - key: id
+      foreign-key: address_id
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: onetimes
+    keys:
+    - key: id
+      foreign-key: address_id
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: address_id
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: subscriptions
+    keys:
+    - key: id
+      foreign-key: address_id
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: id
+  - table-name: discounts
+    keys:
+    - key: discount_id
+      foreign-key: id
+- table-name: charges
+  join:
+  - table-name: addresses
+    keys:
+    - key: address_id
+      foreign-key: id
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: onetimes
+    keys:
+    - key: address_id
+      foreign-key: address_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: line_items.shopify_product_id
+      foreign-key: shopify_product_id
+  - table-name: orders
+    keys:
+    - key: address_id
+      foreign-key: address_id
+    - key: id
+      foreign-key: charge_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: line_items.shopify_product_id
+      foreign-key: line_items.shopify_product_id
+    - key: line_items.subscription_id
+      foreign-key: line_items.subscription_id
+  - table-name: subscriptions
+    keys:
+    - key: address_id
+      foreign-key: address_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: line_items.shopify_product_id
+      foreign-key: product_id
+    - key: line_items.subscription_id
+      foreign-key: id
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: id
+  - table-name: products
+    keys:
+    - key: line_items.shopify_product_id
+      foreign-key: id
+- table-name: onetimes
+  join:
+  - table-name: addresses
+    keys:
+    - key: address_id
+      foreign-key: id
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: charges
+    keys:
+    - key: address_id
+      foreign-key: address_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: shopify_product_id
+      foreign-key: line_items.shopify_product_id
+  - table-name: orders
+    keys:
+    - key: address_id
+      foreign-key: address_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: shopify_product_id
+      foreign-key: line_items.shopify_product_id
+  - table-name: subscriptions
+    keys:
+    - key: address_id
+      foreign-key: address_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: shopify_product_id
+      foreign-key: product_id
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: id
+  - table-name: products
+    keys:
+    - key: shopify_product_id
+      foreign-key: id
+- table-name: orders
+  join:
+  - table-name: addresses
+    keys:
+    - key: address_id
+      foreign-key: id
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: charges
+    keys:
+    - key: address_id
+      foreign-key: address_id
+    - key: charge_id
+      foreign-key: id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: line_items.shopify_product_id
+      foreign-key: line_items.shopify_product_id
+    - key: line_items.subscription_id
+      foreign-key: line_items.subscription_id
+  - table-name: onetimes
+    keys:
+    - key: address_id
+      foreign-key: address_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: line_items.shopify_product_id
+      foreign-key: shopify_product_id
+  - table-name: subscriptions
+    keys:
+    - key: address_id
+      foreign-key: address_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: line_items.shopify_product_id
+      foreign-key: product_id
+    - key: line_items.subscription_id
+      foreign-key: id
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: id
+  - table-name: products
+    keys:
+    - key: line_items.shopify_product_id
+      foreign-key: id
+- table-name: subscriptions
+  join:
+  - table-name: addresses
+    keys:
+    - key: address_id
+      foreign-key: id
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: charges
+    keys:
+    - key: address_id
+      foreign-key: address_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: product_id
+      foreign-key: line_items.shopify_product_id
+    - key: id
+      foreign-key: line_items.subscription_id
+  - table-name: onetimes
+    keys:
+    - key: address_id
+      foreign-key: address_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: product_id
+      foreign-key: shopify_product_id
+  - table-name: orders
+    keys:
+    - key: address_id
+      foreign-key: address_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: product_id
+      foreign-key: line_items.shopify_product_id
+    - key: id
+      foreign-key: line_items.subscription_id
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: id
+  - table-name: products
+    keys:
+    - key: product_id
+      foreign-key: id
+- table-name: collections
+  join:
+  - table-name: products
+    keys:
+    - key: id
+      foreign-key: collection_id
+- table-name: products
+  join:
+  - table-name: collections
+    keys:
+    - key: collection_id
+      foreign-key: id
+  - table-name: charges
+    keys:
+    - key: id
+      foreign-key: line_items.shopify_product_id
+  - table-name: onetimes
+    keys:
+    - key: id
+      foreign-key: shopify_product_id
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: line_items.shopify_product_id
+  - table-name: subscriptions
+    keys:
+    - key: id
+      foreign-key: product_id
+- table-name: customers
+  join:
+  - table-name: addresses
+    keys:
+    - key: id
+      foreign-key: customer_id
+  - table-name: charges
+    keys:
+    - key: id
+      foreign-key: customer_id
+  - table-name: onetimes
+    keys:
+    - key: id
+      foreign-key: customer_id
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: customer_id
+  - table-name: subscriptions
+    keys:
+    - key: id
+      foreign-key: customer_id
+- table-name: discounts
+  join:
+  - table-name: addresses
+    keys:
+    - key: id
+      foreign-key: discount_id

@@ -469,3 +469,3522 @@ keys:
   - table: training_records
     keys:
     - Module
+tables:
+- table-name: ''
+  join: []
+- table-name: addresses
+  join:
+  - table-name: companies
+    keys:
+    - key: Id
+      foreign-key: Address
+  - table-name: employee_history
+    keys:
+    - key: Id
+      foreign-key: MailAddress
+    - key: Id
+      foreign-key: PostalAddress
+    - key: Id
+      foreign-key: EmergencyAddress
+  - table-name: operational_units
+    keys:
+    - key: Id
+      foreign-key: Address
+- table-name: companies
+  join:
+  - table-name: addresses
+    keys:
+    - key: Address
+      foreign-key: Id
+  - table-name: employee_history
+    keys:
+    - key: Address
+      foreign-key: MailAddress
+    - key: Address
+      foreign-key: PostalAddress
+    - key: Address
+      foreign-key: EmergencyAddress
+    - key: Id
+      foreign-key: Company
+    - key: ParentCompany
+      foreign-key: Company
+  - table-name: operational_units
+    keys:
+    - key: Address
+      foreign-key: Address
+    - key: Contact
+      foreign-key: Contact
+  - table-name: company_periods
+    keys:
+    - key: Id
+      foreign-key: Company
+    - key: ParentCompany
+      foreign-key: Company
+  - table-name: employee_workplaces
+    keys:
+    - key: Id
+      foreign-key: Company
+    - key: ParentCompany
+      foreign-key: Company
+  - table-name: kiosk
+    keys:
+    - key: Id
+      foreign-key: Company
+    - key: ParentCompany
+      foreign-key: Company
+  - table-name: leaves
+    keys:
+    - key: Id
+      foreign-key: Company
+    - key: ParentCompany
+      foreign-key: Company
+  - table-name: system_usage_tracking
+    keys:
+    - key: Id
+      foreign-key: Company
+    - key: ParentCompany
+      foreign-key: Company
+  - table-name: contacts
+    keys:
+    - key: Contact
+      foreign-key: Id
+- table-name: employee_history
+  join:
+  - table-name: addresses
+    keys:
+    - key: MailAddress
+      foreign-key: Id
+    - key: PostalAddress
+      foreign-key: Id
+    - key: EmergencyAddress
+      foreign-key: Id
+  - table-name: companies
+    keys:
+    - key: MailAddress
+      foreign-key: Address
+    - key: PostalAddress
+      foreign-key: Address
+    - key: EmergencyAddress
+      foreign-key: Address
+    - key: Company
+      foreign-key: Id
+    - key: Company
+      foreign-key: ParentCompany
+  - table-name: operational_units
+    keys:
+    - key: MailAddress
+      foreign-key: Address
+    - key: PostalAddress
+      foreign-key: Address
+    - key: EmergencyAddress
+      foreign-key: Address
+  - table-name: company_periods
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: employee_workplaces
+    keys:
+    - key: Company
+      foreign-key: Company
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: kiosk
+    keys:
+    - key: Company
+      foreign-key: Company
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: Company
+      foreign-key: Company
+    - key: EmployeeId
+      foreign-key: Employee
+    - key: Id
+      foreign-key: EmployeeHistory
+  - table-name: system_usage_tracking
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: employees
+    keys:
+    - key: EmployeeId
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_appraisal
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: geo
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+    - key: EmployeeId
+      foreign-key: ConfirmBy
+  - table-name: sales_data
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: teams
+    keys:
+    - key: EmployeeId
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+    - key: Id
+      foreign-key: EmployeeHistory
+  - table-name: training_records
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: EmployeeId
+      foreign-key: Creator
+  - table-name: employee_roles
+    keys:
+    - key: Role
+      foreign-key: Id
+- table-name: operational_units
+  join:
+  - table-name: addresses
+    keys:
+    - key: Address
+      foreign-key: Id
+  - table-name: companies
+    keys:
+    - key: Address
+      foreign-key: Address
+    - key: Contact
+      foreign-key: Contact
+  - table-name: employee_history
+    keys:
+    - key: Address
+      foreign-key: MailAddress
+    - key: Address
+      foreign-key: PostalAddress
+    - key: Address
+      foreign-key: EmergencyAddress
+  - table-name: contacts
+    keys:
+    - key: Contact
+      foreign-key: Id
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: Id
+      foreign-key: OpUnit
+    - key: ParentOperationalUnit
+      foreign-key: OpUnit
+  - table-name: rosters
+    keys:
+    - key: Id
+      foreign-key: OperationalUnit
+    - key: ParentOperationalUnit
+      foreign-key: OperationalUnit
+  - table-name: sales_data
+    keys:
+    - key: Id
+      foreign-key: OpUnit
+    - key: ParentOperationalUnit
+      foreign-key: OpUnit
+  - table-name: task_groups
+    keys:
+    - key: Id
+      foreign-key: OpUnitId
+    - key: ParentOperationalUnit
+      foreign-key: OpUnitId
+  - table-name: task_opunit_configs
+    keys:
+    - key: Id
+      foreign-key: OpUnitId
+    - key: ParentOperationalUnit
+      foreign-key: OpUnitId
+    - key: RosterActiveHoursSchedule
+      foreign-key: Schedule
+  - table-name: tasks
+    keys:
+    - key: Id
+      foreign-key: OpUnitId
+    - key: ParentOperationalUnit
+      foreign-key: OpUnitId
+  - table-name: timesheets
+    keys:
+    - key: Id
+      foreign-key: OperationalUnit
+    - key: ParentOperationalUnit
+      foreign-key: OperationalUnit
+  - table-name: employee_availability
+    keys:
+    - key: RosterActiveHoursSchedule
+      foreign-key: Schedule
+  - table-name: events
+    keys:
+    - key: RosterActiveHoursSchedule
+      foreign-key: Schedule
+  - table-name: pay_rules
+    keys:
+    - key: RosterActiveHoursSchedule
+      foreign-key: Schedule
+  - table-name: schedules
+    keys:
+    - key: RosterActiveHoursSchedule
+      foreign-key: Id
+  - table-name: task_setups
+    keys:
+    - key: RosterActiveHoursSchedule
+      foreign-key: Schedule
+- table-name: categories
+  join:
+  - table-name: employee_contracts
+    keys:
+    - key: Id
+      foreign-key: EmploymentCategory
+  - table-name: employment_conditions
+    keys:
+    - key: Id
+      foreign-key: EmploymentCategory
+- table-name: employee_contracts
+  join:
+  - table-name: categories
+    keys:
+    - key: EmploymentCategory
+      foreign-key: Id
+  - table-name: employment_conditions
+    keys:
+    - key: EmploymentCategory
+      foreign-key: EmploymentCategory
+    - key: EmploymentCondition
+      foreign-key: Id
+  - table-name: employee_agreements_history
+    keys:
+    - key: Id
+      foreign-key: Contract
+    - key: BasePayRule
+      foreign-key: SalaryPayRule
+  - table-name: employee_agreements
+    keys:
+    - key: Id
+      foreign-key: Contract
+    - key: BasePayRule
+      foreign-key: SalaryPayRule
+  - table-name: employee_contract_leave_rules
+    keys:
+    - key: Id
+      foreign-key: ContractId
+    - key: BasePayRule
+      foreign-key: LoadingPayRule1
+    - key: BasePayRule
+      foreign-key: LoadingPayRule2
+    - key: BasePayRule
+      foreign-key: LoadingPayRule3
+  - table-name: pay_rules
+    keys:
+    - key: BasePayRule
+      foreign-key: Id
+  - table-name: employee_paycycle_returns
+    keys:
+    - key: BasePayRule
+      foreign-key: PayRule
+  - table-name: timesheet_pay_returns
+    keys:
+    - key: BasePayRule
+      foreign-key: PayRule
+- table-name: employment_conditions
+  join:
+  - table-name: categories
+    keys:
+    - key: EmploymentCategory
+      foreign-key: Id
+  - table-name: employee_contracts
+    keys:
+    - key: EmploymentCategory
+      foreign-key: EmploymentCategory
+    - key: Id
+      foreign-key: EmploymentCondition
+- table-name: company_periods
+  join:
+  - table-name: companies
+    keys:
+    - key: Company
+      foreign-key: Id
+    - key: Company
+      foreign-key: ParentCompany
+  - table-name: employee_history
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: employee_workplaces
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: kiosk
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: leaves
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: system_usage_tracking
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: employee_paycycles
+    keys:
+    - key: Id
+      foreign-key: PeriodId
+  - table-name: pay_periods
+    keys:
+    - key: PayPeriod
+      foreign-key: Id
+  - table-name: employee_agreements_history
+    keys:
+    - key: PayPeriod
+      foreign-key: PayPeriod
+  - table-name: employee_agreements
+    keys:
+    - key: PayPeriod
+      foreign-key: PayPeriod
+- table-name: employee_workplaces
+  join:
+  - table-name: companies
+    keys:
+    - key: Company
+      foreign-key: Id
+    - key: Company
+      foreign-key: ParentCompany
+  - table-name: company_periods
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: employee_history
+    keys:
+    - key: Company
+      foreign-key: Company
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: kiosk
+    keys:
+    - key: Company
+      foreign-key: Company
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: Company
+      foreign-key: Company
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: system_usage_tracking
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: employees
+    keys:
+    - key: EmployeeId
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+    - key: Agreement1
+      foreign-key: Id
+    - key: Agreement2
+      foreign-key: Id
+    - key: Agreement3
+      foreign-key: Id
+  - table-name: employee_appraisal
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+    - key: Agreement1
+      foreign-key: EmployeeAgreement
+    - key: Agreement2
+      foreign-key: EmployeeAgreement
+    - key: Agreement3
+      foreign-key: EmployeeAgreement
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+    - key: Agreement1
+      foreign-key: EmployeeAgreement
+    - key: Agreement2
+      foreign-key: EmployeeAgreement
+    - key: Agreement3
+      foreign-key: EmployeeAgreement
+  - table-name: geo
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+    - key: EmployeeId
+      foreign-key: ConfirmBy
+  - table-name: sales_data
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: teams
+    keys:
+    - key: EmployeeId
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+    - key: Agreement1
+      foreign-key: EmployeeAgreement
+    - key: Agreement2
+      foreign-key: EmployeeAgreement
+    - key: Agreement3
+      foreign-key: EmployeeAgreement
+  - table-name: training_records
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: EmployeeId
+      foreign-key: Creator
+  - table-name: employee_agreements_history
+    keys:
+    - key: Agreement1
+      foreign-key: EmployeeAgreement
+    - key: Agreement2
+      foreign-key: EmployeeAgreement
+    - key: Agreement3
+      foreign-key: EmployeeAgreement
+  - table-name: leave_pay_lines
+    keys:
+    - key: Agreement1
+      foreign-key: EmployeeAgreement
+    - key: Agreement2
+      foreign-key: EmployeeAgreement
+    - key: Agreement3
+      foreign-key: EmployeeAgreement
+- table-name: kiosk
+  join:
+  - table-name: companies
+    keys:
+    - key: Company
+      foreign-key: Id
+    - key: Company
+      foreign-key: ParentCompany
+  - table-name: company_periods
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: employee_history
+    keys:
+    - key: Company
+      foreign-key: Company
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_workplaces
+    keys:
+    - key: Company
+      foreign-key: Company
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: leaves
+    keys:
+    - key: Company
+      foreign-key: Company
+    - key: Employee
+      foreign-key: Employee
+  - table-name: system_usage_tracking
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: employees
+    keys:
+    - key: Employee
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_appraisal
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: geo
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: Employee
+      foreign-key: ConfirmBy
+  - table-name: sales_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: teams
+    keys:
+    - key: Employee
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: training_records
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: Employee
+      foreign-key: Creator
+- table-name: leaves
+  join:
+  - table-name: companies
+    keys:
+    - key: Company
+      foreign-key: Id
+    - key: Company
+      foreign-key: ParentCompany
+  - table-name: company_periods
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: employee_history
+    keys:
+    - key: Company
+      foreign-key: Company
+    - key: Employee
+      foreign-key: EmployeeId
+    - key: EmployeeHistory
+      foreign-key: Id
+  - table-name: employee_workplaces
+    keys:
+    - key: Company
+      foreign-key: Company
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: kiosk
+    keys:
+    - key: Company
+      foreign-key: Company
+    - key: Employee
+      foreign-key: Employee
+  - table-name: system_usage_tracking
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: employees
+    keys:
+    - key: Employee
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_appraisal
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: geo
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: Employee
+      foreign-key: ConfirmBy
+  - table-name: sales_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: teams
+    keys:
+    - key: Employee
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: EmployeeHistory
+      foreign-key: EmployeeHistory
+    - key: Id
+      foreign-key: LeaveId
+  - table-name: training_records
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: Employee
+      foreign-key: Creator
+  - table-name: leave_pay_lines
+    keys:
+    - key: Id
+      foreign-key: LeaveId
+- table-name: system_usage_tracking
+  join:
+  - table-name: companies
+    keys:
+    - key: Company
+      foreign-key: Id
+    - key: Company
+      foreign-key: ParentCompany
+  - table-name: company_periods
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: employee_history
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: employee_workplaces
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: kiosk
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: leaves
+    keys:
+    - key: Company
+      foreign-key: Company
+  - table-name: system_usage_balances
+    keys:
+    - key: BalanceId
+      foreign-key: Id
+- table-name: employee_paycycles
+  join:
+  - table-name: company_periods
+    keys:
+    - key: PeriodId
+      foreign-key: Id
+  - table-name: employees
+    keys:
+    - key: EmployeeId
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+    - key: EmployeeAgreement
+      foreign-key: Id
+  - table-name: employee_appraisal
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+    - key: EmployeeAgreementHistoryId
+      foreign-key: EmployeeAgreementHistory
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+  - table-name: employee_workplaces
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+    - key: EmployeeAgreement
+      foreign-key: Agreement1
+    - key: EmployeeAgreement
+      foreign-key: Agreement2
+    - key: EmployeeAgreement
+      foreign-key: Agreement3
+  - table-name: geo
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+    - key: EmployeeId
+      foreign-key: ConfirmBy
+  - table-name: sales_data
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: teams
+    keys:
+    - key: EmployeeId
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+  - table-name: training_records
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: EmployeeId
+      foreign-key: Creator
+  - table-name: employee_agreements_history
+    keys:
+    - key: EmployeeAgreementHistoryId
+      foreign-key: Id
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+  - table-name: employee_agreementss
+    keys:
+    - key: EmployeeAgreementHistoryId
+      foreign-key: HistoryId
+  - table-name: leave_pay_lines
+    keys:
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+  - table-name: employee_paycycle_returns
+    keys:
+    - key: Id
+      foreign-key: PaycycleId
+- table-name: contacts
+  join:
+  - table-name: companies
+    keys:
+    - key: Id
+      foreign-key: Contact
+  - table-name: operational_units
+    keys:
+    - key: Id
+      foreign-key: Contact
+- table-name: countries
+  join:
+  - table-name: geo
+    keys:
+    - key: Id
+      foreign-key: Country
+  - table-name: states
+    keys:
+    - key: Id
+      foreign-key: Country
+- table-name: geo
+  join:
+  - table-name: countries
+    keys:
+    - key: Country
+      foreign-key: Id
+  - table-name: states
+    keys:
+    - key: Country
+      foreign-key: Country
+  - table-name: employees
+    keys:
+    - key: Employee
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_appraisal
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_workplaces
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: journal
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: Employee
+      foreign-key: ConfirmBy
+  - table-name: sales_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: teams
+    keys:
+    - key: Employee
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: training_records
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: Employee
+      foreign-key: Creator
+- table-name: states
+  join:
+  - table-name: countries
+    keys:
+    - key: Country
+      foreign-key: Id
+  - table-name: geo
+    keys:
+    - key: Country
+      foreign-key: Country
+- table-name: custom_field_data
+  join:
+  - table-name: timesheets
+    keys:
+    - key: Id
+      foreign-key: CustomFieldData
+- table-name: timesheets
+  join:
+  - table-name: custom_field_data
+    keys:
+    - key: CustomFieldData
+      foreign-key: Id
+  - table-name: employees
+    keys:
+    - key: Employee
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+    - key: EmployeeAgreement
+      foreign-key: Id
+  - table-name: employee_appraisal
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+    - key: EmployeeHistory
+      foreign-key: Id
+  - table-name: employee_paycycles
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+    - key: OperationalUnit
+      foreign-key: OpUnit
+  - table-name: employee_workplaces
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+    - key: EmployeeAgreement
+      foreign-key: Agreement1
+    - key: EmployeeAgreement
+      foreign-key: Agreement2
+    - key: EmployeeAgreement
+      foreign-key: Agreement3
+  - table-name: geo
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: LeaveRule
+      foreign-key: LeaveRule
+  - table-name: leaves
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: EmployeeHistory
+      foreign-key: EmployeeHistory
+    - key: LeaveId
+      foreign-key: Id
+  - table-name: roster_opens
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: Roster
+      foreign-key: Roster
+  - table-name: roster_swaps
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: Roster
+      foreign-key: SourceRoster
+    - key: Roster
+      foreign-key: TargetRoster
+  - table-name: rosters
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: Employee
+      foreign-key: ConfirmBy
+    - key: OperationalUnit
+      foreign-key: OperationalUnit
+    - key: Roster
+      foreign-key: Id
+    - key: Id
+      foreign-key: MatchedByTimesheet
+  - table-name: sales_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: OperationalUnit
+      foreign-key: OpUnit
+  - table-name: teams
+    keys:
+    - key: Employee
+      foreign-key: LeaderEmployee
+  - table-name: training_records
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: Employee
+      foreign-key: Creator
+  - table-name: employee_agreements_history
+    keys:
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+  - table-name: leave_pay_lines
+    keys:
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+    - key: LeaveId
+      foreign-key: LeaveId
+    - key: LeaveRule
+      foreign-key: LeaveRule
+    - key: Id
+      foreign-key: TimesheetId
+  - table-name: employee_paycycle_returns
+    keys:
+    - key: PaycycleId
+      foreign-key: Id
+  - table-name: employee_contract_leave_rules
+    keys:
+    - key: LeaveRule
+      foreign-key: LeaveRuleId
+  - table-name: leave_rules
+    keys:
+    - key: LeaveRule
+      foreign-key: Id
+  - table-name: operational_units
+    keys:
+    - key: OperationalUnit
+      foreign-key: Id
+    - key: OperationalUnit
+      foreign-key: ParentOperationalUnit
+  - table-name: task_groups
+    keys:
+    - key: OperationalUnit
+      foreign-key: OpUnitId
+  - table-name: task_opunit_configs
+    keys:
+    - key: OperationalUnit
+      foreign-key: OpUnitId
+  - table-name: tasks
+    keys:
+    - key: OperationalUnit
+      foreign-key: OpUnitId
+  - table-name: timesheet_pay_returns
+    keys:
+    - key: Id
+      foreign-key: Timesheet
+- table-name: custom_fields
+  join: []
+- table-name: employees
+  join:
+  - table-name: custom_app_data
+    keys:
+    - key: Id
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: Id
+      foreign-key: EmployeeId
+  - table-name: employee_appraisal
+    keys:
+    - key: Id
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: Id
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: Id
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: Id
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: Id
+      foreign-key: Employee
+  - table-name: employee_workplaces
+    keys:
+    - key: Id
+      foreign-key: EmployeeId
+  - table-name: geo
+    keys:
+    - key: Id
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: Id
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: Id
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: Id
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: Id
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: Id
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: Id
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: Id
+      foreign-key: Employee
+    - key: Id
+      foreign-key: ConfirmBy
+  - table-name: sales_data
+    keys:
+    - key: Id
+      foreign-key: Employee
+  - table-name: teams
+    keys:
+    - key: Id
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: Id
+      foreign-key: Employee
+  - table-name: training_records
+    keys:
+    - key: Id
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: Id
+      foreign-key: Creator
+- table-name: custom_app_data
+  join:
+  - table-name: employees
+    keys:
+    - key: Employee
+      foreign-key: Id
+  - table-name: employee_agreements
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_appraisal
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_workplaces
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: geo
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: Employee
+      foreign-key: ConfirmBy
+  - table-name: sales_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: teams
+    keys:
+    - key: Employee
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: training_records
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: Employee
+      foreign-key: Creator
+- table-name: employee_agreements
+  join:
+  - table-name: employees
+    keys:
+    - key: EmployeeId
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: employee_appraisal
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+    - key: Id
+      foreign-key: EmployeeAgreement
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+    - key: Id
+      foreign-key: EmployeeAgreement
+  - table-name: employee_workplaces
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+    - key: Id
+      foreign-key: Agreement1
+    - key: Id
+      foreign-key: Agreement2
+    - key: Id
+      foreign-key: Agreement3
+  - table-name: geo
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+    - key: EmployeeId
+      foreign-key: ConfirmBy
+  - table-name: sales_data
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: teams
+    keys:
+    - key: EmployeeId
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+    - key: Id
+      foreign-key: EmployeeAgreement
+  - table-name: training_records
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: EmployeeId
+      foreign-key: Creator
+  - table-name: employee_agreements_history
+    keys:
+    - key: Id
+      foreign-key: EmployeeAgreement
+    - key: Contract
+      foreign-key: Contract
+    - key: PayPeriod
+      foreign-key: PayPeriod
+    - key: SalaryPayRule
+      foreign-key: SalaryPayRule
+  - table-name: leave_pay_lines
+    keys:
+    - key: Id
+      foreign-key: EmployeeAgreement
+  - table-name: employee_contract_leave_rules
+    keys:
+    - key: Contract
+      foreign-key: ContractId
+    - key: SalaryPayRule
+      foreign-key: LoadingPayRule1
+    - key: SalaryPayRule
+      foreign-key: LoadingPayRule2
+    - key: SalaryPayRule
+      foreign-key: LoadingPayRule3
+  - table-name: employee_contracts
+    keys:
+    - key: Contract
+      foreign-key: Id
+    - key: SalaryPayRule
+      foreign-key: BasePayRule
+  - table-name: pay_periods
+    keys:
+    - key: PayPeriod
+      foreign-key: Id
+  - table-name: company_periods
+    keys:
+    - key: PayPeriod
+      foreign-key: PayPeriod
+  - table-name: pay_rules
+    keys:
+    - key: SalaryPayRule
+      foreign-key: Id
+  - table-name: employee_paycycle_returns
+    keys:
+    - key: SalaryPayRule
+      foreign-key: PayRule
+  - table-name: timesheet_pay_returns
+    keys:
+    - key: SalaryPayRule
+      foreign-key: PayRule
+- table-name: employee_appraisal
+  join:
+  - table-name: employees
+    keys:
+    - key: EmployeeId
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: employee_workplaces
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: geo
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+    - key: EmployeeId
+      foreign-key: ConfirmBy
+  - table-name: sales_data
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: teams
+    keys:
+    - key: EmployeeId
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: training_records
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: EmployeeId
+      foreign-key: Creator
+- table-name: employee_availability
+  join:
+  - table-name: employees
+    keys:
+    - key: EmployeeId
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_appraisal
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: employee_workplaces
+    keys:
+    - key: EmployeeId
+      foreign-key: EmployeeId
+  - table-name: geo
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+    - key: EmployeeId
+      foreign-key: ConfirmBy
+  - table-name: sales_data
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: teams
+    keys:
+    - key: EmployeeId
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: training_records
+    keys:
+    - key: EmployeeId
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: EmployeeId
+      foreign-key: Creator
+  - table-name: events
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+  - table-name: operational_units
+    keys:
+    - key: Schedule
+      foreign-key: RosterActiveHoursSchedule
+  - table-name: pay_rules
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+  - table-name: schedules
+    keys:
+    - key: Schedule
+      foreign-key: Id
+  - table-name: task_opunit_configs
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+  - table-name: task_setups
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+- table-name: employee_salary_opunit_costing
+  join:
+  - table-name: employees
+    keys:
+    - key: Employee
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+    - key: EmployeeAgreement
+      foreign-key: Id
+  - table-name: employee_appraisal
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+    - key: EmployeeAgreementHistory
+      foreign-key: EmployeeAgreementHistoryId
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+  - table-name: employee_workplaces
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+    - key: EmployeeAgreement
+      foreign-key: Agreement1
+    - key: EmployeeAgreement
+      foreign-key: Agreement2
+    - key: EmployeeAgreement
+      foreign-key: Agreement3
+  - table-name: geo
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: Employee
+      foreign-key: ConfirmBy
+    - key: OpUnit
+      foreign-key: OperationalUnit
+  - table-name: sales_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: OpUnit
+      foreign-key: OpUnit
+  - table-name: teams
+    keys:
+    - key: Employee
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+    - key: OpUnit
+      foreign-key: OperationalUnit
+  - table-name: training_records
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: Employee
+      foreign-key: Creator
+  - table-name: employee_agreements_history
+    keys:
+    - key: EmployeeAgreementHistory
+      foreign-key: Id
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+  - table-name: employee_agreementss
+    keys:
+    - key: EmployeeAgreementHistory
+      foreign-key: HistoryId
+  - table-name: leave_pay_lines
+    keys:
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+  - table-name: operational_units
+    keys:
+    - key: OpUnit
+      foreign-key: Id
+    - key: OpUnit
+      foreign-key: ParentOperationalUnit
+  - table-name: task_groups
+    keys:
+    - key: OpUnit
+      foreign-key: OpUnitId
+  - table-name: task_opunit_configs
+    keys:
+    - key: OpUnit
+      foreign-key: OpUnitId
+  - table-name: tasks
+    keys:
+    - key: OpUnit
+      foreign-key: OpUnitId
+- table-name: journal
+  join:
+  - table-name: employees
+    keys:
+    - key: Employee
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_appraisal
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_workplaces
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: geo
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: Employee
+      foreign-key: ConfirmBy
+  - table-name: sales_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: teams
+    keys:
+    - key: Employee
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: training_records
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: Employee
+      foreign-key: Creator
+- table-name: leave_accruals
+  join:
+  - table-name: employees
+    keys:
+    - key: Employee
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_appraisal
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_workplaces
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: geo
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: Employee
+      foreign-key: ConfirmBy
+  - table-name: sales_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: teams
+    keys:
+    - key: Employee
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: LeaveRule
+      foreign-key: LeaveRule
+  - table-name: training_records
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: Employee
+      foreign-key: Creator
+  - table-name: employee_contract_leave_rules
+    keys:
+    - key: LeaveRule
+      foreign-key: LeaveRuleId
+  - table-name: leave_pay_lines
+    keys:
+    - key: LeaveRule
+      foreign-key: LeaveRule
+  - table-name: leave_rules
+    keys:
+    - key: LeaveRule
+      foreign-key: Id
+- table-name: roster_opens
+  join:
+  - table-name: employees
+    keys:
+    - key: Employee
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_appraisal
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_workplaces
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: geo
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: Roster
+      foreign-key: SourceRoster
+    - key: Roster
+      foreign-key: TargetRoster
+  - table-name: rosters
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: Employee
+      foreign-key: ConfirmBy
+    - key: Roster
+      foreign-key: Id
+  - table-name: sales_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: teams
+    keys:
+    - key: Employee
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: Roster
+      foreign-key: Roster
+  - table-name: training_records
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: Employee
+      foreign-key: Creator
+- table-name: roster_swaps
+  join:
+  - table-name: employees
+    keys:
+    - key: Employee
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_appraisal
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_workplaces
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: geo
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: SourceRoster
+      foreign-key: Roster
+    - key: TargetRoster
+      foreign-key: Roster
+  - table-name: rosters
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: Employee
+      foreign-key: ConfirmBy
+    - key: SourceRoster
+      foreign-key: Id
+    - key: TargetRoster
+      foreign-key: Id
+  - table-name: sales_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: teams
+    keys:
+    - key: Employee
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: SourceRoster
+      foreign-key: Roster
+    - key: TargetRoster
+      foreign-key: Roster
+  - table-name: training_records
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: Employee
+      foreign-key: Creator
+- table-name: rosters
+  join:
+  - table-name: employees
+    keys:
+    - key: Employee
+      foreign-key: Id
+    - key: ConfirmBy
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: ConfirmBy
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+    - key: ConfirmBy
+      foreign-key: EmployeeId
+  - table-name: employee_appraisal
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+    - key: ConfirmBy
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+    - key: ConfirmBy
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+    - key: ConfirmBy
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+    - key: ConfirmBy
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: ConfirmBy
+      foreign-key: Employee
+    - key: OperationalUnit
+      foreign-key: OpUnit
+  - table-name: employee_workplaces
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+    - key: ConfirmBy
+      foreign-key: EmployeeId
+  - table-name: geo
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: ConfirmBy
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: ConfirmBy
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: ConfirmBy
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: ConfirmBy
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: ConfirmBy
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: ConfirmBy
+      foreign-key: Employee
+    - key: Id
+      foreign-key: Roster
+  - table-name: roster_swaps
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: ConfirmBy
+      foreign-key: Employee
+    - key: Id
+      foreign-key: SourceRoster
+    - key: Id
+      foreign-key: TargetRoster
+  - table-name: sales_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: ConfirmBy
+      foreign-key: Employee
+    - key: OperationalUnit
+      foreign-key: OpUnit
+  - table-name: teams
+    keys:
+    - key: Employee
+      foreign-key: LeaderEmployee
+    - key: ConfirmBy
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: ConfirmBy
+      foreign-key: Employee
+    - key: OperationalUnit
+      foreign-key: OperationalUnit
+    - key: Id
+      foreign-key: Roster
+    - key: MatchedByTimesheet
+      foreign-key: Id
+  - table-name: training_records
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: ConfirmBy
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: Employee
+      foreign-key: Creator
+    - key: ConfirmBy
+      foreign-key: Creator
+  - table-name: operational_units
+    keys:
+    - key: OperationalUnit
+      foreign-key: Id
+    - key: OperationalUnit
+      foreign-key: ParentOperationalUnit
+  - table-name: task_groups
+    keys:
+    - key: OperationalUnit
+      foreign-key: OpUnitId
+  - table-name: task_opunit_configs
+    keys:
+    - key: OperationalUnit
+      foreign-key: OpUnitId
+  - table-name: tasks
+    keys:
+    - key: OperationalUnit
+      foreign-key: OpUnitId
+  - table-name: leave_pay_lines
+    keys:
+    - key: MatchedByTimesheet
+      foreign-key: TimesheetId
+  - table-name: timesheet_pay_returns
+    keys:
+    - key: MatchedByTimesheet
+      foreign-key: Timesheet
+- table-name: sales_data
+  join:
+  - table-name: employees
+    keys:
+    - key: Employee
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_appraisal
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: OpUnit
+      foreign-key: OpUnit
+  - table-name: employee_workplaces
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: geo
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: Employee
+      foreign-key: ConfirmBy
+    - key: OpUnit
+      foreign-key: OperationalUnit
+  - table-name: teams
+    keys:
+    - key: Employee
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: OpUnit
+      foreign-key: OperationalUnit
+  - table-name: training_records
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: Employee
+      foreign-key: Creator
+  - table-name: operational_units
+    keys:
+    - key: OpUnit
+      foreign-key: Id
+    - key: OpUnit
+      foreign-key: ParentOperationalUnit
+  - table-name: task_groups
+    keys:
+    - key: OpUnit
+      foreign-key: OpUnitId
+  - table-name: task_opunit_configs
+    keys:
+    - key: OpUnit
+      foreign-key: OpUnitId
+  - table-name: tasks
+    keys:
+    - key: OpUnit
+      foreign-key: OpUnitId
+- table-name: teams
+  join:
+  - table-name: employees
+    keys:
+    - key: LeaderEmployee
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: LeaderEmployee
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: LeaderEmployee
+      foreign-key: EmployeeId
+  - table-name: employee_appraisal
+    keys:
+    - key: LeaderEmployee
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: LeaderEmployee
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: LeaderEmployee
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: LeaderEmployee
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: LeaderEmployee
+      foreign-key: Employee
+  - table-name: employee_workplaces
+    keys:
+    - key: LeaderEmployee
+      foreign-key: EmployeeId
+  - table-name: geo
+    keys:
+    - key: LeaderEmployee
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: LeaderEmployee
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: LeaderEmployee
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: LeaderEmployee
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: LeaderEmployee
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: LeaderEmployee
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: LeaderEmployee
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: LeaderEmployee
+      foreign-key: Employee
+    - key: LeaderEmployee
+      foreign-key: ConfirmBy
+  - table-name: sales_data
+    keys:
+    - key: LeaderEmployee
+      foreign-key: Employee
+  - table-name: timesheets
+    keys:
+    - key: LeaderEmployee
+      foreign-key: Employee
+  - table-name: training_records
+    keys:
+    - key: LeaderEmployee
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: LeaderEmployee
+      foreign-key: Creator
+- table-name: training_records
+  join:
+  - table-name: employees
+    keys:
+    - key: Employee
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_appraisal
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: employee_workplaces
+    keys:
+    - key: Employee
+      foreign-key: EmployeeId
+  - table-name: geo
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: Employee
+      foreign-key: Employee
+    - key: Employee
+      foreign-key: ConfirmBy
+  - table-name: sales_data
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: teams
+    keys:
+    - key: Employee
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: Employee
+      foreign-key: Employee
+  - table-name: '[any_table]'
+    keys:
+    - key: Employee
+      foreign-key: Creator
+  - table-name: training_modules
+    keys:
+    - key: Module
+      foreign-key: Id
+- table-name: '[any_table]'
+  join:
+  - table-name: employees
+    keys:
+    - key: Creator
+      foreign-key: Id
+  - table-name: custom_app_data
+    keys:
+    - key: Creator
+      foreign-key: Employee
+  - table-name: employee_agreements
+    keys:
+    - key: Creator
+      foreign-key: EmployeeId
+  - table-name: employee_appraisal
+    keys:
+    - key: Creator
+      foreign-key: EmployeeId
+  - table-name: employee_availability
+    keys:
+    - key: Creator
+      foreign-key: EmployeeId
+  - table-name: employee_history
+    keys:
+    - key: Creator
+      foreign-key: EmployeeId
+  - table-name: employee_paycycles
+    keys:
+    - key: Creator
+      foreign-key: EmployeeId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: Creator
+      foreign-key: Employee
+  - table-name: employee_workplaces
+    keys:
+    - key: Creator
+      foreign-key: EmployeeId
+  - table-name: geo
+    keys:
+    - key: Creator
+      foreign-key: Employee
+  - table-name: journal
+    keys:
+    - key: Creator
+      foreign-key: Employee
+  - table-name: kiosk
+    keys:
+    - key: Creator
+      foreign-key: Employee
+  - table-name: leave_accruals
+    keys:
+    - key: Creator
+      foreign-key: Employee
+  - table-name: leaves
+    keys:
+    - key: Creator
+      foreign-key: Employee
+  - table-name: roster_opens
+    keys:
+    - key: Creator
+      foreign-key: Employee
+  - table-name: roster_swaps
+    keys:
+    - key: Creator
+      foreign-key: Employee
+  - table-name: rosters
+    keys:
+    - key: Creator
+      foreign-key: Employee
+    - key: Creator
+      foreign-key: ConfirmBy
+  - table-name: sales_data
+    keys:
+    - key: Creator
+      foreign-key: Employee
+  - table-name: teams
+    keys:
+    - key: Creator
+      foreign-key: LeaderEmployee
+  - table-name: timesheets
+    keys:
+    - key: Creator
+      foreign-key: Employee
+  - table-name: training_records
+    keys:
+    - key: Creator
+      foreign-key: Employee
+- table-name: employee_agreements_history
+  join:
+  - table-name: employee_agreementss
+    keys:
+    - key: Id
+      foreign-key: HistoryId
+  - table-name: employee_paycycles
+    keys:
+    - key: Id
+      foreign-key: EmployeeAgreementHistoryId
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: Id
+      foreign-key: EmployeeAgreementHistory
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+  - table-name: employee_agreements
+    keys:
+    - key: EmployeeAgreement
+      foreign-key: Id
+    - key: Contract
+      foreign-key: Contract
+    - key: PayPeriod
+      foreign-key: PayPeriod
+    - key: SalaryPayRule
+      foreign-key: SalaryPayRule
+  - table-name: employee_workplaces
+    keys:
+    - key: EmployeeAgreement
+      foreign-key: Agreement1
+    - key: EmployeeAgreement
+      foreign-key: Agreement2
+    - key: EmployeeAgreement
+      foreign-key: Agreement3
+  - table-name: leave_pay_lines
+    keys:
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+  - table-name: timesheets
+    keys:
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+  - table-name: employee_contract_leave_rules
+    keys:
+    - key: Contract
+      foreign-key: ContractId
+    - key: SalaryPayRule
+      foreign-key: LoadingPayRule1
+    - key: SalaryPayRule
+      foreign-key: LoadingPayRule2
+    - key: SalaryPayRule
+      foreign-key: LoadingPayRule3
+  - table-name: employee_contracts
+    keys:
+    - key: Contract
+      foreign-key: Id
+    - key: SalaryPayRule
+      foreign-key: BasePayRule
+  - table-name: pay_periods
+    keys:
+    - key: PayPeriod
+      foreign-key: Id
+  - table-name: company_periods
+    keys:
+    - key: PayPeriod
+      foreign-key: PayPeriod
+  - table-name: pay_rules
+    keys:
+    - key: SalaryPayRule
+      foreign-key: Id
+  - table-name: employee_paycycle_returns
+    keys:
+    - key: SalaryPayRule
+      foreign-key: PayRule
+  - table-name: timesheet_pay_returns
+    keys:
+    - key: SalaryPayRule
+      foreign-key: PayRule
+- table-name: employee_agreementss
+  join:
+  - table-name: employee_agreements_history
+    keys:
+    - key: HistoryId
+      foreign-key: Id
+  - table-name: employee_paycycles
+    keys:
+    - key: HistoryId
+      foreign-key: EmployeeAgreementHistoryId
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: HistoryId
+      foreign-key: EmployeeAgreementHistory
+- table-name: leave_pay_lines
+  join:
+  - table-name: employee_agreements_history
+    keys:
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+  - table-name: employee_agreements
+    keys:
+    - key: EmployeeAgreement
+      foreign-key: Id
+  - table-name: employee_paycycles
+    keys:
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+  - table-name: employee_workplaces
+    keys:
+    - key: EmployeeAgreement
+      foreign-key: Agreement1
+    - key: EmployeeAgreement
+      foreign-key: Agreement2
+    - key: EmployeeAgreement
+      foreign-key: Agreement3
+  - table-name: timesheets
+    keys:
+    - key: EmployeeAgreement
+      foreign-key: EmployeeAgreement
+    - key: LeaveId
+      foreign-key: LeaveId
+    - key: LeaveRule
+      foreign-key: LeaveRule
+    - key: TimesheetId
+      foreign-key: Id
+  - table-name: leaves
+    keys:
+    - key: LeaveId
+      foreign-key: Id
+  - table-name: employee_contract_leave_rules
+    keys:
+    - key: LeaveRule
+      foreign-key: LeaveRuleId
+  - table-name: leave_accruals
+    keys:
+    - key: LeaveRule
+      foreign-key: LeaveRule
+  - table-name: leave_rules
+    keys:
+    - key: LeaveRule
+      foreign-key: Id
+  - table-name: rosters
+    keys:
+    - key: TimesheetId
+      foreign-key: MatchedByTimesheet
+  - table-name: timesheet_pay_returns
+    keys:
+    - key: TimesheetId
+      foreign-key: Timesheet
+- table-name: employee_contract_leave_rules
+  join:
+  - table-name: employee_agreements_history
+    keys:
+    - key: ContractId
+      foreign-key: Contract
+    - key: LoadingPayRule1
+      foreign-key: SalaryPayRule
+    - key: LoadingPayRule2
+      foreign-key: SalaryPayRule
+    - key: LoadingPayRule3
+      foreign-key: SalaryPayRule
+  - table-name: employee_agreements
+    keys:
+    - key: ContractId
+      foreign-key: Contract
+    - key: LoadingPayRule1
+      foreign-key: SalaryPayRule
+    - key: LoadingPayRule2
+      foreign-key: SalaryPayRule
+    - key: LoadingPayRule3
+      foreign-key: SalaryPayRule
+  - table-name: employee_contracts
+    keys:
+    - key: ContractId
+      foreign-key: Id
+    - key: LoadingPayRule1
+      foreign-key: BasePayRule
+    - key: LoadingPayRule2
+      foreign-key: BasePayRule
+    - key: LoadingPayRule3
+      foreign-key: BasePayRule
+  - table-name: leave_accruals
+    keys:
+    - key: LeaveRuleId
+      foreign-key: LeaveRule
+  - table-name: leave_pay_lines
+    keys:
+    - key: LeaveRuleId
+      foreign-key: LeaveRule
+  - table-name: leave_rules
+    keys:
+    - key: LeaveRuleId
+      foreign-key: Id
+  - table-name: timesheets
+    keys:
+    - key: LeaveRuleId
+      foreign-key: LeaveRule
+  - table-name: pay_rules
+    keys:
+    - key: LoadingPayRule1
+      foreign-key: Id
+    - key: LoadingPayRule2
+      foreign-key: Id
+    - key: LoadingPayRule3
+      foreign-key: Id
+  - table-name: employee_paycycle_returns
+    keys:
+    - key: LoadingPayRule1
+      foreign-key: PayRule
+    - key: LoadingPayRule2
+      foreign-key: PayRule
+    - key: LoadingPayRule3
+      foreign-key: PayRule
+  - table-name: timesheet_pay_returns
+    keys:
+    - key: LoadingPayRule1
+      foreign-key: PayRule
+    - key: LoadingPayRule2
+      foreign-key: PayRule
+    - key: LoadingPayRule3
+      foreign-key: PayRule
+- table-name: employee_paycycle_returns
+  join:
+  - table-name: timesheets
+    keys:
+    - key: Id
+      foreign-key: PaycycleId
+  - table-name: employee_paycycles
+    keys:
+    - key: PaycycleId
+      foreign-key: Id
+  - table-name: employee_agreements_history
+    keys:
+    - key: PayRule
+      foreign-key: SalaryPayRule
+  - table-name: employee_agreements
+    keys:
+    - key: PayRule
+      foreign-key: SalaryPayRule
+  - table-name: employee_contract_leave_rules
+    keys:
+    - key: PayRule
+      foreign-key: LoadingPayRule1
+    - key: PayRule
+      foreign-key: LoadingPayRule2
+    - key: PayRule
+      foreign-key: LoadingPayRule3
+  - table-name: pay_rules
+    keys:
+    - key: PayRule
+      foreign-key: Id
+  - table-name: employee_contracts
+    keys:
+    - key: PayRule
+      foreign-key: BasePayRule
+  - table-name: timesheet_pay_returns
+    keys:
+    - key: PayRule
+      foreign-key: PayRule
+- table-name: employee_roles
+  join:
+  - table-name: employee_history
+    keys:
+    - key: Id
+      foreign-key: Role
+- table-name: events
+  join:
+  - table-name: employee_availability
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+  - table-name: operational_units
+    keys:
+    - key: Schedule
+      foreign-key: RosterActiveHoursSchedule
+  - table-name: pay_rules
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+  - table-name: schedules
+    keys:
+    - key: Schedule
+      foreign-key: Id
+  - table-name: task_opunit_configs
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+  - table-name: task_setups
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+- table-name: leave_rules
+  join:
+  - table-name: employee_contract_leave_rules
+    keys:
+    - key: Id
+      foreign-key: LeaveRuleId
+  - table-name: leave_accruals
+    keys:
+    - key: Id
+      foreign-key: LeaveRule
+  - table-name: leave_pay_lines
+    keys:
+    - key: Id
+      foreign-key: LeaveRule
+  - table-name: timesheets
+    keys:
+    - key: Id
+      foreign-key: LeaveRule
+- table-name: task_groups
+  join:
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: OpUnitId
+      foreign-key: OpUnit
+  - table-name: operational_units
+    keys:
+    - key: OpUnitId
+      foreign-key: Id
+    - key: OpUnitId
+      foreign-key: ParentOperationalUnit
+  - table-name: rosters
+    keys:
+    - key: OpUnitId
+      foreign-key: OperationalUnit
+  - table-name: sales_data
+    keys:
+    - key: OpUnitId
+      foreign-key: OpUnit
+  - table-name: task_opunit_configs
+    keys:
+    - key: OpUnitId
+      foreign-key: OpUnitId
+    - key: Id
+      foreign-key: GroupId
+  - table-name: tasks
+    keys:
+    - key: OpUnitId
+      foreign-key: OpUnitId
+    - key: Id
+      foreign-key: GroupId
+  - table-name: timesheets
+    keys:
+    - key: OpUnitId
+      foreign-key: OperationalUnit
+  - table-name: task_group_setups
+    keys:
+    - key: GroupSetupId
+      foreign-key: Id
+  - table-name: task_setups
+    keys:
+    - key: GroupSetupId
+      foreign-key: GroupId
+- table-name: task_opunit_configs
+  join:
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: OpUnitId
+      foreign-key: OpUnit
+  - table-name: operational_units
+    keys:
+    - key: OpUnitId
+      foreign-key: Id
+    - key: OpUnitId
+      foreign-key: ParentOperationalUnit
+    - key: Schedule
+      foreign-key: RosterActiveHoursSchedule
+  - table-name: rosters
+    keys:
+    - key: OpUnitId
+      foreign-key: OperationalUnit
+  - table-name: sales_data
+    keys:
+    - key: OpUnitId
+      foreign-key: OpUnit
+  - table-name: task_groups
+    keys:
+    - key: OpUnitId
+      foreign-key: OpUnitId
+    - key: GroupId
+      foreign-key: Id
+  - table-name: tasks
+    keys:
+    - key: OpUnitId
+      foreign-key: OpUnitId
+    - key: GroupId
+      foreign-key: GroupId
+    - key: TaskSetupId
+      foreign-key: TaskSetupId
+  - table-name: timesheets
+    keys:
+    - key: OpUnitId
+      foreign-key: OperationalUnit
+  - table-name: employee_availability
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+  - table-name: events
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+  - table-name: pay_rules
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+  - table-name: schedules
+    keys:
+    - key: Schedule
+      foreign-key: Id
+  - table-name: task_setups
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+    - key: TaskSetupId
+      foreign-key: Id
+- table-name: tasks
+  join:
+  - table-name: employee_salary_opunit_costing
+    keys:
+    - key: OpUnitId
+      foreign-key: OpUnit
+  - table-name: operational_units
+    keys:
+    - key: OpUnitId
+      foreign-key: Id
+    - key: OpUnitId
+      foreign-key: ParentOperationalUnit
+  - table-name: rosters
+    keys:
+    - key: OpUnitId
+      foreign-key: OperationalUnit
+  - table-name: sales_data
+    keys:
+    - key: OpUnitId
+      foreign-key: OpUnit
+  - table-name: task_groups
+    keys:
+    - key: OpUnitId
+      foreign-key: OpUnitId
+    - key: GroupId
+      foreign-key: Id
+  - table-name: task_opunit_configs
+    keys:
+    - key: OpUnitId
+      foreign-key: OpUnitId
+    - key: GroupId
+      foreign-key: GroupId
+    - key: TaskSetupId
+      foreign-key: TaskSetupId
+  - table-name: timesheets
+    keys:
+    - key: OpUnitId
+      foreign-key: OperationalUnit
+  - table-name: task_setups
+    keys:
+    - key: TaskSetupId
+      foreign-key: Id
+- table-name: pay_periods
+  join:
+  - table-name: company_periods
+    keys:
+    - key: Id
+      foreign-key: PayPeriod
+  - table-name: employee_agreements_history
+    keys:
+    - key: Id
+      foreign-key: PayPeriod
+  - table-name: employee_agreements
+    keys:
+    - key: Id
+      foreign-key: PayPeriod
+- table-name: pay_rules
+  join:
+  - table-name: employee_agreements_history
+    keys:
+    - key: Id
+      foreign-key: SalaryPayRule
+  - table-name: employee_agreements
+    keys:
+    - key: Id
+      foreign-key: SalaryPayRule
+  - table-name: employee_contract_leave_rules
+    keys:
+    - key: Id
+      foreign-key: LoadingPayRule1
+    - key: Id
+      foreign-key: LoadingPayRule2
+    - key: Id
+      foreign-key: LoadingPayRule3
+  - table-name: employee_contracts
+    keys:
+    - key: Id
+      foreign-key: BasePayRule
+  - table-name: employee_paycycle_returns
+    keys:
+    - key: Id
+      foreign-key: PayRule
+  - table-name: timesheet_pay_returns
+    keys:
+    - key: Id
+      foreign-key: PayRule
+  - table-name: employee_availability
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+  - table-name: events
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+  - table-name: operational_units
+    keys:
+    - key: Schedule
+      foreign-key: RosterActiveHoursSchedule
+  - table-name: schedules
+    keys:
+    - key: Schedule
+      foreign-key: Id
+  - table-name: task_opunit_configs
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+  - table-name: task_setups
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+- table-name: timesheet_pay_returns
+  join:
+  - table-name: employee_agreements_history
+    keys:
+    - key: PayRule
+      foreign-key: SalaryPayRule
+  - table-name: employee_agreements
+    keys:
+    - key: PayRule
+      foreign-key: SalaryPayRule
+  - table-name: employee_contract_leave_rules
+    keys:
+    - key: PayRule
+      foreign-key: LoadingPayRule1
+    - key: PayRule
+      foreign-key: LoadingPayRule2
+    - key: PayRule
+      foreign-key: LoadingPayRule3
+  - table-name: pay_rules
+    keys:
+    - key: PayRule
+      foreign-key: Id
+  - table-name: employee_contracts
+    keys:
+    - key: PayRule
+      foreign-key: BasePayRule
+  - table-name: employee_paycycle_returns
+    keys:
+    - key: PayRule
+      foreign-key: PayRule
+  - table-name: leave_pay_lines
+    keys:
+    - key: Timesheet
+      foreign-key: TimesheetId
+  - table-name: rosters
+    keys:
+    - key: Timesheet
+      foreign-key: MatchedByTimesheet
+  - table-name: timesheets
+    keys:
+    - key: Timesheet
+      foreign-key: Id
+- table-name: schedules
+  join:
+  - table-name: employee_availability
+    keys:
+    - key: Id
+      foreign-key: Schedule
+  - table-name: events
+    keys:
+    - key: Id
+      foreign-key: Schedule
+  - table-name: operational_units
+    keys:
+    - key: Id
+      foreign-key: RosterActiveHoursSchedule
+  - table-name: pay_rules
+    keys:
+    - key: Id
+      foreign-key: Schedule
+  - table-name: task_opunit_configs
+    keys:
+    - key: Id
+      foreign-key: Schedule
+  - table-name: task_setups
+    keys:
+    - key: Id
+      foreign-key: Schedule
+- table-name: task_setups
+  join:
+  - table-name: employee_availability
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+  - table-name: events
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+  - table-name: operational_units
+    keys:
+    - key: Schedule
+      foreign-key: RosterActiveHoursSchedule
+  - table-name: pay_rules
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+  - table-name: schedules
+    keys:
+    - key: Schedule
+      foreign-key: Id
+  - table-name: task_opunit_configs
+    keys:
+    - key: Schedule
+      foreign-key: Schedule
+    - key: Id
+      foreign-key: TaskSetupId
+  - table-name: task_group_setups
+    keys:
+    - key: GroupId
+      foreign-key: Id
+  - table-name: task_groups
+    keys:
+    - key: GroupId
+      foreign-key: GroupSetupId
+  - table-name: tasks
+    keys:
+    - key: Id
+      foreign-key: TaskSetupId
+- table-name: system_usage_balances
+  join:
+  - table-name: system_usage_tracking
+    keys:
+    - key: Id
+      foreign-key: BalanceId
+- table-name: task_group_setups
+  join:
+  - table-name: task_groups
+    keys:
+    - key: Id
+      foreign-key: GroupSetupId
+  - table-name: task_setups
+    keys:
+    - key: Id
+      foreign-key: GroupId
+- table-name: training_modules
+  join:
+  - table-name: training_records
+    keys:
+    - key: Id
+      foreign-key: Module

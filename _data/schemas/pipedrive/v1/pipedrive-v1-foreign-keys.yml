@@ -169,3 +169,906 @@ keys:
   - table: users
     keys:
     - id
+tables:
+- table-name: activities
+  join:
+  - table-name: deals
+    keys:
+    - key: id
+      foreign-key: last_activity_id
+    - key: id
+      foreign-key: next_activity_id
+    - key: deal_id
+      foreign-key: id
+    - key: org_id
+      foreign-key: org_id
+    - key: assigned_to_user_id
+      foreign-key: creator_user_id
+    - key: created_by_user_id
+      foreign-key: creator_user_id
+    - key: user_id
+      foreign-key: creator_user_id
+    - key: assigned_to_user_id
+      foreign-key: user_id
+    - key: created_by_user_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: delete_log
+    keys:
+    - key: id
+      foreign-key: id
+    - key: deal_id
+      foreign-key: id
+    - key: org_id
+      foreign-key: id
+    - key: participants.person_id
+      foreign-key: id
+    - key: person_id
+      foreign-key: id
+    - key: assigned_to_user_id
+      foreign-key: id
+    - key: created_by_user_id
+      foreign-key: id
+    - key: user_id
+      foreign-key: id
+  - table-name: files
+    keys:
+    - key: id
+      foreign-key: activity_id
+    - key: deal_id
+      foreign-key: deal_id
+    - key: org_id
+      foreign-key: org_id
+    - key: participants.person_id
+      foreign-key: person_id
+    - key: person_id
+      foreign-key: person_id
+    - key: assigned_to_user_id
+      foreign-key: user_id
+    - key: created_by_user_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: organizations
+    keys:
+    - key: id
+      foreign-key: last_activity_id
+    - key: id
+      foreign-key: next_activity_id
+    - key: org_id
+      foreign-key: id
+  - table-name: persons
+    keys:
+    - key: id
+      foreign-key: last_activity_id
+    - key: id
+      foreign-key: next_activity_id
+    - key: participants.person_id
+      foreign-key: id
+    - key: person_id
+      foreign-key: id
+  - table-name: deal_products
+    keys:
+    - key: deal_id
+      foreign-key: deal_id
+  - table-name: notes
+    keys:
+    - key: deal_id
+      foreign-key: deal_id
+    - key: org_id
+      foreign-key: org_id
+    - key: participants.person_id
+      foreign-key: person_id
+    - key: person_id
+      foreign-key: person_id
+    - key: assigned_to_user_id
+      foreign-key: last_update_user_id
+    - key: created_by_user_id
+      foreign-key: last_update_user_id
+    - key: user_id
+      foreign-key: last_update_user_id
+    - key: assigned_to_user_id
+      foreign-key: user_id
+    - key: created_by_user_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: ''
+    keys:
+    - key: participants.person_id
+      foreign-key: person_id
+    - key: person_id
+      foreign-key: person_id
+  - table-name: dealflow
+    keys:
+    - key: assigned_to_user_id
+      foreign-key: user_id
+    - key: created_by_user_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: filters
+    keys:
+    - key: assigned_to_user_id
+      foreign-key: user_id
+    - key: created_by_user_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: assigned_to_user_id
+      foreign-key: id
+    - key: created_by_user_id
+      foreign-key: id
+    - key: user_id
+      foreign-key: id
+- table-name: deals
+  join:
+  - table-name: activities
+    keys:
+    - key: last_activity_id
+      foreign-key: id
+    - key: next_activity_id
+      foreign-key: id
+    - key: id
+      foreign-key: deal_id
+    - key: org_id
+      foreign-key: org_id
+    - key: creator_user_id
+      foreign-key: assigned_to_user_id
+    - key: user_id
+      foreign-key: assigned_to_user_id
+    - key: creator_user_id
+      foreign-key: created_by_user_id
+    - key: user_id
+      foreign-key: created_by_user_id
+    - key: creator_user_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: delete_log
+    keys:
+    - key: last_activity_id
+      foreign-key: id
+    - key: next_activity_id
+      foreign-key: id
+    - key: id
+      foreign-key: id
+    - key: pipeline_id
+      foreign-key: id
+    - key: org_id
+      foreign-key: id
+    - key: stage_id
+      foreign-key: id
+    - key: creator_user_id
+      foreign-key: id
+    - key: user_id
+      foreign-key: id
+  - table-name: files
+    keys:
+    - key: last_activity_id
+      foreign-key: activity_id
+    - key: next_activity_id
+      foreign-key: activity_id
+    - key: id
+      foreign-key: deal_id
+    - key: org_id
+      foreign-key: org_id
+    - key: creator_user_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: organizations
+    keys:
+    - key: last_activity_id
+      foreign-key: last_activity_id
+    - key: next_activity_id
+      foreign-key: last_activity_id
+    - key: last_activity_id
+      foreign-key: next_activity_id
+    - key: next_activity_id
+      foreign-key: next_activity_id
+    - key: org_id
+      foreign-key: id
+  - table-name: persons
+    keys:
+    - key: last_activity_id
+      foreign-key: last_activity_id
+    - key: next_activity_id
+      foreign-key: last_activity_id
+    - key: last_activity_id
+      foreign-key: next_activity_id
+    - key: next_activity_id
+      foreign-key: next_activity_id
+  - table-name: deal_products
+    keys:
+    - key: id
+      foreign-key: deal_id
+  - table-name: notes
+    keys:
+    - key: id
+      foreign-key: deal_id
+    - key: org_id
+      foreign-key: org_id
+    - key: creator_user_id
+      foreign-key: last_update_user_id
+    - key: user_id
+      foreign-key: last_update_user_id
+    - key: creator_user_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: pipelines
+    keys:
+    - key: pipeline_id
+      foreign-key: id
+  - table-name: stages
+    keys:
+    - key: pipeline_id
+      foreign-key: pipeline_id
+    - key: stage_id
+      foreign-key: id
+  - table-name: dealflow
+    keys:
+    - key: creator_user_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: filters
+    keys:
+    - key: creator_user_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: creator_user_id
+      foreign-key: id
+    - key: user_id
+      foreign-key: id
+- table-name: delete_log
+  join:
+  - table-name: activities
+    keys:
+    - key: id
+      foreign-key: id
+    - key: id
+      foreign-key: deal_id
+    - key: id
+      foreign-key: org_id
+    - key: id
+      foreign-key: participants.person_id
+    - key: id
+      foreign-key: person_id
+    - key: id
+      foreign-key: assigned_to_user_id
+    - key: id
+      foreign-key: created_by_user_id
+    - key: id
+      foreign-key: user_id
+  - table-name: deals
+    keys:
+    - key: id
+      foreign-key: last_activity_id
+    - key: id
+      foreign-key: next_activity_id
+    - key: id
+      foreign-key: id
+    - key: id
+      foreign-key: pipeline_id
+    - key: id
+      foreign-key: org_id
+    - key: id
+      foreign-key: stage_id
+    - key: id
+      foreign-key: creator_user_id
+    - key: id
+      foreign-key: user_id
+  - table-name: files
+    keys:
+    - key: id
+      foreign-key: activity_id
+    - key: id
+      foreign-key: deal_id
+    - key: id
+      foreign-key: org_id
+    - key: id
+      foreign-key: person_id
+    - key: id
+      foreign-key: product_id
+    - key: id
+      foreign-key: user_id
+  - table-name: organizations
+    keys:
+    - key: id
+      foreign-key: last_activity_id
+    - key: id
+      foreign-key: next_activity_id
+    - key: id
+      foreign-key: id
+  - table-name: persons
+    keys:
+    - key: id
+      foreign-key: last_activity_id
+    - key: id
+      foreign-key: next_activity_id
+    - key: id
+      foreign-key: id
+  - table-name: deal_products
+    keys:
+    - key: id
+      foreign-key: deal_id
+    - key: id
+      foreign-key: product_id
+  - table-name: notes
+    keys:
+    - key: id
+      foreign-key: deal_id
+    - key: id
+      foreign-key: org_id
+    - key: id
+      foreign-key: person_id
+    - key: id
+      foreign-key: last_update_user_id
+    - key: id
+      foreign-key: user_id
+  - table-name: pipelines
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: stages
+    keys:
+    - key: id
+      foreign-key: pipeline_id
+    - key: id
+      foreign-key: id
+  - table-name: ''
+    keys:
+    - key: id
+      foreign-key: person_id
+  - table-name: products
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: dealflow
+    keys:
+    - key: id
+      foreign-key: user_id
+  - table-name: filters
+    keys:
+    - key: id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: id
+- table-name: files
+  join:
+  - table-name: activities
+    keys:
+    - key: activity_id
+      foreign-key: id
+    - key: deal_id
+      foreign-key: deal_id
+    - key: org_id
+      foreign-key: org_id
+    - key: person_id
+      foreign-key: participants.person_id
+    - key: person_id
+      foreign-key: person_id
+    - key: user_id
+      foreign-key: assigned_to_user_id
+    - key: user_id
+      foreign-key: created_by_user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: deals
+    keys:
+    - key: activity_id
+      foreign-key: last_activity_id
+    - key: activity_id
+      foreign-key: next_activity_id
+    - key: deal_id
+      foreign-key: id
+    - key: org_id
+      foreign-key: org_id
+    - key: user_id
+      foreign-key: creator_user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: delete_log
+    keys:
+    - key: activity_id
+      foreign-key: id
+    - key: deal_id
+      foreign-key: id
+    - key: org_id
+      foreign-key: id
+    - key: person_id
+      foreign-key: id
+    - key: product_id
+      foreign-key: id
+    - key: user_id
+      foreign-key: id
+  - table-name: organizations
+    keys:
+    - key: activity_id
+      foreign-key: last_activity_id
+    - key: activity_id
+      foreign-key: next_activity_id
+    - key: org_id
+      foreign-key: id
+  - table-name: persons
+    keys:
+    - key: activity_id
+      foreign-key: last_activity_id
+    - key: activity_id
+      foreign-key: next_activity_id
+    - key: person_id
+      foreign-key: id
+  - table-name: deal_products
+    keys:
+    - key: deal_id
+      foreign-key: deal_id
+    - key: product_id
+      foreign-key: product_id
+  - table-name: notes
+    keys:
+    - key: deal_id
+      foreign-key: deal_id
+    - key: note_id
+      foreign-key: id
+    - key: org_id
+      foreign-key: org_id
+    - key: person_id
+      foreign-key: person_id
+    - key: user_id
+      foreign-key: last_update_user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: ''
+    keys:
+    - key: person_id
+      foreign-key: person_id
+  - table-name: products
+    keys:
+    - key: product_id
+      foreign-key: id
+  - table-name: dealflow
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: filters
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: user_id
+      foreign-key: id
+- table-name: organizations
+  join:
+  - table-name: activities
+    keys:
+    - key: last_activity_id
+      foreign-key: id
+    - key: next_activity_id
+      foreign-key: id
+    - key: id
+      foreign-key: org_id
+  - table-name: deals
+    keys:
+    - key: last_activity_id
+      foreign-key: last_activity_id
+    - key: next_activity_id
+      foreign-key: last_activity_id
+    - key: last_activity_id
+      foreign-key: next_activity_id
+    - key: next_activity_id
+      foreign-key: next_activity_id
+    - key: id
+      foreign-key: org_id
+  - table-name: delete_log
+    keys:
+    - key: last_activity_id
+      foreign-key: id
+    - key: next_activity_id
+      foreign-key: id
+    - key: id
+      foreign-key: id
+  - table-name: files
+    keys:
+    - key: last_activity_id
+      foreign-key: activity_id
+    - key: next_activity_id
+      foreign-key: activity_id
+    - key: id
+      foreign-key: org_id
+  - table-name: persons
+    keys:
+    - key: last_activity_id
+      foreign-key: last_activity_id
+    - key: next_activity_id
+      foreign-key: last_activity_id
+    - key: last_activity_id
+      foreign-key: next_activity_id
+    - key: next_activity_id
+      foreign-key: next_activity_id
+  - table-name: notes
+    keys:
+    - key: id
+      foreign-key: org_id
+- table-name: persons
+  join:
+  - table-name: activities
+    keys:
+    - key: last_activity_id
+      foreign-key: id
+    - key: next_activity_id
+      foreign-key: id
+    - key: id
+      foreign-key: participants.person_id
+    - key: id
+      foreign-key: person_id
+  - table-name: deals
+    keys:
+    - key: last_activity_id
+      foreign-key: last_activity_id
+    - key: next_activity_id
+      foreign-key: last_activity_id
+    - key: last_activity_id
+      foreign-key: next_activity_id
+    - key: next_activity_id
+      foreign-key: next_activity_id
+  - table-name: delete_log
+    keys:
+    - key: last_activity_id
+      foreign-key: id
+    - key: next_activity_id
+      foreign-key: id
+    - key: id
+      foreign-key: id
+  - table-name: files
+    keys:
+    - key: last_activity_id
+      foreign-key: activity_id
+    - key: next_activity_id
+      foreign-key: activity_id
+    - key: id
+      foreign-key: person_id
+  - table-name: organizations
+    keys:
+    - key: last_activity_id
+      foreign-key: last_activity_id
+    - key: next_activity_id
+      foreign-key: last_activity_id
+    - key: last_activity_id
+      foreign-key: next_activity_id
+    - key: next_activity_id
+      foreign-key: next_activity_id
+  - table-name: notes
+    keys:
+    - key: id
+      foreign-key: person_id
+  - table-name: ''
+    keys:
+    - key: id
+      foreign-key: person_id
+- table-name: activity_types
+  join: []
+- table-name: currency
+  join: []
+- table-name: deal_products
+  join:
+  - table-name: activities
+    keys:
+    - key: deal_id
+      foreign-key: deal_id
+  - table-name: deals
+    keys:
+    - key: deal_id
+      foreign-key: id
+  - table-name: delete_log
+    keys:
+    - key: deal_id
+      foreign-key: id
+    - key: product_id
+      foreign-key: id
+  - table-name: files
+    keys:
+    - key: deal_id
+      foreign-key: deal_id
+    - key: product_id
+      foreign-key: product_id
+  - table-name: notes
+    keys:
+    - key: deal_id
+      foreign-key: deal_id
+  - table-name: products
+    keys:
+    - key: product_id
+      foreign-key: id
+- table-name: notes
+  join:
+  - table-name: activities
+    keys:
+    - key: deal_id
+      foreign-key: deal_id
+    - key: org_id
+      foreign-key: org_id
+    - key: person_id
+      foreign-key: participants.person_id
+    - key: person_id
+      foreign-key: person_id
+    - key: last_update_user_id
+      foreign-key: assigned_to_user_id
+    - key: user_id
+      foreign-key: assigned_to_user_id
+    - key: last_update_user_id
+      foreign-key: created_by_user_id
+    - key: user_id
+      foreign-key: created_by_user_id
+    - key: last_update_user_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: deals
+    keys:
+    - key: deal_id
+      foreign-key: id
+    - key: org_id
+      foreign-key: org_id
+    - key: last_update_user_id
+      foreign-key: creator_user_id
+    - key: user_id
+      foreign-key: creator_user_id
+    - key: last_update_user_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: deal_products
+    keys:
+    - key: deal_id
+      foreign-key: deal_id
+  - table-name: delete_log
+    keys:
+    - key: deal_id
+      foreign-key: id
+    - key: org_id
+      foreign-key: id
+    - key: person_id
+      foreign-key: id
+    - key: last_update_user_id
+      foreign-key: id
+    - key: user_id
+      foreign-key: id
+  - table-name: files
+    keys:
+    - key: deal_id
+      foreign-key: deal_id
+    - key: id
+      foreign-key: note_id
+    - key: org_id
+      foreign-key: org_id
+    - key: person_id
+      foreign-key: person_id
+    - key: last_update_user_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: organizations
+    keys:
+    - key: org_id
+      foreign-key: id
+  - table-name: persons
+    keys:
+    - key: person_id
+      foreign-key: id
+  - table-name: ''
+    keys:
+    - key: person_id
+      foreign-key: person_id
+  - table-name: dealflow
+    keys:
+    - key: last_update_user_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: filters
+    keys:
+    - key: last_update_user_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: last_update_user_id
+      foreign-key: id
+    - key: user_id
+      foreign-key: id
+- table-name: filters
+  join:
+  - table-name: activities
+    keys:
+    - key: user_id
+      foreign-key: assigned_to_user_id
+    - key: user_id
+      foreign-key: created_by_user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: dealflow
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: deals
+    keys:
+    - key: user_id
+      foreign-key: creator_user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: delete_log
+    keys:
+    - key: user_id
+      foreign-key: id
+  - table-name: files
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: notes
+    keys:
+    - key: user_id
+      foreign-key: last_update_user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: user_id
+      foreign-key: id
+- table-name: pipelines
+  join:
+  - table-name: deals
+    keys:
+    - key: id
+      foreign-key: pipeline_id
+  - table-name: delete_log
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: stages
+    keys:
+    - key: id
+      foreign-key: pipeline_id
+- table-name: stages
+  join:
+  - table-name: deals
+    keys:
+    - key: pipeline_id
+      foreign-key: pipeline_id
+    - key: id
+      foreign-key: stage_id
+  - table-name: delete_log
+    keys:
+    - key: pipeline_id
+      foreign-key: id
+    - key: id
+      foreign-key: id
+  - table-name: pipelines
+    keys:
+    - key: pipeline_id
+      foreign-key: id
+- table-name: ''
+  join:
+  - table-name: activities
+    keys:
+    - key: person_id
+      foreign-key: participants.person_id
+    - key: person_id
+      foreign-key: person_id
+  - table-name: delete_log
+    keys:
+    - key: person_id
+      foreign-key: id
+  - table-name: files
+    keys:
+    - key: person_id
+      foreign-key: person_id
+  - table-name: notes
+    keys:
+    - key: person_id
+      foreign-key: person_id
+  - table-name: persons
+    keys:
+    - key: person_id
+      foreign-key: id
+- table-name: products
+  join:
+  - table-name: deal_products
+    keys:
+    - key: id
+      foreign-key: product_id
+  - table-name: delete_log
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: files
+    keys:
+    - key: id
+      foreign-key: product_id
+- table-name: dealflow
+  join:
+  - table-name: activities
+    keys:
+    - key: user_id
+      foreign-key: assigned_to_user_id
+    - key: user_id
+      foreign-key: created_by_user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: deals
+    keys:
+    - key: user_id
+      foreign-key: creator_user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: delete_log
+    keys:
+    - key: user_id
+      foreign-key: id
+  - table-name: files
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: filters
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: notes
+    keys:
+    - key: user_id
+      foreign-key: last_update_user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: user_id
+      foreign-key: id
+- table-name: users
+  join:
+  - table-name: activities
+    keys:
+    - key: id
+      foreign-key: assigned_to_user_id
+    - key: id
+      foreign-key: created_by_user_id
+    - key: id
+      foreign-key: user_id
+  - table-name: dealflow
+    keys:
+    - key: id
+      foreign-key: user_id
+  - table-name: deals
+    keys:
+    - key: id
+      foreign-key: creator_user_id
+    - key: id
+      foreign-key: user_id
+  - table-name: delete_log
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: files
+    keys:
+    - key: id
+      foreign-key: user_id
+  - table-name: filters
+    keys:
+    - key: id
+      foreign-key: user_id
+  - table-name: notes
+    keys:
+    - key: id
+      foreign-key: last_update_user_id
+    - key: id
+      foreign-key: user_id

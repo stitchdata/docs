@@ -246,3 +246,1734 @@ keys:
   - table: unique_urls
     keys:
     - id
+tables:
+- table-name: api_submissions
+  join:
+  - table-name: ftp_file_submissions
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: action_updates
+    keys:
+    - key: action_tracker_id
+      foreign-key: action_tracker_id
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: actions
+    keys:
+    - key: action_tracker_id
+      foreign-key: action_tracker_id
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: conversion_paths
+    keys:
+    - key: action_tracker_id
+      foreign-key: events.action_tracker_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: exception_lists
+    keys:
+    - key: action_tracker_id
+      foreign-key: action_trackers.action_tracker_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: action_inquiries
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: ads
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: catalogs
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: clicks
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: contacts
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: deals
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: campaign_id
+      foreign-key: line_items.campaign_id
+  - table-name: media_partner_groups
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partners.media_partner_id
+  - table-name: media_partners
+    keys:
+    - key: campaign_id
+      foreign-key: campaigns.campaign_id
+    - key: media_partner_id
+      foreign-key: id
+  - table-name: notes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: promo_codes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: unique_urls
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+- table-name: ftp_file_submissions
+  join:
+  - table-name: api_submissions
+    keys:
+    - key: account_id
+      foreign-key: account_id
+- table-name: action_inquiries
+  join:
+  - table-name: action_updates
+    keys:
+    - key: action_id
+      foreign-key: action_id
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: actions
+    keys:
+    - key: action_id
+      foreign-key: id
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: conversion_paths
+    keys:
+    - key: action_id
+      foreign-key: events.action_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: api_submissions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: catalogs
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: clicks
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: contacts
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: deals
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: exception_lists
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: campaign_id
+      foreign-key: line_items.campaign_id
+  - table-name: media_partner_groups
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partners.media_partner_id
+  - table-name: media_partners
+    keys:
+    - key: campaign_id
+      foreign-key: campaigns.campaign_id
+    - key: media_partner_id
+      foreign-key: id
+  - table-name: notes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: promo_codes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: unique_urls
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+- table-name: action_updates
+  join:
+  - table-name: actions
+    keys:
+    - key: action_tracker_id
+      foreign-key: action_tracker_id
+    - key: action_id
+      foreign-key: id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: api_submissions
+    keys:
+    - key: action_tracker_id
+      foreign-key: action_tracker_id
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: conversion_paths
+    keys:
+    - key: action_tracker_id
+      foreign-key: events.action_tracker_id
+    - key: action_id
+      foreign-key: events.action_id
+    - key: ad_id
+      foreign-key: events.ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: exception_lists
+    keys:
+    - key: action_tracker_id
+      foreign-key: action_trackers.action_tracker_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: action_inquiries
+    keys:
+    - key: action_id
+      foreign-key: action_id
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: ads
+    keys:
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: catalogs
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: clicks
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: contacts
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: deals
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: campaign_id
+      foreign-key: line_items.campaign_id
+  - table-name: media_partner_groups
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partners.media_partner_id
+  - table-name: media_partners
+    keys:
+    - key: campaign_id
+      foreign-key: campaigns.campaign_id
+    - key: media_partner_id
+      foreign-key: id
+  - table-name: notes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: promo_codes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: unique_urls
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+- table-name: actions
+  join:
+  - table-name: action_updates
+    keys:
+    - key: action_tracker_id
+      foreign-key: action_tracker_id
+    - key: id
+      foreign-key: action_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: api_submissions
+    keys:
+    - key: action_tracker_id
+      foreign-key: action_tracker_id
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: conversion_paths
+    keys:
+    - key: action_tracker_id
+      foreign-key: events.action_tracker_id
+    - key: id
+      foreign-key: events.action_id
+    - key: ad_id
+      foreign-key: events.ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: exception_lists
+    keys:
+    - key: action_tracker_id
+      foreign-key: action_trackers.action_tracker_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: action_inquiries
+    keys:
+    - key: id
+      foreign-key: action_id
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: ads
+    keys:
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: catalogs
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: clicks
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: contacts
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: deals
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: campaign_id
+      foreign-key: line_items.campaign_id
+  - table-name: media_partner_groups
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partners.media_partner_id
+  - table-name: media_partners
+    keys:
+    - key: campaign_id
+      foreign-key: campaigns.campaign_id
+    - key: media_partner_id
+      foreign-key: id
+  - table-name: notes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: promo_codes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: unique_urls
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+- table-name: conversion_paths
+  join:
+  - table-name: action_updates
+    keys:
+    - key: events.action_tracker_id
+      foreign-key: action_tracker_id
+    - key: events.action_id
+      foreign-key: action_id
+    - key: events.ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: actions
+    keys:
+    - key: events.action_tracker_id
+      foreign-key: action_tracker_id
+    - key: events.action_id
+      foreign-key: id
+    - key: events.ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: api_submissions
+    keys:
+    - key: events.action_tracker_id
+      foreign-key: action_tracker_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: exception_lists
+    keys:
+    - key: events.action_tracker_id
+      foreign-key: action_trackers.action_tracker_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: action_inquiries
+    keys:
+    - key: events.action_id
+      foreign-key: action_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads
+    keys:
+    - key: events.ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: catalogs
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: clicks
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: events.media_id
+      foreign-key: media_id
+  - table-name: contacts
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: deals
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: campaign_id
+      foreign-key: line_items.campaign_id
+    - key: events.media_id
+      foreign-key: media_id
+  - table-name: media_partner_groups
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: media_partners
+    keys:
+    - key: campaign_id
+      foreign-key: campaigns.campaign_id
+  - table-name: notes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: events.media_id
+      foreign-key: media_id
+  - table-name: promo_codes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: unique_urls
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+- table-name: exception_lists
+  join:
+  - table-name: action_updates
+    keys:
+    - key: action_trackers.action_tracker_id
+      foreign-key: action_tracker_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: actions
+    keys:
+    - key: action_trackers.action_tracker_id
+      foreign-key: action_tracker_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: api_submissions
+    keys:
+    - key: action_trackers.action_tracker_id
+      foreign-key: action_tracker_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: conversion_paths
+    keys:
+    - key: action_trackers.action_tracker_id
+      foreign-key: events.action_tracker_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: action_inquiries
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: catalogs
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: clicks
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: contacts
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: deals
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: campaign_id
+      foreign-key: line_items.campaign_id
+  - table-name: media_partner_groups
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: media_partners
+    keys:
+    - key: campaign_id
+      foreign-key: campaigns.campaign_id
+  - table-name: notes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: promo_codes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: unique_urls
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: exception_list_items
+    keys:
+    - key: id
+      foreign-key: list_id
+- table-name: ads
+  join:
+  - table-name: action_updates
+    keys:
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: actions
+    keys:
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: conversion_paths
+    keys:
+    - key: ad_id
+      foreign-key: events.ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: action_inquiries
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: api_submissions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: catalogs
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: clicks
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: contacts
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: deals
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: deal_id
+      foreign-key: id
+  - table-name: exception_lists
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: campaign_id
+      foreign-key: line_items.campaign_id
+  - table-name: media_partner_groups
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: media_partners
+    keys:
+    - key: campaign_id
+      foreign-key: campaigns.campaign_id
+  - table-name: notes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: promo_codes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: deal_id
+      foreign-key: deal_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: deal_id
+      foreign-key: deal_id
+  - table-name: unique_urls
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+- table-name: catalogs
+  join:
+  - table-name: action_inquiries
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: action_updates
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: actions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: api_submissions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: clicks
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: contacts
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: conversion_paths
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: deals
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: exception_lists
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: campaign_id
+      foreign-key: line_items.campaign_id
+  - table-name: media_partner_groups
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: media_partners
+    keys:
+    - key: campaign_id
+      foreign-key: campaigns.campaign_id
+  - table-name: notes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: promo_codes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: unique_urls
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: catalog_items
+    keys:
+    - key: id
+      foreign-key: catalog_id
+- table-name: campaigns
+  join:
+  - table-name: action_inquiries
+    keys:
+    - key: id
+      foreign-key: campaign_id
+  - table-name: action_updates
+    keys:
+    - key: id
+      foreign-key: campaign_id
+  - table-name: actions
+    keys:
+    - key: id
+      foreign-key: campaign_id
+  - table-name: ads
+    keys:
+    - key: id
+      foreign-key: campaign_id
+  - table-name: api_submissions
+    keys:
+    - key: id
+      foreign-key: campaign_id
+  - table-name: catalogs
+    keys:
+    - key: id
+      foreign-key: campaign_id
+  - table-name: clicks
+    keys:
+    - key: id
+      foreign-key: campaign_id
+  - table-name: contacts
+    keys:
+    - key: id
+      foreign-key: campaign_id
+  - table-name: conversion_paths
+    keys:
+    - key: id
+      foreign-key: campaign_id
+  - table-name: deals
+    keys:
+    - key: id
+      foreign-key: campaign_id
+  - table-name: exception_lists
+    keys:
+    - key: id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: id
+      foreign-key: line_items.campaign_id
+  - table-name: media_partner_groups
+    keys:
+    - key: id
+      foreign-key: campaign_id
+  - table-name: media_partners
+    keys:
+    - key: id
+      foreign-key: campaigns.campaign_id
+  - table-name: notes
+    keys:
+    - key: id
+      foreign-key: campaign_id
+  - table-name: promo_codes
+    keys:
+    - key: id
+      foreign-key: campaign_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: id
+      foreign-key: campaign_id
+  - table-name: unique_urls
+    keys:
+    - key: id
+      foreign-key: campaign_id
+- table-name: clicks
+  join:
+  - table-name: action_inquiries
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: action_updates
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: actions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: api_submissions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: catalogs
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: contacts
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: conversion_paths
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_id
+      foreign-key: events.media_id
+  - table-name: deals
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: exception_lists
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: campaign_id
+      foreign-key: line_items.campaign_id
+    - key: media_id
+      foreign-key: media_id
+  - table-name: media_partner_groups
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: media_partners
+    keys:
+    - key: campaign_id
+      foreign-key: campaigns.campaign_id
+  - table-name: notes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_id
+      foreign-key: media_id
+  - table-name: promo_codes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: unique_urls
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+- table-name: contacts
+  join:
+  - table-name: action_inquiries
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: action_updates
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: actions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: api_submissions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: catalogs
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: clicks
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: conversion_paths
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: deals
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: exception_lists
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: campaign_id
+      foreign-key: line_items.campaign_id
+  - table-name: media_partner_groups
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: media_partners
+    keys:
+    - key: campaign_id
+      foreign-key: campaigns.campaign_id
+  - table-name: notes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: promo_codes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: unique_urls
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+- table-name: deals
+  join:
+  - table-name: action_inquiries
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: action_updates
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: actions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: id
+      foreign-key: deal_id
+  - table-name: api_submissions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: catalogs
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: clicks
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: contacts
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: conversion_paths
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: exception_lists
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: campaign_id
+      foreign-key: line_items.campaign_id
+  - table-name: media_partner_groups
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: media_partners
+    keys:
+    - key: campaign_id
+      foreign-key: campaigns.campaign_id
+  - table-name: notes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: promo_codes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: id
+      foreign-key: deal_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: id
+      foreign-key: deal_id
+  - table-name: unique_urls
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+- table-name: invoices
+  join:
+  - table-name: action_inquiries
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: campaign_id
+  - table-name: action_updates
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: campaign_id
+  - table-name: actions
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: campaign_id
+  - table-name: ads
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: campaign_id
+  - table-name: api_submissions
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: campaign_id
+  - table-name: campaigns
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: id
+  - table-name: catalogs
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: campaign_id
+  - table-name: clicks
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: campaign_id
+    - key: media_id
+      foreign-key: media_id
+  - table-name: contacts
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: campaign_id
+  - table-name: conversion_paths
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: campaign_id
+    - key: media_id
+      foreign-key: events.media_id
+  - table-name: deals
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: campaign_id
+  - table-name: exception_lists
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: campaign_id
+  - table-name: media_partner_groups
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: campaign_id
+  - table-name: media_partners
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: campaigns.campaign_id
+  - table-name: notes
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: campaign_id
+    - key: media_id
+      foreign-key: media_id
+  - table-name: promo_codes
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: campaign_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: campaign_id
+  - table-name: unique_urls
+    keys:
+    - key: line_items.campaign_id
+      foreign-key: campaign_id
+- table-name: media_partner_groups
+  join:
+  - table-name: action_inquiries
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partners.media_partner_id
+      foreign-key: media_partner_id
+  - table-name: action_updates
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partners.media_partner_id
+      foreign-key: media_partner_id
+  - table-name: actions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partners.media_partner_id
+      foreign-key: media_partner_id
+  - table-name: ads
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: api_submissions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partners.media_partner_id
+      foreign-key: media_partner_id
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: catalogs
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: clicks
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: contacts
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: conversion_paths
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: deals
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: exception_lists
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: campaign_id
+      foreign-key: line_items.campaign_id
+  - table-name: media_partners
+    keys:
+    - key: campaign_id
+      foreign-key: campaigns.campaign_id
+    - key: id
+      foreign-key: groups.group_id
+    - key: media_partners.media_partner_id
+      foreign-key: id
+  - table-name: notes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: promo_codes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partners.media_partner_id
+      foreign-key: media_partner_id
+  - table-name: unique_urls
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partners.media_partner_id
+      foreign-key: media_partner_id
+- table-name: media_partners
+  join:
+  - table-name: action_inquiries
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: campaign_id
+    - key: id
+      foreign-key: media_partner_id
+  - table-name: action_updates
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: campaign_id
+    - key: id
+      foreign-key: media_partner_id
+  - table-name: actions
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: campaign_id
+    - key: id
+      foreign-key: media_partner_id
+  - table-name: ads
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: campaign_id
+  - table-name: api_submissions
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: campaign_id
+    - key: id
+      foreign-key: media_partner_id
+  - table-name: campaigns
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: id
+  - table-name: catalogs
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: campaign_id
+  - table-name: clicks
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: campaign_id
+  - table-name: contacts
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: campaign_id
+  - table-name: conversion_paths
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: campaign_id
+  - table-name: deals
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: campaign_id
+  - table-name: exception_lists
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: line_items.campaign_id
+  - table-name: media_partner_groups
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: campaign_id
+    - key: groups.group_id
+      foreign-key: id
+    - key: id
+      foreign-key: media_partners.media_partner_id
+  - table-name: notes
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: campaign_id
+  - table-name: promo_codes
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: campaign_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: campaign_id
+    - key: id
+      foreign-key: media_partner_id
+  - table-name: unique_urls
+    keys:
+    - key: campaigns.campaign_id
+      foreign-key: campaign_id
+    - key: id
+      foreign-key: media_partner_id
+- table-name: notes
+  join:
+  - table-name: action_inquiries
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: action_updates
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: actions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: api_submissions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: catalogs
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: clicks
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_id
+      foreign-key: media_id
+  - table-name: contacts
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: conversion_paths
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_id
+      foreign-key: events.media_id
+  - table-name: deals
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: exception_lists
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: campaign_id
+      foreign-key: line_items.campaign_id
+    - key: media_id
+      foreign-key: media_id
+  - table-name: media_partner_groups
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: media_partners
+    keys:
+    - key: campaign_id
+      foreign-key: campaigns.campaign_id
+  - table-name: promo_codes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: unique_urls
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+- table-name: promo_codes
+  join:
+  - table-name: action_inquiries
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: action_updates
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: actions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: deal_id
+      foreign-key: deal_id
+  - table-name: api_submissions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: catalogs
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: clicks
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: contacts
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: conversion_paths
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: deals
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: deal_id
+      foreign-key: id
+  - table-name: exception_lists
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: campaign_id
+      foreign-key: line_items.campaign_id
+  - table-name: media_partner_groups
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: media_partners
+    keys:
+    - key: campaign_id
+      foreign-key: campaigns.campaign_id
+  - table-name: notes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: deal_id
+      foreign-key: deal_id
+    - key: id
+      foreign-key: promo_codes.id
+  - table-name: unique_urls
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+- table-name: tracking_value_requests
+  join:
+  - table-name: action_inquiries
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: action_updates
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: actions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: ads
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: deal_id
+      foreign-key: deal_id
+  - table-name: api_submissions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: catalogs
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: clicks
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: contacts
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: conversion_paths
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: deals
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: deal_id
+      foreign-key: id
+  - table-name: exception_lists
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: campaign_id
+      foreign-key: line_items.campaign_id
+  - table-name: media_partner_groups
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partners.media_partner_id
+  - table-name: media_partners
+    keys:
+    - key: campaign_id
+      foreign-key: campaigns.campaign_id
+    - key: media_partner_id
+      foreign-key: id
+  - table-name: notes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: promo_codes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: deal_id
+      foreign-key: deal_id
+    - key: promo_codes.id
+      foreign-key: id
+  - table-name: unique_urls
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+    - key: unique_urls.id
+      foreign-key: id
+  - table-name: phone_numbers
+    keys:
+    - key: phone_numbers.id
+      foreign-key: id
+- table-name: unique_urls
+  join:
+  - table-name: action_inquiries
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: action_updates
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: actions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: ads
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: api_submissions
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: catalogs
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: clicks
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: contacts
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: conversion_paths
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: deals
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: exception_lists
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: invoices
+    keys:
+    - key: campaign_id
+      foreign-key: line_items.campaign_id
+  - table-name: media_partner_groups
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partners.media_partner_id
+  - table-name: media_partners
+    keys:
+    - key: campaign_id
+      foreign-key: campaigns.campaign_id
+    - key: media_partner_id
+      foreign-key: id
+  - table-name: notes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: promo_codes
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: tracking_value_requests
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+    - key: media_partner_id
+      foreign-key: media_partner_id
+    - key: id
+      foreign-key: unique_urls.id
+- table-name: catalog_items
+  join:
+  - table-name: catalogs
+    keys:
+    - key: catalog_id
+      foreign-key: id
+- table-name: exception_list_items
+  join:
+  - table-name: exception_lists
+    keys:
+    - key: list_id
+      foreign-key: id
+- table-name: phone_numbers
+  join:
+  - table-name: tracking_value_requests
+    keys:
+    - key: id
+      foreign-key: phone_numbers.id
+- table-name: report_metadata
+  join:
+  - table-name: reports
+    keys:
+    - key: id
+      foreign-key: id
+- table-name: reports
+  join:
+  - table-name: report_metadata
+    keys:
+    - key: id
+      foreign-key: id

@@ -107,3 +107,704 @@ keys:
   - table: users
     keys:
     - idMember
+tables:
+- table-name: actions
+  join:
+  - table-name: boards
+    keys:
+    - key: data.board.id
+      foreign-key: id
+    - key: data.organization.id
+      foreign-key: idOrganization
+    - key: idMemberCreator
+      foreign-key: memberships.idMember
+    - key: data.idMember
+      foreign-key: memberships.idMember
+    - key: data.idMemberAdded
+      foreign-key: memberships.idMember
+    - key: data.idMemberInviter
+      foreign-key: memberships.idMember
+    - key: data.card.idMembers.value
+      foreign-key: memberships.idMember
+    - key: data.member.id
+      foreign-key: memberships.idMember
+    - key: data.old.idMembers.value
+      foreign-key: memberships.idMember
+    - key: member.idMember
+      foreign-key: memberships.idMember
+    - key: memberCreator.idMember
+      foreign-key: memberships.idMember
+  - table-name: cards
+    keys:
+    - key: data.board.id
+      foreign-key: idBoard
+    - key: data.board.id
+      foreign-key: labels.idBoard
+    - key: data.card.id
+      foreign-key: id
+    - key: data.card.idList
+      foreign-key: idList
+    - key: data.list.id
+      foreign-key: idList
+    - key: data.listAfter.id
+      foreign-key: idList
+    - key: data.listBefore.id
+      foreign-key: idList
+    - key: data.old.idList
+      foreign-key: idList
+    - key: idMemberCreator
+      foreign-key: idMembers.value
+    - key: data.idMember
+      foreign-key: idMembers.value
+    - key: data.idMemberAdded
+      foreign-key: idMembers.value
+    - key: data.idMemberInviter
+      foreign-key: idMembers.value
+    - key: data.card.idMembers.value
+      foreign-key: idMembers.value
+    - key: data.member.id
+      foreign-key: idMembers.value
+    - key: data.old.idMembers.value
+      foreign-key: idMembers.value
+    - key: member.idMember
+      foreign-key: idMembers.value
+    - key: memberCreator.idMember
+      foreign-key: idMembers.value
+    - key: idMemberCreator
+      foreign-key: idMembersVoted.value
+    - key: data.idMember
+      foreign-key: idMembersVoted.value
+    - key: data.idMemberAdded
+      foreign-key: idMembersVoted.value
+    - key: data.idMemberInviter
+      foreign-key: idMembersVoted.value
+    - key: data.card.idMembers.value
+      foreign-key: idMembersVoted.value
+    - key: data.member.id
+      foreign-key: idMembersVoted.value
+    - key: data.old.idMembers.value
+      foreign-key: idMembersVoted.value
+    - key: member.idMember
+      foreign-key: idMembersVoted.value
+    - key: memberCreator.idMember
+      foreign-key: idMembersVoted.value
+  - table-name: checklists
+    keys:
+    - key: data.board.id
+      foreign-key: data.board.id
+    - key: data.board.id
+      foreign-key: idBoard
+    - key: data.card.id
+      foreign-key: idCard
+    - key: data.card.id
+      foreign-key: data.card.id
+    - key: data.card.idList
+      foreign-key: idList
+    - key: data.list.id
+      foreign-key: idList
+    - key: data.listAfter.id
+      foreign-key: idList
+    - key: data.listBefore.id
+      foreign-key: idList
+    - key: data.old.idList
+      foreign-key: idList
+    - key: data.card.idList
+      foreign-key: data.list.id
+    - key: data.list.id
+      foreign-key: data.list.id
+    - key: data.listAfter.id
+      foreign-key: data.list.id
+    - key: data.listBefore.id
+      foreign-key: data.list.id
+    - key: data.old.idList
+      foreign-key: data.list.id
+    - key: data.organization.id
+      foreign-key: idOrganization
+    - key: data.organization.id
+      foreign-key: data.organization.id
+    - key: idMemberCreator
+      foreign-key: checkItems.idMember
+    - key: data.idMember
+      foreign-key: checkItems.idMember
+    - key: data.idMemberAdded
+      foreign-key: checkItems.idMember
+    - key: data.idMemberInviter
+      foreign-key: checkItems.idMember
+    - key: data.card.idMembers.value
+      foreign-key: checkItems.idMember
+    - key: data.member.id
+      foreign-key: checkItems.idMember
+    - key: data.old.idMembers.value
+      foreign-key: checkItems.idMember
+    - key: member.idMember
+      foreign-key: checkItems.idMember
+    - key: memberCreator.idMember
+      foreign-key: checkItems.idMember
+    - key: idMemberCreator
+      foreign-key: idMemberCreator
+    - key: data.idMember
+      foreign-key: idMemberCreator
+    - key: data.idMemberAdded
+      foreign-key: idMemberCreator
+    - key: data.idMemberInviter
+      foreign-key: idMemberCreator
+    - key: data.card.idMembers.value
+      foreign-key: idMemberCreator
+    - key: data.member.id
+      foreign-key: idMemberCreator
+    - key: data.old.idMembers.value
+      foreign-key: idMemberCreator
+    - key: member.idMember
+      foreign-key: idMemberCreator
+    - key: memberCreator.idMember
+      foreign-key: idMemberCreator
+    - key: idMemberCreator
+      foreign-key: memberCreator.id
+    - key: data.idMember
+      foreign-key: memberCreator.id
+    - key: data.idMemberAdded
+      foreign-key: memberCreator.id
+    - key: data.idMemberInviter
+      foreign-key: memberCreator.id
+    - key: data.card.idMembers.value
+      foreign-key: memberCreator.id
+    - key: data.member.id
+      foreign-key: memberCreator.id
+    - key: data.old.idMembers.value
+      foreign-key: memberCreator.id
+    - key: member.idMember
+      foreign-key: memberCreator.id
+    - key: memberCreator.idMember
+      foreign-key: memberCreator.id
+    - key: idMemberCreator
+      foreign-key: memberships.idMember
+    - key: data.idMember
+      foreign-key: memberships.idMember
+    - key: data.idMemberAdded
+      foreign-key: memberships.idMember
+    - key: data.idMemberInviter
+      foreign-key: memberships.idMember
+    - key: data.card.idMembers.value
+      foreign-key: memberships.idMember
+    - key: data.member.id
+      foreign-key: memberships.idMember
+    - key: data.old.idMembers.value
+      foreign-key: memberships.idMember
+    - key: member.idMember
+      foreign-key: memberships.idMember
+    - key: memberCreator.idMember
+      foreign-key: memberships.idMember
+  - table-name: lists
+    keys:
+    - key: data.board.id
+      foreign-key: idBoard
+    - key: data.card.idList
+      foreign-key: id
+    - key: data.list.id
+      foreign-key: id
+    - key: data.listAfter.id
+      foreign-key: id
+    - key: data.listBefore.id
+      foreign-key: id
+    - key: data.old.idList
+      foreign-key: id
+  - table-name: users
+    keys:
+    - key: data.board.id
+      foreign-key: boardId
+    - key: idMemberCreator
+      foreign-key: idMember
+    - key: data.idMember
+      foreign-key: idMember
+    - key: data.idMemberAdded
+      foreign-key: idMember
+    - key: data.idMemberInviter
+      foreign-key: idMember
+    - key: data.card.idMembers.value
+      foreign-key: idMember
+    - key: data.member.id
+      foreign-key: idMember
+    - key: data.old.idMembers.value
+      foreign-key: idMember
+    - key: member.idMember
+      foreign-key: idMember
+    - key: memberCreator.idMember
+      foreign-key: idMember
+- table-name: boards
+  join:
+  - table-name: actions
+    keys:
+    - key: id
+      foreign-key: data.board.id
+    - key: idOrganization
+      foreign-key: data.organization.id
+    - key: memberships.idMember
+      foreign-key: idMemberCreator
+    - key: memberships.idMember
+      foreign-key: data.idMember
+    - key: memberships.idMember
+      foreign-key: data.idMemberAdded
+    - key: memberships.idMember
+      foreign-key: data.idMemberInviter
+    - key: memberships.idMember
+      foreign-key: data.card.idMembers.value
+    - key: memberships.idMember
+      foreign-key: data.member.id
+    - key: memberships.idMember
+      foreign-key: data.old.idMembers.value
+    - key: memberships.idMember
+      foreign-key: member.idMember
+    - key: memberships.idMember
+      foreign-key: memberCreator.idMember
+  - table-name: cards
+    keys:
+    - key: id
+      foreign-key: idBoard
+    - key: id
+      foreign-key: labels.idBoard
+    - key: memberships.idMember
+      foreign-key: idMembers.value
+    - key: memberships.idMember
+      foreign-key: idMembersVoted.value
+  - table-name: checklists
+    keys:
+    - key: id
+      foreign-key: data.board.id
+    - key: id
+      foreign-key: idBoard
+    - key: idOrganization
+      foreign-key: idOrganization
+    - key: idOrganization
+      foreign-key: data.organization.id
+    - key: memberships.idMember
+      foreign-key: checkItems.idMember
+    - key: memberships.idMember
+      foreign-key: idMemberCreator
+    - key: memberships.idMember
+      foreign-key: memberCreator.id
+    - key: memberships.idMember
+      foreign-key: memberships.idMember
+  - table-name: lists
+    keys:
+    - key: id
+      foreign-key: idBoard
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: boardId
+    - key: memberships.idMember
+      foreign-key: idMember
+- table-name: cards
+  join:
+  - table-name: boards
+    keys:
+    - key: idBoard
+      foreign-key: id
+    - key: labels.idBoard
+      foreign-key: id
+    - key: idMembers.value
+      foreign-key: memberships.idMember
+    - key: idMembersVoted.value
+      foreign-key: memberships.idMember
+  - table-name: actions
+    keys:
+    - key: idBoard
+      foreign-key: data.board.id
+    - key: labels.idBoard
+      foreign-key: data.board.id
+    - key: id
+      foreign-key: data.card.id
+    - key: idList
+      foreign-key: data.card.idList
+    - key: idList
+      foreign-key: data.list.id
+    - key: idList
+      foreign-key: data.listAfter.id
+    - key: idList
+      foreign-key: data.listBefore.id
+    - key: idList
+      foreign-key: data.old.idList
+    - key: idMembers.value
+      foreign-key: idMemberCreator
+    - key: idMembersVoted.value
+      foreign-key: idMemberCreator
+    - key: idMembers.value
+      foreign-key: data.idMember
+    - key: idMembersVoted.value
+      foreign-key: data.idMember
+    - key: idMembers.value
+      foreign-key: data.idMemberAdded
+    - key: idMembersVoted.value
+      foreign-key: data.idMemberAdded
+    - key: idMembers.value
+      foreign-key: data.idMemberInviter
+    - key: idMembersVoted.value
+      foreign-key: data.idMemberInviter
+    - key: idMembers.value
+      foreign-key: data.card.idMembers.value
+    - key: idMembersVoted.value
+      foreign-key: data.card.idMembers.value
+    - key: idMembers.value
+      foreign-key: data.member.id
+    - key: idMembersVoted.value
+      foreign-key: data.member.id
+    - key: idMembers.value
+      foreign-key: data.old.idMembers.value
+    - key: idMembersVoted.value
+      foreign-key: data.old.idMembers.value
+    - key: idMembers.value
+      foreign-key: member.idMember
+    - key: idMembersVoted.value
+      foreign-key: member.idMember
+    - key: idMembers.value
+      foreign-key: memberCreator.idMember
+    - key: idMembersVoted.value
+      foreign-key: memberCreator.idMember
+  - table-name: checklists
+    keys:
+    - key: idBoard
+      foreign-key: data.board.id
+    - key: labels.idBoard
+      foreign-key: data.board.id
+    - key: idBoard
+      foreign-key: idBoard
+    - key: labels.idBoard
+      foreign-key: idBoard
+    - key: id
+      foreign-key: idCard
+    - key: id
+      foreign-key: data.card.id
+    - key: idChecklists.value
+      foreign-key: id
+    - key: idChecklists.value
+      foreign-key: checkItems.idCheckList
+    - key: idChecklists.value
+      foreign-key: data.checklist.id
+    - key: idList
+      foreign-key: idList
+    - key: idList
+      foreign-key: data.list.id
+    - key: idMembers.value
+      foreign-key: checkItems.idMember
+    - key: idMembersVoted.value
+      foreign-key: checkItems.idMember
+    - key: idMembers.value
+      foreign-key: idMemberCreator
+    - key: idMembersVoted.value
+      foreign-key: idMemberCreator
+    - key: idMembers.value
+      foreign-key: memberCreator.id
+    - key: idMembersVoted.value
+      foreign-key: memberCreator.id
+    - key: idMembers.value
+      foreign-key: memberships.idMember
+    - key: idMembersVoted.value
+      foreign-key: memberships.idMember
+  - table-name: lists
+    keys:
+    - key: idBoard
+      foreign-key: idBoard
+    - key: labels.idBoard
+      foreign-key: idBoard
+    - key: idList
+      foreign-key: id
+  - table-name: users
+    keys:
+    - key: idBoard
+      foreign-key: boardId
+    - key: labels.idBoard
+      foreign-key: boardId
+    - key: idMembers.value
+      foreign-key: idMember
+    - key: idMembersVoted.value
+      foreign-key: idMember
+- table-name: checklists
+  join:
+  - table-name: boards
+    keys:
+    - key: data.board.id
+      foreign-key: id
+    - key: idBoard
+      foreign-key: id
+    - key: idOrganization
+      foreign-key: idOrganization
+    - key: data.organization.id
+      foreign-key: idOrganization
+    - key: checkItems.idMember
+      foreign-key: memberships.idMember
+    - key: idMemberCreator
+      foreign-key: memberships.idMember
+    - key: memberCreator.id
+      foreign-key: memberships.idMember
+    - key: memberships.idMember
+      foreign-key: memberships.idMember
+  - table-name: actions
+    keys:
+    - key: data.board.id
+      foreign-key: data.board.id
+    - key: idBoard
+      foreign-key: data.board.id
+    - key: idCard
+      foreign-key: data.card.id
+    - key: data.card.id
+      foreign-key: data.card.id
+    - key: idList
+      foreign-key: data.card.idList
+    - key: data.list.id
+      foreign-key: data.card.idList
+    - key: idList
+      foreign-key: data.list.id
+    - key: data.list.id
+      foreign-key: data.list.id
+    - key: idList
+      foreign-key: data.listAfter.id
+    - key: data.list.id
+      foreign-key: data.listAfter.id
+    - key: idList
+      foreign-key: data.listBefore.id
+    - key: data.list.id
+      foreign-key: data.listBefore.id
+    - key: idList
+      foreign-key: data.old.idList
+    - key: data.list.id
+      foreign-key: data.old.idList
+    - key: idOrganization
+      foreign-key: data.organization.id
+    - key: data.organization.id
+      foreign-key: data.organization.id
+    - key: checkItems.idMember
+      foreign-key: idMemberCreator
+    - key: idMemberCreator
+      foreign-key: idMemberCreator
+    - key: memberCreator.id
+      foreign-key: idMemberCreator
+    - key: memberships.idMember
+      foreign-key: idMemberCreator
+    - key: checkItems.idMember
+      foreign-key: data.idMember
+    - key: idMemberCreator
+      foreign-key: data.idMember
+    - key: memberCreator.id
+      foreign-key: data.idMember
+    - key: memberships.idMember
+      foreign-key: data.idMember
+    - key: checkItems.idMember
+      foreign-key: data.idMemberAdded
+    - key: idMemberCreator
+      foreign-key: data.idMemberAdded
+    - key: memberCreator.id
+      foreign-key: data.idMemberAdded
+    - key: memberships.idMember
+      foreign-key: data.idMemberAdded
+    - key: checkItems.idMember
+      foreign-key: data.idMemberInviter
+    - key: idMemberCreator
+      foreign-key: data.idMemberInviter
+    - key: memberCreator.id
+      foreign-key: data.idMemberInviter
+    - key: memberships.idMember
+      foreign-key: data.idMemberInviter
+    - key: checkItems.idMember
+      foreign-key: data.card.idMembers.value
+    - key: idMemberCreator
+      foreign-key: data.card.idMembers.value
+    - key: memberCreator.id
+      foreign-key: data.card.idMembers.value
+    - key: memberships.idMember
+      foreign-key: data.card.idMembers.value
+    - key: checkItems.idMember
+      foreign-key: data.member.id
+    - key: idMemberCreator
+      foreign-key: data.member.id
+    - key: memberCreator.id
+      foreign-key: data.member.id
+    - key: memberships.idMember
+      foreign-key: data.member.id
+    - key: checkItems.idMember
+      foreign-key: data.old.idMembers.value
+    - key: idMemberCreator
+      foreign-key: data.old.idMembers.value
+    - key: memberCreator.id
+      foreign-key: data.old.idMembers.value
+    - key: memberships.idMember
+      foreign-key: data.old.idMembers.value
+    - key: checkItems.idMember
+      foreign-key: member.idMember
+    - key: idMemberCreator
+      foreign-key: member.idMember
+    - key: memberCreator.id
+      foreign-key: member.idMember
+    - key: memberships.idMember
+      foreign-key: member.idMember
+    - key: checkItems.idMember
+      foreign-key: memberCreator.idMember
+    - key: idMemberCreator
+      foreign-key: memberCreator.idMember
+    - key: memberCreator.id
+      foreign-key: memberCreator.idMember
+    - key: memberships.idMember
+      foreign-key: memberCreator.idMember
+  - table-name: cards
+    keys:
+    - key: data.board.id
+      foreign-key: idBoard
+    - key: idBoard
+      foreign-key: idBoard
+    - key: data.board.id
+      foreign-key: labels.idBoard
+    - key: idBoard
+      foreign-key: labels.idBoard
+    - key: idCard
+      foreign-key: id
+    - key: data.card.id
+      foreign-key: id
+    - key: id
+      foreign-key: idChecklists.value
+    - key: checkItems.idCheckList
+      foreign-key: idChecklists.value
+    - key: data.checklist.id
+      foreign-key: idChecklists.value
+    - key: idList
+      foreign-key: idList
+    - key: data.list.id
+      foreign-key: idList
+    - key: checkItems.idMember
+      foreign-key: idMembers.value
+    - key: idMemberCreator
+      foreign-key: idMembers.value
+    - key: memberCreator.id
+      foreign-key: idMembers.value
+    - key: memberships.idMember
+      foreign-key: idMembers.value
+    - key: checkItems.idMember
+      foreign-key: idMembersVoted.value
+    - key: idMemberCreator
+      foreign-key: idMembersVoted.value
+    - key: memberCreator.id
+      foreign-key: idMembersVoted.value
+    - key: memberships.idMember
+      foreign-key: idMembersVoted.value
+  - table-name: lists
+    keys:
+    - key: data.board.id
+      foreign-key: idBoard
+    - key: idBoard
+      foreign-key: idBoard
+    - key: idList
+      foreign-key: id
+    - key: data.list.id
+      foreign-key: id
+  - table-name: users
+    keys:
+    - key: data.board.id
+      foreign-key: boardId
+    - key: idBoard
+      foreign-key: boardId
+    - key: checkItems.idMember
+      foreign-key: idMember
+    - key: idMemberCreator
+      foreign-key: idMember
+    - key: memberCreator.id
+      foreign-key: idMember
+    - key: memberships.idMember
+      foreign-key: idMember
+- table-name: lists
+  join:
+  - table-name: boards
+    keys:
+    - key: idBoard
+      foreign-key: id
+  - table-name: actions
+    keys:
+    - key: idBoard
+      foreign-key: data.board.id
+    - key: id
+      foreign-key: data.card.idList
+    - key: id
+      foreign-key: data.list.id
+    - key: id
+      foreign-key: data.listAfter.id
+    - key: id
+      foreign-key: data.listBefore.id
+    - key: id
+      foreign-key: data.old.idList
+  - table-name: cards
+    keys:
+    - key: idBoard
+      foreign-key: idBoard
+    - key: idBoard
+      foreign-key: labels.idBoard
+    - key: id
+      foreign-key: idList
+  - table-name: checklists
+    keys:
+    - key: idBoard
+      foreign-key: data.board.id
+    - key: idBoard
+      foreign-key: idBoard
+    - key: id
+      foreign-key: idList
+    - key: id
+      foreign-key: data.list.id
+  - table-name: users
+    keys:
+    - key: idBoard
+      foreign-key: boardId
+- table-name: users
+  join:
+  - table-name: boards
+    keys:
+    - key: boardId
+      foreign-key: id
+    - key: idMember
+      foreign-key: memberships.idMember
+  - table-name: actions
+    keys:
+    - key: boardId
+      foreign-key: data.board.id
+    - key: idMember
+      foreign-key: idMemberCreator
+    - key: idMember
+      foreign-key: data.idMember
+    - key: idMember
+      foreign-key: data.idMemberAdded
+    - key: idMember
+      foreign-key: data.idMemberInviter
+    - key: idMember
+      foreign-key: data.card.idMembers.value
+    - key: idMember
+      foreign-key: data.member.id
+    - key: idMember
+      foreign-key: data.old.idMembers.value
+    - key: idMember
+      foreign-key: member.idMember
+    - key: idMember
+      foreign-key: memberCreator.idMember
+  - table-name: cards
+    keys:
+    - key: boardId
+      foreign-key: idBoard
+    - key: boardId
+      foreign-key: labels.idBoard
+    - key: idMember
+      foreign-key: idMembers.value
+    - key: idMember
+      foreign-key: idMembersVoted.value
+  - table-name: checklists
+    keys:
+    - key: boardId
+      foreign-key: data.board.id
+    - key: boardId
+      foreign-key: idBoard
+    - key: idMember
+      foreign-key: checkItems.idMember
+    - key: idMember
+      foreign-key: idMemberCreator
+    - key: idMember
+      foreign-key: memberCreator.id
+    - key: idMember
+      foreign-key: memberships.idMember
+  - table-name: lists
+    keys:
+    - key: boardId
+      foreign-key: idBoard

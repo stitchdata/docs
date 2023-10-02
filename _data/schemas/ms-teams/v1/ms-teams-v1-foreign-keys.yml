@@ -105,3 +105,404 @@ keys:
     - from.user.id
     - mentions.mentioned.user.id
     - reactions.user.user.id
+tables:
+- table-name: channels
+  join:
+  - table-name: channel
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: channel_members
+    keys:
+    - key: id
+      foreign-key: channel_id
+  - table-name: channel_tabs
+    keys:
+    - key: id
+      foreign-key: channel_id
+  - table-name: channel_messages
+    keys:
+    - key: id
+      foreign-key: channel_identity.channel_id
+  - table-name: channel_message_replies
+    keys:
+    - key: id
+      foreign-key: channel_identity.channel_id
+- table-name: channel
+  join:
+  - table-name: channels
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: channel_members
+    keys:
+    - key: id
+      foreign-key: channel_id
+  - table-name: channel_tabs
+    keys:
+    - key: id
+      foreign-key: channel_id
+  - table-name: channel_messages
+    keys:
+    - key: id
+      foreign-key: channel_identity.channel_id
+  - table-name: channel_message_replies
+    keys:
+    - key: id
+      foreign-key: channel_identity.channel_id
+- table-name: channel_members
+  join:
+  - table-name: channels
+    keys:
+    - key: channel_id
+      foreign-key: id
+  - table-name: channel
+    keys:
+    - key: channel_id
+      foreign-key: id
+  - table-name: channel_tabs
+    keys:
+    - key: channel_id
+      foreign-key: channel_id
+  - table-name: channel_messages
+    keys:
+    - key: channel_id
+      foreign-key: channel_identity.channel_id
+    - key: user_id
+      foreign-key: from.user.id
+    - key: user_id
+      foreign-key: mentions.mentioned.user.id
+    - key: user_id
+      foreign-key: reactions.user.user.id
+  - table-name: channel_message_replies
+    keys:
+    - key: channel_id
+      foreign-key: channel_identity.channel_id
+    - key: user_id
+      foreign-key: from.user.id
+    - key: user_id
+      foreign-key: mentions.mentioned.user.id
+    - key: user_id
+      foreign-key: reactions.user.user.id
+  - table-name: users
+    keys:
+    - key: user_id
+      foreign-key: id
+- table-name: channel_tabs
+  join:
+  - table-name: channels
+    keys:
+    - key: channel_id
+      foreign-key: id
+  - table-name: channel
+    keys:
+    - key: channel_id
+      foreign-key: id
+  - table-name: channel_members
+    keys:
+    - key: channel_id
+      foreign-key: channel_id
+  - table-name: channel_messages
+    keys:
+    - key: channel_id
+      foreign-key: channel_identity.channel_id
+  - table-name: channel_message_replies
+    keys:
+    - key: channel_id
+      foreign-key: channel_identity.channel_id
+  - table-name: groups
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: group_owners
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: conversations
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: conversation_threads
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: team_drives
+    keys:
+    - key: group_id
+      foreign-key: owner.group.id
+- table-name: channel_messages
+  join:
+  - table-name: channels
+    keys:
+    - key: channel_identity.channel_id
+      foreign-key: id
+  - table-name: channel
+    keys:
+    - key: channel_identity.channel_id
+      foreign-key: id
+  - table-name: channel_members
+    keys:
+    - key: channel_identity.channel_id
+      foreign-key: channel_id
+    - key: from.user.id
+      foreign-key: user_id
+    - key: mentions.mentioned.user.id
+      foreign-key: user_id
+    - key: reactions.user.user.id
+      foreign-key: user_id
+  - table-name: channel_tabs
+    keys:
+    - key: channel_identity.channel_id
+      foreign-key: channel_id
+  - table-name: channel_message_replies
+    keys:
+    - key: channel_identity.channel_id
+      foreign-key: channel_identity.channel_id
+    - key: from.user.id
+      foreign-key: from.user.id
+    - key: mentions.mentioned.user.id
+      foreign-key: from.user.id
+    - key: reactions.user.user.id
+      foreign-key: from.user.id
+    - key: from.user.id
+      foreign-key: mentions.mentioned.user.id
+    - key: mentions.mentioned.user.id
+      foreign-key: mentions.mentioned.user.id
+    - key: reactions.user.user.id
+      foreign-key: mentions.mentioned.user.id
+    - key: from.user.id
+      foreign-key: reactions.user.user.id
+    - key: mentions.mentioned.user.id
+      foreign-key: reactions.user.user.id
+    - key: reactions.user.user.id
+      foreign-key: reactions.user.user.id
+  - table-name: users
+    keys:
+    - key: from.user.id
+      foreign-key: id
+    - key: mentions.mentioned.user.id
+      foreign-key: id
+    - key: reactions.user.user.id
+      foreign-key: id
+- table-name: channel_message_replies
+  join:
+  - table-name: channels
+    keys:
+    - key: channel_identity.channel_id
+      foreign-key: id
+  - table-name: channel
+    keys:
+    - key: channel_identity.channel_id
+      foreign-key: id
+  - table-name: channel_members
+    keys:
+    - key: channel_identity.channel_id
+      foreign-key: channel_id
+    - key: from.user.id
+      foreign-key: user_id
+    - key: mentions.mentioned.user.id
+      foreign-key: user_id
+    - key: reactions.user.user.id
+      foreign-key: user_id
+  - table-name: channel_tabs
+    keys:
+    - key: channel_identity.channel_id
+      foreign-key: channel_id
+  - table-name: channel_messages
+    keys:
+    - key: channel_identity.channel_id
+      foreign-key: channel_identity.channel_id
+    - key: from.user.id
+      foreign-key: from.user.id
+    - key: mentions.mentioned.user.id
+      foreign-key: from.user.id
+    - key: reactions.user.user.id
+      foreign-key: from.user.id
+    - key: from.user.id
+      foreign-key: mentions.mentioned.user.id
+    - key: mentions.mentioned.user.id
+      foreign-key: mentions.mentioned.user.id
+    - key: reactions.user.user.id
+      foreign-key: mentions.mentioned.user.id
+    - key: from.user.id
+      foreign-key: reactions.user.user.id
+    - key: mentions.mentioned.user.id
+      foreign-key: reactions.user.user.id
+    - key: reactions.user.user.id
+      foreign-key: reactions.user.user.id
+  - table-name: users
+    keys:
+    - key: from.user.id
+      foreign-key: id
+    - key: mentions.mentioned.user.id
+      foreign-key: id
+    - key: reactions.user.user.id
+      foreign-key: id
+- table-name: conversation
+  join:
+  - table-name: conversation_threads
+    keys:
+    - key: id
+      foreign-key: conversation_id
+  - table-name: conversation_posts
+    keys:
+    - key: id
+      foreign-key: conversation_id
+- table-name: conversation_threads
+  join:
+  - table-name: conversation
+    keys:
+    - key: conversation_id
+      foreign-key: id
+  - table-name: conversation_posts
+    keys:
+    - key: conversation_id
+      foreign-key: conversation_id
+    - key: id
+      foreign-key: thread_id
+  - table-name: groups
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: group_owners
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: channel_tabs
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: conversations
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: team_drives
+    keys:
+    - key: group_id
+      foreign-key: owner.group.id
+- table-name: conversation_posts
+  join:
+  - table-name: conversation
+    keys:
+    - key: conversation_id
+      foreign-key: id
+  - table-name: conversation_threads
+    keys:
+    - key: conversation_id
+      foreign-key: conversation_id
+    - key: thread_id
+      foreign-key: id
+- table-name: team_drives
+  join:
+  - table-name: groups
+    keys:
+    - key: owner.group.id
+      foreign-key: id
+  - table-name: group_owners
+    keys:
+    - key: owner.group.id
+      foreign-key: group_id
+  - table-name: channel_tabs
+    keys:
+    - key: owner.group.id
+      foreign-key: group_id
+  - table-name: conversations
+    keys:
+    - key: owner.group.id
+      foreign-key: group_id
+  - table-name: conversation_threads
+    keys:
+    - key: owner.group.id
+      foreign-key: group_id
+- table-name: groups
+  join:
+  - table-name: group_owners
+    keys:
+    - key: id
+      foreign-key: group_id
+  - table-name: channel_tabs
+    keys:
+    - key: id
+      foreign-key: group_id
+  - table-name: conversations
+    keys:
+    - key: id
+      foreign-key: group_id
+  - table-name: conversation_threads
+    keys:
+    - key: id
+      foreign-key: group_id
+  - table-name: team_drives
+    keys:
+    - key: id
+      foreign-key: owner.group.id
+- table-name: group_owners
+  join:
+  - table-name: groups
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: channel_tabs
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: conversations
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: conversation_threads
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: team_drives
+    keys:
+    - key: group_id
+      foreign-key: owner.group.id
+- table-name: conversations
+  join:
+  - table-name: groups
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: group_owners
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: channel_tabs
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: conversation_threads
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: team_drives
+    keys:
+    - key: group_id
+      foreign-key: owner.group.id
+- table-name: group_members
+  join: []
+- table-name: channel_messages_replies
+  join: []
+- table-name: users
+  join:
+  - table-name: channel_members
+    keys:
+    - key: id
+      foreign-key: user_id
+  - table-name: channel_message_replies
+    keys:
+    - key: id
+      foreign-key: from.user.id
+    - key: id
+      foreign-key: mentions.mentioned.user.id
+    - key: id
+      foreign-key: reactions.user.user.id
+  - table-name: channel_messages
+    keys:
+    - key: id
+      foreign-key: from.user.id
+    - key: id
+      foreign-key: mentions.mentioned.user.id
+    - key: id
+      foreign-key: reactions.user.user.id

@@ -47,3 +47,100 @@ keys:
   - table: segments
     keys:
     - eid
+tables:
+- table-name: ad_groups
+  join:
+  - table-name: ads
+    keys:
+    - key: eid
+      foreign-key: adgroups.id
+    - key: ads.id
+      foreign-key: eid
+    - key: ads.id
+      foreign-key: original_ad
+  - table-name: campaigns
+    keys:
+    - key: eid
+      foreign-key: adgroups.value
+  - table-name: ad_reports
+    keys:
+    - key: ads.id
+      foreign-key: ad
+  - table-name: segments
+    keys:
+    - key: segments.id
+      foreign-key: eid
+- table-name: ads
+  join:
+  - table-name: ad_groups
+    keys:
+    - key: adgroups.id
+      foreign-key: eid
+    - key: eid
+      foreign-key: ads.id
+    - key: original_ad
+      foreign-key: ads.id
+  - table-name: campaigns
+    keys:
+    - key: adgroups.id
+      foreign-key: adgroups.value
+  - table-name: ad_reports
+    keys:
+    - key: eid
+      foreign-key: ad
+    - key: original_ad
+      foreign-key: ad
+- table-name: campaigns
+  join:
+  - table-name: ad_groups
+    keys:
+    - key: adgroups.value
+      foreign-key: eid
+  - table-name: ads
+    keys:
+    - key: adgroups.value
+      foreign-key: adgroups.id
+  - table-name: advertisables
+    keys:
+    - key: advertisable
+      foreign-key: eid
+  - table-name: segments
+    keys:
+    - key: advertisable
+      foreign-key: advertisable_eid
+- table-name: ad_reports
+  join:
+  - table-name: ad_groups
+    keys:
+    - key: ad
+      foreign-key: ads.id
+  - table-name: ads
+    keys:
+    - key: ad
+      foreign-key: eid
+    - key: ad
+      foreign-key: original_ad
+- table-name: advertisables
+  join:
+  - table-name: campaigns
+    keys:
+    - key: eid
+      foreign-key: advertisable
+  - table-name: segments
+    keys:
+    - key: eid
+      foreign-key: advertisable_eid
+- table-name: segments
+  join:
+  - table-name: advertisables
+    keys:
+    - key: advertisable_eid
+      foreign-key: eid
+  - table-name: campaigns
+    keys:
+    - key: advertisable_eid
+      foreign-key: advertisable
+  - table-name: ad_groups
+    keys:
+    - key: eid
+      foreign-key: segments.id

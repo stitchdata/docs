@@ -25,3 +25,54 @@ keys:
   - table: questions
     keys:
     - question_id
+tables:
+- table-name: forms
+  join:
+  - table-name: questions
+    keys:
+    - key: form_id
+      foreign-key: form_id
+- table-name: questions
+  join:
+  - table-name: forms
+    keys:
+    - key: form_id
+      foreign-key: form_id
+  - table-name: answers
+    keys:
+    - key: question_id
+      foreign-key: question_id
+- table-name: answers
+  join:
+  - table-name: submitted_landings
+    keys:
+    - key: landing_id
+      foreign-key: landing_id
+  - table-name: unsubmitted_landings
+    keys:
+    - key: landing_id
+      foreign-key: landing_id
+  - table-name: questions
+    keys:
+    - key: question_id
+      foreign-key: question_id
+- table-name: submitted_landings
+  join:
+  - table-name: answers
+    keys:
+    - key: landing_id
+      foreign-key: landing_id
+  - table-name: unsubmitted_landings
+    keys:
+    - key: landing_id
+      foreign-key: landing_id
+- table-name: unsubmitted_landings
+  join:
+  - table-name: answers
+    keys:
+    - key: landing_id
+      foreign-key: landing_id
+  - table-name: submitted_landings
+    keys:
+    - key: landing_id
+      foreign-key: landing_id

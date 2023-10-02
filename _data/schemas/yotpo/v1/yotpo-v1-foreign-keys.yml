@@ -30,3 +30,38 @@ keys:
   - table: reviews
     keys:
     - id
+tables:
+- table-name: emails
+  join:
+  - table-name: unsubscribers
+    keys:
+    - key: email_address
+      foreign-key: user_email
+- table-name: unsubscribers
+  join:
+  - table-name: emails
+    keys:
+    - key: user_email
+      foreign-key: email_address
+- table-name: products
+  join:
+  - table-name: product_reviews
+    keys:
+    - key: product_id
+      foreign-key: product_id
+- table-name: product_reviews
+  join:
+  - table-name: products
+    keys:
+    - key: product_id
+      foreign-key: product_id
+  - table-name: reviews
+    keys:
+    - key: source_review_id
+      foreign-key: id
+- table-name: reviews
+  join:
+  - table-name: product_reviews
+    keys:
+    - key: id
+      foreign-key: source_review_id

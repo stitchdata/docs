@@ -58,3 +58,124 @@ keys:
   - table: triggers
     keys:
     - id
+tables:
+- table-name: account
+  join:
+  - table-name: goals
+    keys:
+    - key: plan.goals
+      foreign-key: id
+  - table-name: chats
+    keys:
+    - key: plan.goals
+      foreign-key: conversions.goal_id
+    - key: plan.goals
+      foreign-key: history.conversion.goal_id
+- table-name: agents
+  join:
+  - table-name: chats
+    keys:
+    - key: id
+      foreign-key: agent_ids.value
+    - key: id
+      foreign-key: agent_id
+    - key: id
+      foreign-key: agent
+    - key: value
+      foreign-key: department_id
+    - key: value
+      foreign-key: prev_department_id
+  - table-name: departments
+    keys:
+    - key: value
+      foreign-key: id
+  - table-name: shortcuts
+    keys:
+    - key: value
+      foreign-key: departments.id
+- table-name: chats
+  join:
+  - table-name: agents
+    keys:
+    - key: agent_ids.value
+      foreign-key: id
+    - key: agent_id
+      foreign-key: id
+    - key: agent
+      foreign-key: id
+    - key: department_id
+      foreign-key: value
+    - key: prev_department_id
+      foreign-key: value
+  - table-name: departments
+    keys:
+    - key: department_id
+      foreign-key: id
+    - key: prev_department_id
+      foreign-key: id
+  - table-name: shortcuts
+    keys:
+    - key: department_id
+      foreign-key: departments.id
+    - key: prev_department_id
+      foreign-key: departments.id
+  - table-name: goals
+    keys:
+    - key: conversions.goal_id
+      foreign-key: id
+    - key: history.conversion.goal_id
+      foreign-key: id
+  - table-name: account
+    keys:
+    - key: conversions.goal_id
+      foreign-key: plan.goals
+    - key: history.conversion.goal_id
+      foreign-key: plan.goals
+- table-name: bans
+  join: []
+- table-name: departments
+  join:
+  - table-name: shortcuts
+    keys:
+    - key: id
+      foreign-key: departments.id
+  - table-name: chats
+    keys:
+    - key: id
+      foreign-key: department_id
+    - key: id
+      foreign-key: prev_department_id
+  - table-name: agents
+    keys:
+    - key: id
+      foreign-key: value
+- table-name: shortcuts
+  join:
+  - table-name: departments
+    keys:
+    - key: departments.id
+      foreign-key: id
+  - table-name: chats
+    keys:
+    - key: departments.id
+      foreign-key: department_id
+    - key: departments.id
+      foreign-key: prev_department_id
+  - table-name: agents
+    keys:
+    - key: departments.id
+      foreign-key: value
+- table-name: goals
+  join:
+  - table-name: chats
+    keys:
+    - key: id
+      foreign-key: conversions.goal_id
+    - key: id
+      foreign-key: history.conversion.goal_id
+  - table-name: account
+    keys:
+    - key: id
+      foreign-key: plan.goals
+- table-name: triggers
+  join: []

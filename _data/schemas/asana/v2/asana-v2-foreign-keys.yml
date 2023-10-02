@@ -100,3 +100,640 @@ keys:
     keys:
     - gid
     - portfolio_items.gid
+tables:
+- table-name: projects
+  join:
+  - table-name: tasks
+    keys:
+    - key: gid
+      foreign-key: projects.gid
+    - key: followers.gid
+      foreign-key: assignees.gid
+    - key: members.gid
+      foreign-key: assignees.gid
+    - key: owner.gid
+      foreign-key: assignees.gid
+    - key: followers.gid
+      foreign-key: followers.gid
+    - key: members.gid
+      foreign-key: followers.gid
+    - key: owner.gid
+      foreign-key: followers.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: stories
+    keys:
+    - key: gid
+      foreign-key: projects.gid
+    - key: followers.gid
+      foreign-key: assignees.gid
+    - key: members.gid
+      foreign-key: assignees.gid
+    - key: owner.gid
+      foreign-key: assignees.gid
+    - key: followers.gid
+      foreign-key: created_by.gid
+    - key: members.gid
+      foreign-key: created_by.gid
+    - key: owner.gid
+      foreign-key: created_by.gid
+    - key: followers.gid
+      foreign-key: dependency.gid
+    - key: members.gid
+      foreign-key: dependency.gid
+    - key: owner.gid
+      foreign-key: dependency.gid
+  - table-name: sections
+    keys:
+    - key: gid
+      foreign-key: project.gid
+    - key: gid
+      foreign-key: projects.gid
+  - table-name: tags
+    keys:
+    - key: followers.gid
+      foreign-key: followers.gid
+    - key: members.gid
+      foreign-key: followers.gid
+    - key: owner.gid
+      foreign-key: followers.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: users
+    keys:
+    - key: followers.gid
+      foreign-key: gid
+    - key: members.gid
+      foreign-key: gid
+    - key: owner.gid
+      foreign-key: gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: portfolios
+    keys:
+    - key: followers.gid
+      foreign-key: created_by.gid
+    - key: members.gid
+      foreign-key: created_by.gid
+    - key: owner.gid
+      foreign-key: created_by.gid
+    - key: followers.gid
+      foreign-key: members.gid
+    - key: members.gid
+      foreign-key: members.gid
+    - key: owner.gid
+      foreign-key: members.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: porfolios
+    keys:
+    - key: followers.gid
+      foreign-key: owner.gid
+    - key: members.gid
+      foreign-key: owner.gid
+    - key: owner.gid
+      foreign-key: owner.gid
+  - table-name: teams
+    keys:
+    - key: followers.gid
+      foreign-key: users.gid
+    - key: members.gid
+      foreign-key: users.gid
+    - key: owner.gid
+      foreign-key: users.gid
+    - key: workspace.gid
+      foreign-key: organization.gid
+  - table-name: workspace
+    keys:
+    - key: workspace.gid
+      foreign-key: gid
+- table-name: tasks
+  join:
+  - table-name: projects
+    keys:
+    - key: projects.gid
+      foreign-key: gid
+    - key: assignees.gid
+      foreign-key: followers.gid
+    - key: followers.gid
+      foreign-key: followers.gid
+    - key: assignees.gid
+      foreign-key: members.gid
+    - key: followers.gid
+      foreign-key: members.gid
+    - key: assignees.gid
+      foreign-key: owner.gid
+    - key: followers.gid
+      foreign-key: owner.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: stories
+    keys:
+    - key: projects.gid
+      foreign-key: projects.gid
+    - key: gid
+      foreign-key: task.gid
+    - key: assignees.gid
+      foreign-key: assignees.gid
+    - key: followers.gid
+      foreign-key: assignees.gid
+    - key: assignees.gid
+      foreign-key: created_by.gid
+    - key: followers.gid
+      foreign-key: created_by.gid
+    - key: assignees.gid
+      foreign-key: dependency.gid
+    - key: followers.gid
+      foreign-key: dependency.gid
+  - table-name: sections
+    keys:
+    - key: projects.gid
+      foreign-key: project.gid
+    - key: projects.gid
+      foreign-key: projects.gid
+  - table-name: tags
+    keys:
+    - key: assignees.gid
+      foreign-key: followers.gid
+    - key: followers.gid
+      foreign-key: followers.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: users
+    keys:
+    - key: assignees.gid
+      foreign-key: gid
+    - key: followers.gid
+      foreign-key: gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: portfolios
+    keys:
+    - key: assignees.gid
+      foreign-key: created_by.gid
+    - key: followers.gid
+      foreign-key: created_by.gid
+    - key: assignees.gid
+      foreign-key: members.gid
+    - key: followers.gid
+      foreign-key: members.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: porfolios
+    keys:
+    - key: assignees.gid
+      foreign-key: owner.gid
+    - key: followers.gid
+      foreign-key: owner.gid
+  - table-name: teams
+    keys:
+    - key: assignees.gid
+      foreign-key: users.gid
+    - key: followers.gid
+      foreign-key: users.gid
+    - key: workspace.gid
+      foreign-key: organization.gid
+  - table-name: workspace
+    keys:
+    - key: workspace.gid
+      foreign-key: gid
+- table-name: stories
+  join:
+  - table-name: projects
+    keys:
+    - key: projects.gid
+      foreign-key: gid
+    - key: assignees.gid
+      foreign-key: followers.gid
+    - key: created_by.gid
+      foreign-key: followers.gid
+    - key: dependency.gid
+      foreign-key: followers.gid
+    - key: assignees.gid
+      foreign-key: members.gid
+    - key: created_by.gid
+      foreign-key: members.gid
+    - key: dependency.gid
+      foreign-key: members.gid
+    - key: assignees.gid
+      foreign-key: owner.gid
+    - key: created_by.gid
+      foreign-key: owner.gid
+    - key: dependency.gid
+      foreign-key: owner.gid
+  - table-name: tasks
+    keys:
+    - key: projects.gid
+      foreign-key: projects.gid
+    - key: task.gid
+      foreign-key: gid
+    - key: assignees.gid
+      foreign-key: assignees.gid
+    - key: created_by.gid
+      foreign-key: assignees.gid
+    - key: dependency.gid
+      foreign-key: assignees.gid
+    - key: assignees.gid
+      foreign-key: followers.gid
+    - key: created_by.gid
+      foreign-key: followers.gid
+    - key: dependency.gid
+      foreign-key: followers.gid
+  - table-name: sections
+    keys:
+    - key: projects.gid
+      foreign-key: project.gid
+    - key: projects.gid
+      foreign-key: projects.gid
+    - key: new_section.gid
+      foreign-key: gid
+    - key: old_section.gid
+      foreign-key: gid
+  - table-name: tags
+    keys:
+    - key: tag.gid
+      foreign-key: gid
+    - key: assignees.gid
+      foreign-key: followers.gid
+    - key: created_by.gid
+      foreign-key: followers.gid
+    - key: dependency.gid
+      foreign-key: followers.gid
+  - table-name: users
+    keys:
+    - key: assignees.gid
+      foreign-key: gid
+    - key: created_by.gid
+      foreign-key: gid
+    - key: dependency.gid
+      foreign-key: gid
+  - table-name: portfolios
+    keys:
+    - key: assignees.gid
+      foreign-key: created_by.gid
+    - key: created_by.gid
+      foreign-key: created_by.gid
+    - key: dependency.gid
+      foreign-key: created_by.gid
+    - key: assignees.gid
+      foreign-key: members.gid
+    - key: created_by.gid
+      foreign-key: members.gid
+    - key: dependency.gid
+      foreign-key: members.gid
+  - table-name: porfolios
+    keys:
+    - key: assignees.gid
+      foreign-key: owner.gid
+    - key: created_by.gid
+      foreign-key: owner.gid
+    - key: dependency.gid
+      foreign-key: owner.gid
+  - table-name: teams
+    keys:
+    - key: assignees.gid
+      foreign-key: users.gid
+    - key: created_by.gid
+      foreign-key: users.gid
+    - key: dependency.gid
+      foreign-key: users.gid
+- table-name: sections
+  join:
+  - table-name: projects
+    keys:
+    - key: project.gid
+      foreign-key: gid
+    - key: projects.gid
+      foreign-key: gid
+  - table-name: tasks
+    keys:
+    - key: project.gid
+      foreign-key: projects.gid
+    - key: projects.gid
+      foreign-key: projects.gid
+  - table-name: stories
+    keys:
+    - key: project.gid
+      foreign-key: projects.gid
+    - key: projects.gid
+      foreign-key: projects.gid
+    - key: gid
+      foreign-key: new_section.gid
+    - key: gid
+      foreign-key: old_section.gid
+- table-name: tags
+  join:
+  - table-name: stories
+    keys:
+    - key: gid
+      foreign-key: tag.gid
+    - key: followers.gid
+      foreign-key: assignees.gid
+    - key: followers.gid
+      foreign-key: created_by.gid
+    - key: followers.gid
+      foreign-key: dependency.gid
+  - table-name: projects
+    keys:
+    - key: followers.gid
+      foreign-key: followers.gid
+    - key: followers.gid
+      foreign-key: members.gid
+    - key: followers.gid
+      foreign-key: owner.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: tasks
+    keys:
+    - key: followers.gid
+      foreign-key: assignees.gid
+    - key: followers.gid
+      foreign-key: followers.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: users
+    keys:
+    - key: followers.gid
+      foreign-key: gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: portfolios
+    keys:
+    - key: followers.gid
+      foreign-key: created_by.gid
+    - key: followers.gid
+      foreign-key: members.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: porfolios
+    keys:
+    - key: followers.gid
+      foreign-key: owner.gid
+  - table-name: teams
+    keys:
+    - key: followers.gid
+      foreign-key: users.gid
+    - key: workspace.gid
+      foreign-key: organization.gid
+  - table-name: workspace
+    keys:
+    - key: workspace.gid
+      foreign-key: gid
+- table-name: users
+  join:
+  - table-name: projects
+    keys:
+    - key: gid
+      foreign-key: followers.gid
+    - key: gid
+      foreign-key: members.gid
+    - key: gid
+      foreign-key: owner.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: tags
+    keys:
+    - key: gid
+      foreign-key: followers.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: tasks
+    keys:
+    - key: gid
+      foreign-key: assignees.gid
+    - key: gid
+      foreign-key: followers.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: stories
+    keys:
+    - key: gid
+      foreign-key: assignees.gid
+    - key: gid
+      foreign-key: created_by.gid
+    - key: gid
+      foreign-key: dependency.gid
+  - table-name: portfolios
+    keys:
+    - key: gid
+      foreign-key: created_by.gid
+    - key: gid
+      foreign-key: members.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: porfolios
+    keys:
+    - key: gid
+      foreign-key: owner.gid
+  - table-name: teams
+    keys:
+    - key: gid
+      foreign-key: users.gid
+    - key: workspace.gid
+      foreign-key: organization.gid
+  - table-name: workspace
+    keys:
+    - key: workspace.gid
+      foreign-key: gid
+- table-name: portfolios
+  join:
+  - table-name: projects
+    keys:
+    - key: created_by.gid
+      foreign-key: followers.gid
+    - key: members.gid
+      foreign-key: followers.gid
+    - key: created_by.gid
+      foreign-key: members.gid
+    - key: members.gid
+      foreign-key: members.gid
+    - key: created_by.gid
+      foreign-key: owner.gid
+    - key: members.gid
+      foreign-key: owner.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: tags
+    keys:
+    - key: created_by.gid
+      foreign-key: followers.gid
+    - key: members.gid
+      foreign-key: followers.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: tasks
+    keys:
+    - key: created_by.gid
+      foreign-key: assignees.gid
+    - key: members.gid
+      foreign-key: assignees.gid
+    - key: created_by.gid
+      foreign-key: followers.gid
+    - key: members.gid
+      foreign-key: followers.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: users
+    keys:
+    - key: created_by.gid
+      foreign-key: gid
+    - key: members.gid
+      foreign-key: gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
+  - table-name: stories
+    keys:
+    - key: created_by.gid
+      foreign-key: assignees.gid
+    - key: members.gid
+      foreign-key: assignees.gid
+    - key: created_by.gid
+      foreign-key: created_by.gid
+    - key: members.gid
+      foreign-key: created_by.gid
+    - key: created_by.gid
+      foreign-key: dependency.gid
+    - key: members.gid
+      foreign-key: dependency.gid
+  - table-name: porfolios
+    keys:
+    - key: created_by.gid
+      foreign-key: owner.gid
+    - key: members.gid
+      foreign-key: owner.gid
+  - table-name: teams
+    keys:
+    - key: created_by.gid
+      foreign-key: users.gid
+    - key: members.gid
+      foreign-key: users.gid
+    - key: workspace.gid
+      foreign-key: organization.gid
+  - table-name: workspace
+    keys:
+    - key: workspace.gid
+      foreign-key: gid
+- table-name: porfolios
+  join:
+  - table-name: projects
+    keys:
+    - key: owner.gid
+      foreign-key: followers.gid
+    - key: owner.gid
+      foreign-key: members.gid
+    - key: owner.gid
+      foreign-key: owner.gid
+  - table-name: tags
+    keys:
+    - key: owner.gid
+      foreign-key: followers.gid
+  - table-name: tasks
+    keys:
+    - key: owner.gid
+      foreign-key: assignees.gid
+    - key: owner.gid
+      foreign-key: followers.gid
+  - table-name: users
+    keys:
+    - key: owner.gid
+      foreign-key: gid
+  - table-name: stories
+    keys:
+    - key: owner.gid
+      foreign-key: assignees.gid
+    - key: owner.gid
+      foreign-key: created_by.gid
+    - key: owner.gid
+      foreign-key: dependency.gid
+  - table-name: portfolios
+    keys:
+    - key: owner.gid
+      foreign-key: created_by.gid
+    - key: owner.gid
+      foreign-key: members.gid
+  - table-name: teams
+    keys:
+    - key: owner.gid
+      foreign-key: users.gid
+- table-name: teams
+  join:
+  - table-name: projects
+    keys:
+    - key: users.gid
+      foreign-key: followers.gid
+    - key: users.gid
+      foreign-key: members.gid
+    - key: users.gid
+      foreign-key: owner.gid
+    - key: organization.gid
+      foreign-key: workspace.gid
+  - table-name: tags
+    keys:
+    - key: users.gid
+      foreign-key: followers.gid
+    - key: organization.gid
+      foreign-key: workspace.gid
+  - table-name: tasks
+    keys:
+    - key: users.gid
+      foreign-key: assignees.gid
+    - key: users.gid
+      foreign-key: followers.gid
+    - key: organization.gid
+      foreign-key: workspace.gid
+  - table-name: users
+    keys:
+    - key: users.gid
+      foreign-key: gid
+    - key: organization.gid
+      foreign-key: workspace.gid
+  - table-name: stories
+    keys:
+    - key: users.gid
+      foreign-key: assignees.gid
+    - key: users.gid
+      foreign-key: created_by.gid
+    - key: users.gid
+      foreign-key: dependency.gid
+  - table-name: portfolios
+    keys:
+    - key: users.gid
+      foreign-key: created_by.gid
+    - key: users.gid
+      foreign-key: members.gid
+    - key: organization.gid
+      foreign-key: workspace.gid
+  - table-name: porfolios
+    keys:
+    - key: users.gid
+      foreign-key: owner.gid
+  - table-name: workspace
+    keys:
+    - key: organization.gid
+      foreign-key: gid
+- table-name: workspace
+  join:
+  - table-name: projects
+    keys:
+    - key: gid
+      foreign-key: workspace.gid
+  - table-name: tags
+    keys:
+    - key: gid
+      foreign-key: workspace.gid
+  - table-name: tasks
+    keys:
+    - key: gid
+      foreign-key: workspace.gid
+  - table-name: users
+    keys:
+    - key: gid
+      foreign-key: workspace.gid
+  - table-name: portfolios
+    keys:
+    - key: gid
+      foreign-key: workspace.gid
+  - table-name: teams
+    keys:
+    - key: gid
+      foreign-key: organization.gid

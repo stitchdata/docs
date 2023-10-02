@@ -23,3 +23,24 @@ keys:
   - table: segments
     keys:
     - id
+tables:
+- table-name: channels
+  join:
+  - table-name: named_users
+    keys:
+    - key: channel_id
+      foreign-key: channels.value
+    - key: named_user_id
+      foreign-key: named_user_id
+- table-name: named_users
+  join:
+  - table-name: channels
+    keys:
+    - key: channels.value
+      foreign-key: channel_id
+    - key: named_user_id
+      foreign-key: named_user_id
+- table-name: lists
+  join: []
+- table-name: segments
+  join: []

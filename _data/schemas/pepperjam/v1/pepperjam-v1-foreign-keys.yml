@@ -150,3 +150,472 @@ keys:
   - table: creative_performance_by_publisher
     keys:
     - creative_type
+tables:
+- table-name: creative_advanced
+  join:
+  - table-name: creative_banner
+    keys:
+    - key: private_affiliates.id
+      foreign-key: private_affiliates.id
+    - key: promotions.id
+      foreign-key: promotions.id
+  - table-name: creative_coupon
+    keys:
+    - key: private_affiliates.id
+      foreign-key: private_affiliates.id
+    - key: promotions.id
+      foreign-key: promotions.id
+  - table-name: creative_text
+    keys:
+    - key: private_affiliates.id
+      foreign-key: private_affiliates.id
+    - key: promotions.id
+      foreign-key: promotions.id
+  - table-name: creative_promotion
+    keys:
+    - key: promotions.id
+      foreign-key: id
+- table-name: creative_banner
+  join:
+  - table-name: creative_advanced
+    keys:
+    - key: private_affiliates.id
+      foreign-key: private_affiliates.id
+    - key: promotions.id
+      foreign-key: promotions.id
+  - table-name: creative_coupon
+    keys:
+    - key: private_affiliates.id
+      foreign-key: private_affiliates.id
+    - key: promotions.id
+      foreign-key: promotions.id
+  - table-name: creative_text
+    keys:
+    - key: private_affiliates.id
+      foreign-key: private_affiliates.id
+    - key: promotions.id
+      foreign-key: promotions.id
+  - table-name: creative_promotion
+    keys:
+    - key: promotions.id
+      foreign-key: id
+- table-name: creative_coupon
+  join:
+  - table-name: creative_advanced
+    keys:
+    - key: private_affiliates.id
+      foreign-key: private_affiliates.id
+    - key: promotions.id
+      foreign-key: promotions.id
+  - table-name: creative_banner
+    keys:
+    - key: private_affiliates.id
+      foreign-key: private_affiliates.id
+    - key: promotions.id
+      foreign-key: promotions.id
+  - table-name: creative_text
+    keys:
+    - key: private_affiliates.id
+      foreign-key: private_affiliates.id
+    - key: promotions.id
+      foreign-key: promotions.id
+  - table-name: creative_promotion
+    keys:
+    - key: promotions.id
+      foreign-key: id
+- table-name: creative_text
+  join:
+  - table-name: creative_advanced
+    keys:
+    - key: private_affiliates.id
+      foreign-key: private_affiliates.id
+    - key: promotions.id
+      foreign-key: promotions.id
+  - table-name: creative_banner
+    keys:
+    - key: private_affiliates.id
+      foreign-key: private_affiliates.id
+    - key: promotions.id
+      foreign-key: promotions.id
+  - table-name: creative_coupon
+    keys:
+    - key: private_affiliates.id
+      foreign-key: private_affiliates.id
+    - key: promotions.id
+      foreign-key: promotions.id
+  - table-name: creative_promotion
+    keys:
+    - key: promotions.id
+      foreign-key: id
+- table-name: creative_performance
+  join:
+  - table-name: creative_performance_by_publisher
+    keys:
+    - key: creative_id
+      foreign-key: creative_id
+    - key: group_id
+      foreign-key: group_id
+    - key: creative_type
+      foreign-key: creative_type
+  - table-name: transaction_details
+    keys:
+    - key: creative_id
+      foreign-key: creative_id
+    - key: group_id
+      foreign-key: group_id
+  - table-name: group
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: group_member
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: publisher
+    keys:
+    - key: group_id
+      foreign-key: group.id
+  - table-name: publisher_performance
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: transaction_history
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: creative_generic
+    keys:
+    - key: creative_type
+      foreign-key: type
+- table-name: creative_performance_by_publisher
+  join:
+  - table-name: creative_performance
+    keys:
+    - key: creative_id
+      foreign-key: creative_id
+    - key: group_id
+      foreign-key: group_id
+    - key: creative_type
+      foreign-key: creative_type
+  - table-name: transaction_details
+    keys:
+    - key: creative_id
+      foreign-key: creative_id
+    - key: group_id
+      foreign-key: group_id
+    - key: publisher_id
+      foreign-key: publisher_id
+  - table-name: group
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: group_member
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: publisher
+    keys:
+    - key: group_id
+      foreign-key: group.id
+    - key: publisher_id
+      foreign-key: id
+  - table-name: publisher_performance
+    keys:
+    - key: group_id
+      foreign-key: group_id
+    - key: publisher_id
+      foreign-key: publisher_id
+  - table-name: transaction_history
+    keys:
+    - key: group_id
+      foreign-key: group_id
+    - key: publisher_id
+      foreign-key: publisher_id
+  - table-name: creative_generic
+    keys:
+    - key: creative_type
+      foreign-key: type
+- table-name: transaction_details
+  join:
+  - table-name: creative_performance
+    keys:
+    - key: creative_id
+      foreign-key: creative_id
+    - key: group_id
+      foreign-key: group_id
+  - table-name: creative_performance_by_publisher
+    keys:
+    - key: creative_id
+      foreign-key: creative_id
+    - key: group_id
+      foreign-key: group_id
+    - key: publisher_id
+      foreign-key: publisher_id
+  - table-name: group
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: group_member
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: publisher
+    keys:
+    - key: group_id
+      foreign-key: group.id
+    - key: publisher_id
+      foreign-key: id
+  - table-name: publisher_performance
+    keys:
+    - key: group_id
+      foreign-key: group_id
+    - key: order_id
+      foreign-key: order_id
+    - key: publisher_id
+      foreign-key: publisher_id
+  - table-name: transaction_history
+    keys:
+    - key: group_id
+      foreign-key: group_id
+    - key: order_id
+      foreign-key: order_id
+    - key: publisher_id
+      foreign-key: publisher_id
+    - key: transaction_id
+      foreign-key: transaction_id
+- table-name: group
+  join:
+  - table-name: creative_performance
+    keys:
+    - key: id
+      foreign-key: group_id
+  - table-name: creative_performance_by_publisher
+    keys:
+    - key: id
+      foreign-key: group_id
+  - table-name: group_member
+    keys:
+    - key: id
+      foreign-key: group_id
+  - table-name: publisher
+    keys:
+    - key: id
+      foreign-key: group.id
+  - table-name: publisher_performance
+    keys:
+    - key: id
+      foreign-key: group_id
+  - table-name: transaction_details
+    keys:
+    - key: id
+      foreign-key: group_id
+  - table-name: transaction_history
+    keys:
+    - key: id
+      foreign-key: group_id
+- table-name: group_member
+  join:
+  - table-name: creative_performance
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: creative_performance_by_publisher
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: group
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: publisher
+    keys:
+    - key: group_id
+      foreign-key: group.id
+  - table-name: publisher_performance
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: transaction_details
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: transaction_history
+    keys:
+    - key: group_id
+      foreign-key: group_id
+- table-name: publisher
+  join:
+  - table-name: creative_performance
+    keys:
+    - key: group.id
+      foreign-key: group_id
+  - table-name: creative_performance_by_publisher
+    keys:
+    - key: group.id
+      foreign-key: group_id
+    - key: id
+      foreign-key: publisher_id
+  - table-name: group
+    keys:
+    - key: group.id
+      foreign-key: id
+  - table-name: group_member
+    keys:
+    - key: group.id
+      foreign-key: group_id
+  - table-name: publisher_performance
+    keys:
+    - key: group.id
+      foreign-key: group_id
+    - key: id
+      foreign-key: publisher_id
+  - table-name: transaction_details
+    keys:
+    - key: group.id
+      foreign-key: group_id
+    - key: id
+      foreign-key: publisher_id
+  - table-name: transaction_history
+    keys:
+    - key: group.id
+      foreign-key: group_id
+    - key: id
+      foreign-key: publisher_id
+  - table-name: term
+    keys:
+    - key: term.id
+      foreign-key: id
+- table-name: publisher_performance
+  join:
+  - table-name: creative_performance
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: creative_performance_by_publisher
+    keys:
+    - key: group_id
+      foreign-key: group_id
+    - key: publisher_id
+      foreign-key: publisher_id
+  - table-name: group
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: group_member
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: publisher
+    keys:
+    - key: group_id
+      foreign-key: group.id
+    - key: publisher_id
+      foreign-key: id
+  - table-name: transaction_details
+    keys:
+    - key: group_id
+      foreign-key: group_id
+    - key: order_id
+      foreign-key: order_id
+    - key: publisher_id
+      foreign-key: publisher_id
+  - table-name: transaction_history
+    keys:
+    - key: group_id
+      foreign-key: group_id
+    - key: order_id
+      foreign-key: order_id
+    - key: publisher_id
+      foreign-key: publisher_id
+- table-name: transaction_history
+  join:
+  - table-name: creative_performance
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: creative_performance_by_publisher
+    keys:
+    - key: group_id
+      foreign-key: group_id
+    - key: publisher_id
+      foreign-key: publisher_id
+  - table-name: group
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: group_member
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: publisher
+    keys:
+    - key: group_id
+      foreign-key: group.id
+    - key: publisher_id
+      foreign-key: id
+  - table-name: publisher_performance
+    keys:
+    - key: group_id
+      foreign-key: group_id
+    - key: order_id
+      foreign-key: order_id
+    - key: publisher_id
+      foreign-key: publisher_id
+  - table-name: transaction_details
+    keys:
+    - key: group_id
+      foreign-key: group_id
+    - key: order_id
+      foreign-key: order_id
+    - key: publisher_id
+      foreign-key: publisher_id
+    - key: transaction_id
+      foreign-key: transaction_id
+- table-name: itemized_list
+  join:
+  - table-name: itemized_list_product
+    keys:
+    - key: id
+      foreign-key: list_id
+- table-name: itemized_list_product
+  join:
+  - table-name: itemized_list
+    keys:
+    - key: list_id
+      foreign-key: id
+- table-name: creative_product
+  join: []
+- table-name: creative_promotion
+  join:
+  - table-name: creative_advanced
+    keys:
+    - key: id
+      foreign-key: promotions.id
+  - table-name: creative_banner
+    keys:
+    - key: id
+      foreign-key: promotions.id
+  - table-name: creative_coupon
+    keys:
+    - key: id
+      foreign-key: promotions.id
+  - table-name: creative_text
+    keys:
+    - key: id
+      foreign-key: promotions.id
+- table-name: term
+  join:
+  - table-name: publisher
+    keys:
+    - key: id
+      foreign-key: term.id
+- table-name: creative_generic
+  join:
+  - table-name: creative_performance
+    keys:
+    - key: type
+      foreign-key: creative_type
+  - table-name: creative_performance_by_publisher
+    keys:
+    - key: type
+      foreign-key: creative_type

@@ -26,3 +26,26 @@ keys:
   - table: ga_sessions_hits
     keys:
     - hitNumber
+tables:
+- table-name: ga_sessions
+  join:
+  - table-name: ga_session_hits
+    keys:
+    - key: visitId
+      foreign-key: visitId
+    - key: fullVisitorId
+      foreign-key: fullVisitorId
+    - key: visitStartTime
+      foreign-key: visitStartTime
+- table-name: ga_session_hits
+  join:
+  - table-name: ga_sessions
+    keys:
+    - key: visitId
+      foreign-key: visitId
+    - key: fullVisitorId
+      foreign-key: fullVisitorId
+    - key: visitStartTime
+      foreign-key: visitStartTime
+- table-name: ga_sessions_hits
+  join: []

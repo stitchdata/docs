@@ -50,3 +50,274 @@ keys:
   - table: teams
     keys:
     - id
+tables:
+- table-name: agents
+  join:
+  - table-name: agent_activity_logs
+    keys:
+    - key: id
+      foreign-key: agent_id
+  - table-name: calls
+    keys:
+    - key: id
+      foreign-key: agent_id
+    - key: id
+      foreign-key: transfers.from_agent.id
+    - key: id
+      foreign-key: transfers.to_agent.id
+  - table-name: chats
+    keys:
+    - key: id
+      foreign-key: transfers.from_agent.id
+    - key: id
+      foreign-key: transfers.to_agent.id
+  - table-name: menus
+    keys:
+    - key: id
+      foreign-key: agent_assignments.assignees.id
+    - key: id
+      foreign-key: team_assignments.assignees.id
+    - key: teams.id
+      foreign-key: team_assignments.team.id
+  - table-name: trees
+    keys:
+    - key: id
+      foreign-key: assignees.id
+  - table-name: teams
+    keys:
+    - key: teams.id
+      foreign-key: id
+- table-name: agent_activity_logs
+  join:
+  - table-name: agents
+    keys:
+    - key: agent_id
+      foreign-key: id
+  - table-name: calls
+    keys:
+    - key: agent_id
+      foreign-key: agent_id
+    - key: agent_id
+      foreign-key: transfers.from_agent.id
+    - key: agent_id
+      foreign-key: transfers.to_agent.id
+    - key: call_id
+      foreign-key: id
+    - key: call_id
+      foreign-key: participants.call_id
+  - table-name: chats
+    keys:
+    - key: agent_id
+      foreign-key: transfers.from_agent.id
+    - key: agent_id
+      foreign-key: transfers.to_agent.id
+    - key: chat_id
+      foreign-key: id
+    - key: chat_id
+      foreign-key: participants.chat_id
+  - table-name: menus
+    keys:
+    - key: agent_id
+      foreign-key: agent_assignments.assignees.id
+    - key: agent_id
+      foreign-key: team_assignments.assignees.id
+  - table-name: trees
+    keys:
+    - key: agent_id
+      foreign-key: assignees.id
+- table-name: calls
+  join:
+  - table-name: agents
+    keys:
+    - key: agent_id
+      foreign-key: id
+    - key: transfers.from_agent.id
+      foreign-key: id
+    - key: transfers.to_agent.id
+      foreign-key: id
+  - table-name: agent_activity_logs
+    keys:
+    - key: agent_id
+      foreign-key: agent_id
+    - key: transfers.from_agent.id
+      foreign-key: agent_id
+    - key: transfers.to_agent.id
+      foreign-key: agent_id
+    - key: id
+      foreign-key: call_id
+    - key: participants.call_id
+      foreign-key: call_id
+  - table-name: chats
+    keys:
+    - key: agent_id
+      foreign-key: transfers.from_agent.id
+    - key: transfers.from_agent.id
+      foreign-key: transfers.from_agent.id
+    - key: transfers.to_agent.id
+      foreign-key: transfers.from_agent.id
+    - key: agent_id
+      foreign-key: transfers.to_agent.id
+    - key: transfers.from_agent.id
+      foreign-key: transfers.to_agent.id
+    - key: transfers.to_agent.id
+      foreign-key: transfers.to_agent.id
+  - table-name: menus
+    keys:
+    - key: agent_id
+      foreign-key: agent_assignments.assignees.id
+    - key: transfers.from_agent.id
+      foreign-key: agent_assignments.assignees.id
+    - key: transfers.to_agent.id
+      foreign-key: agent_assignments.assignees.id
+    - key: agent_id
+      foreign-key: team_assignments.assignees.id
+    - key: transfers.from_agent.id
+      foreign-key: team_assignments.assignees.id
+    - key: transfers.to_agent.id
+      foreign-key: team_assignments.assignees.id
+  - table-name: trees
+    keys:
+    - key: agent_id
+      foreign-key: assignees.id
+    - key: transfers.from_agent.id
+      foreign-key: assignees.id
+    - key: transfers.to_agent.id
+      foreign-key: assignees.id
+- table-name: chats
+  join:
+  - table-name: agents
+    keys:
+    - key: transfers.from_agent.id
+      foreign-key: id
+    - key: transfers.to_agent.id
+      foreign-key: id
+  - table-name: agent_activity_logs
+    keys:
+    - key: transfers.from_agent.id
+      foreign-key: agent_id
+    - key: transfers.to_agent.id
+      foreign-key: agent_id
+    - key: id
+      foreign-key: chat_id
+    - key: participants.chat_id
+      foreign-key: chat_id
+  - table-name: calls
+    keys:
+    - key: transfers.from_agent.id
+      foreign-key: agent_id
+    - key: transfers.to_agent.id
+      foreign-key: agent_id
+    - key: transfers.from_agent.id
+      foreign-key: transfers.from_agent.id
+    - key: transfers.to_agent.id
+      foreign-key: transfers.from_agent.id
+    - key: transfers.from_agent.id
+      foreign-key: transfers.to_agent.id
+    - key: transfers.to_agent.id
+      foreign-key: transfers.to_agent.id
+  - table-name: menus
+    keys:
+    - key: transfers.from_agent.id
+      foreign-key: agent_assignments.assignees.id
+    - key: transfers.to_agent.id
+      foreign-key: agent_assignments.assignees.id
+    - key: transfers.from_agent.id
+      foreign-key: team_assignments.assignees.id
+    - key: transfers.to_agent.id
+      foreign-key: team_assignments.assignees.id
+  - table-name: trees
+    keys:
+    - key: transfers.from_agent.id
+      foreign-key: assignees.id
+    - key: transfers.to_agent.id
+      foreign-key: assignees.id
+- table-name: menus
+  join:
+  - table-name: agents
+    keys:
+    - key: agent_assignments.assignees.id
+      foreign-key: id
+    - key: team_assignments.assignees.id
+      foreign-key: id
+    - key: team_assignments.team.id
+      foreign-key: teams.id
+  - table-name: agent_activity_logs
+    keys:
+    - key: agent_assignments.assignees.id
+      foreign-key: agent_id
+    - key: team_assignments.assignees.id
+      foreign-key: agent_id
+  - table-name: calls
+    keys:
+    - key: agent_assignments.assignees.id
+      foreign-key: agent_id
+    - key: team_assignments.assignees.id
+      foreign-key: agent_id
+    - key: agent_assignments.assignees.id
+      foreign-key: transfers.from_agent.id
+    - key: team_assignments.assignees.id
+      foreign-key: transfers.from_agent.id
+    - key: agent_assignments.assignees.id
+      foreign-key: transfers.to_agent.id
+    - key: team_assignments.assignees.id
+      foreign-key: transfers.to_agent.id
+  - table-name: chats
+    keys:
+    - key: agent_assignments.assignees.id
+      foreign-key: transfers.from_agent.id
+    - key: team_assignments.assignees.id
+      foreign-key: transfers.from_agent.id
+    - key: agent_assignments.assignees.id
+      foreign-key: transfers.to_agent.id
+    - key: team_assignments.assignees.id
+      foreign-key: transfers.to_agent.id
+  - table-name: trees
+    keys:
+    - key: agent_assignments.assignees.id
+      foreign-key: assignees.id
+    - key: team_assignments.assignees.id
+      foreign-key: assignees.id
+  - table-name: teams
+    keys:
+    - key: team_assignments.team.id
+      foreign-key: id
+- table-name: trees
+  join:
+  - table-name: agents
+    keys:
+    - key: assignees.id
+      foreign-key: id
+  - table-name: agent_activity_logs
+    keys:
+    - key: assignees.id
+      foreign-key: agent_id
+  - table-name: calls
+    keys:
+    - key: assignees.id
+      foreign-key: agent_id
+    - key: assignees.id
+      foreign-key: transfers.from_agent.id
+    - key: assignees.id
+      foreign-key: transfers.to_agent.id
+  - table-name: chats
+    keys:
+    - key: assignees.id
+      foreign-key: transfers.from_agent.id
+    - key: assignees.id
+      foreign-key: transfers.to_agent.id
+  - table-name: menus
+    keys:
+    - key: assignees.id
+      foreign-key: agent_assignments.assignees.id
+    - key: assignees.id
+      foreign-key: team_assignments.assignees.id
+- table-name: teams
+  join:
+  - table-name: agents
+    keys:
+    - key: id
+      foreign-key: teams.id
+  - table-name: menus
+    keys:
+    - key: id
+      foreign-key: team_assignments.team.id

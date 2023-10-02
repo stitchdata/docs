@@ -23,3 +23,62 @@ keys:
   - table: users
     keys:
     - accountId
+tables:
+- table-name: referrals
+  join:
+  - table-name: reward_balance
+    keys:
+    - key: referredUser
+      foreign-key: userId
+    - key: referrerUser
+      foreign-key: userId
+    - key: referredAccount
+      foreign-key: accountId
+    - key: referrerAccount
+      foreign-key: accountId
+  - table-name: users
+    keys:
+    - key: referredUser
+      foreign-key: id
+    - key: referrerUser
+      foreign-key: id
+    - key: referredAccount
+      foreign-key: accountId
+    - key: referrerAccount
+      foreign-key: accountId
+- table-name: reward_balance
+  join:
+  - table-name: referrals
+    keys:
+    - key: userId
+      foreign-key: referredUser
+    - key: userId
+      foreign-key: referrerUser
+    - key: accountId
+      foreign-key: referredAccount
+    - key: accountId
+      foreign-key: referrerAccount
+  - table-name: users
+    keys:
+    - key: userId
+      foreign-key: id
+    - key: accountId
+      foreign-key: accountId
+- table-name: users
+  join:
+  - table-name: referrals
+    keys:
+    - key: id
+      foreign-key: referredUser
+    - key: id
+      foreign-key: referrerUser
+    - key: accountId
+      foreign-key: referredAccount
+    - key: accountId
+      foreign-key: referrerAccount
+  - table-name: reward_balance
+    keys:
+    - key: id
+      foreign-key: userId
+    - key: accountId
+      foreign-key: accountId

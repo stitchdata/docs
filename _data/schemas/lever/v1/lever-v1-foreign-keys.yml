@@ -170,3 +170,1750 @@ keys:
     - creator
     - hiringManager
     - owner
+tables:
+- table-name: archive_reasons
+  join:
+  - table-name: candidate_applications
+    keys:
+    - key: id
+      foreign-key: archived.reason
+  - table-name: candidates
+    keys:
+    - key: id
+      foreign-key: archived.reason
+  - table-name: opportunity_applications
+    keys:
+    - key: id
+      foreign-key: archived.reason
+  - table-name: opportunities
+    keys:
+    - key: id
+      foreign-key: archived.reason
+- table-name: candidate_applications
+  join:
+  - table-name: archive_reasons
+    keys:
+    - key: archived.reason
+      foreign-key: id
+  - table-name: candidates
+    keys:
+    - key: archived.reason
+      foreign-key: archived.reason
+    - key: id
+      foreign-key: applications.value
+    - key: candidateId
+      foreign-key: id
+    - key: postingHiringManager
+      foreign-key: followers.value
+    - key: postingOwner
+      foreign-key: followers.value
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: followers.value
+    - key: user
+      foreign-key: followers.value
+    - key: postingHiringManager
+      foreign-key: owner
+    - key: postingOwner
+      foreign-key: owner
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+    - key: postingHiringManager
+      foreign-key: stageChanges.userId
+    - key: postingOwner
+      foreign-key: stageChanges.userId
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: stageChanges.userId
+    - key: user
+      foreign-key: stageChanges.userId
+  - table-name: opportunity_applications
+    keys:
+    - key: archived.reason
+      foreign-key: archived.reason
+    - key: id
+      foreign-key: id
+    - key: candidateId
+      foreign-key: candidateId
+    - key: posting
+      foreign-key: posting
+    - key: requisitionForHire.id
+      foreign-key: requisitionForHire.id
+    - key: postingHiringManager
+      foreign-key: postingHiringManager
+    - key: postingOwner
+      foreign-key: postingHiringManager
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: postingHiringManager
+    - key: user
+      foreign-key: postingHiringManager
+    - key: postingHiringManager
+      foreign-key: postingOwner
+    - key: postingOwner
+      foreign-key: postingOwner
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: postingOwner
+    - key: user
+      foreign-key: postingOwner
+    - key: postingHiringManager
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: postingOwner
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: user
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: postingHiringManager
+      foreign-key: user
+    - key: postingOwner
+      foreign-key: user
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: user
+    - key: user
+      foreign-key: user
+  - table-name: opportunities
+    keys:
+    - key: archived.reason
+      foreign-key: archived.reason
+    - key: id
+      foreign-key: applications.value
+    - key: candidateId
+      foreign-key: id
+    - key: postingHiringManager
+      foreign-key: followers.value
+    - key: postingOwner
+      foreign-key: followers.value
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: followers.value
+    - key: user
+      foreign-key: followers.value
+    - key: postingHiringManager
+      foreign-key: owner
+    - key: postingOwner
+      foreign-key: owner
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+    - key: postingHiringManager
+      foreign-key: stageChanges.userId
+    - key: postingOwner
+      foreign-key: stageChanges.userId
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: stageChanges.userId
+    - key: user
+      foreign-key: stageChanges.userId
+  - table-name: opportunity_offers
+    keys:
+    - key: candidateId
+      foreign-key: opportunityId
+    - key: posting
+      foreign-key: posting
+    - key: postingHiringManager
+      foreign-key: creator
+    - key: postingOwner
+      foreign-key: creator
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: creator
+    - key: user
+      foreign-key: creator
+  - table-name: postings
+    keys:
+    - key: posting
+      foreign-key: id
+    - key: postingHiringManager
+      foreign-key: followers.value
+    - key: postingOwner
+      foreign-key: followers.value
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: followers.value
+    - key: user
+      foreign-key: followers.value
+    - key: postingHiringManager
+      foreign-key: hiringManager
+    - key: postingOwner
+      foreign-key: hiringManager
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: hiringManager
+    - key: user
+      foreign-key: hiringManager
+    - key: postingHiringManager
+      foreign-key: owner
+    - key: postingOwner
+      foreign-key: owner
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+    - key: postingHiringManager
+      foreign-key: user
+    - key: postingOwner
+      foreign-key: user
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: user
+    - key: user
+      foreign-key: user
+  - table-name: requisitions
+    keys:
+    - key: posting
+      foreign-key: postings.value
+    - key: requisitionForHire.id
+      foreign-key: id
+    - key: postingHiringManager
+      foreign-key: creator
+    - key: postingOwner
+      foreign-key: creator
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: creator
+    - key: user
+      foreign-key: creator
+    - key: postingHiringManager
+      foreign-key: hiringManager
+    - key: postingOwner
+      foreign-key: hiringManager
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: hiringManager
+    - key: user
+      foreign-key: hiringManager
+    - key: postingHiringManager
+      foreign-key: owner
+    - key: postingOwner
+      foreign-key: owner
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+  - table-name: candidate_offers
+    keys:
+    - key: postingHiringManager
+      foreign-key: creator
+    - key: postingOwner
+      foreign-key: creator
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: creator
+    - key: user
+      foreign-key: creator
+  - table-name: candidate_referrals
+    keys:
+    - key: postingHiringManager
+      foreign-key: referrer
+    - key: postingOwner
+      foreign-key: referrer
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: referrer
+    - key: user
+      foreign-key: referrer
+    - key: postingHiringManager
+      foreign-key: user
+    - key: postingOwner
+      foreign-key: user
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: user
+    - key: user
+      foreign-key: user
+  - table-name: opportunity_referrals
+    keys:
+    - key: postingHiringManager
+      foreign-key: referrer
+    - key: postingOwner
+      foreign-key: referrer
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: referrer
+    - key: user
+      foreign-key: referrer
+    - key: postingHiringManager
+      foreign-key: user
+    - key: postingOwner
+      foreign-key: user
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: user
+    - key: user
+      foreign-key: user
+- table-name: candidates
+  join:
+  - table-name: archive_reasons
+    keys:
+    - key: archived.reason
+      foreign-key: id
+  - table-name: candidate_applications
+    keys:
+    - key: archived.reason
+      foreign-key: archived.reason
+    - key: applications.value
+      foreign-key: id
+    - key: id
+      foreign-key: candidateId
+    - key: followers.value
+      foreign-key: postingHiringManager
+    - key: owner
+      foreign-key: postingHiringManager
+    - key: stageChanges.userId
+      foreign-key: postingHiringManager
+    - key: followers.value
+      foreign-key: postingOwner
+    - key: owner
+      foreign-key: postingOwner
+    - key: stageChanges.userId
+      foreign-key: postingOwner
+    - key: followers.value
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: owner
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: stageChanges.userId
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: followers.value
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+    - key: stageChanges.userId
+      foreign-key: user
+  - table-name: opportunity_applications
+    keys:
+    - key: archived.reason
+      foreign-key: archived.reason
+    - key: applications.value
+      foreign-key: id
+    - key: id
+      foreign-key: candidateId
+    - key: followers.value
+      foreign-key: postingHiringManager
+    - key: owner
+      foreign-key: postingHiringManager
+    - key: stageChanges.userId
+      foreign-key: postingHiringManager
+    - key: followers.value
+      foreign-key: postingOwner
+    - key: owner
+      foreign-key: postingOwner
+    - key: stageChanges.userId
+      foreign-key: postingOwner
+    - key: followers.value
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: owner
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: stageChanges.userId
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: followers.value
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+    - key: stageChanges.userId
+      foreign-key: user
+  - table-name: opportunities
+    keys:
+    - key: archived.reason
+      foreign-key: archived.reason
+    - key: applications.value
+      foreign-key: applications.value
+    - key: contact
+      foreign-key: contact
+    - key: id
+      foreign-key: id
+    - key: stage
+      foreign-key: stage
+    - key: stageChanges.toStageId
+      foreign-key: stage
+    - key: stage
+      foreign-key: stageChanges.toStageId
+    - key: stageChanges.toStageId
+      foreign-key: stageChanges.toStageId
+    - key: followers.value
+      foreign-key: followers.value
+    - key: owner
+      foreign-key: followers.value
+    - key: stageChanges.userId
+      foreign-key: followers.value
+    - key: followers.value
+      foreign-key: owner
+    - key: owner
+      foreign-key: owner
+    - key: stageChanges.userId
+      foreign-key: owner
+    - key: followers.value
+      foreign-key: stageChanges.userId
+    - key: owner
+      foreign-key: stageChanges.userId
+    - key: stageChanges.userId
+      foreign-key: stageChanges.userId
+  - table-name: opportunity_offers
+    keys:
+    - key: id
+      foreign-key: opportunityId
+    - key: followers.value
+      foreign-key: creator
+    - key: owner
+      foreign-key: creator
+    - key: stageChanges.userId
+      foreign-key: creator
+  - table-name: sources
+    keys:
+    - key: sources.value
+      foreign-key: id
+  - table-name: stages
+    keys:
+    - key: stage
+      foreign-key: id
+    - key: stageChanges.toStageId
+      foreign-key: id
+  - table-name: candidate_offers
+    keys:
+    - key: followers.value
+      foreign-key: creator
+    - key: owner
+      foreign-key: creator
+    - key: stageChanges.userId
+      foreign-key: creator
+  - table-name: candidate_referrals
+    keys:
+    - key: followers.value
+      foreign-key: referrer
+    - key: owner
+      foreign-key: referrer
+    - key: stageChanges.userId
+      foreign-key: referrer
+    - key: followers.value
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+    - key: stageChanges.userId
+      foreign-key: user
+  - table-name: opportunity_referrals
+    keys:
+    - key: followers.value
+      foreign-key: referrer
+    - key: owner
+      foreign-key: referrer
+    - key: stageChanges.userId
+      foreign-key: referrer
+    - key: followers.value
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+    - key: stageChanges.userId
+      foreign-key: user
+  - table-name: postings
+    keys:
+    - key: followers.value
+      foreign-key: followers.value
+    - key: owner
+      foreign-key: followers.value
+    - key: stageChanges.userId
+      foreign-key: followers.value
+    - key: followers.value
+      foreign-key: hiringManager
+    - key: owner
+      foreign-key: hiringManager
+    - key: stageChanges.userId
+      foreign-key: hiringManager
+    - key: followers.value
+      foreign-key: owner
+    - key: owner
+      foreign-key: owner
+    - key: stageChanges.userId
+      foreign-key: owner
+    - key: followers.value
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+    - key: stageChanges.userId
+      foreign-key: user
+  - table-name: requisitions
+    keys:
+    - key: followers.value
+      foreign-key: creator
+    - key: owner
+      foreign-key: creator
+    - key: stageChanges.userId
+      foreign-key: creator
+    - key: followers.value
+      foreign-key: hiringManager
+    - key: owner
+      foreign-key: hiringManager
+    - key: stageChanges.userId
+      foreign-key: hiringManager
+    - key: followers.value
+      foreign-key: owner
+    - key: owner
+      foreign-key: owner
+    - key: stageChanges.userId
+      foreign-key: owner
+- table-name: opportunity_applications
+  join:
+  - table-name: archive_reasons
+    keys:
+    - key: archived.reason
+      foreign-key: id
+  - table-name: candidate_applications
+    keys:
+    - key: archived.reason
+      foreign-key: archived.reason
+    - key: id
+      foreign-key: id
+    - key: candidateId
+      foreign-key: candidateId
+    - key: posting
+      foreign-key: posting
+    - key: requisitionForHire.id
+      foreign-key: requisitionForHire.id
+    - key: postingHiringManager
+      foreign-key: postingHiringManager
+    - key: postingOwner
+      foreign-key: postingHiringManager
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: postingHiringManager
+    - key: user
+      foreign-key: postingHiringManager
+    - key: postingHiringManager
+      foreign-key: postingOwner
+    - key: postingOwner
+      foreign-key: postingOwner
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: postingOwner
+    - key: user
+      foreign-key: postingOwner
+    - key: postingHiringManager
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: postingOwner
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: user
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: postingHiringManager
+      foreign-key: user
+    - key: postingOwner
+      foreign-key: user
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: user
+    - key: user
+      foreign-key: user
+  - table-name: candidates
+    keys:
+    - key: archived.reason
+      foreign-key: archived.reason
+    - key: id
+      foreign-key: applications.value
+    - key: candidateId
+      foreign-key: id
+    - key: postingHiringManager
+      foreign-key: followers.value
+    - key: postingOwner
+      foreign-key: followers.value
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: followers.value
+    - key: user
+      foreign-key: followers.value
+    - key: postingHiringManager
+      foreign-key: owner
+    - key: postingOwner
+      foreign-key: owner
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+    - key: postingHiringManager
+      foreign-key: stageChanges.userId
+    - key: postingOwner
+      foreign-key: stageChanges.userId
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: stageChanges.userId
+    - key: user
+      foreign-key: stageChanges.userId
+  - table-name: opportunities
+    keys:
+    - key: archived.reason
+      foreign-key: archived.reason
+    - key: id
+      foreign-key: applications.value
+    - key: candidateId
+      foreign-key: id
+    - key: postingHiringManager
+      foreign-key: followers.value
+    - key: postingOwner
+      foreign-key: followers.value
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: followers.value
+    - key: user
+      foreign-key: followers.value
+    - key: postingHiringManager
+      foreign-key: owner
+    - key: postingOwner
+      foreign-key: owner
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+    - key: postingHiringManager
+      foreign-key: stageChanges.userId
+    - key: postingOwner
+      foreign-key: stageChanges.userId
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: stageChanges.userId
+    - key: user
+      foreign-key: stageChanges.userId
+  - table-name: opportunity_offers
+    keys:
+    - key: candidateId
+      foreign-key: opportunityId
+    - key: posting
+      foreign-key: posting
+    - key: postingHiringManager
+      foreign-key: creator
+    - key: postingOwner
+      foreign-key: creator
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: creator
+    - key: user
+      foreign-key: creator
+  - table-name: postings
+    keys:
+    - key: posting
+      foreign-key: id
+    - key: postingHiringManager
+      foreign-key: followers.value
+    - key: postingOwner
+      foreign-key: followers.value
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: followers.value
+    - key: user
+      foreign-key: followers.value
+    - key: postingHiringManager
+      foreign-key: hiringManager
+    - key: postingOwner
+      foreign-key: hiringManager
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: hiringManager
+    - key: user
+      foreign-key: hiringManager
+    - key: postingHiringManager
+      foreign-key: owner
+    - key: postingOwner
+      foreign-key: owner
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+    - key: postingHiringManager
+      foreign-key: user
+    - key: postingOwner
+      foreign-key: user
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: user
+    - key: user
+      foreign-key: user
+  - table-name: requisitions
+    keys:
+    - key: posting
+      foreign-key: postings.value
+    - key: requisitionForHire.id
+      foreign-key: id
+    - key: postingHiringManager
+      foreign-key: creator
+    - key: postingOwner
+      foreign-key: creator
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: creator
+    - key: user
+      foreign-key: creator
+    - key: postingHiringManager
+      foreign-key: hiringManager
+    - key: postingOwner
+      foreign-key: hiringManager
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: hiringManager
+    - key: user
+      foreign-key: hiringManager
+    - key: postingHiringManager
+      foreign-key: owner
+    - key: postingOwner
+      foreign-key: owner
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+  - table-name: candidate_offers
+    keys:
+    - key: postingHiringManager
+      foreign-key: creator
+    - key: postingOwner
+      foreign-key: creator
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: creator
+    - key: user
+      foreign-key: creator
+  - table-name: candidate_referrals
+    keys:
+    - key: postingHiringManager
+      foreign-key: referrer
+    - key: postingOwner
+      foreign-key: referrer
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: referrer
+    - key: user
+      foreign-key: referrer
+    - key: postingHiringManager
+      foreign-key: user
+    - key: postingOwner
+      foreign-key: user
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: user
+    - key: user
+      foreign-key: user
+  - table-name: opportunity_referrals
+    keys:
+    - key: postingHiringManager
+      foreign-key: referrer
+    - key: postingOwner
+      foreign-key: referrer
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: referrer
+    - key: user
+      foreign-key: referrer
+    - key: postingHiringManager
+      foreign-key: user
+    - key: postingOwner
+      foreign-key: user
+    - key: requisitionForHire.hiringManagerOnHire
+      foreign-key: user
+    - key: user
+      foreign-key: user
+- table-name: opportunities
+  join:
+  - table-name: archive_reasons
+    keys:
+    - key: archived.reason
+      foreign-key: id
+  - table-name: candidate_applications
+    keys:
+    - key: archived.reason
+      foreign-key: archived.reason
+    - key: applications.value
+      foreign-key: id
+    - key: id
+      foreign-key: candidateId
+    - key: followers.value
+      foreign-key: postingHiringManager
+    - key: owner
+      foreign-key: postingHiringManager
+    - key: stageChanges.userId
+      foreign-key: postingHiringManager
+    - key: followers.value
+      foreign-key: postingOwner
+    - key: owner
+      foreign-key: postingOwner
+    - key: stageChanges.userId
+      foreign-key: postingOwner
+    - key: followers.value
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: owner
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: stageChanges.userId
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: followers.value
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+    - key: stageChanges.userId
+      foreign-key: user
+  - table-name: candidates
+    keys:
+    - key: archived.reason
+      foreign-key: archived.reason
+    - key: applications.value
+      foreign-key: applications.value
+    - key: contact
+      foreign-key: contact
+    - key: id
+      foreign-key: id
+    - key: stage
+      foreign-key: stage
+    - key: stageChanges.toStageId
+      foreign-key: stage
+    - key: stage
+      foreign-key: stageChanges.toStageId
+    - key: stageChanges.toStageId
+      foreign-key: stageChanges.toStageId
+    - key: followers.value
+      foreign-key: followers.value
+    - key: owner
+      foreign-key: followers.value
+    - key: stageChanges.userId
+      foreign-key: followers.value
+    - key: followers.value
+      foreign-key: owner
+    - key: owner
+      foreign-key: owner
+    - key: stageChanges.userId
+      foreign-key: owner
+    - key: followers.value
+      foreign-key: stageChanges.userId
+    - key: owner
+      foreign-key: stageChanges.userId
+    - key: stageChanges.userId
+      foreign-key: stageChanges.userId
+  - table-name: opportunity_applications
+    keys:
+    - key: archived.reason
+      foreign-key: archived.reason
+    - key: applications.value
+      foreign-key: id
+    - key: id
+      foreign-key: candidateId
+    - key: followers.value
+      foreign-key: postingHiringManager
+    - key: owner
+      foreign-key: postingHiringManager
+    - key: stageChanges.userId
+      foreign-key: postingHiringManager
+    - key: followers.value
+      foreign-key: postingOwner
+    - key: owner
+      foreign-key: postingOwner
+    - key: stageChanges.userId
+      foreign-key: postingOwner
+    - key: followers.value
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: owner
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: stageChanges.userId
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: followers.value
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+    - key: stageChanges.userId
+      foreign-key: user
+  - table-name: opportunity_offers
+    keys:
+    - key: id
+      foreign-key: opportunityId
+    - key: followers.value
+      foreign-key: creator
+    - key: owner
+      foreign-key: creator
+    - key: stageChanges.userId
+      foreign-key: creator
+  - table-name: stages
+    keys:
+    - key: stage
+      foreign-key: id
+    - key: stageChanges.toStageId
+      foreign-key: id
+  - table-name: candidate_offers
+    keys:
+    - key: followers.value
+      foreign-key: creator
+    - key: owner
+      foreign-key: creator
+    - key: stageChanges.userId
+      foreign-key: creator
+  - table-name: candidate_referrals
+    keys:
+    - key: followers.value
+      foreign-key: referrer
+    - key: owner
+      foreign-key: referrer
+    - key: stageChanges.userId
+      foreign-key: referrer
+    - key: followers.value
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+    - key: stageChanges.userId
+      foreign-key: user
+  - table-name: opportunity_referrals
+    keys:
+    - key: followers.value
+      foreign-key: referrer
+    - key: owner
+      foreign-key: referrer
+    - key: stageChanges.userId
+      foreign-key: referrer
+    - key: followers.value
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+    - key: stageChanges.userId
+      foreign-key: user
+  - table-name: postings
+    keys:
+    - key: followers.value
+      foreign-key: followers.value
+    - key: owner
+      foreign-key: followers.value
+    - key: stageChanges.userId
+      foreign-key: followers.value
+    - key: followers.value
+      foreign-key: hiringManager
+    - key: owner
+      foreign-key: hiringManager
+    - key: stageChanges.userId
+      foreign-key: hiringManager
+    - key: followers.value
+      foreign-key: owner
+    - key: owner
+      foreign-key: owner
+    - key: stageChanges.userId
+      foreign-key: owner
+    - key: followers.value
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+    - key: stageChanges.userId
+      foreign-key: user
+  - table-name: requisitions
+    keys:
+    - key: followers.value
+      foreign-key: creator
+    - key: owner
+      foreign-key: creator
+    - key: stageChanges.userId
+      foreign-key: creator
+    - key: followers.value
+      foreign-key: hiringManager
+    - key: owner
+      foreign-key: hiringManager
+    - key: stageChanges.userId
+      foreign-key: hiringManager
+    - key: followers.value
+      foreign-key: owner
+    - key: owner
+      foreign-key: owner
+    - key: stageChanges.userId
+      foreign-key: owner
+- table-name: candidate_offers
+  join:
+  - table-name: opportunity_offers
+    keys:
+    - key: id
+      foreign-key: id
+    - key: creator
+      foreign-key: creator
+  - table-name: requisitions
+    keys:
+    - key: id
+      foreign-key: offerIds.value
+    - key: creator
+      foreign-key: creator
+    - key: creator
+      foreign-key: hiringManager
+    - key: creator
+      foreign-key: owner
+  - table-name: candidate_applications
+    keys:
+    - key: creator
+      foreign-key: postingHiringManager
+    - key: creator
+      foreign-key: postingOwner
+    - key: creator
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: creator
+      foreign-key: user
+  - table-name: candidate_referrals
+    keys:
+    - key: creator
+      foreign-key: referrer
+    - key: creator
+      foreign-key: user
+  - table-name: candidates
+    keys:
+    - key: creator
+      foreign-key: followers.value
+    - key: creator
+      foreign-key: owner
+    - key: creator
+      foreign-key: stageChanges.userId
+  - table-name: opportunities
+    keys:
+    - key: creator
+      foreign-key: followers.value
+    - key: creator
+      foreign-key: owner
+    - key: creator
+      foreign-key: stageChanges.userId
+  - table-name: opportunity_applications
+    keys:
+    - key: creator
+      foreign-key: postingHiringManager
+    - key: creator
+      foreign-key: postingOwner
+    - key: creator
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: creator
+      foreign-key: user
+  - table-name: opportunity_referrals
+    keys:
+    - key: creator
+      foreign-key: referrer
+    - key: creator
+      foreign-key: user
+  - table-name: postings
+    keys:
+    - key: creator
+      foreign-key: followers.value
+    - key: creator
+      foreign-key: hiringManager
+    - key: creator
+      foreign-key: owner
+    - key: creator
+      foreign-key: user
+- table-name: opportunity_offers
+  join:
+  - table-name: candidate_offers
+    keys:
+    - key: id
+      foreign-key: id
+    - key: creator
+      foreign-key: creator
+  - table-name: requisitions
+    keys:
+    - key: id
+      foreign-key: offerIds.value
+    - key: posting
+      foreign-key: postings.value
+    - key: creator
+      foreign-key: creator
+    - key: creator
+      foreign-key: hiringManager
+    - key: creator
+      foreign-key: owner
+  - table-name: candidate_applications
+    keys:
+    - key: opportunityId
+      foreign-key: candidateId
+    - key: posting
+      foreign-key: posting
+    - key: creator
+      foreign-key: postingHiringManager
+    - key: creator
+      foreign-key: postingOwner
+    - key: creator
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: creator
+      foreign-key: user
+  - table-name: candidates
+    keys:
+    - key: opportunityId
+      foreign-key: id
+    - key: creator
+      foreign-key: followers.value
+    - key: creator
+      foreign-key: owner
+    - key: creator
+      foreign-key: stageChanges.userId
+  - table-name: opportunity_applications
+    keys:
+    - key: opportunityId
+      foreign-key: candidateId
+    - key: posting
+      foreign-key: posting
+    - key: creator
+      foreign-key: postingHiringManager
+    - key: creator
+      foreign-key: postingOwner
+    - key: creator
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: creator
+      foreign-key: user
+  - table-name: opportunities
+    keys:
+    - key: opportunityId
+      foreign-key: id
+    - key: creator
+      foreign-key: followers.value
+    - key: creator
+      foreign-key: owner
+    - key: creator
+      foreign-key: stageChanges.userId
+  - table-name: postings
+    keys:
+    - key: posting
+      foreign-key: id
+    - key: creator
+      foreign-key: followers.value
+    - key: creator
+      foreign-key: hiringManager
+    - key: creator
+      foreign-key: owner
+    - key: creator
+      foreign-key: user
+  - table-name: candidate_referrals
+    keys:
+    - key: creator
+      foreign-key: referrer
+    - key: creator
+      foreign-key: user
+  - table-name: opportunity_referrals
+    keys:
+    - key: creator
+      foreign-key: referrer
+    - key: creator
+      foreign-key: user
+- table-name: requisitions
+  join:
+  - table-name: candidate_offers
+    keys:
+    - key: offerIds.value
+      foreign-key: id
+    - key: creator
+      foreign-key: creator
+    - key: hiringManager
+      foreign-key: creator
+    - key: owner
+      foreign-key: creator
+  - table-name: opportunity_offers
+    keys:
+    - key: offerIds.value
+      foreign-key: id
+    - key: postings.value
+      foreign-key: posting
+    - key: creator
+      foreign-key: creator
+    - key: hiringManager
+      foreign-key: creator
+    - key: owner
+      foreign-key: creator
+  - table-name: candidate_applications
+    keys:
+    - key: postings.value
+      foreign-key: posting
+    - key: id
+      foreign-key: requisitionForHire.id
+    - key: creator
+      foreign-key: postingHiringManager
+    - key: hiringManager
+      foreign-key: postingHiringManager
+    - key: owner
+      foreign-key: postingHiringManager
+    - key: creator
+      foreign-key: postingOwner
+    - key: hiringManager
+      foreign-key: postingOwner
+    - key: owner
+      foreign-key: postingOwner
+    - key: creator
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: hiringManager
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: owner
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: creator
+      foreign-key: user
+    - key: hiringManager
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+  - table-name: opportunity_applications
+    keys:
+    - key: postings.value
+      foreign-key: posting
+    - key: id
+      foreign-key: requisitionForHire.id
+    - key: creator
+      foreign-key: postingHiringManager
+    - key: hiringManager
+      foreign-key: postingHiringManager
+    - key: owner
+      foreign-key: postingHiringManager
+    - key: creator
+      foreign-key: postingOwner
+    - key: hiringManager
+      foreign-key: postingOwner
+    - key: owner
+      foreign-key: postingOwner
+    - key: creator
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: hiringManager
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: owner
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: creator
+      foreign-key: user
+    - key: hiringManager
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+  - table-name: postings
+    keys:
+    - key: postings.value
+      foreign-key: id
+    - key: creator
+      foreign-key: followers.value
+    - key: hiringManager
+      foreign-key: followers.value
+    - key: owner
+      foreign-key: followers.value
+    - key: creator
+      foreign-key: hiringManager
+    - key: hiringManager
+      foreign-key: hiringManager
+    - key: owner
+      foreign-key: hiringManager
+    - key: creator
+      foreign-key: owner
+    - key: hiringManager
+      foreign-key: owner
+    - key: owner
+      foreign-key: owner
+    - key: creator
+      foreign-key: user
+    - key: hiringManager
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+  - table-name: candidate_referrals
+    keys:
+    - key: creator
+      foreign-key: referrer
+    - key: hiringManager
+      foreign-key: referrer
+    - key: owner
+      foreign-key: referrer
+    - key: creator
+      foreign-key: user
+    - key: hiringManager
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+  - table-name: candidates
+    keys:
+    - key: creator
+      foreign-key: followers.value
+    - key: hiringManager
+      foreign-key: followers.value
+    - key: owner
+      foreign-key: followers.value
+    - key: creator
+      foreign-key: owner
+    - key: hiringManager
+      foreign-key: owner
+    - key: owner
+      foreign-key: owner
+    - key: creator
+      foreign-key: stageChanges.userId
+    - key: hiringManager
+      foreign-key: stageChanges.userId
+    - key: owner
+      foreign-key: stageChanges.userId
+  - table-name: opportunities
+    keys:
+    - key: creator
+      foreign-key: followers.value
+    - key: hiringManager
+      foreign-key: followers.value
+    - key: owner
+      foreign-key: followers.value
+    - key: creator
+      foreign-key: owner
+    - key: hiringManager
+      foreign-key: owner
+    - key: owner
+      foreign-key: owner
+    - key: creator
+      foreign-key: stageChanges.userId
+    - key: hiringManager
+      foreign-key: stageChanges.userId
+    - key: owner
+      foreign-key: stageChanges.userId
+  - table-name: opportunity_referrals
+    keys:
+    - key: creator
+      foreign-key: referrer
+    - key: hiringManager
+      foreign-key: referrer
+    - key: owner
+      foreign-key: referrer
+    - key: creator
+      foreign-key: user
+    - key: hiringManager
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+- table-name: postings
+  join:
+  - table-name: candidate_applications
+    keys:
+    - key: id
+      foreign-key: posting
+    - key: followers.value
+      foreign-key: postingHiringManager
+    - key: hiringManager
+      foreign-key: postingHiringManager
+    - key: owner
+      foreign-key: postingHiringManager
+    - key: user
+      foreign-key: postingHiringManager
+    - key: followers.value
+      foreign-key: postingOwner
+    - key: hiringManager
+      foreign-key: postingOwner
+    - key: owner
+      foreign-key: postingOwner
+    - key: user
+      foreign-key: postingOwner
+    - key: followers.value
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: hiringManager
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: owner
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: user
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: followers.value
+      foreign-key: user
+    - key: hiringManager
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+    - key: user
+      foreign-key: user
+  - table-name: opportunity_applications
+    keys:
+    - key: id
+      foreign-key: posting
+    - key: followers.value
+      foreign-key: postingHiringManager
+    - key: hiringManager
+      foreign-key: postingHiringManager
+    - key: owner
+      foreign-key: postingHiringManager
+    - key: user
+      foreign-key: postingHiringManager
+    - key: followers.value
+      foreign-key: postingOwner
+    - key: hiringManager
+      foreign-key: postingOwner
+    - key: owner
+      foreign-key: postingOwner
+    - key: user
+      foreign-key: postingOwner
+    - key: followers.value
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: hiringManager
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: owner
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: user
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: followers.value
+      foreign-key: user
+    - key: hiringManager
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+    - key: user
+      foreign-key: user
+  - table-name: opportunity_offers
+    keys:
+    - key: id
+      foreign-key: posting
+    - key: followers.value
+      foreign-key: creator
+    - key: hiringManager
+      foreign-key: creator
+    - key: owner
+      foreign-key: creator
+    - key: user
+      foreign-key: creator
+  - table-name: requisitions
+    keys:
+    - key: id
+      foreign-key: postings.value
+    - key: followers.value
+      foreign-key: creator
+    - key: hiringManager
+      foreign-key: creator
+    - key: owner
+      foreign-key: creator
+    - key: user
+      foreign-key: creator
+    - key: followers.value
+      foreign-key: hiringManager
+    - key: hiringManager
+      foreign-key: hiringManager
+    - key: owner
+      foreign-key: hiringManager
+    - key: user
+      foreign-key: hiringManager
+    - key: followers.value
+      foreign-key: owner
+    - key: hiringManager
+      foreign-key: owner
+    - key: owner
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+  - table-name: candidate_offers
+    keys:
+    - key: followers.value
+      foreign-key: creator
+    - key: hiringManager
+      foreign-key: creator
+    - key: owner
+      foreign-key: creator
+    - key: user
+      foreign-key: creator
+  - table-name: candidate_referrals
+    keys:
+    - key: followers.value
+      foreign-key: referrer
+    - key: hiringManager
+      foreign-key: referrer
+    - key: owner
+      foreign-key: referrer
+    - key: user
+      foreign-key: referrer
+    - key: followers.value
+      foreign-key: user
+    - key: hiringManager
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+    - key: user
+      foreign-key: user
+  - table-name: candidates
+    keys:
+    - key: followers.value
+      foreign-key: followers.value
+    - key: hiringManager
+      foreign-key: followers.value
+    - key: owner
+      foreign-key: followers.value
+    - key: user
+      foreign-key: followers.value
+    - key: followers.value
+      foreign-key: owner
+    - key: hiringManager
+      foreign-key: owner
+    - key: owner
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+    - key: followers.value
+      foreign-key: stageChanges.userId
+    - key: hiringManager
+      foreign-key: stageChanges.userId
+    - key: owner
+      foreign-key: stageChanges.userId
+    - key: user
+      foreign-key: stageChanges.userId
+  - table-name: opportunities
+    keys:
+    - key: followers.value
+      foreign-key: followers.value
+    - key: hiringManager
+      foreign-key: followers.value
+    - key: owner
+      foreign-key: followers.value
+    - key: user
+      foreign-key: followers.value
+    - key: followers.value
+      foreign-key: owner
+    - key: hiringManager
+      foreign-key: owner
+    - key: owner
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+    - key: followers.value
+      foreign-key: stageChanges.userId
+    - key: hiringManager
+      foreign-key: stageChanges.userId
+    - key: owner
+      foreign-key: stageChanges.userId
+    - key: user
+      foreign-key: stageChanges.userId
+  - table-name: opportunity_referrals
+    keys:
+    - key: followers.value
+      foreign-key: referrer
+    - key: hiringManager
+      foreign-key: referrer
+    - key: owner
+      foreign-key: referrer
+    - key: user
+      foreign-key: referrer
+    - key: followers.value
+      foreign-key: user
+    - key: hiringManager
+      foreign-key: user
+    - key: owner
+      foreign-key: user
+    - key: user
+      foreign-key: user
+- table-name: candidate_referrals
+  join:
+  - table-name: opportunity_referrals
+    keys:
+    - key: id
+      foreign-key: id
+    - key: referrer
+      foreign-key: referrer
+    - key: user
+      foreign-key: referrer
+    - key: referrer
+      foreign-key: user
+    - key: user
+      foreign-key: user
+  - table-name: candidate_applications
+    keys:
+    - key: referrer
+      foreign-key: postingHiringManager
+    - key: user
+      foreign-key: postingHiringManager
+    - key: referrer
+      foreign-key: postingOwner
+    - key: user
+      foreign-key: postingOwner
+    - key: referrer
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: user
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: referrer
+      foreign-key: user
+    - key: user
+      foreign-key: user
+  - table-name: candidate_offers
+    keys:
+    - key: referrer
+      foreign-key: creator
+    - key: user
+      foreign-key: creator
+  - table-name: candidates
+    keys:
+    - key: referrer
+      foreign-key: followers.value
+    - key: user
+      foreign-key: followers.value
+    - key: referrer
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+    - key: referrer
+      foreign-key: stageChanges.userId
+    - key: user
+      foreign-key: stageChanges.userId
+  - table-name: opportunities
+    keys:
+    - key: referrer
+      foreign-key: followers.value
+    - key: user
+      foreign-key: followers.value
+    - key: referrer
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+    - key: referrer
+      foreign-key: stageChanges.userId
+    - key: user
+      foreign-key: stageChanges.userId
+  - table-name: opportunity_applications
+    keys:
+    - key: referrer
+      foreign-key: postingHiringManager
+    - key: user
+      foreign-key: postingHiringManager
+    - key: referrer
+      foreign-key: postingOwner
+    - key: user
+      foreign-key: postingOwner
+    - key: referrer
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: user
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: referrer
+      foreign-key: user
+    - key: user
+      foreign-key: user
+  - table-name: opportunity_offers
+    keys:
+    - key: referrer
+      foreign-key: creator
+    - key: user
+      foreign-key: creator
+  - table-name: postings
+    keys:
+    - key: referrer
+      foreign-key: followers.value
+    - key: user
+      foreign-key: followers.value
+    - key: referrer
+      foreign-key: hiringManager
+    - key: user
+      foreign-key: hiringManager
+    - key: referrer
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+    - key: referrer
+      foreign-key: user
+    - key: user
+      foreign-key: user
+  - table-name: requisitions
+    keys:
+    - key: referrer
+      foreign-key: creator
+    - key: user
+      foreign-key: creator
+    - key: referrer
+      foreign-key: hiringManager
+    - key: user
+      foreign-key: hiringManager
+    - key: referrer
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+- table-name: opportunity_referrals
+  join:
+  - table-name: candidate_referrals
+    keys:
+    - key: id
+      foreign-key: id
+    - key: referrer
+      foreign-key: referrer
+    - key: user
+      foreign-key: referrer
+    - key: referrer
+      foreign-key: user
+    - key: user
+      foreign-key: user
+  - table-name: candidate_applications
+    keys:
+    - key: referrer
+      foreign-key: postingHiringManager
+    - key: user
+      foreign-key: postingHiringManager
+    - key: referrer
+      foreign-key: postingOwner
+    - key: user
+      foreign-key: postingOwner
+    - key: referrer
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: user
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: referrer
+      foreign-key: user
+    - key: user
+      foreign-key: user
+  - table-name: candidate_offers
+    keys:
+    - key: referrer
+      foreign-key: creator
+    - key: user
+      foreign-key: creator
+  - table-name: candidates
+    keys:
+    - key: referrer
+      foreign-key: followers.value
+    - key: user
+      foreign-key: followers.value
+    - key: referrer
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+    - key: referrer
+      foreign-key: stageChanges.userId
+    - key: user
+      foreign-key: stageChanges.userId
+  - table-name: opportunities
+    keys:
+    - key: referrer
+      foreign-key: followers.value
+    - key: user
+      foreign-key: followers.value
+    - key: referrer
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+    - key: referrer
+      foreign-key: stageChanges.userId
+    - key: user
+      foreign-key: stageChanges.userId
+  - table-name: opportunity_applications
+    keys:
+    - key: referrer
+      foreign-key: postingHiringManager
+    - key: user
+      foreign-key: postingHiringManager
+    - key: referrer
+      foreign-key: postingOwner
+    - key: user
+      foreign-key: postingOwner
+    - key: referrer
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: user
+      foreign-key: requisitionForHire.hiringManagerOnHire
+    - key: referrer
+      foreign-key: user
+    - key: user
+      foreign-key: user
+  - table-name: opportunity_offers
+    keys:
+    - key: referrer
+      foreign-key: creator
+    - key: user
+      foreign-key: creator
+  - table-name: postings
+    keys:
+    - key: referrer
+      foreign-key: followers.value
+    - key: user
+      foreign-key: followers.value
+    - key: referrer
+      foreign-key: hiringManager
+    - key: user
+      foreign-key: hiringManager
+    - key: referrer
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+    - key: referrer
+      foreign-key: user
+    - key: user
+      foreign-key: user
+  - table-name: requisitions
+    keys:
+    - key: referrer
+      foreign-key: creator
+    - key: user
+      foreign-key: creator
+    - key: referrer
+      foreign-key: hiringManager
+    - key: user
+      foreign-key: hiringManager
+    - key: referrer
+      foreign-key: owner
+    - key: user
+      foreign-key: owner
+- table-name: candidate_resumes
+  join:
+  - table-name: opportunity_resumes
+    keys:
+    - key: id
+      foreign-key: id
+- table-name: opportunity_resumes
+  join:
+  - table-name: candidate_resumes
+    keys:
+    - key: id
+      foreign-key: id
+- table-name: sources
+  join:
+  - table-name: candidates
+    keys:
+    - key: id
+      foreign-key: sources.value
+- table-name: stages
+  join:
+  - table-name: candidates
+    keys:
+    - key: id
+      foreign-key: stage
+    - key: id
+      foreign-key: stageChanges.toStageId
+  - table-name: opportunities
+    keys:
+    - key: id
+      foreign-key: stage
+    - key: id
+      foreign-key: stageChanges.toStageId

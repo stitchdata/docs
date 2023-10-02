@@ -280,3 +280,2240 @@ keys:
   - table: orders
     keys:
     - id
+tables:
+- table-name: addon
+  join:
+  - table-name: coupons
+    keys:
+    - key: id
+      foreign-key: addon_ids.value
+  - table-name: events
+    keys:
+    - key: id
+      foreign-key: content.subscription.addons.id
+    - key: id
+      foreign-key: content.subscription.charged_event_based_addons.id
+    - key: id
+      foreign-key: content.subscription.event_based_addons.id
+  - table-name: invoices
+    keys:
+    - key: id
+      foreign-key: notes.entity_id
+  - table-name: plans
+    keys:
+    - key: id
+      foreign-key: applicable_addons.id
+  - table-name: subscriptions
+    keys:
+    - key: id
+      foreign-key: addons.id
+    - key: id
+      foreign-key: charged_event_based_addons.id
+    - key: id
+      foreign-key: event_based_addons.id
+- table-name: coupons
+  join:
+  - table-name: addon
+    keys:
+    - key: addon_ids.value
+      foreign-key: id
+  - table-name: events
+    keys:
+    - key: addon_ids.value
+      foreign-key: content.subscription.addons.id
+    - key: addon_ids.value
+      foreign-key: content.subscription.charged_event_based_addons.id
+    - key: addon_ids.value
+      foreign-key: content.subscription.event_based_addons.id
+    - key: id
+      foreign-key: content.coupon.id
+    - key: id
+      foreign-key: content.invoice.discounts.entity_id
+    - key: id
+      foreign-key: content.invoice.line_item_discounts.coupon_id
+    - key: id
+      foreign-key: content.subscription.coupons.coupon_id
+    - key: content.plan.id
+      foreign-key: plan_ids.value
+    - key: content.plan.id
+      foreign-key: content.subscription.plan_id
+  - table-name: invoices
+    keys:
+    - key: addon_ids.value
+      foreign-key: notes.entity_id
+    - key: id
+      foreign-key: discounts.entity_id
+    - key: id
+      foreign-key: line_item_discounts.coupon_id
+    - key: id
+      foreign-key: notes.entity_id
+    - key: content.plan.id
+      foreign-key: notes.entity_id
+  - table-name: plans
+    keys:
+    - key: addon_ids.value
+      foreign-key: applicable_addons.id
+    - key: content.plan.id
+      foreign-key: id
+  - table-name: subscriptions
+    keys:
+    - key: addon_ids.value
+      foreign-key: addons.id
+    - key: addon_ids.value
+      foreign-key: charged_event_based_addons.id
+    - key: addon_ids.value
+      foreign-key: event_based_addons.id
+    - key: id
+      foreign-key: coupons.coupon_id
+    - key: content.plan.id
+      foreign-key: plan_id
+  - table-name: credit_notes
+    keys:
+    - key: id
+      foreign-key: discounts.entity_id
+    - key: id
+      foreign-key: line_item_discounts.coupon_id
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: line_item_discounts.coupon_id
+- table-name: events
+  join:
+  - table-name: addon
+    keys:
+    - key: content.subscription.addons.id
+      foreign-key: id
+    - key: content.subscription.charged_event_based_addons.id
+      foreign-key: id
+    - key: content.subscription.event_based_addons.id
+      foreign-key: id
+  - table-name: coupons
+    keys:
+    - key: content.subscription.addons.id
+      foreign-key: addon_ids.value
+    - key: content.subscription.charged_event_based_addons.id
+      foreign-key: addon_ids.value
+    - key: content.subscription.event_based_addons.id
+      foreign-key: addon_ids.value
+    - key: content.coupon.id
+      foreign-key: id
+    - key: content.invoice.discounts.entity_id
+      foreign-key: id
+    - key: content.invoice.line_item_discounts.coupon_id
+      foreign-key: id
+    - key: content.subscription.coupons.coupon_id
+      foreign-key: id
+    - key: plan_ids.value
+      foreign-key: content.plan.id
+    - key: content.subscription.plan_id
+      foreign-key: content.plan.id
+  - table-name: invoices
+    keys:
+    - key: content.subscription.addons.id
+      foreign-key: notes.entity_id
+    - key: content.subscription.charged_event_based_addons.id
+      foreign-key: notes.entity_id
+    - key: content.subscription.event_based_addons.id
+      foreign-key: notes.entity_id
+    - key: content.coupon.id
+      foreign-key: discounts.entity_id
+    - key: content.invoice.discounts.entity_id
+      foreign-key: discounts.entity_id
+    - key: content.invoice.line_item_discounts.coupon_id
+      foreign-key: discounts.entity_id
+    - key: content.subscription.coupons.coupon_id
+      foreign-key: discounts.entity_id
+    - key: content.coupon.id
+      foreign-key: line_item_discounts.coupon_id
+    - key: content.invoice.discounts.entity_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: content.invoice.line_item_discounts.coupon_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: content.subscription.coupons.coupon_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: content.coupon.id
+      foreign-key: notes.entity_id
+    - key: content.invoice.discounts.entity_id
+      foreign-key: notes.entity_id
+    - key: content.invoice.line_item_discounts.coupon_id
+      foreign-key: notes.entity_id
+    - key: content.subscription.coupons.coupon_id
+      foreign-key: notes.entity_id
+    - key: content.invoice.adjustment_credit_notes.cn_id
+      foreign-key: adjustment_credit_notes.cn_id
+    - key: content.invoice.applied_credits.cn_id
+      foreign-key: adjustment_credit_notes.cn_id
+    - key: content.invoice.issued_credit_notes.cn_id
+      foreign-key: adjustment_credit_notes.cn_id
+    - key: content.invoice.adjustment_credit_notes.cn_id
+      foreign-key: adjustment_applied_credits.cn_id
+    - key: content.invoice.applied_credits.cn_id
+      foreign-key: adjustment_applied_credits.cn_id
+    - key: content.invoice.issued_credit_notes.cn_id
+      foreign-key: adjustment_applied_credits.cn_id
+    - key: content.invoice.adjustment_credit_notes.cn_id
+      foreign-key: linked_credit_notes.cn_id
+    - key: content.invoice.applied_credits.cn_id
+      foreign-key: linked_credit_notes.cn_id
+    - key: content.invoice.issued_credit_notes.cn_id
+      foreign-key: linked_credit_notes.cn_id
+    - key: content.customer.id
+      foreign-key: customer_id
+    - key: content.invoice.customer_id
+      foreign-key: customer_id
+    - key: content.subscription.customer_id
+      foreign-key: customer_id
+    - key: content.transaction.customer_id
+      foreign-key: customer_id
+    - key: content.customer.id
+      foreign-key: notes.entity_id
+    - key: content.invoice.customer_id
+      foreign-key: notes.entity_id
+    - key: content.subscription.customer_id
+      foreign-key: notes.entity_id
+    - key: content.transaction.customer_id
+      foreign-key: notes.entity_id
+    - key: content.invoice.id
+      foreign-key: id
+    - key: content.transaction.linked_credit_notes.cn_reference_invoice_id
+      foreign-key: id
+    - key: content.transaction.linked_payments.invoice_id
+      foreign-key: id
+    - key: content.invoice.line_item_discounts.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: content.invoice.line_item_taxes.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: content.invoice.line_items.id
+      foreign-key: line_item_discounts.line_item_id
+    - key: content.invoice.line_item_discounts.line_item_id
+      foreign-key: line_item_taxes.line_item_id
+    - key: content.invoice.line_item_taxes.line_item_id
+      foreign-key: line_item_taxes.line_item_id
+    - key: content.invoice.line_items.id
+      foreign-key: line_item_taxes.line_item_id
+    - key: content.invoice.line_item_discounts.line_item_id
+      foreign-key: line_item_tiers.line_item_id
+    - key: content.invoice.line_item_taxes.line_item_id
+      foreign-key: line_item_tiers.line_item_id
+    - key: content.invoice.line_items.id
+      foreign-key: line_item_tiers.line_item_id
+    - key: content.invoice.line_item_discounts.line_item_id
+      foreign-key: line_items.line_item_id
+    - key: content.invoice.line_item_taxes.line_item_id
+      foreign-key: line_items.line_item_id
+    - key: content.invoice.line_items.id
+      foreign-key: line_items.line_item_id
+    - key: plan_ids.value
+      foreign-key: notes.entity_id
+    - key: content.subscription.plan_id
+      foreign-key: notes.entity_id
+    - key: content.invoice.linked_payments.subscription_id
+      foreign-key: line_items.subscription_id
+    - key: content.subscription.id
+      foreign-key: line_items.subscription_id
+    - key: content.invoice.subscription_id
+      foreign-key: line_items.subscription_id
+    - key: content.transaction.subscription_id
+      foreign-key: line_items.subscription_id
+    - key: content.invoice.linked_payments.subscription_id
+      foreign-key: notes.entity_id
+    - key: content.subscription.id
+      foreign-key: notes.entity_id
+    - key: content.invoice.subscription_id
+      foreign-key: notes.entity_id
+    - key: content.transaction.subscription_id
+      foreign-key: notes.entity_id
+    - key: content.invoice.linked_payments.subscription_id
+      foreign-key: subscription_id
+    - key: content.subscription.id
+      foreign-key: subscription_id
+    - key: content.invoice.subscription_id
+      foreign-key: subscription_id
+    - key: content.transaction.subscription_id
+      foreign-key: subscription_id
+    - key: content.invoice.linked_payments.txn_id
+      foreign-key: linked_payments.txn_id
+    - key: content.transaction.id
+      foreign-key: linked_payments.txn_id
+    - key: content.transaction.linked_refunds.txn_id
+      foreign-key: linked_payments.txn_id
+    - key: content.transaction.reference_transaction_id
+      foreign-key: linked_payments.txn_id
+    - key: content.transaction.refunded_txn_id
+      foreign-key: linked_payments.txn_id
+  - table-name: plans
+    keys:
+    - key: content.subscription.addons.id
+      foreign-key: applicable_addons.id
+    - key: content.subscription.charged_event_based_addons.id
+      foreign-key: applicable_addons.id
+    - key: content.subscription.event_based_addons.id
+      foreign-key: applicable_addons.id
+    - key: plan_ids.value
+      foreign-key: id
+    - key: content.subscription.plan_id
+      foreign-key: id
+  - table-name: subscriptions
+    keys:
+    - key: content.subscription.addons.id
+      foreign-key: addons.id
+    - key: content.subscription.charged_event_based_addons.id
+      foreign-key: addons.id
+    - key: content.subscription.event_based_addons.id
+      foreign-key: addons.id
+    - key: content.subscription.addons.id
+      foreign-key: charged_event_based_addons.id
+    - key: content.subscription.charged_event_based_addons.id
+      foreign-key: charged_event_based_addons.id
+    - key: content.subscription.event_based_addons.id
+      foreign-key: charged_event_based_addons.id
+    - key: content.subscription.addons.id
+      foreign-key: event_based_addons.id
+    - key: content.subscription.charged_event_based_addons.id
+      foreign-key: event_based_addons.id
+    - key: content.subscription.event_based_addons.id
+      foreign-key: event_based_addons.id
+    - key: content.coupon.id
+      foreign-key: coupons.coupon_id
+    - key: content.invoice.discounts.entity_id
+      foreign-key: coupons.coupon_id
+    - key: content.invoice.line_item_discounts.coupon_id
+      foreign-key: coupons.coupon_id
+    - key: content.subscription.coupons.coupon_id
+      foreign-key: coupons.coupon_id
+    - key: content.customer.id
+      foreign-key: customer_id
+    - key: content.invoice.customer_id
+      foreign-key: customer_id
+    - key: content.subscription.customer_id
+      foreign-key: customer_id
+    - key: content.transaction.customer_id
+      foreign-key: customer_id
+    - key: plan_ids.value
+      foreign-key: plan_id
+    - key: content.subscription.plan_id
+      foreign-key: plan_id
+    - key: content.subscription.payment_source_id
+      foreign-key: payment_source_id
+    - key: content.transaction.payment_source_id
+      foreign-key: payment_source_id
+    - key: content.invoice.linked_payments.subscription_id
+      foreign-key: id
+    - key: content.subscription.id
+      foreign-key: id
+    - key: content.invoice.subscription_id
+      foreign-key: id
+    - key: content.transaction.subscription_id
+      foreign-key: id
+  - table-name: credit_notes
+    keys:
+    - key: content.coupon.id
+      foreign-key: discounts.entity_id
+    - key: content.invoice.discounts.entity_id
+      foreign-key: discounts.entity_id
+    - key: content.invoice.line_item_discounts.coupon_id
+      foreign-key: discounts.entity_id
+    - key: content.subscription.coupons.coupon_id
+      foreign-key: discounts.entity_id
+    - key: content.coupon.id
+      foreign-key: line_item_discounts.coupon_id
+    - key: content.invoice.discounts.entity_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: content.invoice.line_item_discounts.coupon_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: content.subscription.coupons.coupon_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: content.invoice.adjustment_credit_notes.cn_id
+      foreign-key: id
+    - key: content.invoice.applied_credits.cn_id
+      foreign-key: id
+    - key: content.invoice.issued_credit_notes.cn_id
+      foreign-key: id
+    - key: content.customer.id
+      foreign-key: customer_id
+    - key: content.invoice.customer_id
+      foreign-key: customer_id
+    - key: content.subscription.customer_id
+      foreign-key: customer_id
+    - key: content.transaction.customer_id
+      foreign-key: customer_id
+    - key: content.invoice.id
+      foreign-key: allocations.invoice_id
+    - key: content.transaction.linked_credit_notes.cn_reference_invoice_id
+      foreign-key: allocations.invoice_id
+    - key: content.transaction.linked_payments.invoice_id
+      foreign-key: allocations.invoice_id
+    - key: content.invoice.id
+      foreign-key: reference_invoice_id
+    - key: content.transaction.linked_credit_notes.cn_reference_invoice_id
+      foreign-key: reference_invoice_id
+    - key: content.transaction.linked_payments.invoice_id
+      foreign-key: reference_invoice_id
+    - key: content.invoice.line_item_discounts.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: content.invoice.line_item_taxes.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: content.invoice.line_items.id
+      foreign-key: line_item_discounts.line_item_id
+    - key: content.invoice.line_item_discounts.line_item_id
+      foreign-key: line_item_taxes.line_item_id
+    - key: content.invoice.line_item_taxes.line_item_id
+      foreign-key: line_item_taxes.line_item_id
+    - key: content.invoice.line_items.id
+      foreign-key: line_item_taxes.line_item_id
+    - key: content.invoice.line_item_discounts.line_item_id
+      foreign-key: line_item_tiers.line_item_id
+    - key: content.invoice.line_item_taxes.line_item_id
+      foreign-key: line_item_tiers.line_item_id
+    - key: content.invoice.line_items.id
+      foreign-key: line_item_tiers.line_item_id
+    - key: content.invoice.line_item_discounts.line_item_id
+      foreign-key: line_items.line_item_id
+    - key: content.invoice.line_item_taxes.line_item_id
+      foreign-key: line_items.line_item_id
+    - key: content.invoice.line_items.id
+      foreign-key: line_items.line_item_id
+    - key: content.invoice.linked_payments.subscription_id
+      foreign-key: subscription_id
+    - key: content.subscription.id
+      foreign-key: subscription_id
+    - key: content.invoice.subscription_id
+      foreign-key: subscription_id
+    - key: content.transaction.subscription_id
+      foreign-key: subscription_id
+    - key: content.invoice.linked_payments.subscription_id
+      foreign-key: line_items.subscription_id
+    - key: content.subscription.id
+      foreign-key: line_items.subscription_id
+    - key: content.invoice.subscription_id
+      foreign-key: line_items.subscription_id
+    - key: content.transaction.subscription_id
+      foreign-key: line_items.subscription_id
+    - key: content.invoice.linked_payments.txn_id
+      foreign-key: linked_refunds.txn_id
+    - key: content.transaction.id
+      foreign-key: linked_refunds.txn_id
+    - key: content.transaction.linked_refunds.txn_id
+      foreign-key: linked_refunds.txn_id
+    - key: content.transaction.reference_transaction_id
+      foreign-key: linked_refunds.txn_id
+    - key: content.transaction.refunded_txn_id
+      foreign-key: linked_refunds.txn_id
+  - table-name: orders
+    keys:
+    - key: content.coupon.id
+      foreign-key: line_item_discounts.coupon_id
+    - key: content.invoice.discounts.entity_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: content.invoice.line_item_discounts.coupon_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: content.subscription.coupons.coupon_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: content.invoice.adjustment_credit_notes.cn_id
+      foreign-key: linked_credit_notes.id
+    - key: content.invoice.applied_credits.cn_id
+      foreign-key: linked_credit_notes.id
+    - key: content.invoice.issued_credit_notes.cn_id
+      foreign-key: linked_credit_notes.id
+    - key: content.customer.id
+      foreign-key: customer_id
+    - key: content.invoice.customer_id
+      foreign-key: customer_id
+    - key: content.subscription.customer_id
+      foreign-key: customer_id
+    - key: content.transaction.customer_id
+      foreign-key: customer_id
+    - key: content.invoice.id
+      foreign-key: invoice_id
+    - key: content.transaction.linked_credit_notes.cn_reference_invoice_id
+      foreign-key: invoice_id
+    - key: content.transaction.linked_payments.invoice_id
+      foreign-key: invoice_id
+    - key: content.invoice.line_item_discounts.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: content.invoice.line_item_taxes.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: content.invoice.line_items.id
+      foreign-key: line_item_discounts.line_item_id
+    - key: content.invoice.line_item_discounts.line_item_id
+      foreign-key: line_item_tax.line_item_id
+    - key: content.invoice.line_item_taxes.line_item_id
+      foreign-key: line_item_tax.line_item_id
+    - key: content.invoice.line_items.id
+      foreign-key: line_item_tax.line_item_id
+    - key: content.invoice.linked_payments.subscription_id
+      foreign-key: subscription_id
+    - key: content.subscription.id
+      foreign-key: subscription_id
+    - key: content.invoice.subscription_id
+      foreign-key: subscription_id
+    - key: content.transaction.subscription_id
+      foreign-key: subscription_id
+  - table-name: customers
+    keys:
+    - key: content.customer.id
+      foreign-key: id
+    - key: content.invoice.customer_id
+      foreign-key: id
+    - key: content.subscription.customer_id
+      foreign-key: id
+    - key: content.transaction.customer_id
+      foreign-key: id
+    - key: content.subscription.payment_source_id
+      foreign-key: primary_payment_sources_id
+    - key: content.transaction.payment_source_id
+      foreign-key: primary_payment_sources_id
+  - table-name: payment_sources
+    keys:
+    - key: content.customer.id
+      foreign-key: customer_id
+    - key: content.invoice.customer_id
+      foreign-key: customer_id
+    - key: content.subscription.customer_id
+      foreign-key: customer_id
+    - key: content.transaction.customer_id
+      foreign-key: customer_id
+    - key: content.subscription.payment_source_id
+      foreign-key: id
+    - key: content.transaction.payment_source_id
+      foreign-key: id
+  - table-name: promotional_credits
+    keys:
+    - key: content.customer.id
+      foreign-key: customer_id
+    - key: content.invoice.customer_id
+      foreign-key: customer_id
+    - key: content.subscription.customer_id
+      foreign-key: customer_id
+    - key: content.transaction.customer_id
+      foreign-key: customer_id
+  - table-name: transactions
+    keys:
+    - key: content.customer.id
+      foreign-key: customer_id
+    - key: content.invoice.customer_id
+      foreign-key: customer_id
+    - key: content.subscription.customer_id
+      foreign-key: customer_id
+    - key: content.transaction.customer_id
+      foreign-key: customer_id
+    - key: content.invoice.id
+      foreign-key: linked_credit_notes.cn_reference_invoice_id
+    - key: content.transaction.linked_credit_notes.cn_reference_invoice_id
+      foreign-key: linked_credit_notes.cn_reference_invoice_id
+    - key: content.transaction.linked_payments.invoice_id
+      foreign-key: linked_credit_notes.cn_reference_invoice_id
+    - key: content.invoice.id
+      foreign-key: linked_payments.invoice_id
+    - key: content.transaction.linked_credit_notes.cn_reference_invoice_id
+      foreign-key: linked_payments.invoice_id
+    - key: content.transaction.linked_payments.invoice_id
+      foreign-key: linked_payments.invoice_id
+    - key: content.subscription.payment_source_id
+      foreign-key: payment_source_id
+    - key: content.transaction.payment_source_id
+      foreign-key: payment_source_id
+    - key: content.invoice.linked_payments.subscription_id
+      foreign-key: subscription_id
+    - key: content.subscription.id
+      foreign-key: subscription_id
+    - key: content.invoice.subscription_id
+      foreign-key: subscription_id
+    - key: content.transaction.subscription_id
+      foreign-key: subscription_id
+    - key: content.invoice.linked_payments.txn_id
+      foreign-key: id
+    - key: content.transaction.id
+      foreign-key: id
+    - key: content.transaction.linked_refunds.txn_id
+      foreign-key: id
+    - key: content.transaction.reference_transaction_id
+      foreign-key: id
+    - key: content.transaction.refunded_txn_id
+      foreign-key: id
+    - key: content.invoice.linked_payments.txn_id
+      foreign-key: linked_refunds.txn_id
+    - key: content.transaction.id
+      foreign-key: linked_refunds.txn_id
+    - key: content.transaction.linked_refunds.txn_id
+      foreign-key: linked_refunds.txn_id
+    - key: content.transaction.reference_transaction_id
+      foreign-key: linked_refunds.txn_id
+    - key: content.transaction.refunded_txn_id
+      foreign-key: linked_refunds.txn_id
+    - key: content.invoice.linked_payments.txn_id
+      foreign-key: reference_transaction_id
+    - key: content.transaction.id
+      foreign-key: reference_transaction_id
+    - key: content.transaction.linked_refunds.txn_id
+      foreign-key: reference_transaction_id
+    - key: content.transaction.reference_transaction_id
+      foreign-key: reference_transaction_id
+    - key: content.transaction.refunded_txn_id
+      foreign-key: reference_transaction_id
+    - key: content.invoice.linked_payments.txn_id
+      foreign-key: refunded_txn_id
+    - key: content.transaction.id
+      foreign-key: refunded_txn_id
+    - key: content.transaction.linked_refunds.txn_id
+      foreign-key: refunded_txn_id
+    - key: content.transaction.reference_transaction_id
+      foreign-key: refunded_txn_id
+    - key: content.transaction.refunded_txn_id
+      foreign-key: refunded_txn_id
+  - table-name: virtual_bank_accounts
+    keys:
+    - key: content.customer.id
+      foreign-key: customer_id
+    - key: content.invoice.customer_id
+      foreign-key: customer_id
+    - key: content.subscription.customer_id
+      foreign-key: customer_id
+    - key: content.transaction.customer_id
+      foreign-key: customer_id
+  - table-name: gifts
+    keys:
+    - key: content.customer.id
+      foreign-key: gift_receiver.customer_id
+    - key: content.invoice.customer_id
+      foreign-key: gift_receiver.customer_id
+    - key: content.subscription.customer_id
+      foreign-key: gift_receiver.customer_id
+    - key: content.transaction.customer_id
+      foreign-key: gift_receiver.customer_id
+    - key: content.customer.id
+      foreign-key: gifter.customer_id
+    - key: content.invoice.customer_id
+      foreign-key: gifter.customer_id
+    - key: content.subscription.customer_id
+      foreign-key: gifter.customer_id
+    - key: content.transaction.customer_id
+      foreign-key: gifter.customer_id
+    - key: content.invoice.id
+      foreign-key: gifter.invoice_id
+    - key: content.transaction.linked_credit_notes.cn_reference_invoice_id
+      foreign-key: gifter.invoice_id
+    - key: content.transaction.linked_payments.invoice_id
+      foreign-key: gifter.invoice_id
+    - key: content.invoice.linked_payments.subscription_id
+      foreign-key: gift_receiver.subscription_id
+    - key: content.subscription.id
+      foreign-key: gift_receiver.subscription_id
+    - key: content.invoice.subscription_id
+      foreign-key: gift_receiver.subscription_id
+    - key: content.transaction.subscription_id
+      foreign-key: gift_receiver.subscription_id
+- table-name: invoices
+  join:
+  - table-name: addon
+    keys:
+    - key: notes.entity_id
+      foreign-key: id
+  - table-name: coupons
+    keys:
+    - key: notes.entity_id
+      foreign-key: addon_ids.value
+    - key: discounts.entity_id
+      foreign-key: id
+    - key: line_item_discounts.coupon_id
+      foreign-key: id
+    - key: notes.entity_id
+      foreign-key: id
+    - key: notes.entity_id
+      foreign-key: content.plan.id
+  - table-name: events
+    keys:
+    - key: notes.entity_id
+      foreign-key: content.subscription.addons.id
+    - key: notes.entity_id
+      foreign-key: content.subscription.charged_event_based_addons.id
+    - key: notes.entity_id
+      foreign-key: content.subscription.event_based_addons.id
+    - key: discounts.entity_id
+      foreign-key: content.coupon.id
+    - key: line_item_discounts.coupon_id
+      foreign-key: content.coupon.id
+    - key: notes.entity_id
+      foreign-key: content.coupon.id
+    - key: discounts.entity_id
+      foreign-key: content.invoice.discounts.entity_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: content.invoice.discounts.entity_id
+    - key: notes.entity_id
+      foreign-key: content.invoice.discounts.entity_id
+    - key: discounts.entity_id
+      foreign-key: content.invoice.line_item_discounts.coupon_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: content.invoice.line_item_discounts.coupon_id
+    - key: notes.entity_id
+      foreign-key: content.invoice.line_item_discounts.coupon_id
+    - key: discounts.entity_id
+      foreign-key: content.subscription.coupons.coupon_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: content.subscription.coupons.coupon_id
+    - key: notes.entity_id
+      foreign-key: content.subscription.coupons.coupon_id
+    - key: adjustment_credit_notes.cn_id
+      foreign-key: content.invoice.adjustment_credit_notes.cn_id
+    - key: adjustment_applied_credits.cn_id
+      foreign-key: content.invoice.adjustment_credit_notes.cn_id
+    - key: linked_credit_notes.cn_id
+      foreign-key: content.invoice.adjustment_credit_notes.cn_id
+    - key: adjustment_credit_notes.cn_id
+      foreign-key: content.invoice.applied_credits.cn_id
+    - key: adjustment_applied_credits.cn_id
+      foreign-key: content.invoice.applied_credits.cn_id
+    - key: linked_credit_notes.cn_id
+      foreign-key: content.invoice.applied_credits.cn_id
+    - key: adjustment_credit_notes.cn_id
+      foreign-key: content.invoice.issued_credit_notes.cn_id
+    - key: adjustment_applied_credits.cn_id
+      foreign-key: content.invoice.issued_credit_notes.cn_id
+    - key: linked_credit_notes.cn_id
+      foreign-key: content.invoice.issued_credit_notes.cn_id
+    - key: customer_id
+      foreign-key: content.customer.id
+    - key: notes.entity_id
+      foreign-key: content.customer.id
+    - key: customer_id
+      foreign-key: content.invoice.customer_id
+    - key: notes.entity_id
+      foreign-key: content.invoice.customer_id
+    - key: customer_id
+      foreign-key: content.subscription.customer_id
+    - key: notes.entity_id
+      foreign-key: content.subscription.customer_id
+    - key: customer_id
+      foreign-key: content.transaction.customer_id
+    - key: notes.entity_id
+      foreign-key: content.transaction.customer_id
+    - key: id
+      foreign-key: content.invoice.id
+    - key: id
+      foreign-key: content.transaction.linked_credit_notes.cn_reference_invoice_id
+    - key: id
+      foreign-key: content.transaction.linked_payments.invoice_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: content.invoice.line_item_discounts.line_item_id
+    - key: line_item_taxes.line_item_id
+      foreign-key: content.invoice.line_item_discounts.line_item_id
+    - key: line_item_tiers.line_item_id
+      foreign-key: content.invoice.line_item_discounts.line_item_id
+    - key: line_items.line_item_id
+      foreign-key: content.invoice.line_item_discounts.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: content.invoice.line_item_taxes.line_item_id
+    - key: line_item_taxes.line_item_id
+      foreign-key: content.invoice.line_item_taxes.line_item_id
+    - key: line_item_tiers.line_item_id
+      foreign-key: content.invoice.line_item_taxes.line_item_id
+    - key: line_items.line_item_id
+      foreign-key: content.invoice.line_item_taxes.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: content.invoice.line_items.id
+    - key: line_item_taxes.line_item_id
+      foreign-key: content.invoice.line_items.id
+    - key: line_item_tiers.line_item_id
+      foreign-key: content.invoice.line_items.id
+    - key: line_items.line_item_id
+      foreign-key: content.invoice.line_items.id
+    - key: notes.entity_id
+      foreign-key: plan_ids.value
+    - key: notes.entity_id
+      foreign-key: content.subscription.plan_id
+    - key: line_items.subscription_id
+      foreign-key: content.invoice.linked_payments.subscription_id
+    - key: notes.entity_id
+      foreign-key: content.invoice.linked_payments.subscription_id
+    - key: subscription_id
+      foreign-key: content.invoice.linked_payments.subscription_id
+    - key: line_items.subscription_id
+      foreign-key: content.subscription.id
+    - key: notes.entity_id
+      foreign-key: content.subscription.id
+    - key: subscription_id
+      foreign-key: content.subscription.id
+    - key: line_items.subscription_id
+      foreign-key: content.invoice.subscription_id
+    - key: notes.entity_id
+      foreign-key: content.invoice.subscription_id
+    - key: subscription_id
+      foreign-key: content.invoice.subscription_id
+    - key: line_items.subscription_id
+      foreign-key: content.transaction.subscription_id
+    - key: notes.entity_id
+      foreign-key: content.transaction.subscription_id
+    - key: subscription_id
+      foreign-key: content.transaction.subscription_id
+    - key: linked_payments.txn_id
+      foreign-key: content.invoice.linked_payments.txn_id
+    - key: linked_payments.txn_id
+      foreign-key: content.transaction.id
+    - key: linked_payments.txn_id
+      foreign-key: content.transaction.linked_refunds.txn_id
+    - key: linked_payments.txn_id
+      foreign-key: content.transaction.reference_transaction_id
+    - key: linked_payments.txn_id
+      foreign-key: content.transaction.refunded_txn_id
+  - table-name: plans
+    keys:
+    - key: notes.entity_id
+      foreign-key: applicable_addons.id
+    - key: notes.entity_id
+      foreign-key: id
+  - table-name: subscriptions
+    keys:
+    - key: notes.entity_id
+      foreign-key: addons.id
+    - key: notes.entity_id
+      foreign-key: charged_event_based_addons.id
+    - key: notes.entity_id
+      foreign-key: event_based_addons.id
+    - key: discounts.entity_id
+      foreign-key: coupons.coupon_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: coupons.coupon_id
+    - key: notes.entity_id
+      foreign-key: coupons.coupon_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: notes.entity_id
+      foreign-key: customer_id
+    - key: notes.entity_id
+      foreign-key: plan_id
+    - key: line_items.subscription_id
+      foreign-key: id
+    - key: notes.entity_id
+      foreign-key: id
+    - key: subscription_id
+      foreign-key: id
+  - table-name: credit_notes
+    keys:
+    - key: discounts.entity_id
+      foreign-key: discounts.entity_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: discounts.entity_id
+    - key: notes.entity_id
+      foreign-key: discounts.entity_id
+    - key: discounts.entity_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: notes.entity_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: adjustment_credit_notes.cn_id
+      foreign-key: id
+    - key: adjustment_applied_credits.cn_id
+      foreign-key: id
+    - key: linked_credit_notes.cn_id
+      foreign-key: id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: notes.entity_id
+      foreign-key: customer_id
+    - key: id
+      foreign-key: allocations.invoice_id
+    - key: id
+      foreign-key: reference_invoice_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_item_taxes.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_item_tiers.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_items.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_item_taxes.line_item_id
+    - key: line_item_taxes.line_item_id
+      foreign-key: line_item_taxes.line_item_id
+    - key: line_item_tiers.line_item_id
+      foreign-key: line_item_taxes.line_item_id
+    - key: line_items.line_item_id
+      foreign-key: line_item_taxes.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_item_tiers.line_item_id
+    - key: line_item_taxes.line_item_id
+      foreign-key: line_item_tiers.line_item_id
+    - key: line_item_tiers.line_item_id
+      foreign-key: line_item_tiers.line_item_id
+    - key: line_items.line_item_id
+      foreign-key: line_item_tiers.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_items.line_item_id
+    - key: line_item_taxes.line_item_id
+      foreign-key: line_items.line_item_id
+    - key: line_item_tiers.line_item_id
+      foreign-key: line_items.line_item_id
+    - key: line_items.line_item_id
+      foreign-key: line_items.line_item_id
+    - key: line_items.subscription_id
+      foreign-key: subscription_id
+    - key: notes.entity_id
+      foreign-key: subscription_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: line_items.subscription_id
+      foreign-key: line_items.subscription_id
+    - key: notes.entity_id
+      foreign-key: line_items.subscription_id
+    - key: subscription_id
+      foreign-key: line_items.subscription_id
+    - key: linked_payments.txn_id
+      foreign-key: linked_refunds.txn_id
+  - table-name: orders
+    keys:
+    - key: discounts.entity_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: notes.entity_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: adjustment_credit_notes.cn_id
+      foreign-key: linked_credit_notes.id
+    - key: adjustment_applied_credits.cn_id
+      foreign-key: linked_credit_notes.id
+    - key: linked_credit_notes.cn_id
+      foreign-key: linked_credit_notes.id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: notes.entity_id
+      foreign-key: customer_id
+    - key: id
+      foreign-key: invoice_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_item_taxes.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_item_tiers.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_items.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_item_tax.line_item_id
+    - key: line_item_taxes.line_item_id
+      foreign-key: line_item_tax.line_item_id
+    - key: line_item_tiers.line_item_id
+      foreign-key: line_item_tax.line_item_id
+    - key: line_items.line_item_id
+      foreign-key: line_item_tax.line_item_id
+    - key: line_items.subscription_id
+      foreign-key: subscription_id
+    - key: notes.entity_id
+      foreign-key: subscription_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: linked_orders.id
+      foreign-key: id
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: id
+    - key: notes.entity_id
+      foreign-key: id
+  - table-name: payment_sources
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: notes.entity_id
+      foreign-key: customer_id
+  - table-name: promotional_credits
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: notes.entity_id
+      foreign-key: customer_id
+  - table-name: transactions
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: notes.entity_id
+      foreign-key: customer_id
+    - key: id
+      foreign-key: linked_credit_notes.cn_reference_invoice_id
+    - key: id
+      foreign-key: linked_payments.invoice_id
+    - key: line_items.subscription_id
+      foreign-key: subscription_id
+    - key: notes.entity_id
+      foreign-key: subscription_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: linked_payments.txn_id
+      foreign-key: id
+    - key: linked_payments.txn_id
+      foreign-key: linked_refunds.txn_id
+    - key: linked_payments.txn_id
+      foreign-key: reference_transaction_id
+    - key: linked_payments.txn_id
+      foreign-key: refunded_txn_id
+  - table-name: virtual_bank_accounts
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: notes.entity_id
+      foreign-key: customer_id
+  - table-name: gifts
+    keys:
+    - key: customer_id
+      foreign-key: gift_receiver.customer_id
+    - key: notes.entity_id
+      foreign-key: gift_receiver.customer_id
+    - key: customer_id
+      foreign-key: gifter.customer_id
+    - key: notes.entity_id
+      foreign-key: gifter.customer_id
+    - key: id
+      foreign-key: gifter.invoice_id
+    - key: line_items.subscription_id
+      foreign-key: gift_receiver.subscription_id
+    - key: notes.entity_id
+      foreign-key: gift_receiver.subscription_id
+    - key: subscription_id
+      foreign-key: gift_receiver.subscription_id
+- table-name: plans
+  join:
+  - table-name: addon
+    keys:
+    - key: applicable_addons.id
+      foreign-key: id
+  - table-name: coupons
+    keys:
+    - key: applicable_addons.id
+      foreign-key: addon_ids.value
+    - key: id
+      foreign-key: content.plan.id
+  - table-name: events
+    keys:
+    - key: applicable_addons.id
+      foreign-key: content.subscription.addons.id
+    - key: applicable_addons.id
+      foreign-key: content.subscription.charged_event_based_addons.id
+    - key: applicable_addons.id
+      foreign-key: content.subscription.event_based_addons.id
+    - key: id
+      foreign-key: plan_ids.value
+    - key: id
+      foreign-key: content.subscription.plan_id
+  - table-name: invoices
+    keys:
+    - key: applicable_addons.id
+      foreign-key: notes.entity_id
+    - key: id
+      foreign-key: notes.entity_id
+  - table-name: subscriptions
+    keys:
+    - key: applicable_addons.id
+      foreign-key: addons.id
+    - key: applicable_addons.id
+      foreign-key: charged_event_based_addons.id
+    - key: applicable_addons.id
+      foreign-key: event_based_addons.id
+    - key: id
+      foreign-key: plan_id
+- table-name: subscriptions
+  join:
+  - table-name: addon
+    keys:
+    - key: addons.id
+      foreign-key: id
+    - key: charged_event_based_addons.id
+      foreign-key: id
+    - key: event_based_addons.id
+      foreign-key: id
+  - table-name: coupons
+    keys:
+    - key: addons.id
+      foreign-key: addon_ids.value
+    - key: charged_event_based_addons.id
+      foreign-key: addon_ids.value
+    - key: event_based_addons.id
+      foreign-key: addon_ids.value
+    - key: coupons.coupon_id
+      foreign-key: id
+    - key: plan_id
+      foreign-key: content.plan.id
+  - table-name: events
+    keys:
+    - key: addons.id
+      foreign-key: content.subscription.addons.id
+    - key: charged_event_based_addons.id
+      foreign-key: content.subscription.addons.id
+    - key: event_based_addons.id
+      foreign-key: content.subscription.addons.id
+    - key: addons.id
+      foreign-key: content.subscription.charged_event_based_addons.id
+    - key: charged_event_based_addons.id
+      foreign-key: content.subscription.charged_event_based_addons.id
+    - key: event_based_addons.id
+      foreign-key: content.subscription.charged_event_based_addons.id
+    - key: addons.id
+      foreign-key: content.subscription.event_based_addons.id
+    - key: charged_event_based_addons.id
+      foreign-key: content.subscription.event_based_addons.id
+    - key: event_based_addons.id
+      foreign-key: content.subscription.event_based_addons.id
+    - key: coupons.coupon_id
+      foreign-key: content.coupon.id
+    - key: coupons.coupon_id
+      foreign-key: content.invoice.discounts.entity_id
+    - key: coupons.coupon_id
+      foreign-key: content.invoice.line_item_discounts.coupon_id
+    - key: coupons.coupon_id
+      foreign-key: content.subscription.coupons.coupon_id
+    - key: customer_id
+      foreign-key: content.customer.id
+    - key: customer_id
+      foreign-key: content.invoice.customer_id
+    - key: customer_id
+      foreign-key: content.subscription.customer_id
+    - key: customer_id
+      foreign-key: content.transaction.customer_id
+    - key: plan_id
+      foreign-key: plan_ids.value
+    - key: plan_id
+      foreign-key: content.subscription.plan_id
+    - key: payment_source_id
+      foreign-key: content.subscription.payment_source_id
+    - key: payment_source_id
+      foreign-key: content.transaction.payment_source_id
+    - key: id
+      foreign-key: content.invoice.linked_payments.subscription_id
+    - key: id
+      foreign-key: content.subscription.id
+    - key: id
+      foreign-key: content.invoice.subscription_id
+    - key: id
+      foreign-key: content.transaction.subscription_id
+  - table-name: invoices
+    keys:
+    - key: addons.id
+      foreign-key: notes.entity_id
+    - key: charged_event_based_addons.id
+      foreign-key: notes.entity_id
+    - key: event_based_addons.id
+      foreign-key: notes.entity_id
+    - key: coupons.coupon_id
+      foreign-key: discounts.entity_id
+    - key: coupons.coupon_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: coupons.coupon_id
+      foreign-key: notes.entity_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: customer_id
+      foreign-key: notes.entity_id
+    - key: plan_id
+      foreign-key: notes.entity_id
+    - key: id
+      foreign-key: line_items.subscription_id
+    - key: id
+      foreign-key: notes.entity_id
+    - key: id
+      foreign-key: subscription_id
+  - table-name: plans
+    keys:
+    - key: addons.id
+      foreign-key: applicable_addons.id
+    - key: charged_event_based_addons.id
+      foreign-key: applicable_addons.id
+    - key: event_based_addons.id
+      foreign-key: applicable_addons.id
+    - key: plan_id
+      foreign-key: id
+  - table-name: credit_notes
+    keys:
+    - key: coupons.coupon_id
+      foreign-key: discounts.entity_id
+    - key: coupons.coupon_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: id
+      foreign-key: subscription_id
+    - key: id
+      foreign-key: line_items.subscription_id
+  - table-name: orders
+    keys:
+    - key: coupons.coupon_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: gift_id
+      foreign-key: gift_id
+    - key: id
+      foreign-key: subscription_id
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: id
+    - key: payment_source_id
+      foreign-key: primary_payment_sources_id
+  - table-name: payment_sources
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: payment_source_id
+      foreign-key: id
+  - table-name: promotional_credits
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: transactions
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: payment_source_id
+      foreign-key: payment_source_id
+    - key: id
+      foreign-key: subscription_id
+  - table-name: virtual_bank_accounts
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: gifts
+    keys:
+    - key: customer_id
+      foreign-key: gift_receiver.customer_id
+    - key: customer_id
+      foreign-key: gifter.customer_id
+    - key: gift_id
+      foreign-key: id
+    - key: id
+      foreign-key: gift_receiver.subscription_id
+  - table-name: item_prices
+    keys:
+    - key: charged_items.item_price_id
+      foreign-key: id
+    - key: item_tiers.item_price_id
+      foreign-key: id
+    - key: subscription_items.item_price_id
+      foreign-key: id
+- table-name: cards
+  join: []
+- table-name: credit_notes
+  join:
+  - table-name: coupons
+    keys:
+    - key: discounts.entity_id
+      foreign-key: id
+    - key: line_item_discounts.coupon_id
+      foreign-key: id
+  - table-name: events
+    keys:
+    - key: discounts.entity_id
+      foreign-key: content.coupon.id
+    - key: line_item_discounts.coupon_id
+      foreign-key: content.coupon.id
+    - key: discounts.entity_id
+      foreign-key: content.invoice.discounts.entity_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: content.invoice.discounts.entity_id
+    - key: discounts.entity_id
+      foreign-key: content.invoice.line_item_discounts.coupon_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: content.invoice.line_item_discounts.coupon_id
+    - key: discounts.entity_id
+      foreign-key: content.subscription.coupons.coupon_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: content.subscription.coupons.coupon_id
+    - key: id
+      foreign-key: content.invoice.adjustment_credit_notes.cn_id
+    - key: id
+      foreign-key: content.invoice.applied_credits.cn_id
+    - key: id
+      foreign-key: content.invoice.issued_credit_notes.cn_id
+    - key: customer_id
+      foreign-key: content.customer.id
+    - key: customer_id
+      foreign-key: content.invoice.customer_id
+    - key: customer_id
+      foreign-key: content.subscription.customer_id
+    - key: customer_id
+      foreign-key: content.transaction.customer_id
+    - key: allocations.invoice_id
+      foreign-key: content.invoice.id
+    - key: reference_invoice_id
+      foreign-key: content.invoice.id
+    - key: allocations.invoice_id
+      foreign-key: content.transaction.linked_credit_notes.cn_reference_invoice_id
+    - key: reference_invoice_id
+      foreign-key: content.transaction.linked_credit_notes.cn_reference_invoice_id
+    - key: allocations.invoice_id
+      foreign-key: content.transaction.linked_payments.invoice_id
+    - key: reference_invoice_id
+      foreign-key: content.transaction.linked_payments.invoice_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: content.invoice.line_item_discounts.line_item_id
+    - key: line_item_taxes.line_item_id
+      foreign-key: content.invoice.line_item_discounts.line_item_id
+    - key: line_item_tiers.line_item_id
+      foreign-key: content.invoice.line_item_discounts.line_item_id
+    - key: line_items.line_item_id
+      foreign-key: content.invoice.line_item_discounts.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: content.invoice.line_item_taxes.line_item_id
+    - key: line_item_taxes.line_item_id
+      foreign-key: content.invoice.line_item_taxes.line_item_id
+    - key: line_item_tiers.line_item_id
+      foreign-key: content.invoice.line_item_taxes.line_item_id
+    - key: line_items.line_item_id
+      foreign-key: content.invoice.line_item_taxes.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: content.invoice.line_items.id
+    - key: line_item_taxes.line_item_id
+      foreign-key: content.invoice.line_items.id
+    - key: line_item_tiers.line_item_id
+      foreign-key: content.invoice.line_items.id
+    - key: line_items.line_item_id
+      foreign-key: content.invoice.line_items.id
+    - key: subscription_id
+      foreign-key: content.invoice.linked_payments.subscription_id
+    - key: line_items.subscription_id
+      foreign-key: content.invoice.linked_payments.subscription_id
+    - key: subscription_id
+      foreign-key: content.subscription.id
+    - key: line_items.subscription_id
+      foreign-key: content.subscription.id
+    - key: subscription_id
+      foreign-key: content.invoice.subscription_id
+    - key: line_items.subscription_id
+      foreign-key: content.invoice.subscription_id
+    - key: subscription_id
+      foreign-key: content.transaction.subscription_id
+    - key: line_items.subscription_id
+      foreign-key: content.transaction.subscription_id
+    - key: linked_refunds.txn_id
+      foreign-key: content.invoice.linked_payments.txn_id
+    - key: linked_refunds.txn_id
+      foreign-key: content.transaction.id
+    - key: linked_refunds.txn_id
+      foreign-key: content.transaction.linked_refunds.txn_id
+    - key: linked_refunds.txn_id
+      foreign-key: content.transaction.reference_transaction_id
+    - key: linked_refunds.txn_id
+      foreign-key: content.transaction.refunded_txn_id
+  - table-name: invoices
+    keys:
+    - key: discounts.entity_id
+      foreign-key: discounts.entity_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: discounts.entity_id
+    - key: discounts.entity_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: discounts.entity_id
+      foreign-key: notes.entity_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: notes.entity_id
+    - key: id
+      foreign-key: adjustment_credit_notes.cn_id
+    - key: id
+      foreign-key: adjustment_applied_credits.cn_id
+    - key: id
+      foreign-key: linked_credit_notes.cn_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: customer_id
+      foreign-key: notes.entity_id
+    - key: allocations.invoice_id
+      foreign-key: id
+    - key: reference_invoice_id
+      foreign-key: id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_item_taxes.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_item_tiers.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_items.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_item_taxes.line_item_id
+    - key: line_item_taxes.line_item_id
+      foreign-key: line_item_taxes.line_item_id
+    - key: line_item_tiers.line_item_id
+      foreign-key: line_item_taxes.line_item_id
+    - key: line_items.line_item_id
+      foreign-key: line_item_taxes.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_item_tiers.line_item_id
+    - key: line_item_taxes.line_item_id
+      foreign-key: line_item_tiers.line_item_id
+    - key: line_item_tiers.line_item_id
+      foreign-key: line_item_tiers.line_item_id
+    - key: line_items.line_item_id
+      foreign-key: line_item_tiers.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_items.line_item_id
+    - key: line_item_taxes.line_item_id
+      foreign-key: line_items.line_item_id
+    - key: line_item_tiers.line_item_id
+      foreign-key: line_items.line_item_id
+    - key: line_items.line_item_id
+      foreign-key: line_items.line_item_id
+    - key: subscription_id
+      foreign-key: line_items.subscription_id
+    - key: line_items.subscription_id
+      foreign-key: line_items.subscription_id
+    - key: subscription_id
+      foreign-key: notes.entity_id
+    - key: line_items.subscription_id
+      foreign-key: notes.entity_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: line_items.subscription_id
+      foreign-key: subscription_id
+    - key: linked_refunds.txn_id
+      foreign-key: linked_payments.txn_id
+  - table-name: subscriptions
+    keys:
+    - key: discounts.entity_id
+      foreign-key: coupons.coupon_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: coupons.coupon_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: subscription_id
+      foreign-key: id
+    - key: line_items.subscription_id
+      foreign-key: id
+  - table-name: orders
+    keys:
+    - key: discounts.entity_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: id
+      foreign-key: linked_credit_notes.id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: allocations.invoice_id
+      foreign-key: invoice_id
+    - key: reference_invoice_id
+      foreign-key: invoice_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_item_taxes.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_item_tiers.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_items.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_item_tax.line_item_id
+    - key: line_item_taxes.line_item_id
+      foreign-key: line_item_tax.line_item_id
+    - key: line_item_tiers.line_item_id
+      foreign-key: line_item_tax.line_item_id
+    - key: line_items.line_item_id
+      foreign-key: line_item_tax.line_item_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: line_items.subscription_id
+      foreign-key: subscription_id
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: id
+  - table-name: payment_sources
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: promotional_credits
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: transactions
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: allocations.invoice_id
+      foreign-key: linked_credit_notes.cn_reference_invoice_id
+    - key: reference_invoice_id
+      foreign-key: linked_credit_notes.cn_reference_invoice_id
+    - key: allocations.invoice_id
+      foreign-key: linked_payments.invoice_id
+    - key: reference_invoice_id
+      foreign-key: linked_payments.invoice_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: line_items.subscription_id
+      foreign-key: subscription_id
+    - key: linked_refunds.txn_id
+      foreign-key: id
+    - key: linked_refunds.txn_id
+      foreign-key: linked_refunds.txn_id
+    - key: linked_refunds.txn_id
+      foreign-key: reference_transaction_id
+    - key: linked_refunds.txn_id
+      foreign-key: refunded_txn_id
+  - table-name: virtual_bank_accounts
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: gifts
+    keys:
+    - key: customer_id
+      foreign-key: gift_receiver.customer_id
+    - key: customer_id
+      foreign-key: gifter.customer_id
+    - key: allocations.invoice_id
+      foreign-key: gifter.invoice_id
+    - key: reference_invoice_id
+      foreign-key: gifter.invoice_id
+    - key: subscription_id
+      foreign-key: gift_receiver.subscription_id
+    - key: line_items.subscription_id
+      foreign-key: gift_receiver.subscription_id
+- table-name: orders
+  join:
+  - table-name: coupons
+    keys:
+    - key: line_item_discounts.coupon_id
+      foreign-key: id
+  - table-name: credit_notes
+    keys:
+    - key: line_item_discounts.coupon_id
+      foreign-key: discounts.entity_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: linked_credit_notes.id
+      foreign-key: id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: invoice_id
+      foreign-key: allocations.invoice_id
+    - key: invoice_id
+      foreign-key: reference_invoice_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_item_tax.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_item_taxes.line_item_id
+    - key: line_item_tax.line_item_id
+      foreign-key: line_item_taxes.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_item_tiers.line_item_id
+    - key: line_item_tax.line_item_id
+      foreign-key: line_item_tiers.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_items.line_item_id
+    - key: line_item_tax.line_item_id
+      foreign-key: line_items.line_item_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: subscription_id
+      foreign-key: line_items.subscription_id
+  - table-name: events
+    keys:
+    - key: line_item_discounts.coupon_id
+      foreign-key: content.coupon.id
+    - key: line_item_discounts.coupon_id
+      foreign-key: content.invoice.discounts.entity_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: content.invoice.line_item_discounts.coupon_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: content.subscription.coupons.coupon_id
+    - key: linked_credit_notes.id
+      foreign-key: content.invoice.adjustment_credit_notes.cn_id
+    - key: linked_credit_notes.id
+      foreign-key: content.invoice.applied_credits.cn_id
+    - key: linked_credit_notes.id
+      foreign-key: content.invoice.issued_credit_notes.cn_id
+    - key: customer_id
+      foreign-key: content.customer.id
+    - key: customer_id
+      foreign-key: content.invoice.customer_id
+    - key: customer_id
+      foreign-key: content.subscription.customer_id
+    - key: customer_id
+      foreign-key: content.transaction.customer_id
+    - key: invoice_id
+      foreign-key: content.invoice.id
+    - key: invoice_id
+      foreign-key: content.transaction.linked_credit_notes.cn_reference_invoice_id
+    - key: invoice_id
+      foreign-key: content.transaction.linked_payments.invoice_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: content.invoice.line_item_discounts.line_item_id
+    - key: line_item_tax.line_item_id
+      foreign-key: content.invoice.line_item_discounts.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: content.invoice.line_item_taxes.line_item_id
+    - key: line_item_tax.line_item_id
+      foreign-key: content.invoice.line_item_taxes.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: content.invoice.line_items.id
+    - key: line_item_tax.line_item_id
+      foreign-key: content.invoice.line_items.id
+    - key: subscription_id
+      foreign-key: content.invoice.linked_payments.subscription_id
+    - key: subscription_id
+      foreign-key: content.subscription.id
+    - key: subscription_id
+      foreign-key: content.invoice.subscription_id
+    - key: subscription_id
+      foreign-key: content.transaction.subscription_id
+  - table-name: invoices
+    keys:
+    - key: line_item_discounts.coupon_id
+      foreign-key: discounts.entity_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: line_item_discounts.coupon_id
+    - key: line_item_discounts.coupon_id
+      foreign-key: notes.entity_id
+    - key: linked_credit_notes.id
+      foreign-key: adjustment_credit_notes.cn_id
+    - key: linked_credit_notes.id
+      foreign-key: adjustment_applied_credits.cn_id
+    - key: linked_credit_notes.id
+      foreign-key: linked_credit_notes.cn_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: customer_id
+      foreign-key: notes.entity_id
+    - key: invoice_id
+      foreign-key: id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_item_tax.line_item_id
+      foreign-key: line_item_discounts.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_item_taxes.line_item_id
+    - key: line_item_tax.line_item_id
+      foreign-key: line_item_taxes.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_item_tiers.line_item_id
+    - key: line_item_tax.line_item_id
+      foreign-key: line_item_tiers.line_item_id
+    - key: line_item_discounts.line_item_id
+      foreign-key: line_items.line_item_id
+    - key: line_item_tax.line_item_id
+      foreign-key: line_items.line_item_id
+    - key: subscription_id
+      foreign-key: line_items.subscription_id
+    - key: subscription_id
+      foreign-key: notes.entity_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: id
+      foreign-key: linked_orders.id
+  - table-name: subscriptions
+    keys:
+    - key: line_item_discounts.coupon_id
+      foreign-key: coupons.coupon_id
+    - key: customer_id
+      foreign-key: customer_id
+    - key: gift_id
+      foreign-key: gift_id
+    - key: subscription_id
+      foreign-key: id
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: id
+  - table-name: payment_sources
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: promotional_credits
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: transactions
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: invoice_id
+      foreign-key: linked_credit_notes.cn_reference_invoice_id
+    - key: invoice_id
+      foreign-key: linked_payments.invoice_id
+    - key: subscription_id
+      foreign-key: subscription_id
+  - table-name: virtual_bank_accounts
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: gifts
+    keys:
+    - key: customer_id
+      foreign-key: gift_receiver.customer_id
+    - key: customer_id
+      foreign-key: gifter.customer_id
+    - key: gift_id
+      foreign-key: id
+    - key: invoice_id
+      foreign-key: gifter.invoice_id
+    - key: subscription_id
+      foreign-key: gift_receiver.subscription_id
+- table-name: customers
+  join:
+  - table-name: credit_notes
+    keys:
+    - key: id
+      foreign-key: customer_id
+  - table-name: events
+    keys:
+    - key: id
+      foreign-key: content.customer.id
+    - key: id
+      foreign-key: content.invoice.customer_id
+    - key: id
+      foreign-key: content.subscription.customer_id
+    - key: id
+      foreign-key: content.transaction.customer_id
+    - key: primary_payment_sources_id
+      foreign-key: content.subscription.payment_source_id
+    - key: primary_payment_sources_id
+      foreign-key: content.transaction.payment_source_id
+  - table-name: invoices
+    keys:
+    - key: id
+      foreign-key: customer_id
+    - key: id
+      foreign-key: notes.entity_id
+  - table-name: payment_sources
+    keys:
+    - key: id
+      foreign-key: customer_id
+    - key: primary_payment_sources_id
+      foreign-key: id
+  - table-name: promotional_credits
+    keys:
+    - key: id
+      foreign-key: customer_id
+  - table-name: subscriptions
+    keys:
+    - key: id
+      foreign-key: customer_id
+    - key: primary_payment_sources_id
+      foreign-key: payment_source_id
+  - table-name: transactions
+    keys:
+    - key: id
+      foreign-key: customer_id
+    - key: primary_payment_sources_id
+      foreign-key: payment_source_id
+  - table-name: virtual_bank_accounts
+    keys:
+    - key: id
+      foreign-key: customer_id
+  - table-name: gifts
+    keys:
+    - key: id
+      foreign-key: gift_receiver.customer_id
+    - key: id
+      foreign-key: gifter.customer_id
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: customer_id
+- table-name: payment_sources
+  join:
+  - table-name: credit_notes
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: id
+    - key: id
+      foreign-key: primary_payment_sources_id
+  - table-name: events
+    keys:
+    - key: customer_id
+      foreign-key: content.customer.id
+    - key: customer_id
+      foreign-key: content.invoice.customer_id
+    - key: customer_id
+      foreign-key: content.subscription.customer_id
+    - key: customer_id
+      foreign-key: content.transaction.customer_id
+    - key: id
+      foreign-key: content.subscription.payment_source_id
+    - key: id
+      foreign-key: content.transaction.payment_source_id
+  - table-name: invoices
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: customer_id
+      foreign-key: notes.entity_id
+  - table-name: promotional_credits
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: subscriptions
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: id
+      foreign-key: payment_source_id
+  - table-name: transactions
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: id
+      foreign-key: payment_source_id
+  - table-name: virtual_bank_accounts
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: gifts
+    keys:
+    - key: customer_id
+      foreign-key: gift_receiver.customer_id
+    - key: customer_id
+      foreign-key: gifter.customer_id
+  - table-name: orders
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+- table-name: promotional_credits
+  join:
+  - table-name: credit_notes
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: id
+  - table-name: events
+    keys:
+    - key: customer_id
+      foreign-key: content.customer.id
+    - key: customer_id
+      foreign-key: content.invoice.customer_id
+    - key: customer_id
+      foreign-key: content.subscription.customer_id
+    - key: customer_id
+      foreign-key: content.transaction.customer_id
+  - table-name: invoices
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: customer_id
+      foreign-key: notes.entity_id
+  - table-name: payment_sources
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: subscriptions
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: transactions
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: virtual_bank_accounts
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: gifts
+    keys:
+    - key: customer_id
+      foreign-key: gift_receiver.customer_id
+    - key: customer_id
+      foreign-key: gifter.customer_id
+  - table-name: orders
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+- table-name: transactions
+  join:
+  - table-name: credit_notes
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: linked_credit_notes.cn_reference_invoice_id
+      foreign-key: allocations.invoice_id
+    - key: linked_payments.invoice_id
+      foreign-key: allocations.invoice_id
+    - key: linked_credit_notes.cn_reference_invoice_id
+      foreign-key: reference_invoice_id
+    - key: linked_payments.invoice_id
+      foreign-key: reference_invoice_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: subscription_id
+      foreign-key: line_items.subscription_id
+    - key: id
+      foreign-key: linked_refunds.txn_id
+    - key: linked_refunds.txn_id
+      foreign-key: linked_refunds.txn_id
+    - key: reference_transaction_id
+      foreign-key: linked_refunds.txn_id
+    - key: refunded_txn_id
+      foreign-key: linked_refunds.txn_id
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: id
+    - key: payment_source_id
+      foreign-key: primary_payment_sources_id
+  - table-name: events
+    keys:
+    - key: customer_id
+      foreign-key: content.customer.id
+    - key: customer_id
+      foreign-key: content.invoice.customer_id
+    - key: customer_id
+      foreign-key: content.subscription.customer_id
+    - key: customer_id
+      foreign-key: content.transaction.customer_id
+    - key: linked_credit_notes.cn_reference_invoice_id
+      foreign-key: content.invoice.id
+    - key: linked_payments.invoice_id
+      foreign-key: content.invoice.id
+    - key: linked_credit_notes.cn_reference_invoice_id
+      foreign-key: content.transaction.linked_credit_notes.cn_reference_invoice_id
+    - key: linked_payments.invoice_id
+      foreign-key: content.transaction.linked_credit_notes.cn_reference_invoice_id
+    - key: linked_credit_notes.cn_reference_invoice_id
+      foreign-key: content.transaction.linked_payments.invoice_id
+    - key: linked_payments.invoice_id
+      foreign-key: content.transaction.linked_payments.invoice_id
+    - key: payment_source_id
+      foreign-key: content.subscription.payment_source_id
+    - key: payment_source_id
+      foreign-key: content.transaction.payment_source_id
+    - key: subscription_id
+      foreign-key: content.invoice.linked_payments.subscription_id
+    - key: subscription_id
+      foreign-key: content.subscription.id
+    - key: subscription_id
+      foreign-key: content.invoice.subscription_id
+    - key: subscription_id
+      foreign-key: content.transaction.subscription_id
+    - key: id
+      foreign-key: content.invoice.linked_payments.txn_id
+    - key: linked_refunds.txn_id
+      foreign-key: content.invoice.linked_payments.txn_id
+    - key: reference_transaction_id
+      foreign-key: content.invoice.linked_payments.txn_id
+    - key: refunded_txn_id
+      foreign-key: content.invoice.linked_payments.txn_id
+    - key: id
+      foreign-key: content.transaction.id
+    - key: linked_refunds.txn_id
+      foreign-key: content.transaction.id
+    - key: reference_transaction_id
+      foreign-key: content.transaction.id
+    - key: refunded_txn_id
+      foreign-key: content.transaction.id
+    - key: id
+      foreign-key: content.transaction.linked_refunds.txn_id
+    - key: linked_refunds.txn_id
+      foreign-key: content.transaction.linked_refunds.txn_id
+    - key: reference_transaction_id
+      foreign-key: content.transaction.linked_refunds.txn_id
+    - key: refunded_txn_id
+      foreign-key: content.transaction.linked_refunds.txn_id
+    - key: id
+      foreign-key: content.transaction.reference_transaction_id
+    - key: linked_refunds.txn_id
+      foreign-key: content.transaction.reference_transaction_id
+    - key: reference_transaction_id
+      foreign-key: content.transaction.reference_transaction_id
+    - key: refunded_txn_id
+      foreign-key: content.transaction.reference_transaction_id
+    - key: id
+      foreign-key: content.transaction.refunded_txn_id
+    - key: linked_refunds.txn_id
+      foreign-key: content.transaction.refunded_txn_id
+    - key: reference_transaction_id
+      foreign-key: content.transaction.refunded_txn_id
+    - key: refunded_txn_id
+      foreign-key: content.transaction.refunded_txn_id
+  - table-name: invoices
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: customer_id
+      foreign-key: notes.entity_id
+    - key: linked_credit_notes.cn_reference_invoice_id
+      foreign-key: id
+    - key: linked_payments.invoice_id
+      foreign-key: id
+    - key: subscription_id
+      foreign-key: line_items.subscription_id
+    - key: subscription_id
+      foreign-key: notes.entity_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: id
+      foreign-key: linked_payments.txn_id
+    - key: linked_refunds.txn_id
+      foreign-key: linked_payments.txn_id
+    - key: reference_transaction_id
+      foreign-key: linked_payments.txn_id
+    - key: refunded_txn_id
+      foreign-key: linked_payments.txn_id
+  - table-name: payment_sources
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: payment_source_id
+      foreign-key: id
+  - table-name: promotional_credits
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: subscriptions
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: payment_source_id
+      foreign-key: payment_source_id
+    - key: subscription_id
+      foreign-key: id
+  - table-name: virtual_bank_accounts
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: gifts
+    keys:
+    - key: customer_id
+      foreign-key: gift_receiver.customer_id
+    - key: customer_id
+      foreign-key: gifter.customer_id
+    - key: linked_credit_notes.cn_reference_invoice_id
+      foreign-key: gifter.invoice_id
+    - key: linked_payments.invoice_id
+      foreign-key: gifter.invoice_id
+    - key: subscription_id
+      foreign-key: gift_receiver.subscription_id
+  - table-name: orders
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: linked_credit_notes.cn_reference_invoice_id
+      foreign-key: invoice_id
+    - key: linked_payments.invoice_id
+      foreign-key: invoice_id
+    - key: subscription_id
+      foreign-key: subscription_id
+- table-name: virtual_bank_accounts
+  join:
+  - table-name: credit_notes
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: id
+  - table-name: events
+    keys:
+    - key: customer_id
+      foreign-key: content.customer.id
+    - key: customer_id
+      foreign-key: content.invoice.customer_id
+    - key: customer_id
+      foreign-key: content.subscription.customer_id
+    - key: customer_id
+      foreign-key: content.transaction.customer_id
+  - table-name: invoices
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: customer_id
+      foreign-key: notes.entity_id
+  - table-name: payment_sources
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: promotional_credits
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: subscriptions
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: transactions
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+  - table-name: gifts
+    keys:
+    - key: customer_id
+      foreign-key: gift_receiver.customer_id
+    - key: customer_id
+      foreign-key: gifter.customer_id
+  - table-name: orders
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+- table-name: gifts
+  join:
+  - table-name: credit_notes
+    keys:
+    - key: gift_receiver.customer_id
+      foreign-key: customer_id
+    - key: gifter.customer_id
+      foreign-key: customer_id
+    - key: gifter.invoice_id
+      foreign-key: allocations.invoice_id
+    - key: gifter.invoice_id
+      foreign-key: reference_invoice_id
+    - key: gift_receiver.subscription_id
+      foreign-key: subscription_id
+    - key: gift_receiver.subscription_id
+      foreign-key: line_items.subscription_id
+  - table-name: customers
+    keys:
+    - key: gift_receiver.customer_id
+      foreign-key: id
+    - key: gifter.customer_id
+      foreign-key: id
+  - table-name: events
+    keys:
+    - key: gift_receiver.customer_id
+      foreign-key: content.customer.id
+    - key: gifter.customer_id
+      foreign-key: content.customer.id
+    - key: gift_receiver.customer_id
+      foreign-key: content.invoice.customer_id
+    - key: gifter.customer_id
+      foreign-key: content.invoice.customer_id
+    - key: gift_receiver.customer_id
+      foreign-key: content.subscription.customer_id
+    - key: gifter.customer_id
+      foreign-key: content.subscription.customer_id
+    - key: gift_receiver.customer_id
+      foreign-key: content.transaction.customer_id
+    - key: gifter.customer_id
+      foreign-key: content.transaction.customer_id
+    - key: gifter.invoice_id
+      foreign-key: content.invoice.id
+    - key: gifter.invoice_id
+      foreign-key: content.transaction.linked_credit_notes.cn_reference_invoice_id
+    - key: gifter.invoice_id
+      foreign-key: content.transaction.linked_payments.invoice_id
+    - key: gift_receiver.subscription_id
+      foreign-key: content.invoice.linked_payments.subscription_id
+    - key: gift_receiver.subscription_id
+      foreign-key: content.subscription.id
+    - key: gift_receiver.subscription_id
+      foreign-key: content.invoice.subscription_id
+    - key: gift_receiver.subscription_id
+      foreign-key: content.transaction.subscription_id
+  - table-name: invoices
+    keys:
+    - key: gift_receiver.customer_id
+      foreign-key: customer_id
+    - key: gifter.customer_id
+      foreign-key: customer_id
+    - key: gift_receiver.customer_id
+      foreign-key: notes.entity_id
+    - key: gifter.customer_id
+      foreign-key: notes.entity_id
+    - key: gifter.invoice_id
+      foreign-key: id
+    - key: gift_receiver.subscription_id
+      foreign-key: line_items.subscription_id
+    - key: gift_receiver.subscription_id
+      foreign-key: notes.entity_id
+    - key: gift_receiver.subscription_id
+      foreign-key: subscription_id
+  - table-name: payment_sources
+    keys:
+    - key: gift_receiver.customer_id
+      foreign-key: customer_id
+    - key: gifter.customer_id
+      foreign-key: customer_id
+  - table-name: promotional_credits
+    keys:
+    - key: gift_receiver.customer_id
+      foreign-key: customer_id
+    - key: gifter.customer_id
+      foreign-key: customer_id
+  - table-name: subscriptions
+    keys:
+    - key: gift_receiver.customer_id
+      foreign-key: customer_id
+    - key: gifter.customer_id
+      foreign-key: customer_id
+    - key: id
+      foreign-key: gift_id
+    - key: gift_receiver.subscription_id
+      foreign-key: id
+  - table-name: transactions
+    keys:
+    - key: gift_receiver.customer_id
+      foreign-key: customer_id
+    - key: gifter.customer_id
+      foreign-key: customer_id
+    - key: gifter.invoice_id
+      foreign-key: linked_credit_notes.cn_reference_invoice_id
+    - key: gifter.invoice_id
+      foreign-key: linked_payments.invoice_id
+    - key: gift_receiver.subscription_id
+      foreign-key: subscription_id
+  - table-name: virtual_bank_accounts
+    keys:
+    - key: gift_receiver.customer_id
+      foreign-key: customer_id
+    - key: gifter.customer_id
+      foreign-key: customer_id
+  - table-name: orders
+    keys:
+    - key: gift_receiver.customer_id
+      foreign-key: customer_id
+    - key: gifter.customer_id
+      foreign-key: customer_id
+    - key: id
+      foreign-key: gift_id
+    - key: gifter.invoice_id
+      foreign-key: invoice_id
+    - key: gift_receiver.subscription_id
+      foreign-key: subscription_id
+- table-name: item_families
+  join:
+  - table-name: item_prices
+    keys:
+    - key: item_family_id
+      foreign-key: item_family_id
+  - table-name: items
+    keys:
+    - key: item_family_id
+      foreign-key: item_family_id
+- table-name: item_prices
+  join:
+  - table-name: item_families
+    keys:
+    - key: item_family_id
+      foreign-key: item_family_id
+  - table-name: items
+    keys:
+    - key: item_family_id
+      foreign-key: item_family_id
+    - key: item_id
+      foreign-key: id
+  - table-name: subscriptions
+    keys:
+    - key: id
+      foreign-key: charged_items.item_price_id
+    - key: id
+      foreign-key: item_tiers.item_price_id
+    - key: id
+      foreign-key: subscription_items.item_price_id
+- table-name: items
+  join:
+  - table-name: item_families
+    keys:
+    - key: item_family_id
+      foreign-key: item_family_id
+  - table-name: item_prices
+    keys:
+    - key: item_family_id
+      foreign-key: item_family_id
+    - key: id
+      foreign-key: item_id

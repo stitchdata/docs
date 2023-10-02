@@ -103,3 +103,660 @@ keys:
   - table: worklogs
     keys:
     - id
+tables:
+- table-name: changelogs
+  join:
+  - table-name: issue_comments
+    keys:
+    - key: issueId
+      foreign-key: issueId
+    - key: author.accountId
+      foreign-key: author.accountId
+    - key: author.accountId
+      foreign-key: updateAuthor.accountId
+  - table-name: issue_transitions
+    keys:
+    - key: issueId
+      foreign-key: issueId
+  - table-name: issues
+    keys:
+    - key: issueId
+      foreign-key: id
+    - key: author.accountId
+      foreign-key: accountId
+  - table-name: worklogs
+    keys:
+    - key: issueId
+      foreign-key: issueId
+    - key: author.accountId
+      foreign-key: author.accountId
+    - key: author.accountId
+      foreign-key: updateAuthor.accountId
+  - table-name: components
+    keys:
+    - key: author.accountId
+      foreign-key: assignee.accountId
+    - key: author.accountId
+      foreign-key: componentBean.assignee.accountId
+    - key: author.accountId
+      foreign-key: componentBean.lead.accountId
+    - key: author.accountId
+      foreign-key: componentBean.realAssignee.accountId
+    - key: author.accountId
+      foreign-key: lead.accountId
+    - key: author.accountId
+      foreign-key: realAssignee.accountId
+  - table-name: projects
+    keys:
+    - key: author.accountId
+      foreign-key: components.assignee.accountId
+    - key: author.accountId
+      foreign-key: components.lead.accountId
+    - key: author.accountId
+      foreign-key: components.realAssignee.accountId
+    - key: author.accountId
+      foreign-key: lead.accountId
+  - table-name: users
+    keys:
+    - key: author.accountId
+      foreign-key: accountId
+- table-name: component
+  join: []
+- table-name: issue_comments
+  join:
+  - table-name: changelogs
+    keys:
+    - key: issueId
+      foreign-key: issueId
+    - key: author.accountId
+      foreign-key: author.accountId
+    - key: updateAuthor.accountId
+      foreign-key: author.accountId
+  - table-name: issue_transitions
+    keys:
+    - key: issueId
+      foreign-key: issueId
+  - table-name: issues
+    keys:
+    - key: issueId
+      foreign-key: id
+    - key: author.accountId
+      foreign-key: accountId
+    - key: updateAuthor.accountId
+      foreign-key: accountId
+  - table-name: worklogs
+    keys:
+    - key: issueId
+      foreign-key: issueId
+    - key: author.accountId
+      foreign-key: author.accountId
+    - key: updateAuthor.accountId
+      foreign-key: author.accountId
+    - key: author.accountId
+      foreign-key: updateAuthor.accountId
+    - key: updateAuthor.accountId
+      foreign-key: updateAuthor.accountId
+  - table-name: components
+    keys:
+    - key: author.accountId
+      foreign-key: assignee.accountId
+    - key: updateAuthor.accountId
+      foreign-key: assignee.accountId
+    - key: author.accountId
+      foreign-key: componentBean.assignee.accountId
+    - key: updateAuthor.accountId
+      foreign-key: componentBean.assignee.accountId
+    - key: author.accountId
+      foreign-key: componentBean.lead.accountId
+    - key: updateAuthor.accountId
+      foreign-key: componentBean.lead.accountId
+    - key: author.accountId
+      foreign-key: componentBean.realAssignee.accountId
+    - key: updateAuthor.accountId
+      foreign-key: componentBean.realAssignee.accountId
+    - key: author.accountId
+      foreign-key: lead.accountId
+    - key: updateAuthor.accountId
+      foreign-key: lead.accountId
+    - key: author.accountId
+      foreign-key: realAssignee.accountId
+    - key: updateAuthor.accountId
+      foreign-key: realAssignee.accountId
+  - table-name: projects
+    keys:
+    - key: author.accountId
+      foreign-key: components.assignee.accountId
+    - key: updateAuthor.accountId
+      foreign-key: components.assignee.accountId
+    - key: author.accountId
+      foreign-key: components.lead.accountId
+    - key: updateAuthor.accountId
+      foreign-key: components.lead.accountId
+    - key: author.accountId
+      foreign-key: components.realAssignee.accountId
+    - key: updateAuthor.accountId
+      foreign-key: components.realAssignee.accountId
+    - key: author.accountId
+      foreign-key: lead.accountId
+    - key: updateAuthor.accountId
+      foreign-key: lead.accountId
+  - table-name: users
+    keys:
+    - key: author.accountId
+      foreign-key: accountId
+    - key: updateAuthor.accountId
+      foreign-key: accountId
+- table-name: issue_transitions
+  join:
+  - table-name: changelogs
+    keys:
+    - key: issueId
+      foreign-key: issueId
+  - table-name: issue_comments
+    keys:
+    - key: issueId
+      foreign-key: issueId
+  - table-name: issues
+    keys:
+    - key: issueId
+      foreign-key: id
+  - table-name: worklogs
+    keys:
+    - key: issueId
+      foreign-key: issueId
+- table-name: issues
+  join:
+  - table-name: changelogs
+    keys:
+    - key: id
+      foreign-key: issueId
+    - key: accountId
+      foreign-key: author.accountId
+  - table-name: issue_comments
+    keys:
+    - key: id
+      foreign-key: issueId
+    - key: accountId
+      foreign-key: author.accountId
+    - key: accountId
+      foreign-key: updateAuthor.accountId
+  - table-name: issue_transitions
+    keys:
+    - key: id
+      foreign-key: issueId
+  - table-name: worklogs
+    keys:
+    - key: id
+      foreign-key: issueId
+    - key: accountId
+      foreign-key: author.accountId
+    - key: accountId
+      foreign-key: updateAuthor.accountId
+  - table-name: components
+    keys:
+    - key: accountId
+      foreign-key: assignee.accountId
+    - key: accountId
+      foreign-key: componentBean.assignee.accountId
+    - key: accountId
+      foreign-key: componentBean.lead.accountId
+    - key: accountId
+      foreign-key: componentBean.realAssignee.accountId
+    - key: accountId
+      foreign-key: lead.accountId
+    - key: accountId
+      foreign-key: realAssignee.accountId
+  - table-name: projects
+    keys:
+    - key: accountId
+      foreign-key: components.assignee.accountId
+    - key: accountId
+      foreign-key: components.lead.accountId
+    - key: accountId
+      foreign-key: components.realAssignee.accountId
+    - key: accountId
+      foreign-key: lead.accountId
+  - table-name: users
+    keys:
+    - key: accountId
+      foreign-key: accountId
+- table-name: worklogs
+  join:
+  - table-name: changelogs
+    keys:
+    - key: issueId
+      foreign-key: issueId
+    - key: author.accountId
+      foreign-key: author.accountId
+    - key: updateAuthor.accountId
+      foreign-key: author.accountId
+  - table-name: issue_comments
+    keys:
+    - key: issueId
+      foreign-key: issueId
+    - key: author.accountId
+      foreign-key: author.accountId
+    - key: updateAuthor.accountId
+      foreign-key: author.accountId
+    - key: author.accountId
+      foreign-key: updateAuthor.accountId
+    - key: updateAuthor.accountId
+      foreign-key: updateAuthor.accountId
+  - table-name: issue_transitions
+    keys:
+    - key: issueId
+      foreign-key: issueId
+  - table-name: issues
+    keys:
+    - key: issueId
+      foreign-key: id
+    - key: author.accountId
+      foreign-key: accountId
+    - key: updateAuthor.accountId
+      foreign-key: accountId
+  - table-name: components
+    keys:
+    - key: author.accountId
+      foreign-key: assignee.accountId
+    - key: updateAuthor.accountId
+      foreign-key: assignee.accountId
+    - key: author.accountId
+      foreign-key: componentBean.assignee.accountId
+    - key: updateAuthor.accountId
+      foreign-key: componentBean.assignee.accountId
+    - key: author.accountId
+      foreign-key: componentBean.lead.accountId
+    - key: updateAuthor.accountId
+      foreign-key: componentBean.lead.accountId
+    - key: author.accountId
+      foreign-key: componentBean.realAssignee.accountId
+    - key: updateAuthor.accountId
+      foreign-key: componentBean.realAssignee.accountId
+    - key: author.accountId
+      foreign-key: lead.accountId
+    - key: updateAuthor.accountId
+      foreign-key: lead.accountId
+    - key: author.accountId
+      foreign-key: realAssignee.accountId
+    - key: updateAuthor.accountId
+      foreign-key: realAssignee.accountId
+  - table-name: projects
+    keys:
+    - key: author.accountId
+      foreign-key: components.assignee.accountId
+    - key: updateAuthor.accountId
+      foreign-key: components.assignee.accountId
+    - key: author.accountId
+      foreign-key: components.lead.accountId
+    - key: updateAuthor.accountId
+      foreign-key: components.lead.accountId
+    - key: author.accountId
+      foreign-key: components.realAssignee.accountId
+    - key: updateAuthor.accountId
+      foreign-key: components.realAssignee.accountId
+    - key: author.accountId
+      foreign-key: lead.accountId
+    - key: updateAuthor.accountId
+      foreign-key: lead.accountId
+  - table-name: users
+    keys:
+    - key: author.accountId
+      foreign-key: accountId
+    - key: updateAuthor.accountId
+      foreign-key: accountId
+- table-name: project_types
+  join: []
+- table-name: project_categories
+  join:
+  - table-name: projects
+    keys:
+    - key: id
+      foreign-key: projectCategory.id
+- table-name: projects
+  join:
+  - table-name: project_categories
+    keys:
+    - key: projectCategory.id
+      foreign-key: id
+  - table-name: components
+    keys:
+    - key: id
+      foreign-key: componentBean.projectId
+    - key: id
+      foreign-key: projectId
+    - key: components.assignee.accountId
+      foreign-key: assignee.accountId
+    - key: components.lead.accountId
+      foreign-key: assignee.accountId
+    - key: components.realAssignee.accountId
+      foreign-key: assignee.accountId
+    - key: lead.accountId
+      foreign-key: assignee.accountId
+    - key: components.assignee.accountId
+      foreign-key: componentBean.assignee.accountId
+    - key: components.lead.accountId
+      foreign-key: componentBean.assignee.accountId
+    - key: components.realAssignee.accountId
+      foreign-key: componentBean.assignee.accountId
+    - key: lead.accountId
+      foreign-key: componentBean.assignee.accountId
+    - key: components.assignee.accountId
+      foreign-key: componentBean.lead.accountId
+    - key: components.lead.accountId
+      foreign-key: componentBean.lead.accountId
+    - key: components.realAssignee.accountId
+      foreign-key: componentBean.lead.accountId
+    - key: lead.accountId
+      foreign-key: componentBean.lead.accountId
+    - key: components.assignee.accountId
+      foreign-key: componentBean.realAssignee.accountId
+    - key: components.lead.accountId
+      foreign-key: componentBean.realAssignee.accountId
+    - key: components.realAssignee.accountId
+      foreign-key: componentBean.realAssignee.accountId
+    - key: lead.accountId
+      foreign-key: componentBean.realAssignee.accountId
+    - key: components.assignee.accountId
+      foreign-key: lead.accountId
+    - key: components.lead.accountId
+      foreign-key: lead.accountId
+    - key: components.realAssignee.accountId
+      foreign-key: lead.accountId
+    - key: lead.accountId
+      foreign-key: lead.accountId
+    - key: components.assignee.accountId
+      foreign-key: realAssignee.accountId
+    - key: components.lead.accountId
+      foreign-key: realAssignee.accountId
+    - key: components.realAssignee.accountId
+      foreign-key: realAssignee.accountId
+    - key: lead.accountId
+      foreign-key: realAssignee.accountId
+  - table-name: versions
+    keys:
+    - key: id
+      foreign-key: projectId
+  - table-name: changelogs
+    keys:
+    - key: components.assignee.accountId
+      foreign-key: author.accountId
+    - key: components.lead.accountId
+      foreign-key: author.accountId
+    - key: components.realAssignee.accountId
+      foreign-key: author.accountId
+    - key: lead.accountId
+      foreign-key: author.accountId
+  - table-name: issue_comments
+    keys:
+    - key: components.assignee.accountId
+      foreign-key: author.accountId
+    - key: components.lead.accountId
+      foreign-key: author.accountId
+    - key: components.realAssignee.accountId
+      foreign-key: author.accountId
+    - key: lead.accountId
+      foreign-key: author.accountId
+    - key: components.assignee.accountId
+      foreign-key: updateAuthor.accountId
+    - key: components.lead.accountId
+      foreign-key: updateAuthor.accountId
+    - key: components.realAssignee.accountId
+      foreign-key: updateAuthor.accountId
+    - key: lead.accountId
+      foreign-key: updateAuthor.accountId
+  - table-name: issues
+    keys:
+    - key: components.assignee.accountId
+      foreign-key: accountId
+    - key: components.lead.accountId
+      foreign-key: accountId
+    - key: components.realAssignee.accountId
+      foreign-key: accountId
+    - key: lead.accountId
+      foreign-key: accountId
+  - table-name: users
+    keys:
+    - key: components.assignee.accountId
+      foreign-key: accountId
+    - key: components.lead.accountId
+      foreign-key: accountId
+    - key: components.realAssignee.accountId
+      foreign-key: accountId
+    - key: lead.accountId
+      foreign-key: accountId
+  - table-name: worklogs
+    keys:
+    - key: components.assignee.accountId
+      foreign-key: author.accountId
+    - key: components.lead.accountId
+      foreign-key: author.accountId
+    - key: components.realAssignee.accountId
+      foreign-key: author.accountId
+    - key: lead.accountId
+      foreign-key: author.accountId
+    - key: components.assignee.accountId
+      foreign-key: updateAuthor.accountId
+    - key: components.lead.accountId
+      foreign-key: updateAuthor.accountId
+    - key: components.realAssignee.accountId
+      foreign-key: updateAuthor.accountId
+    - key: lead.accountId
+      foreign-key: updateAuthor.accountId
+- table-name: components
+  join:
+  - table-name: projects
+    keys:
+    - key: componentBean.projectId
+      foreign-key: id
+    - key: projectId
+      foreign-key: id
+    - key: assignee.accountId
+      foreign-key: components.assignee.accountId
+    - key: componentBean.assignee.accountId
+      foreign-key: components.assignee.accountId
+    - key: componentBean.lead.accountId
+      foreign-key: components.assignee.accountId
+    - key: componentBean.realAssignee.accountId
+      foreign-key: components.assignee.accountId
+    - key: lead.accountId
+      foreign-key: components.assignee.accountId
+    - key: realAssignee.accountId
+      foreign-key: components.assignee.accountId
+    - key: assignee.accountId
+      foreign-key: components.lead.accountId
+    - key: componentBean.assignee.accountId
+      foreign-key: components.lead.accountId
+    - key: componentBean.lead.accountId
+      foreign-key: components.lead.accountId
+    - key: componentBean.realAssignee.accountId
+      foreign-key: components.lead.accountId
+    - key: lead.accountId
+      foreign-key: components.lead.accountId
+    - key: realAssignee.accountId
+      foreign-key: components.lead.accountId
+    - key: assignee.accountId
+      foreign-key: components.realAssignee.accountId
+    - key: componentBean.assignee.accountId
+      foreign-key: components.realAssignee.accountId
+    - key: componentBean.lead.accountId
+      foreign-key: components.realAssignee.accountId
+    - key: componentBean.realAssignee.accountId
+      foreign-key: components.realAssignee.accountId
+    - key: lead.accountId
+      foreign-key: components.realAssignee.accountId
+    - key: realAssignee.accountId
+      foreign-key: components.realAssignee.accountId
+    - key: assignee.accountId
+      foreign-key: lead.accountId
+    - key: componentBean.assignee.accountId
+      foreign-key: lead.accountId
+    - key: componentBean.lead.accountId
+      foreign-key: lead.accountId
+    - key: componentBean.realAssignee.accountId
+      foreign-key: lead.accountId
+    - key: lead.accountId
+      foreign-key: lead.accountId
+    - key: realAssignee.accountId
+      foreign-key: lead.accountId
+  - table-name: versions
+    keys:
+    - key: componentBean.projectId
+      foreign-key: projectId
+    - key: projectId
+      foreign-key: projectId
+  - table-name: changelogs
+    keys:
+    - key: assignee.accountId
+      foreign-key: author.accountId
+    - key: componentBean.assignee.accountId
+      foreign-key: author.accountId
+    - key: componentBean.lead.accountId
+      foreign-key: author.accountId
+    - key: componentBean.realAssignee.accountId
+      foreign-key: author.accountId
+    - key: lead.accountId
+      foreign-key: author.accountId
+    - key: realAssignee.accountId
+      foreign-key: author.accountId
+  - table-name: issue_comments
+    keys:
+    - key: assignee.accountId
+      foreign-key: author.accountId
+    - key: componentBean.assignee.accountId
+      foreign-key: author.accountId
+    - key: componentBean.lead.accountId
+      foreign-key: author.accountId
+    - key: componentBean.realAssignee.accountId
+      foreign-key: author.accountId
+    - key: lead.accountId
+      foreign-key: author.accountId
+    - key: realAssignee.accountId
+      foreign-key: author.accountId
+    - key: assignee.accountId
+      foreign-key: updateAuthor.accountId
+    - key: componentBean.assignee.accountId
+      foreign-key: updateAuthor.accountId
+    - key: componentBean.lead.accountId
+      foreign-key: updateAuthor.accountId
+    - key: componentBean.realAssignee.accountId
+      foreign-key: updateAuthor.accountId
+    - key: lead.accountId
+      foreign-key: updateAuthor.accountId
+    - key: realAssignee.accountId
+      foreign-key: updateAuthor.accountId
+  - table-name: issues
+    keys:
+    - key: assignee.accountId
+      foreign-key: accountId
+    - key: componentBean.assignee.accountId
+      foreign-key: accountId
+    - key: componentBean.lead.accountId
+      foreign-key: accountId
+    - key: componentBean.realAssignee.accountId
+      foreign-key: accountId
+    - key: lead.accountId
+      foreign-key: accountId
+    - key: realAssignee.accountId
+      foreign-key: accountId
+  - table-name: users
+    keys:
+    - key: assignee.accountId
+      foreign-key: accountId
+    - key: componentBean.assignee.accountId
+      foreign-key: accountId
+    - key: componentBean.lead.accountId
+      foreign-key: accountId
+    - key: componentBean.realAssignee.accountId
+      foreign-key: accountId
+    - key: lead.accountId
+      foreign-key: accountId
+    - key: realAssignee.accountId
+      foreign-key: accountId
+  - table-name: worklogs
+    keys:
+    - key: assignee.accountId
+      foreign-key: author.accountId
+    - key: componentBean.assignee.accountId
+      foreign-key: author.accountId
+    - key: componentBean.lead.accountId
+      foreign-key: author.accountId
+    - key: componentBean.realAssignee.accountId
+      foreign-key: author.accountId
+    - key: lead.accountId
+      foreign-key: author.accountId
+    - key: realAssignee.accountId
+      foreign-key: author.accountId
+    - key: assignee.accountId
+      foreign-key: updateAuthor.accountId
+    - key: componentBean.assignee.accountId
+      foreign-key: updateAuthor.accountId
+    - key: componentBean.lead.accountId
+      foreign-key: updateAuthor.accountId
+    - key: componentBean.realAssignee.accountId
+      foreign-key: updateAuthor.accountId
+    - key: lead.accountId
+      foreign-key: updateAuthor.accountId
+    - key: realAssignee.accountId
+      foreign-key: updateAuthor.accountId
+- table-name: versions
+  join:
+  - table-name: components
+    keys:
+    - key: projectId
+      foreign-key: componentBean.projectId
+    - key: projectId
+      foreign-key: projectId
+  - table-name: projects
+    keys:
+    - key: projectId
+      foreign-key: id
+- table-name: resolutions
+  join: []
+- table-name: roles
+  join: []
+- table-name: users
+  join:
+  - table-name: changelogs
+    keys:
+    - key: accountId
+      foreign-key: author.accountId
+  - table-name: components
+    keys:
+    - key: accountId
+      foreign-key: assignee.accountId
+    - key: accountId
+      foreign-key: componentBean.assignee.accountId
+    - key: accountId
+      foreign-key: componentBean.lead.accountId
+    - key: accountId
+      foreign-key: componentBean.realAssignee.accountId
+    - key: accountId
+      foreign-key: lead.accountId
+    - key: accountId
+      foreign-key: realAssignee.accountId
+  - table-name: issue_comments
+    keys:
+    - key: accountId
+      foreign-key: author.accountId
+    - key: accountId
+      foreign-key: updateAuthor.accountId
+  - table-name: issues
+    keys:
+    - key: accountId
+      foreign-key: accountId
+  - table-name: projects
+    keys:
+    - key: accountId
+      foreign-key: components.assignee.accountId
+    - key: accountId
+      foreign-key: components.lead.accountId
+    - key: accountId
+      foreign-key: components.realAssignee.accountId
+    - key: accountId
+      foreign-key: lead.accountId
+  - table-name: worklogs
+    keys:
+    - key: accountId
+      foreign-key: author.accountId
+    - key: accountId
+      foreign-key: updateAuthor.accountId

@@ -204,3 +204,832 @@ keys:
   - table: user_projects
     keys:
     - id
+tables:
+- table-name: clients
+  join:
+  - table-name: contacts
+    keys:
+    - key: id
+      foreign-key: client_id
+  - table-name: estimates
+    keys:
+    - key: id
+      foreign-key: client_id
+  - table-name: expenses
+    keys:
+    - key: id
+      foreign-key: client_id
+  - table-name: invoices
+    keys:
+    - key: id
+      foreign-key: client_id
+  - table-name: projects
+    keys:
+    - key: id
+      foreign-key: client_id
+  - table-name: time_entries
+    keys:
+    - key: id
+      foreign-key: client_id
+  - table-name: user_projects
+    keys:
+    - key: id
+      foreign-key: client_id
+- table-name: contacts
+  join:
+  - table-name: clients
+    keys:
+    - key: client_id
+      foreign-key: id
+  - table-name: estimates
+    keys:
+    - key: client_id
+      foreign-key: client_id
+  - table-name: expenses
+    keys:
+    - key: client_id
+      foreign-key: client_id
+  - table-name: invoices
+    keys:
+    - key: client_id
+      foreign-key: client_id
+  - table-name: projects
+    keys:
+    - key: client_id
+      foreign-key: client_id
+  - table-name: time_entries
+    keys:
+    - key: client_id
+      foreign-key: client_id
+  - table-name: user_projects
+    keys:
+    - key: client_id
+      foreign-key: client_id
+- table-name: estimates
+  join:
+  - table-name: clients
+    keys:
+    - key: client_id
+      foreign-key: id
+  - table-name: contacts
+    keys:
+    - key: client_id
+      foreign-key: client_id
+  - table-name: expenses
+    keys:
+    - key: client_id
+      foreign-key: client_id
+  - table-name: invoices
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: id
+      foreign-key: estimate_id
+    - key: creator_id
+      foreign-key: creator_id
+  - table-name: projects
+    keys:
+    - key: client_id
+      foreign-key: client_id
+  - table-name: time_entries
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: creator_id
+      foreign-key: user_id
+  - table-name: user_projects
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: creator_id
+      foreign-key: user_id
+  - table-name: estimate_line_items
+    keys:
+    - key: id
+      foreign-key: estimate_id
+  - table-name: estimate_messages
+    keys:
+    - key: id
+      foreign-key: estimate_id
+  - table-name: project_tasks
+    keys:
+    - key: creator_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: creator_id
+      foreign-key: id
+  - table-name: user_project_tasks
+    keys:
+    - key: creator_id
+      foreign-key: user_id
+  - table-name: user_roles
+    keys:
+    - key: creator_id
+      foreign-key: user_id
+- table-name: expenses
+  join:
+  - table-name: clients
+    keys:
+    - key: client_id
+      foreign-key: id
+  - table-name: contacts
+    keys:
+    - key: client_id
+      foreign-key: client_id
+  - table-name: estimates
+    keys:
+    - key: client_id
+      foreign-key: client_id
+  - table-name: invoices
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: invoice_id
+      foreign-key: id
+  - table-name: projects
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: project_id
+      foreign-key: id
+  - table-name: time_entries
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: invoice_id
+      foreign-key: invoice_id
+    - key: project_id
+      foreign-key: project_id
+  - table-name: user_projects
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: project_id
+      foreign-key: project_id
+  - table-name: expense_categories
+    keys:
+    - key: expense_category_id
+      foreign-key: id
+  - table-name: invoice_line_items
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+    - key: project_id
+      foreign-key: project_id
+  - table-name: invoice_messages
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+  - table-name: invoice-payments
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+  - table-name: project_tasks
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: project_users
+    keys:
+    - key: project_id
+      foreign-key: project_id
+- table-name: invoices
+  join:
+  - table-name: clients
+    keys:
+    - key: client_id
+      foreign-key: id
+  - table-name: contacts
+    keys:
+    - key: client_id
+      foreign-key: client_id
+  - table-name: estimates
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: estimate_id
+      foreign-key: id
+    - key: creator_id
+      foreign-key: creator_id
+  - table-name: expenses
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: id
+      foreign-key: invoice_id
+  - table-name: projects
+    keys:
+    - key: client_id
+      foreign-key: client_id
+  - table-name: time_entries
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: id
+      foreign-key: invoice_id
+    - key: creator_id
+      foreign-key: user_id
+  - table-name: user_projects
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: creator_id
+      foreign-key: user_id
+  - table-name: estimate_line_items
+    keys:
+    - key: estimate_id
+      foreign-key: estimate_id
+  - table-name: estimate_messages
+    keys:
+    - key: estimate_id
+      foreign-key: estimate_id
+  - table-name: invoice_line_items
+    keys:
+    - key: id
+      foreign-key: invoice_line_item_id
+    - key: id
+      foreign-key: invoice_id
+  - table-name: invoice_messages
+    keys:
+    - key: id
+      foreign-key: invoice_id
+  - table-name: invoice-payments
+    keys:
+    - key: id
+      foreign-key: invoice_id
+  - table-name: project_tasks
+    keys:
+    - key: creator_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: creator_id
+      foreign-key: id
+  - table-name: user_project_tasks
+    keys:
+    - key: creator_id
+      foreign-key: user_id
+  - table-name: user_roles
+    keys:
+    - key: creator_id
+      foreign-key: user_id
+- table-name: projects
+  join:
+  - table-name: clients
+    keys:
+    - key: client_id
+      foreign-key: id
+  - table-name: contacts
+    keys:
+    - key: client_id
+      foreign-key: client_id
+  - table-name: estimates
+    keys:
+    - key: client_id
+      foreign-key: client_id
+  - table-name: expenses
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: id
+      foreign-key: project_id
+  - table-name: invoices
+    keys:
+    - key: client_id
+      foreign-key: client_id
+  - table-name: time_entries
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: id
+      foreign-key: project_id
+  - table-name: user_projects
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: id
+      foreign-key: project_id
+  - table-name: invoice_line_items
+    keys:
+    - key: id
+      foreign-key: project_id
+  - table-name: project_tasks
+    keys:
+    - key: id
+      foreign-key: project_id
+  - table-name: project_users
+    keys:
+    - key: id
+      foreign-key: project_id
+- table-name: time_entries
+  join:
+  - table-name: clients
+    keys:
+    - key: client_id
+      foreign-key: id
+  - table-name: contacts
+    keys:
+    - key: client_id
+      foreign-key: client_id
+  - table-name: estimates
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: user_id
+      foreign-key: creator_id
+  - table-name: expenses
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: invoice_id
+      foreign-key: invoice_id
+    - key: project_id
+      foreign-key: project_id
+  - table-name: invoices
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: invoice_id
+      foreign-key: id
+    - key: user_id
+      foreign-key: creator_id
+  - table-name: projects
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: project_id
+      foreign-key: id
+  - table-name: user_projects
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: project_id
+      foreign-key: project_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: external_references
+    keys:
+    - key: external_reference_id
+      foreign-key: id
+    - key: task_id
+      foreign-key: task_id
+  - table-name: time_entry_external_reference
+    keys:
+    - key: external_reference_id
+      foreign-key: external_reference_id
+    - key: id
+      foreign-key: time_entry_id
+  - table-name: invoice_line_items
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+    - key: project_id
+      foreign-key: project_id
+  - table-name: invoice_messages
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+  - table-name: invoice-payments
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+  - table-name: project_tasks
+    keys:
+    - key: project_id
+      foreign-key: project_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: project_users
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: tasks
+    keys:
+    - key: task_id
+      foreign-key: id
+  - table-name: users
+    keys:
+    - key: user_id
+      foreign-key: id
+  - table-name: user_project_tasks
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: user_roles
+    keys:
+    - key: user_id
+      foreign-key: user_id
+- table-name: user_projects
+  join:
+  - table-name: clients
+    keys:
+    - key: client_id
+      foreign-key: id
+  - table-name: contacts
+    keys:
+    - key: client_id
+      foreign-key: client_id
+  - table-name: estimates
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: user_id
+      foreign-key: creator_id
+  - table-name: expenses
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: project_id
+      foreign-key: project_id
+  - table-name: invoices
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: user_id
+      foreign-key: creator_id
+  - table-name: projects
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: project_id
+      foreign-key: id
+  - table-name: time_entries
+    keys:
+    - key: client_id
+      foreign-key: client_id
+    - key: project_id
+      foreign-key: project_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: invoice_line_items
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: project_tasks
+    keys:
+    - key: project_id
+      foreign-key: project_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: project_users
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: users
+    keys:
+    - key: user_id
+      foreign-key: id
+  - table-name: user_project_tasks
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: user_roles
+    keys:
+    - key: user_id
+      foreign-key: user_id
+- table-name: estimate_item_categories
+  join: []
+- table-name: estimate_line_items
+  join:
+  - table-name: estimate_messages
+    keys:
+    - key: estimate_id
+      foreign-key: estimate_id
+  - table-name: estimates
+    keys:
+    - key: estimate_id
+      foreign-key: id
+  - table-name: invoices
+    keys:
+    - key: estimate_id
+      foreign-key: estimate_id
+- table-name: estimate_messages
+  join:
+  - table-name: estimate_line_items
+    keys:
+    - key: estimate_id
+      foreign-key: estimate_id
+  - table-name: estimates
+    keys:
+    - key: estimate_id
+      foreign-key: id
+  - table-name: invoices
+    keys:
+    - key: estimate_id
+      foreign-key: estimate_id
+- table-name: expense_categories
+  join:
+  - table-name: expenses
+    keys:
+    - key: id
+      foreign-key: expense_category_id
+- table-name: external_references
+  join:
+  - table-name: time_entries
+    keys:
+    - key: id
+      foreign-key: external_reference_id
+    - key: task_id
+      foreign-key: task_id
+  - table-name: time_entry_external_reference
+    keys:
+    - key: id
+      foreign-key: external_reference_id
+  - table-name: tasks
+    keys:
+    - key: task_id
+      foreign-key: id
+- table-name: time_entry_external_reference
+  join:
+  - table-name: external_references
+    keys:
+    - key: external_reference_id
+      foreign-key: id
+  - table-name: time_entries
+    keys:
+    - key: external_reference_id
+      foreign-key: external_reference_id
+    - key: time_entry_id
+      foreign-key: id
+- table-name: invoice_item_categories
+  join: []
+- table-name: invoice_line_items
+  join:
+  - table-name: invoices
+    keys:
+    - key: invoice_line_item_id
+      foreign-key: id
+    - key: invoice_id
+      foreign-key: id
+  - table-name: expenses
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+    - key: project_id
+      foreign-key: project_id
+  - table-name: invoice_messages
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+  - table-name: invoice-payments
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+  - table-name: time_entries
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+    - key: project_id
+      foreign-key: project_id
+  - table-name: project_tasks
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: project_users
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: projects
+    keys:
+    - key: project_id
+      foreign-key: id
+  - table-name: user_projects
+    keys:
+    - key: project_id
+      foreign-key: project_id
+- table-name: invoice_messages
+  join:
+  - table-name: expenses
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+  - table-name: invoice_line_items
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+  - table-name: invoice-payments
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+  - table-name: invoices
+    keys:
+    - key: invoice_id
+      foreign-key: id
+  - table-name: time_entries
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+- table-name: invoice-payments
+  join:
+  - table-name: expenses
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+  - table-name: invoice_line_items
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+  - table-name: invoice_messages
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+  - table-name: invoices
+    keys:
+    - key: invoice_id
+      foreign-key: id
+  - table-name: time_entries
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+- table-name: invoice_payments
+  join: []
+- table-name: project_tasks
+  join:
+  - table-name: expenses
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: invoice_line_items
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: project_users
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: projects
+    keys:
+    - key: project_id
+      foreign-key: id
+  - table-name: time_entries
+    keys:
+    - key: project_id
+      foreign-key: project_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: user_projects
+    keys:
+    - key: project_id
+      foreign-key: project_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: user_project_tasks
+    keys:
+    - key: id
+      foreign-key: project_task_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: estimates
+    keys:
+    - key: user_id
+      foreign-key: creator_id
+  - table-name: invoices
+    keys:
+    - key: user_id
+      foreign-key: creator_id
+  - table-name: users
+    keys:
+    - key: user_id
+      foreign-key: id
+  - table-name: user_roles
+    keys:
+    - key: user_id
+      foreign-key: user_id
+- table-name: project_users
+  join:
+  - table-name: expenses
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: invoice_line_items
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: project_tasks
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: projects
+    keys:
+    - key: project_id
+      foreign-key: id
+  - table-name: time_entries
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: user_projects
+    keys:
+    - key: project_id
+      foreign-key: project_id
+- table-name: user_project_tasks
+  join:
+  - table-name: project_tasks
+    keys:
+    - key: project_task_id
+      foreign-key: id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: estimates
+    keys:
+    - key: user_id
+      foreign-key: creator_id
+  - table-name: invoices
+    keys:
+    - key: user_id
+      foreign-key: creator_id
+  - table-name: time_entries
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: user_id
+      foreign-key: id
+  - table-name: user_projects
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: user_roles
+    keys:
+    - key: user_id
+      foreign-key: user_id
+- table-name: roles
+  join:
+  - table-name: user_roles
+    keys:
+    - key: id
+      foreign-key: role_id
+- table-name: user_roles
+  join:
+  - table-name: roles
+    keys:
+    - key: role_id
+      foreign-key: id
+  - table-name: estimates
+    keys:
+    - key: user_id
+      foreign-key: creator_id
+  - table-name: invoices
+    keys:
+    - key: user_id
+      foreign-key: creator_id
+  - table-name: project_tasks
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: time_entries
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: user_id
+      foreign-key: id
+  - table-name: user_project_tasks
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: user_projects
+    keys:
+    - key: user_id
+      foreign-key: user_id
+- table-name: tasks
+  join:
+  - table-name: external_references
+    keys:
+    - key: id
+      foreign-key: task_id
+  - table-name: time_entries
+    keys:
+    - key: id
+      foreign-key: task_id
+- table-name: users
+  join:
+  - table-name: estimates
+    keys:
+    - key: id
+      foreign-key: creator_id
+  - table-name: invoices
+    keys:
+    - key: id
+      foreign-key: creator_id
+  - table-name: project_tasks
+    keys:
+    - key: id
+      foreign-key: user_id
+  - table-name: time_entries
+    keys:
+    - key: id
+      foreign-key: user_id
+  - table-name: user_project_tasks
+    keys:
+    - key: id
+      foreign-key: user_id
+  - table-name: user_projects
+    keys:
+    - key: id
+      foreign-key: user_id
+  - table-name: user_roles
+    keys:
+    - key: id
+      foreign-key: user_id

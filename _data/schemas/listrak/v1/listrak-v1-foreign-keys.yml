@@ -52,3 +52,294 @@ keys:
   - table: subscribed_contacts
     keys:
     - ListID
+tables:
+- table-name: message_bounces
+  join:
+  - table-name: message_clicks
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_opens
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_reads
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_unsubs
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: subscribed_contacts
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+  - table-name: message_sends
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: messages
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+- table-name: message_clicks
+  join:
+  - table-name: message_bounces
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_opens
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_reads
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_unsubs
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: subscribed_contacts
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+  - table-name: message_sends
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: messages
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+- table-name: message_opens
+  join:
+  - table-name: message_bounces
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_clicks
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_reads
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_unsubs
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: subscribed_contacts
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+  - table-name: message_sends
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: messages
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+- table-name: message_reads
+  join:
+  - table-name: message_bounces
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_clicks
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_opens
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_unsubs
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: subscribed_contacts
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+  - table-name: message_sends
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: messages
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+- table-name: message_unsubs
+  join:
+  - table-name: message_bounces
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_clicks
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_opens
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_reads
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: subscribed_contacts
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+  - table-name: message_sends
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: messages
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+- table-name: subscribed_contacts
+  join:
+  - table-name: message_bounces
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+  - table-name: message_clicks
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+  - table-name: message_opens
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+  - table-name: message_reads
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+  - table-name: message_unsubs
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+  - table-name: lists
+    keys:
+    - key: ListID
+      foreign-key: ListID
+  - table-name: messages
+    keys:
+    - key: ListID
+      foreign-key: ListID
+- table-name: message_sends
+  join:
+  - table-name: message_bounces
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_clicks
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_opens
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_reads
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_unsubs
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: messages
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+- table-name: messages
+  join:
+  - table-name: message_bounces
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_clicks
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_opens
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_reads
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_sends
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: message_unsubs
+    keys:
+    - key: MsgID
+      foreign-key: MsgID
+  - table-name: lists
+    keys:
+    - key: ListID
+      foreign-key: ListID
+  - table-name: subscribed_contacts
+    keys:
+    - key: ListID
+      foreign-key: ListID
+- table-name: lists
+  join:
+  - table-name: messages
+    keys:
+    - key: ListID
+      foreign-key: ListID
+  - table-name: subscribed_contacts
+    keys:
+    - key: ListID
+      foreign-key: ListID

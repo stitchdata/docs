@@ -8,3 +8,16 @@ keys:
   - table: campaign_performance
     keys:
     - campaign_id
+tables:
+- table-name: campaign
+  join:
+  - table-name: campaign_performance
+    keys:
+    - key: id
+      foreign-key: campaign_id
+- table-name: campaign_performance
+  join:
+  - table-name: campaign
+    keys:
+    - key: campaign_id
+      foreign-key: id

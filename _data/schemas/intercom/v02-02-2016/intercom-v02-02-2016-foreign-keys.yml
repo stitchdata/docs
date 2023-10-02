@@ -90,3 +90,216 @@ keys:
     keys:
     - user.id
     - customers.id
+tables:
+- table-name: admins
+  join:
+  - table-name: conversations
+    keys:
+    - key: id
+      foreign-key: conversation_parts.assigned_to
+    - key: id
+      foreign-key: assignee.id
+    - key: id
+      foreign-key: conversation_parts.author.id
+  - table-name: contacts
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: id
+- table-name: conversations
+  join:
+  - table-name: admins
+    keys:
+    - key: conversation_parts.assigned_to
+      foreign-key: id
+    - key: assignee.id
+      foreign-key: id
+    - key: conversation_parts.author.id
+      foreign-key: id
+  - table-name: contacts
+    keys:
+    - key: conversation_parts.author.id
+      foreign-key: id
+    - key: user.id
+      foreign-key: id
+    - key: tags.tags.id
+      foreign-key: tags.tags.id
+    - key: customers.id
+      foreign-key: id
+  - table-name: users
+    keys:
+    - key: conversation_parts.author.id
+      foreign-key: id
+    - key: tags.tags.id
+      foreign-key: tags.tags.id
+    - key: user.id
+      foreign-key: id
+    - key: customers.id
+      foreign-key: id
+  - table-name: companies
+    keys:
+    - key: tags.tags.id
+      foreign-key: tags.tags.id
+  - table-name: tags
+    keys:
+    - key: tags.tags.id
+      foreign-key: id
+- table-name: contacts
+  join:
+  - table-name: admins
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: id
+    - key: companies.id
+      foreign-key: companies.id
+    - key: segments.segments.id
+      foreign-key: segments.segments.id
+    - key: tags.tags.id
+      foreign-key: tags.tags.id
+  - table-name: conversations
+    keys:
+    - key: id
+      foreign-key: conversation_parts.author.id
+    - key: id
+      foreign-key: user.id
+    - key: tags.tags.id
+      foreign-key: tags.tags.id
+    - key: id
+      foreign-key: customers.id
+  - table-name: companies
+    keys:
+    - key: companies.id
+      foreign-key: id
+    - key: segments.segments.id
+      foreign-key: segments.segments.id
+    - key: tags.tags.id
+      foreign-key: tags.tags.id
+  - table-name: company_segments
+    keys:
+    - key: segments.id
+      foreign-key: id
+  - table-name: segments
+    keys:
+    - key: segments.segments.id
+      foreign-key: id
+  - table-name: tags
+    keys:
+    - key: tags.tags.id
+      foreign-key: id
+- table-name: users
+  join:
+  - table-name: admins
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: contacts
+    keys:
+    - key: id
+      foreign-key: id
+    - key: companies.id
+      foreign-key: companies.id
+    - key: segments.segments.id
+      foreign-key: segments.segments.id
+    - key: tags.tags.id
+      foreign-key: tags.tags.id
+  - table-name: conversations
+    keys:
+    - key: id
+      foreign-key: conversation_parts.author.id
+    - key: tags.tags.id
+      foreign-key: tags.tags.id
+    - key: id
+      foreign-key: user.id
+    - key: id
+      foreign-key: customers.id
+  - table-name: companies
+    keys:
+    - key: companies.id
+      foreign-key: id
+    - key: segments.segments.id
+      foreign-key: segments.segments.id
+    - key: tags.tags.id
+      foreign-key: tags.tags.id
+  - table-name: segments
+    keys:
+    - key: segments.segments.id
+      foreign-key: id
+  - table-name: tags
+    keys:
+    - key: tags.tags.id
+      foreign-key: id
+- table-name: companies
+  join:
+  - table-name: contacts
+    keys:
+    - key: id
+      foreign-key: companies.id
+    - key: segments.segments.id
+      foreign-key: segments.segments.id
+    - key: tags.tags.id
+      foreign-key: tags.tags.id
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: companies.id
+    - key: segments.segments.id
+      foreign-key: segments.segments.id
+    - key: tags.tags.id
+      foreign-key: tags.tags.id
+  - table-name: segments
+    keys:
+    - key: segments.segments.id
+      foreign-key: id
+  - table-name: conversations
+    keys:
+    - key: tags.tags.id
+      foreign-key: tags.tags.id
+  - table-name: tags
+    keys:
+    - key: tags.tags.id
+      foreign-key: id
+- table-name: company_segments
+  join:
+  - table-name: contacts
+    keys:
+    - key: id
+      foreign-key: segments.id
+- table-name: segments
+  join:
+  - table-name: companies
+    keys:
+    - key: id
+      foreign-key: segments.segments.id
+  - table-name: contacts
+    keys:
+    - key: id
+      foreign-key: segments.segments.id
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: segments.segments.id
+- table-name: tags
+  join:
+  - table-name: companies
+    keys:
+    - key: id
+      foreign-key: tags.tags.id
+  - table-name: contacts
+    keys:
+    - key: id
+      foreign-key: tags.tags.id
+  - table-name: conversations
+    keys:
+    - key: id
+      foreign-key: tags.tags.id
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: tags.tags.id

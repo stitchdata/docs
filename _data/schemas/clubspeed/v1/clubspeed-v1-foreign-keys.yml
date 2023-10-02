@@ -294,3 +294,1404 @@ keys:
     keys:
     - userId
     - voidUser
+tables:
+- table-name: booking
+  join:
+  - table-name: booking_availability
+    keys:
+    - key: onlineBookingsId
+      foreign-key: products.onlineBookingsId
+    - key: heatId
+      foreign-key: heatId
+    - key: heatId
+      foreign-key: heatSpotsAvailableCombined
+    - key: producstId
+      foreign-key: products.producstId
+  - table-name: reservations
+    keys:
+    - key: onlineBookingsId
+      foreign-key: onlineBookingsId
+  - table-name: heat_main
+    keys:
+    - key: heatId
+      foreign-key: heatId
+  - table-name: heat_main_details
+    keys:
+    - key: heatId
+      foreign-key: heatId
+  - table-name: check_details
+    keys:
+    - key: producstId
+      foreign-key: producstId
+  - table-name: event_types
+    keys:
+    - key: producstId
+      foreign-key: onlineProductId
+  - table-name: products
+    keys:
+    - key: producstId
+      foreign-key: producstId
+- table-name: booking_availability
+  join:
+  - table-name: booking
+    keys:
+    - key: products.onlineBookingsId
+      foreign-key: onlineBookingsId
+    - key: heatId
+      foreign-key: heatId
+    - key: heatSpotsAvailableCombined
+      foreign-key: heatId
+    - key: products.producstId
+      foreign-key: producstId
+  - table-name: reservations
+    keys:
+    - key: products.onlineBookingsId
+      foreign-key: onlineBookingsId
+  - table-name: heat_main
+    keys:
+    - key: heatId
+      foreign-key: heatId
+    - key: heatSpotsAvailableCombined
+      foreign-key: heatId
+    - key: heatTypeId
+      foreign-key: type
+  - table-name: heat_main_details
+    keys:
+    - key: heatId
+      foreign-key: heatId
+    - key: heatSpotsAvailableCombined
+      foreign-key: heatId
+  - table-name: event_heat_types
+    keys:
+    - key: heatTypeId
+      foreign-key: heatTypeId
+  - table-name: event_rounds
+    keys:
+    - key: heatTypeId
+      foreign-key: heatTypeId
+  - table-name: heat_types
+    keys:
+    - key: heatTypeId
+      foreign-key: heatTypesId
+  - table-name: check_details
+    keys:
+    - key: products.producstId
+      foreign-key: producstId
+  - table-name: event_types
+    keys:
+    - key: products.producstId
+      foreign-key: onlineProductId
+  - table-name: products
+    keys:
+    - key: products.producstId
+      foreign-key: producstId
+- table-name: reservations
+  join:
+  - table-name: booking
+    keys:
+    - key: onlineBookingsId
+      foreign-key: onlineBookingsId
+  - table-name: booking_availability
+    keys:
+    - key: onlineBookingsId
+      foreign-key: products.onlineBookingsId
+  - table-name: check_details
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: g_CustId
+    - key: customerId
+      foreign-key: p_CustId
+    - key: customerId
+      foreign-key: s_CustId
+  - table-name: checks
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+  - table-name: event_reservation_links
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: onlineBookingReservationsId
+      foreign-key: reservationId
+  - table-name: gift_card_history
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+  - table-name: payments
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+  - table-name: payments_voided
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+  - table-name: event_heat_details
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: heat_main_details
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: memberships
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: events
+    keys:
+    - key: onlineBookingReservationsId
+      foreign-key: reservationId
+- table-name: check_details
+  join:
+  - table-name: gift_card_history
+    keys:
+    - key: checkDetailId
+      foreign-key: checkDetailId
+    - key: checkId
+      foreign-key: checkId
+    - key: g_CustId
+      foreign-key: customerId
+    - key: p_CustId
+      foreign-key: customerId
+    - key: s_CustId
+      foreign-key: customerId
+  - table-name: checks
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: g_CustId
+      foreign-key: customerId
+    - key: p_CustId
+      foreign-key: customerId
+    - key: s_CustId
+      foreign-key: customerId
+    - key: discountId
+      foreign-key: discountId
+  - table-name: event_reservation_links
+    keys:
+    - key: checkId
+      foreign-key: checkId
+  - table-name: payments
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: g_CustId
+      foreign-key: customerId
+    - key: p_CustId
+      foreign-key: customerId
+    - key: s_CustId
+      foreign-key: customerId
+  - table-name: payments_voided
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: g_CustId
+      foreign-key: customerId
+    - key: p_CustId
+      foreign-key: customerId
+    - key: s_CustId
+      foreign-key: customerId
+  - table-name: reservations
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: g_CustId
+      foreign-key: customerId
+    - key: p_CustId
+      foreign-key: customerId
+    - key: s_CustId
+      foreign-key: customerId
+  - table-name: event_heat_details
+    keys:
+    - key: g_CustId
+      foreign-key: customerId
+    - key: p_CustId
+      foreign-key: customerId
+    - key: s_CustId
+      foreign-key: customerId
+  - table-name: heat_main_details
+    keys:
+    - key: g_CustId
+      foreign-key: customerId
+    - key: p_CustId
+      foreign-key: customerId
+    - key: s_CustId
+      foreign-key: customerId
+  - table-name: memberships
+    keys:
+    - key: g_CustId
+      foreign-key: customerId
+    - key: p_CustId
+      foreign-key: customerId
+    - key: s_CustId
+      foreign-key: customerId
+  - table-name: discount_types
+    keys:
+    - key: discountId
+      foreign-key: discountId
+  - table-name: booking
+    keys:
+    - key: producstId
+      foreign-key: producstId
+  - table-name: booking_availability
+    keys:
+    - key: producstId
+      foreign-key: products.producstId
+  - table-name: event_types
+    keys:
+    - key: producstId
+      foreign-key: onlineProductId
+  - table-name: products
+    keys:
+    - key: producstId
+      foreign-key: producstId
+    - key: taxId
+      foreign-key: taxId
+  - table-name: taxes
+    keys:
+    - key: taxId
+      foreign-key: taxId
+- table-name: gift_card_history
+  join:
+  - table-name: check_details
+    keys:
+    - key: checkDetailId
+      foreign-key: checkDetailId
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: g_CustId
+    - key: customerId
+      foreign-key: p_CustId
+    - key: customerId
+      foreign-key: s_CustId
+  - table-name: checks
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: discountUserId
+    - key: userId
+      foreign-key: userId
+  - table-name: event_reservation_links
+    keys:
+    - key: checkId
+      foreign-key: checkId
+  - table-name: payments
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: userId
+    - key: userId
+      foreign-key: voidUser
+  - table-name: payments_voided
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: userId
+    - key: userId
+      foreign-key: voidUser
+  - table-name: reservations
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+  - table-name: event_heat_details
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: heat_main_details
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: userId
+  - table-name: memberships
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: byUserId
+  - table-name: check_detail
+    keys:
+    - key: userId
+      foreign-key: discountUserId
+  - table-name: event_tasks
+    keys:
+    - key: userId
+      foreign-key: completedBy
+  - table-name: users
+    keys:
+    - key: userId
+      foreign-key: userId
+  - table-name: event_reservations
+    keys:
+    - key: userId
+      foreign-key: userId
+- table-name: checks
+  join:
+  - table-name: check_details
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: g_CustId
+    - key: customerId
+      foreign-key: p_CustId
+    - key: customerId
+      foreign-key: s_CustId
+    - key: discountId
+      foreign-key: discountId
+  - table-name: event_reservation_links
+    keys:
+    - key: checkId
+      foreign-key: checkId
+  - table-name: gift_card_history
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+    - key: discountUserId
+      foreign-key: userId
+    - key: userId
+      foreign-key: userId
+  - table-name: payments
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+    - key: discountUserId
+      foreign-key: userId
+    - key: userId
+      foreign-key: userId
+    - key: discountUserId
+      foreign-key: voidUser
+    - key: userId
+      foreign-key: voidUser
+  - table-name: payments_voided
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+    - key: discountUserId
+      foreign-key: userId
+    - key: userId
+      foreign-key: userId
+    - key: discountUserId
+      foreign-key: voidUser
+    - key: userId
+      foreign-key: voidUser
+  - table-name: reservations
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+  - table-name: event_heat_details
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: heat_main_details
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: discountUserId
+      foreign-key: userId
+    - key: userId
+      foreign-key: userId
+  - table-name: memberships
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: discountUserId
+      foreign-key: byUserId
+    - key: userId
+      foreign-key: byUserId
+  - table-name: discount_types
+    keys:
+    - key: discountId
+      foreign-key: discountId
+  - table-name: check_detail
+    keys:
+    - key: discountUserId
+      foreign-key: discountUserId
+    - key: userId
+      foreign-key: discountUserId
+  - table-name: event_tasks
+    keys:
+    - key: discountUserId
+      foreign-key: completedBy
+    - key: userId
+      foreign-key: completedBy
+  - table-name: users
+    keys:
+    - key: discountUserId
+      foreign-key: userId
+    - key: userId
+      foreign-key: userId
+  - table-name: event_reservations
+    keys:
+    - key: discountUserId
+      foreign-key: userId
+    - key: userId
+      foreign-key: userId
+- table-name: event_reservation_links
+  join:
+  - table-name: check_details
+    keys:
+    - key: checkId
+      foreign-key: checkId
+  - table-name: checks
+    keys:
+    - key: checkId
+      foreign-key: checkId
+  - table-name: gift_card_history
+    keys:
+    - key: checkId
+      foreign-key: checkId
+  - table-name: payments
+    keys:
+    - key: checkId
+      foreign-key: checkId
+  - table-name: payments_voided
+    keys:
+    - key: checkId
+      foreign-key: checkId
+  - table-name: reservations
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: reservationId
+      foreign-key: onlineBookingReservationsId
+  - table-name: events
+    keys:
+    - key: reservationId
+      foreign-key: reservationId
+- table-name: payments
+  join:
+  - table-name: check_details
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: g_CustId
+    - key: customerId
+      foreign-key: p_CustId
+    - key: customerId
+      foreign-key: s_CustId
+  - table-name: checks
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: discountUserId
+    - key: voidUser
+      foreign-key: discountUserId
+    - key: userId
+      foreign-key: userId
+    - key: voidUser
+      foreign-key: userId
+  - table-name: event_reservation_links
+    keys:
+    - key: checkId
+      foreign-key: checkId
+  - table-name: gift_card_history
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: userId
+    - key: voidUser
+      foreign-key: userId
+  - table-name: payments_voided
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+    - key: paymentId
+      foreign-key: paymentId
+    - key: userId
+      foreign-key: userId
+    - key: voidUser
+      foreign-key: userId
+    - key: userId
+      foreign-key: voidUser
+    - key: voidUser
+      foreign-key: voidUser
+  - table-name: reservations
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+  - table-name: event_heat_details
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: heat_main_details
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: userId
+    - key: voidUser
+      foreign-key: userId
+  - table-name: memberships
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: byUserId
+    - key: voidUser
+      foreign-key: byUserId
+  - table-name: check_detail
+    keys:
+    - key: userId
+      foreign-key: discountUserId
+    - key: voidUser
+      foreign-key: discountUserId
+  - table-name: event_tasks
+    keys:
+    - key: userId
+      foreign-key: completedBy
+    - key: voidUser
+      foreign-key: completedBy
+  - table-name: users
+    keys:
+    - key: userId
+      foreign-key: userId
+    - key: voidUser
+      foreign-key: userId
+  - table-name: event_reservations
+    keys:
+    - key: userId
+      foreign-key: userId
+    - key: voidUser
+      foreign-key: userId
+- table-name: payments_voided
+  join:
+  - table-name: check_details
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: g_CustId
+    - key: customerId
+      foreign-key: p_CustId
+    - key: customerId
+      foreign-key: s_CustId
+  - table-name: checks
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: discountUserId
+    - key: voidUser
+      foreign-key: discountUserId
+    - key: userId
+      foreign-key: userId
+    - key: voidUser
+      foreign-key: userId
+  - table-name: event_reservation_links
+    keys:
+    - key: checkId
+      foreign-key: checkId
+  - table-name: gift_card_history
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: userId
+    - key: voidUser
+      foreign-key: userId
+  - table-name: payments
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+    - key: paymentId
+      foreign-key: paymentId
+    - key: userId
+      foreign-key: userId
+    - key: voidUser
+      foreign-key: userId
+    - key: userId
+      foreign-key: voidUser
+    - key: voidUser
+      foreign-key: voidUser
+  - table-name: reservations
+    keys:
+    - key: checkId
+      foreign-key: checkId
+    - key: customerId
+      foreign-key: customerId
+  - table-name: event_heat_details
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: heat_main_details
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: userId
+    - key: voidUser
+      foreign-key: userId
+  - table-name: memberships
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: byUserId
+    - key: voidUser
+      foreign-key: byUserId
+  - table-name: check_detail
+    keys:
+    - key: userId
+      foreign-key: discountUserId
+    - key: voidUser
+      foreign-key: discountUserId
+  - table-name: event_tasks
+    keys:
+    - key: userId
+      foreign-key: completedBy
+    - key: voidUser
+      foreign-key: completedBy
+  - table-name: users
+    keys:
+    - key: userId
+      foreign-key: userId
+    - key: voidUser
+      foreign-key: userId
+  - table-name: event_reservations
+    keys:
+    - key: userId
+      foreign-key: userId
+    - key: voidUser
+      foreign-key: userId
+- table-name: event_heat_details
+  join:
+  - table-name: check_details
+    keys:
+    - key: customerId
+      foreign-key: g_CustId
+    - key: customerId
+      foreign-key: p_CustId
+    - key: customerId
+      foreign-key: s_CustId
+  - table-name: checks
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: gift_card_history
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: heat_main_details
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: memberships
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: payments
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: payments_voided
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: reservations
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: event_heat_types
+    keys:
+    - key: eventId
+      foreign-key: eventId
+  - table-name: event_rounds
+    keys:
+    - key: eventId
+      foreign-key: eventId
+  - table-name: events
+    keys:
+    - key: eventId
+      foreign-key: eventId
+- table-name: heat_main_details
+  join:
+  - table-name: check_details
+    keys:
+    - key: customerId
+      foreign-key: g_CustId
+    - key: customerId
+      foreign-key: p_CustId
+    - key: customerId
+      foreign-key: s_CustId
+  - table-name: checks
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: discountUserId
+    - key: userId
+      foreign-key: userId
+  - table-name: event_heat_details
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: gift_card_history
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: userId
+  - table-name: memberships
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: byUserId
+  - table-name: payments
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: userId
+    - key: userId
+      foreign-key: voidUser
+  - table-name: payments_voided
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: userId
+      foreign-key: userId
+    - key: userId
+      foreign-key: voidUser
+  - table-name: reservations
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: booking
+    keys:
+    - key: heatId
+      foreign-key: heatId
+  - table-name: booking_availability
+    keys:
+    - key: heatId
+      foreign-key: heatId
+    - key: heatId
+      foreign-key: heatSpotsAvailableCombined
+  - table-name: heat_main
+    keys:
+    - key: heatId
+      foreign-key: heatId
+  - table-name: check_detail
+    keys:
+    - key: userId
+      foreign-key: discountUserId
+  - table-name: event_tasks
+    keys:
+    - key: userId
+      foreign-key: completedBy
+  - table-name: users
+    keys:
+    - key: userId
+      foreign-key: userId
+  - table-name: event_reservations
+    keys:
+    - key: userId
+      foreign-key: userId
+- table-name: memberships
+  join:
+  - table-name: check_details
+    keys:
+    - key: customerId
+      foreign-key: g_CustId
+    - key: customerId
+      foreign-key: p_CustId
+    - key: customerId
+      foreign-key: s_CustId
+  - table-name: checks
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: byUserId
+      foreign-key: discountUserId
+    - key: byUserId
+      foreign-key: userId
+  - table-name: event_heat_details
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: gift_card_history
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: byUserId
+      foreign-key: userId
+  - table-name: heat_main_details
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: byUserId
+      foreign-key: userId
+  - table-name: payments
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: byUserId
+      foreign-key: userId
+    - key: byUserId
+      foreign-key: voidUser
+  - table-name: payments_voided
+    keys:
+    - key: customerId
+      foreign-key: customerId
+    - key: byUserId
+      foreign-key: userId
+    - key: byUserId
+      foreign-key: voidUser
+  - table-name: reservations
+    keys:
+    - key: customerId
+      foreign-key: customerId
+  - table-name: membership_types
+    keys:
+    - key: membershipTypeId
+      foreign-key: membershipTypeId
+  - table-name: check_detail
+    keys:
+    - key: byUserId
+      foreign-key: discountUserId
+  - table-name: event_tasks
+    keys:
+    - key: byUserId
+      foreign-key: completedBy
+  - table-name: users
+    keys:
+    - key: byUserId
+      foreign-key: userId
+  - table-name: event_reservations
+    keys:
+    - key: byUserId
+      foreign-key: userId
+- table-name: discount_types
+  join:
+  - table-name: check_details
+    keys:
+    - key: discountId
+      foreign-key: discountId
+  - table-name: checks
+    keys:
+    - key: discountId
+      foreign-key: discountId
+  - table-name: product_classes
+    keys:
+    - key: productClassId
+      foreign-key: productClassId
+  - table-name: products
+    keys:
+    - key: productClassId
+      foreign-key: productClassId
+- table-name: event_heat_types
+  join:
+  - table-name: event_heat_details
+    keys:
+    - key: eventId
+      foreign-key: eventId
+  - table-name: event_rounds
+    keys:
+    - key: eventId
+      foreign-key: eventId
+    - key: heatTypeId
+      foreign-key: heatTypeId
+  - table-name: events
+    keys:
+    - key: eventId
+      foreign-key: eventId
+  - table-name: booking_availability
+    keys:
+    - key: heatTypeId
+      foreign-key: heatTypeId
+  - table-name: heat_main
+    keys:
+    - key: heatTypeId
+      foreign-key: type
+  - table-name: heat_types
+    keys:
+    - key: heatTypeId
+      foreign-key: heatTypesId
+- table-name: event_reservation_types
+  join:
+  - table-name: event_reservations
+    keys:
+    - key: eventReservationTypeId
+      foreign-key: typeId
+- table-name: event_reservations
+  join:
+  - table-name: event_reservation_types
+    keys:
+    - key: typeId
+      foreign-key: eventReservationTypeId
+  - table-name: event_tasks
+    keys:
+    - key: eventReservationId
+      foreign-key: eventReservationId
+    - key: mainId
+      foreign-key: eventReservationId
+    - key: userId
+      foreign-key: completedBy
+  - table-name: event_types
+    keys:
+    - key: eventTypeId
+      foreign-key: eventTypeId
+  - table-name: events
+    keys:
+    - key: eventTypeId
+      foreign-key: eventTypeId
+  - table-name: check_detail
+    keys:
+    - key: userId
+      foreign-key: discountUserId
+  - table-name: checks
+    keys:
+    - key: userId
+      foreign-key: discountUserId
+    - key: userId
+      foreign-key: userId
+  - table-name: gift_card_history
+    keys:
+    - key: userId
+      foreign-key: userId
+  - table-name: users
+    keys:
+    - key: userId
+      foreign-key: userId
+  - table-name: heat_main_details
+    keys:
+    - key: userId
+      foreign-key: userId
+  - table-name: memberships
+    keys:
+    - key: userId
+      foreign-key: byUserId
+  - table-name: payments
+    keys:
+    - key: userId
+      foreign-key: userId
+    - key: userId
+      foreign-key: voidUser
+  - table-name: payments_voided
+    keys:
+    - key: userId
+      foreign-key: userId
+    - key: userId
+      foreign-key: voidUser
+- table-name: event_tasks
+  join:
+  - table-name: event_reservations
+    keys:
+    - key: eventReservationId
+      foreign-key: eventReservationId
+    - key: eventReservationId
+      foreign-key: mainId
+    - key: completedBy
+      foreign-key: userId
+  - table-name: event_task_types
+    keys:
+    - key: eventTaskTypeId
+      foreign-key: eventTaskTypeId
+  - table-name: check_detail
+    keys:
+    - key: completedBy
+      foreign-key: discountUserId
+  - table-name: checks
+    keys:
+    - key: completedBy
+      foreign-key: discountUserId
+    - key: completedBy
+      foreign-key: userId
+  - table-name: gift_card_history
+    keys:
+    - key: completedBy
+      foreign-key: userId
+  - table-name: users
+    keys:
+    - key: completedBy
+      foreign-key: userId
+  - table-name: heat_main_details
+    keys:
+    - key: completedBy
+      foreign-key: userId
+  - table-name: memberships
+    keys:
+    - key: completedBy
+      foreign-key: byUserId
+  - table-name: payments
+    keys:
+    - key: completedBy
+      foreign-key: userId
+    - key: completedBy
+      foreign-key: voidUser
+  - table-name: payments_voided
+    keys:
+    - key: completedBy
+      foreign-key: userId
+    - key: completedBy
+      foreign-key: voidUser
+- table-name: event_rounds
+  join:
+  - table-name: heat_main
+    keys:
+    - key: eventRoundId
+      foreign-key: eventRound
+    - key: heatTypeId
+      foreign-key: type
+  - table-name: event_heat_details
+    keys:
+    - key: eventId
+      foreign-key: eventId
+  - table-name: event_heat_types
+    keys:
+    - key: eventId
+      foreign-key: eventId
+    - key: heatTypeId
+      foreign-key: heatTypeId
+  - table-name: events
+    keys:
+    - key: eventId
+      foreign-key: eventId
+  - table-name: booking_availability
+    keys:
+    - key: heatTypeId
+      foreign-key: heatTypeId
+  - table-name: heat_types
+    keys:
+    - key: heatTypeId
+      foreign-key: heatTypesId
+- table-name: heat_main
+  join:
+  - table-name: event_rounds
+    keys:
+    - key: eventRound
+      foreign-key: eventRoundId
+    - key: type
+      foreign-key: heatTypeId
+  - table-name: booking
+    keys:
+    - key: heatId
+      foreign-key: heatId
+  - table-name: booking_availability
+    keys:
+    - key: heatId
+      foreign-key: heatId
+    - key: heatId
+      foreign-key: heatSpotsAvailableCombined
+    - key: type
+      foreign-key: heatTypeId
+  - table-name: heat_main_details
+    keys:
+    - key: heatId
+      foreign-key: heatId
+  - table-name: event_heat_types
+    keys:
+    - key: type
+      foreign-key: heatTypeId
+  - table-name: heat_types
+    keys:
+    - key: type
+      foreign-key: heatTypesId
+    - key: trackId
+      foreign-key: trackId
+  - table-name: event_types
+    keys:
+    - key: trackId
+      foreign-key: trackId
+- table-name: event_statuses
+  join: []
+- table-name: event_task_types
+  join:
+  - table-name: event_tasks
+    keys:
+    - key: eventTaskTypeId
+      foreign-key: eventTaskTypeId
+- table-name: event_types
+  join:
+  - table-name: event_reservations
+    keys:
+    - key: eventTypeId
+      foreign-key: eventTypeId
+  - table-name: events
+    keys:
+    - key: eventTypeId
+      foreign-key: eventTypeId
+  - table-name: booking
+    keys:
+    - key: onlineProductId
+      foreign-key: producstId
+  - table-name: booking_availability
+    keys:
+    - key: onlineProductId
+      foreign-key: products.producstId
+  - table-name: check_details
+    keys:
+    - key: onlineProductId
+      foreign-key: producstId
+  - table-name: products
+    keys:
+    - key: onlineProductId
+      foreign-key: producstId
+  - table-name: heat_main
+    keys:
+    - key: trackId
+      foreign-key: trackId
+  - table-name: heat_types
+    keys:
+    - key: trackId
+      foreign-key: trackId
+- table-name: events
+  join:
+  - table-name: event_reservations
+    keys:
+    - key: eventTypeId
+      foreign-key: eventTypeId
+  - table-name: event_types
+    keys:
+    - key: eventTypeId
+      foreign-key: eventTypeId
+  - table-name: event_heat_details
+    keys:
+    - key: eventId
+      foreign-key: eventId
+  - table-name: event_heat_types
+    keys:
+    - key: eventId
+      foreign-key: eventId
+  - table-name: event_rounds
+    keys:
+    - key: eventId
+      foreign-key: eventId
+  - table-name: event_reservation_links
+    keys:
+    - key: reservationId
+      foreign-key: reservationId
+  - table-name: reservations
+    keys:
+    - key: reservationId
+      foreign-key: onlineBookingReservationsId
+- table-name: heat_types
+  join:
+  - table-name: booking_availability
+    keys:
+    - key: heatTypesId
+      foreign-key: heatTypeId
+  - table-name: event_heat_types
+    keys:
+    - key: heatTypesId
+      foreign-key: heatTypeId
+  - table-name: event_rounds
+    keys:
+    - key: heatTypesId
+      foreign-key: heatTypeId
+  - table-name: heat_main
+    keys:
+    - key: heatTypesId
+      foreign-key: type
+    - key: trackId
+      foreign-key: trackId
+  - table-name: event_types
+    keys:
+    - key: trackId
+      foreign-key: trackId
+- table-name: membership_types
+  join:
+  - table-name: memberships
+    keys:
+    - key: membershipTypeId
+      foreign-key: membershipTypeId
+- table-name: product_classes
+  join:
+  - table-name: discount_types
+    keys:
+    - key: productClassId
+      foreign-key: productClassId
+  - table-name: products
+    keys:
+    - key: productClassId
+      foreign-key: productClassId
+- table-name: products
+  join:
+  - table-name: discount_types
+    keys:
+    - key: productClassId
+      foreign-key: productClassId
+  - table-name: product_classes
+    keys:
+    - key: productClassId
+      foreign-key: productClassId
+  - table-name: booking
+    keys:
+    - key: producstId
+      foreign-key: producstId
+  - table-name: booking_availability
+    keys:
+    - key: producstId
+      foreign-key: products.producstId
+  - table-name: check_details
+    keys:
+    - key: producstId
+      foreign-key: producstId
+    - key: taxId
+      foreign-key: taxId
+  - table-name: event_types
+    keys:
+    - key: producstId
+      foreign-key: onlineProductId
+  - table-name: taxes
+    keys:
+    - key: taxId
+      foreign-key: taxId
+- table-name: customers
+  join:
+  - table-name: sources
+    keys:
+    - key: sourceId
+      foreign-key: sourceId
+- table-name: sources
+  join:
+  - table-name: customers
+    keys:
+    - key: sourceId
+      foreign-key: sourceId
+- table-name: taxes
+  join:
+  - table-name: check_details
+    keys:
+    - key: taxId
+      foreign-key: taxId
+  - table-name: products
+    keys:
+    - key: taxId
+      foreign-key: taxId
+- table-name: check_detail
+  join:
+  - table-name: checks
+    keys:
+    - key: discountUserId
+      foreign-key: discountUserId
+    - key: discountUserId
+      foreign-key: userId
+  - table-name: event_tasks
+    keys:
+    - key: discountUserId
+      foreign-key: completedBy
+  - table-name: gift_card_history
+    keys:
+    - key: discountUserId
+      foreign-key: userId
+  - table-name: users
+    keys:
+    - key: discountUserId
+      foreign-key: userId
+  - table-name: event_reservations
+    keys:
+    - key: discountUserId
+      foreign-key: userId
+  - table-name: heat_main_details
+    keys:
+    - key: discountUserId
+      foreign-key: userId
+  - table-name: memberships
+    keys:
+    - key: discountUserId
+      foreign-key: byUserId
+  - table-name: payments
+    keys:
+    - key: discountUserId
+      foreign-key: userId
+    - key: discountUserId
+      foreign-key: voidUser
+  - table-name: payments_voided
+    keys:
+    - key: discountUserId
+      foreign-key: userId
+    - key: discountUserId
+      foreign-key: voidUser
+- table-name: users
+  join:
+  - table-name: check_detail
+    keys:
+    - key: userId
+      foreign-key: discountUserId
+  - table-name: checks
+    keys:
+    - key: userId
+      foreign-key: discountUserId
+    - key: userId
+      foreign-key: userId
+  - table-name: event_tasks
+    keys:
+    - key: userId
+      foreign-key: completedBy
+  - table-name: gift_card_history
+    keys:
+    - key: userId
+      foreign-key: userId
+  - table-name: event_reservations
+    keys:
+    - key: userId
+      foreign-key: userId
+  - table-name: heat_main_details
+    keys:
+    - key: userId
+      foreign-key: userId
+  - table-name: memberships
+    keys:
+    - key: userId
+      foreign-key: byUserId
+  - table-name: payments
+    keys:
+    - key: userId
+      foreign-key: userId
+    - key: userId
+      foreign-key: voidUser
+  - table-name: payments_voided
+    keys:
+    - key: userId
+      foreign-key: userId
+    - key: userId
+      foreign-key: voidUser

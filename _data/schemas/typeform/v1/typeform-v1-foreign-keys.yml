@@ -22,3 +22,36 @@ keys:
   - table: questions
     keys:
     - question_id
+tables:
+- table-name: forms
+  join:
+  - table-name: questions
+    keys:
+    - key: form_id
+      foreign-key: form_id
+- table-name: questions
+  join:
+  - table-name: forms
+    keys:
+    - key: form_id
+      foreign-key: form_id
+  - table-name: answers
+    keys:
+    - key: question_id
+      foreign-key: question_id
+- table-name: answers
+  join:
+  - table-name: landings
+    keys:
+    - key: landing_id
+      foreign-key: landing_id
+  - table-name: questions
+    keys:
+    - key: question_id
+      foreign-key: question_id
+- table-name: landings
+  join:
+  - table-name: answers
+    keys:
+    - key: landing_id
+      foreign-key: landing_id

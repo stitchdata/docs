@@ -69,3 +69,216 @@ keys:
     keys:
     - id
     - parent_transaction
+tables:
+- table-name: credit_notes
+  join:
+  - table-name: customers
+    keys:
+    - key: items.taxes.id
+      foreign-key: taxes.id
+    - key: taxes.id
+      foreign-key: taxes.id
+    - key: customer
+      foreign-key: id
+  - table-name: estimates
+    keys:
+    - key: items.taxes.id
+      foreign-key: taxes.id
+    - key: taxes.id
+      foreign-key: taxes.id
+    - key: items.taxes.id
+      foreign-key: items.taxes.id
+    - key: taxes.id
+      foreign-key: items.taxes.id
+    - key: customer
+      foreign-key: customer
+    - key: id
+      foreign-key: id
+  - table-name: subscriptions
+    keys:
+    - key: items.taxes.id
+      foreign-key: taxes.id
+    - key: taxes.id
+      foreign-key: taxes.id
+    - key: customer
+      foreign-key: customer
+  - table-name: invoices
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: id
+      foreign-key: id
+  - table-name: transactions
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: id
+      foreign-key: id
+- table-name: customers
+  join:
+  - table-name: credit_notes
+    keys:
+    - key: taxes.id
+      foreign-key: items.taxes.id
+    - key: taxes.id
+      foreign-key: taxes.id
+    - key: id
+      foreign-key: customer
+  - table-name: estimates
+    keys:
+    - key: taxes.id
+      foreign-key: taxes.id
+    - key: taxes.id
+      foreign-key: items.taxes.id
+    - key: id
+      foreign-key: customer
+  - table-name: subscriptions
+    keys:
+    - key: taxes.id
+      foreign-key: taxes.id
+    - key: id
+      foreign-key: customer
+  - table-name: invoices
+    keys:
+    - key: id
+      foreign-key: customer
+  - table-name: transactions
+    keys:
+    - key: id
+      foreign-key: customer
+- table-name: estimates
+  join:
+  - table-name: credit_notes
+    keys:
+    - key: taxes.id
+      foreign-key: items.taxes.id
+    - key: items.taxes.id
+      foreign-key: items.taxes.id
+    - key: taxes.id
+      foreign-key: taxes.id
+    - key: items.taxes.id
+      foreign-key: taxes.id
+    - key: customer
+      foreign-key: customer
+    - key: id
+      foreign-key: id
+  - table-name: customers
+    keys:
+    - key: taxes.id
+      foreign-key: taxes.id
+    - key: items.taxes.id
+      foreign-key: taxes.id
+    - key: customer
+      foreign-key: id
+  - table-name: subscriptions
+    keys:
+    - key: taxes.id
+      foreign-key: taxes.id
+    - key: items.taxes.id
+      foreign-key: taxes.id
+    - key: customer
+      foreign-key: customer
+  - table-name: invoices
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: id
+      foreign-key: id
+  - table-name: transactions
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: id
+      foreign-key: id
+- table-name: subscriptions
+  join:
+  - table-name: credit_notes
+    keys:
+    - key: taxes.id
+      foreign-key: items.taxes.id
+    - key: taxes.id
+      foreign-key: taxes.id
+    - key: customer
+      foreign-key: customer
+  - table-name: customers
+    keys:
+    - key: taxes.id
+      foreign-key: taxes.id
+    - key: customer
+      foreign-key: id
+  - table-name: estimates
+    keys:
+    - key: taxes.id
+      foreign-key: taxes.id
+    - key: taxes.id
+      foreign-key: items.taxes.id
+    - key: customer
+      foreign-key: customer
+  - table-name: invoices
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: id
+      foreign-key: subscription
+  - table-name: transactions
+    keys:
+    - key: customer
+      foreign-key: customer
+- table-name: invoices
+  join:
+  - table-name: credit_notes
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: id
+      foreign-key: id
+  - table-name: customers
+    keys:
+    - key: customer
+      foreign-key: id
+  - table-name: estimates
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: id
+      foreign-key: id
+  - table-name: subscriptions
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: subscription
+      foreign-key: id
+  - table-name: transactions
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: id
+      foreign-key: id
+- table-name: transactions
+  join:
+  - table-name: credit_notes
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: id
+      foreign-key: id
+  - table-name: customers
+    keys:
+    - key: customer
+      foreign-key: id
+  - table-name: estimates
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: id
+      foreign-key: id
+  - table-name: invoices
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: id
+      foreign-key: id
+  - table-name: subscriptions
+    keys:
+    - key: customer
+      foreign-key: customer

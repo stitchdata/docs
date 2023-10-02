@@ -77,3 +77,174 @@ keys:
   - table: visits
     keys:
     - id
+tables:
+- table-name: campaigns
+  join:
+  - table-name: opportunities
+    keys:
+    - key: id
+      foreign-key: campaign_id
+  - table-name: prospects
+    keys:
+    - key: id
+      foreign-key: campaign_id
+- table-name: opportunities
+  join:
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: prospects
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+- table-name: prospects
+  join:
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+  - table-name: opportunities
+    keys:
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: email_clicks
+    keys:
+    - key: id
+      foreign-key: prospect_id
+  - table-name: list_memberships
+    keys:
+    - key: id
+      foreign-key: prospect_id
+  - table-name: visitor_activities
+    keys:
+    - key: id
+      foreign-key: prospect_id
+  - table-name: visits
+    keys:
+    - key: id
+      foreign-key: prospect_id
+- table-name: email_clicks
+  join:
+  - table-name: visitor_activities
+    keys:
+    - key: email_template_id
+      foreign-key: email_template_id
+    - key: list_email_id
+      foreign-key: list_email_id
+    - key: prospect_id
+      foreign-key: prospect_id
+  - table-name: list_memberships
+    keys:
+    - key: prospect_id
+      foreign-key: prospect_id
+  - table-name: prospects
+    keys:
+    - key: prospect_id
+      foreign-key: id
+  - table-name: visits
+    keys:
+    - key: prospect_id
+      foreign-key: prospect_id
+- table-name: visitor_activities
+  join:
+  - table-name: email_clicks
+    keys:
+    - key: email_template_id
+      foreign-key: email_template_id
+    - key: list_email_id
+      foreign-key: list_email_id
+    - key: prospect_id
+      foreign-key: prospect_id
+  - table-name: list_memberships
+    keys:
+    - key: prospect_id
+      foreign-key: prospect_id
+  - table-name: prospects
+    keys:
+    - key: prospect_id
+      foreign-key: id
+  - table-name: visits
+    keys:
+    - key: prospect_id
+      foreign-key: prospect_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: visitors
+    keys:
+    - key: visitor_id
+      foreign-key: id
+- table-name: list_memberships
+  join:
+  - table-name: lists
+    keys:
+    - key: list_id
+      foreign-key: id
+  - table-name: email_clicks
+    keys:
+    - key: prospect_id
+      foreign-key: prospect_id
+  - table-name: prospects
+    keys:
+    - key: prospect_id
+      foreign-key: id
+  - table-name: visitor_activities
+    keys:
+    - key: prospect_id
+      foreign-key: prospect_id
+  - table-name: visits
+    keys:
+    - key: prospect_id
+      foreign-key: prospect_id
+- table-name: lists
+  join:
+  - table-name: list_memberships
+    keys:
+    - key: id
+      foreign-key: list_id
+- table-name: visits
+  join:
+  - table-name: email_clicks
+    keys:
+    - key: prospect_id
+      foreign-key: prospect_id
+  - table-name: list_memberships
+    keys:
+    - key: prospect_id
+      foreign-key: prospect_id
+  - table-name: prospects
+    keys:
+    - key: prospect_id
+      foreign-key: id
+  - table-name: visitor_activities
+    keys:
+    - key: prospect_id
+      foreign-key: prospect_id
+    - key: visitor_id
+      foreign-key: visitor_id
+  - table-name: visitors
+    keys:
+    - key: visitor_id
+      foreign-key: id
+- table-name: prospect_accounts
+  join:
+  - table-name: users
+    keys:
+    - key: assigned_to.user.id
+      foreign-key: id
+- table-name: users
+  join:
+  - table-name: prospect_accounts
+    keys:
+    - key: id
+      foreign-key: assigned_to.user.id
+- table-name: visitors
+  join:
+  - table-name: visitor_activities
+    keys:
+    - key: id
+      foreign-key: visitor_id
+  - table-name: visits
+    keys:
+    - key: id
+      foreign-key: visitor_id

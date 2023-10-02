@@ -271,3 +271,2006 @@ keys:
   - table: users
     keys:
     - encoded_key
+tables:
+- table-name: activities
+  join:
+  - table-name: clients
+    keys:
+    - key: client_key
+      foreign-key: encoded_key
+    - key: user_key
+      foreign-key: assigned_user_key
+  - table-name: communications
+    keys:
+    - key: client_key
+      foreign-key: client_key
+    - key: user_key
+      foreign-key: user_key
+    - key: user_key
+      foreign-key: sender_key
+  - table-name: groups
+    keys:
+    - key: client_key
+      foreign-key: group_members.clientKey
+    - key: user_key
+      foreign-key: assigned_user_key
+  - table-name: deposit_transactions
+    keys:
+    - key: user_key
+      foreign-key: user_key
+  - table-name: gl_journal_entries
+    keys:
+    - key: user_key
+      foreign-key: user_key
+  - table-name: loan_accounts
+    keys:
+    - key: user_key
+      foreign-key: assigned_user_key
+  - table-name: loan_transactions
+    keys:
+    - key: user_key
+      foreign-key: user_key
+  - table-name: tasks
+    keys:
+    - key: user_key
+      foreign-key: created_by_user_key
+    - key: user_key
+      foreign-key: assigned_user_key
+  - table-name: users
+    keys:
+    - key: user_key
+      foreign-key: encoded_key
+- table-name: branches
+  join:
+  - table-name: centres
+    keys:
+    - key: encoded_key
+      foreign-key: assigned_branch_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_transactions
+    keys:
+    - key: encoded_key
+      foreign-key: branch_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: groups
+    keys:
+    - key: encoded_key
+      foreign-key: assigned_branch_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: loan_accounts
+    keys:
+    - key: encoded_key
+      foreign-key: assigned_branch_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: loan_transactions
+    keys:
+    - key: encoded_key
+      foreign-key: branch_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: users
+    keys:
+    - key: encoded_key
+      foreign-key: access.managed_branches.branch_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: clients
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: communications
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: credit_arrangements
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: custom_field_sets
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_accounts
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: loan_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: tasks
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+- table-name: centres
+  join:
+  - table-name: branches
+    keys:
+    - key: assigned_branch_key
+      foreign-key: encoded_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_transactions
+    keys:
+    - key: assigned_branch_key
+      foreign-key: branch_key
+    - key: encoded_key
+      foreign-key: centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: groups
+    keys:
+    - key: assigned_branch_key
+      foreign-key: assigned_branch_key
+    - key: encoded_key
+      foreign-key: assigned_centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: loan_accounts
+    keys:
+    - key: assigned_branch_key
+      foreign-key: assigned_branch_key
+    - key: encoded_key
+      foreign-key: assigned_centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: loan_transactions
+    keys:
+    - key: assigned_branch_key
+      foreign-key: branch_key
+    - key: encoded_key
+      foreign-key: centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: users
+    keys:
+    - key: assigned_branch_key
+      foreign-key: access.managed_branches.branch_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: clients
+    keys:
+    - key: encoded_key
+      foreign-key: assigned_centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: communications
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: credit_arrangements
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: custom_field_sets
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_accounts
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: loan_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: tasks
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+- table-name: deposit_transactions
+  join:
+  - table-name: branches
+    keys:
+    - key: branch_key
+      foreign-key: encoded_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: centres
+    keys:
+    - key: branch_key
+      foreign-key: assigned_branch_key
+    - key: centre_key
+      foreign-key: encoded_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: groups
+    keys:
+    - key: branch_key
+      foreign-key: assigned_branch_key
+    - key: centre_key
+      foreign-key: assigned_centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: user_key
+      foreign-key: assigned_user_key
+  - table-name: loan_accounts
+    keys:
+    - key: branch_key
+      foreign-key: assigned_branch_key
+    - key: centre_key
+      foreign-key: assigned_centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: user_key
+      foreign-key: assigned_user_key
+  - table-name: loan_transactions
+    keys:
+    - key: branch_key
+      foreign-key: branch_key
+    - key: centre_key
+      foreign-key: centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: transfer_details.linked_deposit_transaction_key
+      foreign-key: transfer_details.linked_deposit_transaction_key
+    - key: linked_loan_transaction_key
+      foreign-key: encoded_key
+    - key: transfer_details.linked_loan_transaction_key
+      foreign-key: encoded_key
+    - key: linked_loan_transaction_key
+      foreign-key: linked_loan_transaction_key
+    - key: transfer_details.linked_loan_transaction_key
+      foreign-key: linked_loan_transaction_key
+    - key: linked_loan_transaction_key
+      foreign-key: parent_loan_transaction_key
+    - key: transfer_details.linked_loan_transaction_key
+      foreign-key: parent_loan_transaction_key
+    - key: linked_loan_transaction_key
+      foreign-key: transfer_details.linked_loan_transaction_key
+    - key: transfer_details.linked_loan_transaction_key
+      foreign-key: transfer_details.linked_loan_transaction_key
+    - key: user_key
+      foreign-key: user_key
+  - table-name: users
+    keys:
+    - key: branch_key
+      foreign-key: access.managed_branches.branch_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: user_key
+      foreign-key: encoded_key
+  - table-name: clients
+    keys:
+    - key: centre_key
+      foreign-key: assigned_centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: user_key
+      foreign-key: assigned_user_key
+  - table-name: communications
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: user_key
+      foreign-key: user_key
+    - key: user_key
+      foreign-key: sender_key
+  - table-name: credit_arrangements
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: custom_field_sets
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_accounts
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: loan_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: tasks
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: user_key
+      foreign-key: created_by_user_key
+    - key: user_key
+      foreign-key: assigned_user_key
+  - table-name: activities
+    keys:
+    - key: user_key
+      foreign-key: user_key
+  - table-name: gl_journal_entries
+    keys:
+    - key: user_key
+      foreign-key: user_key
+- table-name: groups
+  join:
+  - table-name: branches
+    keys:
+    - key: assigned_branch_key
+      foreign-key: encoded_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: centres
+    keys:
+    - key: assigned_branch_key
+      foreign-key: assigned_branch_key
+    - key: assigned_centre_key
+      foreign-key: encoded_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_transactions
+    keys:
+    - key: assigned_branch_key
+      foreign-key: branch_key
+    - key: assigned_centre_key
+      foreign-key: centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: user_key
+  - table-name: loan_accounts
+    keys:
+    - key: assigned_branch_key
+      foreign-key: assigned_branch_key
+    - key: assigned_centre_key
+      foreign-key: assigned_centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: assigned_user_key
+  - table-name: loan_transactions
+    keys:
+    - key: assigned_branch_key
+      foreign-key: branch_key
+    - key: assigned_centre_key
+      foreign-key: centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: user_key
+  - table-name: users
+    keys:
+    - key: assigned_branch_key
+      foreign-key: access.managed_branches.branch_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: encoded_key
+  - table-name: clients
+    keys:
+    - key: assigned_centre_key
+      foreign-key: assigned_centre_key
+    - key: group_members.clientKey
+      foreign-key: encoded_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: assigned_user_key
+  - table-name: activities
+    keys:
+    - key: group_members.clientKey
+      foreign-key: client_key
+    - key: assigned_user_key
+      foreign-key: user_key
+  - table-name: communications
+    keys:
+    - key: group_members.clientKey
+      foreign-key: client_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: encoded_key
+      foreign-key: group_key
+    - key: assigned_user_key
+      foreign-key: user_key
+    - key: assigned_user_key
+      foreign-key: sender_key
+  - table-name: credit_arrangements
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: custom_field_sets
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_accounts
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: loan_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: tasks
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: created_by_user_key
+    - key: assigned_user_key
+      foreign-key: assigned_user_key
+  - table-name: gl_journal_entries
+    keys:
+    - key: assigned_user_key
+      foreign-key: user_key
+- table-name: loan_accounts
+  join:
+  - table-name: branches
+    keys:
+    - key: assigned_branch_key
+      foreign-key: encoded_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: centres
+    keys:
+    - key: assigned_branch_key
+      foreign-key: assigned_branch_key
+    - key: assigned_centre_key
+      foreign-key: encoded_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_transactions
+    keys:
+    - key: assigned_branch_key
+      foreign-key: branch_key
+    - key: assigned_centre_key
+      foreign-key: centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: user_key
+  - table-name: groups
+    keys:
+    - key: assigned_branch_key
+      foreign-key: assigned_branch_key
+    - key: assigned_centre_key
+      foreign-key: assigned_centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: assigned_user_key
+  - table-name: loan_transactions
+    keys:
+    - key: assigned_branch_key
+      foreign-key: branch_key
+    - key: assigned_centre_key
+      foreign-key: centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: user_key
+  - table-name: users
+    keys:
+    - key: assigned_branch_key
+      foreign-key: access.managed_branches.branch_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: encoded_key
+  - table-name: clients
+    keys:
+    - key: assigned_centre_key
+      foreign-key: assigned_centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: assigned_user_key
+  - table-name: credit_arrangements
+    keys:
+    - key: credit_arrangement_key
+      foreign-key: encoded_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_accounts
+    keys:
+    - key: credit_arrangement_key
+      foreign-key: credit_arrangement_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: disbursement_details.transaction_details.target_deposit_account_key
+      foreign-key: encoded_key
+    - key: funding_sources.deposit_account_key
+      foreign-key: encoded_key
+    - key: guarantors.deposit_account_key
+      foreign-key: encoded_key
+  - table-name: communications
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: disbursement_details.transaction_details.target_deposit_account_key
+      foreign-key: deposit_account_key
+    - key: funding_sources.deposit_account_key
+      foreign-key: deposit_account_key
+    - key: guarantors.deposit_account_key
+      foreign-key: deposit_account_key
+    - key: encoded_key
+      foreign-key: loan_account_key
+    - key: assigned_user_key
+      foreign-key: user_key
+    - key: assigned_user_key
+      foreign-key: sender_key
+  - table-name: custom_field_sets
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: loan_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: tasks
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: created_by_user_key
+    - key: assigned_user_key
+      foreign-key: assigned_user_key
+  - table-name: activities
+    keys:
+    - key: assigned_user_key
+      foreign-key: user_key
+  - table-name: gl_journal_entries
+    keys:
+    - key: assigned_user_key
+      foreign-key: user_key
+- table-name: loan_transactions
+  join:
+  - table-name: branches
+    keys:
+    - key: branch_key
+      foreign-key: encoded_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: centres
+    keys:
+    - key: branch_key
+      foreign-key: assigned_branch_key
+    - key: centre_key
+      foreign-key: encoded_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_transactions
+    keys:
+    - key: branch_key
+      foreign-key: branch_key
+    - key: centre_key
+      foreign-key: centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: transfer_details.linked_deposit_transaction_key
+      foreign-key: transfer_details.linked_deposit_transaction_key
+    - key: encoded_key
+      foreign-key: linked_loan_transaction_key
+    - key: linked_loan_transaction_key
+      foreign-key: linked_loan_transaction_key
+    - key: parent_loan_transaction_key
+      foreign-key: linked_loan_transaction_key
+    - key: transfer_details.linked_loan_transaction_key
+      foreign-key: linked_loan_transaction_key
+    - key: encoded_key
+      foreign-key: transfer_details.linked_loan_transaction_key
+    - key: linked_loan_transaction_key
+      foreign-key: transfer_details.linked_loan_transaction_key
+    - key: parent_loan_transaction_key
+      foreign-key: transfer_details.linked_loan_transaction_key
+    - key: transfer_details.linked_loan_transaction_key
+      foreign-key: transfer_details.linked_loan_transaction_key
+    - key: user_key
+      foreign-key: user_key
+  - table-name: groups
+    keys:
+    - key: branch_key
+      foreign-key: assigned_branch_key
+    - key: centre_key
+      foreign-key: assigned_centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: user_key
+      foreign-key: assigned_user_key
+  - table-name: loan_accounts
+    keys:
+    - key: branch_key
+      foreign-key: assigned_branch_key
+    - key: centre_key
+      foreign-key: assigned_centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: user_key
+      foreign-key: assigned_user_key
+  - table-name: users
+    keys:
+    - key: branch_key
+      foreign-key: access.managed_branches.branch_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: user_key
+      foreign-key: encoded_key
+  - table-name: clients
+    keys:
+    - key: centre_key
+      foreign-key: assigned_centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: user_key
+      foreign-key: assigned_user_key
+  - table-name: communications
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: user_key
+      foreign-key: user_key
+    - key: user_key
+      foreign-key: sender_key
+  - table-name: credit_arrangements
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: custom_field_sets
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_accounts
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: loan_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: tasks
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: user_key
+      foreign-key: created_by_user_key
+    - key: user_key
+      foreign-key: assigned_user_key
+  - table-name: activities
+    keys:
+    - key: user_key
+      foreign-key: user_key
+  - table-name: gl_journal_entries
+    keys:
+    - key: user_key
+      foreign-key: user_key
+- table-name: users
+  join:
+  - table-name: branches
+    keys:
+    - key: access.managed_branches.branch_key
+      foreign-key: encoded_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: centres
+    keys:
+    - key: access.managed_branches.branch_key
+      foreign-key: assigned_branch_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_transactions
+    keys:
+    - key: access.managed_branches.branch_key
+      foreign-key: branch_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: encoded_key
+      foreign-key: user_key
+  - table-name: groups
+    keys:
+    - key: access.managed_branches.branch_key
+      foreign-key: assigned_branch_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: encoded_key
+      foreign-key: assigned_user_key
+  - table-name: loan_accounts
+    keys:
+    - key: access.managed_branches.branch_key
+      foreign-key: assigned_branch_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: encoded_key
+      foreign-key: assigned_user_key
+  - table-name: loan_transactions
+    keys:
+    - key: access.managed_branches.branch_key
+      foreign-key: branch_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: encoded_key
+      foreign-key: user_key
+  - table-name: clients
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: encoded_key
+      foreign-key: assigned_user_key
+  - table-name: communications
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: encoded_key
+      foreign-key: user_key
+    - key: encoded_key
+      foreign-key: sender_key
+  - table-name: credit_arrangements
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: custom_field_sets
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_accounts
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: loan_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: tasks
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: encoded_key
+      foreign-key: created_by_user_key
+    - key: encoded_key
+      foreign-key: assigned_user_key
+  - table-name: activities
+    keys:
+    - key: encoded_key
+      foreign-key: user_key
+  - table-name: gl_journal_entries
+    keys:
+    - key: encoded_key
+      foreign-key: user_key
+- table-name: clients
+  join:
+  - table-name: centres
+    keys:
+    - key: assigned_centre_key
+      foreign-key: encoded_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_transactions
+    keys:
+    - key: assigned_centre_key
+      foreign-key: centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: user_key
+  - table-name: groups
+    keys:
+    - key: assigned_centre_key
+      foreign-key: assigned_centre_key
+    - key: encoded_key
+      foreign-key: group_members.clientKey
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: assigned_user_key
+  - table-name: loan_accounts
+    keys:
+    - key: assigned_centre_key
+      foreign-key: assigned_centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: assigned_user_key
+  - table-name: loan_transactions
+    keys:
+    - key: assigned_centre_key
+      foreign-key: centre_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: user_key
+  - table-name: activities
+    keys:
+    - key: encoded_key
+      foreign-key: client_key
+    - key: assigned_user_key
+      foreign-key: user_key
+  - table-name: communications
+    keys:
+    - key: encoded_key
+      foreign-key: client_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: user_key
+    - key: assigned_user_key
+      foreign-key: sender_key
+  - table-name: branches
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: credit_arrangements
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: custom_field_sets
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_accounts
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: loan_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: tasks
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: created_by_user_key
+    - key: assigned_user_key
+      foreign-key: assigned_user_key
+  - table-name: users
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: assigned_user_key
+      foreign-key: encoded_key
+  - table-name: gl_journal_entries
+    keys:
+    - key: assigned_user_key
+      foreign-key: user_key
+- table-name: communications
+  join:
+  - table-name: activities
+    keys:
+    - key: client_key
+      foreign-key: client_key
+    - key: user_key
+      foreign-key: user_key
+    - key: sender_key
+      foreign-key: user_key
+  - table-name: clients
+    keys:
+    - key: client_key
+      foreign-key: encoded_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: user_key
+      foreign-key: assigned_user_key
+    - key: sender_key
+      foreign-key: assigned_user_key
+  - table-name: groups
+    keys:
+    - key: client_key
+      foreign-key: group_members.clientKey
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: group_key
+      foreign-key: encoded_key
+    - key: user_key
+      foreign-key: assigned_user_key
+    - key: sender_key
+      foreign-key: assigned_user_key
+  - table-name: branches
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: centres
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: credit_arrangements
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: custom_field_sets
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_accounts
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: deposit_account_key
+      foreign-key: encoded_key
+  - table-name: deposit_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: deposit_transactions
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: user_key
+      foreign-key: user_key
+    - key: sender_key
+      foreign-key: user_key
+  - table-name: loan_accounts
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: deposit_account_key
+      foreign-key: disbursement_details.transaction_details.target_deposit_account_key
+    - key: deposit_account_key
+      foreign-key: funding_sources.deposit_account_key
+    - key: deposit_account_key
+      foreign-key: guarantors.deposit_account_key
+    - key: loan_account_key
+      foreign-key: encoded_key
+    - key: user_key
+      foreign-key: assigned_user_key
+    - key: sender_key
+      foreign-key: assigned_user_key
+  - table-name: loan_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: loan_transactions
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: user_key
+      foreign-key: user_key
+    - key: sender_key
+      foreign-key: user_key
+  - table-name: tasks
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: user_key
+      foreign-key: created_by_user_key
+    - key: sender_key
+      foreign-key: created_by_user_key
+    - key: user_key
+      foreign-key: assigned_user_key
+    - key: sender_key
+      foreign-key: assigned_user_key
+  - table-name: users
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: user_key
+      foreign-key: encoded_key
+    - key: sender_key
+      foreign-key: encoded_key
+  - table-name: gl_journal_entries
+    keys:
+    - key: user_key
+      foreign-key: user_key
+    - key: sender_key
+      foreign-key: user_key
+- table-name: credit_arrangements
+  join:
+  - table-name: deposit_accounts
+    keys:
+    - key: encoded_key
+      foreign-key: credit_arrangement_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: loan_accounts
+    keys:
+    - key: encoded_key
+      foreign-key: credit_arrangement_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: branches
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: centres
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: clients
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: communications
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: custom_field_sets
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: deposit_transactions
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: groups
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: loan_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: loan_transactions
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: tasks
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: users
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+- table-name: deposit_accounts
+  join:
+  - table-name: credit_arrangements
+    keys:
+    - key: credit_arrangement_key
+      foreign-key: encoded_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: loan_accounts
+    keys:
+    - key: credit_arrangement_key
+      foreign-key: credit_arrangement_key
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: encoded_key
+      foreign-key: disbursement_details.transaction_details.target_deposit_account_key
+    - key: encoded_key
+      foreign-key: funding_sources.deposit_account_key
+    - key: encoded_key
+      foreign-key: guarantors.deposit_account_key
+  - table-name: branches
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: centres
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: clients
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: communications
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: encoded_key
+      foreign-key: deposit_account_key
+  - table-name: custom_field_sets
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: deposit_transactions
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: groups
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: loan_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: loan_transactions
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: tasks
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: users
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+- table-name: custom_field_sets
+  join:
+  - table-name: branches
+    keys:
+    - key: id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: centres
+    keys:
+    - key: id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: clients
+    keys:
+    - key: id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: communications
+    keys:
+    - key: id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: credit_arrangements
+    keys:
+    - key: id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_accounts
+    keys:
+    - key: id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_products
+    keys:
+    - key: id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: deposit_transactions
+    keys:
+    - key: id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: groups
+    keys:
+    - key: id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: loan_accounts
+    keys:
+    - key: id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: loan_products
+    keys:
+    - key: id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: loan_transactions
+    keys:
+    - key: id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: tasks
+    keys:
+    - key: id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+- table-name: deposit_products
+  join:
+  - table-name: branches
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: centres
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: clients
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: communications
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: credit_arrangements
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: custom_field_sets
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: deposit_accounts
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: deposit_transactions
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: groups
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: loan_accounts
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: loan_products
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_field_values.custom_field_id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: loan_transactions
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: tasks
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: users
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+- table-name: loan_products
+  join:
+  - table-name: branches
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: centres
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: clients
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: communications
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: credit_arrangements
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: custom_field_sets
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: deposit_accounts
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: deposit_products
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_field_values.custom_field_id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: deposit_transactions
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: groups
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: loan_accounts
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: loan_transactions
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: tasks
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+  - table-name: users
+    keys:
+    - key: custom_field_values.custom_field.custom_field_set.id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_field_values.custom_field.id
+      foreign-key: custom_fields.id
+    - key: custom_field_values.custom_field_id
+      foreign-key: custom_fields.id
+- table-name: tasks
+  join:
+  - table-name: branches
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: centres
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: clients
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: created_by_user_key
+      foreign-key: assigned_user_key
+    - key: assigned_user_key
+      foreign-key: assigned_user_key
+  - table-name: communications
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: created_by_user_key
+      foreign-key: user_key
+    - key: assigned_user_key
+      foreign-key: user_key
+    - key: created_by_user_key
+      foreign-key: sender_key
+    - key: assigned_user_key
+      foreign-key: sender_key
+  - table-name: credit_arrangements
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: custom_field_sets
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_accounts
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+  - table-name: deposit_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: deposit_transactions
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: created_by_user_key
+      foreign-key: user_key
+    - key: assigned_user_key
+      foreign-key: user_key
+  - table-name: groups
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: created_by_user_key
+      foreign-key: assigned_user_key
+    - key: assigned_user_key
+      foreign-key: assigned_user_key
+  - table-name: loan_accounts
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: created_by_user_key
+      foreign-key: assigned_user_key
+    - key: assigned_user_key
+      foreign-key: assigned_user_key
+  - table-name: loan_products
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_field_values.custom_field.custom_field_set.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field.id
+    - key: custom_fields.id
+      foreign-key: custom_field_values.custom_field_id
+  - table-name: loan_transactions
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: created_by_user_key
+      foreign-key: user_key
+    - key: assigned_user_key
+      foreign-key: user_key
+  - table-name: users
+    keys:
+    - key: custom_fields.field_set_id
+      foreign-key: custom_fields.field_set_id
+    - key: custom_fields.id
+      foreign-key: custom_fields.id
+    - key: created_by_user_key
+      foreign-key: encoded_key
+    - key: assigned_user_key
+      foreign-key: encoded_key
+  - table-name: activities
+    keys:
+    - key: created_by_user_key
+      foreign-key: user_key
+    - key: assigned_user_key
+      foreign-key: user_key
+  - table-name: gl_journal_entries
+    keys:
+    - key: created_by_user_key
+      foreign-key: user_key
+    - key: assigned_user_key
+      foreign-key: user_key
+- table-name: cards
+  join: []
+- table-name: gl_accounts
+  join:
+  - table-name: gl_journal_entries
+    keys:
+    - key: gl_code
+      foreign-key: gl_account.gl_code
+- table-name: gl_journal_entries
+  join:
+  - table-name: gl_accounts
+    keys:
+    - key: gl_account.gl_code
+      foreign-key: gl_code
+  - table-name: activities
+    keys:
+    - key: user_key
+      foreign-key: user_key
+  - table-name: clients
+    keys:
+    - key: user_key
+      foreign-key: assigned_user_key
+  - table-name: communications
+    keys:
+    - key: user_key
+      foreign-key: user_key
+    - key: user_key
+      foreign-key: sender_key
+  - table-name: deposit_transactions
+    keys:
+    - key: user_key
+      foreign-key: user_key
+  - table-name: groups
+    keys:
+    - key: user_key
+      foreign-key: assigned_user_key
+  - table-name: loan_accounts
+    keys:
+    - key: user_key
+      foreign-key: assigned_user_key
+  - table-name: loan_transactions
+    keys:
+    - key: user_key
+      foreign-key: user_key
+  - table-name: tasks
+    keys:
+    - key: user_key
+      foreign-key: created_by_user_key
+    - key: user_key
+      foreign-key: assigned_user_key
+  - table-name: users
+    keys:
+    - key: user_key
+      foreign-key: encoded_key
+- table-name: index_rate_sources
+  join: []
+- table-name: installments
+  join: []

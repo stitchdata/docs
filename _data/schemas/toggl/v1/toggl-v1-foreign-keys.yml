@@ -68,3 +68,290 @@ keys:
   - table: users
     keys:
     - id
+tables:
+- table-name: workspaces
+  join:
+  - table-name: clients
+    keys:
+    - key: id
+      foreign-key: wid
+  - table-name: groups
+    keys:
+    - key: id
+      foreign-key: wid
+  - table-name: projects
+    keys:
+    - key: id
+      foreign-key: wid
+  - table-name: tags
+    keys:
+    - key: id
+      foreign-key: wid
+  - table-name: tasks
+    keys:
+    - key: id
+      foreign-key: wid
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: default_wid
+  - table-name: workspace_users
+    keys:
+    - key: id
+      foreign-key: wid
+- table-name: clients
+  join:
+  - table-name: workspaces
+    keys:
+    - key: wid
+      foreign-key: id
+  - table-name: groups
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: projects
+    keys:
+    - key: wid
+      foreign-key: wid
+    - key: id
+      foreign-key: cid
+  - table-name: tags
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: tasks
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: users
+    keys:
+    - key: wid
+      foreign-key: default_wid
+  - table-name: workspace_users
+    keys:
+    - key: wid
+      foreign-key: wid
+- table-name: groups
+  join:
+  - table-name: workspaces
+    keys:
+    - key: wid
+      foreign-key: id
+  - table-name: clients
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: projects
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: tags
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: tasks
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: users
+    keys:
+    - key: wid
+      foreign-key: default_wid
+  - table-name: workspace_users
+    keys:
+    - key: wid
+      foreign-key: wid
+- table-name: projects
+  join:
+  - table-name: workspaces
+    keys:
+    - key: wid
+      foreign-key: id
+  - table-name: clients
+    keys:
+    - key: wid
+      foreign-key: wid
+    - key: cid
+      foreign-key: id
+  - table-name: groups
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: tags
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: tasks
+    keys:
+    - key: wid
+      foreign-key: wid
+    - key: id
+      foreign-key: ''
+  - table-name: users
+    keys:
+    - key: wid
+      foreign-key: default_wid
+  - table-name: workspace_users
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: time_entries
+    keys:
+    - key: id
+      foreign-key: ''
+- table-name: tags
+  join:
+  - table-name: workspaces
+    keys:
+    - key: wid
+      foreign-key: id
+  - table-name: clients
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: groups
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: projects
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: tasks
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: users
+    keys:
+    - key: wid
+      foreign-key: default_wid
+  - table-name: workspace_users
+    keys:
+    - key: wid
+      foreign-key: wid
+- table-name: tasks
+  join:
+  - table-name: workspaces
+    keys:
+    - key: wid
+      foreign-key: id
+  - table-name: clients
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: groups
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: projects
+    keys:
+    - key: wid
+      foreign-key: wid
+    - key: ''
+      foreign-key: id
+  - table-name: tags
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: users
+    keys:
+    - key: wid
+      foreign-key: default_wid
+    - key: uid
+      foreign-key: id
+  - table-name: workspace_users
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: time_entries
+    keys:
+    - key: ''
+      foreign-key: ''
+    - key: id
+      foreign-key: tid
+    - key: uid
+      foreign-key: uid
+- table-name: users
+  join:
+  - table-name: workspaces
+    keys:
+    - key: default_wid
+      foreign-key: id
+  - table-name: clients
+    keys:
+    - key: default_wid
+      foreign-key: wid
+  - table-name: groups
+    keys:
+    - key: default_wid
+      foreign-key: wid
+  - table-name: projects
+    keys:
+    - key: default_wid
+      foreign-key: wid
+  - table-name: tags
+    keys:
+    - key: default_wid
+      foreign-key: wid
+  - table-name: tasks
+    keys:
+    - key: default_wid
+      foreign-key: wid
+    - key: id
+      foreign-key: uid
+  - table-name: workspace_users
+    keys:
+    - key: default_wid
+      foreign-key: wid
+  - table-name: time_entries
+    keys:
+    - key: id
+      foreign-key: uid
+- table-name: workspace_users
+  join:
+  - table-name: workspaces
+    keys:
+    - key: wid
+      foreign-key: id
+  - table-name: clients
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: groups
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: projects
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: tags
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: tasks
+    keys:
+    - key: wid
+      foreign-key: wid
+  - table-name: users
+    keys:
+    - key: wid
+      foreign-key: default_wid
+- table-name: time_entries
+  join:
+  - table-name: projects
+    keys:
+    - key: ''
+      foreign-key: id
+  - table-name: tasks
+    keys:
+    - key: ''
+      foreign-key: ''
+    - key: tid
+      foreign-key: id
+    - key: uid
+      foreign-key: uid
+  - table-name: users
+    keys:
+    - key: uid
+      foreign-key: id

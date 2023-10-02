@@ -65,3 +65,492 @@ keys:
   - table: campaigns
     keys:
     - id
+tables:
+- table-name: accounts
+  join:
+  - table-name: ad_performance_report
+    keys:
+    - key: id
+      foreign-key: accountId
+  - table-name: adgroup_performance_report
+    keys:
+    - key: id
+      foreign-key: accountId
+  - table-name: age_gender_performance_report
+    keys:
+    - key: id
+      foreign-key: accountId
+  - table-name: campaign_performance_report
+    keys:
+    - key: id
+      foreign-key: accountId
+  - table-name: geographic_performance_report
+    keys:
+    - key: id
+      foreign-key: accountId
+  - table-name: goals_and_funnels_report
+    keys:
+    - key: id
+      foreign-key: accountId
+  - table-name: keyword_performance_report
+    keys:
+    - key: id
+      foreign-key: accountId
+  - table-name: search_query_performance_report
+    keys:
+    - key: id
+      foreign-key: accountId
+- table-name: ad_performance_report
+  join:
+  - table-name: accounts
+    keys:
+    - key: accountId
+      foreign-key: id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: age_gender_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: campaign_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: geographic_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: goals_and_funnels_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: keyword_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: search_query_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: ad_groups
+    keys:
+    - key: adGroupId
+      foreign-key: id
+- table-name: adgroup_performance_report
+  join:
+  - table-name: accounts
+    keys:
+    - key: accountId
+      foreign-key: id
+  - table-name: ad_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: age_gender_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: campaign_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: geographic_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: goals_and_funnels_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: keyword_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: search_query_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: ad_groups
+    keys:
+    - key: adGroupId
+      foreign-key: id
+- table-name: age_gender_performance_report
+  join:
+  - table-name: accounts
+    keys:
+    - key: accountId
+      foreign-key: id
+  - table-name: ad_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: adgroup_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: campaign_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: geographic_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: goals_and_funnels_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: keyword_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: search_query_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: ad_groups
+    keys:
+    - key: adGroupId
+      foreign-key: id
+- table-name: campaign_performance_report
+  join:
+  - table-name: accounts
+    keys:
+    - key: accountId
+      foreign-key: id
+  - table-name: ad_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: adgroup_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: age_gender_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: geographic_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: goals_and_funnels_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: keyword_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: search_query_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: ad_groups
+    keys:
+    - key: adGroupId
+      foreign-key: id
+- table-name: geographic_performance_report
+  join:
+  - table-name: accounts
+    keys:
+    - key: accountId
+      foreign-key: id
+  - table-name: ad_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: adgroup_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: age_gender_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: campaign_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: goals_and_funnels_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: keyword_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: search_query_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: ad_groups
+    keys:
+    - key: adGroupId
+      foreign-key: id
+- table-name: goals_and_funnels_report
+  join:
+  - table-name: accounts
+    keys:
+    - key: accountId
+      foreign-key: id
+  - table-name: ad_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: adgroup_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: age_gender_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: campaign_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: geographic_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: keyword_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: search_query_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: ad_groups
+    keys:
+    - key: adGroupId
+      foreign-key: id
+- table-name: keyword_performance_report
+  join:
+  - table-name: accounts
+    keys:
+    - key: accountId
+      foreign-key: id
+  - table-name: ad_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: adgroup_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: age_gender_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: campaign_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: geographic_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: goals_and_funnels_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: search_query_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: ad_groups
+    keys:
+    - key: adGroupId
+      foreign-key: id
+- table-name: search_query_performance_report
+  join:
+  - table-name: accounts
+    keys:
+    - key: accountId
+      foreign-key: id
+  - table-name: ad_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: adgroup_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: age_gender_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: campaign_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: geographic_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: goals_and_funnels_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: keyword_performance_report
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: adGroupId
+      foreign-key: adGroupId
+  - table-name: ad_groups
+    keys:
+    - key: adGroupId
+      foreign-key: id
+- table-name: ads
+  join: []
+- table-name: ad_groups
+  join:
+  - table-name: ad_performance_report
+    keys:
+    - key: id
+      foreign-key: adGroupId
+  - table-name: adgroup_performance_report
+    keys:
+    - key: id
+      foreign-key: adGroupId
+  - table-name: age_gender_performance_report
+    keys:
+    - key: id
+      foreign-key: adGroupId
+  - table-name: campaign_performance_report
+    keys:
+    - key: id
+      foreign-key: adGroupId
+  - table-name: geographic_performance_report
+    keys:
+    - key: id
+      foreign-key: adGroupId
+  - table-name: goals_and_funnels_report
+    keys:
+    - key: id
+      foreign-key: adGroupId
+  - table-name: keyword_performance_report
+    keys:
+    - key: id
+      foreign-key: adGroupId
+  - table-name: search_query_performance_report
+    keys:
+    - key: id
+      foreign-key: adGroupId
+- table-name: campaigns
+  join: []

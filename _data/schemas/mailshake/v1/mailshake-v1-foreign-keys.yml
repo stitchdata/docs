@@ -76,3 +76,350 @@ keys:
   - table: team_members
     keys:
     - id
+tables:
+- table-name: campaigns
+  join:
+  - table-name: clicks
+    keys:
+    - key: id
+      foreign-key: campaign.id
+    - key: messages.id
+      foreign-key: campaign.id
+    - key: messages.id
+      foreign-key: parent.message.id
+  - table-name: leads
+    keys:
+    - key: id
+      foreign-key: campaign.id
+    - key: messages.id
+      foreign-key: campaign.id
+    - key: messages.id
+      foreign-key: parent.message.id
+  - table-name: opens
+    keys:
+    - key: id
+      foreign-key: campaign.id
+    - key: messages.id
+      foreign-key: campaign.id
+    - key: messages.id
+      foreign-key: parent.message.id
+  - table-name: recipients
+    keys:
+    - key: id
+      foreign-key: campaignId
+    - key: messages.id
+      foreign-key: campaignId
+  - table-name: replies
+    keys:
+    - key: id
+      foreign-key: campaign.id
+    - key: messages.id
+      foreign-key: campaign.id
+    - key: messages.id
+      foreign-key: parent.message.id
+  - table-name: sent_messages
+    keys:
+    - key: id
+      foreign-key: campaign.id
+    - key: messages.id
+      foreign-key: campaign.id
+    - key: messages.id
+      foreign-key: message.id
+  - table-name: senders
+    keys:
+    - key: sender.id
+      foreign-key: id
+- table-name: clicks
+  join:
+  - table-name: campaigns
+    keys:
+    - key: campaign.id
+      foreign-key: id
+    - key: campaign.id
+      foreign-key: messages.id
+    - key: parent.message.id
+      foreign-key: messages.id
+  - table-name: leads
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: parent.message.id
+      foreign-key: parent.message.id
+    - key: recipient.id
+      foreign-key: recipient.id
+  - table-name: opens
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: parent.message.id
+      foreign-key: parent.message.id
+    - key: recipient.id
+      foreign-key: recipient.id
+  - table-name: recipients
+    keys:
+    - key: campaign.id
+      foreign-key: campaignId
+    - key: recipient.id
+      foreign-key: id
+  - table-name: replies
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: parent.message.id
+      foreign-key: parent.message.id
+    - key: recipient.id
+      foreign-key: parent.message.id
+  - table-name: sent_messages
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: parent.message.id
+      foreign-key: message.id
+    - key: recipient.id
+      foreign-key: recipient.id
+- table-name: leads
+  join:
+  - table-name: campaigns
+    keys:
+    - key: campaign.id
+      foreign-key: id
+    - key: campaign.id
+      foreign-key: messages.id
+    - key: parent.message.id
+      foreign-key: messages.id
+  - table-name: clicks
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: parent.message.id
+      foreign-key: parent.message.id
+    - key: recipient.id
+      foreign-key: recipient.id
+  - table-name: opens
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: parent.message.id
+      foreign-key: parent.message.id
+    - key: recipient.id
+      foreign-key: recipient.id
+  - table-name: recipients
+    keys:
+    - key: campaign.id
+      foreign-key: campaignId
+    - key: recipient.id
+      foreign-key: id
+  - table-name: replies
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: parent.message.id
+      foreign-key: parent.message.id
+    - key: recipient.id
+      foreign-key: parent.message.id
+  - table-name: sent_messages
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: parent.message.id
+      foreign-key: message.id
+    - key: recipient.id
+      foreign-key: recipient.id
+  - table-name: team_members
+    keys:
+    - key: assignedTo.id
+      foreign-key: id
+- table-name: opens
+  join:
+  - table-name: campaigns
+    keys:
+    - key: campaign.id
+      foreign-key: id
+    - key: campaign.id
+      foreign-key: messages.id
+    - key: parent.message.id
+      foreign-key: messages.id
+  - table-name: clicks
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: parent.message.id
+      foreign-key: parent.message.id
+    - key: recipient.id
+      foreign-key: recipient.id
+  - table-name: leads
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: parent.message.id
+      foreign-key: parent.message.id
+    - key: recipient.id
+      foreign-key: recipient.id
+  - table-name: recipients
+    keys:
+    - key: campaign.id
+      foreign-key: campaignId
+    - key: recipient.id
+      foreign-key: id
+  - table-name: replies
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: parent.message.id
+      foreign-key: parent.message.id
+    - key: recipient.id
+      foreign-key: parent.message.id
+  - table-name: sent_messages
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: parent.message.id
+      foreign-key: message.id
+    - key: recipient.id
+      foreign-key: recipient.id
+- table-name: recipients
+  join:
+  - table-name: campaigns
+    keys:
+    - key: campaignId
+      foreign-key: id
+    - key: campaignId
+      foreign-key: messages.id
+  - table-name: clicks
+    keys:
+    - key: campaignId
+      foreign-key: campaign.id
+    - key: id
+      foreign-key: recipient.id
+  - table-name: leads
+    keys:
+    - key: campaignId
+      foreign-key: campaign.id
+    - key: id
+      foreign-key: recipient.id
+  - table-name: opens
+    keys:
+    - key: campaignId
+      foreign-key: campaign.id
+    - key: id
+      foreign-key: recipient.id
+  - table-name: replies
+    keys:
+    - key: campaignId
+      foreign-key: campaign.id
+    - key: id
+      foreign-key: parent.message.id
+  - table-name: sent_messages
+    keys:
+    - key: campaignId
+      foreign-key: campaign.id
+    - key: id
+      foreign-key: recipient.id
+- table-name: replies
+  join:
+  - table-name: campaigns
+    keys:
+    - key: campaign.id
+      foreign-key: id
+    - key: campaign.id
+      foreign-key: messages.id
+    - key: parent.message.id
+      foreign-key: messages.id
+  - table-name: clicks
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: parent.message.id
+      foreign-key: parent.message.id
+    - key: parent.message.id
+      foreign-key: recipient.id
+  - table-name: leads
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: parent.message.id
+      foreign-key: parent.message.id
+    - key: parent.message.id
+      foreign-key: recipient.id
+  - table-name: opens
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: parent.message.id
+      foreign-key: parent.message.id
+    - key: parent.message.id
+      foreign-key: recipient.id
+  - table-name: recipients
+    keys:
+    - key: campaign.id
+      foreign-key: campaignId
+    - key: parent.message.id
+      foreign-key: id
+  - table-name: sent_messages
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: parent.message.id
+      foreign-key: message.id
+    - key: parent.message.id
+      foreign-key: recipient.id
+- table-name: sent_messages
+  join:
+  - table-name: campaigns
+    keys:
+    - key: campaign.id
+      foreign-key: id
+    - key: campaign.id
+      foreign-key: messages.id
+    - key: message.id
+      foreign-key: messages.id
+  - table-name: clicks
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: message.id
+      foreign-key: parent.message.id
+    - key: recipient.id
+      foreign-key: recipient.id
+  - table-name: leads
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: message.id
+      foreign-key: parent.message.id
+    - key: recipient.id
+      foreign-key: recipient.id
+  - table-name: opens
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: message.id
+      foreign-key: parent.message.id
+    - key: recipient.id
+      foreign-key: recipient.id
+  - table-name: recipients
+    keys:
+    - key: campaign.id
+      foreign-key: campaignId
+    - key: recipient.id
+      foreign-key: id
+  - table-name: replies
+    keys:
+    - key: campaign.id
+      foreign-key: campaign.id
+    - key: message.id
+      foreign-key: parent.message.id
+    - key: recipient.id
+      foreign-key: parent.message.id
+- table-name: senders
+  join:
+  - table-name: campaigns
+    keys:
+    - key: id
+      foreign-key: sender.id
+- table-name: team_members
+  join:
+  - table-name: leads
+    keys:
+    - key: id
+      foreign-key: assignedTo.id

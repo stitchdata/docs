@@ -71,3 +71,80 @@ keys:
   - table: outbound_activity
     keys:
     - workflowId
+tables:
+- table-name: contact
+  join:
+  - table-name: inbound_activity
+    keys:
+    - key: id
+      foreign-key: contactId
+  - table-name: outbound_activity
+    keys:
+    - key: id
+      foreign-key: contactId
+- table-name: inbound_activity
+  join:
+  - table-name: contact
+    keys:
+    - key: contactId
+      foreign-key: id
+  - table-name: outbound_activity
+    keys:
+    - key: contactId
+      foreign-key: contactId
+    - key: deliveryId
+      foreign-key: deliveryId
+    - key: listId
+      foreign-key: listId
+    - key: keywordId
+      foreign-key: keywordId
+    - key: messageId
+      foreign-key: messageId
+    - key: orderId
+      foreign-key: orderId
+    - key: segmentId
+      foreign-key: segmentId
+    - key: workflowId
+      foreign-key: workflowId
+  - table-name: list
+    keys:
+    - key: listId
+      foreign-key: id
+- table-name: outbound_activity
+  join:
+  - table-name: contact
+    keys:
+    - key: contactId
+      foreign-key: id
+  - table-name: inbound_activity
+    keys:
+    - key: contactId
+      foreign-key: contactId
+    - key: deliveryId
+      foreign-key: deliveryId
+    - key: listId
+      foreign-key: listId
+    - key: keywordId
+      foreign-key: keywordId
+    - key: messageId
+      foreign-key: messageId
+    - key: orderId
+      foreign-key: orderId
+    - key: segmentId
+      foreign-key: segmentId
+    - key: workflowId
+      foreign-key: workflowId
+  - table-name: list
+    keys:
+    - key: listId
+      foreign-key: id
+- table-name: list
+  join:
+  - table-name: inbound_activity
+    keys:
+    - key: id
+      foreign-key: listId
+  - table-name: outbound_activity
+    keys:
+    - key: id
+      foreign-key: listId

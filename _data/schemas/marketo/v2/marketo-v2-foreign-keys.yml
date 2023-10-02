@@ -34,3 +34,42 @@ keys:
   - table: programs
     keys:
     - id
+tables:
+- table-name: activities_[activity_type]
+  join:
+  - table-name: activity_types
+    keys:
+    - key: activityTypeId
+      foreign-key: id
+- table-name: activity_types
+  join:
+  - table-name: activities_[activity_type]
+    keys:
+    - key: id
+      foreign-key: activityTypeId
+- table-name: campaigns
+  join:
+  - table-name: programs
+    keys:
+    - key: programId
+      foreign-key: id
+- table-name: activities
+  join:
+  - table-name: leads
+    keys:
+    - key: leadId
+      foreign-key: id
+- table-name: leads
+  join:
+  - table-name: activities
+    keys:
+    - key: id
+      foreign-key: leadId
+- table-name: lists
+  join: []
+- table-name: programs
+  join:
+  - table-name: campaigns
+    keys:
+    - key: id
+      foreign-key: programId

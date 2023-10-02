@@ -60,3 +60,182 @@ keys:
   - table: user
     keys:
     - userRoleId
+tables:
+- table-name: account
+  join:
+  - table-name: contact
+    keys:
+    - key: id
+      foreign-key: accountId
+    - key: ownerId
+      foreign-key: ownerId
+  - table-name: lead
+    keys:
+    - key: id
+      foreign-key: convertedAccountId
+    - key: ownerId
+      foreign-key: ownerId
+  - table-name: opportunity
+    keys:
+    - key: id
+      foreign-key: accountId
+    - key: ownerId
+      foreign-key: ownerId
+  - table-name: user
+    keys:
+    - key: id
+      foreign-key: accountId
+    - key: ownerId
+      foreign-key: id
+    - key: ownerId
+      foreign-key: delegatedApproverId
+    - key: ownerId
+      foreign-key: managerId
+- table-name: contact
+  join:
+  - table-name: account
+    keys:
+    - key: accountId
+      foreign-key: id
+    - key: ownerId
+      foreign-key: ownerId
+  - table-name: lead
+    keys:
+    - key: accountId
+      foreign-key: convertedAccountId
+    - key: id
+      foreign-key: convertedContactId
+    - key: ownerId
+      foreign-key: ownerId
+  - table-name: opportunity
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: ownerId
+      foreign-key: ownerId
+  - table-name: user
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: id
+      foreign-key: contactId
+    - key: ownerId
+      foreign-key: id
+    - key: ownerId
+      foreign-key: delegatedApproverId
+    - key: ownerId
+      foreign-key: managerId
+- table-name: lead
+  join:
+  - table-name: account
+    keys:
+    - key: convertedAccountId
+      foreign-key: id
+    - key: ownerId
+      foreign-key: ownerId
+  - table-name: contact
+    keys:
+    - key: convertedAccountId
+      foreign-key: accountId
+    - key: convertedContactId
+      foreign-key: id
+    - key: ownerId
+      foreign-key: ownerId
+  - table-name: opportunity
+    keys:
+    - key: convertedAccountId
+      foreign-key: accountId
+    - key: convertedOpportunityId
+      foreign-key: id
+    - key: ownerId
+      foreign-key: ownerId
+  - table-name: user
+    keys:
+    - key: convertedAccountId
+      foreign-key: accountId
+    - key: convertedContactId
+      foreign-key: contactId
+    - key: ownerId
+      foreign-key: id
+    - key: ownerId
+      foreign-key: delegatedApproverId
+    - key: ownerId
+      foreign-key: managerId
+- table-name: opportunity
+  join:
+  - table-name: account
+    keys:
+    - key: accountId
+      foreign-key: id
+    - key: ownerId
+      foreign-key: ownerId
+  - table-name: contact
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: ownerId
+      foreign-key: ownerId
+  - table-name: lead
+    keys:
+    - key: accountId
+      foreign-key: convertedAccountId
+    - key: id
+      foreign-key: convertedOpportunityId
+    - key: ownerId
+      foreign-key: ownerId
+  - table-name: user
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: ownerId
+      foreign-key: id
+    - key: ownerId
+      foreign-key: delegatedApproverId
+    - key: ownerId
+      foreign-key: managerId
+- table-name: user
+  join:
+  - table-name: account
+    keys:
+    - key: accountId
+      foreign-key: id
+    - key: id
+      foreign-key: ownerId
+    - key: delegatedApproverId
+      foreign-key: ownerId
+    - key: managerId
+      foreign-key: ownerId
+  - table-name: contact
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: contactId
+      foreign-key: id
+    - key: id
+      foreign-key: ownerId
+    - key: delegatedApproverId
+      foreign-key: ownerId
+    - key: managerId
+      foreign-key: ownerId
+  - table-name: lead
+    keys:
+    - key: accountId
+      foreign-key: convertedAccountId
+    - key: contactId
+      foreign-key: convertedContactId
+    - key: id
+      foreign-key: ownerId
+    - key: delegatedApproverId
+      foreign-key: ownerId
+    - key: managerId
+      foreign-key: ownerId
+  - table-name: opportunity
+    keys:
+    - key: accountId
+      foreign-key: accountId
+    - key: id
+      foreign-key: ownerId
+    - key: delegatedApproverId
+      foreign-key: ownerId
+    - key: managerId
+      foreign-key: ownerId

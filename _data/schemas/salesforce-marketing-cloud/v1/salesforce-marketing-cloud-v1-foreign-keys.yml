@@ -67,3 +67,192 @@ keys:
   - table: subscriber
     keys:
     - ID
+tables:
+- table-name: campaign
+  join: []
+- table-name: content_area
+  join:
+  - table-name: email
+    keys:
+    - key: ID
+      foreign-key: ContentAreaIDs.value
+    - key: CategoryID
+      foreign-key: CategoryID
+  - table-name: folder
+    keys:
+    - key: CategoryID
+      foreign-key: ID
+    - key: CategoryID
+      foreign-key: ParentFolder
+  - table-name: list
+    keys:
+    - key: CategoryID
+      foreign-key: Category
+- table-name: email
+  join:
+  - table-name: content_area
+    keys:
+    - key: ContentAreaIDs.value
+      foreign-key: ID
+    - key: CategoryID
+      foreign-key: CategoryID
+  - table-name: send
+    keys:
+    - key: ID
+      foreign-key: EmailID
+    - key: ClonedFromID
+      foreign-key: EmailID
+  - table-name: folder
+    keys:
+    - key: CategoryID
+      foreign-key: ID
+    - key: CategoryID
+      foreign-key: ParentFolder
+  - table-name: list
+    keys:
+    - key: CategoryID
+      foreign-key: Category
+- table-name: send
+  join:
+  - table-name: email
+    keys:
+    - key: EmailID
+      foreign-key: ID
+    - key: EmailID
+      foreign-key: ClonedFromID
+  - table-name: event
+    keys:
+    - key: ID
+      foreign-key: SendID
+  - table-name: list_send
+    keys:
+    - key: ID
+      foreign-key: SendID
+- table-name: folder
+  join:
+  - table-name: content_area
+    keys:
+    - key: ID
+      foreign-key: CategoryID
+    - key: ParentFolder
+      foreign-key: CategoryID
+  - table-name: email
+    keys:
+    - key: ID
+      foreign-key: CategoryID
+    - key: ParentFolder
+      foreign-key: CategoryID
+  - table-name: list
+    keys:
+    - key: ID
+      foreign-key: Category
+    - key: ParentFolder
+      foreign-key: Category
+- table-name: list
+  join:
+  - table-name: content_area
+    keys:
+    - key: Category
+      foreign-key: CategoryID
+  - table-name: email
+    keys:
+    - key: Category
+      foreign-key: CategoryID
+  - table-name: folder
+    keys:
+    - key: Category
+      foreign-key: ID
+    - key: Category
+      foreign-key: ParentFolder
+  - table-name: list_send
+    keys:
+    - key: ID
+      foreign-key: ListID
+  - table-name: list_subscriber
+    keys:
+    - key: ID
+      foreign-key: ListID
+  - table-name: subscriber
+    keys:
+    - key: ID
+      foreign-key: ListIDs.value
+- table-name: list_send
+  join:
+  - table-name: list
+    keys:
+    - key: ListID
+      foreign-key: ID
+  - table-name: list_subscriber
+    keys:
+    - key: ListID
+      foreign-key: ListID
+  - table-name: subscriber
+    keys:
+    - key: ListID
+      foreign-key: ListIDs.value
+  - table-name: event
+    keys:
+    - key: SendID
+      foreign-key: SendID
+  - table-name: send
+    keys:
+    - key: SendID
+      foreign-key: ID
+- table-name: list_subscriber
+  join:
+  - table-name: list
+    keys:
+    - key: ListID
+      foreign-key: ID
+  - table-name: list_send
+    keys:
+    - key: ListID
+      foreign-key: ListID
+  - table-name: subscriber
+    keys:
+    - key: ListID
+      foreign-key: ListIDs.value
+    - key: SubscriberKey
+      foreign-key: ID
+  - table-name: event
+    keys:
+    - key: SubscriberKey
+      foreign-key: SubscriberKey
+- table-name: subscriber
+  join:
+  - table-name: list
+    keys:
+    - key: ListIDs.value
+      foreign-key: ID
+  - table-name: list_send
+    keys:
+    - key: ListIDs.value
+      foreign-key: ListID
+  - table-name: list_subscriber
+    keys:
+    - key: ListIDs.value
+      foreign-key: ListID
+    - key: ID
+      foreign-key: SubscriberKey
+  - table-name: event
+    keys:
+    - key: ID
+      foreign-key: SubscriberKey
+- table-name: event
+  join:
+  - table-name: list_send
+    keys:
+    - key: SendID
+      foreign-key: SendID
+  - table-name: send
+    keys:
+    - key: SendID
+      foreign-key: ID
+  - table-name: list_subscriber
+    keys:
+    - key: SubscriberKey
+      foreign-key: SubscriberKey
+  - table-name: subscriber
+    keys:
+    - key: SubscriberKey
+      foreign-key: ID

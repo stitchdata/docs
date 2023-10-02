@@ -15,3 +15,26 @@ keys:
   - table: activity_logs
     keys:
     - attributes.messageId
+tables:
+- table-name: conversations
+  join:
+  - table-name: activity_logs
+    keys:
+    - key: id
+      foreign-key: conversationId
+- table-name: activity_logs
+  join:
+  - table-name: conversations
+    keys:
+    - key: conversationId
+      foreign-key: id
+  - table-name: messages
+    keys:
+    - key: attributes.messageId
+      foreign-key: id
+- table-name: messages
+  join:
+  - table-name: activity_logs
+    keys:
+    - key: id
+      foreign-key: attributes.messageId
