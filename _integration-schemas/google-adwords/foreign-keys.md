@@ -1,5 +1,5 @@
 ---
-tap-reference: "google-adwords"
+tap-reference: "google-ads-adwords"
 
 version: "1"
 
