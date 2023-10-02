@@ -53,7 +53,7 @@ def getSchemaData(file):
                     replication_keys.append(attribute_name)
                     
             
-            data = {
+            output_data = {
                 'tap': tap,
                 'version': version,
                 'name': name,
@@ -69,41 +69,41 @@ def getSchemaData(file):
             
             try:
                 singer = data['singer-schema']
-                data['links']['singer-schema'] = singer
+                output_data['links']['singer-schema'] = singer
             except:
                 pass
 
             try:
                 api = data['api-method']
                 api_link = api['doc-link']
-                data['links']['api-method'] = api_link
+                output_data['links']['api-method'] = api_link
             except:
                 pass
 
             try:
                 loading = data['loading-behavior']
-                data['table-details']['loading-behavior'] = loading
+                output_data['table-details']['loading-behavior'] = loading
             except:
                 pass
 
 
             if (len(primary_keys)) == 1:
-                data['table-details']['primary-key'] = primary_keys[0]
+                output_data['table-details']['primary-key'] = primary_keys[0]
             elif (len(primary_keys)) > 1:
-                data['table-details']['primary-keys'] = primary_keys
+                output_data['table-details']['primary-keys'] = primary_keys
             
             if (len(replication_keys)) == 1:
-                data['table-details']['replication-key'] = replication_keys[0]
+                output_data['table-details']['replication-key'] = replication_keys[0]
             elif (len(replication_keys)) > 1:
-                data['table-details']['replication-keys'] = replication_keys
+                output_data['table-details']['replication-keys'] = replication_keys
 
             if (len(parents)) == 1:
-                data['table-details']['parent-table'] = parents[0]
+                output_data['table-details']['parent-table'] = parents[0]
             elif (len(parents)) > 1:
-                data['table-details']['parent-tables'] = parents
+                output_data['table-details']['parent-tables'] = parents
             
 
-            tables.append(data)
+            tables.append(output_data)
 
 
 
