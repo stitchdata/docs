@@ -141,7 +141,7 @@ for tap in taps:
     }
 
 
-    path = '../../_data/schemas/{0}/v{1}'.format(tap_name, tap_version)
+    path = '../../_data/taps/schemas/{0}/v{1}'.format(tap_name, tap_version)
     if os.path.exists(path):
         pass
     else:

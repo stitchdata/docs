@@ -85,7 +85,7 @@ def convertForeignKeys(file):
 
                 output_data['keys'][id].append(target_table_data)
 
-    with open ('../../_data/schemas/{0}/v{1}/{0}-v{1}-foreign-keys.yml'.format(integration, version), 'w', encoding='utf-8') as out:
+    with open ('../../_data/taps/schemas/{0}/v{1}/{0}-v{1}-foreign-keys.yml'.format(integration, version), 'w', encoding='utf-8') as out:
 
         y = yaml.safe_dump(output_data, out, default_flow_style=False, sort_keys=False)
 

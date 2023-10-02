@@ -5,19 +5,19 @@
 {% assign version = integration.this-version | prepend: "v" %}
 
 {% assign filename = integration.name | append: "-" | append: version | append: "-tables" %}
-{% assign tables = site.data.schemas.[integration.name].[version].[filename].tables %}
+{% assign tables = site.data.taps.schemas.[integration.name].[version].[filename].tables %}
 
 {% assign fk-filename = integration.name | append: "-" | append: version | append: "-foreign-keys" %}
-{% assign fk-tables = site.data.schemas.[integration.name].[version].[fk-filename].tables %}
+{% assign fk-tables = site.data.taps.schemas.[integration.name].[version].[fk-filename].tables %}
 
 <div>
 {% for table in tables %}
 
     {% if table.status != "not found" %}
 
-        {% if site.data.schemas.[integration.name].[version].json.[table.name].properties %}
+        {% if site.data.taps.schemas.[integration.name].[version].json.[table.name].properties %}
 
-        {% assign data = site.data.schemas.[integration.name].[version].json.[table.name].properties %}
+        {% assign data = site.data.taps.schemas.[integration.name].[version].json.[table.name].properties %}
 
         <!-- Table Name -->
         <div class="table-heading">

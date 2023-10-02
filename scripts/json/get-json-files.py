@@ -45,7 +45,7 @@ def getTableData(integration, version, schema_list):
     new = []
 
     
-    folder = '../../_data/schemas/{0}/v{1}'.format(integration, version)
+    folder = '../../_data/taps/schemas/{0}/v{1}'.format(integration, version)
     file = '{2}/{0}-v{1}-tables.yml'.format(integration, version, folder)
 
     if os.path.exists(file):
@@ -177,7 +177,7 @@ def getFiles(repo, branch):
 
     if integration_type != 'database':
 
-        json_output_folder = '../../_data/schemas/{0}/v{1}/json'.format(integration_id, tap_version)
+        json_output_folder = '../../_data/taps/schemas/{0}/v{1}/json'.format(integration_id, tap_version)
 
         if os.path.exists(json_output_folder):
             pass

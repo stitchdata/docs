@@ -91,7 +91,7 @@ def getFKByTable(file):
         yaml.safe_dump(content, f, default_flow_style=False, sort_keys=False)
 
 
-for root, dirs, files in os.walk('../../_data/schemas'):
+for root, dirs, files in os.walk('../../_data/taps/schemas'):
     for file in files:
         if file.endswith('-foreign-keys.yml'):
             file = os.path.join(root, file)
