@@ -1,6 +1,7 @@
 import requests, re, base64, json, datetime, os, pandas, sys, zipfile, yaml, shutil
 from datetime import datetime as dt
 from format_json import formatJSON
+from check_table_data import checkTableData
 
 # GitHub info
 github_token = sys.argv[1]
@@ -192,6 +193,8 @@ def getFiles(repo, branch):
                 schema_list = formatJSON(schemas, json_output_folder)
 
                 getTableData(integration_id, tap_version, schema_list)
+
+                checkTableData(integration_id, tap_version)
     
     else:
         print('Ignoring database integration {}'.format(integration_id))
