@@ -1,6 +1,6 @@
 ---
 tap: "surveymonkey"
-version: "1"
+version: "2"
 key: "surveys"
 
 name: "surveys"
