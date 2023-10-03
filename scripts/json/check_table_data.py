@@ -1,8 +1,5 @@
 import sys, yaml, json
 
-integration = sys.argv[1]
-version = sys.argv[2]
-
 def checkTableData(integration, version):
     issues = 0
 
@@ -11,7 +8,7 @@ def checkTableData(integration, version):
     foreign_keys_file = '{0}/{1}-v{2}-foreign-keys.yml'.format(folder, integration, version)
     json_folder = '{0}/json'.format(folder)
 
-    # issues += checkPrimaryReplicationKeys(tables_file, json_folder)
+    issues += checkPrimaryReplicationKeys(tables_file, json_folder)
     issues += checkForeignKeys(foreign_keys_file, json_folder)
 
     if issues > 0:
@@ -120,5 +117,3 @@ def checkForeignKeys(file, json_folder):
                             issues += 1
 
     return issues
-
-checkTableData(integration, version)
