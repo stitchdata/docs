@@ -22,7 +22,7 @@ keys:
     keys:
     - customer_identifier.id
     - batch_identifier.name_key.customer_identifier.id
-    - retailer_info.name_key.customer_identifier.id
+    - ship_to.retailer_info.name_key.customer_identifier.id
   facilities_facility_id:
   - table: customers
     keys:
@@ -57,7 +57,6 @@ keys:
     - item_identifier.id
   - table: sku_items
     keys:
-    - item_identifier.id
     - kit.components.item_identifier.id
   - table: stock_details
     keys:
@@ -185,7 +184,7 @@ tables:
     - key: customer_id
       foreign-key: batch_identifier.name_key.customer_identifier.id
     - key: customer_id
-      foreign-key: retailer_info.name_key.customer_identifier.id
+      foreign-key: ship_to.retailer_info.name_key.customer_identifier.id
     - key: facilities.id
       foreign-key: facility_identifier.id
     - key: primary_facility_identifier.id
@@ -218,8 +217,6 @@ tables:
       foreign-key: location_identifier.name_key.facility_identifier.id
     - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
       foreign-key: pallet_identifier.name_key.facility_identifier.id
-    - key: item_identifier.id
-      foreign-key: item_identifier.id
     - key: kit.components.item_identifier.id
       foreign-key: item_identifier.id
     - key: options.directed_put_away.preferred_location_identifier.id
@@ -236,8 +233,6 @@ tables:
       foreign-key: location_identifier.name_key.facility_identifier.id
     - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
       foreign-key: pallet_identifier.name_key.facility_identifier.id
-    - key: item_identifier.id
-      foreign-key: item_identifier.id
     - key: kit.components.item_identifier.id
       foreign-key: item_identifier.id
     - key: options.directed_put_away.preferred_location_identifier.id
@@ -271,9 +266,9 @@ tables:
     - key: customer_identifier.id
       foreign-key: batch_identifier.name_key.customer_identifier.id
     - key: customer_id
-      foreign-key: retailer_info.name_key.customer_identifier.id
+      foreign-key: ship_to.retailer_info.name_key.customer_identifier.id
     - key: customer_identifier.id
-      foreign-key: retailer_info.name_key.customer_identifier.id
+      foreign-key: ship_to.retailer_info.name_key.customer_identifier.id
     - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
       foreign-key: facility_identifier.id
   - table-name: stock_summaries
@@ -306,8 +301,6 @@ tables:
       foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
     - key: pallet_identifier.name_key.facility_identifier.id
       foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-    - key: item_identifier.id
-      foreign-key: item_identifier.id
     - key: item_identifier.id
       foreign-key: kit.components.item_identifier.id
     - key: location_identifier.id
@@ -369,7 +362,7 @@ tables:
     - key: customer_id
       foreign-key: batch_identifier.name_key.customer_identifier.id
     - key: customer_id
-      foreign-key: retailer_info.name_key.customer_identifier.id
+      foreign-key: ship_to.retailer_info.name_key.customer_identifier.id
     - key: location_identifier.name_key.facility_identifier.id
       foreign-key: facility_identifier.id
     - key: pallet_identifier.name_key.facility_identifier.id
@@ -411,8 +404,6 @@ tables:
     - key: pallet_identifier.name_key.facility_identifier.id
       foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
     - key: item_identifier.id
-      foreign-key: item_identifier.id
-    - key: item_identifier.id
       foreign-key: kit.components.item_identifier.id
     - key: location_identifier.id
       foreign-key: options.directed_put_away.preferred_location_identifier.id
@@ -479,7 +470,7 @@ tables:
     - key: customer_identifier.id
       foreign-key: batch_identifier.name_key.customer_identifier.id
     - key: customer_identifier.id
-      foreign-key: retailer_info.name_key.customer_identifier.id
+      foreign-key: ship_to.retailer_info.name_key.customer_identifier.id
     - key: facility_identifier.id
       foreign-key: facility_identifier.id
     - key: location_identifier.name_key.facility_identifier.id
@@ -587,7 +578,7 @@ tables:
     - key: customer_identifier.id
       foreign-key: batch_identifier.name_key.customer_identifier.id
     - key: customer_identifier.id
-      foreign-key: retailer_info.name_key.customer_identifier.id
+      foreign-key: ship_to.retailer_info.name_key.customer_identifier.id
     - key: facility_id
       foreign-key: facility_identifier.id
     - key: item_traits.pallet_identifier.name_key.facility_identifier.id
@@ -612,7 +603,7 @@ tables:
       foreign-key: customer_id
     - key: batch_identifier.name_key.customer_identifier.id
       foreign-key: customer_id
-    - key: retailer_info.name_key.customer_identifier.id
+    - key: ship_to.retailer_info.name_key.customer_identifier.id
       foreign-key: customer_id
     - key: facility_identifier.id
       foreign-key: facilities.id
@@ -624,13 +615,13 @@ tables:
       foreign-key: customer_id
     - key: batch_identifier.name_key.customer_identifier.id
       foreign-key: customer_id
-    - key: retailer_info.name_key.customer_identifier.id
+    - key: ship_to.retailer_info.name_key.customer_identifier.id
       foreign-key: customer_id
     - key: customer_identifier.id
       foreign-key: customer_identifier.id
     - key: batch_identifier.name_key.customer_identifier.id
       foreign-key: customer_identifier.id
-    - key: retailer_info.name_key.customer_identifier.id
+    - key: ship_to.retailer_info.name_key.customer_identifier.id
       foreign-key: customer_identifier.id
     - key: facility_identifier.id
       foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
@@ -640,7 +631,7 @@ tables:
       foreign-key: customer_id
     - key: batch_identifier.name_key.customer_identifier.id
       foreign-key: customer_id
-    - key: retailer_info.name_key.customer_identifier.id
+    - key: ship_to.retailer_info.name_key.customer_identifier.id
       foreign-key: customer_id
     - key: facility_identifier.id
       foreign-key: location_identifier.name_key.facility_identifier.id
@@ -652,7 +643,7 @@ tables:
       foreign-key: customer_identifier.id
     - key: batch_identifier.name_key.customer_identifier.id
       foreign-key: customer_identifier.id
-    - key: retailer_info.name_key.customer_identifier.id
+    - key: ship_to.retailer_info.name_key.customer_identifier.id
       foreign-key: customer_identifier.id
     - key: facility_identifier.id
       foreign-key: facility_identifier.id
@@ -666,7 +657,7 @@ tables:
       foreign-key: customer_identifier.id
     - key: batch_identifier.name_key.customer_identifier.id
       foreign-key: customer_identifier.id
-    - key: retailer_info.name_key.customer_identifier.id
+    - key: ship_to.retailer_info.name_key.customer_identifier.id
       foreign-key: customer_identifier.id
     - key: facility_identifier.id
       foreign-key: facility_id
