@@ -60,40 +60,43 @@ def replaceFormat(json_content):
 
 def replaceAnyof(json_content):
     json_data = json.loads(json_content)
+    content = json.dumps(json_data)
     jsonpath_expression = parse('$..anyOf.`parent`')
     match = jsonpath_expression.find(json_data)
-    value = match[0].value
-    new_value = {}
-    types = []
-    anyof_values = value['anyOf']
-    for v in anyof_values:
-        v_types = v['type']
-        if type(v_types) == list:
-            for t in v_types:
-                if t not in types:
-                    types.append(t)
-        elif type(v_types) == str:
-            types.append(v_types)
-    
-    if 'items' in v:
-        items = v['items']
-        if bool(items) == True:
-            new_value['items'] = items
+    i = 0
+    while i < len(match):
+        value = match[i].value
+        new_value = {}
+        types = []
+        anyof_values = value['anyOf']
+        for v in anyof_values:
+            v_types = v['type']
+            if type(v_types) == list:
+                for t in v_types:
+                    if t not in types:
+                        types.append(t)
+            elif type(v_types) == str:
+                types.append(v_types)
         
-    new_value['type'] = types
+            if 'items' in v:
+                items = v['items']
+                if bool(items) == True:
+                    new_value['items'] = items
+            
+        new_value['type'] = types
 
-    old_json = json.dumps(value)
-    new_json = json.dumps(new_value)
-    content = json.dumps(json_data)
-    
-    find = content.find(old_json)
+        old_json = json.dumps(value)
+        new_json = json.dumps(new_value)
+        
+        find = content.find(old_json)
 
-    if find != -1:
-        new_content = content.replace(old_json, new_json)
-    else:
-        new_content = content
+        if find != -1:
+            content = content.replace(old_json, new_json)
+        else:
+            content = content
+        i += 1
 
-    return new_content
+    return content
 
 def sameFileRef(ref, filepath, folder):
     split_ref = split_ref = ref.split('/')
@@ -223,6 +226,9 @@ def formatJSON(folder, json_output_folder):
 
                     if '"format": "' in json_content:
                         json_content = replaceFormat(json_content)
+
+                    if '"anyOf"' in json_content:
+                        json_content = replaceAnyof(json_content)
 
                     if '"anyOf"' in json_content:
                         json_content = replaceAnyof(json_content)
