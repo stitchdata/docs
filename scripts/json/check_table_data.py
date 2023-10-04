@@ -2,19 +2,29 @@ import sys, yaml, json
 
 def checkTableData(integration, version):
     issues = 0
+    issue_list = []
 
     folder = '../../_data/taps/schemas/{0}/v{1}'.format(integration, version)
     tables_file = '{0}/{1}-v{2}-tables.yml'.format(folder, integration, version)
     foreign_keys_file = '{0}/{1}-v{2}-foreign-keys.yml'.format(folder, integration, version)
     json_folder = '{0}/json'.format(folder)
+    issues_file = '{0}/{1}-v{2}-issues.txt'.format(folder, integration, version)
 
-    issues += checkPrimaryReplicationKeys(tables_file, json_folder)
-    issues += checkForeignKeys(foreign_keys_file, json_folder)
+    pk_rk_issues = checkPrimaryReplicationKeys(tables_file, json_folder, issue_list)
+    issue_list = pk_rk_issues[1]
+    issues += pk_rk_issues[0]
+
+    fk_issues = checkForeignKeys(foreign_keys_file, json_folder, issue_list)
+    issue_list = fk_issues[1]
+    issues += fk_issues[0]
 
     if issues > 0:
+        with open(issues_file, 'w', encoding='utf-8') as f:
+            f.writelines([string + '\n' for string in issue_list])
+
         sys.exit('{} issues found'.format(issues))
 
-def checkPrimaryReplicationKeys(file, json_folder):
+def checkPrimaryReplicationKeys(file, json_folder, issue_list):
     issues = 0
 
     with open(file, 'r') as f:
@@ -56,7 +66,9 @@ def checkPrimaryReplicationKeys(file, json_folder):
                         try:
                             element = properties[primary_key]
                         except:
-                            print('Primary Key {0} not found in {1}'.format(primary_key, json_file.replace('../../', '')))
+                            report = 'Primary Key {0} not found in {1}'.format(primary_key, json_file.replace('../../', ''))
+                            print(report)
+                            issue_list.append(report)
                             issues += 1
 
                 if len(replication_keys) > 0:
@@ -65,11 +77,14 @@ def checkPrimaryReplicationKeys(file, json_folder):
                         try:
                             element = properties[replication_key]
                         except:
-                            print('Replication Key {0} not found in {1}'.format(replication_key, json_file.replace('../../', '')))
+                            report = 'Replication Key {0} not found in {1}'.format(replication_key, json_file.replace('../../', ''))
+                            print(report)
+                            issue_list.append(report)
                             issues += 1
-    return issues
 
-def checkForeignKeys(file, json_folder):
+    return [issues, issue_list]
+
+def checkForeignKeys(file, json_folder, issue_list):
     issues = 0
 
     with open(file, 'r') as f:
@@ -113,7 +128,9 @@ def checkForeignKeys(file, json_folder):
                                             path = path['items']['properties'][steps[step]]
                                     step +=1
                         except:
-                            print('Key {0} not found in {1}'.format(source_key, json_file.replace('../../', '')))
+                            report = 'Key {0} not found in {1}'.format(source_key, json_file.replace('../../', ''))
+                            print(report)
+                            issue_list.append(report)
                             issues += 1
 
-    return issues
+    return [issues, issue_list]
