@@ -190,11 +190,27 @@ def getFiles(repo, branch):
 
             if item.startswith('tap'):
                 schemas = item_path + '/schemas'
-                schema_list = formatJSON(schemas, json_output_folder)
+                format_results = formatJSON(schemas, json_output_folder)
+
+                schema_list = format_results[0]
+                issue_list = format_results[1]
 
                 getTableData(integration_id, tap_version, schema_list)
 
-                checkTableData(integration_id, tap_version)
+                table_issues = checkTableData(integration_id, tap_version)
+                if len(table_issues) > 0:
+                    for issue in table_issues:
+                        issue_list.append(issue)
+
+                folder = '../../_data/taps/schemas/{0}/v{1}'.format(integration_id, tap_version)
+                issues_file = '{0}/{1}-v{2}-issues.txt'.format(folder, integration_id, tap_version)
+                issues_count = len(issue_list)
+
+                if issues_count > 0:
+                    with open(issues_file, 'w', encoding='utf-8') as f:
+                        f.writelines([string + '\n' for string in issue_list])
+
+                    print('{0} issues found, check {1} for details.'.format(issues_count, issues_file.replace('../../', '')))
     
     else:
         print('Ignoring database integration {}'.format(integration_id))

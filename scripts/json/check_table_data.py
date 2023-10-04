@@ -1,32 +1,21 @@
 import yaml, json, os
 
 def checkTableData(integration, version):
-    issues = 0
     issue_list = []
 
     folder = '../../_data/taps/schemas/{0}/v{1}'.format(integration, version)
     tables_file = '{0}/{1}-v{2}-tables.yml'.format(folder, integration, version)
     foreign_keys_file = '{0}/{1}-v{2}-foreign-keys.yml'.format(folder, integration, version)
     json_folder = '{0}/json'.format(folder)
-    issues_file = '{0}/{1}-v{2}-issues.txt'.format(folder, integration, version)
 
-    pk_rk_issues = checkPrimaryReplicationKeys(tables_file, json_folder, issue_list)
-    issue_list = pk_rk_issues[1]
-    issues += pk_rk_issues[0]
+    issue_list = checkPrimaryReplicationKeys(tables_file, json_folder, issue_list)
 
     if os.path.exists(foreign_keys_file):
-        fk_issues = checkForeignKeys(foreign_keys_file, json_folder, issue_list)
-        issue_list = fk_issues[1]
-        issues += fk_issues[0]
+        issue_list = checkForeignKeys(foreign_keys_file, json_folder, issue_list)
 
-    if issues > 0:
-        with open(issues_file, 'w', encoding='utf-8') as f:
-            f.writelines([string + '\n' for string in issue_list])
-
-        print('{0} issues found, check {1} for details.'.format(issues, issues_file.replace('../../', '')))
+    return issue_list
 
 def checkPrimaryReplicationKeys(file, json_folder, issue_list):
-    issues = 0
 
     with open(file, 'r') as f:
         data = yaml.safe_load(f)
@@ -70,7 +59,6 @@ def checkPrimaryReplicationKeys(file, json_folder, issue_list):
                             except:
                                 report = 'Primary Key {0} not found in {1}'.format(primary_key, json_file.replace('../../', ''))
                                 issue_list.append(report)
-                                issues += 1
 
                     if len(replication_keys) > 0:
                         for replication_key in replication_keys:
@@ -80,16 +68,14 @@ def checkPrimaryReplicationKeys(file, json_folder, issue_list):
                             except:
                                 report = 'Replication Key {0} not found in {1}'.format(replication_key, json_file.replace('../../', ''))
                                 issue_list.append(report)
-                                issues += 1
             else:
-                report = '{} file not found'.format(json_file.replace('../../', ''))
-                issue_list.append(report)
-                issues += 1
+                report = 'JSON file {} not found'.format(json_file.replace('../../', ''))
+                if report not in issue_list:
+                    issue_list.append(report)
 
-    return [issues, issue_list]
+    return issue_list
 
 def checkForeignKeys(file, json_folder, issue_list):
-    issues = 0
 
     with open(file, 'r') as f:
         data = yaml.safe_load(f)
@@ -135,10 +121,9 @@ def checkForeignKeys(file, json_folder, issue_list):
                             except:
                                 report = 'Key {0} not found in {1}'.format(source_key, json_file.replace('../../', ''))
                                 issue_list.append(report)
-                                issues += 1
             else:
                 report = 'JSON file {} not found'.format(json_file.replace('../../', ''))
-                issue_list.append(report)
-                issues += 1
+                if report not in issue_list:
+                    issue_list.append(report)
 
-    return [issues, issue_list]
+    return issue_list

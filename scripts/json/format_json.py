@@ -219,25 +219,39 @@ def replaceRefs(json_content, folder, filepath):
 def formatJSON(folder, json_output_folder):
 
     table_list = []
+    ignored = []
 
     for root, dirs, files in os.walk(folder, topdown=False):
         for file in files:
             filepath = os.path.join(root, file)
             if filepath.endswith('.json'):
                 with open(filepath, 'r') as f:
-                    table_list.append(file.replace('.json', ''))
                     json_content = f.read()
-                    if '$ref' in json_content:
-                        json_content = json.dumps(replaceRefs(json_content, folder, filepath))
 
-                    if '"format": "' in json_content:
-                        json_content = replaceFormat(json_content)
+                    try:
+                        content = json.loads(json_content)
+                        props = content['properties']
+                        status = 'keep'
+                    
+                    except:
+                        status = 'ignore'
+                        report = 'Unexpected schema structure in {}, the file was not imported'.format(file)
+                        ignored.append(report)
 
-                    while '"anyOf"' in json_content:
-                        json_content = replaceAnyof(json_content)
+                    if status == 'keep':
+                        table_list.append(file.replace('.json', ''))
+
+                        if '$ref' in json_content:
+                            json_content = json.dumps(replaceRefs(json_content, folder, filepath))
+
+                        if '"format": "' in json_content:
+                            json_content = replaceFormat(json_content)
+
+                        while '"anyOf"' in json_content:
+                            json_content = replaceAnyof(json_content)
                 
-                content = json.loads(json_content)
-                with open(json_output_folder + '/' + file, 'w') as j:
-                    json.dump(content, j, indent=2)
+                        content = json.loads(json_content)
+                        with open(json_output_folder + '/' + file, 'w') as j:
+                            json.dump(content, j, indent=2)
     
-    return table_list
+    return [table_list, ignored]
