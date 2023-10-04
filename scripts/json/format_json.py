@@ -6,12 +6,17 @@ def getType(format):
     number_formats = ['singer.decimal', 'singer-decimal', 'float']
     string_formats = ['uri']
 
+    if format == 'datetime':
+        format = 'date-time'
+
     if format in type_formats:
         type = format
     elif format in number_formats:
         type = 'number'
     elif format in string_formats:
         type = 'string'
+    else:
+        print('Format {} not found in format list'.format(format))
     
     return type
 
@@ -235,7 +240,7 @@ def formatJSON(folder, json_output_folder):
                     
                     except:
                         status = 'ignore'
-                        report = 'Unexpected schema structure in {}, the file was not imported'.format(file)
+                        report = 'JSON file {} ignored'.format(file)
                         ignored.append(report)
 
                     if status == 'keep':
