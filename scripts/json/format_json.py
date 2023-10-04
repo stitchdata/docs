@@ -231,32 +231,19 @@ def formatJSON(folder, json_output_folder):
                 with open(filepath, 'r') as f:
                     json_content = f.read()
 
-                    if '$ref' in json_content:
-                        json_content = json.dumps(replaceRefs(json_content, folder, filepath))
-                    
-                    content = json.loads(json_content)
-                    
-                    try:
-                        props = content['properties']
-                        status = 'keep'
+                    if '{0}shared{0}'.format(os.sep) in filepath:
+                        report = 'JSON file {} ignored'.format(file)
+                        ignored.append(report)
 
-                        table_list.append(file.replace('.json', ''))
+                    else:
 
-                        if '"format": "' in json_content:
-                            json_content = replaceFormat(json_content)
-
-                        while '"anyOf"' in json_content:
-                            json_content = replaceAnyof(json_content)
+                        if '$ref' in json_content:
+                            json_content = json.dumps(replaceRefs(json_content, folder, filepath))
                         
                         content = json.loads(json_content)
-                        with open(json_output_folder + '/' + file, 'w') as j:
-                            json.dump(content, j, indent=2)
-                    
-                    except:
+                        
                         try:
-                            props = content['schema']['properties']
-                            json_content = json.dumps(content['schema'])
-                            status = 'keep'
+                            props = content['properties']
 
                             table_list.append(file.replace('.json', ''))
 
@@ -269,11 +256,27 @@ def formatJSON(folder, json_output_folder):
                             content = json.loads(json_content)
                             with open(json_output_folder + '/' + file, 'w') as j:
                                 json.dump(content, j, indent=2)
-
+                        
                         except:
-                            status = 'ignore'
-                            report = 'JSON file {} ignored'.format(file)
-                            ignored.append(report)
+                            try:
+                                props = content['schema']['properties']
+                                json_content = json.dumps(content['schema'])
+
+                                table_list.append(file.replace('.json', ''))
+
+                                if '"format": "' in json_content:
+                                    json_content = replaceFormat(json_content)
+
+                                while '"anyOf"' in json_content:
+                                    json_content = replaceAnyof(json_content)
+                                
+                                content = json.loads(json_content)
+                                with open(json_output_folder + '/' + file, 'w') as j:
+                                    json.dump(content, j, indent=2)
+
+                            except:
+                                report = 'JSON file {} ignored'.format(file)
+                                ignored.append(report)
                         
 
     return [table_list, ignored]
