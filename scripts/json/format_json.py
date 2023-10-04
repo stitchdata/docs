@@ -232,10 +232,11 @@ def formatJSON(folder, json_output_folder):
             if filepath.endswith('.json'):
                 with open(filepath, 'r') as f:
                     json_content = f.read()
-                    content = json.loads(json_content)
 
                     if '$ref' in json_content:
                         json_content = json.dumps(replaceRefs(json_content, folder, filepath))
+                    
+                    content = json.loads(json_content)
                     
                     try:
                         props = content['properties']
