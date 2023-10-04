@@ -1,4 +1,4 @@
-import sys, yaml, json
+import yaml, json, os
 
 def checkTableData(integration, version):
     issues = 0
@@ -14,9 +14,10 @@ def checkTableData(integration, version):
     issue_list = pk_rk_issues[1]
     issues += pk_rk_issues[0]
 
-    fk_issues = checkForeignKeys(foreign_keys_file, json_folder, issue_list)
-    issue_list = fk_issues[1]
-    issues += fk_issues[0]
+    if os.path.exists(foreign_keys_file):
+        fk_issues = checkForeignKeys(foreign_keys_file, json_folder, issue_list)
+        issue_list = fk_issues[1]
+        issues += fk_issues[0]
 
     if issues > 0:
         with open(issues_file, 'w', encoding='utf-8') as f:
