@@ -13,7 +13,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: plan_id
-  status: not_found
 - name: blasts
   description: 'The `{{ table.name }}` table contains infomation about your specific
     {{ integration.display_name }} campaigns, or information about campaigns by status
@@ -28,7 +27,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: blast_id
     replication-key: modify_time
-  status: not_found
 - name: blast_query
   description: 'The `{{ table.name }}` table contains information from blast query
     jobs in your {{ integration.display_name }} account. This is a child table of
@@ -44,7 +42,6 @@ tables:
     primary-keys:
     - blast_id
     - profile_id
-  status: not_found
 - name: blast_repeats
   description: 'The `{{ table.name }}` table contains information about recurring
     campaigns in your {{ integration.display_name }} account.
@@ -58,7 +55,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: repeat_id
     replication-key: modify_time
-  status: not_found
 - name: blast_save_list
   description: 'The `{{ table.name }}` table contains a list of users that received
     a specific campaign from your {{ integration.display_name }} account. This is
@@ -72,7 +68,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: profile_id
-  status: not_found
 - name: lists
   description: 'The `{{ table.name }}` table contains basic information about lists
     in your {{ integration.display_name }} account.
@@ -85,7 +80,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: list_id
-  status: not_found
 - name: purchase_log
   description: 'The `{{ table.name }}` table contains a a list of user data in your
     {{ integration.display_name }} account.
@@ -104,7 +98,6 @@ tables:
     - message_id
     - price
     replication-key: date
-  status: not_found
 - name: users
   description: 'The `{{ table.name }}` table contains user data from your {{ integration.display_name
     }} account. This is a child table of `blast_save_list`.
@@ -117,4 +110,3 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: profile_id
-  status: not_found
