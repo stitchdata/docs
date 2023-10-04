@@ -221,16 +221,13 @@ def formatJSON(folder, json_output_folder):
                 with open(filepath, 'r') as f:
                     table_list.append(file.replace('.json', ''))
                     json_content = f.read()
-                    if '$ref' in json_content:
+                    while '$ref' in json_content:
                         json_content = json.dumps(replaceRefs(json_content, folder, filepath))
 
-                    if '"format": "' in json_content:
+                    while '"format": "' in json_content:
                         json_content = replaceFormat(json_content)
 
-                    if '"anyOf"' in json_content:
-                        json_content = replaceAnyof(json_content)
-
-                    if '"anyOf"' in json_content:
+                    while '"anyOf"' in json_content:
                         json_content = replaceAnyof(json_content)
                 
                 content = json.loads(json_content)
