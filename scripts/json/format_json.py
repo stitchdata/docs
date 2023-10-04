@@ -1,10 +1,11 @@
-import json, re, os
+import json, re, os, sys
 from jsonpath_ng import parse
 
 def getType(format):
     type_formats = ['date-time', 'date', 'time', 'any']
     number_formats = ['singer.decimal', 'singer-decimal', 'float']
-    string_formats = ['uri']
+    string_formats = ['uri', '']
+    int_formats = ['int64']
 
     if format == 'datetime':
         format = 'date-time'
@@ -13,6 +14,8 @@ def getType(format):
         type = format
     elif format in number_formats:
         type = 'number'
+    elif format in int_formats:
+        type = 'integer'
     elif format in string_formats:
         type = 'string'
     else:
@@ -22,44 +25,48 @@ def getType(format):
 
 def replaceFormat(json_content):
     
-    pattern_single_type = re.compile('("type":\s*"string",\s*"format":\s*"([^\"]+)")')
-    pattern_multi_types_v1 = re.compile('(("type":\s*\[[^\]]*")string("[^\]]*\]),\s*"format":\s*"([^\"]+)")')
-    pattern_multi_types_v2 = re.compile('("format":\s*"([^\"]+)",\s*("type":\s*\[[^\]]*")string("[^\]]*\]))')
+    pattern_single_type = re.compile('("type":\s*"(string|integer)",\s*"format":\s*"([^\"]+)")')
+    pattern_multi_types_v1 = re.compile('(("type":\s*\[[^\]]*")(string|integer)("[^\]]*\]),\s*"format":\s*"([^\"]+)")')
+    pattern_multi_types_v2 = re.compile('("format":\s*"([^\"]+)",\s*("type":\s*\[[^\]]*")(string|integer)("[^\]]*\]))')
 
     single_dt = re.findall(pattern_single_type, json_content)
     multi_dt_v1 = re.findall(pattern_multi_types_v1, json_content)
     multi_dt_v2 = re.findall(pattern_multi_types_v2, json_content)
     
+    if re.search(pattern_single_type, json_content) or re.search(pattern_multi_types_v1, json_content) or re.search(pattern_multi_types_v2, json_content):
 
-    for i in single_dt:
-        full = i[0]
-        format = i[1]
-        type = getType(format)
+        for i in single_dt:
+            full = i[0]
+            format = i[2]
+            type = getType(format)
 
-        new_single_type = '"type": "{}"'.format(type)
-        json_content = json_content.replace(full, new_single_type)
-    
-    for j in multi_dt_v1:
-        format = j[3]
-        full = j[0]
-        p1 = j[1]
-        p2 = getType(format)
-        p3 = j[2]
+            new_single_type = '"type": "{}"'.format(type)
+            json_content = json_content.replace(full, new_single_type)
+        
+        for j in multi_dt_v1:
+            format = j[4]
+            full = j[0]
+            p1 = j[1]
+            p2 = getType(format)
+            p3 = j[3]
 
-        new_multi_type = p1 + p2 + p3
+            new_multi_type = p1 + p2 + p3
 
-        json_content = json_content.replace(full, new_multi_type)
-    
-    for k in multi_dt_v2:
-        format = k[1]
-        full = k[0]
-        p1 = k[2]
-        p2 = getType(format)
-        p3 = k[3]
+            json_content = json_content.replace(full, new_multi_type)
+        
+        for k in multi_dt_v2:
+            format = k[1]
+            full = k[0]
+            p1 = k[2]
+            p2 = getType(format)
+            p3 = k[4]
 
-        new_multi_type = p1 + p2 + p3
+            new_multi_type = p1 + p2 + p3
 
-        json_content = json_content.replace(full, new_multi_type)
+            json_content = json_content.replace(full, new_multi_type)
+
+    else:
+        sys.exit('Format pattern not found')
     
     return json_content
 
@@ -139,7 +146,6 @@ def sameFileRef(ref, filepath, folder):
                     if '$ref' in path:
                         raise Exception()
                 except:
-                    print(ref)
                     split_ref[ref_index] = split_ref[ref_index] + '.json'
                     out_ref = '/'.join(split_ref)
                     for root, dirs, files in os.walk(folder):
@@ -219,10 +225,6 @@ def replaceRefs(json_content, folder, filepath):
             content = sameFileRef(path, filepath, folder)
             json_content = json_content.replace(element, content)
     
-    while '"format": "' in json_content:
-        json_content = replaceFormat(json_content)
-    
-
     j = json.loads(json_content)
     
     return j
@@ -244,10 +246,11 @@ def formatJSON(folder, json_output_folder):
                         ignored.append(report)
 
                     else:
+                        format_pattern = re.compile('"format":\s*"[^\"]+"')
 
                         while '$ref' in json_content:
                             json_content = json.dumps(replaceRefs(json_content, folder, filepath))
-                        
+            
                         content = json.loads(json_content)
                         
                         try:
@@ -255,7 +258,7 @@ def formatJSON(folder, json_output_folder):
 
                             table_list.append(file.replace('.json', ''))
 
-                            while '"format":' in json_content:
+                            while re.search(format_pattern, json_content):
                                 json_content = replaceFormat(json_content)
 
                             while '"anyOf"' in json_content:
@@ -272,7 +275,7 @@ def formatJSON(folder, json_output_folder):
 
                                 table_list.append(file.replace('.json', ''))
 
-                                while '"format":' in json_content:
+                                while re.search(format_pattern, json_content):
                                     json_content = replaceFormat(json_content)
 
                                 while '"anyOf"' in json_content:
