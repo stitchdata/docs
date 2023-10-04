@@ -22,9 +22,9 @@ def getType(format):
 
 def replaceFormat(json_content):
     
-    pattern_single_type = re.compile('("type":\s"string",\s*"format":\s"([^\"]+)")')
-    pattern_multi_types_v1 = re.compile('(("type":\s\[[^\]]*")string("[^\]]*\]),\s*"format":\s"([^\"]+)")')
-    pattern_multi_types_v2 = re.compile('("format":\s"([^\"]+)",\s*("type":\s\[[^\]]*")string("[^\]]*\]))')
+    pattern_single_type = re.compile('("type":\s*"string",\s*"format":\s*"([^\"]+)")')
+    pattern_multi_types_v1 = re.compile('(("type":\s*\[[^\]]*")string("[^\]]*\]),\s*"format":\s*"([^\"]+)")')
+    pattern_multi_types_v2 = re.compile('("format":\s*"([^\"]+)",\s*("type":\s*\[[^\]]*")string("[^\]]*\]))')
 
     single_dt = re.findall(pattern_single_type, json_content)
     multi_dt_v1 = re.findall(pattern_multi_types_v1, json_content)
@@ -123,15 +123,23 @@ def sameFileRef(ref, filepath, folder):
         try:
             path = file_content[split_ref[ref_index]]
             status = 'found'
+            if '$ref' in path:
+                raise Exception()
         except:
             try:
                 path = file_content['properties'][split_ref[ref_index]]
                 status = 'found'
+                if '$ref' in path:
+                    raise Exception()
+                    
             except:
                 try:
                     path = file_content['definitions'][split_ref[ref_index]]
                     status = 'found'
+                    if '$ref' in path:
+                        raise Exception()
                 except:
+                    print(ref)
                     split_ref[ref_index] = split_ref[ref_index] + '.json'
                     out_ref = '/'.join(split_ref)
                     for root, dirs, files in os.walk(folder):
@@ -193,7 +201,7 @@ def partialRef(ref, folder):
 
 def replaceRefs(json_content, folder, filepath):
 
-    pattern = re.compile('(\{\s*\"\$ref\"\:\s\"([^\"]+)\"\s*\})')
+    pattern = re.compile('(\{\s*\"\$ref\"\:\s*\"([^\"]+)\"\s*\})')
 
     refs = re.findall(pattern, json_content)
 
@@ -211,7 +219,7 @@ def replaceRefs(json_content, folder, filepath):
             content = sameFileRef(path, filepath, folder)
             json_content = json_content.replace(element, content)
     
-    if '"format": "' in json_content:
+    while '"format": "' in json_content:
         json_content = replaceFormat(json_content)
     
 
@@ -237,7 +245,7 @@ def formatJSON(folder, json_output_folder):
 
                     else:
 
-                        if '$ref' in json_content:
+                        while '$ref' in json_content:
                             json_content = json.dumps(replaceRefs(json_content, folder, filepath))
                         
                         content = json.loads(json_content)
@@ -247,7 +255,7 @@ def formatJSON(folder, json_output_folder):
 
                             table_list.append(file.replace('.json', ''))
 
-                            if '"format": "' in json_content:
+                            while '"format":' in json_content:
                                 json_content = replaceFormat(json_content)
 
                             while '"anyOf"' in json_content:
@@ -264,7 +272,7 @@ def formatJSON(folder, json_output_folder):
 
                                 table_list.append(file.replace('.json', ''))
 
-                                if '"format": "' in json_content:
+                                while '"format":' in json_content:
                                     json_content = replaceFormat(json_content)
 
                                 while '"anyOf"' in json_content:
