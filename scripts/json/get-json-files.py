@@ -99,6 +99,14 @@ def getTableData(integration, version, schema_list):
                 if t['name'] == table:
                     t['status'] = status
                     not_found.append(table)
+        else:
+            for t in data['tables']:
+                if t['name'] == table: 
+                    try:
+                        t.pop('status')
+                    except:
+                        pass
+
 
     with open (file, 'w', encoding='utf-8') as out:
         yaml.dump(data, out, default_flow_style=False, sort_keys=False)
@@ -153,7 +161,7 @@ def getFiles(repo, branch):
 
     repo_contents = requests.get(contents_api, headers=github_headers)
     status_code = repo_contents.status_code
-    
+
     if status_code != 200:
         sys.exit('API issue\n Status: {}\nMessage:'.format(status_code, repo_contents.content))
     else:
