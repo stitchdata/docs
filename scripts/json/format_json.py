@@ -83,6 +83,12 @@ def replaceAnyof(json_content):
                 if bool(items) == True:
                     new_value['items'] = items
             
+            if 'properties' in v:
+                items = v['properties']
+                if bool(items) == True:
+                    new_value['properties'] = items
+
+            
         new_value['type'] = types
 
         old_json = json.dumps(value)
@@ -221,10 +227,10 @@ def formatJSON(folder, json_output_folder):
                 with open(filepath, 'r') as f:
                     table_list.append(file.replace('.json', ''))
                     json_content = f.read()
-                    while '$ref' in json_content:
+                    if '$ref' in json_content:
                         json_content = json.dumps(replaceRefs(json_content, folder, filepath))
 
-                    while '"format": "' in json_content:
+                    if '"format": "' in json_content:
                         json_content = replaceFormat(json_content)
 
                     while '"anyOf"' in json_content:
