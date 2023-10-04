@@ -13,8 +13,6 @@ def checkTableData(integration, version):
 
     if issues > 0:
         sys.exit('{} issues found'.format(issues))
-    else:
-        print('No issues found')
 
 def checkPrimaryReplicationKeys(file, json_folder):
     issues = 0
