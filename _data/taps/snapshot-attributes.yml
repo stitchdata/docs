@@ -41,7 +41,7 @@ field-names:
   loading-behavior: |
     Loading Behavior <a href="{{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}" target="new">{{ info-icon | replace:"TOOLTIP","Defines how Stitch loads data into a destination. Click here for more details." }}</a>
   api-endpoint: "API endpoint"
-  api-method: "{{ integration.name }} API method"
+  api-method: "{{ integration.display_name }} API method"
   parent-table: "Parent table"
   doc-link: "{{ integration.display_name }} documentation"
   singer-schema: "{{ table.name }} schema on GitHub"
