@@ -69,7 +69,7 @@ attributes:
     type: "integer"
     description: ""
 
-  - name: "naturalReplyCount"
+  - name: "mailboxId"
     type: "integer"
     description: ""
 
@@ -77,7 +77,15 @@ attributes:
     type: "integer"
     description: ""
 
+  - name: "neutralReplyCount"
+    type: "integer"
+    description: ""
+
   - name: "openCount"
+    type: "integer"
+    description: ""
+
+  - name: "opportunityId"
     type: "integer"
     description: ""
 
@@ -114,6 +122,10 @@ attributes:
     type: "integer"
     description: ""
     foreign-key-id: "sequence-id"
+
+  - name: "sequenceStepId"
+    type: "integer"
+    description: ""
 
   - name: "state"
     type: "string"

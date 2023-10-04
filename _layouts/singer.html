@@ -50,6 +50,10 @@ layout: page
 <!-- SETUP REQUIREMENTS & INSTRUCTIONS -->
     {% include integrations/shared-setup/setup-requirements-steps.html %}
     <hr>
+    {% if integration.removal-steps %}
+        {% include integrations/shared-setup/removal-steps.html %}
+    <hr>
+    {% endif %}
 {% endunless %}
 
 <!-- REPLICATION DETAILS -->

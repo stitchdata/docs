@@ -141,6 +141,10 @@ attributes:
     type: "integer"
     description: ""
 
+  - name: "rulesetId"
+    type: "integer"
+    description: ""
+
   - name: "scheduleCount"
     type: "integer"
     description: ""
@@ -170,8 +174,12 @@ attributes:
     description: ""
 
   - name: "tags"
-    type: "string"
+    type: "array"
     description: ""
+    subattributes:
+    - name: "items"
+      type: "string"
+      description: ""
 
   - name: "throttleCapacity"
     type: "integer"

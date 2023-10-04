@@ -41,6 +41,7 @@ attributes:
   - name: "visitor_id"
     type: "string"
     description: ""
+    primary-key: true
     foreign-key-id: "visitor-id"
 
   - name: "app_id"
@@ -51,6 +52,7 @@ attributes:
   - name: "day"
     type: "date-time"
     description: "{{ day-event-rep-key-note }}"
+    primary-key: true
 
   - name: "hour"
     type: "date-time"
@@ -67,6 +69,7 @@ attributes:
   - name: "page_id"
     type: "string"
     description: ""
+    primary-key: true
     foreign-key-id: "page-id"
 
   - name: "parameters"
@@ -76,4 +79,5 @@ attributes:
   - name: "user_agent"
     type: "string"
     description: ""
+    primary-key: true
 ---

@@ -3,6 +3,15 @@
 	EX: Amazon S3, SFTP, etc. -->
 
 {% case include.type %}
+{% assign integration = page %}
+
+{% if integration.name == "amazon-s3-csv" %}
+	{% assign ext = ".json"}
+	{% assign filetype = "JSON" %}
+{% else %}
+	{% assign ext = ".csv"}
+	{% assign filetype = "CSV" %}
+{% endif %}
 
 <!-- DEFINE SEARCH PATTERN -->
 {% when 'define-search-pattern' %}
@@ -33,7 +42,11 @@ When creating a search pattern, keep the following in mind:
 <strong>How updates are made</strong>
 </td>
 <td width="42%; fixed">
+	{% if integration.name == "amazon-s3-csv" %}
+	A single JSONL file is periodically updated with new and updated customer data.
+	{% else %}
 	A single CSV file is periodically updated with new and updated customer data.
+	{% endif %}
 </td>
 <td width="42%; fixed">
 	A new CSV file is created every day that contains new and updated customer data. Old files are never updated after they're created.
@@ -45,7 +58,11 @@ When creating a search pattern, keep the following in mind:
 <strong>File name</strong>
 </td>
 <td width="42%; fixed">
+	{% if integration.name == "amazon-s3-csv" %}
+	<code>customers.jsonl</code>
+	{% else %}
 	<code>customers.csv</code>
+	{% endif %}
 </td>
 <td width="42%; fixed">
 	<code>customers-[STRING].csv</code>, where <code>[STRING]</code> is a unique, random string
@@ -57,11 +74,19 @@ When creating a search pattern, keep the following in mind:
 <strong>Search pattern</strong>
 </td>
 <td width="42%; fixed">
+	{% if integration.name == "amazon-s3-csv" %}
+	<p>Because there will only ever be one file, you could enter the exact name of the file in your S3 bucket:</p>
+
+{% highlight shell %}
+customers\.jsonl
+{% endhighlight %}
+	{% else %}
 	<p>Because there will only ever be one file, you could enter the exact name of the file in your S3 bucket:</p>
 
 {% highlight shell %}
 customers\.csv
 {% endhighlight %}
+{% endif %}
 </td>
 <td width="42%; fixed">
 	<p>To ensure new and updated files are identified, you'd want to enter a search pattern that would match all files beginning with <code>customers</code>, regardless of the string in the file name:</p>
@@ -77,7 +102,11 @@ customers\.csv
 <strong>Matches</strong>
 </td>
 <td width="42%; fixed">
+	{% if integration.name == "amazon-s3-csv" %}
+	<code>customer.jsonl</code>, exactly
+	{% else %}
 	<code>customer.csv</code>, exactly
+	{% endif %}
 </td>
 <td width="42%; fixed">
 	<ul>

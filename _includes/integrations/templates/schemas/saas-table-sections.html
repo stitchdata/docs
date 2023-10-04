@@ -2,6 +2,17 @@
 <!-- SCHEMA DETAILS START -->
 <h2 id="schema">{{ integration.display_name }} table reference</h2>
 
+<!-- Displays note for Mixpanel integration -->
+
+{% if integration.name == "mixpanel" %}
+{% capture mixpanel-free-trial %}
+
+The `engage` and `export` tables are not available if you are using the free Mixpanel plan.
+
+{% endcapture %}
+{% include note.html first-line="**Mixpanel free plan**" content=mixpanel-free-trial %}
+{% endif %}
+
 <!-- Displays an info box if there are multiple versions of an integration currently available -->
 
 {% capture version-notice %}

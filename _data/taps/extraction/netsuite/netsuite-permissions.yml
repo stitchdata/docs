@@ -3,6 +3,7 @@
 # -------------------------- #
 
 # This file contains the permissions required by Stitch's NetSuite integration.
+# Reference: https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/chapter_N3236764.html#Permission-Names-and-IDs
 
 required:
   - name: "Custom Body Fields"
@@ -15,10 +16,6 @@ required:
 
   - name: "Custom Record Types"
     tab: *setup
-    version: "all"
-
-  - name: "Perform Search"
-    tab: &lists "Lists"
     version: "all"
 
   - name: "Log in using Access Tokens"
@@ -36,7 +33,7 @@ required:
     level: "Full"
     version: "all"
 
-  - name: "Web Services"
+  - name: "SOAP Web Services"
     tab: *setup
     level: "Full"
     version: "all"
@@ -116,6 +113,19 @@ bin:
   feature-requirements:
     - tab: "Items & Inventory"
       name: "Bin Management"
+
+## BOM
+bom: &bom
+  permission:
+    tab: "Lists"
+    name: "Bill of Materials"
+
+  feature-requirements:
+    - tab: "Inventory & Items"
+      name: "Advanced Bill of Materials"
+
+## BOM REVISION
+bom-revision: *bom
 
 ## BUDGET
 budget:
@@ -249,6 +259,16 @@ customer-status:
   permission:
     tab: "Setup"
     name: "Customer Status"
+
+customer-subsidiary-relationship:
+  permission: &subsidiaries-permission
+    tab: "Lists"
+    name: "Subsidiaries"
+
+  feature-requirements:
+    - tab: "Multi-Subsidiary Customer"
+      name: "Company"
+    
 
 ## CUSTOM LIST
 custom-list:
@@ -492,6 +512,11 @@ manufacturing-routing:
     - tab: "Items & Inventory"
       name: "Manufacturing Routing and Work Center"
 
+merchandise-hierarchy-node:
+  permission:
+    tab: "Setup"
+    name: "Merchandise Hierarchy Node"
+
 ## MESSAGE
 message:
   permission:
@@ -698,10 +723,7 @@ solution:
 
 ## SUBSIDIARY
 subsidiary:
-  permission:
-    tab: "Lists"
-    name: "Subsidiaries"
-
+  permission: *subsidiaries-permission
   feature-requirements:
     - name: "{{ integration.display_name }} OneWorld"
 
@@ -816,6 +838,9 @@ vendor:
   permission:
     tab: "Lists"
     name: "Vendors"
+
+vendor-subsidiary-relationship:
+  permission: *subsidiaries-permission
 
 ## VENDOR CATEGORY
 vendor-category:

@@ -40,6 +40,7 @@ attributes:
   - name: "browser_time"
     type: "date-time"
     description: ""
+    primary-key: true
     replication-key: true  
 
   - name: "account_ids"
@@ -83,6 +84,7 @@ attributes:
   - name: "poll_id"
     type: "string"
     description: ""
+    primary-key: true
     foreign-key-id: "poll-id"
 
   - name: "poll_response"

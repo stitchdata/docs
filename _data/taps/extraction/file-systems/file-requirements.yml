@@ -26,7 +26,7 @@ encodings: &encodings |
 
 
 attributes:
-  - name: "First-row header"
+  - name: "First-row header (CSV files only)"
     all: |
       1. **Every file must have a first-row header containing column names.** Stitch assumes that the first row in any file is a header row, and will present these values as columns available for selection.
 
@@ -36,19 +36,26 @@ attributes:
 
          **Note**: This is not the same as configuring multiple tables. See the [Search pattern](#define-table-search-pattern-and-name) section for examples.
   - name: "File types"
-    all: |
+    amazon-s3-csv: |
+      - CSV (`.csv`)
+      - Text (`.txt`)
+      - JSONL (`.jsonl`)
+    sftp: |
       - CSV (`.csv`)
       - Text (`.txt`)
 
   - name: "Compression types"
-    amazon-s3-csv: "None"
+    amazon-s3-csv:  |
+      These files must be correctly compressed or errors will surface during Extraction.
+
+      - gzip compressed files (`.gz`)
     sftp: |
       These files must be correctly compressed or errors will surface during Extraction.
 
       - gzip compressed files (`.gz`)
       - zip compressed archive (`.zip`)
 
-  - name: "Delimiters"
+  - name: "Delimiters (CSV files only)"
     all: *delimiters
 
   - name: "Character encoding"

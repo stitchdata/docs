@@ -48,6 +48,10 @@ attributes:
     type: "string"
     description: ""
 
+  - name: "emailHash"
+    type: "string"
+    description: ""
+
   - name: "emailProvider"
     type: "string"
     description: ""
@@ -208,13 +212,5 @@ attributes:
 
   - name: "username"
     type: "string"
-    description: ""
-
-  - name: "validateSend"
-    type: "boolean"
-    description: ""
-
-  - name: "validateSync"
-    type: "boolean"
     description: ""
 ---

@@ -113,6 +113,16 @@ attributes:
   - name: "clicks"
     type: "integer"
     description: "The number of clicks on your ads."
+  
+  - name: "conversion_values"
+    type: "array"
+    description: ""
+    subattributes: *action-values
+  
+  - name: "conversions"
+    type: "array"
+    description: ""
+    subattributes: *action-values
 
   - name: "date_stop"
     type: "date-time"

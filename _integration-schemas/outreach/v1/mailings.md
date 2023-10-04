@@ -39,10 +39,6 @@ attributes:
     type: "date-time"
     description: ""
 
-  - name: "calendarId"
-    type: "integer"
-    description: ""
-
   - name: "clickCount"
     type: "integer"
     description: ""
@@ -65,6 +61,10 @@ attributes:
 
   - name: "errorReason"
     type: "string"
+    description: ""
+
+  - name: "followUpSequenceId"
+    type: "integer"
     description: ""
 
   - name: "followUpTaskScheduledAt"
@@ -131,8 +131,12 @@ attributes:
     foreign-key-id: "prospect-id"
 
   - name: "references"
-    type: "string"
+    type: "array"
     description: ""
+    subattributes:
+    - name: "items"
+      type: "string"
+      description: ""
 
   - name: "repliedAt"
     type: "date-time"
@@ -200,5 +204,9 @@ attributes:
 
   - name: "unsubscribedAt"
     type: "date-time"
+    description: ""
+
+  - name: "userId"
+    type: "integer"
     description: ""
 ---

@@ -1,0 +1,61 @@
+{% assign integration = page %}
+{% assign latest-version = site.data.taps.versions.[integration.name].latest-version %}
+
+{% if integration.collection == "saas-integrations" %}
+    {% if integration.removal-steps %}
+        {% assign integration = page %}
+    {% else %}
+        {% if integration.this-version != latest-version %}
+            {% assign integration = site.saas-integrations | where:"name",integration.name | first %}
+        {% endif %}
+    {% endif %}
+{% endif %}
+
+<h2 id="remove">Removing the {{ integration.display_name }} integration</h2>
+
+    {% if integration.removal-info %}
+    {{ integration.removal-info | flatify | markdownify }}
+    {% endif %}
+
+<!-- Markdown gets cranky about spacing, so keep everything flush left. Otherwise the formatting won't render. -->
+
+<!-- REMOVAL INSTRUCTION STEPS -->
+{% for step in integration.removal-steps %}
+    {% capture section-step-number %}
+        {{ forloop.index }}
+    {% endcapture %}
+
+    <h3 id="{{ step.anchor | flatify }}">
+        Step {{ forloop.index }}: {{ step.title | flatify }}
+    </h3>
+
+    {{ step.content | flatify | markdownify }}
+
+    {% if step.substeps %}
+        {% for substep in step.substeps %}
+            {% capture substep-number %}
+                {{ forloop.index }}
+            {% endcapture %}
+
+            <h4 id="{{ substep.anchor }}">
+                Step {{ section-step-number | strip }}.{{ substep-number | strip }}: {{ substep.title | flatify }}
+            </h4>
+
+            {{ substep.content | flatify | markdownify }}
+
+            {% if substep.sub-substeps %}
+                {% for sub-substep in substep.sub-substeps %}
+                    {% capture sub-substep-number %}
+                        {{ forloop.index }}
+                    {% endcapture %}
+
+                    <h5 id="{{ sub-substep.anchor }}">
+                        Step {{ section-step-number | strip }}.{{ substep-number | strip }}.{{ sub-substep-number | strip }}: {{ sub-substep.title | flatify }}
+                    </h5>
+
+                    {{ sub-substep.content | flatify | markdownify }}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}

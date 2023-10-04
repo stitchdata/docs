@@ -49,7 +49,15 @@ attributes:
     type: "date-time"
     description: ""
 
+  - name: "dialedAt"
+    type: "date-time"
+    description: ""
+
   - name: "direction"
+    type: "string"
+    description: ""
+
+  - name: "externalVendor"
     type: "string"
     description: ""
 
@@ -68,6 +76,10 @@ attributes:
 
   - name: "outcome"
     type: "string"
+    description: ""
+
+  - name: "phoneNumberId"
+    type: "integer"
     description: ""
 
   - name: "prospectId"
@@ -102,6 +114,10 @@ attributes:
     description: ""
     foreign-key-id: "sequence-step-id"
 
+  - name: "shouldRecordCall"
+    type: "boolean"
+    description: ""
+
   - name: "state"
     type: "string"
     description: ""
@@ -114,9 +130,9 @@ attributes:
     type: "array"
     description: ""
     subattributes:
-      - name: "value"
-        type: "string"
-        description: ""
+    - name: "items"
+      type: "string"
+      description: ""
 
   - name: "taskId"
     type: "integer"
@@ -124,6 +140,10 @@ attributes:
     foreign-key-id: "task-id"
 
   - name: "to"
+    type: "string"
+    description: ""
+
+  - name: "uid"
     type: "string"
     description: ""
 
@@ -135,6 +155,10 @@ attributes:
     type: "integer"
     description: ""
     foreign-key-id: "user-id"
+
+  - name: "vendorCallId"
+    type: "string"
+    description: ""
 
   - name: "voicemailRecordingUrl"
     type: "string"

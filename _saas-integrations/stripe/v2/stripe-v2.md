@@ -8,11 +8,11 @@
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
 title: Stripe (v2)
-permalink: /integrations/saas/stripe
+permalink: /integrations/saas/stripe/v2
 keywords: stripe, integration, schema, etl stripe, stripe etl, stripe schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Stripe integration."
 layout: singer
-# input: false
+input: false
 
 key: "stripe-setup"
 
