@@ -153,7 +153,6 @@ def getIntegrationData(repo):
 
 def getFiles(repo, branch):
 
-    # Get all PRs that are closed and had the default branch as base
     contents_api = host + '/repos/singer-io/' + repo + '/zipball'
 
     if branch != '' and branch != 'all':
