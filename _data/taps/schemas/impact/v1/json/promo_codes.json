@@ -154,35 +154,71 @@
       ]
     },
     "deal_products": {
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "product_after_price_amount": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          },
+          "product_after_price_currency": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "product_before_price_amount": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          },
+          "product_before_price_currency": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "product_image_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "product_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
       "type": [
         "array",
         "null"
       ]
     },
     "deal_restricted_media_partner_groups": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "deal_restricted_media_partners": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "deal_scope": {

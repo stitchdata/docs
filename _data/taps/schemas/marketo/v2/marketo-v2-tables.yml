@@ -40,6 +40,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  status: not_found
 - name: leads
   description: 'The `{{ table.name }}` table contains info about your {{ integration.display_name
     }} leads.
@@ -81,6 +82,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedAt
+  status: not_found
 - name: programs
   description: 'The `{{ table.name }}` table contains info about your {{ integration.display_name
     }} programs. Programs can be parents to most types of assets in {{ integration.display_name
@@ -95,12 +97,4 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedAt
-- name: campaigns
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+  status: not_found

@@ -3,6 +3,9 @@
   "additionalProperties": false,
   "properties": {
     "additional_image_urls": {
+      "items": {
+        "type": "string"
+      },
       "type": [
         "array",
         "null"
@@ -27,6 +30,9 @@
       ]
     },
     "bullets": {
+      "items": {
+        "type": "string"
+      },
       "type": [
         "array",
         "null"
@@ -51,6 +57,9 @@
       ]
     },
     "colors": {
+      "items": {
+        "type": "string"
+      },
       "type": [
         "array",
         "null"
@@ -131,6 +140,9 @@
       ]
     },
     "labels": {
+      "items": {
+        "type": "string"
+      },
       "type": [
         "array",
         "null"

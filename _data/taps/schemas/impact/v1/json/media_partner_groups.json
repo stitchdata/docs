@@ -15,6 +15,30 @@
       ]
     },
     "media_partners": {
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "partner_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "partner_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "partner_uri": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
       "type": [
         "array",
         "null"
