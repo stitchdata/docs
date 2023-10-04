@@ -210,8 +210,6 @@ def replaceRefs(json_content, folder, filepath):
         else:
             content = sameFileRef(path, filepath, folder)
             json_content = json_content.replace(element, content)
-
-    
     
     if '"format": "' in json_content:
         json_content = replaceFormat(json_content)
@@ -241,19 +239,7 @@ def formatJSON(folder, json_output_folder):
                     try:
                         props = content['properties']
                         status = 'keep'
-                    
-                    except:
-                        try:
-                            props = content['schema']['properties']
-                            json_content = json.dumps(content['schema'])
-                            status = 'keep'
 
-                        except:
-                            status = 'ignore'
-                            report = 'JSON file {} ignored'.format(file)
-                            ignored.append(report)
-                    
-                    if status == 'keep':
                         table_list.append(file.replace('.json', ''))
 
                         if '"format": "' in json_content:
@@ -265,7 +251,29 @@ def formatJSON(folder, json_output_folder):
                         content = json.loads(json_content)
                         with open(json_output_folder + '/' + file, 'w') as j:
                             json.dump(content, j, indent=2)
+                    
+                    except:
+                        try:
+                            props = content['schema']['properties']
+                            json_content = json.dumps(content['schema'])
+                            status = 'keep'
 
+                            table_list.append(file.replace('.json', ''))
 
-    
+                            if '"format": "' in json_content:
+                                json_content = replaceFormat(json_content)
+
+                            while '"anyOf"' in json_content:
+                                json_content = replaceAnyof(json_content)
+                            
+                            content = json.loads(json_content)
+                            with open(json_output_folder + '/' + file, 'w') as j:
+                                json.dump(content, j, indent=2)
+
+                        except:
+                            status = 'ignore'
+                            report = 'JSON file {} ignored'.format(file)
+                            ignored.append(report)
+                        
+
     return [table_list, ignored]
