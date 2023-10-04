@@ -22,6 +22,33 @@
       "additionalProperties": false,
       "properties": {
         "actions": {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "email": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "list": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            }
+          },
           "type": [
             "array",
             "null"
@@ -270,61 +297,55 @@
       }
     },
     "cfields": {
-      "anyOf": [
-        {
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        {
-          "type": "array",
-          "items": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "type": {
             "type": [
               "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "header": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "default_text": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "html": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "class": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "required": {
-                "type": [
-                  "null",
-                  "boolean"
-                ]
-              }
-            }
+              "string"
+            ]
+          },
+          "header": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "default_text": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "html": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "class": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "required": {
+            "type": [
+              "null",
+              "boolean"
+            ]
           }
         }
+      },
+      "type": [
+        "null",
+        "object",
+        "array"
       ]
     },
     "parentformid": {
@@ -376,24 +397,20 @@
       ]
     },
     "recent": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "object",
-              "string"
-            ],
-            "additionalProperties": true,
-            "properties": {
-              "id": {}
-            }
-          }
-        },
-        {
-          "type": "null"
+      "items": {
+        "type": [
+          "null",
+          "object",
+          "string"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "id": {}
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "contacts": {

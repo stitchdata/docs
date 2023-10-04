@@ -50,6 +50,9 @@
       ]
     },
     "to_emails": {
+      "items": {
+        "type": "string"
+      },
       "type": [
         "array",
         "null"
@@ -62,35 +65,33 @@
       ]
     },
     "cc_emails": {
+      "items": {
+        "type": "string"
+      },
       "type": [
         "array",
         "null"
       ]
     },
     "bcc_emails": {
+      "items": {
+        "type": "string"
+      },
       "type": [
         "array",
         "null"
       ]
     },
     "created_at": {
-      "anyOf": [
-        {
-          "type": "date-time"
-        },
-        {
-          "type": "null"
-        }
+      "type": [
+        "date-time",
+        "null"
       ]
     },
     "updated_at": {
-      "anyOf": [
-        {
-          "type": "date-time"
-        },
-        {
-          "type": "null"
-        }
+      "type": [
+        "date-time",
+        "null"
       ]
     }
   }

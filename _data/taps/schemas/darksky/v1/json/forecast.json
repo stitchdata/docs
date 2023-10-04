@@ -73,6 +73,131 @@
           ]
         },
         "data": {
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "time": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "summary": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "icon": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "precip_intensity": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "precip_probability": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "precip_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "temperature": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "apparent_temperature": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "dew_point": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "humidity": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "pressure": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "wind_speed": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "wind_gust": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "wind_bearing": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "cloud_cover": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "uv_index": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "visibility": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "ozone": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              }
+            }
+          },
           "type": [
             "array",
             "null"
@@ -351,16 +476,12 @@
           ]
         },
         "sources": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "type": "null"
-            }
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
           ]
         }
       }

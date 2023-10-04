@@ -186,6 +186,48 @@
       ]
     },
     "hearts": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "gid": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "user": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "gid": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "resource_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        }
+      },
       "type": [
         "array",
         "null"
@@ -210,82 +252,120 @@
       ]
     },
     "likes": {
-      "type": [
-        "array",
-        "null"
-      ]
-    },
-    "memberships": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "gid": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "user": {
             "type": [
               "null",
               "object"
             ],
             "additionalProperties": false,
             "properties": {
-              "project": {
+              "gid": {
                 "type": [
                   "null",
-                  "object"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "gid": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "resource_type": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "name": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
+                  "string"
+                ]
               },
-              "section": {
+              "resource_type": {
                 "type": [
                   "null",
-                  "object"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "gid": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "resource_type": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "name": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
               }
             }
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "memberships": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "project": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "gid": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "resource_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "section": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "gid": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "resource_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "modified_at": {

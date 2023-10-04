@@ -27,6 +27,78 @@
       ]
     },
     "addresses": {
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "country": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "parent_key": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "city": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "latitude": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "postcode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "index_in_list": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "encoded_key": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "region": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "line2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "line1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "longitude": {
+            "type": [
+              "null",
+              "number"
+            ]
+          }
+        }
+      },
       "type": [
         "array",
         "null"
@@ -129,67 +201,63 @@
       ]
     },
     "id_documents": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "identification_document_template_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "issuing_authority": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "client_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "document_type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "index_in_list": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "valid_until": {
-                "type": [
-                  "null",
-                  "date"
-                ]
-              },
-              "encoded_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "document_id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "identification_document_template_key": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "issuing_authority": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "client_key": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "document_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "index_in_list": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "valid_until": {
+            "type": [
+              "null",
+              "date"
+            ]
+          },
+          "encoded_key": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "document_id": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "profile_picture_key": {
@@ -229,37 +297,33 @@
       ]
     },
     "custom_fields": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "field_set_id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "field_set_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     }
   }

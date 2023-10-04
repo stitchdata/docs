@@ -306,6 +306,33 @@
       ]
     },
     "emails": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "email": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "verified": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        }
+      },
       "type": [
         "array",
         "null"
@@ -318,34 +345,30 @@
       ]
     },
     "external_ids": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "external_id": {
             "type": [
               "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "external_id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "verified": {
-                "type": [
-                  "null",
-                  "boolean"
-                ]
-              }
-            }
+              "string"
+            ]
+          },
+          "verified": {
+            "type": [
+              "null",
+              "boolean"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "facebook_ids": {
@@ -430,19 +453,15 @@
           }
         },
         "tags": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            },
-            {
-              "type": "null"
-            }
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "array",
+            "null"
           ]
         }
       },
@@ -620,40 +639,36 @@
       }
     },
     "phones": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "phone": {
             "type": [
               "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "phone": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "verified": {
-                "type": [
-                  "null",
-                  "boolean"
-                ]
-              }
-            }
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "verified": {
+            "type": [
+              "null",
+              "boolean"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "preview": {
@@ -702,55 +717,51 @@
       ]
     },
     "recent_items": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "meta": {
             "type": [
               "null",
               "object"
             ],
             "additionalProperties": false,
             "properties": {
-              "id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "meta": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "klass_name": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              },
-              "type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "updated_at": {
+              "klass_name": {
                 "type": [
                   "null",
                   "string"
                 ]
               }
             }
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "updated_at": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "recent_location": {
@@ -795,19 +806,15 @@
           "additionalProperties": false,
           "properties": {
             "sent_by_teams": {
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                },
-                {
-                  "type": "null"
-                }
+              "items": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": [
+                "array",
+                "null"
               ]
             }
           }
@@ -820,19 +827,15 @@
           "additionalProperties": false,
           "properties": {
             "sent_by_teams": {
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                },
-                {
-                  "type": "null"
-                }
+              "items": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": [
+                "array",
+                "null"
               ]
             }
           }

@@ -93,6 +93,42 @@
       ]
     },
     "custom_field_sets": {
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "custom_field_set_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "custom_field_values": {
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "custom_field_id": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "custom_field_value": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              }
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          }
+        }
+      },
       "type": [
         "array",
         "null"

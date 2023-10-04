@@ -10,12 +10,54 @@
       "additionalProperties": false,
       "properties": {
         "included_targeting_facets": {
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "values": {
+                "items": {
+                  "type": "string"
+                },
+                "type": [
+                  "array",
+                  "null"
+                ]
+              }
+            }
+          },
           "type": [
             "array",
             "null"
           ]
         },
         "excluded_targeting_facets": {
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "values": {
+                "items": {
+                  "type": "string"
+                },
+                "type": [
+                  "array",
+                  "null"
+                ]
+              }
+            }
+          },
           "type": [
             "array",
             "null"
@@ -38,6 +80,27 @@
           "additionalProperties": false,
           "properties": {
             "and": {
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "values": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": [
+                      "array",
+                      "null"
+                    ]
+                  }
+                }
+              },
               "type": [
                 "array",
                 "null"
@@ -112,16 +175,12 @@
       }
     },
     "serving_statuses": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "type": {

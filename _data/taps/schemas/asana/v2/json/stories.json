@@ -234,6 +234,48 @@
       ]
     },
     "hearts": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "gid": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "user": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "gid": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "resource_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        }
+      },
       "type": [
         "array",
         "null"
@@ -252,6 +294,48 @@
       ]
     },
     "likes": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "gid": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "user": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "gid": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "resource_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        }
+      },
       "type": [
         "array",
         "null"
@@ -636,70 +720,66 @@
       ]
     },
     "previews": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "fallback": {
             "type": [
               "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "fallback": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "footer": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "header": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "header_link": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "html_text": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "text": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "title": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "title_link": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
+              "string"
+            ]
+          },
+          "footer": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "header": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "header_link": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "html_text": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "text": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "title_link": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "project": {

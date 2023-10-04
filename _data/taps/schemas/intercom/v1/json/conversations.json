@@ -237,6 +237,54 @@
       "additionalProperties": false,
       "properties": {
         "attachments": {
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "content_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "filesize": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "height": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "width": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            }
+          },
           "type": [
             "array",
             "null"
@@ -416,34 +464,30 @@
       }
     },
     "customers": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
             "type": [
               "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "id": {

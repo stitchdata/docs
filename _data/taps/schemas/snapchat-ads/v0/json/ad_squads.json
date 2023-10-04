@@ -70,38 +70,65 @@
           ]
         },
         "demographics": {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": true,
+            "properties": {}
+          },
           "type": [
             "array",
             "null"
           ]
         },
         "devices": {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": true,
+            "properties": {}
+          },
           "type": [
             "array",
             "null"
           ]
         },
         "geos": {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": true,
+            "properties": {}
+          },
           "type": [
             "array",
             "null"
           ]
         },
         "interests": {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": true,
+            "properties": {}
+          },
           "type": [
             "array",
             "null"
           ]
         },
         "segments": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {}
-            },
-            {
-              "type": "null"
-            }
+          "type": [
+            "array",
+            "null"
           ]
         }
       }
@@ -145,16 +172,12 @@
           "additionalProperties": true,
           "properties": {
             "content_types": {
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                {
-                  "type": "null"
-                }
+              "items": {
+                "type": "string"
+              },
+              "type": [
+                "array",
+                "null"
               ]
             }
           }
@@ -167,16 +190,12 @@
           "additionalProperties": true,
           "properties": {
             "content_types": {
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                {
-                  "type": "null"
-                }
+              "items": {
+                "type": "string"
+              },
+              "type": [
+                "array",
+                "null"
               ]
             }
           }

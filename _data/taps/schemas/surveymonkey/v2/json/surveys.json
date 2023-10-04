@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "nickname": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "date_modified": {
+      "type": "date-time"
+    },
+    "response_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "language": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "question_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "date_modified"
+  ]
+}

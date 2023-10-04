@@ -21,6 +21,81 @@
       ]
     },
     "line_items": {
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "actions": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "campaign_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "campaign_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "due_date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "event_month_year": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "net_item_amount": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          },
+          "paid_date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "total_item_amount": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          },
+          "vat_item_amount": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          }
+        }
+      },
       "type": [
         "array",
         "null"

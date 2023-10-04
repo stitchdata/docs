@@ -162,6 +162,24 @@
       ]
     },
     "qualifier_renamers": {
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "qualifier": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "rename": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
       "type": [
         "array",
         "null"
@@ -181,59 +199,55 @@
           ]
         },
         "components": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "object",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "item_identifier": {
+                "type": [
+                  "null",
+                  "object"
+                ],
                 "additionalProperties": false,
                 "properties": {
-                  "item_identifier": {
-                    "type": [
-                      "null",
-                      "object"
-                    ],
-                    "additionalProperties": false,
-                    "properties": {
-                      "sku": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "id": {
-                        "type": [
-                          "null",
-                          "integer"
-                        ]
-                      }
-                    }
-                  },
-                  "qualifier": {
+                  "sku": {
                     "type": [
                       "null",
                       "string"
                     ]
                   },
-                  "qty": {
+                  "id": {
                     "type": [
                       "null",
-                      "number"
-                    ],
-                    "multipleOf": 1e-16
-                  },
-                  "non_sku_material": {
-                    "type": [
-                      "null",
-                      "string"
+                      "integer"
                     ]
                   }
                 }
+              },
+              "qualifier": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "qty": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-16
+              },
+              "non_sku_material": {
+                "type": [
+                  "null",
+                  "string"
+                ]
               }
-            },
-            {
-              "type": "null"
             }
+          },
+          "type": [
+            "array",
+            "null"
           ]
         }
       }
@@ -826,25 +840,21 @@
       }
     },
     "item": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "qualifier": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "qualifier": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     }
   }

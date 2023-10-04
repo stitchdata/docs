@@ -6,6 +6,9 @@
   "additionalProperties": true,
   "properties": {
     "business_phones": {
+      "items": {
+        "type": "string"
+      },
       "type": [
         "array",
         "null"

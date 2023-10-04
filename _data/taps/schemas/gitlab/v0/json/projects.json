@@ -178,51 +178,43 @@
       "type": "object",
       "properties": {
         "group_access": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "access_level": {
-                  "type": [
-                    "null",
-                    "integer"
-                  ]
-                },
-                "notification_level": {
-                  "type": [
-                    "null",
-                    "integer"
-                  ]
-                }
-              }
+          "properties": {
+            "access_level": {
+              "type": [
+                "null",
+                "integer"
+              ]
             },
-            {
-              "type": "null"
+            "notification_level": {
+              "type": [
+                "null",
+                "integer"
+              ]
             }
+          },
+          "type": [
+            "object",
+            "null"
           ]
         },
         "project_access": {
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "access_level": {
-                  "type": [
-                    "null",
-                    "integer"
-                  ]
-                },
-                "notification_level": {
-                  "type": [
-                    "null",
-                    "integer"
-                  ]
-                }
-              }
+          "properties": {
+            "access_level": {
+              "type": [
+                "null",
+                "integer"
+              ]
             },
-            {
-              "type": "null"
+            "notification_level": {
+              "type": [
+                "null",
+                "integer"
+              ]
             }
+          },
+          "type": [
+            "object",
+            "null"
           ]
         }
       }
@@ -252,27 +244,23 @@
       ]
     },
     "shared_with_groups": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "group_id": {
-                "type": "integer"
-              },
-              "group_name": {
-                "type": "string"
-              },
-              "group_access_level": {
-                "type": "integer"
-              }
-            }
+      "items": {
+        "type": "object",
+        "properties": {
+          "group_id": {
+            "type": "integer"
+          },
+          "group_name": {
+            "type": "string"
+          },
+          "group_access_level": {
+            "type": "integer"
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "snippets_enabled": {
@@ -294,16 +282,12 @@
       ]
     },
     "tag_list": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "visibility_level": {

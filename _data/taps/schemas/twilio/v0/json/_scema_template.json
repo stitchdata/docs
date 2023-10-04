@@ -55,22 +55,39 @@
       }
     },
     "nested_array": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
       "type": [
         "array",
         "null"
       ]
     },
     "single_field_array": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "ADD_FIELDS_HERE": ""

@@ -111,19 +111,15 @@
       ]
     },
     "order_products": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          }
-        }
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
       ]
     },
     "customer": {

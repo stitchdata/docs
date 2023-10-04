@@ -96,6 +96,12 @@
       ]
     },
     "members": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
       "type": [
         "array",
         "null"
@@ -156,19 +162,15 @@
       ]
     },
     "role_groups": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        {
-          "type": "null"
-        }
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "type": {

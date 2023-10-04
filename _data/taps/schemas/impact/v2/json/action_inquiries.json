@@ -33,6 +33,30 @@
       ]
     },
     "comments": {
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "comment": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "user": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
       "type": [
         "array",
         "null"

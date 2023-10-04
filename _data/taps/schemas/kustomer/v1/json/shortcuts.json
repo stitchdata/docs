@@ -192,6 +192,111 @@
           "additionalProperties": false,
           "properties": {
             "blocks": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "data": {
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "depth": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "entity_ranges": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "key": {
+                          "type": [
+                            "null",
+                            "integer"
+                          ]
+                        },
+                        "length": {
+                          "type": [
+                            "null",
+                            "integer"
+                          ]
+                        },
+                        "offset": {
+                          "type": [
+                            "null",
+                            "integer"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "array",
+                      "null"
+                    ]
+                  },
+                  "inline_style_ranges": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "length": {
+                          "type": [
+                            "null",
+                            "integer"
+                          ]
+                        },
+                        "offset": {
+                          "type": [
+                            "null",
+                            "integer"
+                          ]
+                        },
+                        "style": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "array",
+                      "null"
+                    ]
+                  },
+                  "key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "text": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
               "type": [
                 "array",
                 "null"

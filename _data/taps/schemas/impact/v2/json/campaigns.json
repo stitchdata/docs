@@ -13,6 +13,12 @@
           ]
         },
         "additional_sub_categories": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "array",
             "null"
@@ -25,6 +31,12 @@
           ]
         },
         "primary_sub_categories": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "array",
             "null"
@@ -33,43 +45,39 @@
       }
     },
     "company_contacts": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "email_address": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "first_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "last_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "phone_number": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "email_address": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "first_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "last_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "phone_number": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "direct_tracking_settings": {
@@ -242,37 +250,33 @@
       "additionalProperties": false,
       "properties": {
         "additional_related_links": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "link_display_name": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "link_type": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "link_url": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "link_display_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "link_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "link_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
               }
-            },
-            {
-              "type": "null"
             }
+          },
+          "type": [
+            "array",
+            "null"
           ]
         },
         "company_homepage": {

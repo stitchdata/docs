@@ -33,6 +33,27 @@
       ]
     },
     "promotions": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
       "type": [
         "array",
         "null"
@@ -45,40 +66,36 @@
       ]
     },
     "private_affiliates": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "affiliate_id": {
             "type": [
               "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "affiliate_id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "first_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "last_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
+              "integer"
+            ]
+          },
+          "first_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "last_name": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "allow_deep_link": {

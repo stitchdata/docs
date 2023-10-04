@@ -75,87 +75,82 @@
       ]
     },
     "review_status_reasons": {
+      "items": {
+        "type": "string"
+      },
       "type": [
         "array",
         "null"
       ]
     },
     "third_party_paid_impression_tracking_urls": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "tracking_url_metadata": {
             "type": [
               "null",
               "object"
             ],
-            "additionalProperties": false,
-            "properties": {
-              "tracking_url_metadata": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "additionalProperties": true,
-                "properties": {}
-              },
-              "expanded_tracking_url": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "tracking_url": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
+            "additionalProperties": true,
+            "properties": {}
+          },
+          "expanded_tracking_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tracking_url": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "third_party_swipe_tracking_urls": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "tracking_url_metadata": {
             "type": [
               "null",
               "object"
             ],
-            "additionalProperties": false,
-            "properties": {
-              "tracking_url_metadata": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "additionalProperties": true,
-                "properties": {}
-              },
-              "expanded_tracking_url": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "tracking_url": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
+            "additionalProperties": true,
+            "properties": {}
+          },
+          "expanded_tracking_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tracking_url": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     }
   }

@@ -231,6 +231,114 @@
       }
     },
     "other_contacts": {
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "contact_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "company_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "address1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "address2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "city": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "state": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "zip": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "country": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "phone_number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "fax": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "email_address": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "dept": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "address_status": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        }
+      },
       "type": [
         "array",
         "null"
@@ -249,44 +357,36 @@
       ]
     },
     "groups": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "facilities": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              }
-            }
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "primary_facility_identifier": {
@@ -789,59 +889,51 @@
               "additionalProperties": false,
               "properties": {
                 "defs": {
-                  "anyOf": [
-                    {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "required": {
-                            "type": [
-                              "null",
-                              "boolean"
-                            ]
-                          }
-                        }
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "required": {
+                        "type": [
+                          "null",
+                          "boolean"
+                        ]
                       }
-                    },
-                    {
-                      "type": "null"
                     }
+                  },
+                  "type": [
+                    "array",
+                    "null"
                   ]
                 },
                 "item_defs": {
-                  "anyOf": [
-                    {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "required": {
-                            "type": [
-                              "null",
-                              "boolean"
-                            ]
-                          }
-                        }
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "required": {
+                        "type": [
+                          "null",
+                          "boolean"
+                        ]
                       }
-                    },
-                    {
-                      "type": "null"
                     }
+                  },
+                  "type": [
+                    "array",
+                    "null"
                   ]
                 }
               }
@@ -856,59 +948,51 @@
           "additionalProperties": false,
           "properties": {
             "defs": {
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "name": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "required": {
-                        "type": [
-                          "null",
-                          "boolean"
-                        ]
-                      }
-                    }
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "required": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
                   }
-                },
-                {
-                  "type": "null"
                 }
+              },
+              "type": [
+                "array",
+                "null"
               ]
             },
             "item_defs": {
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "name": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "required": {
-                        "type": [
-                          "null",
-                          "boolean"
-                        ]
-                      }
-                    }
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "required": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
                   }
-                },
-                {
-                  "type": "null"
                 }
+              },
+              "type": [
+                "array",
+                "null"
               ]
             }
           }

@@ -142,25 +142,27 @@
       ]
     },
     "top_hashtags": {
+      "items": {
+        "type": "string"
+      },
       "type": [
         "array",
         "null"
       ]
     },
     "top_tweets": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "integer"
-          }
-        },
-        {
-          "type": "null"
-        }
+      "items": {
+        "type": "integer"
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "top_users": {
+      "items": {
+        "type": "string"
+      },
       "type": [
         "array",
         "null"

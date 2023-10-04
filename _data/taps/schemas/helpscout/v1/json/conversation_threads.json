@@ -216,18 +216,27 @@
       ]
     },
     "to": {
+      "items": {
+        "type": "string"
+      },
       "type": [
         "array",
         "null"
       ]
     },
     "cc": {
+      "items": {
+        "type": "string"
+      },
       "type": [
         "array",
         "null"
       ]
     },
     "bcc": {
+      "items": {
+        "type": "string"
+      },
       "type": [
         "array",
         "null"
@@ -246,55 +255,51 @@
       ]
     },
     "attachments": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "filename": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "mime_type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "width": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "height": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "size": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              }
-            }
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "filename": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "mime_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "width": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "height": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "size": {
+            "type": [
+              "null",
+              "integer"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     }
   }

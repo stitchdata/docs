@@ -106,6 +106,9 @@
       "additionalProperties": false,
       "properties": {
         "ids": {
+          "items": {
+            "type": "integer"
+          },
           "type": [
             "array",
             "null"

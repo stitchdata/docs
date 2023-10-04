@@ -21,6 +21,70 @@
       ]
     },
     "channels": {
+      "items": {
+        "channel_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "menu": {
+          "properties": {
+            "deleted": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "hidden": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "menu_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "output_msg": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "parent_id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "position": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
       "type": [
         "null",
         "array",
@@ -94,19 +158,15 @@
       ]
     },
     "roles": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        {
-          "type": "null"
-        }
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "status": {
@@ -148,58 +208,54 @@
       ]
     },
     "teams": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "agents_count": {
             "type": [
               "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "agents_count": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "deleted": {
-                "type": [
-                  "null",
-                  "boolean"
-                ]
-              },
-              "id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "parent_id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "position": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              }
-            }
+              "integer"
+            ]
+          },
+          "deleted": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "parent_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "position": {
+            "type": [
+              "null",
+              "integer"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "wrap_up": {

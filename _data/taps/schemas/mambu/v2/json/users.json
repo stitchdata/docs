@@ -40,6 +40,12 @@
           ]
         },
         "permissions": {
+          "items": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
           "type": [
             "array",
             "null"
@@ -64,25 +70,21 @@
           ]
         },
         "managed_branches": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "branch_key": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "branch_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
               }
-            },
-            {
-              "type": "null"
             }
+          },
+          "type": [
+            "array",
+            "null"
           ]
         },
         "teller_access": {
@@ -190,37 +192,33 @@
       ]
     },
     "custom_fields": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "field_set_id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "field_set_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     }
   }

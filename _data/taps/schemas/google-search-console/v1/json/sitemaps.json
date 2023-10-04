@@ -57,6 +57,30 @@
       ]
     },
     "contents": {
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "submitted": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "indexed": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        }
+      },
       "type": [
         "array",
         "null"

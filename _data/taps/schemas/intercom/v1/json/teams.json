@@ -3,6 +3,9 @@
   "additionalProperties": false,
   "properties": {
     "admin_ids": {
+      "items": {
+        "type": "integer"
+      },
       "type": [
         "array",
         "null"

@@ -27,6 +27,117 @@
       ]
     },
     "steps": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "avg_time": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "goal": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "overall_conv_ratio": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "step_conv_ratio": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "event": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "step_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "time_buckets_from_start": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "lower": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "higher": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "buckets": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": [
+                  "array",
+                  "null"
+                ]
+              }
+            }
+          },
+          "time_buckets_from_prev": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "lower": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "higher": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "buckets": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": [
+                  "array",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      },
       "type": [
         "array",
         "null"

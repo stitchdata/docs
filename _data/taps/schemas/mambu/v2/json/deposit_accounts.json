@@ -67,6 +67,38 @@
               "maximum": 1000000000000000
             },
             "interest_rate_tiers": {
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ending_balance": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "interest_rate": {
+                    "type": [
+                      "null",
+                      "number"
+                    ],
+                    "minimum": -1000000000000000,
+                    "maximum": 1000000000000000
+                  },
+                  "encoded_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "ending_day": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                }
+              },
               "type": [
                 "array",
                 "null"
@@ -106,31 +138,27 @@
           "additionalProperties": false,
           "properties": {
             "interest_payment_dates": {
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "month": {
-                        "type": [
-                          "null",
-                          "integer"
-                        ]
-                      },
-                      "day": {
-                        "type": [
-                          "null",
-                          "integer"
-                        ]
-                      }
-                    }
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "month": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "day": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
                   }
-                },
-                {
-                  "type": "null"
                 }
+              },
+              "type": [
+                "array",
+                "null"
               ]
             },
             "interest_payment_point": {
@@ -324,6 +352,38 @@
               ]
             },
             "interest_rate_tiers": {
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "ending_balance": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "interest_rate": {
+                    "type": [
+                      "null",
+                      "number"
+                    ],
+                    "minimum": -1000000000000000,
+                    "maximum": 1000000000000000
+                  },
+                  "encoded_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "ending_day": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                }
+              },
               "type": [
                 "array",
                 "null"
@@ -496,50 +556,42 @@
       ]
     },
     "linked_settlement_account_keys": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "custom_fields": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "field_set_id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "field_set_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     }
   }

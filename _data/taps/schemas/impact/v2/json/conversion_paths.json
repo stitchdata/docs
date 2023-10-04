@@ -78,494 +78,511 @@
       ]
     },
     "referral_counts": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
       "type": [
         "array",
         "null"
       ]
     },
     "events": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
             "type": [
               "null",
-              "object"
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sub_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "event_date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "step": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "position_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "site_version": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "site_category": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "landing_page": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "customer_status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "customer_post_code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "customer_area": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "customer_city": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "customer_region": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "customer_country": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "device_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "device_family": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "browser": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "os": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "profile_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "fingerprint": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "platform": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "media_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "media_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "channel": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ad_distribution_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ad_campaign": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ad_group": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ad_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "ad_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "deal_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "deal_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "deal_scope": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "keyword": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "match_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "traffic_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ad_site_location": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sub_id_1": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "sub_id_2": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "sub_id_3": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "shared_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "referring_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "attributed_credit": {
+            "type": [
+              "null",
+              "number"
             ],
-            "additionalProperties": false,
-            "properties": {
-              "id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "sub_type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "event_date": {
-                "type": [
-                  "null",
-                  "date-time"
-                ]
-              },
-              "step": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "position_type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "site_version": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "site_category": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "landing_page": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "customer_status": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "customer_post_code": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "customer_area": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "customer_city": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "customer_region": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "customer_country": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "device_type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "device_family": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "browser": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "os": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "profile_id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "fingerprint": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "platform": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "media_id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "media_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "channel": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "ad_distribution_type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "ad_campaign": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "ad_group": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "ad_id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "ad_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "deal_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "deal_type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "deal_scope": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "keyword": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "match_type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "traffic_type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "ad_site_location": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "sub_id_1": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "sub_id_2": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "sub_id_3": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "shared_id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "referring_url": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "attributed_credit": {
-                "type": [
-                  "null",
-                  "number"
-                ],
-                "multipleOf": 1e-10
-              },
-              "attributed_revenue": {
-                "type": [
-                  "null",
-                  "number"
-                ],
-                "multipleOf": 1e-08
-              },
-              "action_id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "action_date": {
-                "type": [
-                  "null",
-                  "date-time"
-                ]
-              },
-              "action_tracker_id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "action_tracker_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "app_package_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "app_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "app_version": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "phone_number": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "order_id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "promocode": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "amount": {
-                "type": [
-                  "null",
-                  "number"
-                ],
-                "multipleOf": 1e-08
-              },
-              "payout": {
-                "type": [
-                  "null",
-                  "number"
-                ],
-                "multipleOf": 1e-08
-              },
-              "order_margin": {
-                "type": [
-                  "null",
-                  "number"
-                ],
-                "multipleOf": 1e-08
-              },
-              "order_discount": {
-                "type": [
-                  "null",
-                  "number"
-                ],
-                "multipleOf": 1e-08
-              },
-              "order_shipping": {
-                "type": [
-                  "null",
-                  "number"
-                ],
-                "multipleOf": 1e-08
-              },
-              "order_tax": {
-                "type": [
-                  "null",
-                  "number"
-                ],
-                "multipleOf": 1e-08
-              },
-              "order_vat": {
-                "type": [
-                  "null",
-                  "number"
-                ],
-                "multipleOf": 1e-08
-              },
-              "order_subtotal": {
-                "type": [
-                  "null",
-                  "number"
-                ],
-                "multipleOf": 1e-08
-              },
-              "note": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "text_1": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "text_2": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "text_3": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "numeric_1": {
-                "type": [
-                  "null",
-                  "number"
-                ],
-                "multipleOf": 1e-10
-              },
-              "numeric_2": {
-                "type": [
-                  "null",
-                  "number"
-                ],
-                "multipleOf": 1e-10
-              },
-              "numeric_3": {
-                "type": [
-                  "null",
-                  "number"
-                ],
-                "multipleOf": 1e-10
-              },
-              "money_1": {
-                "type": [
-                  "null",
-                  "number"
-                ],
-                "multipleOf": 1e-08
-              },
-              "money_2": {
-                "type": [
-                  "null",
-                  "number"
-                ],
-                "multipleOf": 1e-08
-              },
-              "money_3": {
-                "type": [
-                  "null",
-                  "number"
-                ],
-                "multipleOf": 1e-08
-              },
-              "date_1": {
-                "type": [
-                  "null",
-                  "date"
-                ]
-              },
-              "date_2": {
-                "type": [
-                  "null",
-                  "date"
-                ]
-              },
-              "date_3": {
-                "type": [
-                  "null",
-                  "date"
-                ]
-              }
-            }
+            "multipleOf": 1e-10
+          },
+          "attributed_revenue": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          },
+          "action_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "action_date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "action_tracker_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "action_tracker_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "app_package_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "app_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "app_version": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "phone_number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "order_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "promocode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "amount": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          },
+          "payout": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          },
+          "order_margin": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          },
+          "order_discount": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          },
+          "order_shipping": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          },
+          "order_tax": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          },
+          "order_vat": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          },
+          "order_subtotal": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          },
+          "note": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "text_1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "text_2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "text_3": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "numeric_1": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-10
+          },
+          "numeric_2": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-10
+          },
+          "numeric_3": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-10
+          },
+          "money_1": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          },
+          "money_2": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          },
+          "money_3": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-08
+          },
+          "date_1": {
+            "type": [
+              "null",
+              "date"
+            ]
+          },
+          "date_2": {
+            "type": [
+              "null",
+              "date"
+            ]
+          },
+          "date_3": {
+            "type": [
+              "null",
+              "date"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     }
   }

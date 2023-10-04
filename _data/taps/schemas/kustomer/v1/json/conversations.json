@@ -3,41 +3,39 @@
   "type": "object",
   "properties": {
     "assigned_teams": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
       "type": [
         "array",
         "null"
       ]
     },
     "assigned_users": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        {
-          "type": "null"
-        }
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "channels": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        {
-          "type": "null"
-        }
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "created_at": {
@@ -306,35 +304,27 @@
       "additionalProperties": false,
       "properties": {
         "assigned_teams": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            },
-            {
-              "type": "null"
-            }
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "array",
+            "null"
           ]
         },
         "assigned_users": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            },
-            {
-              "type": "null"
-            }
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "array",
+            "null"
           ]
         },
         "business_time": {
@@ -356,6 +346,12 @@
           ]
         },
         "created_by_teams": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "array",
             "null"
@@ -518,6 +514,12 @@
           ]
         },
         "created_by_teams": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "array",
             "null"
@@ -551,12 +553,24 @@
       "additionalProperties": false,
       "properties": {
         "assigned_teams": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "array",
             "null"
           ]
         },
         "assigned_users": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "array",
             "null"
@@ -581,6 +595,12 @@
           ]
         },
         "created_by_teams": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "array",
             "null"
@@ -620,12 +640,24 @@
       "additionalProperties": false,
       "properties": {
         "assigned_teams": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "array",
             "null"
           ]
         },
         "assigned_users": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "array",
             "null"
@@ -650,6 +682,12 @@
           ]
         },
         "created_by_teams": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "array",
             "null"
@@ -707,12 +745,24 @@
       "additionalProperties": false,
       "properties": {
         "assigned_teams": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "array",
             "null"
           ]
         },
         "assigned_users": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "array",
             "null"
@@ -737,6 +787,12 @@
           ]
         },
         "created_by_teams": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "array",
             "null"
@@ -968,12 +1024,24 @@
       "additionalProperties": false,
       "properties": {
         "assigned_teams": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "array",
             "null"
           ]
         },
         "assigned_users": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "array",
             "null"
@@ -998,6 +1066,12 @@
           ]
         },
         "created_by_teams": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "array",
             "null"
@@ -1171,6 +1245,12 @@
       "additionalProperties": false,
       "properties": {
         "sent_by_teams": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "array",
             "null"
@@ -1402,19 +1482,15 @@
       ]
     },
     "tags": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        {
-          "type": "null"
-        }
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "total_done": {

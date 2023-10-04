@@ -22,91 +22,81 @@
       ]
     },
     "subresource_uris": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "subresource": {
             "type": [
               "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "subresource": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "uri": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "type": "null"
-        },
-        {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "yesterday": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "all_time": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "today": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "yearly": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "this_month": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "monthly": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "daily": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "last_month": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
+              "string"
+            ]
+          },
+          "uri": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
+      },
+      "properties": {
+        "yesterday": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "all_time": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "today": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "yearly": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "this_month": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "monthly": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "daily": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_month": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array",
+        "null",
+        "object"
       ]
     },
     "description": {
@@ -134,14 +124,9 @@
       ]
     },
     "price": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-06
-        }
+      "type": [
+        "null",
+        "number"
       ]
     },
     "uri": {
@@ -157,17 +142,10 @@
       ]
     },
     "usage": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        },
-        {
-          "type": "string"
-        }
+      "type": [
+        "null",
+        "number",
+        "string"
       ]
     },
     "start_date": {

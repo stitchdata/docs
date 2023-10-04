@@ -3,6 +3,47 @@
   "additionalProperties": false,
   "properties": {
     "accounts": {
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "properties": {
+        "account": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      },
       "type": [
         "array",
         "object",
@@ -46,19 +87,15 @@
       ]
     },
     "labels": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        {
-          "type": "null"
-        }
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "last_name": {

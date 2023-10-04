@@ -3,6 +3,48 @@
   "additionalProperties": false,
   "properties": {
     "group_members": {
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "client_key": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "roles": {
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "role_name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "encoded_key": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "group_role_name_key": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              }
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          }
+        }
+      },
       "type": [
         "array",
         "null"
@@ -21,85 +63,81 @@
       ]
     },
     "addresses": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "country": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "parent_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "city": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "latitude": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              },
-              "postcode": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "index_in_list": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "encoded_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "region": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "line2": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "line1": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "longitude": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              }
-            }
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "country": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "parent_key": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "city": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "latitude": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "postcode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "index_in_list": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "encoded_key": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "region": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "line2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "line1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "longitude": {
+            "type": [
+              "null",
+              "number"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     },
     "notes": {
@@ -187,37 +225,33 @@
       ]
     },
     "custom_fields": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "field_set_id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "field_set_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        },
-        {
-          "type": "null"
         }
+      },
+      "type": [
+        "array",
+        "null"
       ]
     }
   }

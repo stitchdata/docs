@@ -216,6 +216,156 @@
       ]
     },
     "line_items": {
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "deleted_in_qb": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "exported_date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "external_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "home_amount": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-10
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "invoice": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "item": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "local_amount": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-10
+          },
+          "modified": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "no_transaction_permitted": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "notes": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "qb_class": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "qb_time_modified": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "qb_txn_line_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "quantity": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "multipleOf": 1e-10
+          },
+          "recurly_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "refund_of": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "refund_of_stripe_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sf_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "stripe_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sync_date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "transaction": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        }
+      },
       "type": [
         "array",
         "null"
