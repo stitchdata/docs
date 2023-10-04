@@ -152,70 +152,76 @@ def getFiles(repo, branch):
         contents_api = contents_api + '/' + branch
 
     repo_contents = requests.get(contents_api, headers=github_headers)
-    output_dir = '../../../'
-    output_file = '{0}{1}.zip'.format(output_dir, repo)
-    zip_output = output_dir + repo
-
-    with open(output_file, 'wb') as f:
-        f.write(repo_contents.content)
+    status_code = repo_contents.status_code
     
-    with zipfile.ZipFile(output_file, 'r') as zip_file:
-        zip_file.extractall(zip_output)
-    
-    os.remove(output_file)
-    
-    tap_folder = zip_output + '/' + os.listdir(zip_output)[0]
-
-    setup_file = open(tap_folder + '/setup.py').read()
-    tap_data = getTapData(setup_file)
-
-    tap_name = tap_data[0]
-    tap_version = tap_data[1]
-
-    integration_data = getIntegrationData(tap_name)
-    integration_id = integration_data[0]
-    integration_type = integration_data[1]
-
-    if integration_type != 'database':
-
-        json_output_folder = '../../_data/taps/schemas/{0}/v{1}/json'.format(integration_id, tap_version)
-
-        if os.path.exists(json_output_folder):
-            pass
-        else:
-            os.makedirs(json_output_folder)
-
-        for item in os.listdir(tap_folder):
-            item_path = tap_folder + '/' + item
-
-            if item.startswith('tap'):
-                schemas = item_path + '/schemas'
-                format_results = formatJSON(schemas, json_output_folder)
-
-                schema_list = format_results[0]
-                issue_list = format_results[1]
-
-                getTableData(integration_id, tap_version, schema_list)
-
-                table_issues = checkTableData(integration_id, tap_version)
-                if len(table_issues) > 0:
-                    for issue in table_issues:
-                        issue_list.append(issue)
-
-                folder = '../../_data/taps/schemas/{0}/v{1}'.format(integration_id, tap_version)
-                issues_file = '{0}/{1}-v{2}-issues.txt'.format(folder, integration_id, tap_version)
-                issues_count = len(issue_list)
-
-                if issues_count > 0:
-                    with open(issues_file, 'w', encoding='utf-8') as f:
-                        f.writelines([string + '\n' for string in issue_list])
-
-                    print('{0} issues found, check {1} for details.'.format(issues_count, issues_file.replace('../../', '')))
-    
+    if status_code != 200:
+        sys.exit('API issue\n Status: {}\nMessage:'.format(status_code, repo_contents.content))
     else:
-        print('Ignoring database integration {}'.format(integration_id))
-    
-    shutil.rmtree(zip_output)
+        output_dir = '../../../'
+        output_file = '{0}{1}.zip'.format(output_dir, repo)
+        zip_output = output_dir + repo
+
+        with open(output_file, 'wb') as f:
+            f.write(repo_contents.content)
+        
+        with zipfile.ZipFile(output_file, 'r') as zip_file:
+            zip_file.extractall(zip_output)
+        
+        os.remove(output_file)
+        
+        tap_folder = zip_output + '/' + os.listdir(zip_output)[0]
+
+        setup_file = open(tap_folder + '/setup.py').read()
+        tap_data = getTapData(setup_file)
+
+        tap_name = tap_data[0]
+        tap_version = tap_data[1]
+
+        integration_data = getIntegrationData(tap_name)
+        integration_id = integration_data[0]
+        integration_type = integration_data[1]
+
+        if integration_type != 'database':
+
+            json_output_folder = '../../_data/taps/schemas/{0}/v{1}/json'.format(integration_id, tap_version)
+
+            if os.path.exists(json_output_folder):
+                pass
+            else:
+                os.makedirs(json_output_folder)
+
+            for item in os.listdir(tap_folder):
+                item_path = tap_folder + '/' + item
+
+                if item.startswith('tap'):
+                    schemas = item_path + '/schemas'
+                    format_results = formatJSON(schemas, json_output_folder)
+
+                    schema_list = format_results[0]
+                    issue_list = format_results[1]
+
+                    getTableData(integration_id, tap_version, schema_list)
+
+                    table_issues = checkTableData(integration_id, tap_version)
+                    if len(table_issues) > 0:
+                        for issue in table_issues:
+                            if issue not in issue_list:
+                                issue_list.append(issue)
+
+                    folder = '../../_data/taps/schemas/{0}/v{1}'.format(integration_id, tap_version)
+                    issues_file = '{0}/{1}-v{2}-issues.txt'.format(folder, integration_id, tap_version)
+                    issues_count = len(issue_list)
+
+                    if issues_count > 0:
+                        with open(issues_file, 'w', encoding='utf-8') as f:
+                            f.writelines([string + '\n' for string in issue_list])
+
+                        print('{0} issues found, check {1} for details.'.format(issues_count, issues_file.replace('../../', '')))
+        
+        else:
+            print('Ignoring database integration {}'.format(integration_id))
+        
+        shutil.rmtree(zip_output)
 
 
 def getIntegrationVersions(integration):
