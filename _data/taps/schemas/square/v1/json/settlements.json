@@ -1,0 +1,109 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bank_account_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "entries": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "amount_money": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "currency_code": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "fee_money": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "currency_code": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "payment_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "`type`": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "initiated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "total_money": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    }
+  }
+}

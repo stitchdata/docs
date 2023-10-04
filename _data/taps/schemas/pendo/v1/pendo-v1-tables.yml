@@ -72,6 +72,10 @@ tables:
     - account_id
     - server
     - remote_ip
+    - visitor_id
+    - day
+    - feature_id
+    - user_agent
 - name: guides
   description: 'The `{{ table.name }}` table contains info about the guides in your
     {{ integration.display_name }} account.
@@ -103,6 +107,12 @@ tables:
     - account_id
     - server
     - remote_ip
+    - browser_time
+    - visitor_id
+    - guide_id
+    - guide_step_id
+    - type
+    - url
     replication-key: browser_time
 - name: metadata_accounts
   description: 'The `{{ table.name }}` table contains info about the metadata schema
@@ -157,6 +167,10 @@ tables:
     - account_id
     - server
     - remote_ip
+    - visitor_id
+    - day
+    - page_id
+    - user_agent
 - name: poll_events
   description: 'The `{{ table.name }}` table contains info about poll events recorded
     in your {{ integration.display_name }} account.
@@ -175,6 +189,8 @@ tables:
     - account_id
     - remote_ip
     - visitor_id
+    - browser_time
+    - poll_id
     replication-key: browser_time
 - name: track_events
   description: 'The `{{ table.name }}` table contains info about the track events
@@ -195,6 +211,9 @@ tables:
     - remote_ip
     - server
     - visitor_id
+    - day
+    - track_type_id
+    - user_agent
 - name: track_types
   description: "The `{{ table.name }}` table contains info about \n"
   links:

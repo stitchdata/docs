@@ -1,0 +1,101 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "closed_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "closed_cash_money": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ended_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "expected_cash_money": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "opened_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "opened_cash_money": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}

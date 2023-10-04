@@ -195,18 +195,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
-- name: homepages
-  description: 'The `{{ table.name }}` table contains information about all homepages
-    in your {{ integration.display_name }} instance.
-
-    '
-  links:
-    doc-link: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/homepage#get_all_homepages
-    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/homepages.json
-    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/homepage#get_all_homepages
-  table-details:
-    replication-method: Full Table
-    primary-key: id
 - name: integrations
   description: 'The `{{ table.name }}` table contains information about all integrations
     in your {{ integration.display_name }} instance.
@@ -428,18 +416,6 @@ tables:
     doc-link: ''
     singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/scheduled_plans.json
     api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/scheduled-plan#get_all_scheduled_plans
-  table-details:
-    replication-method: Full Table
-    primary-key: id
-- name: spaces
-  description: 'The `{{ table.name }}` table contains info about the spaces in your
-    {{ integration.display_name }} instance.
-
-    '
-  links:
-    doc-link: ''
-    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/spaces.json
-    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/space#get_all_spaces
   table-details:
     replication-method: Full Table
     primary-key: id

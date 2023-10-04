@@ -1,5 +1,5 @@
 tap: tiktok-ads
-version: '1'
+version: '0'
 tables:
 - name: adgroups
   description: ''
@@ -9,7 +9,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
-    - adgroup_id
+    - adgroup_name
     - advertiser_id
     - campaign_id
     - modify_time
@@ -36,8 +36,8 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
-    - advertiser_id
     - create_time
+    - id
     replication-key: create_time
 - name: ad_insights
   description: ''
@@ -94,6 +94,7 @@ tables:
     primary-keys:
     - ad_id
     - adgroup_id
+    - advertiser_id
     - campaign_id
     - platform
     - stat_time_day
@@ -110,16 +111,3 @@ tables:
     - campaign_id
     - modify_time
     replication-key: modify_time
-- name: campaign_insights_by_province
-  description: ''
-  links:
-    doc-link: null
-    singer-schema: https://github.com/singer-io/tap-tiktok-ads/tree/master/tap_tiktok_ads/schemas/campaign_insights_by_province.json
-  table-details:
-    replication-method: Key-based Incremental
-    primary-keys:
-    - advertiser_id
-    - campaign_id
-    - province_id
-    - stat_time_day
-    replication-key: stat_time_day

@@ -276,6 +276,18 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: last_modified_date
+- name: loan_products
+  description: 'This table contains information about loan products.
+
+    '
+  links:
+    doc-link: https://api.mambu.com/?shell#welcome
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/loan_products.json
+    api-method: https://api.mambu.com/v1/#loan-products-get-all-loan-products
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date
 - name: interest_accrual_breakdown
   description: ''
   links:

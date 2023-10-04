@@ -1,3 +1,69 @@
 tap: salesforce
 version: '2'
-tables: []
+tables:
+- name: account
+  description: 'The `{{ table.name }}` table contains info about the individual accounts
+    (organizations and persons) involved with your business. This could be a customer,
+    a competitor, a partner, and so on.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_account.htm#!
+    singer-schema: null
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: systemModStamp
+  status: not_found
+- name: contact
+  description: 'The `{{ table.name }}` table contains info about your contacts, who
+    are individuals associated with accounts in your {{ integration.display_name }}
+    instance.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_contact.htm
+    singer-schema: null
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: systemModStamp
+  status: not_found
+- name: lead
+  description: 'The `{{ table.name }}` table contains info about your leads, who are
+    prospects or potential Opportunities.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_lead.htm
+    singer-schema: null
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: systemModStamp
+  status: not_found
+- name: opportunity
+  description: 'The `{{ table.name }}` table contains info about your opportunities,
+    which are sales or pending deals.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_opportunity.htm
+    singer-schema: null
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: systemModStamp
+  status: not_found
+- name: user
+  description: 'The `user` table contains info about the users in your organization.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_user.htm
+    singer-schema: null
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: systemModStamp
+  status: not_found

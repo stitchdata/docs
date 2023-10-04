@@ -1,0 +1,583 @@
+tap: zoom
+version: '2'
+keys:
+  meetings_uuid:
+  - table: meeting_poll_results
+    keys:
+    - meeting_uuid
+  - table: meeting_files
+    keys:
+    - uuid
+  - table: meetings
+    keys:
+    - uuid
+  meeting_registrants_meeting_id:
+  - table: meeting_polls
+    keys:
+    - meeting_id
+  - table: meeting_questions
+    keys:
+    - meeting_id
+  - table: meeting_registrants
+    keys:
+    - meeting_id
+  - table: meetings
+    keys:
+    - meeting_id
+  - table: report_meeting_participants
+    keys:
+    - meeting_id
+  - table: report_meetings
+    keys:
+    - meeting_id
+  users_user_id:
+  - table: users
+    keys:
+    - id
+  - table: report_meeting_participants
+    keys:
+    - user_id
+  - table: report_webinar_participants
+    keys:
+    - user_id
+  webinar_panelists_webinar_id:
+  - table: report_webinar_participants
+    keys:
+    - webinar_id
+  - table: report_webinars
+    keys:
+    - webinar_id
+  - table: webinar_panelists
+    keys:
+    - webinar_id
+  - table: webinar_registrants
+    keys:
+    - webinar_id
+    - webinar_id
+  - table: webinar_polls
+    keys:
+    - webinar_id
+  - table: webinar_questions
+    keys:
+    - webinar_id
+  - table: webinar_tracking_sources
+    keys:
+    - webinar_id
+  webinars_webinar_uuid:
+  - table: report_webinars
+    keys:
+    - uuid
+  - table: webinar_absentees
+    keys:
+    - webinar_uuid
+  - table: webinar_files
+    keys:
+    - webinar_uuid
+  - table: webinar_poll_results
+    keys:
+    - webinar_uuid
+  - table: webinar_qna_results
+    keys:
+    - webinar_uuid
+  - table: webinars
+    keys:
+    - uuid
+tables:
+- table-name: meeting_poll_results
+  join:
+  - table-name: meeting_files
+    keys:
+    - key: meeting_uuid
+      foreign-key: uuid
+  - table-name: meetings
+    keys:
+    - key: meeting_uuid
+      foreign-key: uuid
+- table-name: meeting_files
+  join:
+  - table-name: meeting_poll_results
+    keys:
+    - key: uuid
+      foreign-key: meeting_uuid
+  - table-name: meetings
+    keys:
+    - key: uuid
+      foreign-key: uuid
+- table-name: meetings
+  join:
+  - table-name: meeting_poll_results
+    keys:
+    - key: uuid
+      foreign-key: meeting_uuid
+  - table-name: meeting_files
+    keys:
+    - key: uuid
+      foreign-key: uuid
+  - table-name: meeting_polls
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: meeting_questions
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: meeting_registrants
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: report_meeting_participants
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: report_meetings
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+- table-name: meeting_polls
+  join:
+  - table-name: meeting_questions
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: meeting_registrants
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: meetings
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: report_meeting_participants
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: report_meetings
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+- table-name: meeting_questions
+  join:
+  - table-name: meeting_polls
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: meeting_registrants
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: meetings
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: report_meeting_participants
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: report_meetings
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+- table-name: meeting_registrants
+  join:
+  - table-name: meeting_polls
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: meeting_questions
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: meetings
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: report_meeting_participants
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: report_meetings
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+- table-name: report_meeting_participants
+  join:
+  - table-name: meeting_polls
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: meeting_questions
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: meeting_registrants
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: meetings
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: report_meetings
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: users
+    keys:
+    - key: user_id
+      foreign-key: id
+  - table-name: report_webinar_participants
+    keys:
+    - key: user_id
+      foreign-key: user_id
+- table-name: report_meetings
+  join:
+  - table-name: meeting_polls
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: meeting_questions
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: meeting_registrants
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: meetings
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+  - table-name: report_meeting_participants
+    keys:
+    - key: meeting_id
+      foreign-key: meeting_id
+- table-name: users
+  join:
+  - table-name: report_meeting_participants
+    keys:
+    - key: id
+      foreign-key: user_id
+  - table-name: report_webinar_participants
+    keys:
+    - key: id
+      foreign-key: user_id
+- table-name: report_webinar_participants
+  join:
+  - table-name: users
+    keys:
+    - key: user_id
+      foreign-key: id
+  - table-name: report_meeting_participants
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: report_webinars
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_panelists
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_registrants
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_polls
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_questions
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_tracking_sources
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+- table-name: report_webinars
+  join:
+  - table-name: report_webinar_participants
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_panelists
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_registrants
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_polls
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_questions
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_tracking_sources
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_absentees
+    keys:
+    - key: uuid
+      foreign-key: webinar_uuid
+  - table-name: webinar_files
+    keys:
+    - key: uuid
+      foreign-key: webinar_uuid
+  - table-name: webinar_poll_results
+    keys:
+    - key: uuid
+      foreign-key: webinar_uuid
+  - table-name: webinar_qna_results
+    keys:
+    - key: uuid
+      foreign-key: webinar_uuid
+  - table-name: webinars
+    keys:
+    - key: uuid
+      foreign-key: uuid
+- table-name: webinar_panelists
+  join:
+  - table-name: report_webinar_participants
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: report_webinars
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_registrants
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_polls
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_questions
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_tracking_sources
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+- table-name: webinar_registrants
+  join:
+  - table-name: report_webinar_participants
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: report_webinars
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_panelists
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_polls
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_questions
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_tracking_sources
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+- table-name: webinar_polls
+  join:
+  - table-name: report_webinar_participants
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: report_webinars
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_panelists
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_registrants
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_questions
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_tracking_sources
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+- table-name: webinar_questions
+  join:
+  - table-name: report_webinar_participants
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: report_webinars
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_panelists
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_registrants
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_polls
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_tracking_sources
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+- table-name: webinar_tracking_sources
+  join:
+  - table-name: report_webinar_participants
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: report_webinars
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_panelists
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_registrants
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_polls
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+  - table-name: webinar_questions
+    keys:
+    - key: webinar_id
+      foreign-key: webinar_id
+- table-name: webinar_absentees
+  join:
+  - table-name: report_webinars
+    keys:
+    - key: webinar_uuid
+      foreign-key: uuid
+  - table-name: webinar_files
+    keys:
+    - key: webinar_uuid
+      foreign-key: webinar_uuid
+  - table-name: webinar_poll_results
+    keys:
+    - key: webinar_uuid
+      foreign-key: webinar_uuid
+  - table-name: webinar_qna_results
+    keys:
+    - key: webinar_uuid
+      foreign-key: webinar_uuid
+  - table-name: webinars
+    keys:
+    - key: webinar_uuid
+      foreign-key: uuid
+- table-name: webinar_files
+  join:
+  - table-name: report_webinars
+    keys:
+    - key: webinar_uuid
+      foreign-key: uuid
+  - table-name: webinar_absentees
+    keys:
+    - key: webinar_uuid
+      foreign-key: webinar_uuid
+  - table-name: webinar_poll_results
+    keys:
+    - key: webinar_uuid
+      foreign-key: webinar_uuid
+  - table-name: webinar_qna_results
+    keys:
+    - key: webinar_uuid
+      foreign-key: webinar_uuid
+  - table-name: webinars
+    keys:
+    - key: webinar_uuid
+      foreign-key: uuid
+- table-name: webinar_poll_results
+  join:
+  - table-name: report_webinars
+    keys:
+    - key: webinar_uuid
+      foreign-key: uuid
+  - table-name: webinar_absentees
+    keys:
+    - key: webinar_uuid
+      foreign-key: webinar_uuid
+  - table-name: webinar_files
+    keys:
+    - key: webinar_uuid
+      foreign-key: webinar_uuid
+  - table-name: webinar_qna_results
+    keys:
+    - key: webinar_uuid
+      foreign-key: webinar_uuid
+  - table-name: webinars
+    keys:
+    - key: webinar_uuid
+      foreign-key: uuid
+- table-name: webinar_qna_results
+  join:
+  - table-name: report_webinars
+    keys:
+    - key: webinar_uuid
+      foreign-key: uuid
+  - table-name: webinar_absentees
+    keys:
+    - key: webinar_uuid
+      foreign-key: webinar_uuid
+  - table-name: webinar_files
+    keys:
+    - key: webinar_uuid
+      foreign-key: webinar_uuid
+  - table-name: webinar_poll_results
+    keys:
+    - key: webinar_uuid
+      foreign-key: webinar_uuid
+  - table-name: webinars
+    keys:
+    - key: webinar_uuid
+      foreign-key: uuid
+- table-name: webinars
+  join:
+  - table-name: report_webinars
+    keys:
+    - key: uuid
+      foreign-key: uuid
+  - table-name: webinar_absentees
+    keys:
+    - key: uuid
+      foreign-key: webinar_uuid
+  - table-name: webinar_files
+    keys:
+    - key: uuid
+      foreign-key: webinar_uuid
+  - table-name: webinar_poll_results
+    keys:
+    - key: uuid
+      foreign-key: webinar_uuid
+  - table-name: webinar_qna_results
+    keys:
+    - key: uuid
+      foreign-key: webinar_uuid

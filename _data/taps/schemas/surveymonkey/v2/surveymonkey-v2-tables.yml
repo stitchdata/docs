@@ -2,38 +2,42 @@ tap: surveymonkey
 version: '2'
 tables:
 - name: responses
-  description: ''
+  description: This table contains information about your survey responses.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developer.surveymonkey.com/api/v3/
+    singer-schema: https://github.com/singer-io/tap-surveymonkey/blob/master/tap_surveymonkey/schemas/responses.json
+    api-method: https://developer.surveymonkey.com/api/v3/#collectors-id-responses-id-details
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_modified
 - name: simplified_responses
-  description: ''
+  description: This table contains a simplified version of information about your
+    survey responses.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developer.surveymonkey.com/api/v3/
+    singer-schema: https://github.com/singer-io/tap-surveymonkey/blob/master/tap_surveymonkey/schemas/simplified_responses.json
+    api-method: https://developer.surveymonkey.com/api/v3/#collectors-id-responses-id-details
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_modified
 - name: surveys
-  description: ''
+  description: This table contains information about your surveys.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developer.surveymonkey.com/api/v3/
+    singer-schema: https://github.com/singer-io/tap-surveymonkey/tree/TDL-23990-changes/tap_surveymonkey/schemas/surveys.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_modified
 - name: survey_details
-  description: ''
+  description: This table contains information about your survey details.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developer.surveymonkey.com/api/v3/
+    singer-schema: https://github.com/singer-io/tap-surveymonkey/blob/master/tap_surveymonkey/schemas/survey_details.json
+    api-method: https://developer.surveymonkey.com/api/v3/#surveys
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_modified

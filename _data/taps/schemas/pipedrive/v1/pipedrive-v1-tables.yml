@@ -65,6 +65,18 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: update_time
+- name: deal_fields
+  description: 'The `{{ table.name }}` table contains info about all deal fields.
+
+    '
+  links:
+    doc-link: https://developers.pipedrive.com/docs/api/v1/DealFields#getDealFields
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_pipedrive/schemas/deal_fields.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/DealFields#getDealFields
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: update_time
 - name: deal_products
   description: 'The `{{ table.name }}` table contains info about the products attached
     to deals.
@@ -196,12 +208,3 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
-- name: deal_fields
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''

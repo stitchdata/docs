@@ -241,8 +241,9 @@ tables:
     singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/teams.json
     api-method: https://api.outreach.io/api/v2/docs#team
   table-details:
-    replication-method: Full Table
+    replication-method: Key-based Incremental
     primary-key: id
+    replication-key: updatedAt
 - name: users
   description: 'The `{{ table.name}}` table contains information about individual
     users that use the {{ integration.display_name }} app.
