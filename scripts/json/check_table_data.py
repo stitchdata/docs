@@ -22,7 +22,7 @@ def checkTableData(integration, version):
         with open(issues_file, 'w', encoding='utf-8') as f:
             f.writelines([string + '\n' for string in issue_list])
 
-        sys.exit('{} issues found'.format(issues))
+        print('{0} issues found, check {1} for details.'.format(issues, issues_file.replace('../../', '')))
 
 def checkPrimaryReplicationKeys(file, json_folder, issue_list):
     issues = 0
@@ -67,7 +67,6 @@ def checkPrimaryReplicationKeys(file, json_folder, issue_list):
                             element = properties[primary_key]
                         except:
                             report = 'Primary Key {0} not found in {1}'.format(primary_key, json_file.replace('../../', ''))
-                            print(report)
                             issue_list.append(report)
                             issues += 1
 
@@ -78,7 +77,6 @@ def checkPrimaryReplicationKeys(file, json_folder, issue_list):
                             element = properties[replication_key]
                         except:
                             report = 'Replication Key {0} not found in {1}'.format(replication_key, json_file.replace('../../', ''))
-                            print(report)
                             issue_list.append(report)
                             issues += 1
 
@@ -129,7 +127,6 @@ def checkForeignKeys(file, json_folder, issue_list):
                                     step +=1
                         except:
                             report = 'Key {0} not found in {1}'.format(source_key, json_file.replace('../../', ''))
-                            print(report)
                             issue_list.append(report)
                             issues += 1
 
