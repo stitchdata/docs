@@ -232,14 +232,27 @@ def formatJSON(folder, json_output_folder):
             if filepath.endswith('.json'):
                 with open(filepath, 'r') as f:
                     json_content = f.read()
+                    content = json.loads(json_content)
 
                     if '$ref' in json_content:
                         json_content = json.dumps(replaceRefs(json_content, folder, filepath))
                     
                     try:
-                        content = json.loads(json_content)
                         props = content['properties']
                         status = 'keep'
+                    
+                    except:
+                        try:
+                            props = content['schema']['properties']
+                            json_content = json.dumps(content['schema'])
+                            status = 'keep'
+
+                        except:
+                            status = 'ignore'
+                            report = 'JSON file {} ignored'.format(file)
+                            ignored.append(report)
+                    
+                    if status == 'keep':
                         table_list.append(file.replace('.json', ''))
 
                         if '"format": "' in json_content:
@@ -251,11 +264,6 @@ def formatJSON(folder, json_output_folder):
                         content = json.loads(json_content)
                         with open(json_output_folder + '/' + file, 'w') as j:
                             json.dump(content, j, indent=2)
-
-                    except:
-                        status = 'ignore'
-                        report = 'JSON file {} ignored'.format(file)
-                        ignored.append(report)
 
 
     
