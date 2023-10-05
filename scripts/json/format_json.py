@@ -116,7 +116,7 @@ def replaceAnyof(json_content):
 
     return content
 
-def sameFileRef(ref, filepath, folder):
+def sameFileRef(ref, filepath, folder, type):
     split_ref = split_ref = ref.split('/')
     steps = len(split_ref)
     
@@ -153,9 +153,9 @@ def sameFileRef(ref, filepath, folder):
                             if file == split_ref[ref_index]:
                                 status = 'external_file'
                                 if steps == 1:
-                                    content = fullFileRef(split_ref[ref_index], folder)
+                                    content = fullFileRef(split_ref[ref_index], folder, type)
                                 else:
-                                    content = partialRef(out_ref, folder)
+                                    content = partialRef(out_ref, folder, type)
 
         if status == 'external_file':
             pass
@@ -166,10 +166,10 @@ def sameFileRef(ref, filepath, folder):
                 step +=1
 
             content = json.dumps(path, indent=2)
-    
+
     return content
 
-def fullFileRef(path, folder):
+def fullFileRef(path, folder, type):
     for root, dirs, files in os.walk(folder):
         for file in files:
             filepath = os.path.join(root, file)
@@ -177,17 +177,21 @@ def fullFileRef(path, folder):
                 with open(filepath) as f:
                     content = f.read()
                     json_content = json.loads(content) 
-                    if json_content['properties']:
-                        new_content = ''
+                    try:
                         props = json_content['properties']
-                        props_count = len(props)
-                        for prop in props:
-                            new_content = new_content + '"{}": '.format(prop) + json.dumps(props[prop], indent=2) + ','
-                        content = new_content
+                        if type == 'inline':
+                            new_content = ''
+                            for prop in props:
+                                new_content = new_content + '"{}": '.format(prop) + json.dumps(props[prop]) + ','
+                            content = new_content
+                        else:
+                            content = json.dumps(props)
+                    except:
+                        pass
 
     return content
 
-def partialRef(ref, folder):
+def partialRef(ref, folder, type):
 
     split_ref = ref.split('/')
     path = split_ref[0].replace('#', '')
@@ -219,6 +223,7 @@ def replaceRefs(json_content, folder, filepath):
         pattern = re.compile('(\{\s*\"\$ref\"\:\s*\"([^\"]+)\"\s*\})')
         refs = re.findall(pattern, json_content)
         refs_count = len(refs)
+        type = 'object'
 
         if refs_count == 0:
             raise Exception()
@@ -228,21 +233,20 @@ def replaceRefs(json_content, folder, filepath):
                 path = ref[1]
 
                 if path.endswith('.json') or path.endswith('.json#/'):
-                    content = fullFileRef(path, folder)
+                    content = fullFileRef(path, folder, type)
                     json_content = json_content.replace(element, content)
                 elif '.json' in path:
-                    content = partialRef(path, folder)
+                    content = partialRef(path, folder, type)
                     json_content = json_content.replace(element, content)
                 else:
-                    content = sameFileRef(path, filepath, folder)
+                    content = sameFileRef(path, filepath, folder, type)
                     json_content = json_content.replace(element, content)
-    
     except:
         try:
             pattern = re.compile('(\"\$ref\"\:\s*\"([^\"]+)\"\s*,)')
             refs = re.findall(pattern, json_content)
             refs_count = len(refs)
-
+            type = 'inline'
             if refs_count == 0:
                 raise Exception()
             else:
@@ -251,19 +255,18 @@ def replaceRefs(json_content, folder, filepath):
                     path = ref[1]
 
                     if path.endswith('.json') or path.endswith('.json#/'):
-                        content = fullFileRef(path, folder)
+                        content = fullFileRef(path, folder, type)
                         json_content = json_content.replace(element, content)
                     elif '.json' in path:
-                        content = partialRef(path, folder)
+                        content = partialRef(path, folder, type)
                         json_content = json_content.replace(element, content)
                     else:
-                        content = sameFileRef(path, filepath, folder)
+                        content = sameFileRef(path, filepath, folder, type)
                         json_content = json_content.replace(element, content)
         except:
             sys.exit('Reference pattern not found')
     
     j = json.loads(json_content)
-    
     return j
 
 def formatJSON(folder, json_output_folder):
