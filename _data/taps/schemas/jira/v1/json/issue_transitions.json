@@ -151,7 +151,43 @@
               ]
             },
             "schema": {
-              "$ref": "json-type"
+              "title": "Json Type",
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "system": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "custom": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "customId": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                }
+              }
             },
             "name": {
               "type": [

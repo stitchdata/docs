@@ -471,7 +471,24 @@
                     "SalesItemLineDetail": {
                       "properties": {
                         "ClassRef": {
-                          "$ref": "shared/ref_schema.json"
+                          "properties": {
+                            "name": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "value": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            }
+                          },
+                          "type": [
+                            "null",
+                            "object"
+                          ]
                         },
                         "DiscountAmt": {
                           "type": [
@@ -486,10 +503,44 @@
                           ]
                         },
                         "ItemAccountRef": {
-                          "$ref": "shared/ref_schema.json"
+                          "properties": {
+                            "name": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "value": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            }
+                          },
+                          "type": [
+                            "null",
+                            "object"
+                          ]
                         },
                         "ItemRef": {
-                          "$ref": "shared/ref_schema.json"
+                          "properties": {
+                            "name": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "value": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            }
+                          },
+                          "type": [
+                            "null",
+                            "object"
+                          ]
                         },
                         "MarkupInfo": {
                           "type": [
@@ -558,10 +609,44 @@
                           ]
                         },
                         "TaxClassificationRef": {
-                          "$ref": "shared/ref_schema.json"
+                          "properties": {
+                            "name": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "value": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            }
+                          },
+                          "type": [
+                            "null",
+                            "object"
+                          ]
                         },
                         "TaxCodeRef": {
-                          "$ref": "shared/ref_schema.json"
+                          "properties": {
+                            "name": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "value": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            }
+                          },
+                          "type": [
+                            "null",
+                            "object"
+                          ]
                         },
                         "TaxInclusiveAmt": {
                           "type": [

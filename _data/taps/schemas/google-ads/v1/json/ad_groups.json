@@ -174,7 +174,32 @@
             "array"
           ],
           "items": {
-            "$ref": "#/definitions/TargetRestrictionOperation"
+            "operator": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "bidOnly": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "targetingDimension": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              }
+            }
           }
         },
         "targetRestrictions": {
@@ -183,7 +208,24 @@
             "array"
           ],
           "items": {
-            "$ref": "#/definitions/TargetRestriction"
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "bidOnly": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "targetingDimension": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
           }
         }
       }
@@ -302,7 +344,24 @@
                 ]
               },
               "value": {
-                "$ref": "#/definitions/TargetRestriction"
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "properties": {
+                  "bidOnly": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "targetingDimension": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
               }
             }
           },

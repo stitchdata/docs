@@ -431,7 +431,24 @@
           ]
         },
         "TxnTaxCodeRef": {
-          "$ref": "shared/ref_schema.json"
+          "properties": {
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "TaxLine": {
           "items": {
@@ -451,7 +468,24 @@
               "TaxLineDetail": {
                 "properties": {
                   "TaxRateRef": {
-                    "$ref": "shared/ref_schema.json"
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "value": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
                   },
                   "NetAmountTaxable": {
                     "type": [

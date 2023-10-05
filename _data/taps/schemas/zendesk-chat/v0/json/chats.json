@@ -249,7 +249,73 @@
             ]
           },
           "conversion": {
-            "$ref": "chat_conversion"
+            "properties": {
+              "id": {
+                "type": [
+                  "string"
+                ]
+              },
+              "goal_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "goal_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "attribution": {
+                "properties": {
+                  "chat_timestamp": {
+                    "type": [
+                      "null",
+                      "date-time"
+                    ]
+                  },
+                  "department_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "agent_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "department_id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "agent_id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "timestamp": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
           },
           "timestamp": {
             "type": [

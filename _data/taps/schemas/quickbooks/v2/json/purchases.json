@@ -376,7 +376,24 @@
                 ],
                 "properties": {
                   "MarkUpIncomeAccountRef": {
-                    "$ref": "shared/ref_schema.json"
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "value": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
                   },
                   "Percent": {
                     "type": [
@@ -385,7 +402,24 @@
                     ]
                   },
                   "PriceLevelRef": {
-                    "$ref": "shared/ref_schema.json"
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "value": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
                   }
                 }
               },
@@ -488,7 +522,24 @@
                 ],
                 "properties": {
                   "MarkUpIncomeAccountRef": {
-                    "$ref": "shared/ref_schema.json"
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "value": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
                   },
                   "Percent": {
                     "type": [
@@ -497,7 +548,24 @@
                     ]
                   },
                   "PriceLevelRef": {
-                    "$ref": "shared/ref_schema.json"
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "value": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
                   }
                 }
               },
@@ -793,7 +861,24 @@
           ]
         },
         "TxnTaxCodeRef": {
-          "$ref": "shared/ref_schema.json"
+          "properties": {
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "TaxLine": {
           "items": {
@@ -813,7 +898,24 @@
               "TaxLineDetail": {
                 "properties": {
                   "TaxRateRef": {
-                    "$ref": "shared/ref_schema.json"
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "value": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
                   },
                   "NetAmountTaxable": {
                     "type": [
