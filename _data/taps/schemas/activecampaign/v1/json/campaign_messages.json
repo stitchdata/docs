@@ -15,9 +15,14 @@
       ]
     },
     "percentage": {
-      "type": [
-        "null",
-        "number"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-08
+        }
       ]
     },
     "sourcesize": {
@@ -141,9 +146,14 @@
       ]
     },
     "initial_split_percentage": {
-      "type": [
-        "null",
-        "number"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-08
+        }
       ]
     },
     "screenshot": {

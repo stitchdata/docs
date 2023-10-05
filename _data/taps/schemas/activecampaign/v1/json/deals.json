@@ -51,9 +51,14 @@
       ]
     },
     "percent": {
-      "type": [
-        "null",
-        "number"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-08
+        }
       ]
     },
     "cdate": {
@@ -81,9 +86,14 @@
       ]
     },
     "value": {
-      "type": [
-        "null",
-        "number"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-08
+        }
       ]
     },
     "currency": {
@@ -93,9 +103,14 @@
       ]
     },
     "win_probability": {
-      "type": [
-        "null",
-        "number"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-08
+        }
       ]
     },
     "win_probability_mdate": {

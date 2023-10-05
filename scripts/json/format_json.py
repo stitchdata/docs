@@ -137,7 +137,7 @@ def fullFileRef(path, folder, type):
                             for prop in props:
                                 new_content = new_content + '"{}": '.format(prop) + json.dumps(props[prop]) + ','
                             content = new_content
-                        else:
+                        elif type == 'object':
                             content = json.dumps(props)
                     except:
                         pass
@@ -184,6 +184,9 @@ def replaceRefs(json_content, folder, filepath):
             for ref in refs:
                 element = ref[0]
                 path = ref[1]
+
+                if json_content == element:
+                    type = 'empty file'
 
                 if path.endswith('.json') or path.endswith('.json#/'):
                     content = fullFileRef(path, folder, type)

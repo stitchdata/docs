@@ -500,646 +500,650 @@
       ]
     },
     "line_items": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "affected_transaction": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
-              "string"
-            ]
-          },
-          "created": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "created_by_username": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "invoice_billing_addr1": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_billing_addr2": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_billing_addr3": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_billing_city": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_billing_country": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_billing_state": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_billing_zip_code": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_cadence_template": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_date": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "invoice_do_not_sync": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "invoice_ei_combine_all_description": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_ei_combine_lines": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_ei_theme": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_email_from_so": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "invoice_enable_ach_payment": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "invoice_enable_cc_payment": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "invoice_ignore_date_when_syncing": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "invoice_memo": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_other": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_payment_terms": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_po_number": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_qb_class": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_qb_customer_message": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_qb_payment_terms": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_qb_sales_rep": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_qb_template": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_ship_date": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "invoice_shipping_addr1": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_shipping_addr2": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_shipping_addr3": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_shipping_city": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_shipping_country": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_shipping_state": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_shipping_zip_code": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "invoice_suppress_zero_value_line_items": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "invoice_to_be_emailed": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "invoice_to_be_printed": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "line_item_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "processed": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "project_template": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "renewed_transaction": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "sfdc_object_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_action": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_amount": {
-            "type": [
-              "null",
-              "number"
+              "object"
             ],
-            "multipleOf": 1e-10
-          },
-          "transaction_amount_after_discount": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-10
-          },
-          "transaction_arr_amount": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-10
-          },
-          "transaction_billing_method": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_conversion": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_crm_opportunity_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_crm_opportunity_line_item_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_discount_amount": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-10
-          },
-          "transaction_duration": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_effective_change_date": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "transaction_effective_end_date": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "transaction_end_date": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "transaction_flagged": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_foreign_exchange_rate": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-10
-          },
-          "transaction_generate_invoices": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "transaction_generate_revenue": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "transaction_ili_description": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_ili_qb_class": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_invoice_end_date": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "transaction_invoice_quantity": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-10
-          },
-          "transaction_invoice_start_date": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "transaction_item_class_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_item_code": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_item_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_monthly_rate": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-10
-          },
-          "transaction_normalized_amount": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-10
-          },
-          "transaction_normalized_term": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_notes": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_number_field1": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-10
-          },
-          "transaction_number_field2": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-10
-          },
-          "transaction_order_date": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "transaction_order_number": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_quantity": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-10
-          },
-          "transaction_recognize": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "transaction_renew_using_item": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_renewal_amount": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-10
-          },
-          "transaction_renewal_amount_percentage": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-10
-          },
-          "transaction_renewal_duration": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_renewal_factor": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_renewal_probability": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-10
-          },
-          "transaction_renewal_quantity": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-10
-          },
-          "transaction_revenue_amount": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-10
-          },
-          "transaction_revenue_end_date": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "transaction_revenue_recognition_method": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_revenue_start_date": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "transaction_sales_manager": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_sales_rep": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_sf_group_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_sf_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_sf_renewal_opportunitiy_rule": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_start_date": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "transaction_term_number": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "transaction_text_field1": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_text_field2": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_unbalanced_revenue_exception": {
-            "type": [
-              "null",
-              "boolean"
-            ]
+            "additionalProperties": false,
+            "properties": {
+              "affected_transaction": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "created": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "created_by_username": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "invoice_billing_addr1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_billing_addr2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_billing_addr3": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_billing_city": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_billing_country": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_billing_state": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_billing_zip_code": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_cadence_template": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "invoice_do_not_sync": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "invoice_ei_combine_all_description": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_ei_combine_lines": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_ei_theme": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_email_from_so": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "invoice_enable_ach_payment": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "invoice_enable_cc_payment": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "invoice_ignore_date_when_syncing": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "invoice_memo": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_other": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_payment_terms": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_po_number": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_qb_class": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_qb_customer_message": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_qb_payment_terms": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_qb_sales_rep": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_qb_template": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_ship_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "invoice_shipping_addr1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_shipping_addr2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_shipping_addr3": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_shipping_city": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_shipping_country": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_shipping_state": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_shipping_zip_code": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "invoice_suppress_zero_value_line_items": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "invoice_to_be_emailed": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "invoice_to_be_printed": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "line_item_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "processed": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "project_template": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "renewed_transaction": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "sfdc_object_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_action": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_amount": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "transaction_amount_after_discount": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "transaction_arr_amount": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "transaction_billing_method": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_conversion": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_crm_opportunity_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_crm_opportunity_line_item_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_discount_amount": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "transaction_duration": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_effective_change_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "transaction_effective_end_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "transaction_end_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "transaction_flagged": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_foreign_exchange_rate": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "transaction_generate_invoices": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "transaction_generate_revenue": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "transaction_ili_description": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_ili_qb_class": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_invoice_end_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "transaction_invoice_quantity": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "transaction_invoice_start_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "transaction_item_class_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_item_code": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_item_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_monthly_rate": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "transaction_normalized_amount": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "transaction_normalized_term": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_notes": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_number_field1": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "transaction_number_field2": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "transaction_order_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "transaction_order_number": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_quantity": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "transaction_recognize": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "transaction_renew_using_item": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_renewal_amount": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "transaction_renewal_amount_percentage": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "transaction_renewal_duration": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_renewal_factor": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_renewal_probability": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "transaction_renewal_quantity": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "transaction_revenue_amount": {
+                "type": [
+                  "null",
+                  "number"
+                ],
+                "multipleOf": 1e-10
+              },
+              "transaction_revenue_end_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "transaction_revenue_recognition_method": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_revenue_start_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "transaction_sales_manager": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_sales_rep": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_sf_group_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_sf_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_sf_renewal_opportunitiy_rule": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_start_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "transaction_term_number": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "transaction_text_field1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_text_field2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_unbalanced_revenue_exception": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "name": {

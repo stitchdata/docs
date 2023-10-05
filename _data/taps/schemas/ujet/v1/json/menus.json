@@ -18,135 +18,139 @@
       ]
     },
     "team_assignments": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "queue_level": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "group_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "channel_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "team": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
               "object"
             ],
             "additionalProperties": false,
             "properties": {
-              "name": {
+              "queue_level": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
-              "agents_count": {
+              "group_type": {
                 "type": [
                   "null",
-                  "integer"
+                  "string"
                 ]
               },
-              "parent_id": {
+              "channel_type": {
                 "type": [
                   "null",
-                  "integer"
+                  "string"
                 ]
               },
-              "assignees": {
-                "type": "array",
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "additionalProperties": false,
-                  "properties": {
-                    "first_name": {
+              "team": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "agents_count": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "parent_id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "assignees": {
+                    "type": "array",
+                    "items": {
                       "type": [
                         "null",
-                        "string"
-                      ]
-                    },
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "agent_number": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    },
-                    "id": {
-                      "type": [
-                        "null",
-                        "integer"
-                      ]
-                    },
-                    "last_name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "avatar_url": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
+                        "object"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "first_name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "agent_number": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "id": {
+                          "type": [
+                            "null",
+                            "integer"
+                          ]
+                        },
+                        "last_name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "avatar_url": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      }
                     }
+                  },
+                  "id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "position": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "deleted": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
                   }
                 }
               },
-              "id": {
+              "lang": {
                 "type": [
                   "null",
-                  "integer"
-                ]
-              },
-              "position": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "deleted": {
-                "type": [
-                  "null",
-                  "boolean"
+                  "string"
                 ]
               }
             }
-          },
-          "lang": {
-            "type": [
-              "null",
-              "string"
-            ]
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "hidden": {
@@ -156,87 +160,91 @@
       ]
     },
     "agent_assignments": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "queue_level": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "assignee": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
               "object"
             ],
             "additionalProperties": false,
             "properties": {
-              "first_name": {
+              "queue_level": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
-              "name": {
+              "assignee": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "first_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "agent_number": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "last_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "avatar_url": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
+              },
+              "group_type": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
-              "agent_number": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "last_name": {
+              "channel_type": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
-              "avatar_url": {
+              "lang": {
                 "type": [
                   "null",
                   "string"
                 ]
               }
             }
-          },
-          "group_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "channel_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "lang": {
-            "type": [
-              "null",
-              "string"
-            ]
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "menu_type": {

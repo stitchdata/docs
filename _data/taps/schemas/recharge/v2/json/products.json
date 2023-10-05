@@ -140,12 +140,16 @@
           ]
         },
         "order_interval_frequency_options": {
-          "items": {
-            "type": "string"
-          },
-          "type": [
-            "array",
-            "null"
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "order_interval_unit": {
@@ -161,12 +165,16 @@
           ]
         },
         "modifiable_properties": {
-          "items": {
-            "type": "string"
-          },
-          "type": [
-            "array",
-            "null"
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "null"
+            }
           ]
         }
       }

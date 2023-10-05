@@ -30,12 +30,16 @@
       ]
     },
     "creation_options": {
-      "items": {
-        "type": "string"
-      },
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "description": {
@@ -57,12 +61,16 @@
       ]
     },
     "group_types": {
-      "items": {
-        "type": "string"
-      },
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "is_assignable_to_role": {
@@ -150,12 +158,16 @@
       ]
     },
     "proxy_addresses": {
-      "items": {
-        "type": "string"
-      },
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "renewed_date_time": {
@@ -213,12 +225,16 @@
       ]
     },
     "on_premises_provisioning_errors": {
-      "items": {
-        "type": "string"
-      },
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
       ]
     }
   }

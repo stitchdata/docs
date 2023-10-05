@@ -45,27 +45,47 @@
       ]
     },
     "sale_amount": {
-      "type": [
-        "null",
-        "number"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-08
+        }
       ]
     },
     "commission": {
-      "type": [
-        "null",
-        "number"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-08
+        }
       ]
     },
     "commission_publisher": {
-      "type": [
-        "null",
-        "number"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-08
+        }
       ]
     },
     "commission_site": {
-      "type": [
-        "null",
-        "number"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-08
+        }
       ]
     },
     "sale_date": {

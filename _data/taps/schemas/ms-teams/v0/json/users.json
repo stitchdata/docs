@@ -6,12 +6,16 @@
   "additionalProperties": true,
   "properties": {
     "business_phones": {
-      "items": {
-        "type": "string"
-      },
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "display_name": {

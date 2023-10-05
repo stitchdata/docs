@@ -39,9 +39,14 @@
       ]
     },
     "price": {
-      "type": [
-        "null",
-        "number"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-08
+        }
       ]
     },
     "quantity": {

@@ -32,9 +32,13 @@
       ]
     },
     "created_at": {
-      "type": [
-        "date-time",
-        "null"
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "creator_id": {
@@ -80,9 +84,13 @@
       ]
     },
     "last_activity_at": {
-      "type": [
-        "date-time",
-        "null"
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "lfs_enabled": {
@@ -178,43 +186,51 @@
       "type": "object",
       "properties": {
         "group_access": {
-          "properties": {
-            "access_level": {
-              "type": [
-                "null",
-                "integer"
-              ]
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "access_level": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "notification_level": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                }
+              }
             },
-            "notification_level": {
-              "type": [
-                "null",
-                "integer"
-              ]
+            {
+              "type": "null"
             }
-          },
-          "type": [
-            "object",
-            "null"
           ]
         },
         "project_access": {
-          "properties": {
-            "access_level": {
-              "type": [
-                "null",
-                "integer"
-              ]
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "access_level": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "notification_level": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                }
+              }
             },
-            "notification_level": {
-              "type": [
-                "null",
-                "integer"
-              ]
+            {
+              "type": "null"
             }
-          },
-          "type": [
-            "object",
-            "null"
           ]
         }
       }
@@ -244,23 +260,27 @@
       ]
     },
     "shared_with_groups": {
-      "items": {
-        "type": "object",
-        "properties": {
-          "group_id": {
-            "type": "integer"
-          },
-          "group_name": {
-            "type": "string"
-          },
-          "group_access_level": {
-            "type": "integer"
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "group_id": {
+                "type": "integer"
+              },
+              "group_name": {
+                "type": "string"
+              },
+              "group_access_level": {
+                "type": "integer"
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "snippets_enabled": {
@@ -282,12 +302,16 @@
       ]
     },
     "tag_list": {
-      "items": {
-        "type": "string"
-      },
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "visibility_level": {

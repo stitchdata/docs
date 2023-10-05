@@ -33,30 +33,34 @@
       ]
     },
     "domains": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "domain_name": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
-              "string"
-            ]
-          },
-          "total_events": {
-            "type": [
-              "null",
-              "integer"
-            ]
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "domain_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "total_events": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     }
   }

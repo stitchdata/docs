@@ -345,10 +345,16 @@
       ]
     },
     "accepts_marketing_updated_at": {
-      "type": [
-        "date-time",
-        "string",
-        "null"
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "created_at": {

@@ -15,45 +15,49 @@
       ]
     },
     "campaigns": {
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "campaign_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "campaign_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "insertion_order_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "insertion_order_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "join_date": {
-            "type": [
-              "null",
-              "date-time"
-            ]
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "campaign_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "campaign_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "insertion_order_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "insertion_order_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "join_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "city": {
@@ -126,27 +130,31 @@
       ]
     },
     "groups": {
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "group_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "group_name": {
-            "type": [
-              "null",
-              "string"
-            ]
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "group_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "group_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "id": {

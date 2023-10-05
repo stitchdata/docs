@@ -234,20 +234,10 @@
       ]
     },
     "hearts": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "gid": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "user": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
               "object"
@@ -260,25 +250,39 @@
                   "string"
                 ]
               },
-              "resource_type": {
+              "user": {
                 "type": [
                   "null",
-                  "string"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
+                  "object"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "gid": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "resource_type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
               }
             }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "is_edited": {
@@ -294,20 +298,10 @@
       ]
     },
     "likes": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "gid": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "user": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
               "object"
@@ -320,25 +314,39 @@
                   "string"
                 ]
               },
-              "resource_type": {
+              "user": {
                 "type": [
                   "null",
-                  "string"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
+                  "object"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "gid": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "resource_type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
               }
             }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "new_approval_status": {
@@ -720,66 +728,70 @@
       ]
     },
     "previews": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "fallback": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
-              "string"
-            ]
-          },
-          "footer": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "header": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "header_link": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "html_text": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "text": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "title": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "title_link": {
-            "type": [
-              "null",
-              "string"
-            ]
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "fallback": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "footer": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "header": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "header_link": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "html_text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "title": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "title_link": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "project": {

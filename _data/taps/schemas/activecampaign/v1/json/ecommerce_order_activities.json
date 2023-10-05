@@ -51,27 +51,47 @@
       ]
     },
     "total_price": {
-      "type": [
-        "null",
-        "number"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-08
+        }
       ]
     },
     "discount_amount": {
-      "type": [
-        "null",
-        "number"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-08
+        }
       ]
     },
     "shipping_amount": {
-      "type": [
-        "null",
-        "number"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-08
+        }
       ]
     },
     "tax_amount": {
-      "type": [
-        "null",
-        "number"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-08
+        }
       ]
     },
     "total_products": {

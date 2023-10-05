@@ -36,12 +36,16 @@
       ]
     },
     "placements": {
-      "items": {
-        "type": "string"
-      },
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "start_time": {
@@ -135,12 +139,16 @@
       ]
     },
     "categories": {
-      "items": {
-        "type": "string"
-      },
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "currency": {
@@ -156,12 +164,16 @@
       ]
     },
     "tracking_tags": {
-      "items": {
-        "type": "string"
-      },
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "updated_at": {

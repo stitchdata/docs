@@ -167,16 +167,25 @@
       ]
     },
     "newListedVehicles": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "object",
-        "array"
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        }
       ]
     },
     "totalOrderCount": {
@@ -300,16 +309,25 @@
       ]
     },
     "recommendedVehicles": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "object",
-        "array"
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        }
       ]
     },
     "lifetime_Spent": {
@@ -427,16 +445,25 @@
       }
     },
     "favoriteCategories": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "object",
-        "array"
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        }
       ]
     },
     "job_title": {
@@ -446,16 +473,25 @@
       ]
     },
     "phoneNumberDetails": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "object",
-        "array"
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        }
       ]
     },
     "newListedVehicles.miles": {
@@ -675,16 +711,25 @@
       ]
     },
     "auctionDigest": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "object",
-        "array"
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        }
       ]
     },
     "newListedVehicles.sku": {
@@ -868,42 +913,69 @@
       }
     },
     "offers": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "object",
-        "array"
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        }
       ]
     },
     "jobRecommendations": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "object",
-        "array"
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        }
       ]
     },
     "invoice": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "object",
-        "array"
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        }
       ]
     },
     "readingList.avgRating": {
@@ -1201,16 +1273,25 @@
       ]
     },
     "vegetarian_menu": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "object",
-        "array"
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        }
       ]
     },
     "wishList.name": {
@@ -1454,16 +1535,25 @@
       ]
     },
     "shoppingCartItems": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "object",
-        "array"
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        }
       ]
     },
     "offers.sku": {
@@ -1521,16 +1611,25 @@
       }
     },
     "wishList": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "object",
-        "array"
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        }
       ]
     },
     "sat": {
@@ -1546,16 +1645,25 @@
       ]
     },
     "readingList": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "object",
-        "array"
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        }
       ]
     },
     "shopppingCartTotal": {
@@ -1613,16 +1721,25 @@
       ]
     },
     "devices": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "object",
-        "array"
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        }
       ]
     },
     "timeZone": {

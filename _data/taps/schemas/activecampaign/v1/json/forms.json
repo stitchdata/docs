@@ -22,36 +22,40 @@
       "additionalProperties": false,
       "properties": {
         "actions": {
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "type": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
                 "type": [
                   "null",
-                  "string"
-                ]
-              },
-              "email": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "list": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
+                  "object"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "email": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "list": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                }
               }
+            },
+            {
+              "type": "null"
             }
-          },
-          "type": [
-            "array",
-            "null"
           ]
         }
       }
@@ -297,55 +301,61 @@
       }
     },
     "cfields": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "type": {
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
-              "string"
-            ]
-          },
-          "header": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "default_text": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "html": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "class": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "required": {
-            "type": [
-              "null",
-              "boolean"
-            ]
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "header": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "default_text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "html": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "class": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "required": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              }
+            }
           }
         }
-      },
-      "type": [
-        "null",
-        "object",
-        "array"
       ]
     },
     "parentformid": {
@@ -397,20 +407,24 @@
       ]
     },
     "recent": {
-      "items": {
-        "type": [
-          "null",
-          "object",
-          "string"
-        ],
-        "additionalProperties": true,
-        "properties": {
-          "id": {}
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": [
+              "null",
+              "object",
+              "string"
+            ],
+            "additionalProperties": true,
+            "properties": {
+              "id": {}
+            }
+          }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "contacts": {

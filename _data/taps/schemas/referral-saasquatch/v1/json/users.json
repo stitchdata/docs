@@ -28,9 +28,13 @@
       "type": "string"
     },
     "dateCreated": {
-      "type": [
-        "date-time",
-        "null"
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "emailHash": {

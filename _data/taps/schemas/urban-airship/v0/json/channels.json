@@ -41,9 +41,16 @@
       ]
     },
     "last_registration": {
-      "type": [
-        "null",
-        "date-time"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": [
+            "date-time",
+            "null"
+          ]
+        }
       ]
     },
     "named_user_id": {

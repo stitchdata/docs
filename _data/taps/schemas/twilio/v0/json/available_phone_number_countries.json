@@ -27,51 +27,61 @@
       ]
     },
     "subresource_uris": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "subresource": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
-              "string"
-            ]
-          },
-          "uri": {
-            "type": [
-              "null",
-              "string"
-            ]
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "subresource": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "uri": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "local": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "mobile": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "toll_free": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
           }
         }
-      },
-      "properties": {
-        "local": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "mobile": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "toll_free": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "array",
-        "null",
-        "object"
       ]
     }
   }

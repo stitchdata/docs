@@ -33,33 +33,37 @@
       ]
     },
     "comments": {
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "comment": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "date": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "user": {
-            "type": [
-              "null",
-              "string"
-            ]
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "comment": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "user": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "creation_date": {

@@ -21,9 +21,14 @@
       ]
     },
     "total_revenue": {
-      "type": [
-        "null",
-        "number"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-08
+        }
       ]
     },
     "total_orders": {
@@ -39,9 +44,14 @@
       ]
     },
     "avg_revenue_per_order": {
-      "type": [
-        "null",
-        "number"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-08
+        }
       ]
     },
     "avg_product_category": {

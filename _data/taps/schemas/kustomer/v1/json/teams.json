@@ -96,15 +96,19 @@
       ]
     },
     "members": {
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "modified_at": {
@@ -162,15 +166,19 @@
       ]
     },
     "role_groups": {
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "type": {

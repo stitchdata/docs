@@ -321,45 +321,49 @@
       }
     },
     "fees": {
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "amount": {
-            "type": [
-              "null",
-              "number"
-            ]
-          },
-          "trigger": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "tax_amount": {
-            "type": [
-              "null",
-              "number"
-            ]
-          },
-          "predefined_fee_key": {
-            "type": [
-              "null",
-              "string"
-            ]
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "trigger": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "tax_amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "predefined_fee_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "notes": {
@@ -755,33 +759,37 @@
       ]
     },
     "custom_fields": {
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "field_set_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "value": {
-            "type": [
-              "null",
-              "string"
-            ]
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "field_set_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     }
   }

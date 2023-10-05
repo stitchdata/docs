@@ -27,17 +27,31 @@
       ]
     },
     "latitude": {
-      "type": [
-        "null",
-        "number",
-        "string"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-06
+        },
+        {
+          "type": "string"
+        }
       ]
     },
     "longitude": {
-      "type": [
-        "null",
-        "number",
-        "string"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "multipleOf": 1e-06
+        },
+        {
+          "type": "string"
+        }
       ]
     },
     "locality": {

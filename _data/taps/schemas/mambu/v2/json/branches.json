@@ -9,81 +9,85 @@
       ]
     },
     "addresses": {
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "country": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "parent_key": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "city": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "latitude": {
-            "type": [
-              "null",
-              "number"
-            ]
-          },
-          "postcode": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "index_in_list": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "encoded_key": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "region": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "line2": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "line1": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "longitude": {
-            "type": [
-              "null",
-              "number"
-            ]
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "country": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "parent_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "city": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "latitude": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "postcode": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "index_in_list": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "encoded_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "region": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "line2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "line1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "longitude": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "phone_number": {
@@ -135,75 +139,83 @@
       ]
     },
     "branch_holidays": {
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "date": {
-            "type": [
-              "null",
-              "date"
-            ]
-          },
-          "encoded_key": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "is_anually_recurring": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "creation_date": {
-            "type": [
-              "null",
-              "date-time"
-            ]
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "date": {
+                "type": [
+                  "null",
+                  "date"
+                ]
+              },
+              "encoded_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "is_anually_recurring": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "creation_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "custom_fields": {
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "field_set_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "value": {
-            "type": [
-              "null",
-              "string"
-            ]
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "field_set_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     }
   }

@@ -123,27 +123,31 @@
       ]
     },
     "properties": {
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "value": {
-            "type": [
-              "null",
-              "string"
-            ]
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "quantity": {
@@ -208,57 +212,61 @@
       "additionalProperties": false,
       "properties": {
         "utm_params": {
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "utm_campaign": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "utm_content": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "utm_data_source": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "utm_medium": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "utm_source": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "utm_term": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "utm_timestamp": {
-                "type": [
-                  "null",
-                  "string"
-                ]
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "utm_campaign": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_content": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_data_source": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_medium": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_source": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_term": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_timestamp": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
               }
+            },
+            {
+              "type": "null"
             }
-          },
-          "type": [
-            "array",
-            "null"
           ]
         }
       }

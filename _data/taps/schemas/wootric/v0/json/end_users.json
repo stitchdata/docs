@@ -14,9 +14,13 @@
       "type": "string"
     },
     "last_surveyed": {
-      "type": [
-        "null",
-        "date-time"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "date-time"
+        }
       ]
     },
     "external_created_at": {

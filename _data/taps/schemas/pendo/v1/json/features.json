@@ -53,12 +53,16 @@
           ]
         },
         "event_property_configurations": {
-          "items": {
-            "type": "integer"
-          },
-          "type": [
-            "array",
-            "null"
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "last": {

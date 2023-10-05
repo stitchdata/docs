@@ -141,27 +141,35 @@
       ]
     },
     "score_values": {
-      "items": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "type": [
-        "null",
-        "array"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        }
       ]
     },
     "account_contacts": {
-      "items": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "type": [
-        "null",
-        "array"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        }
       ]
     },
     "id": {

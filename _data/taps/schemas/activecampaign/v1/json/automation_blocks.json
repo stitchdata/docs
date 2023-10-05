@@ -21,18 +21,26 @@
       ]
     },
     "params": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": true,
-        "properties": {}
-      },
-      "type": [
-        "null",
-        "object",
-        "array"
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": true,
+          "properties": {}
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": true,
+            "properties": {}
+          }
+        }
       ]
     },
     "deleted": {

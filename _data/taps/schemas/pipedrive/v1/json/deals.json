@@ -155,10 +155,19 @@
       ]
     },
     "first_won_time": {
-      "type": [
-        "date-time",
-        "null",
-        "string"
+      "anyOf": [
+        {
+          "type": [
+            "date-time",
+            "null"
+          ]
+        },
+        {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       ]
     },
     "lost_time": {

@@ -106,12 +106,16 @@
       "additionalProperties": false,
       "properties": {
         "ids": {
-          "items": {
-            "type": "integer"
-          },
-          "type": [
-            "array",
-            "null"
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "purchase_item_type": {

@@ -72,63 +72,71 @@
       }
     },
     "columns": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "columnIndex": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
-              "integer"
-            ]
-          },
-          "columnLetter": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "columnName": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "columnType": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "columnSkipped": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "type": {
-            "items": {
-              "type": "string"
-            },
-            "type": [
-              "array",
-              "null"
-            ]
-          },
-          "format": {
-            "type": [
-              "null",
-              "string"
-            ]
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "columnIndex": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "columnLetter": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "columnName": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "columnType": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "columnSkipped": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "type": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "format": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     }
   }

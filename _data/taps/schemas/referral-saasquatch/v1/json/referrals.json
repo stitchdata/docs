@@ -33,33 +33,53 @@
       "type": "string"
     },
     "dateReferralStarted": {
-      "type": [
-        "date-time",
-        "null"
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "dateConverted": {
-      "type": [
-        "date-time",
-        "null"
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "dateReferralPaid": {
-      "type": [
-        "date-time",
-        "null"
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "dateReferralEnded": {
-      "type": [
-        "date-time",
-        "null"
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "dateModerated": {
-      "type": [
-        "date-time",
-        "null"
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
       ]
     }
   }

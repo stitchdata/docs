@@ -13,15 +13,19 @@
           ]
         },
         "additional_sub_categories": {
-          "items": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "type": [
-            "array",
-            "null"
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "primary_category": {
@@ -31,53 +35,61 @@
           ]
         },
         "primary_sub_categories": {
-          "items": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "type": [
-            "array",
-            "null"
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            {
+              "type": "null"
+            }
           ]
         }
       }
     },
     "company_contacts": {
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "email_address": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "first_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "last_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "phone_number": {
-            "type": [
-              "null",
-              "string"
-            ]
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "email_address": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "first_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "last_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "phone_number": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "direct_tracking_settings": {
@@ -250,33 +262,37 @@
       "additionalProperties": false,
       "properties": {
         "additional_related_links": {
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "link_display_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "link_type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "link_url": {
-                "type": [
-                  "null",
-                  "string"
-                ]
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "link_display_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "link_type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "link_url": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
               }
+            },
+            {
+              "type": "null"
             }
-          },
-          "type": [
-            "array",
-            "null"
           ]
         },
         "company_homepage": {

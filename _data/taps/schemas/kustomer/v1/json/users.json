@@ -177,27 +177,35 @@
       ]
     },
     "role_groups": {
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "roles": {
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "type": {

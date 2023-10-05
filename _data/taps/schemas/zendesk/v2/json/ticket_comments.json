@@ -61,268 +61,256 @@
       ]
     },
     "via": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "channel": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "source": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "from": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "properties": {
-                "ticket_ids": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
-                  "items": {
-                    "type": [
-                      "null",
-                      "integer"
-                    ]
-                  }
-                },
-                "subject": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "address": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "original_recipients": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
-                  "items": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                },
-                "id": {
+      "channel": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "source": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "from": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "ticket_ids": {
+                "type": [
+                  "null",
+                  "array"
+                ],
+                "items": {
                   "type": [
                     "null",
                     "integer"
                   ]
-                },
-                "ticket_id": {
-                  "type": [
-                    "null",
-                    "integer"
-                  ]
-                },
-                "deleted": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                },
-                "title": {
+                }
+              },
+              "subject": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "address": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "original_recipients": {
+                "type": [
+                  "null",
+                  "array"
+                ],
+                "items": {
                   "type": [
                     "null",
                     "string"
                   ]
                 }
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "ticket_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "deleted": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "title": {
+                "type": [
+                  "null",
+                  "string"
+                ]
               }
-            },
-            "to": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "properties": {
-                "name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "address": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
-              }
-            },
-            "rel": {
-              "type": [
-                "null",
-                "string"
-              ]
             }
+          },
+          "to": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "address": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "rel": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       }
     },
     "metadata": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "custom": {},
-        "trusted": {
+      "custom": {},
+      "trusted": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "notifications_suppressed_for": {
+        "type": [
+          "null",
+          "array"
+        ],
+        "items": {
           "type": [
             "null",
-            "boolean"
+            "integer"
           ]
-        },
-        "notifications_suppressed_for": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
+        }
+      },
+      "flags_options": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "2": {
             "type": [
               "null",
-              "integer"
-            ]
-          }
-        },
-        "flags_options": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "2": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "properties": {
-                "trusted": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                }
+              "object"
+            ],
+            "properties": {
+              "trusted": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
               }
-            },
-            "11": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "properties": {
-                "trusted": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                },
-                "message": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "properties": {
-                    "user": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
+            }
+          },
+          "11": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "trusted": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "message": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "properties": {
+                  "user": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
                   }
                 }
               }
             }
           }
-        },
-        "flags": {
+        }
+      },
+      "flags": {
+        "type": [
+          "null",
+          "array"
+        ],
+        "items": {
           "type": [
             "null",
-            "array"
-          ],
-          "items": {
+            "integer"
+          ]
+        }
+      },
+      "system": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "location": {
             "type": [
               "null",
-              "integer"
+              "string"
             ]
-          }
-        },
-        "system": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "location": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "longitude": {
-              "type": [
-                "null",
-                "number"
-              ]
-            },
-            "message_id": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "raw_email_identifier": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "ip_address": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "json_email_identifier": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "client": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "latitude": {
-              "type": [
-                "null",
-                "number"
-              ]
-            }
+          },
+          "longitude": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "message_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "raw_email_identifier": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ip_address": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "json_email_identifier": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "client": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "latitude": {
+            "type": [
+              "null",
+              "number"
+            ]
           }
         }
       }

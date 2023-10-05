@@ -127,30 +127,40 @@
             ]
           },
           "properties": {
-            "items": {
-              "properties": {
-                "name": {
+            "anyOf": [
+              {
+                "items": {
+                  "properties": {
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
                   "type": [
                     "null",
-                    "string"
+                    "object"
                   ]
                 },
-                "value": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
+                "type": [
+                  "null",
+                  "array"
+                ]
               },
-              "type": [
-                "null",
-                "object"
-              ]
-            },
-            "type": [
-              "null",
-              "array",
-              "object"
+              {
+                "properties": {},
+                "type": [
+                  "null",
+                  "object"
+                ]
+              }
             ]
           },
           "tax_code": {
@@ -1078,30 +1088,40 @@
                   ]
                 },
                 "properties": {
-                  "items": {
-                    "properties": {
-                      "name": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "properties": {
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "value": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
                         "type": [
                           "null",
-                          "string"
+                          "object"
                         ]
                       },
-                      "value": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      }
+                      "type": [
+                        "null",
+                        "array"
+                      ]
                     },
-                    "type": [
-                      "null",
-                      "object"
-                    ]
-                  },
-                  "type": [
-                    "null",
-                    "array",
-                    "object"
+                    {
+                      "properties": {},
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    }
                   ]
                 },
                 "tax_code": {
@@ -1983,10 +2003,16 @@
           ]
         },
         "accepts_marketing_updated_at": {
-          "type": [
-            "date-time",
-            "string",
-            "null"
+          "anyOf": [
+            {
+              "type": "date-time"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "created_at": {
@@ -2769,30 +2795,40 @@
                       ]
                     },
                     "properties": {
-                      "items": {
-                        "properties": {
-                          "name": {
+                      "anyOf": [
+                        {
+                          "items": {
+                            "properties": {
+                              "name": {
+                                "type": [
+                                  "null",
+                                  "string"
+                                ]
+                              },
+                              "value": {
+                                "type": [
+                                  "null",
+                                  "string"
+                                ]
+                              }
+                            },
                             "type": [
                               "null",
-                              "string"
+                              "object"
                             ]
                           },
-                          "value": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
+                          "type": [
+                            "null",
+                            "array"
+                          ]
                         },
-                        "type": [
-                          "null",
-                          "object"
-                        ]
-                      },
-                      "type": [
-                        "null",
-                        "array",
-                        "object"
+                        {
+                          "properties": {},
+                          "type": [
+                            "null",
+                            "object"
+                          ]
+                        }
                       ]
                     },
                     "tax_code": {

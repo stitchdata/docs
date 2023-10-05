@@ -13,24 +13,18 @@
       ]
     },
     "AgencyRef": {
-      "properties": {
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "value": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
       },
-      "type": [
-        "null",
-        "object"
-      ]
+      "value": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
     },
     "Description": {
       "type": [
@@ -95,77 +89,80 @@
       ]
     },
     "EffectiveTaxRate": {
-      "properties": {
-        "RateValue": {
+      "anyOf": [
+        {
+          "properties": {
+            "RateValue": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "EndDate": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            },
+            "EffectiveDate ": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            }
+          },
           "type": [
             "null",
-            "number"
+            "object"
           ]
         },
-        "EndDate": {
+        {
           "type": [
             "null",
-            "date-time"
-          ]
-        },
-        "EffectiveDate ": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        }
-      },
-      "items": {
-        "properties": {
-          "RateValue": {
+            "array"
+          ],
+          "items": {
+            "properties": {
+              "RateValue": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "EndDate": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "EffectiveDate ": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              }
+            },
             "type": [
               "null",
-              "number"
-            ]
-          },
-          "EndDate": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "EffectiveDate ": {
-            "type": [
-              "null",
-              "date-time"
+              "object"
             ]
           }
-        },
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "object",
-        "array"
+        }
       ]
     },
     "TaxReturnLineRef": {
-      "properties": {
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "value": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
       },
-      "type": [
-        "null",
-        "object"
-      ]
+      "value": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
     },
     "OriginalTaxRate": {
       "type": [

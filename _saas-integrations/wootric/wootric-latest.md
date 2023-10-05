@@ -17,7 +17,7 @@ display_name: "Wootric"
 singer: true
 repo-url: https://github.com/singer-io/tap-wootric
 
-this-version: "1"
+this-version: "0"
 
 api: |
   [{{ integration.display_name }} API](https://docs.wootric.com/api/){:target="new"}

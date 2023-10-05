@@ -57,33 +57,37 @@
       ]
     },
     "contents": {
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "submitted": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "indexed": {
-            "type": [
-              "null",
-              "integer"
-            ]
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "submitted": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "indexed": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     }
   }

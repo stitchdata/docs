@@ -165,73 +165,66 @@
         "array"
       ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "Region": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "AddressLine1": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "AddressLine2": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "AddressLine3": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "AddressLine4": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "AttentionTo": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "City": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "PostalCode": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "Country": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "AddressType": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
+        "Region": {
+          "type": [
+            "null",
+            "string"
+          ]
         },
-        "additionalProperties": false
+        "AddressLine1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "AddressLine2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "AddressLine3": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "AddressLine4": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "AttentionTo": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "City": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "PostalCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "AddressType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       }
     },
     "Phones": {
@@ -240,37 +233,30 @@
         "array"
       ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "PhoneNumber": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "PhoneAreaCode": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "PhoneCountryCode": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "PhoneType": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
+        "PhoneNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
         },
-        "additionalProperties": false
+        "PhoneAreaCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "PhoneCountryCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "PhoneType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       }
     },
     "ExternalLinks": {
@@ -301,55 +287,48 @@
       }
     },
     "PaymentTerms": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "Sales": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "Day": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "Type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
+      "Sales": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "Day": {
+            "type": [
+              "null",
+              "integer"
+            ]
           },
-          "additionalProperties": false
+          "Type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
         },
-        "Bills": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "Day": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "Type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          },
-          "additionalProperties": false
-        }
+        "additionalProperties": false
       },
-      "additionalProperties": false
+      "Bills": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "Day": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "Type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
     }
   },
   "tap_schema_dependencies": [

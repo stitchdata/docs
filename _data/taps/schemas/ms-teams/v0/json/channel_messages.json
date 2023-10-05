@@ -186,180 +186,166 @@
       }
     },
     "attachments": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": true,
-        "properties": {
-          "id": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
-              "string"
-            ]
-          },
-          "content_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "content_url": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "content": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "thumbnail_url": {
-            "type": [
-              "null",
-              "string"
-            ]
+              "object"
+            ],
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "content_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "content_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "content": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "thumbnail_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "mentions": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": true,
-        "properties": {
-          "id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "mention_text": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "mentioned": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
               "object"
             ],
             "additionalProperties": true,
             "properties": {
-              "application": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "mention_text": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
-              "device": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "conversation": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "user": {
+              "mentioned": {
                 "type": [
                   "null",
                   "object"
                 ],
                 "additionalProperties": true,
                 "properties": {
-                  "id": {
+                  "application": {
                     "type": [
                       "null",
                       "string"
                     ]
                   },
-                  "display_name": {
+                  "device": {
                     "type": [
                       "null",
                       "string"
                     ]
                   },
-                  "userIdentity_type": {
+                  "conversation": {
                     "type": [
                       "null",
                       "string"
                     ]
+                  },
+                  "user": {
+                    "type": [
+                      "null",
+                      "object"
+                    ],
+                    "additionalProperties": true,
+                    "properties": {
+                      "id": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "display_name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "userIdentity_type": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    }
                   }
                 }
               }
             }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "reactions": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": true,
-        "properties": {
-          "reaction_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "created_date_time": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "user": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
               "object"
             ],
             "additionalProperties": true,
             "properties": {
-              "application": {
+              "reaction_type": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
-              "device": {
+              "created_date_time": {
                 "type": [
                   "null",
-                  "string"
-                ]
-              },
-              "conversation": {
-                "type": [
-                  "null",
-                  "string"
+                  "date-time"
                 ]
               },
               "user": {
@@ -369,33 +355,59 @@
                 ],
                 "additionalProperties": true,
                 "properties": {
-                  "id": {
+                  "application": {
                     "type": [
                       "null",
                       "string"
                     ]
                   },
-                  "display_name": {
+                  "device": {
                     "type": [
                       "null",
                       "string"
                     ]
                   },
-                  "user_identity_type": {
+                  "conversation": {
                     "type": [
                       "null",
                       "string"
                     ]
+                  },
+                  "user": {
+                    "type": [
+                      "null",
+                      "object"
+                    ],
+                    "additionalProperties": true,
+                    "properties": {
+                      "id": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "display_name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "user_identity_type": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    }
                   }
                 }
               }
             }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     }
   }

@@ -3,12 +3,16 @@
   "additionalProperties": false,
   "properties": {
     "admin_ids": {
-      "items": {
-        "type": "integer"
-      },
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "avatar": {
@@ -69,12 +73,16 @@
       ]
     },
     "team_ids": {
-      "items": {
-        "type": "integer"
-      },
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "type": {

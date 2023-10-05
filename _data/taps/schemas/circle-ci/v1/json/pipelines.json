@@ -52,12 +52,22 @@
       ],
       "properties": {
         "property_name": {
-          "type": [
-            "null",
-            "string",
-            "integer",
-            "boolean",
-            "object"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object"
+            }
           ]
         }
       },

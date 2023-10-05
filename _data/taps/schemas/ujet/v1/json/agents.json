@@ -21,74 +21,80 @@
       ]
     },
     "channels": {
-      "items": {
-        "channel_type": {
+      "anyOf": [
+        {
           "type": [
             "null",
-            "string"
-          ]
-        },
-        "menu": {
-          "properties": {
-            "deleted": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "hidden": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "id": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "menu_type": {
+            "array"
+          ],
+          "items": {
+            "channel_type": {
               "type": [
                 "null",
                 "string"
               ]
             },
-            "name": {
+            "menu": {
+              "properties": {
+                "deleted": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "hidden": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "id": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "menu_type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "output_msg": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "parent_id": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "position": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                }
+              },
               "type": [
                 "null",
-                "string"
-              ]
-            },
-            "output_msg": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "parent_id": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "position": {
-              "type": [
-                "null",
-                "integer"
+                "object"
               ]
             }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
+          }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "null",
-        "array",
-        "null"
       ]
     },
     "chat_count": {
@@ -158,15 +164,19 @@
       ]
     },
     "roles": {
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "status": {
@@ -208,54 +218,58 @@
       ]
     },
     "teams": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "agents_count": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
-              "integer"
-            ]
-          },
-          "deleted": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "parent_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "position": {
-            "type": [
-              "null",
-              "integer"
-            ]
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "agents_count": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "deleted": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "parent_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "position": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "wrap_up": {

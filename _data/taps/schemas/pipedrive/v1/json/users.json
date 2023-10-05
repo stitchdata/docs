@@ -41,10 +41,19 @@
       ]
     },
     "last_login": {
-      "type": [
-        "null",
-        "date-time",
-        "string"
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       ]
     },
     "created": {

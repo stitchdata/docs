@@ -68,17 +68,21 @@
       ]
     },
     "projects": {
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     }
   }

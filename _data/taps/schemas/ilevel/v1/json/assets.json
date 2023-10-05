@@ -131,74 +131,78 @@
       "additionalProperties": false,
       "properties": {
         "fiscal_period_mapping": {
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "calendar_period": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
                 "type": [
                   "null",
-                  "integer"
-                ]
-              },
-              "calendar_quarter": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "calendar_quarter_offset": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "calendar_type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "fiscal_period": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "fiscal_quarter": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "object_id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "is_fiscal_year_end": {
-                "type": [
-                  "null",
-                  "boolean"
+                  "object"
                 ],
-                "default": false
-              },
-              "is_calendar_year_end": {
-                "type": [
-                  "null",
-                  "boolean"
-                ],
-                "default": false
+                "additionalProperties": false,
+                "properties": {
+                  "calendar_period": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "calendar_quarter": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "calendar_quarter_offset": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "calendar_type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "fiscal_period": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "fiscal_quarter": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "object_id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "is_fiscal_year_end": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ],
+                    "default": false
+                  },
+                  "is_calendar_year_end": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ],
+                    "default": false
+                  }
+                }
               }
+            },
+            {
+              "type": "null"
             }
-          },
-          "type": [
-            "array",
-            "null"
           ]
         }
       }

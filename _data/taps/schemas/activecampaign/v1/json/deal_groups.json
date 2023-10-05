@@ -39,15 +39,19 @@
       ]
     },
     "stages": {
-      "items": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "type": [
-        "null",
-        "array"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        }
       ]
     },
     "title": {

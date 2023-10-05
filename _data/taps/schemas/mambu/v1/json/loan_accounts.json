@@ -112,33 +112,37 @@
           ]
         },
         "fees": {
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "predefined_fee_encoded_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "encoded_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "amount": {
-                "type": [
-                  "null",
-                  "number"
-                ]
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "predefined_fee_encoded_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "encoded_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "amount": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  }
+                }
               }
+            },
+            {
+              "type": "null"
             }
-          },
-          "type": [
-            "array",
-            "null"
           ]
         },
         "first_repayment_date": {
@@ -257,51 +261,55 @@
       }
     },
     "assets": {
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "amount": {
-            "type": [
-              "null",
-              "number"
-            ]
-          },
-          "deposit_account_key": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "asset_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "encoded_key": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "guarantor_key": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "guarantor_type": {
-            "type": [
-              "null",
-              "string"
-            ]
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "deposit_account_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "asset_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "encoded_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "guarantor_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "guarantor_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "last_interest_review_date": {
@@ -329,12 +337,16 @@
       ]
     },
     "locked_operations": {
-      "items": {
-        "type": "string"
-      },
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "accrued_interest": {
@@ -362,54 +374,58 @@
       ]
     },
     "tranches": {
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "encoded_key": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "amount": {
-            "type": [
-              "null",
-              "number"
-            ]
-          },
-          "disbursement_details": {
-            "type": [
-              "null",
-              "object"
-            ],
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
             "additionalProperties": false,
             "properties": {
-              "expected_disbursement_date": {
+              "encoded_key": {
                 "type": [
                   "null",
-                  "date-time"
+                  "string"
                 ]
               },
-              "disbursement_transaction_key": {
+              "amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "disbursement_details": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "expected_disbursement_date": {
+                    "type": [
+                      "null",
+                      "date-time"
+                    ]
+                  },
+                  "disbursement_transaction_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
+              },
+              "tranch_number": {
                 "type": [
                   "null",
                   "string"
                 ]
               }
             }
-          },
-          "tranch_number": {
-            "type": [
-              "null",
-              "string"
-            ]
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "approved_date": {
@@ -464,33 +480,37 @@
           ]
         },
         "payment_plan": {
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "to_installment": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "encoded_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "amount": {
-                "type": [
-                  "null",
-                  "number"
-                ]
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "to_installment": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "encoded_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "amount": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  }
+                }
               }
+            },
+            {
+              "type": "null"
             }
-          },
-          "type": [
-            "array",
-            "null"
           ]
         },
         "short_month_handling_method": {
@@ -530,12 +550,16 @@
           ]
         },
         "fixed_days_of_month": {
-          "items": {
-            "type": "integer"
-          },
-          "type": [
-            "array",
-            "null"
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "schedule_due_dates_method": {
@@ -583,69 +607,73 @@
       ]
     },
     "funding_sources": {
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "amount": {
-            "type": [
-              "null",
-              "number"
-            ]
-          },
-          "interest_commission": {
-            "type": [
-              "null",
-              "number"
-            ]
-          },
-          "deposit_account_key": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "asset_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "encoded_key": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "guarantor_key": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "guarantor_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "share_percentage": {
-            "type": [
-              "null",
-              "number"
-            ]
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "interest_commission": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "deposit_account_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "asset_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "encoded_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "guarantor_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "guarantor_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "share_percentage": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "account_holder_type": {
@@ -950,51 +978,55 @@
       ]
     },
     "guarantors": {
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "amount": {
-            "type": [
-              "null",
-              "number"
-            ]
-          },
-          "deposit_account_key": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "asset_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "encoded_key": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "guarantor_key": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "guarantor_type": {
-            "type": [
-              "null",
-              "string"
-            ]
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "deposit_account_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "asset_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "encoded_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "guarantor_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "guarantor_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "account_arrears_settings": {
@@ -1043,45 +1075,53 @@
       }
     },
     "custom_field_sets": {
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "custom_field_set_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "custom_field_values": {
-            "items": {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "custom_field_id": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "custom_field_value": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "custom_field_set_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "custom_field_values": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "properties": {
+                        "custom_field_id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "custom_field_value": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
               }
-            },
-            "type": [
-              "array",
-              "null"
-            ]
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     }
   }

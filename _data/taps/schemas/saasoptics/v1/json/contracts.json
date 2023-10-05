@@ -154,21 +154,33 @@
           ]
         },
         "job_end_date": {
-          "type": [
-            "null",
-            "date-time"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "date-time"
+            }
           ]
         },
         "job_projected_end_date": {
-          "type": [
-            "null",
-            "date-time"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "date-time"
+            }
           ]
         },
         "job_start_date": {
-          "type": [
-            "null",
-            "date-time"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "date-time"
+            }
           ]
         },
         "job_status": {
@@ -306,9 +318,13 @@
       ]
     },
     "entry_date": {
-      "type": [
-        "null",
-        "date-time"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "date-time"
+        }
       ]
     },
     "id": {
@@ -324,9 +340,13 @@
       ]
     },
     "lead_date": {
-      "type": [
-        "null",
-        "date-time"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "date-time"
+        }
       ]
     },
     "lead_source": {
@@ -336,9 +356,13 @@
       ]
     },
     "modified": {
-      "type": [
-        "null",
-        "date-time"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "date-time"
+        }
       ]
     },
     "notes": {

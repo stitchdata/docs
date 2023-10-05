@@ -106,45 +106,55 @@
       ]
     },
     "subresource_uris": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "subresource": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
-              "string"
-            ]
-          },
-          "uri": {
-            "type": [
-              "null",
-              "string"
-            ]
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "subresource": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "uri": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "feedback": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "media": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
           }
         }
-      },
-      "properties": {
-        "feedback": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "media": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "array",
-        "null",
-        "object"
       ]
     },
     "to": {

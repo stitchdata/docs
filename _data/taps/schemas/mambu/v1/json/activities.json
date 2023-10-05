@@ -75,69 +75,73 @@
       ]
     },
     "field_changes": {
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "transaction_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "field_change_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "original_value": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "new_value": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "clientKey": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "branchKey": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "loanProductKey": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "loanAccountKey": {
-            "type": [
-              "null",
-              "string"
-            ]
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "transaction_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "field_change_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "original_value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "new_value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "clientKey": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "branchKey": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "loanProductKey": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "loanAccountKey": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     }
   }

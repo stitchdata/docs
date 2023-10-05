@@ -114,78 +114,82 @@
       ]
     },
     "participants": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "chat_id": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
-              "integer"
-            ]
-          },
-          "fail_reason": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "chat_duration": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "finished_at": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "connected_at": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "user_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "status": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "end_user_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
+              "object"
+            ],
+            "properties": {
+              "chat_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "fail_reason": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "chat_duration": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "finished_at": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "connected_at": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "user_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "status": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "end_user_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "additionalProperties": false
           }
         },
-        "additionalProperties": false
-      },
-      "type": [
-        "array",
-        "null"
+        {
+          "type": "null"
+        }
       ]
     },
     "longest_response_time": {
@@ -231,9 +235,14 @@
       ]
     },
     "offer_events": {
-      "type": [
-        "array",
-        "null"
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {}
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "assigned_at": {
@@ -255,30 +264,34 @@
       ]
     },
     "videos": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "id": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
-              "integer"
-            ]
-          },
-          "url": {
-            "type": [
-              "null",
-              "string"
-            ]
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "lang": {
@@ -288,43 +301,135 @@
       ]
     },
     "transfers": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "deflection": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "from_agent": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
               "object"
             ],
             "additionalProperties": false,
             "properties": {
-              "first_name": {
+              "deflection": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
-              "name": {
+              "from_agent": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "first_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "agent_number": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "last_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "avatar_url": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
+              },
+              "to_queue_priority_level": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
-              "agent_number": {
+              "fail_reason": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "from_queue_priority_level": {
                 "type": [
                   "null",
                   "integer"
                 ]
+              },
+              "connected_at": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "to_agent": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "properties": {
+                  "first_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "agent_number": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "last_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "avatar_url": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "additionalProperties": false
               },
               "id": {
                 "type": [
@@ -332,175 +437,87 @@
                   "integer"
                 ]
               },
-              "last_name": {
+              "wait_duration": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "answer_type_path": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
-              "avatar_url": {
+              "call_duration": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "from_menu_path": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "properties": {
+                  "items_count": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "materialized_path": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              },
+              "status": {
                 "type": [
                   "null",
                   "string"
+                ]
+              },
+              "assigned_at": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "created_at": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "to_menu_path": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "updated_at": {
+                "type": [
+                  "null",
+                  "date-time"
                 ]
               }
             }
-          },
-          "to_queue_priority_level": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "fail_reason": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "from_queue_priority_level": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "connected_at": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "to_agent": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "first_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "agent_number": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "last_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "avatar_url": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            },
-            "additionalProperties": false
-          },
-          "id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "wait_duration": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "answer_type_path": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "call_duration": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "from_menu_path": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "items_count": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "materialized_path": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            },
-            "additionalProperties": false
-          },
-          "status": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "assigned_at": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "created_at": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "to_menu_path": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "updated_at": {
-            "type": [
-              "null",
-              "date-time"
-            ]
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "chat_type": {
@@ -579,36 +596,40 @@
       ]
     },
     "photos": {
-      "items": {
-        "additionalProperties": false,
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "id": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "additionalProperties": false,
             "type": [
               "null",
-              "integer"
-            ]
-          },
-          "photo_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "url": {
-            "type": [
-              "null",
-              "string"
-            ]
+              "object"
+            ],
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "photo_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "ends_at": {

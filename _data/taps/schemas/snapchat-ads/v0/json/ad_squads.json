@@ -70,65 +70,86 @@
           ]
         },
         "demographics": {
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "additionalProperties": true,
-            "properties": {}
-          },
-          "type": [
-            "array",
-            "null"
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": true,
+                "properties": {}
+              }
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "devices": {
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "additionalProperties": true,
-            "properties": {}
-          },
-          "type": [
-            "array",
-            "null"
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": true,
+                "properties": {}
+              }
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "geos": {
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "additionalProperties": true,
-            "properties": {}
-          },
-          "type": [
-            "array",
-            "null"
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": true,
+                "properties": {}
+              }
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "interests": {
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "additionalProperties": true,
-            "properties": {}
-          },
-          "type": [
-            "array",
-            "null"
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": true,
+                "properties": {}
+              }
+            },
+            {
+              "type": "null"
+            }
           ]
         },
         "segments": {
-          "type": [
-            "array",
-            "null"
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {}
+            },
+            {
+              "type": "null"
+            }
           ]
         }
       }
@@ -172,12 +193,16 @@
           "additionalProperties": true,
           "properties": {
             "content_types": {
-              "items": {
-                "type": "string"
-              },
-              "type": [
-                "array",
-                "null"
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
               ]
             }
           }
@@ -190,12 +215,16 @@
           "additionalProperties": true,
           "properties": {
             "content_types": {
-              "items": {
-                "type": "string"
-              },
-              "type": [
-                "array",
-                "null"
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
               ]
             }
           }

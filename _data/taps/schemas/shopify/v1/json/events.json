@@ -62,10 +62,20 @@
       ]
     },
     "arguments": {
-      "type": [
-        "null",
-        "array",
-        "string"
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {}
+        },
+        {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       ]
     }
   }

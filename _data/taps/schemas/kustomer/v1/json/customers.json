@@ -306,36 +306,40 @@
       ]
     },
     "emails": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "email": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
-              "string"
-            ]
-          },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "verified": {
-            "type": [
-              "null",
-              "boolean"
-            ]
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "email": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "verified": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "external_id": {
@@ -345,30 +349,34 @@
       ]
     },
     "external_ids": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "external_id": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
-              "string"
-            ]
-          },
-          "verified": {
-            "type": [
-              "null",
-              "boolean"
-            ]
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "external_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "verified": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "facebook_ids": {
@@ -453,15 +461,19 @@
           }
         },
         "tags": {
-          "items": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "type": [
-            "array",
-            "null"
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            {
+              "type": "null"
+            }
           ]
         }
       },
@@ -639,36 +651,40 @@
       }
     },
     "phones": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "phone": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
-              "string"
-            ]
-          },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "verified": {
-            "type": [
-              "null",
-              "boolean"
-            ]
+              "object"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "phone": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "verified": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              }
+            }
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "preview": {
@@ -717,51 +733,55 @@
       ]
     },
     "recent_items": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "meta": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
             "type": [
               "null",
               "object"
             ],
             "additionalProperties": false,
             "properties": {
-              "klass_name": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "meta": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "klass_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "updated_at": {
                 "type": [
                   "null",
                   "string"
                 ]
               }
             }
-          },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "updated_at": {
-            "type": [
-              "null",
-              "string"
-            ]
           }
+        },
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array",
-        "null"
       ]
     },
     "recent_location": {
@@ -806,15 +826,19 @@
           "additionalProperties": false,
           "properties": {
             "sent_by_teams": {
-              "items": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "type": [
-                "array",
-                "null"
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                {
+                  "type": "null"
+                }
               ]
             }
           }
@@ -827,15 +851,19 @@
           "additionalProperties": false,
           "properties": {
             "sent_by_teams": {
-              "items": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "type": [
-                "array",
-                "null"
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                {
+                  "type": "null"
+                }
               ]
             }
           }

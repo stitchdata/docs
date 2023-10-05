@@ -93,10 +93,19 @@
       ]
     },
     "birthday": {
-      "type": [
-        "null",
-        "date-time",
-        "string"
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       ]
     },
     "email_address": {
