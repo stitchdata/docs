@@ -66,7 +66,7 @@ def replaceFormat(json_content):
             json_content = json_content.replace(full, new_multi_type)
 
     else:
-        sys.exit('Format pattern not found')
+        print('Format pattern not found')
     
     return json_content
 
@@ -176,7 +176,15 @@ def fullFileRef(path, folder):
             if file in path:
                 with open(filepath) as f:
                     content = f.read()
-    
+                    json_content = json.loads(content) 
+                    if json_content['properties']:
+                        new_content = ''
+                        props = json_content['properties']
+                        props_count = len(props)
+                        for prop in props:
+                            new_content = new_content + '"{}": '.format(prop) + json.dumps(props[prop], indent=2) + ','
+                        content = new_content
+
     return content
 
 def partialRef(ref, folder):
@@ -207,23 +215,52 @@ def partialRef(ref, folder):
 
 def replaceRefs(json_content, folder, filepath):
 
-    pattern = re.compile('(\{\s*\"\$ref\"\:\s*\"([^\"]+)\"\s*\})')
+    try:
+        pattern = re.compile('(\{\s*\"\$ref\"\:\s*\"([^\"]+)\"\s*\})')
+        refs = re.findall(pattern, json_content)
+        refs_count = len(refs)
 
-    refs = re.findall(pattern, json_content)
-
-    for ref in refs:
-        element = ref[0]
-        path = ref[1]
-
-        if path.endswith('.json') or path.endswith('.json#/'):
-            content = fullFileRef(path, folder)
-            json_content = json_content.replace(element, content)
-        elif '.json' in path:
-            content = partialRef(path, folder)
-            json_content = json_content.replace(element, content)
+        if refs_count == 0:
+            raise Exception()
         else:
-            content = sameFileRef(path, filepath, folder)
-            json_content = json_content.replace(element, content)
+            for ref in refs:
+                element = ref[0]
+                path = ref[1]
+
+                if path.endswith('.json') or path.endswith('.json#/'):
+                    content = fullFileRef(path, folder)
+                    json_content = json_content.replace(element, content)
+                elif '.json' in path:
+                    content = partialRef(path, folder)
+                    json_content = json_content.replace(element, content)
+                else:
+                    content = sameFileRef(path, filepath, folder)
+                    json_content = json_content.replace(element, content)
+    
+    except:
+        try:
+            pattern = re.compile('(\"\$ref\"\:\s*\"([^\"]+)\"\s*,)')
+            refs = re.findall(pattern, json_content)
+            refs_count = len(refs)
+
+            if refs_count == 0:
+                raise Exception()
+            else:
+                for ref in refs:
+                    element = ref[0]
+                    path = ref[1]
+
+                    if path.endswith('.json') or path.endswith('.json#/'):
+                        content = fullFileRef(path, folder)
+                        json_content = json_content.replace(element, content)
+                    elif '.json' in path:
+                        content = partialRef(path, folder)
+                        json_content = json_content.replace(element, content)
+                    else:
+                        content = sameFileRef(path, filepath, folder)
+                        json_content = json_content.replace(element, content)
+        except:
+            sys.exit('Reference pattern not found')
     
     j = json.loads(json_content)
     
@@ -241,7 +278,7 @@ def formatJSON(folder, json_output_folder):
                 with open(filepath, 'r') as f:
                     json_content = f.read()
 
-                    if '{0}shared{0}'.format(os.sep) in filepath:
+                    if '{0}shared{0}'.format(os.sep) in filepath or '{0}archive{0}'.format(os.sep) in filepath:
                         report = 'JSON file {} ignored'.format(file)
                         ignored.append(report)
 
