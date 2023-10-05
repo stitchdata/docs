@@ -3,83 +3,86 @@
 <div class="table-responsive">
 	<table class="attribute-list table-hover" style="margin-top: 0px; margin-bottom: 0px;">
 	
-
 		{% for property in include.jsondata %}
-        {% assign name = property | first %}
-        {% assign data = property | last %}
-			<tr>
-				<td>
+			{% assign name = property | first %}
+			{% assign data = property | last %}
+			{% if data.type or data.anyOf %}
+				<tr>
+					<td>
 						<p>
 							<strong>
 								{{ name }}
-		                    </strong>
-	                        <br>
-		                    {% assign types = data.type %}
-							{% assign types_string = types | join: " " %}
-							{% assign new_types = types_string | remove: "null" | strip | replace: "  ", " " | split: " " | join: ", " %}
+							</strong>
+						</p>
+						
+						{% assign types = data.type %}
+						{% assign types_string = types | join: " " %}
+						{% assign new_types = types_string | remove: "null" | strip | replace: "  ", " " | split: " " | join: ", " %}
 
-							<p>{{new_types}}</p>
+						<p>
+							{{ new_types }}
+						</p>
 
-							{% if data.anyOf %}
-								{% for item in data.anyOf %}
+						{% if data.anyOf %}
+							{% for item in data.anyOf %}
 
+								{% assign anyof_types = item.type %}
+								{% assign anyof_types_string = item.type | join: " " %}
+								
+								{% for anyof_type in anyof_types %}
+									{% if anyof_type != "null" %}
 
-									{% assign anyof_types = item.type %}
-									{% assign anyof_types_string = item.type | join: " " %}
-									
+										<p>{{ anyof_type }}</p>
 
-
-									{% for anyof_type in anyof_types %}
-										{% if anyof_type != "null" %}
-											<p>{{ anyof_type }}</p>
-
-											{% if item.properties %}
-													{% capture attribute-id %}{% increment counter %}{% endcapture %}
-		
-													{% assign full-id = name | append: "--" | append: attribute-id %}
-		
-													<div class="panel-group" id="{{ full-id | slugify }}">
-														<div class="panel panel-table-subattributes">
-															<div class="panel-table-subattribute-heading">
-																<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id | slugify | strip }}" href="#collapse{{ full-id | slugify }}">contents</a>
-															</div>
-		
-															<div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
+										{% if item.properties or item.items %}
+												{% capture attribute-id %}{% increment counter %}{% endcapture %}
+	
+												{% assign full-id = name | append: "--" | append: attribute-id %}
+	
+												<div class="panel-group" id="{{ full-id | slugify }}">
+													<div class="panel panel-table-subattributes">
+														<div class="panel-table-subattribute-heading">
+															<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id | slugify | strip }}" href="#collapse{{ full-id | slugify }}">contents</a>
+														</div>
+	
+														<div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
+															{% if data.properties %}
 																{% include integrations/templates/schemas/new-schemas-table.html jsondata=item.properties %}
-															</div>
+															{% else %}
+																	{% include integrations/templates/schemas/new-schemas-table.html jsondata=item %}
+															{% endif %}
 														</div>
 													</div>
-											{% endif %}
-										
+												</div>
 										{% endif %}
-									{% endfor %}
-
+									{% endif %}
 								{% endfor %}
-							{% endif %}
+							{% endfor %}
+						{% endif %}
 
-	                	</p>
+						{% if data.properties or data.items %}
+							{% capture attribute-id %}{% increment counter %}{% endcapture %}
+							{% assign full-id = name | append: "--" | append: attribute-id %}
 
-						
+							<div class="panel-group" id="{{ full-id | slugify }}">
+								<div class="panel panel-table-subattributes">
+									<div class="panel-table-subattribute-heading">
+										<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id | slugify | strip }}" href="#collapse{{ full-id | slugify }}">contents</a>
+									</div>
 
-                    {% if data.properties %}
-						{% capture attribute-id %}{% increment counter %}{% endcapture %}
-
-						{% assign full-id = name | append: "--" | append: attribute-id %}
-
-						<div class="panel-group" id="{{ full-id | slugify }}">
-						    <div class="panel panel-table-subattributes">
-						        <div class="panel-table-subattribute-heading">
-						            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id | slugify | strip }}" href="#collapse{{ full-id | slugify }}">contents</a>
-						        </div>
-
-						        <div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
-									{% include integrations/templates/schemas/new-schemas-table.html jsondata=data.properties %}
+									<div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
+										{% if data.properties %}
+											{% include integrations/templates/schemas/new-schemas-table.html jsondata=data.properties %}
+										{% else %}
+												{% include integrations/templates/schemas/new-schemas-table.html jsondata=data %}
+										{% endif %}
+									</div>
 								</div>
-						    </div>
-						</div>
-					{% endif %}
-				</td>
-			</tr>
+							</div>
+						{% endif %}
+					</td>
+				</tr>
+			{% endif %}
 		{% endfor %}
 	</table>
 </div>
