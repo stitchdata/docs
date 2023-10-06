@@ -71,7 +71,7 @@
 
             {% for fk-table in fk-tables %}
                 {% if fk-table.table-name == table.name %}
-                    {% include integrations/templates/schemas/new-foreign-keys.html %}
+                    {% include integrations/templates/schemas/foreign-keys.html %}
                 {% endif %}
             {% endfor %}
             
@@ -118,7 +118,7 @@
                 </div>
             
                 <div id="collapse-{{ table.name | slugify }}-table" class="panel-collapse collapse noCrossRef">
-                    {% include integrations/templates/schemas/new-schemas-table.html jsondata=data table-data=table %}
+                    {% include integrations/templates/schemas/schemas-table.html jsondata=data table-data=table %}
                 </div>
             </div>
         </div>

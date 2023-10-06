@@ -47,9 +47,9 @@
 	
 														<div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
 															{% if data.properties %}
-																{% include integrations/templates/schemas/new-schemas-table.html jsondata=item.properties %}
+																{% include integrations/templates/schemas/schemas-table.html jsondata=item.properties %}
 															{% else %}
-																	{% include integrations/templates/schemas/new-schemas-table.html jsondata=item %}
+																	{% include integrations/templates/schemas/schemas-table.html jsondata=item %}
 															{% endif %}
 														</div>
 													</div>
@@ -72,9 +72,9 @@
 
 									<div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
 										{% if data.properties %}
-											{% include integrations/templates/schemas/new-schemas-table.html jsondata=data.properties %}
+											{% include integrations/templates/schemas/schemas-table.html jsondata=data.properties %}
 										{% else %}
-												{% include integrations/templates/schemas/new-schemas-table.html jsondata=data %}
+												{% include integrations/templates/schemas/schemas-table.html jsondata=data %}
 										{% endif %}
 									</div>
 								</div>

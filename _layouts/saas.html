@@ -57,7 +57,7 @@ layout: page
     dozens of tables. ex: NetSuite -->
 
     {% if integration.schema-format == "singer" %}
-        {% include integrations/templates/schemas/new-schemas.html %}
+        {% include integrations/templates/schemas/schemas.html %}
     {% else %}
 
         {% if integration.format.list == "table" %}
