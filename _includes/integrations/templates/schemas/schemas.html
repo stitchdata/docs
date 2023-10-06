@@ -11,6 +11,17 @@
 {% assign fk-tables = site.data.taps.schemas.[integration.name].[version].[fk-filename].tables %}
 
 <div>
+    <p>The following tables are available in this integration:</p>
+    <ul>
+        {% for table in tables %}
+            {% if table.status != "not found" %}
+                <li><a href="#{{ table.name | slugify }}">{{ table.name }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+
+<div>
 {% for table in tables %}
 
     {% if table.status != "not found" %}
